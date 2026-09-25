@@ -245,10 +245,46 @@ enough to be strong first-batch DFT candidates; picking which 2 of the 4 answer 
 useful question is a separate scientific call, not made here.
 
 k-points, NELECT, and net charge are NOT carried over unchanged when a cell shrinks —
-each reduced cell needs its own k-mesh (denser along the direction that got shorter)
-and its own electron count scaled to the same target potential, not the same absolute
-charge. None of this has been set up yet; it's a reminder for whoever builds the actual
-DFT inputs for the reduced cells, not something resolved by the geometry step above.
+each reduced cell needs its own k-mesh (denser along the direction that got shorter,
+computed from the actual reciprocal lattice vectors, not guessed from real-space edge
+lengths — this matters especially for a non-orthogonal cell) and its own neutral
+electron count / initial guess set from the new atom count, with the final net charge
+left to the CP self-consistency loop rather than pre-scaled and fixed. None of this has
+been set up yet; it's a reminder for whoever builds the actual DFT inputs, not something
+resolved by the geometry step above.
+
+**Geometry template ≠ calculation-ready input.** Every POSCAR in this plan (Step-8x1
+included) is a geometry template only: `vacuum=None` was used at build time and atom
+z-positions were shifted afterward, so the c-vector does not yet define a real
+simulation cell (e.g. Step-16x1's third lattice vector is ~9.6 Å while atoms span
+~5.0–14.6 Å — not a VASP format error, just not yet a single-sided interface). Going
+from template to a submittable input means, in order: (1) set the real Lz, atom
+positions and which layers are fixed; (2) set the single-sided solvent window and
+dipole reference; (3) set k-points/NELECT per the paragraph above. Whatever eventually
+generates DFT inputs from these templates must refuse to copy a template straight into
+a run directory and submit it — steps (1)–(3) have to happen first. Nothing below is
+built yet; this is a constraint on the future input generator, not a change to the
+POSCARs above.
+
+**`dft_queue_status` is an internal candidate label, not a submission queue.** Renamed
+`queued` → `candidate` to avoid exactly this reading. Actual submission state lives in
+a separate `submission_status` field (`not_submitted` / `submitted_completed`) — right
+now only T/V1/A1-fcc have `submitted_completed`; everything else, including every
+`candidate`-tagged structure, is `not_submitted`. `computed`/`submitted_completed` also
+does not mean "all QC passed" — it means a result exists; QC status is tracked
+separately (see the pilot's own SDIEL/SION/charge-closure checks).
+
+**Recommended next step (not yet authorized to run): a same-work-point numerical
+consistency check between Step-8x1 and Step-8x2** (36 and 72 atoms — cheap). Fix the
+same geometry repeat relation so the two cells aren't allowed to relax into different
+structures, match k-points/grids appropriately, then compare σ=Q/A, Ω/A, ψ(r), n₋(r),
+and per-atom forces (3D fields aligned on the shared in-plane coordinates before
+comparing). This checks that shrinking ny doesn't change anything a properly-matched
+k-mesh/normalization can't already explain — not a claim that either cell has a
+physical problem. If it passes, Step-16x1 becomes the main representative and
+Step-24x1 gets added only if the width study actually needs it — no need to recompute
+the retired 288/432-atom versions, and no need to expand islands/pits/vicinal slabs at
+the same time.
 
 ## Phase 2 — recorded, not built this round
 

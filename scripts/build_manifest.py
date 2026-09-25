@@ -12,7 +12,7 @@ STRUCTS = {
     "V1": {"path": "V1.poscar", "facet": "(111)", "role": "relaxed_candidate", "note": "reused", "dft": "computed"},
     "A1-fcc": {"path": "A1_fcc.poscar", "facet": "(111)", "role": "relaxed_candidate", "note": "reused", "dft": "computed"},
     "Pit-7": {"path": "V7.poscar", "facet": "(111)", "role": "relaxed_candidate",
-              "note": "reused geometry, relabeled from point-defect V7 (kept construction tag)", "dft": "queued"},
+              "note": "reused geometry, relabeled from point-defect V7 (kept construction tag)", "dft": "candidate"},
     "Step-8x4": {"path": "Step-8x4.poscar", "facet": "(111) strip", "role": "constrained_model", "note": "rebuilt (registry fix)",
                  "dft": "ML_application"},
     "Step-16x4": {"path": "Step-16x4.poscar", "facet": "(111) strip", "role": "constrained_model", "note": "rebuilt (registry fix)",
@@ -21,23 +21,23 @@ STRUCTS = {
                   "dft": "ML_application"},
     "Step-8x1": {"path": "Step-8x1.poscar", "facet": "(111) strip", "role": "constrained_model",
                  "note": "reduced-cell (Batch 2 correction): same terrace width as Step-8x4, minimal along-step period",
-                 "dft": "queued"},
+                 "dft": "candidate"},
     "Step-16x1": {"path": "Step-16x1.poscar", "facet": "(111) strip", "role": "constrained_model",
-                  "note": "reduced-cell: same terrace width as Step-16x4, minimal along-step period", "dft": "queued"},
+                  "note": "reduced-cell: same terrace width as Step-16x4, minimal along-step period", "dft": "candidate"},
     "Step-24x1": {"path": "Step-24x1.poscar", "facet": "(111) strip", "role": "constrained_model",
-                  "note": "reduced-cell: same terrace width as Step-24x4, minimal along-step period", "dft": "queued"},
+                  "note": "reduced-cell: same terrace width as Step-24x4, minimal along-step period", "dft": "candidate"},
     "Step-8x2": {"path": "Step-8x2.poscar", "facet": "(111) strip", "role": "constrained_model",
                  "note": "reduced-cell, 2x along-step margin over Step-8x1", "dft": "validation_candidate"},
     "Step-16x2": {"path": "Step-16x2.poscar", "facet": "(111) strip", "role": "constrained_model",
                   "note": "reduced-cell, 2x along-step margin over Step-16x1", "dft": "validation_candidate"},
     "Step-24x2": {"path": "Step-24x2.poscar", "facet": "(111) strip", "role": "constrained_model",
                   "note": "reduced-cell, 2x along-step margin over Step-24x1", "dft": "validation_candidate"},
-    "Au211": {"path": "Au211.poscar", "facet": "(211)", "role": "constrained_model", "note": "new", "dft": "queued"},
-    "Au221": {"path": "Au221.poscar", "facet": "(221)", "role": "constrained_model", "note": "new", "dft": "queued"},
-    "Au332": {"path": "Au332.poscar", "facet": "(332)", "role": "constrained_model", "note": "new (Batch 2)", "dft": "queued"},
-    "Au554": {"path": "Au554.poscar", "facet": "(554)", "role": "constrained_model", "note": "new (Batch 2)", "dft": "queued"},
+    "Au211": {"path": "Au211.poscar", "facet": "(211)", "role": "constrained_model", "note": "new", "dft": "candidate"},
+    "Au221": {"path": "Au221.poscar", "facet": "(221)", "role": "constrained_model", "note": "new", "dft": "candidate"},
+    "Au332": {"path": "Au332.poscar", "facet": "(332)", "role": "constrained_model", "note": "new (Batch 2)", "dft": "candidate"},
+    "Au554": {"path": "Au554.poscar", "facet": "(554)", "role": "constrained_model", "note": "new (Batch 2)", "dft": "candidate"},
     "Island-7": {"path": "Island-7-6x6.poscar", "facet": "(111)+island", "role": "relaxed_candidate", "note": "new",
-                 "dft": "queued"},
+                 "dft": "candidate"},
     "Island-7-8x8": {"path": "Island-7-8x8.poscar", "facet": "(111)+island", "role": "relaxed_candidate",
                       "note": "new (Batch 2, common cell with Island-19-8x8 for size comparison)",
                       "dft": "validation_candidate"},
@@ -53,12 +53,21 @@ STRUCTS = {
 }
 
 # dft field meaning (separate axis from role/pipeline_status -- this is about
-# near-term DFT budget intent, not physical role or build progress):
+# near-term DFT budget intent, not physical role, build progress, or actual
+# submission state):
 #   computed             -- already has DFT results (the original 3-point pilot)
-#   queued               -- small (<=~110 atoms), candidate for the next DFT batch
+#   candidate            -- small (<=~110 atoms), an internal candidate for a future
+#                           DFT batch. NOT a submission queue -- nothing with this
+#                           value has been submitted; see submission_status.
 #   validation_candidate -- kept for a later size/isolation check, not bulk-computed now
 #   ML_application        -- geometry/render reference and large-system ML testing only,
 #                            explicitly NOT in the near-term DFT queue
+#
+# submission_status is the actual job-tracking field (separate from the above):
+#   not_submitted        -- no job has been submitted for this structure
+#   submitted_completed  -- has real DFT results (T/V1/A1-fcc only, right now)
+# "computed" in dft_queue_status is not itself a QC pass/fail signal -- it only
+# means a result exists; see pipeline_status / qc scripts for whether it checked out.
 
 SRC = "03_pilot/all_defect_structures"
 
@@ -99,6 +108,7 @@ for name, meta in STRUCTS.items():
         "role": meta["role"],
         "pipeline_status": "geometry_only" if meta["dft"] != "computed" else "converged",
         "dft_queue_status": meta["dft"],
+        "submission_status": "submitted_completed" if meta["dft"] == "computed" else "not_submitted",
         "note": meta["note"],
     }
     manifest[name] = entry
@@ -149,14 +159,30 @@ for name, nx, ny in STEP_SIZES:
     manifest[name]["N_added"] = int(0.5 * nx * ny)
     manifest[name]["edge_classification_status"] = EDGE_STATUS
 
-manifest["Step-8x1"]["reduction_note"] = manifest["Step-16x1"]["reduction_note"] = manifest["Step-24x1"]["reduction_note"] = (
-    "along-step period cut from ny=4 to ny=1 (the minimal translation, = one primitive a2 length, 2.94 A); "
-    "terrace width is UNCHANGED (depends only on nx). Validated: tiling this cell x4 along a2 reproduces the "
-    "ny=4 build atom-for-atom (build_step_reduced.py). Valid only for an idealized straight, unperturbed step "
-    "-- kinks/reconstruction/local perturbation need a longer along-step period than this.")
+try:
+    with open(f"{SRC}/../report_assets/batch1/step_reduction_validation.json") as f:
+        step_val = json.load(f)
+except FileNotFoundError:
+    step_val = {}
+
+for name in ["Step-8x1", "Step-16x1", "Step-24x1"]:
+    err = step_val.get(name)
+    err_str = f"max atom displacement {err:.2e} A (bijective match, unrounded coords)" if err is not None else "not yet run"
+    manifest[name]["reduction_note"] = (
+        "along-step period cut from ny=4 to ny=1 (the minimal translation, = one primitive a2 length, 2.94 A); "
+        "terrace width is UNCHANGED (depends only on nx). ny=1 describes an infinitely-repeated along-edge "
+        "surface (translational symmetry along the step), NOT a physically truncated 2.94-A-wide isolated "
+        "region -- the double layer is not being squeezed into that width. Validated (build_step_reduced.py, "
+        f"strict_validate): tiling this cell x4 along a2 reproduces the ny=4 build -- {err_str}. Valid only for "
+        "an idealized straight, unperturbed step; a kink or any along-edge structural change needs a longer "
+        "period than this and should not be built by shrinking ny.")
 for n1, n4 in [("Step-8x2", "Step-8x4"), ("Step-16x2", "Step-16x4"), ("Step-24x2", "Step-24x4")]:
-    manifest[n1]["reduction_note"] = ("ny=2, a 2x along-step safety margin over the ny=1 minimal cell, in case "
-        "ny=1 turns out too tight once real electronic/solvent response is checked (not yet tested at DFT level).")
+    manifest[n1]["reduction_note"] = (
+        "ny=2, not a 'safety margin' against the double layer somehow not fitting in ny=1 -- it is not truncating "
+        "anything physical. Actual uses: (a) a numerical-repeat consistency check (doubling the along-edge period "
+        "should leave per-area quantities unchanged; confirming that is a useful sanity test of the DFT setup "
+        "itself), or (b) headroom for a future along-edge structural change (kink, thermal perturbation, "
+        "reconstruction) that genuinely needs more than the ny=1 primitive period.")
 
 manifest["Island-7"]["N_base"] = 144
 manifest["Island-7"]["N_added"] = 7
