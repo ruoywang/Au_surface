@@ -1,0 +1,26 @@
+#!/bin/bash
+# NOT SUBMITTED. Draft only, for review before any `sbatch`.
+# Run this AFTER T_flat_neutral_pzc/ has produced mu0.
+# Node count / walltime are an untested starting guess -- the LCEP inner SCF
+# loop (NESCHEME=3) means this run does several full SCF cycles, not just one,
+# so budget more time than the neutral case.
+#SBATCH --job-name=Au_T_minval
+#SBATCH -o myjob.o%j
+#SBATCH -e myjob.e%j
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=16
+#SBATCH --cpus-per-task=8
+#SBATCH --time=04:00:00
+#SBATCH --partition=wholenode
+#SBATCH --account=CHE190065
+
+module purge
+module load intel/19.0.5.281 impi/2019.5.281
+module load intel-mkl hdf5 python
+module list
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+PW=/anvil/projects/x-che190065/rywang/CEP-HALF/bin
+runvasp="mpirun -np $SLURM_NTASKS $PW/vasp_std  > log.out"
+
+eval $runvasp

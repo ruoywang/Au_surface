@@ -1,0 +1,1168 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) xalt/2.10.45
+
+Currently Loaded Modules:
+  1) xalt/2.10.45     (S)   5) impi/2019.5.281        9) hdf5/1.10.7
+  2) intel/19.0.5.281       6) intel-mkl/2019.5.281  10) python/3.9.5
+  3) numactl/2.0.14         7) libszip/2.1.1
+  4) libfabric/1.12.0       8) zlib/1.2.11
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+
+ 
+
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1472c62d8154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1472c58df271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1472c5a117db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1472c5aa91a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1472c58ecb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1472c68c273c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 20: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14e226b9d154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14e2261a4271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14e2262d67db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14e22636e1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14e2261b1b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14e22718773c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 30: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1513f0f55154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1513f055c271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1513f068e7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1513f07261a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1513f0569b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1513f153f73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 45: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14dfb2f4d154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14dfb2554271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14dfb26867db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14dfb271e1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14dfb2561b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14dfb353773c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 69: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x15479dfde154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x15479d5e5271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x15479d7177db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x15479d7af1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x15479d5f2b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x15479e5c873c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 113: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14562f9a7154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14562efae271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14562f0e07db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14562f1781a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14562efbbb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14562ff9173c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 31: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x15307b0c5154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x15307a6cc271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x15307a7fe7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x15307a8961a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x15307a6d9b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x15307b6af73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 34: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x152c9604a154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x152c95651271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x152c957837db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x152c9581b1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x152c9565eb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x152c9663473c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 52: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x145cc16f0154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x145cc0cf7271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x145cc0e297db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x145cc0ec11a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x145cc0d04b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x145cc1cda73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 66: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x152992ec5154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1529924cc271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1529925fe7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1529926961a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1529924d9b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1529934af73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 76: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14db98793154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14db97d9a271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14db97ecc7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14db97f641a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14db97da7b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14db98d7d73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 77: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14d7d4e3f154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14d7d4446271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14d7d45787db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14d7d46101a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14d7d4453b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14d7d542973c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 84: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x149d6ebcc154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x149d6e1d3271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x149d6e3057db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x149d6e39d1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x149d6e1e0b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x149d6f1b673c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 88: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x152da0311154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x152d9f918271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x152d9fa4a7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x152d9fae21a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x152d9f925b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x152da08fb73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 96: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1500358b2154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x150034eb9271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x150034feb7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1500350831a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x150034ec6b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x150035e9c73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 112: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14b4f6a77154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14b4f607e271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14b4f61b07db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14b4f62481a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14b4f608bb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14b4f706173c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 41: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1531dfc6c154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1531df273271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1531df3a57db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1531df43d1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1531df280b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1531e025673c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 59: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14da512f4154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14da508fb271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14da50a2d7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14da50ac51a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14da50908b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14da518de73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 60: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x151cd55c3154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x151cd4bca271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x151cd4cfc7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x151cd4d941a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x151cd4bd7b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x151cd5bad73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 61: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1493fbeac154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1493fb4b3271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1493fb5e57db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1493fb67d1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1493fb4c0b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1493fc49673c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 78: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1515efce8154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1515ef2ef271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1515ef4217db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1515ef4b91a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1515ef2fcb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1515f02d273c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 91: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14ab720aa154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14ab716b1271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14ab717e37db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14ab7187b1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14ab716beb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14ab7269473c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 94: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14c5142f6154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14c5138fd271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14c513a2f7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14c513ac71a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14c51390ab8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14c5148e073c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 97: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x154f1aa3c154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x154f1a043271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x154f1a1757db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x154f1a20d1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x154f1a050b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x154f1b02673c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 114: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x154da0eba154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x154da04c1271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x154da05f37db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x154da068b1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x154da04ceb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x154da14a473c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 8: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1491d45d8154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1491d3bdf271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1491d3d117db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1491d3da91a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1491d3becb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1491d4bc273c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 26: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1517ea1b9154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1517e97c0271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1517e98f27db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1517e998a1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1517e97cdb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1517ea7a373c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 35: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14f6de730154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14f6ddd37271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14f6dde697db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14f6ddf011a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14f6ddd44b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14f6ded1a73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 43: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x147199494154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x147198a9b271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x147198bcd7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x147198c651a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x147198aa8b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x147199a7e73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 50: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x150d5ae89154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x150d5a490271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x150d5a5c27db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x150d5a65a1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x150d5a49db8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x150d5b47373c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 53: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14e34fc6a154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14e34f271271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14e34f3a37db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14e34f43b1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14e34f27eb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14e35025473c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 57: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14bc55a78154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14bc5507f271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14bc551b17db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14bc552491a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14bc5508cb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14bc5606273c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 65: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x146c6f57c154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x146c6eb83271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x146c6ecb57db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x146c6ed4d1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x146c6eb90b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x146c6fb6673c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 68: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x153cc8811154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x153cc7e18271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x153cc7f4a7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x153cc7fe21a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x153cc7e25b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x153cc8dfb73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 70: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x145be2279154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x145be1880271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x145be19b27db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x145be1a4a1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x145be188db8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x145be286373c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 72: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14e7f5234154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14e7f483b271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14e7f496d7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14e7f4a051a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14e7f4848b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14e7f581e73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 73: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1470c51d8154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1470c47df271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1470c49117db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1470c49a91a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1470c47ecb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1470c57c273c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 79: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14c32962d154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14c328c34271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14c328d667db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14c328dfe1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14c328c41b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14c329c1773c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 80: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14dd27abd154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14dd270c4271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14dd271f67db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14dd2728e1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14dd270d1b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14dd280a773c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 82: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14b7bb34f154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14b7ba956271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14b7baa887db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14b7bab201a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14b7ba963b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14b7bb93973c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 86: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x146c021ed154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x146c017f4271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x146c019267db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x146c019be1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x146c01801b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x146c027d773c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 103: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x15352fded154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x15352f3f4271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x15352f5267db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x15352f5be1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x15352f401b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1535303d773c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 108: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x151cfaa98154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x151cfa09f271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x151cfa1d17db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x151cfa2691a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x151cfa0acb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x151cfb08273c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 110: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x152e0d5de154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x152e0cbe5271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x152e0cd177db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x152e0cdaf1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x152e0cbf2b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x152e0dbc873c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 118: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14e4fce22154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14e4fc429271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14e4fc55b7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14e4fc5f31a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14e4fc436b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14e4fd40c73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 121: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14968fd3e154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14968f345271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14968f4777db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14968f50f1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14968f352b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14969032873c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 0: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14fc7ddb1154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14fc7d3b8271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14fc7d4ea7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14fc7d5821a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14fc7d3c5b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14fc7e39b73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 3: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1528d3b82154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1528d3189271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1528d32bb7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1528d33531a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1528d3196b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1528d416c73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 4: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x146f625f6154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x146f61bfd271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x146f61d2f7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x146f61dc71a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x146f61c0ab8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x146f62be073c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 5: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x145bd789f154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x145bd6ea6271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x145bd6fd87db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x145bd70701a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x145bd6eb3b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x145bd7e8973c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 6: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x146496fac154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1464965b3271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1464966e57db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14649677d1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1464965c0b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14649759673c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 7: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x154ef091b154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x154eeff22271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x154ef00547db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x154ef00ec1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x154eeff2fb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x154ef0f0573c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 16: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14bd220d7154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14bd216de271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14bd218107db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14bd218a81a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14bd216ebb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14bd226c173c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 17: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x152147c67154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x15214726e271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1521473a07db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1521474381a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x15214727bb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x15214825173c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 21: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x152e8aa86154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x152e8a08d271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x152e8a1bf7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x152e8a2571a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x152e8a09ab8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x152e8b07073c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 23: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1525245a4154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x152523bab271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x152523cdd7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x152523d751a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x152523bb8b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x152524b8e73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 28: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1506dea5a154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1506de061271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1506de1937db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1506de22b1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1506de06eb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1506df04473c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 58: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14d588585154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14d587b8c271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14d587cbe7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14d587d561a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14d587b99b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14d588b6f73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 64: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14be851df154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14be847e6271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14be849187db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14be849b01a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14be847f3b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14be857c973c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 75: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x154929502154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x154928b09271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x154928c3b7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x154928cd31a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x154928b16b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x154929aec73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 81: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x150f13add154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x150f130e4271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x150f132167db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x150f132ae1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x150f130f1b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x150f140c773c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 87: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14d7d9da6154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14d7d93ad271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14d7d94df7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14d7d95771a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14d7d93bab8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14d7da39073c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 105: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1463ad342154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1463ac949271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1463aca7b7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1463acb131a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1463ac956b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1463ad92c73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 1: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14aae1461154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14aae0a68271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14aae0b9a7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14aae0c321a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14aae0a75b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14aae1a4b73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 2: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x151d9be48154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x151d9b44f271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x151d9b5817db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x151d9b6191a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x151d9b45cb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x151d9c43273c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 12: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14905b3b9154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14905a9c0271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14905aaf27db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14905ab8a1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14905a9cdb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14905b9a373c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 25: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x15512fbf4154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x15512f1fb271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x15512f32d7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x15512f3c51a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x15512f208b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1551301de73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 36: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14dd93cc7154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14dd932ce271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14dd934007db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14dd934981a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14dd932dbb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14dd942b173c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 37: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14cf11299154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14cf108a0271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14cf109d27db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14cf10a6a1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14cf108adb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14cf1188373c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 48: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x154441492154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x154440a99271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x154440bcb7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x154440c631a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x154440aa6b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x154441a7c73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 55: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1492d7374154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1492d697b271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1492d6aad7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1492d6b451a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1492d6988b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1492d795e73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 119: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x150ed7b9b154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x150ed71a2271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x150ed72d47db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x150ed736c1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x150ed71afb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x150ed818573c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 67: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1530fad09154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1530fa310271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1530fa4427db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1530fa4da1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1530fa31db8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1530fb2f373c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 74: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1525aed51154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1525ae358271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1525ae48a7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1525ae5221a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1525ae365b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1525af33b73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 83: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x149f39b8c154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x149f39193271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x149f392c57db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x149f3935d1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x149f391a0b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x149f3a17673c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 71: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14adc8412154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14adc7a19271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14adc7b4b7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14adc7be31a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14adc7a26b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14adc89fc73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 107: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14eaf1250154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14eaf0857271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14eaf09897db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14eaf0a211a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14eaf0864b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14eaf183a73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 19: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1472ac8af154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1472abeb6271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1472abfe87db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1472ac0801a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1472abec3b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1472ace9973c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 22: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14adecee8154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14adec4ef271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14adec6217db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14adec6b91a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14adec4fcb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14aded4d273c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 62: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x146188eb7154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1461884be271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1461885f07db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1461886881a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1461884cbb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1461894a173c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 115: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14a3560b3154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14a3556ba271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14a3557ec7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14a3558841a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14a3556c7b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14a35669d73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 90: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1545d793b154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1545d6f42271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1545d70747db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1545d710c1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1545d6f4fb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1545d7f2573c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 98: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x148513c25154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14851322c271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14851335e7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1485133f61a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x148513239b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14851420f73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 101: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x154691778154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x154690d7f271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x154690eb17db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x154690f491a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x154690d8cb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x154691d6273c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 102: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14e52abbd154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14e52a1c4271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14e52a2f67db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14e52a38e1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14e52a1d1b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14e52b1a773c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 109: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1541ce625154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1541cdc2c271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1541cdd5e7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1541cddf61a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1541cdc39b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1541cec0f73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 49: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x146d2bcc5154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x146d2b2cc271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x146d2b3fe7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x146d2b4961a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x146d2b2d9b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x146d2c2af73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 54: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14fff7002154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14fff6609271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14fff673b7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14fff67d31a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14fff6616b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14fff75ec73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 122: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x148a0229a154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x148a018a1271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x148a019d37db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x148a01a6b1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x148a018aeb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x148a0288473c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 104: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x152f658c4154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x152f64ecb271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x152f64ffd7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x152f650951a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x152f64ed8b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x152f65eae73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 117: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x149d5bf9c154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x149d5b5a3271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x149d5b6d57db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x149d5b76d1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x149d5b5b0b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x149d5c58673c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 120: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x150043325154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x15004292c271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x150042a5e7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x150042af61a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x150042939b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x15004390f73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 125: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x147ae8bef154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x147ae81f6271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x147ae83287db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x147ae83c01a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x147ae8203b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x147ae91d973c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 24: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x15009c29b154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x15009b8a2271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x15009b9d47db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x15009ba6c1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x15009b8afb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x15009c88573c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 29: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x149b6f688154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x149b6ec8f271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x149b6edc17db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x149b6ee591a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x149b6ec9cb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x149b6fc7273c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 40: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14c6c7153154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14c6c675a271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14c6c688c7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14c6c69241a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14c6c6767b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14c6c773d73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 42: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14e004b3f154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14e004146271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14e0042787db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14e0043101a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14e004153b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14e00512973c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 39: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x151dcdd5f154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x151dcd366271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x151dcd4987db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x151dcd5301a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x151dcd373b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x151dce34973c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 47: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x15314d48e154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x15314ca95271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x15314cbc77db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x15314cc5f1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x15314caa2b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x15314da7873c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 38: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x145ef938a154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x145ef8991271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x145ef8ac37db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x145ef8b5b1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x145ef899eb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x145ef997473c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 51: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14b6cb296154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14b6ca89d271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14b6ca9cf7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14b6caa671a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14b6ca8aab8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14b6cb88073c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 9: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x150f4cd62154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x150f4c369271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x150f4c49b7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x150f4c5331a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x150f4c376b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x150f4d34c73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 27: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x15001e0bb154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x15001d6c2271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x15001d7f47db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x15001d88c1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x15001d6cfb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x15001e6a573c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 32: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1489f2deb154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1489f23f2271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1489f25247db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1489f25bc1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1489f23ffb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1489f33d573c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 89: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14b6f5890154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14b6f4e97271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14b6f4fc97db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14b6f50611a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14b6f4ea4b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14b6f5e7a73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 93: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14d097e6b154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14d097472271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14d0975a47db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14d09763c1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14d09747fb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14d09845573c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 95: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14b4ef1b2154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14b4ee7b9271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14b4ee8eb7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14b4ee9831a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14b4ee7c6b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14b4ef79c73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 99: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14ab08900154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14ab07f07271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14ab080397db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14ab080d11a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14ab07f14b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14ab08eea73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 106: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x154b0e689154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x154b0dc90271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x154b0ddc27db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x154b0de5a1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x154b0dc9db8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x154b0ec7373c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 111: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x146723a71154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x146723078271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1467231aa7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1467232421a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x146723085b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14672405b73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 116: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x153a2499a154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x153a23fa1271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x153a240d37db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x153a2416b1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x153a23faeb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x153a24f8473c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 123: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14f72a8f2154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14f729ef9271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14f72a02b7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14f72a0c31a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14f729f06b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14f72aedc73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 126: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x146dae423154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x146dada2a271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x146dadb5c7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x146dadbf41a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x146dada37b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x146daea0d73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 127: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x149fcd526154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x149fccb2d271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x149fccc5f7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x149fcccf71a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x149fccb3ab8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x149fcdb1073c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 10: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14d8e96e6154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14d8e8ced271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14d8e8e1f7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14d8e8eb71a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14d8e8cfab8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14d8e9cd073c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 11: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x149b874ef154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x149b86af6271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x149b86c287db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x149b86cc01a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x149b86b03b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x149b87ad973c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 13: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1459d5b0c154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1459d5113271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1459d52457db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1459d52dd1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1459d5120b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1459d60f673c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 14: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14c4ce5b3154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14c4cdbba271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14c4cdcec7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14c4cdd841a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14c4cdbc7b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14c4ceb9d73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 15: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x148f416c5154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x148f40ccc271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x148f40dfe7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x148f40e961a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x148f40cd9b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x148f41caf73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 33: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x153d2f632154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x153d2ec39271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x153d2ed6b7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x153d2ee031a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x153d2ec46b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x153d2fc1c73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 44: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1492f1c8b154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1492f1292271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1492f13c47db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1492f145c1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1492f129fb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1492f227573c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 46: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14ba3da69154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14ba3d070271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14ba3d1a27db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14ba3d23a1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14ba3d07db8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14ba3e05373c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 56: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14c36a0a6154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14c3696ad271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14c3697df7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14c3698771a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14c3696bab8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14c36a69073c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 63: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x1551d6c30154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x1551d6237271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x1551d63697db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x1551d64011a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x1551d6244b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x1551d721a73c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 85: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x14bd262cc154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x14bd258d3271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x14bd25a057db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x14bd25a9d1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x14bd258e0b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x14bd268b673c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 92: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x146a1289d154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x146a11ea4271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x146a11fd67db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x146a1206e1a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x146a11eb1b8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x146a12e8773c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 100: Internal error
+Assertion failed in file ../../src/mpid/ch4/src/intel/ch4_shm_coll.c at line 1477: node_info->numa_num <= ((MPIDI_SHMGR_SYNCPAGE_SIZE / MPIDI_SHMGR_FLAG_SPACE) - 1)
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x15263bbe6154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x15263b1ed271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x15263b31f7db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x15263b3b71a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x15263b1fab8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x15263c1d073c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 124: Internal error
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPL_backtrace_show+0x34) [0x147f4b987154]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPIR_Assert_fail+0x21) [0x147f4af8e271]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x23c7db) [0x147f4b0c07db]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(+0x2d41a4) [0x147f4b1581a4]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/release/libmpi.so.12(MPI_Barrier+0x26e) [0x147f4af9bb8e]
+/apps/anvil/external/apps/intel/cluster.2019.5/compilers_and_libraries_2019.5.281/linux/mpi/intel64/lib/libmpifort.so.12(pmpi_barrier+0xc) [0x147f4bf7173c]
+/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std() [0x4bd9a
+Abort(1) on node 18: Internal error

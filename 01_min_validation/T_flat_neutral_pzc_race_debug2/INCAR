@@ -1,0 +1,69 @@
+# ============================================================================
+# Neutral (q_e=0) single-sided reference point for T (flat, no defect).
+# Purpose (v2 Sec.4.2): get the raw EFERMI at fixed NELECT=neutral, same
+# single-sided window/solvent settings as the production model, self-consistent
+# implicit solvent but NO constant-potential electron-number control. After
+# aligning EFERMI to the bulk-liquid electrostatic reference (needs the PHI
+# profile from this same run), this gives mu0 -- the reference point that all
+# later TARGETMU/DeltaU values are defined relative to (v2 Sec.4.2).
+# a0 is still the literature placeholder from 00_audit -- not locally validated.
+# NOT SUBMITTED -- for review only. Run this BEFORE the LCEP mechanism test.
+# ============================================================================
+
+SYSTEM = Au_T_flat_single_sided_neutral_pzc
+
+# PROFILING PROBE, not a real PZC attempt: KPAR/NCORE back to baseline (unset =
+# KPAR=1, NCORE=1, same as the very first run) and NELM capped at 6 so the job
+# exits quickly and prints the final "General timing" summary (with the SOL:
+# cumulative breakdown), which we don't have from any run so far -- the earlier
+# attempts were killed/OOM'd before reaching a normal exit, so we've never
+# actually seen how much of the ~8min/step is the solvation PB solve vs the
+# electronic diagonalization. This run's numbers are not a converged PZC.
+
+# General
+PREC   = Accurate
+ENCUT  = 500          # max(500, 1.3*ENMAX=298.9)
+ISPIN  = 1
+ISYM   = 0
+LREAL  = Auto
+ALGO   = Normal
+EDIFF  = 1E-7
+NELM   = 6
+ISMEAR = -1
+SIGMA  = 0.05
+IBRION = -1
+NSW    = 0
+LCHARG = .TRUE.
+LWAVE  = .FALSE.
+LVHAR  = .TRUE.
+# NELECT intentionally omitted -> VASP default = sum(ZVAL) = 96*11 = 1056 (q_e = 0 exactly).
+
+# Implicit solvent (VASPsol++ / nonlinear model, [R2]) -- same as production model
+LSOL    = .TRUE.
+ISOL    = 2             # must be explicit; code default is 1 and means something different (audit 1.2)
+C_MOLAR = 1.0
+R_ION   = 4.0
+# R_SOLV, R_DIEL, NC_K, SIGMA_K, A_K left at code defaults -- read back from OUTCAR and record.
+
+# Constant potential OFF for this reference point (v2 Sec.4.2: "此时关闭电子数调节
+# 但保持隐式溶剂自洽"). Do not set TARGETMU/FERMICONVERGE/NESCHEME/CAP_MAX/NEADJUST here.
+LCEP = .FALSE.
+
+# Dipole correction with solvent feedback (single code path, audit 1.2) -- keep ON:
+# even at q_e=0 the slab is still physically asymmetric (liquid one side, vacuum the
+# other), so there is a real work-function difference across the cell that still
+# needs the sawtooth correction against the periodic image.
+IDIPOL = 3
+LDIPOL = .TRUE.
+DIPOL  = 0.5 0.5 0.5    # per user request: plain conventional center, not a computed centroid.
+                         # Fine per audit: DIPOL is only the multipole reference point, not the
+                         # jump-plane location -- metal was shifted up 5 A (see manifest.json,
+                         # Z_PAD_BOTTOM) precisely so it is not sitting at the periodic boundary.
+
+# Single-sided window
+LVAC      = .TRUE.
+SOL_Z0    = 14.653     # one Au layer below the top (metal-interior anchor)
+SOL_Z1    = 37.067     # top-Au(17.067) + 20 A liquid extent (re-derived from 1M Debye length,
+                         # see scripts/build_min_validation.py -- still a starting point, not final)
+SOL_SIGMA = 0.8
+# D_STERN left at code default (2.0 A); derived ION_Z0/ION_Z1 = 16.653 / 35.067 A, for reference only.

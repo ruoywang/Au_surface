@@ -1,0 +1,41 @@
+ ----------------------------------------------------
+    OOO  PPPP  EEEEE N   N M   M PPPP
+   O   O P   P E     NN  N MM MM P   P
+   O   O PPPP  EEEEE N N N M M M PPPP   -- VERSION
+   O   O P     E     N  NN M   M P
+    OOO  P     EEEEE N   N M   M P
+ ----------------------------------------------------
+ running   16 mpi-ranks, with    1 threads/rank
+ distrk:  each k-point on   16 cores,    1 groups
+ distr:  one band on    1 cores,   16 groups
+ vasp.6.3.2 27Jun22 (build Oct 02 2025 09:19:44) complex                        
+  
+ POSCAR found type information on POSCAR Au
+ POSCAR found :  1 types and       1 ions
+ Reading from existing POTCAR
+ scaLAPACK will be used
+ Reading from existing POTCAR
+ LDA part: xc-table for Pade appr. of Perdew
+ POSCAR found type information on POSCAR Au
+ POSCAR found :  1 types and       1 ions
+ POSCAR found type information on POSCAR Au
+ POSCAR found :  1 types and       1 ions
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ FFT: planning ... GRIDC
+ FFT: planning ... GRID_SOFT
+ FFT: planning ... GRID
+ WAVECAR not read
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1     0.232787787530E+02    0.23279E+02   -0.59472E+03 13168   0.592E+02
+DAV:   2    -0.344511934129E+01   -0.26724E+02   -0.26225E+02 19056   0.962E+01
+DAV:   3    -0.347308259321E+01   -0.27963E-01   -0.27963E-01 15040   0.434E+00
+DAV:   4    -0.347309884275E+01   -0.16250E-04   -0.16249E-04 22576   0.847E-02
+DAV:   5    -0.347309884208E+01    0.66814E-09   -0.44103E-09 15088   0.351E-04    0.907E+00
+DAV:   6    -0.322736768254E+01    0.24573E+00   -0.86944E-01 18256   0.493E+00    0.579E+00
+DAV:   7    -0.320887132077E+01    0.18496E-01   -0.79752E-02 23568   0.149E+00    0.274E+00
+DAV:   8    -0.320673044721E+01    0.21409E-02   -0.14478E-03 15344   0.221E-01    0.221E-01
+DAV:   9    -0.320672172046E+01    0.87268E-05   -0.73775E-06 18992   0.206E-02    0.310E-02
+DAV:  10    -0.320672790464E+01   -0.61842E-05   -0.29327E-06 19824   0.130E-02    0.129E-03
+DAV:  11    -0.320672795387E+01   -0.49232E-07   -0.45751E-08 20784   0.133E-03
+   1 F= -.32067280E+01 E0= -.32068943E+01  d E =0.499077E-03

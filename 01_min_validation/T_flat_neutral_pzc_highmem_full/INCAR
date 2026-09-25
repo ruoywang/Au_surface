@@ -1,0 +1,51 @@
+# ============================================================================
+# Neutral (q_e=0) single-sided reference point for T (flat, no defect).
+# Confirmed-fast config: 128 cores (highmem), NCORE=8/NPAR=16, KPAR=1,
+# I_MPI_COLL_INTRANODE=pt2pt (avoids the Intel MPI SHM-collective NUMA assert
+# on this many cores/node). ~2 min/DAV-step, stable over 50+ steps (job
+# 20851111). That run hit its 2h wall clock at step ~55 with dE still
+# oscillating in the 1e-4..1e-3 range (charge residual was steadily dropping
+# though). Switching ALGO=Normal -> ALGO=Fast (matches the user's known-good
+# production MD INCAR, surface_charge/6-Au/1-32_water_GCE) to see if RMM-DIIS
+# mixed in gives smoother/faster convergence, plus a much longer time limit.
+# Still same a0/window placeholders -- this run's mu0 is the first real,
+# usable number this project produces, not just a plumbing check anymore.
+# ============================================================================
+
+SYSTEM = Au_T_flat_single_sided_neutral_pzc
+
+NCORE = 8
+
+# General
+PREC   = Accurate
+ENCUT  = 500
+ISPIN  = 1
+ISYM   = 0
+LREAL  = Auto
+ALGO   = Normal
+EDIFF  = 1E-7
+NELM   = 200
+ISMEAR = -1
+SIGMA  = 0.05
+IBRION = -1
+NSW    = 0
+LCHARG = .TRUE.
+LWAVE  = .FALSE.
+LVHAR  = .TRUE.
+
+# Implicit solvent (VASPsol++ / nonlinear model, [R2])
+LSOL    = .TRUE.
+ISOL    = 2
+C_MOLAR = 1.0
+R_ION   = 4.0
+
+LCEP = .FALSE.
+
+IDIPOL = 3
+LDIPOL = .TRUE.
+DIPOL  = 0.5 0.5 0.5
+
+LVAC      = .TRUE.
+SOL_Z0    = 14.653
+SOL_Z1    = 37.067
+SOL_SIGMA = 0.8

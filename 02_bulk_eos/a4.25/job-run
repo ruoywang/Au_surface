@@ -1,0 +1,24 @@
+#!/bin/bash
+# Tiny 1-atom bulk cell -- 16 cores is already generous. Reusing the MPI
+# workaround preventively since it's harmless at low core count too.
+#SBATCH --job-name=Au_bulk_eos
+#SBATCH -o myjob.o%j
+#SBATCH -e myjob.e%j
+#SBATCH --nodes=1
+#SBATCH --ntasks=16
+#SBATCH --cpus-per-task=1
+#SBATCH --time=00:30:00
+#SBATCH --partition=highmem
+#SBATCH --account=CHE190065
+
+module purge
+module load intel/19.0.5.281 impi/2019.5.281
+module load intel-mkl hdf5 python
+module list
+
+export I_MPI_COLL_INTRANODE=pt2pt
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+PW=/anvil/projects/x-che190065/rywang/CEP-HALF/bin
+runvasp="mpirun -np $SLURM_NTASKS $PW/vasp_std  > log.out"
+
+eval $runvasp

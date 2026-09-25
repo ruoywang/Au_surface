@@ -1,0 +1,32 @@
+{
+  "parent_id": "T_flat_single_sided_minvalidation",
+  "generator": "scripts/build_min_validation.py",
+  "seed": 20260921,
+  "a0_A": 4.18,
+  "a0_status": "PLACEHOLDER_NOT_LOCALLY_VALIDATED",
+  "supercell": [
+    4,
+    4,
+    6
+  ],
+  "n_atoms": 96,
+  "bottom_fixed_layers": 2,
+  "defect_centers": [],
+  "defect_type": "T (flat, unreconstructed, no defect)",
+  "boundary_mode": "single_sided_CEP_DIP",
+  "z_top_au_A": 17.06662062606318,
+  "slab_thickness_A": 12.06662062606318,
+  "liquid_extent_A": 20.0,
+  "vacuum_total_A": 10.0,
+  "cell_Lz_A": 47.066620626063184,
+  "SOL_Z0_A": 14.653,
+  "SOL_Z1_A": 37.066620626063184,
+  "ION_Z0_A_derived": 16.653,
+  "ION_Z1_A_derived": 35.066620626063184,
+  "D_STERN_A": 2.0,
+  "DIPOL_frac": [
+    0.5,
+    0.5,
+    0.5
+  ]
+}

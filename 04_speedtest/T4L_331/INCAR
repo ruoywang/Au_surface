@@ -1,0 +1,41 @@
+# Neutral (q_e=0) single-sided reference point for T, corrected a0=4.158 A
+# (02_bulk_eos), corrected shared window (SOL_Z0=14.602, SOL_Z1=39.404, sized
+# to cover A1-fcc's adatom per v2 Sec.2.2). Proven-fast config: 128 cores
+# (highmem), NCORE=8/NPAR=16/KPAR=1, I_MPI_COLL_INTRANODE=pt2pt, ALGO=Normal.
+# This replaces the placeholder-a0 neutral run (job 20854473, mu0=-4.941 eV)
+# as the actual reference for the 9-point pilot's TARGETMU = mu0 + DeltaU.
+SYSTEM = Au_T_flat_single_sided_neutral_pzc_v2
+
+NCORE = 8
+
+PREC   = Accurate
+ENCUT  = 500
+ISPIN  = 1
+ISYM   = 0
+LREAL  = Auto
+ALGO   = Normal
+EDIFF  = 1E-7
+NELM   = 200
+ISMEAR = 1
+SIGMA  = 0.2
+IBRION = -1
+NSW    = 0
+LCHARG = .TRUE.
+LWAVE  = .FALSE.
+LVHAR  = .TRUE.
+
+LSOL    = .TRUE.
+ISOL    = 2
+C_MOLAR = 1.0
+R_ION   = 4.0
+
+LCEP = .FALSE.
+
+IDIPOL = 3
+LDIPOL = .TRUE.
+DIPOL  = 0.5 0.5 0.5
+
+LVAC      = .TRUE.
+SOL_Z0    = 9.801
+SOL_Z1    = 32.202
+SOL_SIGMA = 0.8

@@ -1,0 +1,25 @@
+#!/bin/bash
+# highmem test: 32 cores but 7.95 GB/core (254 GB total) instead of 1.9 GB/core
+# on shared/debug -- removes memory as a variable so we can cleanly test
+# KPAR=4/NCORE=4 speed. Billed at 4x CPU-hour (TRESBillingWeights=CPU=4.0) --
+# fine for this one-off test, not meant as a standing production default.
+#SBATCH --job-name=Au_T_neutral_pzc_highmem
+#SBATCH -o myjob.o%j
+#SBATCH -e myjob.e%j
+#SBATCH --nodes=1
+#SBATCH --ntasks=32
+#SBATCH --cpus-per-task=1
+#SBATCH --time=02:00:00
+#SBATCH --partition=highmem
+#SBATCH --account=CHE190065
+
+module purge
+module load intel/19.0.5.281 impi/2019.5.281
+module load intel-mkl hdf5 python
+module list
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+PW=/anvil/projects/x-che190065/rywang/CEP-HALF/bin
+runvasp="mpirun -np $SLURM_NTASKS $PW/vasp_std  > log.out"
+
+eval $runvasp

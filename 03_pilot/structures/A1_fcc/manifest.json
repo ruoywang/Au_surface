@@ -1,0 +1,35 @@
+{
+  "parent_id": "A1_fcc",
+  "generator": "scripts/build_pilot_structures.py",
+  "seed": 20260921,
+  "a0_A": 4.158,
+  "a0_status": "LOCALLY_FITTED_7PT_EOS_see_02_bulk_eos_RESULT.md",
+  "supercell": [
+    4,
+    4,
+    4
+  ],
+  "n_atoms": 65,
+  "bottom_fixed_layers": 2,
+  "boundary_mode": "single_sided_CEP_DIP",
+  "cell_Lz_A": 44.603,
+  "SOL_Z0_A": 9.801,
+  "SOL_Z1_A": 34.603,
+  "ION_Z0_A_derived": 11.801,
+  "ION_Z1_A_derived": 32.603,
+  "D_STERN_A": 2.0,
+  "DIPOL_frac": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "note": "SOL_Z0/SOL_Z1 shared across T/V1/A1-fcc batch (v2 Sec.2.2), sized to A1-fcc's raised atom.",
+  "defect_type": "A1-fcc (single adatom, fcc continuation site)",
+  "defect_centers": [
+    [
+      1.4700749980868326,
+      0.8487481958743711,
+      14.603
+    ]
+  ]
+}

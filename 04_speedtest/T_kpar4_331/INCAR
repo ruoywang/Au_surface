@@ -1,0 +1,43 @@
+# Speed test only (not a pilot point): same T structure/window as 03_pilot/T_neutral_v2,
+# but KPAR=4 (128/4=32 cores per k-group, NCORE=8 -> NPAR=4) + 3x3x1 k-points
+# (down from 4x4x1) instead of KPAR=1. Purpose: re-test whether KPAR helps once
+# memory is not the constraint (highmem has huge headroom), and separately
+# whether a coarser k-mesh changes per-step wall time. This is NOT meant to
+# feed into the real pilot's mu0/energies -- flagged accuracy risk from 3x3x1
+# (see chat: metal + tight FERMICONVERGE is k-point-sensitive) not yet checked.
+SYSTEM = Au_T_speedtest_kpar4_331
+
+NCORE = 8
+KPAR  = 4
+
+PREC   = Accurate
+ENCUT  = 500
+ISPIN  = 1
+ISYM   = 0
+LREAL  = Auto
+ALGO   = Normal
+EDIFF  = 1E-7
+NELM   = 200
+ISMEAR = -1
+SIGMA  = 0.05
+IBRION = -1
+NSW    = 0
+LCHARG = .TRUE.
+LWAVE  = .FALSE.
+LVHAR  = .TRUE.
+
+LSOL    = .TRUE.
+ISOL    = 2
+C_MOLAR = 1.0
+R_ION   = 4.0
+
+LCEP = .FALSE.
+
+IDIPOL = 3
+LDIPOL = .TRUE.
+DIPOL  = 0.5 0.5 0.5
+
+LVAC      = .TRUE.
+SOL_Z0    = 14.602
+SOL_Z1    = 39.404
+SOL_SIGMA = 0.8

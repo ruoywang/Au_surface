@@ -1,0 +1,69 @@
+# ============================================================================
+# Minimal single-sided CEP-DIP validation case — T (flat, no defect), ISOL=2.
+# Purpose: check the mechanism (NESCHEME=3 static convergence, ISOL=2 PHI
+# semantics, single-sided window profile, charge closure) confirmed by
+# reading source in 00_audit/. Run AFTER T_flat_neutral_pzc/ -- TARGETMU below
+# is still a placeholder (code's internal default), not derived from that run's
+# mu0. Do not use this run's numbers for any scientific conclusion.
+# NOT SUBMITTED — for review only.
+# ============================================================================
+
+SYSTEM = Au_T_flat_single_sided_minvalidation
+
+# General
+PREC   = Accurate
+ENCUT  = 500          # max(500, 1.3*ENMAX=298.9) per v2 Sec.4.1
+ISPIN  = 1
+ISYM   = 0
+LREAL  = Auto
+ALGO   = Normal
+EDIFF  = 1E-7
+NELM   = 200
+ISMEAR = -1
+SIGMA  = 0.05
+IBRION = -1
+NSW    = 0
+LCHARG = .TRUE.
+LWAVE  = .FALSE.
+LVHAR  = .TRUE.
+
+# Implicit solvent (VASPsol++ / nonlinear model, [R2])
+LSOL    = .TRUE.
+ISOL    = 2            # AUDIT FIX vs v2 draft: code default is 1; PHI file means something
+                        # different under ISOL=1 vs 2 (00_audit/model_conventions.md Sec.1.2).
+                        # This project must always set ISOL=2 explicitly.
+C_MOLAR = 1.0
+R_ION   = 4.0           # sensitivity starting point only, not a validated Cl- radius
+# R_SOLV, R_DIEL, NC_K, SIGMA_K, A_K left at code defaults: NOT yet independently
+# confirmed (00_audit/parameter_map.md open item). Read them back from OUTCAR after
+# this run and record them before trusting any downstream number.
+
+# Constant-potential control (CP-VASP)
+LCEP          = .TRUE.
+NESCHEME      = 3      # confirmed static-safe: inner SCF loop converges N_ele to
+                        # TARGETMU independent of IBRION/NSW (main.F:3208-3243).
+                        # Do NOT use NESCHEME=5 (MD-only Nose-Hoover scheme, old example).
+TARGETMU      = -4.6   # PLACEHOLDER: code's own internal default (reader.F:847).
+                        # Should be replaced by mu0 (from T_flat_neutral_pzc/) once that
+                        # run is done and aligned to the bulk-liquid reference (v2 Sec.4.2).
+FERMICONVERGE = 0.01   # tightened from code default 0.05 per v2 pilot setting
+CAP_MAX       = 2.0
+NEADJUST      = 1
+# INIT_ECHANGE (default 0.1 e) and ECHANGE_MAX (default 0.0 = uncapped) left at
+# code defaults; see 00_audit/parameter_map.md.
+
+# Dipole correction with solvent feedback (single code path, see audit 1.2)
+IDIPOL = 3
+LDIPOL = .TRUE.
+DIPOL  = 0.5 0.5 0.5    # plain conventional center per user request (see audit 1.3:
+                         # only a multipole reference point, not the jump-plane location).
+
+# Single-sided window (this project's own LVAC/SOL_Z0/SOL_Z1/D_STERN extension)
+LVAC      = .TRUE.
+SOL_Z0    = 14.653     # Angstrom, Cartesian; one Au layer below the top (metal-interior anchor)
+SOL_Z1    = 37.067     # Angstrom, Cartesian; top-Au + 20 A liquid extent (re-derived from 1M
+                        # Debye length ~3 A, see scripts/build_min_validation.py; still a
+                        # starting point pending the v2 Sec.5 plateau check, not a final value)
+SOL_SIGMA = 0.8         # window smoothing width (code default, set explicitly)
+# D_STERN left at code default (2.0 A); derived ION_Z0/ION_Z1 = 16.653 / 35.067 A
+# (solvation.F:2008-2010) — not an independent INCAR tag, recorded here for traceability.

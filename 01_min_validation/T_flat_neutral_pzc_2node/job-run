@@ -1,0 +1,25 @@
+#!/bin/bash
+# 2-node / 64-rank test: more total cores -> smaller per-rank memory slice of
+# the domain-decomposed grids (should relieve the OOM seen at 32 cores/1 node)
+# and genuinely more compute. Not yet proven -- this is the test.
+#SBATCH --job-name=Au_T_neutral_pzc_2node
+#SBATCH -o myjob.o%j
+#SBATCH -e myjob.e%j
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=128
+#SBATCH --cpus-per-task=1
+#SBATCH --time=02:00:00
+#SBATCH --partition=debug
+#SBATCH --account=CHE190065
+
+module purge
+module load intel/19.0.5.281 impi/2019.5.281
+module load intel-mkl hdf5 python
+module list
+
+export I_MPI_COLL_INTRANODE=pt2pt
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+PW=/anvil/projects/x-che190065/rywang/CEP-HALF/bin
+runvasp="mpirun -np $SLURM_NTASKS $PW/vasp_std  > log.out"
+
+eval $runvasp

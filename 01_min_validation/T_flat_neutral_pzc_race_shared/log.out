@@ -1,0 +1,258 @@
+ ----------------------------------------------------
+    OOO  PPPP  EEEEE N   N M   M PPPP
+   O   O P   P E     NN  N MM MM P   P
+   O   O PPPP  EEEEE N N N M M M PPPP   -- VERSION
+   O   O P     E     N  NN M   M P
+    OOO  P     EEEEE N   N M   M P
+ ----------------------------------------------------
+ running   32 mpi-ranks, with    1 threads/rank
+ distrk:  each k-point on   16 cores,    2 groups
+ distr:  one band on    4 cores,    4 groups
+ vasp.6.3.2 27Jun22 (build Oct 02 2025 09:19:44) complex                        
+  
+ POSCAR found type information on POSCAR Au
+ POSCAR found :  1 types and      96 ions
+ Reading from existing POTCAR
+ scaLAPACK will be used
+ Reading from existing POTCAR
+ LDA part: xc-table for Pade appr. of Perdew
+ POSCAR found type information on POSCAR Au
+ POSCAR found :  1 types and      96 ions
+ POSCAR found type information on POSCAR Au
+ POSCAR found :  1 types and      96 ions
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ FFT: planning ... GRIDC
+ FFT: planning ... GRID_SOFT
+ FFT: planning ... GRID
+ WAVECAR not read
+ 
+ invBETA =   2.567980938600000E-002
+ PBETA   =    19.4705495077618     
+ ZBETA   =    38.9410990155237     
+ 
+ alpha0_rot   =    587.209258857455     
+ alpha_pol    =    5.97785463206492     
+ invalpha_sic =   1.252992168182255E-003
+ alpha_lin    =    593.187113489519     
+ f_loc        =    3.89497294977035     
+ alpha0_diel  =    2310.44776119403     
+ 
+ alpha0_ion =    3072.55630941130     
+ n_max      =   2.762135864009951E-003
+ theta_b    =   0.436039376517672     
+ LION       =  T
+ 
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+  Solvation turned off during non-self-consistent phase (first NELMDL steps)
+DAV:   1     0.743020490980E+04    0.74302E+04   -0.43490E+05 12728   0.133E+03
+DAV:   2     0.234584145719E+03   -0.71956E+04   -0.65945E+04 15536   0.275E+02
+DAV:   3    -0.307420874867E+03   -0.54201E+03   -0.51606E+03 14528   0.696E+01
+DAV:   4    -0.321957774864E+03   -0.14537E+02   -0.14371E+02 15296   0.111E+01
+DAV:   5    -0.322324497246E+03   -0.36672E+00   -0.36503E+00 14680   0.182E+00    0.678E+01
+ Begin Solvation calculations
+  rms_SCF =    3.09820225804996      tol =   0.309820225804996     
+ Begin minimization
+ Creating dielectric and ionic cavities
+  area:      242.568184767196     
+  volume:    3938.52526304851     
+  A_cav:    0.213217434410365     
+  qion_max:     4.05764282309405     
+  Solving nonlinear dielectric/ionic screening model
+  Starting outer loop
+        iter                  A_solv                     rms
+ resid(G=0) =   1.788639656297164E-005
+  NLPB:    0  -0.116331321881039E+05   0.112222446311825E+02
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 0 PID 486211 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 1 PID 486212 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 2 PID 486213 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 3 PID 486214 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 4 PID 486215 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 5 PID 486216 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 6 PID 486217 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 7 PID 486218 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 8 PID 486219 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 9 PID 486220 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 10 PID 486221 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 11 PID 486222 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 12 PID 486223 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 13 PID 486224 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 14 PID 486225 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 15 PID 486226 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 16 PID 486227 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 17 PID 486228 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 18 PID 486229 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 19 PID 486230 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 20 PID 486231 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 21 PID 486232 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 22 PID 486233 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 23 PID 486234 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 24 PID 486235 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 25 PID 486236 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 26 PID 486237 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 27 PID 486238 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 28 PID 486239 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 29 PID 486240 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 30 PID 486241 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   RANK 31 PID 486242 RUNNING AT a150
+=   KILLED BY SIGNAL: 9 (Killed)
+===================================================================================
+I_MPI_JOB_TIMEOUT = -1 second(s): job ending due to startup timeout

@@ -1,0 +1,49 @@
+# ============================================================================
+# Neutral (q_e=0) single-sided reference point for T (flat, no defect).
+# highmem test: 32 cores, 7.95 GB/core (254 GB total) vs 1.9 GB/core on
+# shared/debug (59 GB) -- memory should no longer be the bottleneck, so this
+# cleanly tests whether KPAR=4/NCORE=4 (the setting that OOM'd twice on
+# shared/debug at 59 GB) actually speeds up wall-clock once memory isn't
+# capping it. Billed at 4x CPU-hour weight -- fine for a one-off small test,
+# not a production default. Still same a0/window placeholders, not a
+# converged PZC.
+# ============================================================================
+
+SYSTEM = Au_T_flat_single_sided_neutral_pzc
+
+KPAR  = 4
+NCORE = 4
+
+# General
+PREC   = Accurate
+ENCUT  = 500
+ISPIN  = 1
+ISYM   = 0
+LREAL  = Auto
+ALGO   = Normal
+EDIFF  = 1E-7
+NELM   = 200
+ISMEAR = -1
+SIGMA  = 0.05
+IBRION = -1
+NSW    = 0
+LCHARG = .TRUE.
+LWAVE  = .FALSE.
+LVHAR  = .TRUE.
+
+# Implicit solvent (VASPsol++ / nonlinear model, [R2])
+LSOL    = .TRUE.
+ISOL    = 2
+C_MOLAR = 1.0
+R_ION   = 4.0
+
+LCEP = .FALSE.
+
+IDIPOL = 3
+LDIPOL = .TRUE.
+DIPOL  = 0.5 0.5 0.5
+
+LVAC      = .TRUE.
+SOL_Z0    = 14.653
+SOL_Z1    = 37.067
+SOL_SIGMA = 0.8

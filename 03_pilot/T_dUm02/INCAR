@@ -1,0 +1,45 @@
+# Pilot point: T, DeltaU=-0.2 V, TARGETMU = mu0(-4.9071) + DeltaU = -5.1071 eV
+# Structure: T (flat, unreconstructed, no defect), a0=4.158 A (locally fitted, 02_bulk_eos), shared
+# single-sided window across this T/V1/A1_fcc batch (v2 Sec.2.2).
+# Proven-fast config: 128 cores (highmem), NCORE=8/NPAR=16/KPAR=1,
+# I_MPI_COLL_INTRANODE=pt2pt (job-run), ALGO=Normal.
+SYSTEM = Au_T_dUm02
+
+NCORE = 8
+
+PREC   = Accurate
+ENCUT  = 500
+ISPIN  = 1
+ISYM   = 0
+LREAL  = Auto
+ALGO   = Normal
+EDIFF  = 1E-7
+NELM   = 200
+ISMEAR = 1
+SIGMA  = 0.2
+IBRION = -1
+NSW    = 0
+LCHARG = .TRUE.
+LWAVE  = .FALSE.
+LVHAR  = .TRUE.
+
+LSOL    = .TRUE.
+ISOL    = 2
+C_MOLAR = 1.0
+R_ION   = 4.0
+
+LCEP          = .TRUE.
+NESCHEME      = 3
+TARGETMU      = -5.1071
+FERMICONVERGE = 0.01
+CAP_MAX       = 2.0
+NEADJUST      = 1
+
+IDIPOL = 3
+LDIPOL = .TRUE.
+DIPOL  = 0.5 0.5 0.5
+
+LVAC      = .TRUE.
+SOL_Z0    = 9.801
+SOL_Z1    = 34.603
+SOL_SIGMA = 0.8

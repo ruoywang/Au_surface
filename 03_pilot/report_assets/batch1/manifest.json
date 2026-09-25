@@ -1,0 +1,229 @@
+{
+  "T": {
+    "facet": "(111)",
+    "N_total": 64,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 7.202,
+    "in_plane_cell_vectors": [
+      [
+        11.760599984694661,
+        0.0
+      ],
+      [
+        5.8802999923473305,
+        10.184978350492454
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "relaxed_candidate",
+    "pipeline_status": "geometry_only",
+    "note": "reused"
+  },
+  "V1": {
+    "facet": "(111)",
+    "N_total": 63,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 7.202,
+    "in_plane_cell_vectors": [
+      [
+        11.760599984694661,
+        0.0
+      ],
+      [
+        5.8802999923473305,
+        10.184978350492454
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "relaxed_candidate",
+    "pipeline_status": "geometry_only",
+    "note": "reused"
+  },
+  "A1-fcc": {
+    "facet": "(111)",
+    "N_total": 65,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 9.6,
+    "in_plane_cell_vectors": [
+      [
+        11.760599984694661,
+        0.0
+      ],
+      [
+        5.8802999923473305,
+        10.184978350492454
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.938,
+    "role": "relaxed_candidate",
+    "pipeline_status": "geometry_only",
+    "note": "reused"
+  },
+  "Pit-7": {
+    "facet": "(111)",
+    "N_total": 137,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 7.202,
+    "in_plane_cell_vectors": [
+      [
+        17.64089997704199,
+        0.0
+      ],
+      [
+        8.820449988520995,
+        15.27746752573868
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "relaxed_candidate",
+    "pipeline_status": "geometry_only",
+    "note": "reused geometry, relabeled from point-defect V7 (kept construction tag)",
+    "local_note": "pit floor sits at base layer index 2 (3rd of 4); local metal thickness under the pit floor down to the bottom fixed layer is ~2 x d111 = 4.80 A, not the full 7.2 A base span",
+    "N_base": 144,
+    "N_removed": 7,
+    "periodic_image_separation": 11.76059998469466,
+    "periodic_image_note": "shortest distance between the pit's missing-site footprint and its nearest lattice-translation copy (geometric disconnection only, not an EDL/response convergence claim)"
+  },
+  "Step-8x4": {
+    "facet": "(111) strip",
+    "N_total": 144,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 9.6,
+    "in_plane_cell_vectors": [
+      [
+        23.521199969389322,
+        0.0
+      ],
+      [
+        5.8802999923473305,
+        10.184978350492454
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.938,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "note": "rebuilt (registry fix)",
+    "L_parallel": 11.761,
+    "L_perpendicular": 20.37,
+    "terrace_width_each_side": 10.185,
+    "N_base": 128,
+    "N_added": 16,
+    "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count."
+  },
+  "Step-16x4": {
+    "facet": "(111) strip",
+    "N_total": 288,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 9.6,
+    "in_plane_cell_vectors": [
+      [
+        47.042399938778644,
+        0.0
+      ],
+      [
+        5.8802999923473305,
+        10.184978350492454
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.938,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "note": "rebuilt (registry fix)",
+    "L_parallel": 11.761,
+    "L_perpendicular": 40.74,
+    "terrace_width_each_side": 20.37,
+    "N_base": 256,
+    "N_added": 32,
+    "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count."
+  },
+  "Step-24x4": {
+    "facet": "(111) strip",
+    "N_total": 432,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 9.6,
+    "in_plane_cell_vectors": [
+      [
+        70.56359990816796,
+        0.0
+      ],
+      [
+        5.8802999923473305,
+        10.184978350492454
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.938,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "note": "new, not yet rendered",
+    "L_parallel": 11.761,
+    "L_perpendicular": 61.11,
+    "terrace_width_each_side": 30.555,
+    "N_base": 384,
+    "N_added": 48,
+    "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count."
+  },
+  "Au211": {
+    "facet": "(211)",
+    "N_total": 48,
+    "base_z_span": null,
+    "all_atoms_z_span": 9.336,
+    "in_plane_cell_vectors": [
+      [
+        7.201867257871392,
+        0.0
+      ],
+      [
+        0.0,
+        11.760599984694661
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "note": "new"
+  },
+  "Au221": {
+    "facet": "(221)",
+    "N_total": 72,
+    "base_z_span": null,
+    "all_atoms_z_span": 8.776,
+    "in_plane_cell_vectors": [
+      [
+        15.277467525738682,
+        0.0
+      ],
+      [
+        12.731222938115568,
+        8.444937921619085
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "note": "new"
+  },
+  "Island-7": {
+    "facet": "(111)+island",
+    "N_total": 151,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 9.6,
+    "in_plane_cell_vectors": [
+      [
+        17.64089997704199,
+        0.0
+      ],
+      [
+        8.820449988520995,
+        15.27746752573868
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.938,
+    "role": "relaxed_candidate",
+    "pipeline_status": "geometry_only",
+    "note": "new",
+    "N_base": 144,
+    "N_added": 7,
+    "periodic_image_separation": 11.76059998469466,
+    "periodic_image_note": "shortest distance between the island's own atoms and the nearest lattice-translation copy of the same island (not an electronic/EDL isolation claim)"
+  }
+}

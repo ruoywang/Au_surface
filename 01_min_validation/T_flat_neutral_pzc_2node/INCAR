@@ -1,0 +1,50 @@
+# ============================================================================
+# Neutral (q_e=0) single-sided reference point for T (flat, no defect).
+# 2 nodes x 128 tasks = 256 total ranks (debug partition's node=2 cap, maxed
+# out). KPAR=2 (one k-point group per node), NCORE=8, NPAR=128/8=16 per node --
+# same NCORE/NPAR ratio as the user's known-fast production MD example
+# (surface_charge/6-Au/1-32_water_GCE, which used 5 nodes x 128 cores =640
+# total, NPAR=16/NCORE=8/KPAR=5). Earlier tests at 32-64 total cores were
+# ~10-20x smaller than that working config -- this is the real reason per-step
+# time hadn't dropped, not a fundamental KPAR/NCORE problem.
+# Still not a converged PZC -- same a0/window placeholders as before.
+# ============================================================================
+
+SYSTEM = Au_T_flat_single_sided_neutral_pzc
+
+KPAR  = 2
+NCORE = 8
+
+# General
+PREC   = Accurate
+ENCUT  = 500
+ISPIN  = 1
+ISYM   = 0
+LREAL  = Auto
+ALGO   = Normal
+EDIFF  = 1E-7
+NELM   = 200
+ISMEAR = -1
+SIGMA  = 0.05
+IBRION = -1
+NSW    = 0
+LCHARG = .TRUE.
+LWAVE  = .FALSE.
+LVHAR  = .TRUE.
+
+# Implicit solvent (VASPsol++ / nonlinear model, [R2])
+LSOL    = .TRUE.
+ISOL    = 2
+C_MOLAR = 1.0
+R_ION   = 4.0
+
+LCEP = .FALSE.
+
+IDIPOL = 3
+LDIPOL = .TRUE.
+DIPOL  = 0.5 0.5 0.5
+
+LVAC      = .TRUE.
+SOL_Z0    = 14.653
+SOL_Z1    = 37.067
+SOL_SIGMA = 0.8

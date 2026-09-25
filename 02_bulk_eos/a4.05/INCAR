@@ -1,0 +1,17 @@
+# Bulk fcc Au, single point, for 7-point EOS lattice-constant fit (v2 doc Sec.3.1).
+# Plain PBE, no implicit solvent, no constant-potential -- just the metal.
+SYSTEM = Au_bulk_fcc_EOS
+PREC   = Accurate
+ENCUT  = 500
+ISPIN  = 1
+ISYM   = 2
+LREAL  = .FALSE.
+ALGO   = Normal
+EDIFF  = 1E-7
+NELM   = 100
+ISMEAR = 1
+SIGMA  = 0.2
+IBRION = -1
+NSW    = 0
+LCHARG = .FALSE.
+LWAVE  = .FALSE.

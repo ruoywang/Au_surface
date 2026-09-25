@@ -1,0 +1,30 @@
+#!/bin/bash
+# NOT SUBMITTED. Draft only, for review before any `sbatch`.
+# Run this one FIRST (neutral PZC reference), before T_flat_placeholder_mu/.
+# wholenode: ~16h estimated wait (needs a fully idle 128-core node, almost all alloc).
+# shared: still ~13.5h estimated wait despite partial-node scheduling (cluster-wide
+#   backlog of ~22k pending jobs competes for the same 250 nodes).
+# debug: same hardware, only 17 nodes, hard 2h wall cap (matches our request) --
+#   but had ZERO queued jobs at check time, so likely to start almost immediately
+#   right now. This is a live snapshot, not a guarantee; debug's small pool can
+#   fill up fast, so re-check if this stops being true.
+#SBATCH --job-name=Au_T_neutral_pzc
+#SBATCH -o myjob.o%j
+#SBATCH -e myjob.e%j
+#SBATCH --nodes=1
+#SBATCH --ntasks=32
+#SBATCH --cpus-per-task=1
+#SBATCH --time=02:00:00
+#SBATCH --partition=debug
+#SBATCH --account=CHE190065
+
+module purge
+module load intel/19.0.5.281 impi/2019.5.281
+module load intel-mkl hdf5 python
+module list
+
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+PW=/anvil/projects/x-che190065/rywang/CEP-HALF/bin
+runvasp="mpirun -np $SLURM_NTASKS $PW/vasp_std  > log.out"
+
+eval $runvasp

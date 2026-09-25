@@ -1,0 +1,41 @@
+# Neutral (q_e=0) single-sided reference point for T, NEW STANDARD CONFIG
+# (00_audit/parameter_map.md H): 4 layers (was 6), 3x3x1 k-points (was 4x4x1),
+# ISMEAR=1/SIGMA=0.2 (was -1/0.05), ALGO=Normal, KPAR unset, NCORE=8, 128
+# cores highmem, I_MPI_COLL_INTRANODE=pt2pt. This replaces T_neutral_v2
+# (6-layer, mu0=-4.9327 eV) which is now obsolete since the reference
+# geometry/settings changed -- mu0 must be redetermined from this run.
+SYSTEM = Au_T_flat_single_sided_neutral_pzc_v3
+
+NCORE = 8
+
+PREC   = Accurate
+ENCUT  = 500
+ISPIN  = 1
+ISYM   = 0
+LREAL  = Auto
+ALGO   = Normal
+EDIFF  = 1E-7
+NELM   = 200
+ISMEAR = 1
+SIGMA  = 0.2
+IBRION = -1
+NSW    = 0
+LCHARG = .TRUE.
+LWAVE  = .FALSE.
+LVHAR  = .TRUE.
+
+LSOL    = .TRUE.
+ISOL    = 2
+C_MOLAR = 1.0
+R_ION   = 4.0
+
+LCEP = .FALSE.
+
+IDIPOL = 3
+LDIPOL = .TRUE.
+DIPOL  = 0.5 0.5 0.5
+
+LVAC      = .TRUE.
+SOL_Z0    = 9.801
+SOL_Z1    = 34.603
+SOL_SIGMA = 0.8
