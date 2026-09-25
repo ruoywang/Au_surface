@@ -1,0 +1,45 @@
+# Numerical consistency check: Step-8x1, same structure as its x2 pair,
+# repeated x1 along the step direction. TARGETMU reuses the pilot's internal
+# mu0 reference (-4.9071 eV) -- NOT a calibrated V vs RHE value (see defect_plan.md).
+# Static, no ionic relaxation, no potential sweep, no perturbation -- single question:
+# does the physical result change when the same periodic structure is repeated x1?
+SYSTEM = Step-8x1_muref
+
+NCORE = 8
+
+PREC   = Accurate
+ENCUT  = 500
+ISPIN  = 1
+ISYM   = 0
+LREAL  = Auto
+ALGO   = Normal
+EDIFF  = 1E-7
+NELM   = 200
+ISMEAR = 1
+SIGMA  = 0.2
+IBRION = -1
+NSW    = 0
+LCHARG = .TRUE.
+LWAVE  = .FALSE.
+LVHAR  = .TRUE.
+
+LSOL    = .TRUE.
+ISOL    = 2
+C_MOLAR = 1.0
+R_ION   = 4.0
+
+LCEP          = .TRUE.
+NESCHEME      = 3
+TARGETMU      = -4.9071
+FERMICONVERGE = 0.001
+CAP_MAX       = 2.0
+NEADJUST      = 1
+
+IDIPOL = 3
+LDIPOL = .TRUE.
+DIPOL  = 0.5 0.5 0.5
+
+LVAC      = .TRUE.
+SOL_Z0    = 9.801
+SOL_Z1    = 34.603
+SOL_SIGMA = 0.8
