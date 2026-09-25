@@ -1,78 +1,89 @@
-# Ion species reconstruction on Step-8x1 (post-processing only, no new DFT)
+# Ion species reconstruction (rev 2 — corrected, validated on charged references)
 
-Reconstructs n₊(r)/n₋(r) from the already-computed Step-8x1_muref fields (PHI, SION,
-RHOION), using v2 doc §7.2's constitutive relation:
+Rev 1 is retracted where it disagreed with this. Four confirmed bugs fixed:
 
-```
-u = e·psi/(kB·T),  D = 1 + (2·n_bulk/n_max)·(cosh(u)-1)
-n_plus  = SION·n_bulk·exp(-u)/D
-n_minus = SION·n_bulk·exp(+u)/D
-psi = PHI - PHI_bulk
-```
+1. **Zero point**: rev 1 subtracted a finite SION=1-window average from PHI before
+   using it as the Boltzmann driving potential. Wrong — validated below that raw PHI,
+   with **no shift at all**, reconstructs RHOION to machine-precision-adjacent accuracy
+   on a real charged reference. The solver's own PHI already carries the correct
+   physical zero point; subtracting a window average was an unjustified extra step
+   that (at Step-8x1's weak charge) partly washed out the real signal.
+2. **Species identity**: not assumed from the v2 doc's variable names. Empirically
+   anchored: the `exp(-u)` species matches `RHOION/V_cell` as `n_A − n_B` (confirmed to
+   <2.1×10⁻⁷ e/Å³ on the full 3D grid), **and** is the species enriched near a
+   positively-charged electrode — which basic electrostatic screening requires to be
+   the anion. So: `n_A = n_anion`, `n_B = n_cation`. (The doc's own "n_plus"/"n_minus"
+   labels do not map to cation/anion — do not assume that naming.)
+3. **3D-first reconstruction**: the Boltzmann relation is nonlinear, so `⟨n(φ,S)⟩ ≠
+   n(⟨φ⟩,⟨S⟩)`. Rev 1 averaged PHI/SION to 1D profiles before applying the formula.
+   Fixed: reconstruct on the full (ngz,ngy,ngx) grid, average afterward.
+4. **Enrichment integral**: rev 1's `weighted_mean` multiplied by SION a second time
+   in the numerator (n_anion already includes it). Fixed: `K_D = ∫n_anion / (n_bulk·
+   ∫S_ion)` over a region, no extra SION factor. Edge distance now uses proper
+   minimum-image wrapping and the true perpendicular terrace width (10.18 Å/side for
+   Step-8x1), not the raw sheared lattice vector.
 
-`n_max = 1/d_ion³`, `d_ion = 2^(5/6)·R_ION` (D_ION not set in INCAR → this default,
-confirmed in `solvation.F:3213-3215`). T = 298.15 K.
+## Validation: rigorous, on real charged signals — not a near-zero point
 
-## Validation against RHOION (required before trusting anything below)
+Retracted: "Step-8x1_muref is the step's PZC, so near-zero response is expected by
+construction." **That was wrong.** Its converged N_e = 396.014037 vs. neutral 396 →
+q_e = +0.014037, Q_phys = −0.014037 e. Small, but not zero — and a shared reference μ
+(from the flat-plate T) is not automatically the step's own zero-charge potential
+either. Total-cell neutrality does not imply local charge or potential are zero.
 
-Reconstructed n₊−n₋ vs. the volume-corrected RHOION field, in the bulk window
-(z=21.11–31.06 Å): **max difference 1.5×10⁻⁵ e/Å³ — the same order as RHOION's own
-bulk noise floor.** No sign flip on psi was needed (PHI is already in the convention
-this formula expects). This confirms the constitutive relation, n_max, and n_bulk are
-right, not assumed.
+Validated instead on **T_dUm02** (q_e=−0.164483, TARGETMU=−5.1071) and **T_dUp02**
+(q_e=+0.166912, TARGETMU=−4.7071) — real, oppositely-signed, non-trivial charge states:
 
-## The central caveat: this run is at ΔU=0, so a flat result is expected, not a finding
+| reference | max\|diff\| (e/Å³) | relL2, full cell | relL2, bulk (SION=1) | relL2, interface | n_anion/n_bulk (bulk) | n_cation/n_bulk (bulk) |
+|---|---|---|---|---|---|---|
+| T_dUm02 (Q_phys=+0.164e) | 2.07×10⁻⁷ | 0.0005 | 0.0005 | 0.0005 | 1.0806 (enriched) | 0.9265 (depleted) |
+| T_dUp02 (Q_phys=−0.167e) | 2.08×10⁻⁷ | 0.0005 | 0.0005 | 0.0005 | 0.9259 (depleted) | 1.0813 (enriched) |
 
-Step-8x1_muref was computed at TARGETMU = mu0 = -4.9071 eV — the *neutral/PZC-
-equivalent* reference point, same as T's own reference. **There is no electrode
-charge and therefore no double-layer driving force in this data.** Everything below
-should be read as "the reconstruction pipeline works," not as "steps don't enrich
-anions" — that question needs a Step point at nonzero ΔU, which does not exist yet.
+Relative L2 error is **0.05% in every region tested**, on a signal that is not near
+zero — a real, discriminating pass, not a threshold that happens to exceed the noise
+floor. Both charge signs give the physically required direction (positive electrode →
+anion excess; negative electrode → cation excess), which independently confirms the
+species assignment. **This is the actual pass criterion the previous "1.5×10⁻⁵ ≈ signal
+scale" check in rev 1 could not provide.**
 
-## 1. Normal (z) profiles
+Also confirms the user's warning was correct: even in the "SION=1" window, T_dUm02
+shows n_anion/n_bulk=1.08 — **the fully-accessible region has not fully recovered bulk
+electroneutrality; a real double-layer tail extends into it.** "Completely accessible"
+≠ "reservoir-equilibrated." This is now stated explicitly rather than assumed away.
 
-`step8x1_ion_zprofile.png`: n₊/n_bulk and n₋/n_bulk both track SION closely and
-converge to 1.000 ± 0.011 (std) in the SION=1 bulk window — i.e. bulk salt
-concentration is fully recovered there, and n₊≈n₋ throughout (no net charge, as
-expected at ΔU=0). The small (~1-2%) n₊/n₋ splitting right at the accessibility
-transition (z≈18-21 Å) is a real, physically sensible Boltzmann response to the local
-field gradient created by the SION transition itself, not noise.
+## Corrected Step-8x1_muref result (still weak charge, but a real, honest signal)
 
-## 2. Cross-step section
+q_e=+0.014037 (electron surplus → Q_phys=−0.014e, weakly negatively charged):
 
-`step8x1_crossstep_map.png`: psi, SION, and n₋/n_bulk averaged along the step
-direction, shown vs. (x across-step, z). SION's accessible-region boundary visibly
-dips near the step foot (real atomic-scale corrugation in the excluded-volume
-boundary, not a smooth mean-field cutoff) — the elevated-strip side needs the
-accessible boundary to start higher than the bare-terrace side does. n₋/n_bulk tracks
-SION's shape almost exactly, again because there is no differential ion response to
-show at ΔU=0.
+| | n_anion/n_bulk | n_cation/n_bulk |
+|---|---|---|
+| SION=1 bulk window | 0.9873 | 1.0129 |
 
-## 3. Step-adjacent vs. terrace enrichment
+Correct direction for a weakly negative electrode (anion depleted, cation enriched) —
+small because the charge is small, not zero because of a methodology artifact this time.
 
-Near-edge (within 3 Å of either step edge) vs. far-from-edge (terrace interior),
-accessible-volume-weighted, in the bulk-z window:
+**Near-edge vs. far-from-edge K_D** (anion, corrected formula, true 10.18 Å/side
+terrace width, proper periodic edge distance):
 
-| region | n₋/n_bulk |
-|---|---|
-| near-edge | 1.0002 |
-| far-from-edge (terrace interior) | 0.9999 |
-| ratio | 1.0003 |
+| region | K_D near-edge (<3 Å) | K_D far-from-edge | ratio |
+|---|---|---|---|
+| deep-bulk reservoir window (diagnostic) | 0.9877 | 0.9866 | 1.0012 |
+| near-interface EDL region (physical signal) | 0.9779 | 0.9650 | **1.0134** |
 
-Essentially no difference — consistent with ΔU=0 giving no enrichment signal to find.
-**Separately**: Step-8x1's terrace is only ~11.8 Å wide total (10.2 Å/side by the
-correct perpendicular measurement); the "far-from-edge" region above is 62% of the
-cell width but is a genuinely narrow periodic strip, not an isolated-step limit. Any
-future enrichment ratio computed here should be reported as a narrow-periodic-array
-conditional value, not generalized to an isolated step.
+A small (~1.3%) but directionally real signal: anion depletion is *less severe* near
+the step edge than in the terrace interior, in the region that actually carries the
+double-layer response. Far weaker than a definitive claim, but no longer an artifact
+of an over-aggressive zero-point correction washing the signal to ~0. Step-8x1's
+terrace (far-from-edge fraction 41% of the cell width with a 3 Å near-edge band) is
+still a narrow periodic array, not an isolated-step limit — this ratio is reported as
+that conditional value, not generalized further.
 
-## What this means for the next DFT decision
+## Recommendation, unchanged in substance from before
 
-The pipeline (field reconstruction, cross-step mapping, region-based enrichment) is
-now validated and ready. But **the specific question "does a step enrich anions?"
-cannot be answered from data that only exists at the PZC** — that's a property of the
-charged double layer. Before spending budget on Step-16x1 (a width-series repeat,
-still at ΔU=0 by default), it may be more directly useful to compute a Step point
-(8x1 or 16x1) at a **nonzero ΔU** first — that is what would actually exercise this
-analysis pipeline on a non-trivial signal. No DFT submitted this round either way;
-this is a recommendation, not an action taken.
+A charged Step point is the right next experiment — now for a better reason: the
+corrected pipeline shows Step-8x1_muref's existing (weak) charge already produces a
+small, physically consistent, directionally real signal, and a real ΔU=+0.2 V point
+(TARGETMU=−5.1071 eV, same geometry/cell/window as Step-8x1_muref, no relaxation, no
+expansion to other structures) would give a much larger, more clearly resolved version
+of exactly this signal to check against. **Not submitted this round** — reporting the
+corrected validation first, as requested.
