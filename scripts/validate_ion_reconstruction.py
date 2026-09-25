@@ -58,27 +58,35 @@ zero_points = {
 }
 
 
-def rel_l2(a, b, mask=None):
-    if mask is not None:
-        a = a[mask]; b = b[mask]
+def rel_l2(a, b, mask3d=None):
+    """Full 3D relative L2 error -- NOT the z-profile (averaging first then
+    comparing hides point-to-point disagreement the nonlinear formula can
+    produce)."""
+    if mask3d is not None:
+        a = a[mask3d]; b = b[mask3d]
     num = np.sqrt(np.sum((a - b) ** 2))
     den = np.sqrt(np.sum(b ** 2))
     return num / den if den > 0 else float("nan")
 
 
-print(f"\nreference: RHOION full-cell integral = {rhoion_raw.sum()/(nx*ny*nz):.6f} e "
-      f"(dn_cp for this point = -0.164483 e)\n")
+bulk_mask3d = np.broadcast_to(bulk_mask[:, None, None], phi.shape)
+iface_mask3d = np.broadcast_to(interface_mask[:, None, None], phi.shape)
 
-best = None
+Q_RHOION_code = rhoion_raw.sum() / (nx * ny * nz)  # read from the actual field, not hardcoded
+print(f"\nreference: Q_RHOION,code = (1/N_grid)*sum(RHOION_raw) = {Q_RHOION_code:+.6f} e\n")
+
 for zp_name, phi0 in zero_points.items():
     psi3d = phi - phi0  # broadcast: phi is (ngz,ngy,ngx), phi0 is scalar
     n_A, n_B = species_3d(psi3d, sion)
     for sign_name, recon in [("n_A - n_B", n_A - n_B), ("n_B - n_A", n_B - n_A)]:
-        recon_z = recon.mean(axis=(1, 2))
-        err_full = rel_l2(recon_z, rhoion_z := rhoion.mean(axis=(1, 2)))
-        err_bulk = rel_l2(recon_z, rhoion_z, bulk_mask)
-        err_iface = rel_l2(recon_z, rhoion_z, interface_mask)
-        recon_integral = recon.sum() / (nx * ny * nz)
+        err_full = rel_l2(recon, rhoion)  # full 3D grid, not z-profile
+        err_bulk = rel_l2(recon, rhoion, bulk_mask3d)
+        err_iface = rel_l2(recon, rhoion, iface_mask3d)
+        # recon is a density difference (e/A^3); the charge integral needs
+        # the volume element (V/N_grid), not a bare sum/N_grid -- recon does
+        # NOT carry the same "raw grid already includes V" convention RHOION
+        # does, since it's already been divided into physical density units.
+        Q_recon_code = (V / (nx * ny * nz)) * recon.sum()
         print(f"zero={zp_name:26s} sign={sign_name:10s} "
-              f"integral={recon_integral:+.4f}e (ref -0.1645e)  "
-              f"relL2: full={err_full:.3f} bulk={err_bulk:.3f} interface={err_iface:.3f}")
+              f"Q_recon,code={Q_recon_code:+.6f}e (Q_RHOION,code={Q_RHOION_code:+.6f}e)  "
+              f"relL2(full 3D): full={err_full:.4f} bulk={err_bulk:.4f} interface={err_iface:.4f}")

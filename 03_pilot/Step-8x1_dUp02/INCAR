@@ -1,0 +1,46 @@
+# Step-8x1, charged point: TARGETMU = mu0(-4.9071) - 0.2 = -5.1071 eV, i.e. electron
+# chemical potential lowered 0.2 eV relative to the Step-8x1_muref reference (electrode
+# potential shifted +0.2 V in the internal scale -- NOT re-labeled as a calibrated V vs
+# RHE value; see defect_plan.md). Identical geometry/cell/window/k-points/ISMEAR/ENCUT/
+# FERMICONVERGE to Step-8x1_muref -- only TARGETMU changes. Static, no relaxation, no
+# expansion to other ΔU or structures. Final N_e set by the CP self-consistency loop.
+SYSTEM = Step-8x1_dUp02
+
+NCORE = 8
+
+PREC   = Accurate
+ENCUT  = 500
+ISPIN  = 1
+ISYM   = 0
+LREAL  = Auto
+ALGO   = Normal
+EDIFF  = 1E-7
+NELM   = 200
+ISMEAR = 1
+SIGMA  = 0.2
+IBRION = -1
+NSW    = 0
+LCHARG = .TRUE.
+LWAVE  = .FALSE.
+LVHAR  = .TRUE.
+
+LSOL    = .TRUE.
+ISOL    = 2
+C_MOLAR = 1.0
+R_ION   = 4.0
+
+LCEP          = .TRUE.
+NESCHEME      = 3
+TARGETMU      = -5.1071
+FERMICONVERGE = 0.001
+CAP_MAX       = 2.0
+NEADJUST      = 1
+
+IDIPOL = 3
+LDIPOL = .TRUE.
+DIPOL  = 0.5 0.5 0.5
+
+LVAC      = .TRUE.
+SOL_Z0    = 9.801
+SOL_Z1    = 34.603
+SOL_SIGMA = 0.8

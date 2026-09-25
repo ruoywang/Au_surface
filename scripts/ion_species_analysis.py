@@ -110,9 +110,20 @@ if __name__ == "__main__":
 
     sion_z = sion.mean(axis=(1, 2))
     bulk_mask = sion_z > 0.9999
-    interface_mask = (sion_z > 0.02) & (sion_z < 0.98)
     n_anion_z = n_anion.mean(axis=(1, 2))
     n_cation_z = n_cation.mean(axis=(1, 2))
+
+    # near-surface analysis region: tied to the ACTUAL metal top (from atom
+    # positions, not a SION threshold), extending a fixed depth into the
+    # liquid. This explicitly excludes the far artificial solvent-window
+    # transition (near SOL_Z1), and does NOT stop at SION<0.98 -- the
+    # response can extend into the fully-accessible (SION=1) region too
+    # (confirmed: T_dUm02 shows n_anion/n_bulk=1.08 even where SION=1).
+    z_metal_top = atoms.get_positions()[:, 2].max()
+    NEAR_SURFACE_DEPTH = 15.0
+    interface_mask = (sion_z > 0.01) & (z > z_metal_top) & (z < z_metal_top + NEAR_SURFACE_DEPTH)
+    print(f"near-surface region: z={z_metal_top:.2f} (metal top) to "
+          f"{z_metal_top+NEAR_SURFACE_DEPTH:.2f} A ({interface_mask.sum()} grid points along z)")
 
     def rel_l2(mask):
         a, b = recon[mask], rhoion[mask]
@@ -124,7 +135,8 @@ if __name__ == "__main__":
     m_iface3 = np.broadcast_to(interface_mask[:, None, None], recon.shape)
     m_all3 = np.ones_like(recon, dtype=bool)
     print(f"  relative L2 error: full-cell={rel_l2(m_all3):.4f}  "
-          f"bulk(SION=1)={rel_l2(m_bulk3):.4f}  interface(0.02<SION<0.98)={rel_l2(m_iface3):.4f}")
+          f"bulk(SION=1, far-field diagnostic)={rel_l2(m_bulk3):.4f}  "
+          f"near-surface(metal-top to +{NEAR_SURFACE_DEPTH:.0f}A)={rel_l2(m_iface3):.4f}")
 
     # --- output 1: n_anion/n_cation z-profiles ---
     fig, ax = plt.subplots(figsize=(7, 5), dpi=200)
@@ -173,8 +185,8 @@ if __name__ == "__main__":
         if far.mean() < 0.15:
             print("  NOTE: far-from-edge region is a thin sliver -- not a step-unaffected terrace interior; "
                   "report as a narrow-periodic-array conditional value only.")
-        for label, zmask, zname in [(bulk_mask, bulk_mask, "deep-bulk reservoir window (diagnostic)"),
-                                     (interface_mask, interface_mask, "near-interface EDL region (physical signal)")]:
+        for label, zmask, zname in [(bulk_mask, bulk_mask, "deep-bulk reservoir window, far-field (diagnostic)"),
+                                     (interface_mask, interface_mask, "near-surface region, metal-top to +15A (physical signal)")]:
             KD_near = enrichment_KD(n_anion[zmask][:, :, :], sion[zmask][:, :, :], near)
             KD_far = enrichment_KD(n_anion[zmask][:, :, :], sion[zmask][:, :, :], far)
             print(f"  [{zname}] K_D near-edge={KD_near:.4f}  K_D far-from-edge={KD_far:.4f}  "
