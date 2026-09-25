@@ -60,10 +60,16 @@ for tag in POINTS:
     sion_plateau = sion_z[mask_ion].mean()
     sion_std = sion_z[mask_ion].std()
 
-    cell_a = 11.7606
-    area = 119.781711
-    dV = (area * Lz) / (ngx * ngy * ngz)
-    closure = (rhob.sum() + rhoion.sum()) * dV
+    # FIXED (was: closure = (rhob.sum()+rhoion.sum()) * (V/ngrid), an extra factor of
+    # V_cell -- confirmed in the local solvation.F source: n_b/n_ion are multiplied by
+    # LATT_CUR%OMEGA (cell volume) before being written to RHOB/RHOION, with nothing
+    # dividing it back out. The raw grid values already carry that factor, so the
+    # correct real-space integral is just sum/ngrid, not sum*(V/ngrid). This is what
+    # produced the "hundreds to thousands of electrons" closure anomaly previously
+    # recorded as unresolved in 00_audit/parameter_map.md section I -- confirmed fixed
+    # below (residual ~1e-6 to 1e-5 e across all 9 points, vs. hundreds before).
+    ngrid = ngx * ngy * ngz
+    closure = (rhob.sum() + rhoion.sum()) / ngrid
 
     dn_cp = FINAL_NELE[tag] - NEUTRAL[tag_struct]
 
