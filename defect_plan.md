@@ -68,9 +68,9 @@ N_total = 4.5·nx·ny.
 
 | structure | nx×ny | N_base | N_strip | N_total | status |
 |---|---|---|---|---|---|
-| Step-8x4 | 8×4 | 128 | 16 | **144** | geometry_only, already built + rendered (confirmed correct — matches formula) |
-| Step-16x4 | 16×4 | 256 | 32 | **288** | geometry_only — poscar regenerated at this size (288 atoms confirmed), **not yet re-rendered**; the previously published report image is still the old Step-8x4 render, not this one |
-| Step-24x4 | 24×4 | 384 | 48 | **432** | planned |
+| Step-8x4 | 8×4 | 128 | 16 | **144** | geometry_only, built + rendered |
+| Step-16x4 | 16×4 | 256 | 32 | **288** | geometry_only, registry bug fixed, rendered (3-panel + whitebg), edge coordination re-checked (see below) |
+| Step-24x4 | 24×4 | 384 | 48 | **432** | geometry_only, built; render pending (Batch 2, low-cost, can run alongside other Batch 2 work) |
 
 Rev 1 had written 160/288/416 — it reused Step-16x4's actual 32-atom strip count for
 all three sizes instead of rescaling with nx·ny. Fixed here; going forward atom counts
@@ -79,8 +79,22 @@ come from `scripts/geom_check.py` output, not a hand-filled table.
 Still open: this is a **fixed-half-coverage** series (both terraces widen together as
 nx grows), not a fixed-strip-width series (only the outer terrace widens) — the two
 are different studies and this round commits to the half-coverage definition only.
-Width must be measured along m̂ = ẑ×t̂ (t̂ = step direction), not as half a
-(non-orthogonal) lattice vector — see the measurement in the Batch 1 results below.
+Width is measured along m̂ = ẑ×t̂ (t̂ = step direction), not as half a raw
+(non-orthogonal) lattice vector — done in `scripts/build_manifest.py`; Step-16x4 comes
+out to 20.37 Å/side (vs. an earlier naive estimate of 23.5 Å, ~13% off).
+
+**Edge classification, re-checked (`scripts/check_step_edges.py`)**: an earlier claim
+that the two edges were "verified NOT equivalent (coordination 12 vs 11)" is
+**retracted** — it compared foot atoms (base layer) using `get_distances(mic=True)`,
+which returns only the single nearest periodic image per atom and can silently miss
+additional images of the same atom in a small cell; the neighbor count itself was
+never audited. Redone with explicit (atom, in-plane lattice shift) enumeration at
+3.2/3.4/3.6 Å cutoffs (stable across all three): the actual upper-edge atoms
+(edge1_top, edge2_top) both have **CN=7 with identical shell composition** (3 below +
+4 in-layer + 0 above). This is suggestive of equivalence but does **not** confirm full
+crystallographic equivalence (registry beyond the first shell not checked), and
+equally does not establish an A/B pair. Status stays open — carried in
+`manifest.json` as `edge_classification_status`, not asserted either way.
 
 ## Correction 3 — island/pit base cells were geometrically infeasible
 

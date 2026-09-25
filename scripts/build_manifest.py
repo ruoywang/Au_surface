@@ -18,7 +18,17 @@ STRUCTS = {
     "Step-24x4": {"path": "Step-24x4.poscar", "facet": "(111) strip", "role": "constrained_model", "note": "new, not yet rendered"},
     "Au211": {"path": "Au211.poscar", "facet": "(211)", "role": "constrained_model", "note": "new"},
     "Au221": {"path": "Au221.poscar", "facet": "(221)", "role": "constrained_model", "note": "new"},
+    "Au332": {"path": "Au332.poscar", "facet": "(332)", "role": "constrained_model", "note": "new (Batch 2)"},
+    "Au554": {"path": "Au554.poscar", "facet": "(554)", "role": "constrained_model", "note": "new (Batch 2)"},
     "Island-7": {"path": "Island-7-6x6.poscar", "facet": "(111)+island", "role": "relaxed_candidate", "note": "new"},
+    "Island-7-8x8": {"path": "Island-7-8x8.poscar", "facet": "(111)+island", "role": "relaxed_candidate",
+                      "note": "new (Batch 2, common cell with Island-19-8x8 for size comparison)"},
+    "Island-19-8x8": {"path": "Island-19-8x8.poscar", "facet": "(111)+island", "role": "relaxed_candidate",
+                       "note": "new (Batch 2, common cell with Island-7-8x8 for size comparison)"},
+    "Pit-7-8x8": {"path": "Pit-7-8x8.poscar", "facet": "(111)+pit", "role": "relaxed_candidate",
+                  "note": "new (Batch 2, common cell with Pit-19-8x8 for size comparison)"},
+    "Pit-19-8x8": {"path": "Pit-19-8x8.poscar", "facet": "(111)+pit", "role": "relaxed_candidate",
+                   "note": "new (Batch 2, common cell with Pit-7-8x8 for size comparison)"},
 }
 
 SRC = "03_pilot/all_defect_structures"
@@ -66,7 +76,8 @@ for name, meta in STRUCTS.items():
 # base_z_span: for the (111)-family structures, this is the span of the 4-layer
 # base only (excludes any added strip/island atoms, which raise all_atoms_z_span)
 zlevel_cache = {}
-for name in ["T", "V1", "A1-fcc", "Pit-7", "Step-8x4", "Step-16x4", "Step-24x4", "Island-7"]:
+for name in ["T", "V1", "A1-fcc", "Pit-7", "Step-8x4", "Step-16x4", "Step-24x4", "Island-7",
+             "Island-7-8x8", "Island-19-8x8", "Pit-7-8x8", "Pit-19-8x8"]:
     a = read(f"{SRC}/{STRUCTS[name]['path']}")
     z = np.round(a.get_positions()[:, 2], 2)
     levels = np.sort(np.unique(z))
@@ -133,6 +144,37 @@ iso = periodic_image_isolation(vac_xy, (cell[0][:2], cell[1][:2]))
 manifest["Pit-7"]["periodic_image_separation"] = iso["defect_image_min_distance"]
 manifest["Pit-7"]["periodic_image_note"] = ("shortest distance between the pit's missing-site footprint and its "
     "nearest lattice-translation copy (geometric disconnection only, not an EDL/response convergence claim)")
+
+# Batch 2: Island-7/19 and Pit-7/19 in a COMMON 8x8 cell (size comparison, not
+# confounded by also changing the cell)
+ref88 = fcc111('Au', size=(8, 8, 4), a=4.158, vacuum=None, orthogonal=False, periodic=True)
+pref88 = ref88.get_positions(); pref88[:, 2] += (5.0 - pref88[:, 2].min())
+
+for tag, n in [("Island-7-8x8", 7), ("Island-19-8x8", 19)]:
+    a = read(f"{SRC}/{tag}.poscar")
+    pos = a.get_positions(); z = np.round(pos[:, 2], 2)
+    island_xy = pos[np.isclose(z, z.max(), atol=0.05)][:, :2]
+    cell = a.get_cell()
+    iso = periodic_image_isolation(island_xy, (cell[0][:2], cell[1][:2]))
+    manifest[tag]["N_base"] = 256
+    manifest[tag]["N_added"] = n
+    manifest[tag]["periodic_image_separation"] = iso["defect_image_min_distance"]
+    manifest[tag]["periodic_image_note"] = ("island-to-own-nearest-lattice-translation-copy distance; geometric "
+        "disconnection only")
+
+for tag, n in [("Pit-7-8x8", 7), ("Pit-19-8x8", 19)]:
+    a = read(f"{SRC}/{tag}.poscar")
+    pos = a.get_positions(); z = np.round(pos[:, 2], 2); top_z = z.max()
+    ref_top_xy = pref88[np.isclose(np.round(pref88[:, 2], 2), top_z, atol=0.05)][:, :2]
+    cur_top_xy = pos[np.isclose(z, top_z, atol=0.05)][:, :2]
+    vac_xy = np.array([xy for xy in ref_top_xy if not np.any(np.all(np.isclose(cur_top_xy, xy, atol=0.15), axis=1))])
+    cell = a.get_cell()
+    iso = periodic_image_isolation(vac_xy, (cell[0][:2], cell[1][:2]))
+    manifest[tag]["N_base"] = 256
+    manifest[tag]["N_removed"] = n
+    manifest[tag]["periodic_image_separation"] = iso["defect_image_min_distance"]
+    manifest[tag]["periodic_image_note"] = ("pit-footprint-to-own-nearest-lattice-translation-copy distance; "
+        "geometric disconnection only")
 
 with open(f"{SRC}/../report_assets/batch1/manifest.json", "w") as f:
     json.dump(manifest, f, indent=2)

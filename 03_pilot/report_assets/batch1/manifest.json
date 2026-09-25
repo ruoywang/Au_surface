@@ -202,6 +202,46 @@
     "pipeline_status": "geometry_only",
     "note": "new"
   },
+  "Au332": {
+    "facet": "(332)",
+    "N_total": 48,
+    "base_z_span": null,
+    "all_atoms_z_span": 9.336,
+    "in_plane_cell_vectors": [
+      [
+        18.59514130088825,
+        0.0
+      ],
+      [
+        -14.876113040710601,
+        4.5548607882129595
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "note": "new (Batch 2)"
+  },
+  "Au554": {
+    "facet": "(554)",
+    "N_total": 40,
+    "base_z_span": null,
+    "all_atoms_z_span": 9.58,
+    "in_plane_cell_vectors": [
+      [
+        14.99188220337927,
+        0.0
+      ],
+      [
+        -26.524099282901783,
+        4.754854911642341
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "note": "new (Batch 2)"
+  },
   "Island-7": {
     "facet": "(111)+island",
     "N_total": 151,
@@ -225,5 +265,101 @@
     "N_added": 7,
     "periodic_image_separation": 11.76059998469466,
     "periodic_image_note": "shortest distance between the island's own atoms and the nearest lattice-translation copy of the same island (not an electronic/EDL isolation claim)"
+  },
+  "Island-7-8x8": {
+    "facet": "(111)+island",
+    "N_total": 263,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 9.6,
+    "in_plane_cell_vectors": [
+      [
+        23.521199969389322,
+        0.0
+      ],
+      [
+        11.760599984694661,
+        20.369956700984908
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.938,
+    "role": "relaxed_candidate",
+    "pipeline_status": "geometry_only",
+    "note": "new (Batch 2, common cell with Island-19-8x8 for size comparison)",
+    "N_base": 256,
+    "N_added": 7,
+    "periodic_image_separation": 17.64089997704199,
+    "periodic_image_note": "island-to-own-nearest-lattice-translation-copy distance; geometric disconnection only"
+  },
+  "Island-19-8x8": {
+    "facet": "(111)+island",
+    "N_total": 275,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 9.6,
+    "in_plane_cell_vectors": [
+      [
+        23.521199969389322,
+        0.0
+      ],
+      [
+        11.760599984694661,
+        20.369956700984908
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.938,
+    "role": "relaxed_candidate",
+    "pipeline_status": "geometry_only",
+    "note": "new (Batch 2, common cell with Island-7-8x8 for size comparison)",
+    "N_base": 256,
+    "N_added": 19,
+    "periodic_image_separation": 11.76059998469466,
+    "periodic_image_note": "island-to-own-nearest-lattice-translation-copy distance; geometric disconnection only"
+  },
+  "Pit-7-8x8": {
+    "facet": "(111)+pit",
+    "N_total": 249,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 7.202,
+    "in_plane_cell_vectors": [
+      [
+        23.521199969389322,
+        0.0
+      ],
+      [
+        11.760599984694661,
+        20.369956700984908
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "relaxed_candidate",
+    "pipeline_status": "geometry_only",
+    "note": "new (Batch 2, common cell with Pit-19-8x8 for size comparison)",
+    "N_base": 256,
+    "N_removed": 7,
+    "periodic_image_separation": 17.640899977041986,
+    "periodic_image_note": "pit-footprint-to-own-nearest-lattice-translation-copy distance; geometric disconnection only"
+  },
+  "Pit-19-8x8": {
+    "facet": "(111)+pit",
+    "N_total": 237,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 7.202,
+    "in_plane_cell_vectors": [
+      [
+        23.521199969389322,
+        0.0
+      ],
+      [
+        11.760599984694661,
+        20.369956700984908
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "relaxed_candidate",
+    "pipeline_status": "geometry_only",
+    "note": "new (Batch 2, common cell with Pit-7-8x8 for size comparison)",
+    "N_base": 256,
+    "N_removed": 19,
+    "periodic_image_separation": 11.760599984694657,
+    "periodic_image_note": "pit-footprint-to-own-nearest-lattice-translation-copy distance; geometric disconnection only"
   }
 }
