@@ -16,7 +16,8 @@
     ],
     "minimum_Au_Au_distance": 2.94,
     "role": "relaxed_candidate",
-    "pipeline_status": "geometry_only",
+    "pipeline_status": "converged",
+    "dft_queue_status": "computed",
     "note": "reused"
   },
   "V1": {
@@ -36,7 +37,8 @@
     ],
     "minimum_Au_Au_distance": 2.94,
     "role": "relaxed_candidate",
-    "pipeline_status": "geometry_only",
+    "pipeline_status": "converged",
+    "dft_queue_status": "computed",
     "note": "reused"
   },
   "A1-fcc": {
@@ -56,7 +58,8 @@
     ],
     "minimum_Au_Au_distance": 2.938,
     "role": "relaxed_candidate",
-    "pipeline_status": "geometry_only",
+    "pipeline_status": "converged",
+    "dft_queue_status": "computed",
     "note": "reused"
   },
   "Pit-7": {
@@ -77,6 +80,7 @@
     "minimum_Au_Au_distance": 2.94,
     "role": "relaxed_candidate",
     "pipeline_status": "geometry_only",
+    "dft_queue_status": "queued",
     "note": "reused geometry, relabeled from point-defect V7 (kept construction tag)",
     "local_note": "pit floor sits at base layer index 2 (3rd of 4); local metal thickness under the pit floor down to the bottom fixed layer is ~2 x d111 = 4.80 A, not the full 7.2 A base span",
     "N_base": 144,
@@ -102,13 +106,14 @@
     "minimum_Au_Au_distance": 2.938,
     "role": "constrained_model",
     "pipeline_status": "geometry_only",
+    "dft_queue_status": "ML_application",
     "note": "rebuilt (registry fix)",
     "L_parallel": 11.761,
     "L_perpendicular": 20.37,
     "terrace_width_each_side": 10.185,
     "N_base": 128,
     "N_added": 16,
-    "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count."
+    "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count. Checked on Step-16x4; the x1/x2 reduced cells carry the identical local edge environment (verified by tiling back to x4, see build_step_reduced.py), so this finding transfers."
   },
   "Step-16x4": {
     "facet": "(111) strip",
@@ -128,13 +133,14 @@
     "minimum_Au_Au_distance": 2.938,
     "role": "constrained_model",
     "pipeline_status": "geometry_only",
+    "dft_queue_status": "ML_application",
     "note": "rebuilt (registry fix)",
     "L_parallel": 11.761,
     "L_perpendicular": 40.74,
     "terrace_width_each_side": 20.37,
     "N_base": 256,
     "N_added": 32,
-    "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count."
+    "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count. Checked on Step-16x4; the x1/x2 reduced cells carry the identical local edge environment (verified by tiling back to x4, see build_step_reduced.py), so this finding transfers."
   },
   "Step-24x4": {
     "facet": "(111) strip",
@@ -154,13 +160,182 @@
     "minimum_Au_Au_distance": 2.938,
     "role": "constrained_model",
     "pipeline_status": "geometry_only",
-    "note": "new, not yet rendered",
+    "dft_queue_status": "ML_application",
+    "note": "rendered",
     "L_parallel": 11.761,
     "L_perpendicular": 61.11,
     "terrace_width_each_side": 30.555,
     "N_base": 384,
     "N_added": 48,
-    "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count."
+    "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count. Checked on Step-16x4; the x1/x2 reduced cells carry the identical local edge environment (verified by tiling back to x4, see build_step_reduced.py), so this finding transfers."
+  },
+  "Step-8x1": {
+    "facet": "(111) strip",
+    "N_total": 36,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 9.6,
+    "in_plane_cell_vectors": [
+      [
+        23.521199969389322,
+        0.0
+      ],
+      [
+        1.4700749980868326,
+        2.5462445876231135
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.938,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "queued",
+    "note": "reduced-cell (Batch 2 correction): same terrace width as Step-8x4, minimal along-step period",
+    "L_parallel": 2.94,
+    "L_perpendicular": 20.37,
+    "terrace_width_each_side": 10.185,
+    "N_base": 32,
+    "N_added": 4,
+    "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count. Checked on Step-16x4; the x1/x2 reduced cells carry the identical local edge environment (verified by tiling back to x4, see build_step_reduced.py), so this finding transfers.",
+    "reduction_note": "along-step period cut from ny=4 to ny=1 (the minimal translation, = one primitive a2 length, 2.94 A); terrace width is UNCHANGED (depends only on nx). Validated: tiling this cell x4 along a2 reproduces the ny=4 build atom-for-atom (build_step_reduced.py). Valid only for an idealized straight, unperturbed step -- kinks/reconstruction/local perturbation need a longer along-step period than this."
+  },
+  "Step-16x1": {
+    "facet": "(111) strip",
+    "N_total": 72,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 9.6,
+    "in_plane_cell_vectors": [
+      [
+        47.042399938778644,
+        0.0
+      ],
+      [
+        1.4700749980868326,
+        2.5462445876231135
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.938,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "queued",
+    "note": "reduced-cell: same terrace width as Step-16x4, minimal along-step period",
+    "L_parallel": 2.94,
+    "L_perpendicular": 40.74,
+    "terrace_width_each_side": 20.37,
+    "N_base": 64,
+    "N_added": 8,
+    "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count. Checked on Step-16x4; the x1/x2 reduced cells carry the identical local edge environment (verified by tiling back to x4, see build_step_reduced.py), so this finding transfers.",
+    "reduction_note": "along-step period cut from ny=4 to ny=1 (the minimal translation, = one primitive a2 length, 2.94 A); terrace width is UNCHANGED (depends only on nx). Validated: tiling this cell x4 along a2 reproduces the ny=4 build atom-for-atom (build_step_reduced.py). Valid only for an idealized straight, unperturbed step -- kinks/reconstruction/local perturbation need a longer along-step period than this."
+  },
+  "Step-24x1": {
+    "facet": "(111) strip",
+    "N_total": 108,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 9.6,
+    "in_plane_cell_vectors": [
+      [
+        70.56359990816796,
+        0.0
+      ],
+      [
+        1.4700749980868326,
+        2.5462445876231135
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.938,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "queued",
+    "note": "reduced-cell: same terrace width as Step-24x4, minimal along-step period",
+    "L_parallel": 2.94,
+    "L_perpendicular": 61.11,
+    "terrace_width_each_side": 30.555,
+    "N_base": 96,
+    "N_added": 12,
+    "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count. Checked on Step-16x4; the x1/x2 reduced cells carry the identical local edge environment (verified by tiling back to x4, see build_step_reduced.py), so this finding transfers.",
+    "reduction_note": "along-step period cut from ny=4 to ny=1 (the minimal translation, = one primitive a2 length, 2.94 A); terrace width is UNCHANGED (depends only on nx). Validated: tiling this cell x4 along a2 reproduces the ny=4 build atom-for-atom (build_step_reduced.py). Valid only for an idealized straight, unperturbed step -- kinks/reconstruction/local perturbation need a longer along-step period than this."
+  },
+  "Step-8x2": {
+    "facet": "(111) strip",
+    "N_total": 72,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 9.6,
+    "in_plane_cell_vectors": [
+      [
+        23.521199969389322,
+        0.0
+      ],
+      [
+        2.9401499961736652,
+        5.092489175246227
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.938,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "validation_candidate",
+    "note": "reduced-cell, 2x along-step margin over Step-8x1",
+    "L_parallel": 5.88,
+    "L_perpendicular": 20.37,
+    "terrace_width_each_side": 10.185,
+    "N_base": 64,
+    "N_added": 8,
+    "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count. Checked on Step-16x4; the x1/x2 reduced cells carry the identical local edge environment (verified by tiling back to x4, see build_step_reduced.py), so this finding transfers.",
+    "reduction_note": "ny=2, a 2x along-step safety margin over the ny=1 minimal cell, in case ny=1 turns out too tight once real electronic/solvent response is checked (not yet tested at DFT level)."
+  },
+  "Step-16x2": {
+    "facet": "(111) strip",
+    "N_total": 144,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 9.6,
+    "in_plane_cell_vectors": [
+      [
+        47.042399938778644,
+        0.0
+      ],
+      [
+        2.9401499961736652,
+        5.092489175246227
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.938,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "validation_candidate",
+    "note": "reduced-cell, 2x along-step margin over Step-16x1",
+    "L_parallel": 5.88,
+    "L_perpendicular": 40.74,
+    "terrace_width_each_side": 20.37,
+    "N_base": 128,
+    "N_added": 16,
+    "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count. Checked on Step-16x4; the x1/x2 reduced cells carry the identical local edge environment (verified by tiling back to x4, see build_step_reduced.py), so this finding transfers.",
+    "reduction_note": "ny=2, a 2x along-step safety margin over the ny=1 minimal cell, in case ny=1 turns out too tight once real electronic/solvent response is checked (not yet tested at DFT level)."
+  },
+  "Step-24x2": {
+    "facet": "(111) strip",
+    "N_total": 216,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 9.6,
+    "in_plane_cell_vectors": [
+      [
+        70.56359990816796,
+        0.0
+      ],
+      [
+        2.9401499961736652,
+        5.092489175246227
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.938,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "validation_candidate",
+    "note": "reduced-cell, 2x along-step margin over Step-24x1",
+    "L_parallel": 5.88,
+    "L_perpendicular": 61.11,
+    "terrace_width_each_side": 30.555,
+    "N_base": 192,
+    "N_added": 24,
+    "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count. Checked on Step-16x4; the x1/x2 reduced cells carry the identical local edge environment (verified by tiling back to x4, see build_step_reduced.py), so this finding transfers.",
+    "reduction_note": "ny=2, a 2x along-step safety margin over the ny=1 minimal cell, in case ny=1 turns out too tight once real electronic/solvent response is checked (not yet tested at DFT level)."
   },
   "Au211": {
     "facet": "(211)",
@@ -180,6 +355,7 @@
     "minimum_Au_Au_distance": 2.94,
     "role": "constrained_model",
     "pipeline_status": "geometry_only",
+    "dft_queue_status": "queued",
     "note": "new"
   },
   "Au221": {
@@ -200,6 +376,7 @@
     "minimum_Au_Au_distance": 2.94,
     "role": "constrained_model",
     "pipeline_status": "geometry_only",
+    "dft_queue_status": "queued",
     "note": "new"
   },
   "Au332": {
@@ -220,6 +397,7 @@
     "minimum_Au_Au_distance": 2.94,
     "role": "constrained_model",
     "pipeline_status": "geometry_only",
+    "dft_queue_status": "queued",
     "note": "new (Batch 2)"
   },
   "Au554": {
@@ -240,6 +418,7 @@
     "minimum_Au_Au_distance": 2.94,
     "role": "constrained_model",
     "pipeline_status": "geometry_only",
+    "dft_queue_status": "queued",
     "note": "new (Batch 2)"
   },
   "Island-7": {
@@ -260,6 +439,7 @@
     "minimum_Au_Au_distance": 2.938,
     "role": "relaxed_candidate",
     "pipeline_status": "geometry_only",
+    "dft_queue_status": "queued",
     "note": "new",
     "N_base": 144,
     "N_added": 7,
@@ -284,6 +464,7 @@
     "minimum_Au_Au_distance": 2.938,
     "role": "relaxed_candidate",
     "pipeline_status": "geometry_only",
+    "dft_queue_status": "validation_candidate",
     "note": "new (Batch 2, common cell with Island-19-8x8 for size comparison)",
     "N_base": 256,
     "N_added": 7,
@@ -308,6 +489,7 @@
     "minimum_Au_Au_distance": 2.938,
     "role": "relaxed_candidate",
     "pipeline_status": "geometry_only",
+    "dft_queue_status": "validation_candidate",
     "note": "new (Batch 2, common cell with Island-7-8x8 for size comparison)",
     "N_base": 256,
     "N_added": 19,
@@ -332,6 +514,7 @@
     "minimum_Au_Au_distance": 2.94,
     "role": "relaxed_candidate",
     "pipeline_status": "geometry_only",
+    "dft_queue_status": "validation_candidate",
     "note": "new (Batch 2, common cell with Pit-19-8x8 for size comparison)",
     "N_base": 256,
     "N_removed": 7,
@@ -356,6 +539,7 @@
     "minimum_Au_Au_distance": 2.94,
     "role": "relaxed_candidate",
     "pipeline_status": "geometry_only",
+    "dft_queue_status": "validation_candidate",
     "note": "new (Batch 2, common cell with Pit-7-8x8 for size comparison)",
     "N_base": 256,
     "N_removed": 19,

@@ -1,0 +1,281 @@
+<title>Au(111) structure library</title>
+<meta name="description" content="Geometry review: every defect/morphology structure built so far, with atom counts and QC checks read directly from coordinates">
+<style>
+  :root{
+    --bg:#faf7f0; --surface:#ffffff; --surface-2:#f2ecdd;
+    --text:#2a2318; --text-2:#6b6152; --text-3:#938a76;
+    --border:#e5dcc5; --border-2:#d6c9a8;
+    --accent:#a5741f; --accent-ink:#7d5817;
+    --fam-point:#5b6b78; --fam-step:#1f6a66; --fam-vicinal:#8a4a2f; --fam-island:#5b7a3f;
+    --shadow: 0 1px 2px rgba(40,30,10,0.06), 0 6px 20px rgba(40,30,10,0.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1a1712; --surface:#231f18; --surface-2:#2b251c;
+      --text:#f0e9d8; --text-2:#bfb39c; --text-3:#8f8570;
+      --border:#3a3224; --border-2:#48402e;
+      --accent:#d9a94a; --accent-ink:#e6bc6c;
+      --fam-point:#93a3b0; --fam-step:#5cbdb6; --fam-vicinal:#d38a63; --fam-island:#8fb56a;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1a1712; --surface:#231f18; --surface-2:#2b251c;
+    --text:#f0e9d8; --text-2:#bfb39c; --text-3:#8f8570;
+    --border:#3a3224; --border-2:#48402e;
+    --accent:#d9a94a; --accent-ink:#e6bc6c;
+    --fam-point:#93a3b0; --fam-step:#5cbdb6; --fam-vicinal:#d38a63; --fam-island:#8fb56a;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  body{ background:var(--bg); color:var(--text); margin:0;
+    font-family:"Source Sans 3",-apple-system,Segoe UI,Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 20px 90px; }
+  h1,h2,h3{ font-family:"Fraunces",Georgia,serif; font-weight:600; text-wrap:balance; margin:0; color:var(--text); }
+  .mono{ font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace; font-variant-numeric:tabular-nums; }
+  a{ color:var(--accent-ink); }
+
+  header{ padding:44px 0 28px; border-bottom:1px solid var(--border); }
+  .eyebrow{ font-size:12.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--accent-ink); font-weight:600; margin-bottom:10px; }
+  header h1{ font-size:clamp(26px,4vw,38px); line-height:1.1; }
+  header p{ margin-top:14px; color:var(--text-2); font-size:15.5px; max-width:680px; line-height:1.6; }
+
+  nav.jump{ display:flex; gap:8px; flex-wrap:wrap; margin-top:20px; }
+  nav.jump a{ font-size:12.5px; text-decoration:none; color:var(--text-2); background:var(--surface-2);
+    border:1px solid var(--border-2); border-radius:20px; padding:5px 13px; }
+
+  section{ padding:44px 0; border-bottom:1px solid var(--border); }
+  section:last-of-type{ border-bottom:none; }
+  .kicker{ font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-3); font-weight:600; margin-bottom:8px; }
+  section h2{ font-size:25px; margin-bottom:6px; }
+  section > p.lead{ color:var(--text-2); max-width:680px; line-height:1.6; margin:10px 0 26px; font-size:14.5px; }
+
+  .tblwrap{ overflow-x:auto; border:1px solid var(--border); border-radius:12px; background:var(--surface); }
+  table{ width:100%; border-collapse:collapse; font-size:12.5px; min-width:760px; }
+  th,td{ padding:8px 11px; text-align:right; border-bottom:1px solid var(--border); white-space:nowrap; }
+  th:first-child,td:first-child{ text-align:left; }
+  th{ color:var(--text-3); font-weight:600; font-size:10.5px; letter-spacing:.03em; text-transform:uppercase; background:var(--surface-2); position:sticky; top:0; }
+  td{ font-family:"IBM Plex Mono",monospace; color:var(--text); font-variant-numeric:tabular-nums; }
+  td:first-child{ font-family:"Source Sans 3",sans-serif; font-weight:600; }
+  tr:last-child td{ border-bottom:none; }
+  .fam-dot{ display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:7px; }
+
+  .card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:22px; box-shadow:var(--shadow); margin-bottom:26px; }
+  .card:last-child{ margin-bottom:0; }
+  .card img{ width:100%; display:block; border-radius:10px; background:#fff; margin-top:12px; }
+  .card .head{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+  .card h3{ font-size:20px; display:flex; align-items:center; }
+  .card .meta{ display:flex; gap:16px; flex-wrap:wrap; font-size:12.5px; color:var(--text-3); }
+  .card .meta b{ color:var(--text); font-family:"IBM Plex Mono",monospace; font-weight:600; }
+  .card p.note{ color:var(--text-2); font-size:14px; line-height:1.55; margin:12px 0 0; }
+
+  .callout{ background:var(--surface-2); border:1px solid var(--border-2); border-left:4px solid var(--accent);
+    border-radius:10px; padding:16px 20px; margin-top:16px; font-size:13.5px; color:var(--text-2); line-height:1.55; }
+  .callout b{ color:var(--text); }
+
+  footer{ padding:30px 0 10px; color:var(--text-3); font-size:12px; line-height:1.6; }
+  footer code{ font-family:"IBM Plex Mono",monospace; background:var(--surface-2); padding:1px 5px; border-radius:4px; }
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Geometry review · no DFT submitted on any of this</div>
+  <h1>Au(111) structure library</h1>
+  <p>Every structure built so far for the defect/morphology plan, with the actual atom counts, thicknesses and
+  isolation checks read straight from the coordinates (via <code class="mono">build_manifest.py</code>) rather than
+  typed by hand. Four families: the original point defects (kept for regression), the step-edge terrace series, the
+  true crystallographic vicinal slabs, and the island/pit size comparison.</p>
+  <nav class="jump">
+    <a href="#overview">overview table</a>
+    <a href="#points">point defects</a>
+    <a href="#steps">step terraces</a>
+    <a href="#vicinal">vicinal slabs</a>
+    <a href="#islands">island / pit sizes</a>
+  </nav>
+</header>
+
+<section id="overview">
+  <div class="kicker">All 16 structures</div>
+  <h2>Atom counts and geometry checks</h2>
+  <p class="lead">Every number below comes from <code class="mono">manifest.json</code>, regenerated from the actual
+  POSCAR files. base_z_span is the 4-layer base only; all_atoms_z_span includes any added strip/island atoms.</p>
+  <div class="tblwrap">
+  <table id="overviewTable"></table>
+  </div>
+</section>
+
+<section id="points">
+  <div class="kicker" style="color:var(--fam-point)">Point defects — reused, not rebuilt</div>
+  <h2>T, V1, A1-fcc, Pit-7</h2>
+  <p class="lead">The original three-point pilot plus V7 reclassified as a monolayer pit. Kept for code regression
+  and minimal-perturbation coverage; defect density stated explicitly rather than implied by the name.</p>
+
+  <div class="card">
+    <div class="head"><h3>T · flat terrace</h3><span class="meta"><b>64</b> atoms · <b>7.2 Å</b> span</span></div>
+    <img src="structs/T.png" alt="T structure">
+    <p class="note">No defect. Reference for everything else.</p>
+  </div>
+  <div class="card">
+    <div class="head"><h3>V1 · single vacancy</h3><span class="meta"><b>63</b> atoms · 6.25% of the 16 top-layer sites</span></div>
+    <img src="structs/V1.png" alt="V1 structure">
+    <p class="note">One Au removed from a 4×4 top layer.</p>
+  </div>
+  <div class="card">
+    <div class="head"><h3>A1-fcc · single adatom</h3><span class="meta"><b>65</b> atoms · base 7.2 Å / all-atoms 9.6 Å</span></div>
+    <img src="structs/A1_fcc.png" alt="A1-fcc structure">
+    <p class="note">One Au added at the fcc-continuation hollow site.</p>
+  </div>
+  <div class="card">
+    <div class="head"><h3>Pit-7 (= V7) · single-layer pit</h3><span class="meta"><b>137</b> atoms · 6×6 base</span></div>
+    <img src="structs/Pit-7_whitebg.png" alt="Pit-7 structure">
+    <p class="note">Center + 6 first-shell neighbors removed, depth 1 layer. Reclassified from a point defect into
+    the pit family — same geometry, same construction tag kept, no rebuild. Local metal thickness under the pit
+    floor is ~4.8 Å (2 layers), not the full 7.2 Å base span.</p>
+  </div>
+</section>
+
+<section id="steps">
+  <div class="kicker" style="color:var(--fam-step)">Step-edge terraces</div>
+  <h2>Step-8x4 / 16x4 / 24x4</h2>
+  <p class="lead">Half the top face of a 4-layer (111) slab gets one extra full Au layer, forming a raised strip
+  bounded by two step edges — a fixed-half-coverage series where both terraces widen together as the cell grows.
+  Terrace width is measured perpendicular to the step direction, not as half a raw lattice vector.</p>
+
+  <div class="callout">
+    <b>Edge classification — open, not resolved.</b> An earlier claim that the two edges were "verified not
+    equivalent" (coordination 12 vs 11) is retracted: that check used the wrong atoms (step feet, not the actual
+    upper-edge atoms) and a neighbor-counting call that can silently miss periodic images in a small cell. Redone
+    properly (<code class="mono">check_step_edges.py</code>, explicit lattice-shift enumeration, 3.2/3.4/3.6 Å
+    cutoffs, stable): both upper-edge atoms have <b>CN=7</b> with identical shell composition (3 below + 4 in-layer
+    + 0 above). That's suggestive of equivalence but doesn't confirm it — registry beyond the first shell hasn't
+    been checked. Labeled "edge 1 / edge 2" in the diagrams below, deliberately not A/B.
+  </div>
+
+  <div class="card" style="margin-top:22px">
+    <div class="head"><h3>Step-8x4</h3><span class="meta"><b>144</b> atoms · 10.2 Å/side</span></div>
+    <img src="structs/Step-8x4_whitebg.png" alt="Step-8x4 structure">
+  </div>
+  <div class="card">
+    <div class="head"><h3>Step-16x4</h3><span class="meta"><b>288</b> atoms · 20.4 Å/side</span></div>
+    <img src="structs/Step-16x4_whitebg.png" alt="Step-16x4 structure">
+  </div>
+  <div class="card">
+    <div class="head"><h3>Step-24x4</h3><span class="meta"><b>432</b> atoms · 30.6 Å/side</span></div>
+    <img src="structs/Step-24x4_whitebg.png" alt="Step-24x4 structure">
+    <p class="note">Widest point of the series — a convergence candidate, not a requirement for the next batch.</p>
+  </div>
+</section>
+
+<section id="vicinal">
+  <div class="kicker" style="color:var(--fam-vicinal)">True crystallographic vicinal slabs</div>
+  <h2>Au(211), Au(221), Au(332), Au(554)</h2>
+  <p class="lead">Cut directly from bulk Au along the stated (hkl) — the (hkl) normal is aligned to z, thickness is
+  set by real geometry (not a layer count that means something different for every facet), and the back
+  termination is left natural rather than forced flat. Convention: <b>A-type = {100} microfacet, B-type = {111}
+  microfacet.</b></p>
+
+  <div class="card">
+    <div class="head"><h3>Au(211) — A-type</h3><span class="meta"><b>48</b> atoms · 9.34 Å thick · {100} step</span></div>
+    <img src="structs/Au211_whitebg.png" alt="Au211 structure">
+    <p class="note">3(111)×(100). Different microfacet family from the other three — differs in step type <i>and</i>
+    terrace width simultaneously, so it can't cleanly isolate "step type" alone against the 221/332/554 trio.</p>
+  </div>
+  <div class="card">
+    <div class="head"><h3>Au(221) — B-type</h3><span class="meta"><b>72</b> atoms · 8.78 Å thick · {111} step</span></div>
+    <img src="structs/Au221_whitebg.png" alt="Au221 structure">
+    <p class="note">n(111)×(111), narrow end of the width series.</p>
+  </div>
+  <div class="card">
+    <div class="head"><h3>Au(332) — B-type</h3><span class="meta"><b>48</b> atoms · 9.34 Å thick · {111} step</span></div>
+    <img src="structs/Au332_whitebg.png" alt="Au332 structure">
+    <p class="note">Same family as Au(221)/Au(554), middle of the width series.</p>
+  </div>
+  <div class="card">
+    <div class="head"><h3>Au(554) — B-type</h3><span class="meta"><b>40</b> atoms · 9.58 Å thick · {111} step</span></div>
+    <img src="structs/Au554_whitebg.png" alt="Au554 structure">
+    <p class="note">Widest point of the 221/332/554 series.</p>
+  </div>
+</section>
+
+<section id="islands">
+  <div class="kicker" style="color:var(--fam-island)">Island / pit size comparison</div>
+  <h2>7 vs. 19 atoms, same cell</h2>
+  <p class="lead">The point of this set is that Island-7 and Island-19 (and Pit-7 and Pit-19) sit in the <b>same</b>
+  8×8 cell — so the 7-vs-19 size comparison isn't confounded by also changing the cell. Compact shapes only;
+  elongated shapes are a later pass. The earlier Island-7 (6×6 cell, below) predates this common-cell setup and is
+  kept for reference.</p>
+
+  <div class="card">
+    <div class="head"><h3>Island-7-8x8</h3><span class="meta"><b>263</b> atoms · image sep. 17.6 Å</span></div>
+    <img src="structs/Island-7-8x8_whitebg.png" alt="Island-7-8x8 structure">
+  </div>
+  <div class="card">
+    <div class="head"><h3>Island-19-8x8</h3><span class="meta"><b>275</b> atoms · image sep. 11.8 Å</span></div>
+    <img src="structs/Island-19-8x8_whitebg.png" alt="Island-19-8x8 structure">
+    <p class="note">Classic centered-hexagon 19 = center + 6 + 12. Still finite, but with less clearance from its
+    own periodic image than the 7-atom version in the same cell — a real number to carry into any size-convergence
+    check later, not a red flag on its own.</p>
+  </div>
+  <div class="card">
+    <div class="head"><h3>Pit-7-8x8</h3><span class="meta"><b>249</b> atoms · image sep. 17.6 Å</span></div>
+    <img src="structs/Pit-7-8x8_whitebg.png" alt="Pit-7-8x8 structure">
+  </div>
+  <div class="card">
+    <div class="head"><h3>Pit-19-8x8</h3><span class="meta"><b>237</b> atoms · image sep. 11.8 Å</span></div>
+    <img src="structs/Pit-19-8x8_whitebg.png" alt="Pit-19-8x8 structure">
+  </div>
+  <div class="card">
+    <div class="head"><h3>Island-7 (6×6, earlier version)</h3><span class="meta"><b>151</b> atoms · image sep. 11.8 Å</span></div>
+    <img src="structs/Island-7-6x6_whitebg.png" alt="Island-7 6x6 structure">
+    <p class="note">Predates the common-cell setup above — kept for reference, not for the size comparison itself.</p>
+  </div>
+</section>
+
+<footer>
+  Generated from <code>/anvil/scratch/x-rywang/Au_Cl/03_pilot</code> · full source, scripts, and the geometry
+  manifest are on <a href="https://github.com/ruoywang/Au_surface">github.com/ruoywang/Au_surface</a> · decision
+  log in <code>defect_plan.md</code> and <code>00_audit/parameter_map.md</code>.
+</footer>
+
+</div>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<script>
+(function(){
+  const DATA = {"T": {"facet": "(111)", "N_total": 64, "base_z_span": 7.2, "all_atoms_z_span": 7.202, "in_plane_cell_vectors": [[11.760599984694661, 0.0], [5.8802999923473305, 10.184978350492454]], "minimum_Au_Au_distance": 2.94, "role": "relaxed_candidate", "pipeline_status": "geometry_only", "note": "reused"}, "V1": {"facet": "(111)", "N_total": 63, "base_z_span": 7.2, "all_atoms_z_span": 7.202, "in_plane_cell_vectors": [[11.760599984694661, 0.0], [5.8802999923473305, 10.184978350492454]], "minimum_Au_Au_distance": 2.94, "role": "relaxed_candidate", "pipeline_status": "geometry_only", "note": "reused"}, "A1-fcc": {"facet": "(111)", "N_total": 65, "base_z_span": 7.2, "all_atoms_z_span": 9.6, "in_plane_cell_vectors": [[11.760599984694661, 0.0], [5.8802999923473305, 10.184978350492454]], "minimum_Au_Au_distance": 2.938, "role": "relaxed_candidate", "pipeline_status": "geometry_only", "note": "reused"}, "Pit-7": {"facet": "(111)", "N_total": 137, "base_z_span": 7.2, "all_atoms_z_span": 7.202, "in_plane_cell_vectors": [[17.64089997704199, 0.0], [8.820449988520995, 15.27746752573868]], "minimum_Au_Au_distance": 2.94, "role": "relaxed_candidate", "pipeline_status": "geometry_only", "note": "reused geometry, relabeled from point-defect V7 (kept construction tag)", "local_note": "pit floor sits at base layer index 2 (3rd of 4); local metal thickness under the pit floor down to the bottom fixed layer is ~2 x d111 = 4.80 A, not the full 7.2 A base span", "N_base": 144, "N_removed": 7, "periodic_image_separation": 11.76059998469466, "periodic_image_note": "shortest distance between the pit's missing-site footprint and its nearest lattice-translation copy (geometric disconnection only, not an EDL/response convergence claim)"}, "Step-8x4": {"facet": "(111) strip", "N_total": 144, "base_z_span": 7.2, "all_atoms_z_span": 9.6, "in_plane_cell_vectors": [[23.521199969389322, 0.0], [5.8802999923473305, 10.184978350492454]], "minimum_Au_Au_distance": 2.938, "role": "constrained_model", "pipeline_status": "geometry_only", "note": "rebuilt (registry fix)", "L_parallel": 11.761, "L_perpendicular": 20.37, "terrace_width_each_side": 10.185, "N_base": 128, "N_added": 16, "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count."}, "Step-16x4": {"facet": "(111) strip", "N_total": 288, "base_z_span": 7.2, "all_atoms_z_span": 9.6, "in_plane_cell_vectors": [[47.042399938778644, 0.0], [5.8802999923473305, 10.184978350492454]], "minimum_Au_Au_distance": 2.938, "role": "constrained_model", "pipeline_status": "geometry_only", "note": "rebuilt (registry fix)", "L_parallel": 11.761, "L_perpendicular": 40.74, "terrace_width_each_side": 20.37, "N_base": 256, "N_added": 32, "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count."}, "Step-24x4": {"facet": "(111) strip", "N_total": 432, "base_z_span": 7.2, "all_atoms_z_span": 9.6, "in_plane_cell_vectors": [[70.56359990816796, 0.0], [5.8802999923473305, 10.184978350492454]], "minimum_Au_Au_distance": 2.938, "role": "constrained_model", "pipeline_status": "geometry_only", "note": "new, not yet rendered", "L_parallel": 11.761, "L_perpendicular": 61.11, "terrace_width_each_side": 30.555, "N_base": 384, "N_added": 48, "edge_classification_status": "re-checked with explicit periodic-neighbor enumeration (3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not the actual edge-top atoms, and used an unaudited neighbor count."}, "Au211": {"facet": "(211)", "N_total": 48, "base_z_span": null, "all_atoms_z_span": 9.336, "in_plane_cell_vectors": [[7.201867257871392, 0.0], [0.0, 11.760599984694661]], "minimum_Au_Au_distance": 2.94, "role": "constrained_model", "pipeline_status": "geometry_only", "note": "new"}, "Au221": {"facet": "(221)", "N_total": 72, "base_z_span": null, "all_atoms_z_span": 8.776, "in_plane_cell_vectors": [[15.277467525738682, 0.0], [12.731222938115568, 8.444937921619085]], "minimum_Au_Au_distance": 2.94, "role": "constrained_model", "pipeline_status": "geometry_only", "note": "new"}, "Au332": {"facet": "(332)", "N_total": 48, "base_z_span": null, "all_atoms_z_span": 9.336, "in_plane_cell_vectors": [[18.59514130088825, 0.0], [-14.876113040710601, 4.5548607882129595]], "minimum_Au_Au_distance": 2.94, "role": "constrained_model", "pipeline_status": "geometry_only", "note": "new (Batch 2)"}, "Au554": {"facet": "(554)", "N_total": 40, "base_z_span": null, "all_atoms_z_span": 9.58, "in_plane_cell_vectors": [[14.99188220337927, 0.0], [-26.524099282901783, 4.754854911642341]], "minimum_Au_Au_distance": 2.94, "role": "constrained_model", "pipeline_status": "geometry_only", "note": "new (Batch 2)"}, "Island-7": {"facet": "(111)+island", "N_total": 151, "base_z_span": 7.2, "all_atoms_z_span": 9.6, "in_plane_cell_vectors": [[17.64089997704199, 0.0], [8.820449988520995, 15.27746752573868]], "minimum_Au_Au_distance": 2.938, "role": "relaxed_candidate", "pipeline_status": "geometry_only", "note": "new", "N_base": 144, "N_added": 7, "periodic_image_separation": 11.76059998469466, "periodic_image_note": "shortest distance between the island's own atoms and the nearest lattice-translation copy of the same island (not an electronic/EDL isolation claim)"}, "Island-7-8x8": {"facet": "(111)+island", "N_total": 263, "base_z_span": 7.2, "all_atoms_z_span": 9.6, "in_plane_cell_vectors": [[23.521199969389322, 0.0], [11.760599984694661, 20.369956700984908]], "minimum_Au_Au_distance": 2.938, "role": "relaxed_candidate", "pipeline_status": "geometry_only", "note": "new (Batch 2, common cell with Island-19-8x8 for size comparison)", "N_base": 256, "N_added": 7, "periodic_image_separation": 17.64089997704199, "periodic_image_note": "island-to-own-nearest-lattice-translation-copy distance; geometric disconnection only"}, "Island-19-8x8": {"facet": "(111)+island", "N_total": 275, "base_z_span": 7.2, "all_atoms_z_span": 9.6, "in_plane_cell_vectors": [[23.521199969389322, 0.0], [11.760599984694661, 20.369956700984908]], "minimum_Au_Au_distance": 2.938, "role": "relaxed_candidate", "pipeline_status": "geometry_only", "note": "new (Batch 2, common cell with Island-7-8x8 for size comparison)", "N_base": 256, "N_added": 19, "periodic_image_separation": 11.76059998469466, "periodic_image_note": "island-to-own-nearest-lattice-translation-copy distance; geometric disconnection only"}, "Pit-7-8x8": {"facet": "(111)+pit", "N_total": 249, "base_z_span": 7.2, "all_atoms_z_span": 7.202, "in_plane_cell_vectors": [[23.521199969389322, 0.0], [11.760599984694661, 20.369956700984908]], "minimum_Au_Au_distance": 2.94, "role": "relaxed_candidate", "pipeline_status": "geometry_only", "note": "new (Batch 2, common cell with Pit-19-8x8 for size comparison)", "N_base": 256, "N_removed": 7, "periodic_image_separation": 17.640899977041986, "periodic_image_note": "pit-footprint-to-own-nearest-lattice-translation-copy distance; geometric disconnection only"}, "Pit-19-8x8": {"facet": "(111)+pit", "N_total": 237, "base_z_span": 7.2, "all_atoms_z_span": 7.202, "in_plane_cell_vectors": [[23.521199969389322, 0.0], [11.760599984694661, 20.369956700984908]], "minimum_Au_Au_distance": 2.94, "role": "relaxed_candidate", "pipeline_status": "geometry_only", "note": "new (Batch 2, common cell with Pit-7-8x8 for size comparison)", "N_base": 256, "N_removed": 19, "periodic_image_separation": 11.760599984694657, "periodic_image_note": "pit-footprint-to-own-nearest-lattice-translation-copy distance; geometric disconnection only"}};
+
+  const FAMILY = {
+    T:'point', V1:'point', 'A1-fcc':'point', 'Pit-7':'point',
+    'Step-8x4':'step', 'Step-16x4':'step', 'Step-24x4':'step',
+    Au211:'vicinal', Au221:'vicinal', Au332:'vicinal', Au554:'vicinal',
+    'Island-7':'island', 'Island-7-8x8':'island', 'Island-19-8x8':'island',
+    'Pit-7-8x8':'island', 'Pit-19-8x8':'island'
+  };
+  const FAM_COLOR = { point:'var(--fam-point)', step:'var(--fam-step)', vicinal:'var(--fam-vicinal)', island:'var(--fam-island)' };
+  const ORDER = ['T','V1','A1-fcc','Pit-7','Step-8x4','Step-16x4','Step-24x4','Au211','Au221','Au332','Au554',
+                 'Island-7','Island-7-8x8','Island-19-8x8','Pit-7-8x8','Pit-19-8x8'];
+
+  const table = document.getElementById('overviewTable');
+  const cols = [
+    ['ID','id'], ['Facet','facet'], ['N total','N_total'], ['N base','N_base'], ['N added','N_added'],
+    ['N removed','N_removed'], ['base_z_span (Å)','base_z_span'], ['all_atoms_z_span (Å)','all_atoms_z_span'],
+    ['Terrace/side (Å)','terrace_width_each_side'], ['Image sep. (Å)','periodic_image_separation'],
+    ['Min Au–Au (Å)','minimum_Au_Au_distance'], ['Role','role'], ['Status','pipeline_status']
+  ];
+  let thead = '<thead><tr>' + cols.map(c=>`<th>${c[0]}</th>`).join('') + '</tr></thead>';
+  let rows = '';
+  ORDER.forEach(id=>{
+    const d = DATA[id]; if(!d) return;
+    const fam = FAMILY[id];
+    rows += '<tr>' + cols.map(([label,key])=>{
+      if(key==='id') return `<td><span class="fam-dot" style="background:${FAM_COLOR[fam]}"></span>${id}</td>`;
+      let v = d[key];
+      if(v===undefined || v===null) return '<td>—</td>';
+      if(typeof v === 'number') v = (Math.abs(v)<1 && v!==0) ? v.toFixed(3) : (Number.isInteger(v)?v:v.toFixed(2));
+      return `<td>${v}</td>`;
+    }).join('') + '</tr>';
+  });
+  table.innerHTML = thead + '<tbody>' + rows + '</tbody>';
+})();
+</script>

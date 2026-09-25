@@ -203,6 +203,53 @@ actually-measured periodic distance (not a nominal one). Compact and elongated i
 use the same visual scale; different layers/defect atoms may be color-distinguished
 but never rendered with occlusion hiding overlapping atoms.
 
+## DFT budget triage (rev 3) — geometry library ≠ DFT queue
+
+Every structure built above is a **geometry candidate**, not an automatic DFT submission.
+Two things were being conflated in rev 2 and are now split:
+
+1. **Structure family coverage** (flat / straight step / island / pit — the actual
+   research question) vs. **size variants within a family** (Step-8x4 vs -16x4 vs -24x4;
+   Island-7 vs -19; Au221 vs -332 vs -554). Adding a size variant is not the same as
+   adding a physical environment that needs its own training coverage.
+2. **What's geometrically built** vs. **what should be computed next**. A structure can
+   be a legitimate, finished geometry and still not belong in the next DFT batch.
+
+**Step series was carrying 4x redundant along-step repeats for no physical reason.**
+The strip construction uses ny=4 along the step direction (`a2`) with no kink or
+perturbation breaking translational symmetry there — an idealized straight step has
+no periodicity requirement beyond the primitive translation (2.94 Å = one nearest-
+neighbor spacing). Built and validated (`scripts/build_step_reduced.py`): Step-8x1/
+16x1/24x1 at ny=1, and Step-8x2/16x2/24x2 at ny=2 as a safety margin. Validation: the
+ny=1 cell tiled ×4 along `a2` reproduces the ny=4 build's coordinates atom-for-atom.
+Terrace width (which depends only on `nx`) is unchanged — Step-24x1 keeps the full
+30.6 Å/side terrace at 108 atoms instead of 432. This only holds for the idealized
+straight step; a kink or any along-edge perturbation needs a longer period than this
+and should NOT be built by naively shrinking ny.
+
+**`dft_queue_status` field** (in `manifest.json`, separate from `role`/`pipeline_status`):
+- `computed` — T/V1/A1-fcc, already has DFT results
+- `queued` — small (≲110 atoms), candidate for the next DFT batch: Pit-7 (137 already
+  built, kept as the minor point-defect supplement), Step-8x1/16x1/24x1, Au211/221/332/554,
+  Island-7 (6×6, 151 atoms)
+- `validation_candidate` — kept for a later size/isolation check, not bulk-computed now:
+  Step-8x2/16x2/24x2, Island-7-8x8/Island-19-8x8/Pit-7-8x8/Pit-19-8x8
+- `ML_application` — geometry/render reference and large-system ML testing only, not in
+  the near-term DFT queue: Step-8x4/16x4/24x4 (superseded for DFT purposes by the x1
+  reduced cells; kept because they're already built, rendered, and useful as an ML/
+  large-system reference)
+
+None of the `validation_candidate`/`ML_application` entries are deleted — they stay in
+the geometry library. The high-index vicinal slabs (40–72 atoms each) are already small
+enough to be strong first-batch DFT candidates; picking which 2 of the 4 answer the most
+useful question is a separate scientific call, not made here.
+
+k-points, NELECT, and net charge are NOT carried over unchanged when a cell shrinks —
+each reduced cell needs its own k-mesh (denser along the direction that got shorter)
+and its own electron count scaled to the same target potential, not the same absolute
+charge. None of this has been set up yet; it's a reminder for whoever builds the actual
+DFT inputs for the reduced cells, not something resolved by the geometry step above.
+
 ## Phase 2 — recorded, not built this round
 
 Au(100) flat reference; one (100)-terrace stepped surface (exact Miller index TBD);

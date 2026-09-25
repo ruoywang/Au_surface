@@ -8,28 +8,57 @@ import numpy as np
 from ase.io import read
 
 STRUCTS = {
-    "T": {"path": "T.poscar", "facet": "(111)", "role": "relaxed_candidate", "note": "reused"},
-    "V1": {"path": "V1.poscar", "facet": "(111)", "role": "relaxed_candidate", "note": "reused"},
-    "A1-fcc": {"path": "A1_fcc.poscar", "facet": "(111)", "role": "relaxed_candidate", "note": "reused"},
+    "T": {"path": "T.poscar", "facet": "(111)", "role": "relaxed_candidate", "note": "reused", "dft": "computed"},
+    "V1": {"path": "V1.poscar", "facet": "(111)", "role": "relaxed_candidate", "note": "reused", "dft": "computed"},
+    "A1-fcc": {"path": "A1_fcc.poscar", "facet": "(111)", "role": "relaxed_candidate", "note": "reused", "dft": "computed"},
     "Pit-7": {"path": "V7.poscar", "facet": "(111)", "role": "relaxed_candidate",
-              "note": "reused geometry, relabeled from point-defect V7 (kept construction tag)"},
-    "Step-8x4": {"path": "Step-8x4.poscar", "facet": "(111) strip", "role": "constrained_model", "note": "rebuilt (registry fix)"},
-    "Step-16x4": {"path": "Step-16x4.poscar", "facet": "(111) strip", "role": "constrained_model", "note": "rebuilt (registry fix)"},
-    "Step-24x4": {"path": "Step-24x4.poscar", "facet": "(111) strip", "role": "constrained_model", "note": "new, not yet rendered"},
-    "Au211": {"path": "Au211.poscar", "facet": "(211)", "role": "constrained_model", "note": "new"},
-    "Au221": {"path": "Au221.poscar", "facet": "(221)", "role": "constrained_model", "note": "new"},
-    "Au332": {"path": "Au332.poscar", "facet": "(332)", "role": "constrained_model", "note": "new (Batch 2)"},
-    "Au554": {"path": "Au554.poscar", "facet": "(554)", "role": "constrained_model", "note": "new (Batch 2)"},
-    "Island-7": {"path": "Island-7-6x6.poscar", "facet": "(111)+island", "role": "relaxed_candidate", "note": "new"},
+              "note": "reused geometry, relabeled from point-defect V7 (kept construction tag)", "dft": "queued"},
+    "Step-8x4": {"path": "Step-8x4.poscar", "facet": "(111) strip", "role": "constrained_model", "note": "rebuilt (registry fix)",
+                 "dft": "ML_application"},
+    "Step-16x4": {"path": "Step-16x4.poscar", "facet": "(111) strip", "role": "constrained_model", "note": "rebuilt (registry fix)",
+                  "dft": "ML_application"},
+    "Step-24x4": {"path": "Step-24x4.poscar", "facet": "(111) strip", "role": "constrained_model", "note": "rendered",
+                  "dft": "ML_application"},
+    "Step-8x1": {"path": "Step-8x1.poscar", "facet": "(111) strip", "role": "constrained_model",
+                 "note": "reduced-cell (Batch 2 correction): same terrace width as Step-8x4, minimal along-step period",
+                 "dft": "queued"},
+    "Step-16x1": {"path": "Step-16x1.poscar", "facet": "(111) strip", "role": "constrained_model",
+                  "note": "reduced-cell: same terrace width as Step-16x4, minimal along-step period", "dft": "queued"},
+    "Step-24x1": {"path": "Step-24x1.poscar", "facet": "(111) strip", "role": "constrained_model",
+                  "note": "reduced-cell: same terrace width as Step-24x4, minimal along-step period", "dft": "queued"},
+    "Step-8x2": {"path": "Step-8x2.poscar", "facet": "(111) strip", "role": "constrained_model",
+                 "note": "reduced-cell, 2x along-step margin over Step-8x1", "dft": "validation_candidate"},
+    "Step-16x2": {"path": "Step-16x2.poscar", "facet": "(111) strip", "role": "constrained_model",
+                  "note": "reduced-cell, 2x along-step margin over Step-16x1", "dft": "validation_candidate"},
+    "Step-24x2": {"path": "Step-24x2.poscar", "facet": "(111) strip", "role": "constrained_model",
+                  "note": "reduced-cell, 2x along-step margin over Step-24x1", "dft": "validation_candidate"},
+    "Au211": {"path": "Au211.poscar", "facet": "(211)", "role": "constrained_model", "note": "new", "dft": "queued"},
+    "Au221": {"path": "Au221.poscar", "facet": "(221)", "role": "constrained_model", "note": "new", "dft": "queued"},
+    "Au332": {"path": "Au332.poscar", "facet": "(332)", "role": "constrained_model", "note": "new (Batch 2)", "dft": "queued"},
+    "Au554": {"path": "Au554.poscar", "facet": "(554)", "role": "constrained_model", "note": "new (Batch 2)", "dft": "queued"},
+    "Island-7": {"path": "Island-7-6x6.poscar", "facet": "(111)+island", "role": "relaxed_candidate", "note": "new",
+                 "dft": "queued"},
     "Island-7-8x8": {"path": "Island-7-8x8.poscar", "facet": "(111)+island", "role": "relaxed_candidate",
-                      "note": "new (Batch 2, common cell with Island-19-8x8 for size comparison)"},
+                      "note": "new (Batch 2, common cell with Island-19-8x8 for size comparison)",
+                      "dft": "validation_candidate"},
     "Island-19-8x8": {"path": "Island-19-8x8.poscar", "facet": "(111)+island", "role": "relaxed_candidate",
-                       "note": "new (Batch 2, common cell with Island-7-8x8 for size comparison)"},
+                       "note": "new (Batch 2, common cell with Island-7-8x8 for size comparison)",
+                       "dft": "validation_candidate"},
     "Pit-7-8x8": {"path": "Pit-7-8x8.poscar", "facet": "(111)+pit", "role": "relaxed_candidate",
-                  "note": "new (Batch 2, common cell with Pit-19-8x8 for size comparison)"},
+                  "note": "new (Batch 2, common cell with Pit-19-8x8 for size comparison)",
+                  "dft": "validation_candidate"},
     "Pit-19-8x8": {"path": "Pit-19-8x8.poscar", "facet": "(111)+pit", "role": "relaxed_candidate",
-                   "note": "new (Batch 2, common cell with Pit-7-8x8 for size comparison)"},
+                   "note": "new (Batch 2, common cell with Pit-7-8x8 for size comparison)",
+                   "dft": "validation_candidate"},
 }
+
+# dft field meaning (separate axis from role/pipeline_status -- this is about
+# near-term DFT budget intent, not physical role or build progress):
+#   computed             -- already has DFT results (the original 3-point pilot)
+#   queued               -- small (<=~110 atoms), candidate for the next DFT batch
+#   validation_candidate -- kept for a later size/isolation check, not bulk-computed now
+#   ML_application        -- geometry/render reference and large-system ML testing only,
+#                            explicitly NOT in the near-term DFT queue
 
 SRC = "03_pilot/all_defect_structures"
 
@@ -68,7 +97,8 @@ for name, meta in STRUCTS.items():
         "in_plane_cell_vectors": [list(cell[0][:2]), list(cell[1][:2])],
         "minimum_Au_Au_distance": round(min_au_au(a), 3),
         "role": meta["role"],
-        "pipeline_status": "geometry_only",
+        "pipeline_status": "geometry_only" if meta["dft"] != "computed" else "converged",
+        "dft_queue_status": meta["dft"],
         "note": meta["note"],
     }
     manifest[name] = entry
@@ -76,8 +106,9 @@ for name, meta in STRUCTS.items():
 # base_z_span: for the (111)-family structures, this is the span of the 4-layer
 # base only (excludes any added strip/island atoms, which raise all_atoms_z_span)
 zlevel_cache = {}
-for name in ["T", "V1", "A1-fcc", "Pit-7", "Step-8x4", "Step-16x4", "Step-24x4", "Island-7",
-             "Island-7-8x8", "Island-19-8x8", "Pit-7-8x8", "Pit-19-8x8"]:
+for name in ["T", "V1", "A1-fcc", "Pit-7", "Step-8x4", "Step-16x4", "Step-24x4",
+             "Step-8x1", "Step-16x1", "Step-24x1", "Step-8x2", "Step-16x2", "Step-24x2",
+             "Island-7", "Island-7-8x8", "Island-19-8x8", "Pit-7-8x8", "Pit-19-8x8"]:
     a = read(f"{SRC}/{STRUCTS[name]['path']}")
     z = np.round(a.get_positions()[:, 2], 2)
     levels = np.sort(np.unique(z))
@@ -88,8 +119,22 @@ manifest["Pit-7"]["local_note"] = ("pit floor sits at base layer index 2 (3rd of
                                     "under the pit floor down to the bottom fixed layer is ~2 x d111 = "
                                     f"{2*2.401:.2f} A, not the full {manifest['Pit-7']['base_z_span']} A base span")
 
-# Step series: terrace geometry
-for name, nx in [("Step-8x4", 8), ("Step-16x4", 16), ("Step-24x4", 24)]:
+# Step series: terrace geometry (x4 = original, x1/x2 = reduced-cell, Batch 2 correction)
+STEP_SIZES = [("Step-8x4", 8, 4), ("Step-16x4", 16, 4), ("Step-24x4", 24, 4),
+              ("Step-8x1", 8, 1), ("Step-16x1", 16, 1), ("Step-24x1", 24, 1),
+              ("Step-8x2", 8, 2), ("Step-16x2", 16, 2), ("Step-24x2", 24, 2)]
+EDGE_STATUS = ("re-checked with explicit periodic-neighbor enumeration "
+    "(3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have "
+    "CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, "
+    "but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond "
+    "first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it "
+    "compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the "
+    "nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not "
+    "the actual edge-top atoms, and used an unaudited neighbor count. Checked on Step-16x4; the x1/x2 "
+    "reduced cells carry the identical local edge environment (verified by tiling back to x4, see "
+    "build_step_reduced.py), so this finding transfers.")
+
+for name, nx, ny in STEP_SIZES:
     a = read(f"{SRC}/{STRUCTS[name]['path']}")
     cell = a.get_cell()
     a1v, a2v = np.array(cell[0][:2]), np.array(cell[1][:2])
@@ -100,16 +145,18 @@ for name, nx in [("Step-8x4", 8), ("Step-16x4", 16), ("Step-24x4", 24)]:
     manifest[name]["L_parallel"] = round(float(L_par), 3)
     manifest[name]["L_perpendicular"] = round(float(L_perp), 3)
     manifest[name]["terrace_width_each_side"] = round(float(L_perp / 2), 3)
-    manifest[name]["N_base"] = 4 * nx * 4
-    manifest[name]["N_added"] = int(0.5 * nx * 4)
-    manifest[name]["edge_classification_status"] = ("re-checked with explicit periodic-neighbor enumeration "
-        "(3.2/3.4/3.6 A cutoffs, stable): edge1_top and edge2_top (the actual upper-edge atoms) both have "
-        "CN=7 with identical shell composition (3 below + 4 in-layer + 0 above) -- suggestive of equivalence, "
-        "but first-shell composition alone does not confirm full crystallographic equivalence (registry beyond "
-        "first shell not yet checked). Earlier 'verified NOT equivalent (12 vs 11)' claim is RETRACTED -- it "
-        "compared foot atoms (base layer, using get_distances(mic=True), which silently returns only the "
-        "nearest periodic image per atom and can miss multiple images of the same atom in a small cell), not "
-        "the actual edge-top atoms, and used an unaudited neighbor count.")
+    manifest[name]["N_base"] = 4 * nx * ny
+    manifest[name]["N_added"] = int(0.5 * nx * ny)
+    manifest[name]["edge_classification_status"] = EDGE_STATUS
+
+manifest["Step-8x1"]["reduction_note"] = manifest["Step-16x1"]["reduction_note"] = manifest["Step-24x1"]["reduction_note"] = (
+    "along-step period cut from ny=4 to ny=1 (the minimal translation, = one primitive a2 length, 2.94 A); "
+    "terrace width is UNCHANGED (depends only on nx). Validated: tiling this cell x4 along a2 reproduces the "
+    "ny=4 build atom-for-atom (build_step_reduced.py). Valid only for an idealized straight, unperturbed step "
+    "-- kinks/reconstruction/local perturbation need a longer along-step period than this.")
+for n1, n4 in [("Step-8x2", "Step-8x4"), ("Step-16x2", "Step-16x4"), ("Step-24x2", "Step-24x4")]:
+    manifest[n1]["reduction_note"] = ("ny=2, a 2x along-step safety margin over the ny=1 minimal cell, in case "
+        "ny=1 turns out too tight once real electronic/solvent response is checked (not yet tested at DFT level).")
 
 manifest["Island-7"]["N_base"] = 144
 manifest["Island-7"]["N_added"] = 7
