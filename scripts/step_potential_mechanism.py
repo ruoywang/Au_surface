@@ -9,7 +9,7 @@ import numpy as np
 from ase.io import read
 
 KBT = 8.6173857e-5 * 298.0
-N_BULK = 1.0 * 6.02214076e-4
+N_BULK = 1.0 * 6.022e-4  # local MOLAR const (solvation.F:3161), not 6.02214076e-4
 R_ION = 4.0
 N_MAX = 1.0 / (2 ** (5 / 6) * R_ION) ** 3
 Lz = 44.603

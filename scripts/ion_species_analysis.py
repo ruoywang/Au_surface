@@ -31,7 +31,7 @@ KBT = 8.6173857e-5 * 298.0  # BOLKEV (stepver.F) and code default SolTemp (solva
                              # not overridden by INCAR) -- was 298.15, confirmed wrong: at
                              # 298.15 all 4 validation points showed relL2~5e-4; at 298.0
                              # they drop to ~2.3e-5 (20x), i.e. floating-point precision
-N_BULK = 1.0 * 6.02214076e-4
+N_BULK = 1.0 * 6.022e-4  # local MOLAR const (solvation.F:3161), not 6.02214076e-4
 R_ION = 4.0
 D_ION = 2 ** (5 / 6) * R_ION
 N_MAX = 1.0 / D_ION ** 3
