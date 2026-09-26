@@ -19,15 +19,25 @@ STRUCTS = {
                   "dft": "ML_application"},
     "Step-24x4": {"path": "Step-24x4.poscar", "facet": "(111) strip", "role": "constrained_model", "note": "rendered",
                   "dft": "ML_application"},
+    # 2026-09-24..26: Step-8x1 (two potentials), Step-8x2 (one potential, repeat check) and
+    # Step-16x1 (two potentials) have real static CP-DFT results in 03_pilot/ -- see
+    # 03_pilot/step_8x1_vs_8x2_consistency.md and 03_pilot/step16x1_width_dependence.md.
     "Step-8x1": {"path": "Step-8x1.poscar", "facet": "(111) strip", "role": "constrained_model",
-                 "note": "reduced-cell (Batch 2 correction): same terrace width as Step-8x4, minimal along-step period",
-                 "dft": "candidate"},
+                 "note": "reduced-cell (Batch 2 correction): same terrace width as Step-8x4, minimal along-step period. "
+                         "Static CP-DFT at TARGETMU=-4.9071 and -5.1071 (03_pilot/Step-8x1_muref, Step-8x1_dUp02; "
+                         "PREC=Accurate) plus a production-config repeat at -4.9071 (Step-8x1_muref_fastcfg)",
+                 "dft": "computed"},
     "Step-16x1": {"path": "Step-16x1.poscar", "facet": "(111) strip", "role": "constrained_model",
-                  "note": "reduced-cell: same terrace width as Step-16x4, minimal along-step period", "dft": "candidate"},
+                  "note": "reduced-cell: same terrace width as Step-16x4, minimal along-step period. Static CP-DFT at "
+                          "TARGETMU=-4.9071 (Step-16x1_muref, Accurate; Step-16x1_muref_fastcfg, production config) and "
+                          "-5.1071 (Step-16x1_dUp02_fastcfg); see 03_pilot/step16x1_width_dependence.md",
+                  "dft": "computed"},
     "Step-24x1": {"path": "Step-24x1.poscar", "facet": "(111) strip", "role": "constrained_model",
                   "note": "reduced-cell: same terrace width as Step-24x4, minimal along-step period", "dft": "candidate"},
     "Step-8x2": {"path": "Step-8x2.poscar", "facet": "(111) strip", "role": "constrained_model",
-                 "note": "reduced-cell, 2x along-step margin over Step-8x1", "dft": "validation_candidate"},
+                 "note": "reduced-cell, 2x along-step margin over Step-8x1. Static CP-DFT at TARGETMU=-4.9071 "
+                         "(Step-8x2_muref) as the ny repeat check against Step-8x1 -- see "
+                         "03_pilot/step_8x1_vs_8x2_consistency.md", "dft": "computed"},
     "Step-16x2": {"path": "Step-16x2.poscar", "facet": "(111) strip", "role": "constrained_model",
                   "note": "reduced-cell, 2x along-step margin over Step-16x1", "dft": "validation_candidate"},
     "Step-24x2": {"path": "Step-24x2.poscar", "facet": "(111) strip", "role": "constrained_model",

@@ -1,5 +1,11 @@
 # Step-8x1: potential response, muref vs. dU=+0.2V
 
+> **Interpretation superseded 2026-09-26** (`step16x1_width_dependence.md`): the near/far
+> K_D split below averages over a raised/lower-terrace asymmetry — the raised terrace
+> responds like the flat surface, the lower terrace is enhanced 1.6× in this 10 Å-terrace
+> cell, and the "far" strip here sits on the merged peak of that enhancement. Numbers
+> unchanged; the folded near/far ratio is retired for step cells.
+
 Two points, identical geometry/cell/window/k-points/ISMEAR/ENCUT/FERMICONVERGE — only
 TARGETMU differs. Both COMPLETED normally (job 20903924 muref, job 20907809 dUp02).
 Both validated against RHOION on the full 3D grid at relL2=0.0005 (same as the T

@@ -69,8 +69,17 @@ def load(D):
     return dict(phi=phi, sion=sion, z=z, x=x, a1=a1, L_perp=L_perp, ngx=ngx, ngy=ngy, ngz=ngz)
 
 
-A = load("Step-8x1_muref")
-B = load("Step-8x1_dUp02")
+import sys
+# rev 3: run pair taken from argv so the identical statistics can be applied to
+# Step-16x1 (or any other width) without editing the script. Defaults reproduce rev 2.
+DIR_A = sys.argv[1] if len(sys.argv) > 1 else "Step-8x1_muref"
+DIR_B = sys.argv[2] if len(sys.argv) > 2 else "Step-8x1_dUp02"
+A = load(DIR_A)
+B = load(DIR_B)
+for D, st in [(DIR_A, A), (DIR_B, B)]:
+    ztop = read(f"{D}/POSCAR").get_positions()[:, 2].max()
+    assert abs(ztop - Z_METAL_TOP) < 0.05, f"{D}: metal top {ztop:.3f} != assumed {Z_METAL_TOP}"
+print(f"state A (reference potential) = {DIR_A}\nstate B (perturbed potential) = {DIR_B}")
 assert A["ngx"] == B["ngx"] and A["ngz"] == B["ngz"], "grids must match for a same-position comparison"
 assert abs(A["L_perp"] - B["L_perp"]) < 1e-6, "terrace width must match between the two states"
 L_perp = A["L_perp"]

@@ -286,6 +286,17 @@ Step-24x1 gets added only if the width study actually needs it — no need to re
 the retired 288/432-atom versions, and no need to expand islands/pits/vicinal slabs at
 the same time.
 
+**Status 2026-09-26.** Done, in order: Step-8x1 vs Step-8x2 repeat check at TARGETMU =
+−4.9071 (`03_pilot/step_8x1_vs_8x2_consistency.md`, passed); Step-8x1 at −5.1071
+(`step8x1_potential_response.md`, `step8x1_ion_species_analysis.md`,
+`step8x1_mechanism_check.md`); Step-16x1 at both potentials with the production config
+(`step16x1_width_dependence.md`). `dft_queue_status` for Step-8x1, Step-8x2, Step-16x1 is
+now `computed`. The width study *does* need more: the across-step profiles show the
+lower terrace still 1.2× enhanced at 10 Å from the risers, and the earlier "near-edge
+weaker" reading was an average over a raised/lower-terrace asymmetry. Recommended next
+(not submitted): a flat 64-atom slab in the Step-16x1 cell at both potentials as a
+same-numerics baseline, then Step-24x1. See the report's §6.
+
 ## Phase 2 — recorded, not built this round
 
 Au(100) flat reference; one (100)-terrace stepped surface (exact Miller index TBD);

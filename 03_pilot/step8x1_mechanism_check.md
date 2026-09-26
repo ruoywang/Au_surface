@@ -1,5 +1,13 @@
 # Mechanism check, rev 2 — corrected statistics, K_ij decomposition
 
+> **Interpretation superseded 2026-09-26** (`step16x1_width_dependence.md`). The numbers
+> below are unchanged and reproduce, but the near/far statistic they rest on averages
+> over a bimodal across-step profile: the raised terrace responds like the flat surface
+> and the *lower* terrace is enhanced 1.2–1.6×, with the countercharge to the edge charge
+> displaced ~4.7 Å onto the lower terrace. §5's "different point on the nonlinear
+> occupation curve" hypothesis is no longer needed. The K_ij result (response is the
+> potential term, ΔK_S ≈ 0) stands.
+
 Rev 1's claims "excludes the geometric-weighting explanation" and "excludes the
 electrostatic explanation" are **retracted as overreaching** — both used inconsistent
 weighting between the plain Δψ average and the S_ion-weighted K_D metric, and rev 1's
@@ -97,12 +105,14 @@ shift itself is essentially uniform between them.
 that it generalizes beyond this narrow (10.2 Å/side), single-width, two-point
 comparison; or anything about a real electrode's Cl⁻ behavior.
 
-## Next: Step-16x1 at both potentials (submitted, not yet complete)
+## Next: Step-16x1 at both potentials — done, see `step16x1_width_dependence.md`
 
-To test whether the ~13-20% weaker near-edge response is width-specific:
-**Step-16x1_muref (TARGETMU=-4.9071, job 20913219) and Step-16x1_dUp02
-(TARGETMU=-5.1071, job 20913220)** submitted — same construction, only nx doubled;
-k-points re-derived (1×12×1, vs Step-8x1's 2×12×1) by the same reciprocal-density
-rule, not copied. Both static, no relaxation. Will compute R₁₆ = ΔK_near/ΔK_far at
-16×1 and compare to R₈=0.868 (3Å band) once both complete. Stopping additions here
-per plan — no Step-24x1, other facets, or further potentials this round.
+Step-16x1 was run at both potentials (same construction, only nx doubled; k-points
+1×12×1 by the same reciprocal-density rule). The Accurate/ALGO=Normal dUp02 run timed
+out (charge sloshing, see `00_audit/parameter_map.md` §K.6); both points were then
+rerun with the adopted production config (§K.8) and converged in 43/40 min. Result:
+R₁₆ = 0.936 (3 Å band, same K metric) vs R₈ = 0.868 — the sign is robust, but the
+16×1 across-step profile shows that the 8×1 "far" strip sits on an *enhanced* shoulder
+3–5 Å from the edges rather than on a converged terrace, so the near/far ratio is not
+a width-independent number. The 2026-09-26 report re-frames the comparison on a
+window-independent surface-excess footing and against the flat T pair.

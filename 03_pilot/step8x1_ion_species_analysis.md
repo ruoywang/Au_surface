@@ -1,5 +1,11 @@
 # Ion species reconstruction (rev 2 — corrected, validated on charged references)
 
+> **Near-edge/far-from-edge interpretation superseded 2026-09-26** (see
+> `step16x1_width_dependence.md` §2–5). The reconstruction, its validation and the K_D
+> numbers below are unchanged and still used; only the reading of the near/far ratio as
+> an "edge effect" is retired — it is an average over a raised-terrace ≈ flat /
+> lower-terrace enhanced profile.
+
 Rev 1 is retracted where it disagreed with this. Four confirmed bugs fixed:
 
 1. **Zero point**: rev 1 subtracted a finite SION=1-window average from PHI before
