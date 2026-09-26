@@ -100,7 +100,7 @@
 
 **明确记录的风险**：v2文档§3.2原话——"四层仅可作低成本预试，不直接当正式厚度"——是对金属表面电子结构/功函数收敛性的担忧，4层是否物理上足够尚未验证。这是用户为了计算速度做出的、明确覆盖文档警告的决定，不代表4层已经过收敛检验。**待办**：有空应做4/6/8层收敛对比（v2 §3.3/§8本来就要求的敏感性测试），确认4层对目标量（EFERMI、富集积分等）是否足够，不能假设已经验证。
 
-新标准配置汇总：4层Au(111)，3×3×1 Γ-centered k点，`ISMEAR=1/SIGMA=0.2`（Methfessel-Paxton，见G节），`ALGO=Normal`，`KPAR`不设（=1），`NCORE=8`，128核highmem分区，`I_MPI_COLL_INTRANODE=pt2pt`。**【2026-09-26 补充，见K节】这里的`ALGO=Normal`/`PREC=Accurate`/128纯MPI不再是速度上的推荐：实测PREC=Normal + ALGO=Fast + 16进程×8线程 + NPAR=16每步快4.5倍。改生产配置前需先做一次Normal vs Accurate的精度对照（K节第8条）。**
+新标准配置汇总：4层Au(111)，3×3×1 Γ-centered k点，`ISMEAR=1/SIGMA=0.2`（Methfessel-Paxton，见G节），`ALGO=Normal`，`KPAR`不设（=1），`NCORE=8`，128核highmem分区，`I_MPI_COLL_INTRANODE=pt2pt`。**【2026-09-26 已更新，见K节】生产配置改为：`PREC=Normal`、`ALGO=Fast`、`NPAR=16`（每节点16个MPI进程×8个OpenMP线程，`--ntasks=16 --cpus-per-task=8`，job-run加`ulimit -s unlimited; export OMP_STACKSIZE=512m`，不再需要`I_MPI_COLL_INTRANODE=pt2pt`）、`FERMICONVERGE=0.01`；其余（4层、3×3×1或按倒空间密度换算的k点、ISMEAR=1/SIGMA=0.2、ENCUT=500、EDIFF=1E-7、ISOL=2等）不变。精度对照见K节第8条：双电层量差≤1e-3，Step-8x1单点1h32m→18min。**
 
 ## I. 2026-09-23 9点pilot系统性QC发现
 
@@ -148,4 +148,5 @@
 5. **与用户MD的"步数"差距是另一回事**:静态单点冷启动、EDIFF=1e-7、3轮CP需200~320步SCF;MD热启动、EDIFF=1e-5每离子步~16步。muref逐步计时显示每步时间∝ncg,每轮CP更新电子数后ncg重回7000~10000再磨~100步。
 6. **dUp02(Normal)超时的真实原因**:第一轮CP从中性电子数起步,与muref完全相同的问题,muref 46步收敦到-220.451 eV,而dUp02在第50步停在-218.65 eV(高1.8 eV)——SCF从随机初始波函数走上了错误轨迹(47Å×45Å长胞的电荷晃动),不是"慢",也不是ALGO问题;Fast重试(job 20915640)第一轮正常收敛到相同能量。**长胞需要slab型混合参数(AMIX/BMIX/AMIN)来固化,不能靠运气。**
 7. **与MD INCAR的其余差异(影响物理不影响速度,用户2026-09-26决定:不需与MD一致,保留PBE、无IVDW、默认TAU)**:MD用GGA=RP、IVDW=12+LVDW_EWALD、TAU=9e-3(本地默认8.79e-4)、LORBIT=11。D3不进KS哈密顿量,对固定几何的密度/PHI/RHOION/电子数零影响;TAU通过空腔项进电势,有微小电子效应。
-8. **待办**:采用PREC=Normal前做一次精度对照(同一Step-8x1_muref点,Normal vs Accurate的N_e、TOTEN、K_D),确认物理量不变后再改生产配置;混合并行需在job-run加`ulimit -s unlimited; export OMP_STACKSIZE=512m`。
+8. **精度对照已做,新配置正式采用(2026-09-26,用户批准)**。`03_pilot/Step-8x1_muref_fastcfg`:PREC=Normal + ALGO=Fast + NPAR=16(16进程×8线程)+ FERMICONVERGE=0.01(与用户MD一致),其余与Step-8x1_muref相同。结果:17分57秒 vs 1小时32分(5.1×);138 vs 221步SCF;6.9 vs 23.6 s/步。N_e 396.014694 vs 396.014037(Δ6.6e-4 e);μ_e -4.907015 vs -4.907178(均在目标±1e-4 eV内);TOTEN -109.99806 vs -110.00727(Δ9.2 meV,0.26 meV/原子,PREC网格所致);体相n_anion/n_bulk 0.9869 vs 0.9872;K_near/K_far 0.9826/0.9779 vs 0.9830/0.9785(Δ≤6e-4);RHOION重建relL2均~1e-11。**双电层量差异≤1e-3,远小于所研究的近边/台面差(4.5e-3)。**注意:PREC改变后TOTEN绝对值偏移~9 meV,今后所有点统一Normal,旧Accurate点的TOTEN不与新点在<10 meV上直接比较。job-run必须含`ulimit -s unlimited; export OMP_STACKSIZE=512m`,16进程/节点不需要`I_MPI_COLL_INTRANODE=pt2pt`。生成脚本`scripts/write_step_dft_pair_incars.py`已同步。
+9. **步数这一半尚未处理**:第二轮CP在47Å×45Å长胞里rms(c)平台在0.05附近磨~100步(muref、Fast重试均如此),是默认混合(AMIX=0.4/BMIX=1.0/AMIN=0.1)下的电荷晃动;候选是VASP对slab的推荐AMIX=0.2、BMIX=0.0001、AMIN=0.01,待测。

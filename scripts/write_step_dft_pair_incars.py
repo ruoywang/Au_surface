@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""INCAR/KPOINTS/job-run for the Step-8x1 vs Step-8x2 numerical-consistency
+"""INCAR/KPOINTS/job-run generator. PRODUCTION CONFIG UPDATED 2026-09-26 (see
+00_audit/parameter_map.md K.8): PREC=Normal, ALGO=Fast, NPAR=16 with 16 MPI ranks x 8 OpenMP
+threads, FERMICONVERGE=0.01 -- validated against the Accurate/Normal/128-MPI reference on
+Step-8x1_muref (EDL quantities agree to <=1e-3, 5.1x faster). Original purpose below.
+
+INCAR/KPOINTS/job-run for the Step-8x1 vs Step-8x2 numerical-consistency
 check. Reuses the exact template/config from write_pilot_incars.py (the
 already-validated T/V1/A1-fcc batch) with three deliberate changes:
   - FERMICONVERGE 0.01 -> 0.001 (tighter target for this specific comparison)
@@ -22,14 +27,14 @@ TEMPLATE = """# Numerical consistency check: {tag}, same structure as its x{mult
 # does the physical result change when the same periodic structure is repeated x{mult}?
 SYSTEM = {tag}_muref
 
-NCORE = 8
+NPAR  = 16
 
-PREC   = Accurate
+PREC   = Normal
 ENCUT  = 500
 ISPIN  = 1
 ISYM   = 0
 LREAL  = Auto
-ALGO   = Normal
+ALGO   = Fast
 EDIFF  = 1E-7
 NELM   = 200
 ISMEAR = 1
@@ -48,7 +53,7 @@ R_ION   = 4.0
 LCEP          = .TRUE.
 NESCHEME      = 3
 TARGETMU      = -4.9071
-FERMICONVERGE = 0.001
+FERMICONVERGE = 0.01
 CAP_MAX       = 2.0
 NEADJUST      = 1
 
@@ -67,8 +72,8 @@ JOBRUN = """#!/bin/bash
 #SBATCH -o myjob.o%j
 #SBATCH -e myjob.e%j
 #SBATCH --nodes=1
-#SBATCH --ntasks=128
-#SBATCH --cpus-per-task=1
+#SBATCH --ntasks=16
+#SBATCH --cpus-per-task=8
 #SBATCH --time=06:00:00
 #SBATCH --partition=highmem
 #SBATCH --account=CHE190065
@@ -78,7 +83,8 @@ module load intel/19.0.5.281 impi/2019.5.281
 module load intel-mkl hdf5 python
 module list
 
-export I_MPI_COLL_INTRANODE=pt2pt
+ulimit -s unlimited
+export OMP_STACKSIZE=512m
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 PW=/anvil/projects/x-che190065/rywang/CEP-HALF/bin
 runvasp="mpirun -np $SLURM_NTASKS $PW/vasp_std  > log.out"

@@ -1,0 +1,45 @@
+# Accuracy check of the new production speed config against Step-8x1_muref (PREC=Accurate,
+# ALGO=Normal, 128 pure-MPI, NCORE=8, FERMICONVERGE=0.001): same POSCAR/KPOINTS/window/TARGETMU,
+# only PREC=Normal, ALGO=Fast, NPAR=16 (16 ranks x 8 OpenMP threads), FERMICONVERGE=0.01 (matches
+# the user MD). Compare N_e, mu_e, TOTEN, and the ion-species K_D analysis. 2026-09-26.
+
+SYSTEM = Step-8x1_muref_fastcfg
+
+NPAR  = 16
+
+PREC   = Normal
+ENCUT  = 500
+ISPIN  = 1
+ISYM   = 0
+LREAL  = Auto
+ALGO   = Fast
+EDIFF  = 1E-7
+NELM   = 200
+ISMEAR = 1
+SIGMA  = 0.2
+IBRION = -1
+NSW    = 0
+LCHARG = .TRUE.
+LWAVE  = .FALSE.
+LVHAR  = .TRUE.
+
+LSOL    = .TRUE.
+ISOL    = 2
+C_MOLAR = 1.0
+R_ION   = 4.0
+
+LCEP          = .TRUE.
+NESCHEME      = 3
+TARGETMU      = -4.9071
+FERMICONVERGE = 0.01
+CAP_MAX       = 2.0
+NEADJUST      = 1
+
+IDIPOL = 3
+LDIPOL = .TRUE.
+DIPOL  = 0.5 0.5 0.5
+
+LVAC      = .TRUE.
+SOL_Z0    = 9.801
+SOL_Z1    = 34.603
+SOL_SIGMA = 0.8
