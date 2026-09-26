@@ -1,0 +1,46 @@
+# Step-16x1, width-series counterpart to Step-8x1 (same construction, nx doubled,
+# ny=1 unchanged). TARGETMU=-5.1071, matching Step-8x1_dUp02's work point exactly,
+# so DeltaK_near/DeltaK_far can be computed at this width too. Same window (SOL_Z0=9.801,
+# SOL_Z1=34.603, Lz=44.603), same ISMEAR/ENCUT/FERMICONVERGE as Step-8x1. k-points
+# adjusted for the doubled a1 (1x12x1, vs Step-8x1's 2x12x1) by the same reciprocal-
+# density rule (N*|a|=const), not copied unchanged. No relaxation, no expansion.
+SYSTEM = Step-16x1_dUp02_algofast
+
+NCORE = 8
+
+PREC   = Accurate
+ENCUT  = 500
+ISPIN  = 1
+ISYM   = 0
+LREAL  = Auto
+ALGO   = Fast
+EDIFF  = 1E-7
+NELM   = 200
+ISMEAR = 1
+SIGMA  = 0.2
+IBRION = -1
+NSW    = 0
+LCHARG = .TRUE.
+LWAVE  = .FALSE.
+LVHAR  = .TRUE.
+
+LSOL    = .TRUE.
+ISOL    = 2
+C_MOLAR = 1.0
+R_ION   = 4.0
+
+LCEP          = .TRUE.
+NESCHEME      = 3
+TARGETMU      = -5.1071
+FERMICONVERGE = 0.001
+CAP_MAX       = 2.0
+NEADJUST      = 1
+
+IDIPOL = 3
+LDIPOL = .TRUE.
+DIPOL  = 0.5 0.5 0.5
+
+LVAC      = .TRUE.
+SOL_Z0    = 9.801
+SOL_Z1    = 34.603
+SOL_SIGMA = 0.8

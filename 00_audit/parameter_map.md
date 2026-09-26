@@ -73,7 +73,7 @@
 1. **`KPAR>1` 在这套代码里不划算**：`KPAR` 会让每个k点组各自复制一份完整的三维网格（包括溶剂/空腔求解用的额外大数组），实测 `KPAR=4`（32核）连续两次卡在~59-62GB附近被OOM杀掉；改 `KPAR=2` 内存问题缓解但每步耗时没有变化（跟 `KPAR=1` 基本一样，8-9分钟/步），怀疑是`NLPCM`非线性PB求解器没有对KPAR做感知，各k点组各自重复求解同一个（与k点无关的）电荷/空腔问题，抵消了k点并行本该带来的收益。**结论：这套代码目前不要用 `KPAR>1`，把核数都留给单个k点组内的band/FFT并行（`NCORE`）。**
 2. **真正决定速度的是总核数，不是 KPAR/NCORE 怎么分配**：32核时无论 `KPAR/NCORE` 怎么调都是~8分钟/DAV步；换成128核（`NCORE=8, NPAR=16, KPAR=1`）稳定在~2分钟/步，跟核数提升到4倍基本对应。用户已有生产MD算例（`surface_charge/6-Au/1-32_water_GCE`）用的是5节点×128核=640核（`NPAR=16/NCORE=8/KPAR=5`），比我们这次128核又快5倍量级，符合线性预期。**做真实产出计算时核数不能按"排队快"随便砍，要按这个体系规模留够总核数。**
 3. **Intel MPI 2019.5 在单节点高核数（≥48核）时有已知 SHM collective bug**：`Assertion failed in ch4_shm_coll.c ... node_info->numa_num <= (...)`，在AMD多NUMA域节点上、单节点核数较高时（我们在48核和128核都触发过，16-32核没触发）必现崩溃，VASP还没打印任何东西就在 `MPI_Barrier` 层面段错误。**规避方法：`export I_MPI_COLL_INTRANODE=pt2pt`（强制节点内collective走点对点而不是共享内存），加了之后128核/单节点可以正常跑。这个环境变量应该固化进所有生产 `job-run` 脚本，不止是这次的小测试。**
-4. **`ALGO=Fast` 在这套代码里比 `ALGO=Normal` 明显更慢**（实测慢约6倍，12分钟/步 vs 2分钟/步），跟旧MD算例用 `ALGO=Fast` 却很快的经验矛盾——旧算例是MD（`NESCHEME=5`，电荷不強制精确收敛），本项目是恒电势/中性静态单点，`ALGO=Fast` 的RMM-DIIS/Davidson混合迭代结构可能导致每个外层步触发更多次昂贵的溶剂PB求解。**静态单点/恒电势计算请用 `ALGO=Normal`，不要照抄MD算例的`ALGO=Fast`。**
+4. ~~**`ALGO=Fast` 在这套代码里比 `ALGO=Normal` 明显更慢**（实测慢约6倍）~~ **【2026-09-26 撤回，见K节】**：当年的测试同时改了ALGO和KPAR、且只跑了4步Davidson（未进入RMM-DIIS阶段）；重测同体系每步Fast 53~55 s vs Normal 60~67 s，Fast反而快~10%。"溶剂PB求解被触发更多"的解释也错——POTLOK只占每步6%。第1条KPAR结论方向正确但原因需修正（溶剂网格工作按KPAR组重复计算，非OOM本身），第2条"总核数决定速度"仍成立。
 5. **Anvil 分区实测差异**（都是同款128核/257GB节点，区别只是调度策略）：
    - `wholenode`/`standard`：要求整节点空闲，繁忙时段排队可能是十几小时（QOS `part-standard` 允许多节点，node上限16）。
    - `shared`：允许部分节点分配，但内存**严格按核数配额**（`MaxMemPerCPU=1896MB`），QOS `part-shared` 单作业上限 `node=1`；集群整体排队深度会让"部分空闲"优势打折扣。
@@ -100,7 +100,7 @@
 
 **明确记录的风险**：v2文档§3.2原话——"四层仅可作低成本预试，不直接当正式厚度"——是对金属表面电子结构/功函数收敛性的担忧，4层是否物理上足够尚未验证。这是用户为了计算速度做出的、明确覆盖文档警告的决定，不代表4层已经过收敛检验。**待办**：有空应做4/6/8层收敛对比（v2 §3.3/§8本来就要求的敏感性测试），确认4层对目标量（EFERMI、富集积分等）是否足够，不能假设已经验证。
 
-新标准配置汇总：4层Au(111)，3×3×1 Γ-centered k点，`ISMEAR=1/SIGMA=0.2`（Methfessel-Paxton，见G节），`ALGO=Normal`，`KPAR`不设（=1），`NCORE=8`，128核highmem分区，`I_MPI_COLL_INTRANODE=pt2pt`。
+新标准配置汇总：4层Au(111)，3×3×1 Γ-centered k点，`ISMEAR=1/SIGMA=0.2`（Methfessel-Paxton，见G节），`ALGO=Normal`，`KPAR`不设（=1），`NCORE=8`，128核highmem分区，`I_MPI_COLL_INTRANODE=pt2pt`。**【2026-09-26 补充，见K节】这里的`ALGO=Normal`/`PREC=Accurate`/128纯MPI不再是速度上的推荐：实测PREC=Normal + ALGO=Fast + 16进程×8线程 + NPAR=16每步快4.5倍。改生产配置前需先做一次Normal vs Accurate的精度对照（K节第8条）。**
 
 ## I. 2026-09-23 9点pilot系统性QC发现
 
@@ -126,3 +126,26 @@
 | A1_fcc | -11.89 | +0.82 |
 
 三者斜率彼此相差<7%——说明这套连续介质模型里"双电层电容"主要由电解液本身（1M、R_ION=4Å）决定,缺陷种类对它影响很小。真正体现缺陷差异的是**截距**：换算成PZC偏移(=-截距/斜率)，A1-fcc相对T偏移约+0.069V，V1只偏移约0.014V——即"加原子"这类凸起缺陷对局域PZC/功函数的扰动明显比"空位"缺陷大。这是本项目第一个跨结构、有统计支撑（3点线性拟合而非单点对比）的物理信号，但仍建立在**未弛豫的理想几何**上（见下条）,不是最终结论。
+
+## K. 2026-09-26 速度问题重查:E节第4条(ALGO)、H节(KPAR)结论撤回并修正
+
+起因:Step-16x1_dUp02(72 Au,ALGO=Normal)6小时墙钟超时未收敛;用户质疑"Fast慢6倍"与其200原子MD经验矛盾。逐项对比OUTCAR计时后,**E节第4条"ALGO=Fast比Normal慢6倍"的结论是错的,撤回**:
+
+1. **当年的测试是坏的**:`04_speedtest/T_ismear1_algofast_kpar4`把ALGO=Fast和KPAR=4两个变量同时改,总共只跑了4步SCF、每步142 s(同体系Normal为134 s),而ALGO=Fast前5步本来就是Davidson——**那4步根本没进入RMM-DIIS阶段**,却被用来下"Fast慢"的结论。同一节还写"Fast触发更多次昂贵的PB求解",也是错的:溶剂求解(POTLOK)只占每步时间的6%。
+2. **每步时间的真实去向**(Step-16x1_muref第30步,128纯MPI):LOOP 60.1 s = EDDAV 51.8(86%)+ POTLOK 3.9 + CHARGE 3.5 + FINALIZE 3.7。瓶颈是本征求解器,不是溶剂。
+3. **单变量计时测试**(同一Step-16x1输入,NELM=30,拿到12~14步即scancel;每步SCF墙钟,单节点128核):
+
+| 配置 | 每步 | 说明 |
+|---|---|---|
+| 基线:PREC=Accurate, ALGO=Normal, 128纯MPI, NCORE=8, pt2pt | 52~75 s(均值~64) | 生产配置 |
+| ALGO=Fast(RMM阶段) | 53~55 s | 快~10%,不是慢6倍 |
+| KPAR=7(112进程,每k点16进程) | 93~103 s | **更慢**:EDDAV 64 s(每k点16进程≈8×7.4 s,128进程强扩展本已近理想),POTLOK 3.9→36 s、FINALIZE 3.7→34 s——溶剂网格工作不按k点并行,每个KPAR组各算一遍。用户MD的KPAR=5之所以有效,是因为配了5个节点、一个k点独占一节点 |
+| 混合并行16进程×8线程(NCORE=8→NPAR=2,无pt2pt) | 37~61 s(均值~48) | 快~20%;EDDAV仍51 s。pt2pt/进程布局不是主因。注意需`OMP_STACKSIZE=512m`,否则初始化段错误 |
+| **PREC=Normal**(其余同基线) | **21~32 s(均值~26)** | **2.5倍**。ROPT -2.5e-4→-5e-4,实空间投影算符格点1052→334,细网格22.6M→8.6M;EDDAV 52→30 s,POTLOK/CHARGE/FINALIZE各降3倍。ncg不变,即每次H|ψ>作用便宜了 |
+| **组合:PREC=Normal + ALGO=Fast + 16×8线程 + NPAR=16** | **Davidson 18~21 s,RMM-DIIS 14~15 s** | **4.3~4.5倍**;与用户MD的速度设置一致(`distr: one band on NCORE=1 cores, 16 groups`)。第9步分解:LOOP 15.0 = RMM-DIIS 8.8 + EDDIAG 2.8 + POTLOK 1.4 + FINALIZE 1.3 + CHARGE 0.3。ncg与基线相同(7000~7800)。核数归一1900核·秒/步,已低于MD的4100核·秒/步 |
+
+4. **PREC=Accurate的来源**是v2文档§4.1模板(第161行),该模板自注"待核对";用户MD用PREC=normal(VASP默认)。**PREC是每步时间的主因**,不是溶剂、不是ALGO、不是KPAR、不是MPI集合通信。
+5. **与用户MD的"步数"差距是另一回事**:静态单点冷启动、EDIFF=1e-7、3轮CP需200~320步SCF;MD热启动、EDIFF=1e-5每离子步~16步。muref逐步计时显示每步时间∝ncg,每轮CP更新电子数后ncg重回7000~10000再磨~100步。
+6. **dUp02(Normal)超时的真实原因**:第一轮CP从中性电子数起步,与muref完全相同的问题,muref 46步收敦到-220.451 eV,而dUp02在第50步停在-218.65 eV(高1.8 eV)——SCF从随机初始波函数走上了错误轨迹(47Å×45Å长胞的电荷晃动),不是"慢",也不是ALGO问题;Fast重试(job 20915640)第一轮正常收敛到相同能量。**长胞需要slab型混合参数(AMIX/BMIX/AMIN)来固化,不能靠运气。**
+7. **与MD INCAR的其余差异(影响物理不影响速度,用户2026-09-26决定:不需与MD一致,保留PBE、无IVDW、默认TAU)**:MD用GGA=RP、IVDW=12+LVDW_EWALD、TAU=9e-3(本地默认8.79e-4)、LORBIT=11。D3不进KS哈密顿量,对固定几何的密度/PHI/RHOION/电子数零影响;TAU通过空腔项进电势,有微小电子效应。
+8. **待办**:采用PREC=Normal前做一次精度对照(同一Step-8x1_muref点,Normal vs Accurate的N_e、TOTEN、K_D),确认物理量不变后再改生产配置;混合并行需在job-run加`ulimit -s unlimited; export OMP_STACKSIZE=512m`。

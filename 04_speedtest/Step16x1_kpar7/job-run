@@ -1,0 +1,26 @@
+#!/bin/bash
+#SBATCH --job-name=kpar7_timing
+#SBATCH -o myjob.o%j
+#SBATCH -e myjob.e%j
+#SBATCH --nodes=1
+#SBATCH --ntasks=112
+#SBATCH --cpus-per-task=1
+#SBATCH --exclusive
+#SBATCH --time=01:00:00
+#SBATCH --partition=highmem
+#SBATCH --account=CHE190065
+
+# Timing test ONLY (NELM=30). Same INCAR/POSCAR/KPOINTS as Step-16x1_muref except KPAR=7
+# (7 irreducible k-points -> one k-point per group, 16 ranks/group, NCORE=8 -> NPAR=2, i.e.
+# the same per-k-group layout as the user's MD reference). 112 ranks so KPAR divides evenly.
+module purge
+module load intel/19.0.5.281 impi/2019.5.281
+module load intel-mkl hdf5 python
+module list
+
+export I_MPI_COLL_INTRANODE=pt2pt
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+PW=/anvil/projects/x-che190065/rywang/CEP-HALF/bin
+runvasp="mpirun -np $SLURM_NTASKS $PW/vasp_std  > log.out"
+
+eval $runvasp
