@@ -27,7 +27,10 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from ase.io import read
 
-KBT = 8.617333262e-5 * 298.15
+KBT = 8.6173857e-5 * 298.0  # BOLKEV (stepver.F) and code default SolTemp (solvation.F:1703,
+                             # not overridden by INCAR) -- was 298.15, confirmed wrong: at
+                             # 298.15 all 4 validation points showed relL2~5e-4; at 298.0
+                             # they drop to ~2.3e-5 (20x), i.e. floating-point precision
 N_BULK = 1.0 * 6.02214076e-4
 R_ION = 4.0
 D_ION = 2 ** (5 / 6) * R_ION

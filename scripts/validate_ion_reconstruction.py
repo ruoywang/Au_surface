@@ -9,7 +9,7 @@ choices and both sign conventions explicitly, rather than assuming either.
 import numpy as np
 from ase.io import read
 
-KBT = 8.617333262e-5 * 298.15
+KBT = 8.6173857e-5 * 298.0  # BOLKEV (stepver.F) and code default SolTemp (solvation.F:1703)
 N_BULK = 1.0 * 6.02214076e-4
 R_ION = 4.0
 D_ION = 2 ** (5 / 6) * R_ION
