@@ -1,11 +1,12 @@
 {
  "Au221": {
   "n_atoms": 28,
+  "det_cell_A3": 2023.2755900280006,
   "planes": 14,
   "plane_spacing_A": 0.6930000000000001,
   "plane_spacing_expected_A": 0.6930000000000001,
   "thickness_A": 9.009,
-  "min_AuAu_A": 2.940149996173657,
+  "min_AuAu_A": 2.9401499961736555,
   "in_plane_A": [
    5.880299992347334,
    8.820449988520995
@@ -28,11 +29,12 @@
  },
  "Au332": {
   "n_atoms": 21,
+  "det_cell_A3": 1575.823999809292,
   "planes": 21,
   "plane_spacing_A": 0.4432499999999999,
   "plane_spacing_expected_A": 0.4432442893033141,
   "thickness_A": 8.864999999999998,
-  "min_AuAu_A": 2.9401499961736506,
+  "min_AuAu_A": 2.94014999617365,
   "in_plane_A": [
    2.9401499961736524,
    13.790525878297743
@@ -55,6 +57,7 @@
  },
  "Au554": {
   "n_atoms": 36,
+  "det_cell_A3": 2735.85884541555,
   "planes": 36,
   "plane_spacing_A": 0.25591428571428576,
   "plane_spacing_expected_A": 0.25590720974603276,

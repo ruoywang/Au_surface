@@ -80,7 +80,8 @@ def describe(atoms, hkl):
     d_expect = A0 / (2 * np.sqrt(sum(x * x for x in hkl)))     # all three targets have mixed parity
     i, j, dd = neighbor_list("ijd", atoms, 3.2)
     lens = [np.linalg.norm(atoms.cell[0]), np.linalg.norm(atoms.cell[1])]
-    return dict(n_atoms=len(atoms), planes=len(z), plane_spacing_A=float(np.diff(z).mean()), plane_spacing_expected_A=float(d_expect),
+    return dict(n_atoms=len(atoms), det_cell_A3=float(np.linalg.det(atoms.get_cell().array)),
+                planes=len(z), plane_spacing_A=float(np.diff(z).mean()), plane_spacing_expected_A=float(d_expect),
                 thickness_A=float(z[-1] - z[0]), min_AuAu_A=float(dd.min()), in_plane_A=[float(x) for x in lens],
                 recovered_cubic_normal=[float(x) for x in recovered_hkl(atoms)],
                 atoms_per_plane=float(len(atoms) / len(z)))
@@ -140,6 +141,14 @@ for hkl, nrep, role in TARGETS:
     rep = [1, 1, 1]; rep[istep] = nrep
     slab = slab.repeat(tuple(rep))
     slab = pad_z(slab)
+    # right-handed cell (2026-09-27 review): Gauss reduction may swap/flip in-plane vectors and leave det(A) < 0.
+    # Keep Cartesian positions and +z, invert one in-plane vector, re-wrap in-plane. Same periodic structure.
+    cell = slab.get_cell().array.copy()
+    if np.linalg.det(cell) < 0:
+        cell[1] *= -1
+        slab.set_cell(cell, scale_atoms=False)
+        slab.wrap(pbc=(True, True, False), eps=1e-8)
+    assert np.linalg.det(slab.get_cell().array) > 0, "left-handed cell after fix"
     info = describe(slab, hkl)
     # direction check: recovered normal (sorted |components|, ratio-normalised) parallel to the target (h,k,l)
     rn = np.array(info["recovered_cubic_normal"]); tn = np.array(sorted(hkl, reverse=True), dtype=float)

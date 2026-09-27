@@ -1,0 +1,6 @@
+2026-09-27 04:58:45 [prepare] R2-stripe-wall: structure file not available yet -> skipped (will be added when built)
+2026-09-27 04:58:46 [prepare] Batch A: 57 new tasks written; queue now 62 entries (57 pending, 5 reused)
+2026-09-27 05:00:26 [submit] Au221__relax__mu-4.9071 -> job 20927791
+2026-09-27 05:00:26 [submit] Au211__relax__mu-4.9071 -> job 20927792
+2026-09-27 05:00:26 [submit] V1__relax__mu-4.9071 -> job 20927793
+2026-09-27 05:00:26 [submit] R1-hcp-terminated__relax__mu-4.9071 -> job 20927794

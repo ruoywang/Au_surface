@@ -1,0 +1,38 @@
+{
+ "Flat-8x2": {
+  "n_atoms": 64,
+  "min_AuAu_A": 2.9401499961736626,
+  "layers_z": [
+   5.0,
+   7.401,
+   9.801,
+   12.202
+  ],
+  "source": "Step-8x2.poscar minus strip"
+ },
+ "Step-8x2_edge-vacancy_plus_foot-adatom": {
+  "n_atoms": 72,
+  "moved_atom_index": 21,
+  "from_row_u": 0.4167,
+  "displacement_A": [
+   1.470074998086833,
+   -2.5462445876231135,
+   0.0
+  ],
+  "min_AuAu_A": 2.9381175348970054,
+  "foot_site_neighbours_in_layer4": 3,
+  "note": "atom order identical to Step-8x2.poscar (sort=False) so the 3 detachment images interpolate with identity mapping; Step-8x2.poscar itself is written sorted -- the path generator must use this file's order for both ends"
+ },
+ "R1-hcp-terminated": {
+  "n_atoms": 64,
+  "shift_vector_A": [
+   -1.1102230246251565e-15,
+   -1.697496391748741,
+   0.0
+  ],
+  "shift_length_A": 1.697496391748741,
+  "expected_a_over_sqrt6": 1.6974963917487427,
+  "min_AuAu_A": 2.9401499961736626,
+  "acceptance": "every top atom within 0.02 A (xy, MIC) of a layer-2 atom AND 3 layer-3 neighbours at a/sqrt2; no atop position"
+ }
+}
