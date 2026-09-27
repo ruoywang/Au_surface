@@ -1,6 +1,6 @@
 # Complete Au surface dataset — computation plan v1 (rev 2, 2026-09-27)
 
-Generated from `dataset_plan_v1.csv` by `scripts/build_dataset_plan.py`; edit the CSV, not this file. Scope and sampling weights are frozen here once; execution is batched by cluster limits afterwards. No DFT is submitted by this document. Rev 2 applies the user's decisions of 2026-09-27: nine families kept, two-scale lean sampling, relaxation cost shown at 6/10/15 single points with 10× as the working budget, and four definition fixes (vicinal faces rebuilt from the correct basis, atom-conserving step path, R1/R2 registry and layer count, kink/C1 naming and periodicity).
+Generated from `dataset_plan_v1.csv` by `scripts/build_dataset_plan.py`; edit the CSV, not this file. Scope and sampling weights are frozen here once; execution is batched by cluster limits afterwards. No DFT is submitted by this document. Rev 2 applies the user's decisions of 2026-09-27: nine families kept, two-scale lean sampling, relaxation cost shown at 3.3/5/7.5 single points (measured mean / working budget / measured max, recalibrated from the nine Batch-A relaxations; the a-priori 6/10/15 assumption is retired), and four definition fixes (vicinal faces rebuilt from the correct basis, atom-conserving step path, R1/R2 registry and layer count, kink/C1 naming and periodicity).
 
 ## 1. Scope
 
@@ -64,29 +64,29 @@ Generated from `dataset_plan_v1.csv` by `scripts/build_dataset_plan.py`; edit th
 
 ## 4. Totals and budget
 
-| | structures | configs | target states | reusable | new DFT single points | relaxations | single-point cost (node·h) | + relax 6× | + relax **10× (working)** | + relax 15× |
+| | structures | configs | target states | reusable | new DFT single points | relaxations | single-point cost (node·h) | + relax 3.3× (measured mean) | + relax **5× (working)** | + relax 7.5× (measured max) |
 |---|---|---|---|---|---|---|---|---|---|---|
-| main | 16 | 90 | 248 | 0 | 248 | 16 | 232 | 332 | **398** | 482 |
+| main | 16 | 90 | 248 | 0 | 248 | 16 | 232 | 287 | **315** | 357 |
 | reference | 17 | 17 | 43 | 5 | 38 | 0 | 56 | 56 | **56** | 56 |
-| **all** | 33 | 107 | 291 | 5 | 286 | 16 | 287 | 387 | **454** | 537 |
+| **all** | 33 | 107 | 291 | 5 | 286 | 16 | 287 | 342 | **371** | 412 |
 
-Per family (working budget, relaxation at 10×):
+Per family (working budget, relaxation at 5×):
 
 | family | structures | new DFT single points | relaxations | cost (node·h) | share |
 |---|---|---|---|---|---|
-| flat Au(111) | 3 | 22 | 1 | 19 | 4 % |
-| point defect | 6 | 66 | 3 | 57 | 12 % |
-| strip step | 5 | 43 | 2 | 67 | 15 % |
-| vicinal step face | 4 | 42 | 2 | 21 | 5 % |
-| kink / edge rearrangement | 3 | 31 | 2 | 61 | 13 % |
-| single-layer island | 4 | 27 | 2 | 103 | 23 % |
-| single-layer pit | 4 | 27 | 2 | 88 | 19 % |
-| reconstruction-related | 2 | 24 | 2 | 26 | 6 % |
+| flat Au(111) | 3 | 22 | 1 | 16 | 4 % |
+| point defect | 6 | 66 | 3 | 48 | 13 % |
+| strip step | 5 | 43 | 2 | 54 | 15 % |
+| vicinal step face | 4 | 42 | 2 | 18 | 5 % |
+| kink / edge rearrangement | 3 | 31 | 2 | 49 | 13 % |
+| single-layer island | 4 | 27 | 2 | 83 | 22 % |
+| single-layer pit | 4 | 27 | 2 | 71 | 19 % |
+| reconstruction-related | 2 | 24 | 2 | 20 | 5 % |
 | composite | 2 | 4 | 0 | 13 | 3 % |
 
-The four > 200-atom references (Island-19-8x8, Island-7-8x8, Pit-19-8x8, Pit-7-8x8) cost 35 node·h (8 % of the working budget) for 8 states; they are kept, without perturbations or paths.
+The four > 200-atom references (Island-19-8x8, Island-7-8x8, Pit-19-8x8, Pit-7-8x8) cost 35 node·h (10 % of the working budget) for 8 states; they are kept, without perturbations or paths.
 
-**Reading the numbers.** Node·h are highmem node-hours (16 MPI × 8 OpenMP per node). The single-point cost model is fitted on 36–72-atom runs only; its N^1.5 growth for 108–275 atoms and the relaxation factor are assumptions — the 10× column is the working budget, 6× and 15× are the optimistic and high scenarios, none is an upper bound (failed/re-started runs are not included). Highmem is billed at 4 SU per core-hour of *requested* resources (audit §F): working budget ≈ 232 k SU, range 198–275 k SU. With the 2-concurrent-job limit the *ideal full-load* time is node·h/48 days (≈ 9 days at the working budget) — before queueing, dependencies (relax → perturb) and re-runs; it is not a completion promise. Warm-starting perturbed configurations from the parent CHGCAR is not assumed anywhere (not measured).
+**Reading the numbers.** Node·h are highmem node-hours (16 MPI × 8 OpenMP per node). The single-point cost model is fitted on 36–72-atom runs only; its N^1.5 growth for 108–275 atoms and the relaxation factor are assumptions — the 5× column is the working budget, 3.3× and 7.5× are the measured mean and maximum over the nine Batch-A relaxations, none is an upper bound (failed/re-started runs are not included). Highmem is billed at 4 SU per core-hour of *requested* resources (audit §F): working budget ≈ 190 k SU, range 175–211 k SU. With the 2-concurrent-job limit the *ideal full-load* time is node·h/48 days (≈ 8 days at the working budget) — before queueing, dependencies (relax → perturb) and re-runs; it is not a completion promise. Warm-starting perturbed configurations from the parent CHGCAR is not assumed anywhere (not measured).
 
 **Recalibration**: the first completed Batch-A relaxation of each size class and the first > 100-atom single points update `c_min` and `F_RELAX` in this script and regenerate this document; scope and weights do not change with them.
 
@@ -97,15 +97,15 @@ All builds use the existing generators' conventions (a = 4.158 Å; (111) slabs: 
 | ID | build recipe | validation / acceptance |
 |---|---|---|
 | **Au221 / Au332 / Au554 (DONE, corrected)** | `scripts/build_vicinal_fixed.py`: fcc primitive cell with indices transformed to the primitive basis ((2,2,1)→(3,3,4), (3,3,2)→(5,5,6), (5,5,4)→(9,9,10)), Gauss-reduced surface cell, 14/21/36 atomic planes (0.693/0.443/0.256 Å) for ~9 Å thickness; Au221 repeated ×2 along the 2.94 Å step vector | surface normal recovered from the coordinates ∥ (h,k,l), plane spacing = a/(2√(h²+k²+l²)), min distance 2.940 Å — recorded in `report_assets/batch1/vicinal_rebuild_validation.json`. The previous files were cubic (113), a second (211) cell and (223): kept as `Au113_retired`, `Au211b_retired`, `Au223_retired`, not in the plan; the old generator block is disabled with a note |
-| Flat-8x2 | remove the 8 strip atoms from Step-8x2 (as done for Flat-16x1) | base atoms unchanged (bijective match), 64 atoms |
-| Kink-edge1 / Kink-edge2 | Step-8x3 (base 96, strip 12) plus one extra edge atom on edge1 or edge2 in one of the three rows; ny = 3 is the minimum period for one kink per period and is **not** reducible | added atom in a hollow of the layer below (registry); the actual edge contour is traced and the number of corners per period recorded — the name states the edge only, no A/B assignment |
-| Step-8x2_edge-vacancy_plus_foot-adatom | Step-8x2 with one edge2 strip atom removed and placed in the fcc hollow of the lower terrace adjacent to edge2 — **72 atoms** | registry, min distance; same cell, atom count and atom mapping as Step-8x2 so the 3 detachment images interpolate between the two rows |
-| Island-7-elongated | 7 atoms as a 3+4 two-row zigzag chain in fcc hollows on the 6x6 slab (same cell as Island-7-6x6) | connected island (every atom ≥ 2 island neighbours), image separation ≥ 8 Å |
-| Pit-7-trench | 7 vacancies forming a 3+4 two-row zigzag trench in the 6x6 top layer | connected vacancy footprint, image separation as Pit-7 |
-| R1-hcp-terminated | T-4x4 with the whole top layer translated by the fcc→hcp registry vector taken from the slab itself (difference between the fcc and hcp hollow positions of the second layer; length a/√6 = 1.70 Å, an in-plane a/6⟨112⟩-type direction — **not** a/√3 [1̄10]) | every top atom in a threefold hollow of layer n−1 **and** vertically above an atom of layer n−2 (hcp stacking); no atom atop a layer n−1 atom; min distance 2.94 Å |
-| R2-stripe-wall | 16x1 cell; **3 base layers (48 atoms) + a 17-atom top layer** on the 16-site row = 65 atoms, 4 layers in total; two domains (fcc, hcp registry) joined by two walls of ~4 atoms along a1 carrying the 1/16 compression, positions from a 1-D soliton profile; constrained relaxation follows | min distance ≥ 2.6 Å before relaxation, fcc/hcp registry in the domain centres, periodic closure of the displacement field (total shift = one row spacing); described as a constrained domain-wall approximation, not as the herringbone |
-| C1-island-near-step | **Step-8x4** strip (base 128 + strip 16 = 144) + compact 7-atom island on the lower terrace = 151 atoms (Step-8x3 rejected: a 7-atom hexagon spans 3 rows, so in a 3-row period it touches its own image) | island–image separation ≥ 1 vacant row; island–edge distance recorded; classified as step-attached or step-detached by actual connectivity after building |
-| C2-island+pit | 6x6 slab, compact 7-atom island and compact 7-vacancy pit with rims two rows apart | 144 atoms net; separation recorded |
+| Flat-8x2 (DONE 2026-09-27) | remove the 8 strip atoms from Step-8x2 (as done for Flat-16x1) | base atoms unchanged (bijective match), 64 atoms |
+| Kink-edge1 / Kink-edge2 (DONE 2026-09-27, 109 atoms each, kink CN 5) | Step-8x3 (base 96, strip 12) plus one extra edge atom on edge1 or edge2 in one of the three rows; ny = 3 is the minimum period for one kink per period and is **not** reducible | added atom in a hollow of the layer below (registry); the actual edge contour is traced and the number of corners per period recorded — the name states the edge only, no A/B assignment |
+| Step-8x2_edge-vacancy_plus_foot-adatom (DONE 2026-09-27) | Step-8x2 with one edge2 strip atom removed and placed in the fcc hollow of the lower terrace adjacent to edge2 — **72 atoms** | registry, min distance; same cell, atom count and atom mapping as Step-8x2 so the 3 detachment images interpolate between the two rows |
+| Island-7-elongated (DONE 2026-09-27, image separation 8.82 Å) | 7 atoms as a 3+4 two-row zigzag chain in fcc hollows on the 6x6 slab (same cell as Island-7-6x6) | connected island (every atom ≥ 2 island neighbours), image separation ≥ 8 Å |
+| Pit-7-trench (DONE 2026-09-27) | 7 vacancies forming a 3+4 two-row zigzag trench in the 6x6 top layer | connected vacancy footprint, image separation as Pit-7 |
+| R1-hcp-terminated (DONE 2026-09-27; relaxed state stays hcp) | T-4x4 with the whole top layer translated by the fcc→hcp registry vector taken from the slab itself (difference between the fcc and hcp hollow positions of the second layer; length a/√6 = 1.70 Å, an in-plane a/6⟨112⟩-type direction — **not** a/√3 [1̄10]) | every top atom in a threefold hollow of layer n−1 **and** vertically above an atom of layer n−2 (hcp stacking); no atom atop a layer n−1 atom; min distance 2.94 Å |
+| R2-stripe-wall (DONE 2026-09-27, 65 atoms, 5 fcc / 4 hcp / 8 wall) | 16x1 cell; **3 base layers (48 atoms) + a 17-atom top layer** on the 16-site row = 65 atoms, 4 layers in total; two domains (fcc, hcp registry) joined by two walls of ~4 atoms along a1 carrying the 1/16 compression, positions from a 1-D soliton profile; constrained relaxation follows | min distance ≥ 2.6 Å before relaxation, fcc/hcp registry in the domain centres, periodic closure of the displacement field (total shift = one row spacing); described as a constrained domain-wall approximation, not as the herringbone |
+| C1-island-near-step (DONE 2026-09-27, 151 atoms) | **Step-8x4** strip (base 128 + strip 16 = 144) + compact 7-atom island on the lower terrace = 151 atoms (Step-8x3 rejected: a 7-atom hexagon spans 3 rows, so in a 3-row period it touches its own image) | built: the 10 Å lower terrace has 4 rows and the hexagon 3, so attachment to one foot row is unavoidable — placed on the edge2 side, 3 island–strip contacts → **step-attached**; island–image separation 5.88 Å (one vacant site) |
+| C2-island+pit (DONE 2026-09-27, **adjusted: 8x8 cell, 256 atoms**) | the 6x6 cell cannot hold two 3-row features with a 2-row rim gap (3+2+3 > 6 rows); built in the 8x8 slab: compact island rows 0–2, compact pit rows 4–6, one vacant row between the rims on both sides, 4-site a2 offset | 256 atoms net; rim-to-rim distance 6.12 Å; island/pit image separation 17.6 Å (plan adjustment under §6 rule a, cost re-estimated) |
 | path images | A1: 1 image (bridge site); Step-8x2: 3 images between the relaxed strip and the Step-8x2_edge-vacancy_plus_foot-adatom geometry; kinks: 2 images of the kink atom moving one site along the edge (image 2 = translated end point); Island-7 / Pit-7: 2 images of one rim atom leaving / entering (image 2 = end point) | interpolated on movable atoms only; atom number, order and mapping identical at both ends; no end point is relaxed unless it has its own row |
 
 ## 6. Execution batches (resource management only — the frozen scope and weights do not change)

@@ -60,3 +60,59 @@
 2026-09-27 10:43:12 [prepare] 15 new tasks written; queue now 183 entries (162 pending)
 2026-09-27 10:43:13 [prepare] 6 new tasks written; queue now 189 entries (168 pending)
 2026-09-27 12:34:15 [prepare] 20 new tasks written; queue now 209 entries (188 pending)
+2026-09-27 14:10:04 [completed] Step-8x2__relax__mu-4.9071 on b015 in 214.2 min :: relaxed: 36 ionic steps, final N_e=792.033404 mu_e=-4.907640
+2026-09-27 14:10:04 [launch] Au221__ideal__mu-4.7071 -> b015 (farm 20928320, expected ~23 min, 40.7 h left)
+2026-09-27 14:10:05 [children] Step-8x2: 7 derived configurations (pert05, pert10, coll_topspacing-3pct, coll_edgebend0.15, path_detach1, path_detach2, path_detach3), 23 new single-point tasks queued
+2026-09-27 14:21:08 [completed] Au221__ideal__mu-4.7071 on b015 in 11.1 min :: N_e=308.073880 mu_e=-4.707620
+2026-09-27 14:21:08 [launch] Au221__ideal__mu-4.9071 -> b015 (farm 20928320, expected ~23 min, 40.5 h left)
+2026-09-27 14:31:10 [completed] Au221__ideal__mu-4.9071 on b015 in 10.0 min :: N_e=307.995110 mu_e=-4.906973
+2026-09-27 14:31:10 [launch] Au221__ideal__mu-5.1071 -> b015 (farm 20928320, expected ~23 min, 40.4 h left)
+2026-09-27 14:41:12 [completed] Au221__ideal__mu-5.1071 on b015 in 10.0 min :: N_e=307.917159 mu_e=-5.106481
+2026-09-27 14:41:12 [launch] Au211__ideal__mu-4.7071 -> b015 (farm 20928320, expected ~40 min, 40.2 h left)
+2026-09-27 14:53:16 [completed] Au211__ideal__mu-4.7071 on b015 in 12.1 min :: N_e=528.100000 mu_e=-4.713570
+2026-09-27 14:53:16 [launch] Au211__ideal__mu-4.9071 -> b015 (farm 20928320, expected ~40 min, 40.0 h left)
+2026-09-27 14:56:20 [completed] R2-stripe-wall__relax__mu-4.9071 on b007 in 262.4 min :: relaxed: 57 ionic steps, final N_e=715.091538 mu_e=-4.907057
+2026-09-27 14:56:20 [launch] Au211__ideal__mu-5.1071 -> b007 (farm 20928319, expected ~40 min, 39.9 h left)
+2026-09-27 14:56:20 [children] R2-stripe-wall: 2 derived configurations (pert05, pert10), 8 new single-point tasks queued
+2026-09-27 15:09:21 [completed] Au211__ideal__mu-4.9071 on b015 in 16.1 min :: N_e=527.981244 mu_e=-4.907019
+2026-09-27 15:09:21 [launch] V1__ideal__mu-4.7071 -> b015 (farm 20928320, expected ~52 min, 39.7 h left)
+2026-09-27 15:12:25 [completed] Au211__ideal__mu-5.1071 on b007 in 16.1 min :: N_e=527.858978 mu_e=-5.107792
+2026-09-27 15:12:25 [launch] V1__ideal__mu-4.9071 -> b007 (farm 20928319, expected ~52 min, 39.7 h left)
+2026-09-27 15:33:28 [completed] V1__ideal__mu-4.7071 on b015 in 24.1 min :: N_e=693.181285 mu_e=-4.707459
+2026-09-27 15:33:28 [launch] V1__ideal__mu-5.1071 -> b015 (farm 20928320, expected ~52 min, 39.3 h left)
+2026-09-27 15:36:31 [completed] V1__ideal__mu-4.9071 on b007 in 24.1 min :: N_e=693.010889 mu_e=-4.906838
+2026-09-27 15:36:31 [launch] R1-hcp-terminated__ideal__mu-4.7071 -> b007 (farm 20928319, expected ~53 min, 39.3 h left)
+2026-09-27 15:57:35 [completed] V1__ideal__mu-5.1071 on b015 in 24.1 min :: N_e=692.842270 mu_e=-5.107836
+2026-09-27 15:57:35 [launch] R1-hcp-terminated__ideal__mu-4.9071 -> b015 (farm 20928320, expected ~53 min, 38.9 h left)
+2026-09-27 16:02:45 [completed] R1-hcp-terminated__ideal__mu-4.7071 on b007 in 26.2 min :: N_e=704.160499 mu_e=-4.707674
+2026-09-27 16:02:45 [launch] R1-hcp-terminated__ideal__mu-5.1071 -> b007 (farm 20928319, expected ~53 min, 38.8 h left)
+2026-09-27 16:06:44 [completed] R1-hcp-terminated__ideal__mu-4.9071 on b015 in 9.1 min :: N_e=704.000000 mu_e=-4.897797
+2026-09-27 16:06:44 [launch] T-4x4__ideal__mu-4.7071 -> b015 (farm 20928320, expected ~53 min, 38.8 h left)
+2026-09-27 16:26:52 [completed] R1-hcp-terminated__ideal__mu-5.1071 on b007 in 24.1 min :: N_e=703.826774 mu_e=-5.108162
+2026-09-27 16:26:52 [launch] T-4x4__ideal__mu-4.9071 -> b007 (farm 20928319, expected ~53 min, 38.4 h left)
+2026-09-27 16:34:53 [completed] T-4x4__ideal__mu-4.7071 on b015 in 28.2 min :: N_e=704.166773 mu_e=-4.708168
+2026-09-27 16:34:53 [launch] T-4x4__ideal__mu-5.1071 -> b015 (farm 20928320, expected ~53 min, 38.3 h left)
+2026-09-27 16:34:58 [completed] T-4x4__ideal__mu-4.9071 on b007 in 8.1 min :: N_e=704.000000 mu_e=-4.907133
+2026-09-27 16:34:58 [launch] A1-fcc__ideal__mu-4.7071 -> b007 (farm 20928319, expected ~54 min, 38.3 h left)
+2026-09-27 16:36:52 [farm 20929396] 5 nodes ['a282', 'a292', 'a412', 'a414', 'a851']; allocation ends 2026-09-29T16:36:39
+2026-09-27 16:36:52 [launch] A1-fcc__ideal__mu-4.9071 -> a282 (farm 20929396, expected ~54 min, 48.0 h left)
+2026-09-27 16:36:52 [launch] A1-fcc__ideal__mu-5.1071 -> a292 (farm 20929396, expected ~54 min, 48.0 h left)
+2026-09-27 16:36:53 [launch] A1-hcp__ideal__mu-4.7071 -> a412 (farm 20929396, expected ~54 min, 48.0 h left)
+2026-09-27 16:36:53 [launch] A1-hcp__ideal__mu-4.9071 -> a414 (farm 20929396, expected ~54 min, 48.0 h left)
+2026-09-27 16:36:53 [launch] A1-hcp__ideal__mu-5.1071 -> a851 (farm 20929396, expected ~54 min, 48.0 h left)
+2026-09-27 16:36:58 [farm 20928946] 1 nodes ['a400']; allocation ends 2026-09-27T22:36:52
+2026-09-27 16:36:58 [launch] R2-stripe-wall__ideal__mu-4.7071 -> a400 (farm 20928946, expected ~54 min, 6.0 h left)
+2026-09-27 16:37:55 [farm 20928948] 1 nodes ['a835']; allocation ends 2026-09-27T22:37:40
+2026-09-27 16:37:55 [launch] R2-stripe-wall__ideal__mu-4.9071 -> a835 (farm 20928948, expected ~54 min, 6.0 h left)
+2026-09-27 16:38:51 [farm 20928950] 1 nodes ['a330']; allocation ends 2026-09-27T22:38:39
+2026-09-27 16:38:51 [launch] R2-stripe-wall__ideal__mu-5.1071 -> a330 (farm 20928950, expected ~54 min, 6.0 h left)
+2026-09-27 16:39:51 [farm 20929207] 1 nodes ['a850']; allocation ends 2026-09-27T22:39:39
+2026-09-27 16:39:51 [farm 20928952] 1 nodes ['a492']; allocation ends 2026-09-27T22:39:39
+2026-09-27 16:39:51 [launch] Step-8x2__ideal__mu-4.7071 -> a850 (farm 20929207, expected ~59 min, 6.0 h left)
+2026-09-27 16:40:03 [launch] Step-8x2__ideal__mu-4.9071 -> a492 (farm 20928952, expected ~59 min, 6.0 h left)
+2026-09-27 16:40:56 [farm 20929208] 1 nodes ['a559']; allocation ends 2026-09-27T22:40:40
+2026-09-27 16:40:56 [launch] Step-8x2__ideal__mu-5.1071 -> a559 (farm 20929208, expected ~59 min, 6.0 h left)
+2026-09-27 16:46:53 [farm 20929209] 1 nodes ['a820']; allocation ends 2026-09-27T22:46:41
+2026-09-27 16:46:56 [launch] Au221__coll_strain+1pct__mu-4.7071 -> a820 (farm 20929209, expected ~23 min, 6.0 h left)
+2026-09-27 16:49:09 [farm 20929210] 1 nodes ['a425']; allocation ends 2026-09-27T22:48:58
+2026-09-27 16:49:09 [launch] Au221__coll_strain+1pct__mu-4.9071 -> a425 (farm 20929210, expected ~23 min, 6.0 h left)
