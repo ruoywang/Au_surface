@@ -548,6 +548,138 @@
     "submission_status": "not_submitted",
     "note": "16x1 cell, 3 base layers + 17-atom top layer (6 % compression along [1-10]) with two fcc/hcp domain walls; constrained straight-wall approximation, not the herringbone (production queue)"
   },
+  "Kink-edge1": {
+    "facet": "(111) strip + kink",
+    "N_total": 109,
+    "base_z_span": null,
+    "all_atoms_z_span": 9.603,
+    "in_plane_cell_vectors": [
+      [
+        23.521199969389322,
+        0.0
+      ],
+      [
+        4.410224994260497,
+        7.63873376286934
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "candidate",
+    "submission_status": "not_submitted",
+    "note": "Step-8x3 strip (96+12) + one strip atom outward of edge1 (109); kink atom CN 5; ny=3 minimum period (production queue)"
+  },
+  "Kink-edge2": {
+    "facet": "(111) strip + kink",
+    "N_total": 109,
+    "base_z_span": null,
+    "all_atoms_z_span": 9.603,
+    "in_plane_cell_vectors": [
+      [
+        23.521199969389322,
+        0.0
+      ],
+      [
+        4.410224994260497,
+        7.63873376286934
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "candidate",
+    "submission_status": "not_submitted",
+    "note": "as Kink-edge1, extra atom outward of edge2 (production queue)"
+  },
+  "Island-7-elongated": {
+    "facet": "(111)+island",
+    "N_total": 151,
+    "base_z_span": null,
+    "all_atoms_z_span": 9.603,
+    "in_plane_cell_vectors": [
+      [
+        17.64089997704199,
+        0.0
+      ],
+      [
+        8.820449988520995,
+        15.27746752573868
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "relaxed_candidate",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "candidate",
+    "submission_status": "not_submitted",
+    "note": "6x6 slab + 7 atoms as a 3+4 two-row zigzag chain (151); image separation 8.82 A (production queue)"
+  },
+  "Pit-7-trench": {
+    "facet": "(111)+pit",
+    "N_total": 137,
+    "base_z_span": null,
+    "all_atoms_z_span": 7.202,
+    "in_plane_cell_vectors": [
+      [
+        17.64089997704199,
+        0.0
+      ],
+      [
+        8.820449988520995,
+        15.27746752573868
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "relaxed_candidate",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "candidate",
+    "submission_status": "not_submitted",
+    "note": "6x6 slab minus 7 top-layer atoms in the 3+4 zigzag footprint (137); image separation 8.82 A (production queue)"
+  },
+  "C1-island-near-step": {
+    "facet": "(111) strip + island",
+    "N_total": 151,
+    "base_z_span": null,
+    "all_atoms_z_span": 9.603,
+    "in_plane_cell_vectors": [
+      [
+        23.521199969389322,
+        0.0
+      ],
+      [
+        5.8802999923473305,
+        10.184978350492454
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.938,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "candidate",
+    "submission_status": "not_submitted",
+    "note": "Step-8x4 (144) + compact 7-atom island on the lower terrace, attached to the edge2 foot row (151); composite reference"
+  },
+  "C2-island+pit": {
+    "facet": "(111)+island+pit",
+    "N_total": 256,
+    "base_z_span": null,
+    "all_atoms_z_span": 9.603,
+    "in_plane_cell_vectors": [
+      [
+        23.521199969389322,
+        0.0
+      ],
+      [
+        11.760599984694661,
+        20.369956700984908
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "candidate",
+    "submission_status": "not_submitted",
+    "note": "8x8 slab with compact island (rows 0-2) and compact pit (rows 4-6), one vacant row between rims on both sides (256 net); plan adjustment from the 6x6 cell, which cannot hold both with a 2-row gap"
+  },
   "Au113_retired": {
     "facet": "(113) [was labelled (221)]",
     "N_total": 72,

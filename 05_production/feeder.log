@@ -36,3 +36,27 @@
 2026-09-27 06:52:34 [launch] V1__relax__mu-4.9071 -> b015 (farm 20928320, expected ~347 min, 48.0 h left)
 2026-09-27 06:52:36 [launch] R1-hcp-terminated__relax__mu-4.9071 -> b007 (farm 20928319, expected ~352 min, 48.0 h left)
 2026-09-27 07:03:37 [prepare] Batch A: 4 new tasks written; queue now 96 entries (85 pending, 7 reused)
+2026-09-27 07:26:45 [completed] R1-hcp-terminated__relax__mu-4.9071 on b007 in 34.1 min :: relaxed: 3 ionic steps, final N_e=704.003737 mu_e=-4.907116
+2026-09-27 07:26:45 [launch] T-4x4__relax__mu-4.9071 -> b007 (farm 20928319, expected ~352 min, 47.4 h left)
+2026-09-27 07:26:45 [children] R1-hcp-terminated: 2 derived configurations (pert05, pert10), 8 new single-point tasks queued
+2026-09-27 08:13:10 [completed] T-4x4__relax__mu-4.9071 on b007 in 46.4 min :: relaxed: 9 ionic steps, final N_e=704.005874 mu_e=-4.908044
+2026-09-27 08:13:10 [launch] A1-fcc__relax__mu-4.9071 -> b007 (farm 20928319, expected ~358 min, 46.7 h left)
+2026-09-27 08:13:10 [children] T-4x4: 4 derived configurations (pert05, pert10, coll_topspacing-3pct, coll_strain+1pct), 14 new single-point tasks queued
+2026-09-27 08:25:09 [completed] V1__relax__mu-4.9071 on b015 in 92.6 min :: relaxed: 33 ionic steps, final N_e=693.006970 mu_e=-4.906731
+2026-09-27 08:25:09 [launch] A1-hcp__relax__mu-4.9071 -> b015 (farm 20928320, expected ~358 min, 46.5 h left)
+2026-09-27 08:25:10 [children] V1: 4 derived configurations (pert05, pert10, coll_topspacing-3pct, coll_strain+1pct), 14 new single-point tasks queued
+2026-09-27 10:33:54 [completed] A1-fcc__relax__mu-4.9071 on b007 in 140.7 min :: relaxed: 32 ionic steps, final N_e=714.900576 mu_e=-4.906981
+2026-09-27 10:33:54 [launch] R2-stripe-wall__relax__mu-4.9071 -> b007 (farm 20928319, expected ~358 min, 44.3 h left)
+2026-09-27 10:33:55 [children] A1-fcc: 5 derived configurations (pert05, pert10, coll_topspacing-3pct, coll_strain+1pct, path_bridge), 17 new single-point tasks queued
+2026-09-27 10:35:50 [completed] A1-hcp__relax__mu-4.9071 on b015 in 130.7 min :: relaxed: 30 ionic steps, final N_e=714.902748 mu_e=-4.907686
+2026-09-27 10:35:50 [launch] Step-8x2__relax__mu-4.9071 -> b015 (farm 20928320, expected ~396 min, 44.3 h left)
+2026-09-27 10:35:50 [children] A1-hcp: 4 derived configurations (pert05, pert10, coll_topspacing-3pct, coll_strain+1pct), 14 new single-point tasks queued
+2026-09-27 10:43:12 [prepare] Kink-edge1: structure file not available yet -> skipped (will be added when built)
+2026-09-27 10:43:12 [prepare] Kink-edge2: structure file not available yet -> skipped (will be added when built)
+2026-09-27 10:43:12 [prepare] Island-7-elongated: structure file not available yet -> skipped (will be added when built)
+2026-09-27 10:43:12 [prepare] Pit-7-trench: structure file not available yet -> skipped (will be added when built)
+2026-09-27 10:43:12 [prepare] C1-island-near-step: structure file not available yet -> skipped (will be added when built)
+2026-09-27 10:43:12 [prepare] C2-island+pit: structure file not available yet -> skipped (will be added when built)
+2026-09-27 10:43:12 [prepare] 15 new tasks written; queue now 183 entries (162 pending)
+2026-09-27 10:43:13 [prepare] 6 new tasks written; queue now 189 entries (168 pending)
+2026-09-27 12:34:15 [prepare] 20 new tasks written; queue now 209 entries (188 pending)

@@ -74,6 +74,20 @@ STRUCTS = {
     "R2-stripe-wall": {"path": "R2-stripe-wall.poscar", "facet": "(111) compressed top layer", "role": "constrained_model",
                  "note": "16x1 cell, 3 base layers + 17-atom top layer (6 % compression along [1-10]) with two fcc/hcp domain walls; "
                  "constrained straight-wall approximation, not the herringbone (production queue)", "dft": "candidate"},
+    # 2026-09-27 Batch-B builds (scripts/build_batchB_structures.py; validation in report_assets/batch1/batchB_build_validation.json)
+    "Kink-edge1": {"path": "Kink-edge1.poscar", "facet": "(111) strip + kink", "role": "constrained_model",
+                   "note": "Step-8x3 strip (96+12) + one strip atom outward of edge1 (109); kink atom CN 5; ny=3 minimum period (production queue)", "dft": "candidate"},
+    "Kink-edge2": {"path": "Kink-edge2.poscar", "facet": "(111) strip + kink", "role": "constrained_model",
+                   "note": "as Kink-edge1, extra atom outward of edge2 (production queue)", "dft": "candidate"},
+    "Island-7-elongated": {"path": "Island-7-elongated.poscar", "facet": "(111)+island", "role": "relaxed_candidate",
+                   "note": "6x6 slab + 7 atoms as a 3+4 two-row zigzag chain (151); image separation 8.82 A (production queue)", "dft": "candidate"},
+    "Pit-7-trench": {"path": "Pit-7-trench.poscar", "facet": "(111)+pit", "role": "relaxed_candidate",
+                   "note": "6x6 slab minus 7 top-layer atoms in the 3+4 zigzag footprint (137); image separation 8.82 A (production queue)", "dft": "candidate"},
+    "C1-island-near-step": {"path": "C1-island-near-step.poscar", "facet": "(111) strip + island", "role": "constrained_model",
+                   "note": "Step-8x4 (144) + compact 7-atom island on the lower terrace, attached to the edge2 foot row (151); composite reference", "dft": "candidate"},
+    "C2-island+pit": {"path": "C2-island+pit.poscar", "facet": "(111)+island+pit", "role": "constrained_model",
+                   "note": "8x8 slab with compact island (rows 0-2) and compact pit (rows 4-6), one vacant row between rims on both sides (256 net); "
+                           "plan adjustment from the 6x6 cell, which cannot hold both with a 2-row gap", "dft": "candidate"},
     "Au113_retired": {"path": "Au113_retired.poscar", "facet": "(113) [was labelled (221)]", "role": "retired_mislabeled",
                       "note": "built 2026-09 with bulk('Au','fcc') primitive cell + surface((2,2,1)); true face (113); not in the plan", "dft": "excluded"},
     "Au211b_retired": {"path": "Au211b_retired.poscar", "facet": "(211) [was labelled (332)]", "role": "retired_mislabeled",

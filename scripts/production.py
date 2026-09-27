@@ -61,6 +61,8 @@ LIBFILE = {
     "Step-8x2_edge-vacancy_plus_foot-adatom": "Step-8x2_edge-vacancy_plus_foot-adatom.poscar",
     "R1-hcp-terminated": "R1-hcp-terminated.poscar", "R2-stripe-wall": "R2-stripe-wall.poscar",
     "Island-7-compact": "Island-7-6x6.poscar", "Pit-7-compact": "V7.poscar",
+    "Kink-edge1": "Kink-edge1.poscar", "Kink-edge2": "Kink-edge2.poscar", "Island-7-elongated": "Island-7-elongated.poscar",
+    "Pit-7-trench": "Pit-7-trench.poscar", "C1-island-near-step": "C1-island-near-step.poscar", "C2-island+pit": "C2-island+pit.poscar",
     "Island-19-8x8": "Island-19-8x8.poscar", "Island-7-8x8": "Island-7-8x8.poscar", "Pit-19-8x8": "Pit-19-8x8.poscar", "Pit-7-8x8": "Pit-7-8x8.poscar",
 }
 # states already computed in the production standard (structure_id -> {mu_slot: run dir})
@@ -69,6 +71,12 @@ REUSED = {
     "Step-8x1": {"-4.9071": "03_pilot/Step-8x1_muref_fastcfg"},
     "Step-16x1": {"-4.9071": "03_pilot/Step-16x1_muref_fastcfg", "-5.1071": "03_pilot/Step-16x1_dUp02_fastcfg"},
 }
+# Batch B/C rows (73-151 atoms; > 200-atom references). Rows whose structure file exists are enqueued at LOWER priority
+# than Batch A (relax 40, main ideal 50, children 55, references 60, > 200-atom references 70) so farms take them once
+# Batch A is drained. Rows still to be built (kinks, elongated island, trench pit, C1, C2) are skipped until their file exists.
+BATCH_B = ["Step-24x1", "Step-16x2", "Island-7-compact", "Pit-7-compact", "Kink-edge1", "Kink-edge2", "Island-7-elongated",
+           "Pit-7-trench", "C1-island-near-step", "C2-island+pit"]
+BATCH_C = ["Island-19-8x8", "Island-7-8x8", "Pit-19-8x8", "Pit-7-8x8"]
 BATCH_A = ["T-4x4", "V1", "A1-fcc", "A1-hcp", "Au221", "Au211", "Step-8x2", "R1-hcp-terminated", "R2-stripe-wall",
            "Flat-16x1", "Flat-8x2", "Step-8x1", "Step-16x1", "V2", "V3", "A3", "Au332", "Au554", "Step-8x2_edge-vacancy_plus_foot-adatom"]
 
@@ -250,6 +258,25 @@ def make_task(q, structure_id, row, config, mu, kind, at, movable, priority, not
              status="pending", job_id=None, note=note)
     q.append(t)
     return t
+
+
+def prepare_batch(batch, prio_relax, prio_main, prio_ref):
+    rows = load_plan(); q = load_queue(); made = 0
+    for sid in batch:
+        row = rows[sid]
+        if sid not in LIBFILE or not os.path.exists(f"{LIB}/{LIBFILE[sid]}"):
+            log(f"[prepare] {sid}: structure file not available yet -> skipped (will be added when built)"); continue
+        at, movable = run_ready_atoms(sid, row)
+        assert len(at) == row["n_atoms"], (sid, len(at), row["n_atoms"])
+        if row["n_relax"] == 1:
+            if make_task(q, sid, row, "relax", MU_RELAX, "relax", at, movable, priority=prio_relax): made += 1
+        for mu in row["mu"]:
+            if mu in REUSED.get(sid, {}): continue
+            prio = prio_main if row["tier"] == "main" else prio_ref
+            if make_task(q, sid, row, "ideal", mu, "sp", at, movable, priority=prio): made += 1
+    q.sort(key=lambda t: (t["priority"], t["n_atoms"], t["task_id"]))
+    save_queue(q)
+    log(f"[prepare] {made} new tasks written; queue now {len(q)} entries ({sum(t['status']=='pending' for t in q)} pending)")
 
 
 def prepare_batchA():
@@ -462,5 +489,7 @@ if __name__ == "__main__":
     elif cmd == "feed": feed(once="--once" in sys.argv)
     elif cmd == "retarget": retarget(sys.argv[2] if len(sys.argv) > 2 else PARTITION)
     elif cmd == "farm": farm()
+    elif cmd == "prepare-batchB": prepare_batch(BATCH_B, 40, 50, 60)
+    elif cmd == "prepare-batchC": prepare_batch(BATCH_C, 70, 70, 70)
     elif cmd == "refresh": refresh()
     else: status()

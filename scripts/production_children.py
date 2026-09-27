@@ -113,6 +113,50 @@ def main(sid, dry=False, contcar_override=None):
         assert abs(np.linalg.norm(shift[:2]) - A0 / np.sqrt(6)) < 0.15, np.linalg.norm(shift[:2])
         a = rel.copy(); p = pos0.copy(); p[ad, :2] += 0.5 * shift[:2]; a.set_positions(p)
         children["path_bridge"] = (a, f"adatom moved half-way ({0.5*np.linalg.norm(shift[:2]):.3f} A) toward the nearest hcp hollow (bridge site)")
+    # --- Batch B path recipes (2 images each: 0.5 = bridge/midpoint, 1.0 = constructed end point, nothing relaxed) ---
+    def path_images(mover, target_xy, name, note):
+        d = np.zeros((len(rel), 3)); d[mover, :2] = mic(np.array([*target_xy, pos0[mover, 2]]) - pos0[mover], cell)[:2]
+        for k, f in enumerate((0.5, 1.0), start=1):
+            a = rel.copy(); a.set_positions(pos0 + f * d); md = min_dist_xy_periodic(a)
+            assert md >= 2.4, f"{name}{k}: min distance {md:.2f} A"
+            children[f"{name}{k}"] = (a, f"{note}; image {f:.1f}, moving atom displaced {np.linalg.norm(f*d[mover]):.2f} A; min d {md:.2f} A")
+    def inplane_neighbors(k, zsel, cutoff=0.15):
+        return [m for m in zsel if m != k and abs(np.linalg.norm(mic(pos0[m] - pos0[k], cell)[:2]) - A0 / np.sqrt(2)) < cutoff]
+    if row["n_path"] >= 1 and sid.startswith("Kink-edge"):
+        # kink atom = strip atom with only 2 in-plane strip neighbours; it moves one site along the edge (a2 direction)
+        strip = np.where(pos0[:, 2] > pos0[:, 2].max() - 0.3)[0]
+        cn = {k: len(inplane_neighbors(k, strip)) for k in strip}
+        kink = min(cn, key=cn.get); assert cn[kink] == 2, cn[kink]
+        ny = int(round(np.linalg.norm(cell[1]) / (A0 / np.sqrt(2)))); step_vec = cell[1][:2] / ny
+        path_images(kink, pos0[kink, :2] + step_vec, "path_kinkmove", "kink atom translated one site along the edge (end point = equivalent kink)")
+    if row["n_path"] >= 1 and sid.startswith("Island-7"):
+        # a ring atom (in-plane CN 3) moves to the empty hollow adjacent to it that is farthest from the island centre
+        isl = np.where(pos0[:, 2] > pos0[:, 2].max() - 0.3)[0]
+        centre = pos0[isl, :2].mean(axis=0)
+        cn = {k: len(inplane_neighbors(k, isl)) for k in isl}
+        mover = min(cn, key=lambda k: (cn[k], np.linalg.norm(pos0[k, :2] - centre)))
+        # candidate hollows: the 6 in-plane NN positions of the mover (hexagonal), excluding occupied ones
+        a1v, a2v = cell[0][:2], cell[1][:2]; ny = int(round(np.linalg.norm(a2v) / (A0 / np.sqrt(2)))); nx = int(round(np.linalg.norm(a1v) / (A0 / np.sqrt(2))))
+        e1, e2 = a1v / nx, a2v / ny
+        cands = [pos0[mover, :2] + v for v in (e1, -e1, e2, -e2, e1 - e2, e2 - e1)]
+        occupied = pos0[isl, :2]
+        free = [c for c in cands if all(np.linalg.norm(mic(np.array([*c, 0]) - np.array([*o, 0]), cell)[:2]) > 1.0 for o in occupied)]
+        target = max(free, key=lambda c: np.linalg.norm(mic(np.array([*c, 0]) - np.array([*centre, 0]), cell)[:2]))
+        path_images(mover, target, "path_detach", "island ring atom moved to the adjacent empty hollow farthest from the island centre")
+    if row["n_path"] >= 1 and sid.startswith("Pit-7"):
+        # a rim atom (top-layer atom next to a vacancy) moves into the adjacent vacancy site
+        top = np.where(np.abs(pos0[:, 2] - pos0[:, 2].max()) < 0.3)[0]
+        a1v, a2v = cell[0][:2], cell[1][:2]; ny = int(round(np.linalg.norm(a2v) / (A0 / np.sqrt(2)))); nx = int(round(np.linalg.norm(a1v) / (A0 / np.sqrt(2))))
+        e1, e2 = a1v / nx, a2v / ny
+        best = None
+        for k in top:
+            for v in (e1, -e1, e2, -e2, e1 - e2, e2 - e1):
+                c = pos0[k, :2] + v
+                if all(np.linalg.norm(mic(np.array([*c, 0]) - np.array([*pos0[m, :2], 0]), cell)[:2]) > 1.0 for m in top):
+                    best = (k, c); break
+            if best: break
+        assert best is not None, "no rim atom with an adjacent vacancy found"
+        path_images(best[0], best[1], "path_rimin", "pit rim atom moved into the adjacent vacancy site")
     if row["n_path"] >= 1 and sid == "Step-8x2":
         end = read(f"{P.LIB}/Step-8x2_edge-vacancy_plus_foot-adatom.poscar")
         pe = end.get_positions(); pe[:, 2] += P.ZMIN - pe[:, 2].min()

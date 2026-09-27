@@ -1,0 +1,137 @@
+{
+ "Kink-edge1": {
+  "n_atoms": 109,
+  "min_AuAu_A": 2.940149996173662,
+  "strip_rows": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "kink_row": 7,
+  "kink_side": "edge1",
+  "kink_atom": {
+   "n_below": 3,
+   "n_inplane_strip": 2,
+   "CN": 5
+  },
+  "edge_atoms_inplane_CN": [
+   4,
+   5,
+   6
+  ],
+  "all_added_in_hollows": true,
+  "edge_contour": "straight edge of 3 atoms per period with one atom protruding one row outward at v=0: two corners per period on this edge",
+  "cell_A": [
+   23.52,
+   8.82
+  ],
+  "validation": "PASS"
+ },
+ "Kink-edge2": {
+  "n_atoms": 109,
+  "min_AuAu_A": 2.940149996173662,
+  "strip_rows": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "kink_row": 4,
+  "kink_side": "edge2",
+  "kink_atom": {
+   "n_below": 3,
+   "n_inplane_strip": 2,
+   "CN": 5
+  },
+  "edge_atoms_inplane_CN": [
+   4,
+   5,
+   6
+  ],
+  "all_added_in_hollows": true,
+  "edge_contour": "straight edge of 3 atoms per period with one atom protruding one row outward at v=0: two corners per period on this edge",
+  "cell_A": [
+   23.52,
+   8.82
+  ],
+  "validation": "PASS"
+ },
+ "Island-7-elongated": {
+  "n_atoms": 151,
+  "min_AuAu_A": 2.940149996173661,
+  "island_inplane_CN": [
+   2,
+   4,
+   4,
+   2,
+   3,
+   4,
+   3
+  ],
+  "all_in_hollows": true,
+  "connected": true,
+  "periodic_image_separation_A": 8.820449988520995,
+  "shape": "3+4 two-row zigzag chain",
+  "validation": "PASS"
+ },
+ "Pit-7-trench": {
+  "n_atoms": 137,
+  "n_removed": 7,
+  "min_AuAu_A": 2.940149996173661,
+  "vacancy_nn_counts": [
+   2,
+   4,
+   4,
+   2,
+   3,
+   4,
+   3
+  ],
+  "connected": true,
+  "periodic_image_separation_A": 8.820449988520993,
+  "shape": "3+4 two-row zigzag trench",
+  "validation": "PASS"
+ },
+ "C1-island-near-step": {
+  "n_atoms": 151,
+  "min_AuAu_A": 2.938117534897005,
+  "strip_rows": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "island_rows": [
+   4,
+   5,
+   6
+  ],
+  "all_in_hollows": true,
+  "island_strip_contacts": 3,
+  "classification": "step-attached (island foot row = edge2 foot row)",
+  "periodic_image_separation_A": 5.880299992347328,
+  "note": "10 A lower terrace has 4 rows, a hexagon spans 3: attachment to one foot row is unavoidable in Step-8x4; placed on the edge2 side",
+  "validation": "PASS"
+ },
+ "C2-island+pit": {
+  "n_atoms": 256,
+  "min_AuAu_A": 2.940149996173659,
+  "island_rows": [
+   0,
+   1,
+   2
+  ],
+  "pit_rows": [
+   4,
+   5,
+   6
+  ],
+  "all_in_hollows": true,
+  "island_rim_to_pit_rim_min_distance_A": 6.1204102803651965,
+  "island_image_separation_A": 17.640899977041986,
+  "pit_image_separation_A": 17.640899977041986,
+  "note": "plan adjustment: 6x6 cannot hold two 3-row features with a 2-row rim gap (3+2+3 > 6); built in 8x8 (256 atoms net) with ONE vacant row between the rims on both sides (3+1+3+1 = 8) and a 4-site a2 offset; rim-to-rim distance recorded",
+  "validation": "PASS"
+ }
+}
