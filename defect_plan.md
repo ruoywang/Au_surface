@@ -296,11 +296,16 @@ raised/lower-terrace asymmetry. **2026-09-27:** the same-cell flat baseline (Fla
 atoms, both potentials, `dft_queue_status` = computed) is done; against it, per unit
 potential step, Step-16x1 takes 4 % more charge per projected area, its raised terrace
 responds 5–7 % below flat, the lower terrace 19 % above, the foot peaks 40 % above, and
-the trench centre is still 1.17× flat 10 Å from the risers (report rev 2, §3–5). Not
-submitted and not required for labelling: Step-24x1 (trench-width convergence), a
-Flat-8x1 pair (same-numerics 8×1 ratios), a FERMICONVERGE=0.001 rerun of Flat16x1_dUp02
-(its μ_e stopped 8.7 meV short of target; normalised per eV in the report). Note for all
-future two-point comparisons: read the actual μ_e from the CPM-ion lines, not TARGETMU.
+the trench centre is still 1.17× flat 10 Å from the risers (report rev 3, §3–5; the
+magnitudes are conditional on actual potential intervals, integration range and model
+parameters — the spatial structure is the better-supported result). **Stage closed
+2026-09-27 (user decision): no further DFT for this question.** Deferred, with the
+condition under which each becomes worth doing recorded in the report's §6: Step-24x1,
+a Flat-8x1 pair, a FERMICONVERGE=0.001 rerun of Flat16x1_dUp02 (its μ_e stopped 8.7 meV
+short of target; normalised per eV in the report). None is a prerequisite for the
+dataset work. Two standing rules from this stage: read the actual μ_e/N_e from the
+CPM-ion lines and label states by them, not by TARGETMU; keep PREC=Accurate and
+PREC=Normal energies as separately labelled sources (see `03_pilot/run_registry.md`).
 
 ## Phase 2 — recorded, not built this round
 

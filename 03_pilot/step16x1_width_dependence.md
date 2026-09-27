@@ -1,7 +1,7 @@
 # Step-16×1 at two potentials, with a same-cell flat baseline: what the step does to the potential-driven ion response
 
-Rev 2, 2026-09-27 (rev 1 of 2026-09-26 compared against the old T cell only; its numbers
-are superseded where they differ below). Runs used:
+Rev 3, 2026-09-27 (rev 1 of 2026-09-26 compared against the old T cell only; rev 2 added
+the same-cell flat pair; rev 3 tightens the wording after review — no new data). Runs:
 
 | run | config | rounds (SCF steps) | N_e | μ_e reached (target) | TOTEN (eV) | wall |
 |---|---|---|---|---|---|---|
@@ -28,19 +28,27 @@ item, not a convergence failure; per the 2026-09-27 decision it is not being tun
 1. **The applied potential steps are not identical.** FERMICONVERGE = 0.01 lets the CP
    loop stop up to 10 meV from TARGETMU. The step pairs landed within 0.5 meV of their
    targets (actual steps −0.2005 eV at 16×1, −0.1995 at 8×1), but Flat16x1_dUp02 stopped
-   after two rounds at −5.0984 eV, so the flat pair's actual step is **−0.1915 eV**, 4.5 %
-   smaller. Every step/flat ratio below is therefore given both raw and *per eV* (each
-   response divided by its own |Δμ_e|; linear-response normalisation, whose residual
-   error for a 9 meV difference is ≪ 1 %). The raw ratios overstate the step effect by
-   ~4.7 %. A rerun of the one flat point with FERMICONVERGE = 0.001 (~30 min) would remove
-   the need for normalisation; not done (scope was the two points).
-2. **PZC bookkeeping.** Neutral μ_e (first CP round, N_e = neutral): Flat16x1 −4.9792 eV,
-   Step-16x1 −4.9507 eV, T-old (4×4 cell, 3×3×1, Accurate) −4.9071 eV. The step raises μ_e
-   by 28.5 meV relative to the same-cell flat slab (work function lowered — the
-   Smoluchowski direction). The 72 meV gap between the two flat references is numerics
-   (cell shape, k-mesh, PREC), which is why T-old could not serve as the baseline; the
-   *differential* quantities are much less sensitive (T-old vs Flat16x1: σ per eV +2.9 %,
-   ΔΓ₋ per eV −1.0 %).
+   after two rounds at −5.0984 eV — converged within the allowed potential tolerance, not
+   unconverged — so the flat pair's actual step is **−0.1915 eV**, 4.5 % smaller. Every
+   step/flat ratio below is given raw and *per eV*: each response divided by its own actual
+   converged |Δμ_e|, i.e. a finite-difference secant slope χ = [X(U₂) − X(U₁)]/(U₂ − U₁).
+   Multiplying a raw ratio by 0.191496/0.200509 = 0.955 gives the per-eV ratio (raw σ ratio
+   1.0905 → 1.0415). This corrects the main step-size difference; if the response has
+   curvature, dividing by each step does not remove all of the difference, and that
+   residual nonlinearity is **not separately quantified here** (no data to bound it). It
+   does not create or remove the same-cell spatial structure of §2. A rerun of the one flat
+   point with FERMICONVERGE = 0.001 would remove the need for normalisation; deferred (§6).
+2. **Neutral electron chemical potentials.** First CP round at the neutral electron
+   count, under the common potential reference of this cell: Flat16x1 −4.9792 eV,
+   Step-16x1 −4.9507 eV, T-old (4×4 cell, 3×3×1, Accurate) −4.9071 eV. The step raises μ_e of
+   the neutral slab by 28.5 meV relative to the same-cell flat slab — the direction
+   expected from Smoluchowski smoothing, but stated as a μ_e difference under a common
+   reference, not as a vacuum work-function difference (that would need the same-side
+   vacuum level, W = E_vac − E_F, which is not extracted here). The 72 meV gap between the
+   two flat references is attributable to their different numerical set-ups collectively
+   (cell shape, k-mesh, PREC), not decomposed further; it is why T-old could not serve as the
+   baseline. The *differential* quantities are much less sensitive (T-old vs Flat16x1: σ per
+   eV +2.9 %, ΔΓ₋ per eV −1.0 %).
 
 ## 1. The statistic used in the earlier reports: R₁₆ vs R₈
 
@@ -57,7 +65,8 @@ item, not a convergence failure; per the 2026-09-27 decision it is not being tun
 K_ij decomposition: ΔK_φ = +0.1125 / +0.1203 (near / far), ΔK_S = +0.0002 / +0.0001 — the
 response is the potential-occupation term at both widths, as before. The sign (near < far)
 is robust, but §2 shows the folded band averages over two physically different regions, so
-neither ratio is a property of the step. This statistic is retired for step cells.
+neither ratio is a property of the step. The numbers were correct; the interpretation of
+them as an "intrinsic step response" was not. This statistic is retired for step cells.
 
 ## 2. Across-step profiles
 
@@ -66,6 +75,9 @@ x-column against the perpendicular across-step position s (edges at the dashed l
 raised terrace shaded), in ion number per projected area:
 
 ΔΓ₋ = (1/A_proj) ∫_Ω [Δn₋ − n_b ΔS_ion] dV  (10⁻³ ions Å⁻²; ×(−e) for the charge density).
+
+ΔΓ₋ is the *change of the anion surface excess* between the two potentials — a response
+rate, not a local Cl⁻ concentration, and not an adsorption energy or probability.
 
 ![](report_assets/batch1/step_width_dGamma_profile.png)
 
@@ -112,7 +124,12 @@ therefore the surface excess *within the stated integration range*. Two conventi
   S_ion = 0.5 crossing (17.9–20.6 Å in the step cells, 17.9 Å flat). Every column keeps the
   same tail fraction — the convention for regional ratios.
 
-The two conventions agree on all ratios to within 2 %.
+The two conventions agree on all ratios to within 2 %. Two distinctions to keep:
+agreement between the conventions is **not** a 2 % error bar — both integrate the same
+finite electrolyte slab under the same far window and can share a common bias; and the
+tail sensitivity of Γ is a range-selection effect on the *ion* side — it is not an
+uncertainty on the induced charge σ, which comes from the self-consistent electron count
+and is closed against the ion reconstruction to 1e-6.
 
 | pair (production unless noted) | actual Δμ_e (eV) | ΔN_e | σ (10⁻³ e/Å²) | σ/\|Δμ\| (10⁻³ e/Å²/eV) | ΔΓ₋ (A) | ΔΓ₋ (B) | anion share |
 |---|---|---|---|---|---|---|---|
@@ -188,50 +205,73 @@ potential shift; green dashed: Flat16x1.*
   under-represents the trench (its column holds ~2.4 Å more bulk-like fluid), so it is a
   qualitative indicator only.
 
-## 5. What this establishes
+## 5. What this establishes, ordered by strength of evidence
 
-- **Superseded as the headline:** "the near-edge anion response is ~13–20 % weaker than
-  the terrace" (step8x1_potential_response.md, step8x1_ion_species_analysis.md,
-  step8x1_mechanism_check.md §5). The numbers in those reports are unchanged and
-  reproducible; the statistic averaged a bimodal profile.
-- **Against a same-cell, same-numerics flat slab, per unit potential step, a 20 Å-terrace
-  stepped surface**: takes 4 % more charge per projected area; its anion surface-excess
-  response is 6 % higher on cell average, 5–7 % *lower* over the raised terrace, 19 % higher
-  over the lower terrace (17 % at the trench centre, 10 Å from either riser), and 40–43 %
-  higher at the foot peaks. With 10 Å terraces (Step-8x1, different PREC/k): σ +8 %, raised
-  −7 to −10 %, trench +50 to +60 %.
-- **Terrace width is not converged at 20 Å**: the trench centre is still 1.17× flat. A
-  dataset label for a "terrace" site must carry the terrace width and which terrace
-  (upper/lower) it sits on; a periodic 20 Å trench is itself a legitimate labelled sample
-  and does not need to reach the isolated-step limit first.
-- **Edge inequivalence is real on the metal side and strongly attenuated on the electrolyte
-  side** under this model's ion size, cavity distance, potential step and along-edge
-  averaging. The metal-side difference must stay in the dataset regardless (the MLFF targets
-  include energies, forces and electronic response).
-- The per-column ΔΓ₋(s) profiles (`step_width_excess.json`, both conventions) and the
-  metal/ion profiles (`step_induced_charge_profile.json`) are the quantities to carry
-  forward; the folded near/far ratio is retired for step cells.
+**Better supported (same cell, same numerics, same analysis; independent of the flat
+baseline and of the integration convention):**
 
-Caveats that stand: FERMICONVERGE = 0.01 makes the applied step vary by up to 10 meV
-between runs (normalised here, not eliminated); the response is not window-converged
-(range-specified values, 2.6–5 % tail sensitivity); the 8×1 pair is PREC=Accurate; one
-potential step; static geometries; implicit ions with R_ION = 4 Å and a 2 Å Stern layer
-set the 5–6 Å gap that produces the lateral displacement; TOTEN from the two PREC settings
-is not to be mixed as energy labels without the `config_version` field of
-`03_pilot/run_registry.json`.
+- Inside the periodic strip model the step *redistributes* the potential-driven ion
+  response: the raised terrace responds slightly less, the lower terrace more, and the
+  strongest response sits not above the upper-edge atoms but 4.6–4.7 Å outward over the
+  lower terrace (§2, §4).
+- The induced metal charge concentrates at the upper-edge rows (one edge ~2× the other in
+  the along-edge-averaged profile) while the ion-side peaks are laterally displaced and
+  edge-symmetric (§4).
+- The folded near/far statistic of the earlier reports cannot represent this structure;
+  its values were correct but its reading as an "intrinsic step response" is withdrawn
+  (step8x1_potential_response.md, step8x1_ion_species_analysis.md,
+  step8x1_mechanism_check.md §5 carry superseded notes).
 
-## 6. Open question and options (nothing submitted)
+**Needs more qualification before being quoted as a number:**
 
-The question that now stands on a controlled footing: why does the electronic charging
+- The magnitudes against the same-cell flat slab, per eV (Step-16x1): induced σ ≈ +4 %,
+  cell-mean ΔΓ₋ ≈ +6 %, raised terrace −5 to −7 %, lower terrace ≈ +19 %, trench centre
+  ≈ +17 %, foot peaks +40 to +43 %. Each is conditional on the actual potential intervals
+  (§0.1), the integration range (§3), the model parameters, and — for the 8×1 numbers —
+  a PREC/k-mesh mismatch. "+40 %" is the change of the anion surface excess per unit
+  potential step at those columns, not a 40 % higher local Cl⁻ concentration and not a
+  40 % change in Cl adsorption energy or probability.
+- The lateral range of the step's influence: the trench centre is still 1.17× flat at
+  10 Å from either riser, so 20 Å terraces are not converged toward an isolated step.
+  Whether that is two-edge coupling or a longer single-edge range is not separable here.
+- Transferability to a real electrolyte: implicit ions with R_ION = 4 Å and a 2 Å Stern
+  layer set the 5–6 Å gap that produces the lateral displacement; nothing here concerns
+  Cl chemisorption.
+
+**Consequences for the dataset:** a periodic 20 Å (or 10 Å) trench is a legitimate,
+fully specified sample and does not need to reach the isolated-step limit first — but its
+labels must carry the finite periodic width, the finite electrolyte slab and which terrace
+(upper/lower) a site sits on; it must not be read as an isolated step in an infinite
+electrolyte. Two principles for the training-data stage: (1) label with the *actual*
+converged state — Flat16x1_dUp02 is the state at μ_e = −5.098393 eV, N_e = 703.900000, not
+"the −5.1071 eV point"; when charge is the input, use the actual converged electron count;
+(2) `run_registry.json` records the configuration version of every run, but recording it
+does not remove the PREC-dependent energy offset — energy labels need one consistent
+standard, with older PREC=Accurate data kept as traceable references and no unverified
+blanket correction.
+
+**Stage summary.** Under fixed geometry, a single-sided continuum electrolyte and the
+present finite periodic conditions, a step on the Au strip changes the spatial
+distribution of the charging-induced ion response. Relative to the same-cell flat slab,
+the raised-terrace response is slightly weakened, the lower-terrace and foot responses are
+enhanced, and the ion-response peak is laterally offset from the metal-side induced-charge
+peak. The folded near-edge/far-edge index cannot represent this spatial structure; the
+position-resolved surface-excess response is the primary analysis quantity. The
+enhancement magnitudes remain bounded by the actual potential intervals, the finite
+electrolyte region and the periodic width; the results do not bear on Cl chemisorption.
+
+## 6. Deferred options (nothing submitted; none is a prerequisite for the dataset work)
+
+| option | when it becomes worth doing |
+|---|---|
+| (i) Flat16x1_dUp02 with FERMICONVERGE = 0.001 (~30 min) | when a few-percent same-potential difference (the +4 %/+6 %) is to be reported as a precise headline |
+| (ii) Step-24x1, two points (108 atoms, ~1 h each) | when the lateral range / isolated-step limit is itself the question |
+| (iii) Flat-8x1 pair (32 atoms, ~10 min each) | when 8×1 vs 16×1 is to be a strict same-configuration width scaling |
+
+The open physical question, now on a controlled footing: why the electronic charging
 heterogeneity created by the step (uniform terraces, spikes at the upper-edge rows, one
-edge 2× the other) appear in the ion-accessible space as a lower-terrace enhancement
-displaced ~4.7 Å from the edge rows rather than as a co-located peak above the edge?
-
-Options if the width study continues: (i) Flat16x1_dUp02 rerun with FERMICONVERGE = 0.001
-(~30 min) to remove the per-eV normalisation; (ii) Step-24x1 (108 atoms, ~1 h per point)
-to see whether the trench centre approaches the flat value at 15 Å from the risers;
-(iii) a Flat-8x1 pair (32 atoms, ~10 min per point) so that the 8×1 ratios are also
-same-numerics. None of these is required for the current dataset labelling.
+edge 2× the other) appears in the ion-accessible space as a lower-terrace enhancement
+displaced ~4.7 Å from the edge rows rather than as a co-located peak above the edge.
 
 Files: `scripts/build_flat16x1_pair.py`, `scripts/step_potential_mechanism.py` (rev 3),
 `scripts/step_width_profile.py`, `scripts/step_width_excess.py` (rev 3),
