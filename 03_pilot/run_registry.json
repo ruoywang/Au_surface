@@ -1,0 +1,1686 @@
+{
+ "A1_fcc_dUm02": {
+  "dir": "03_pilot/A1_fcc_dUm02",
+  "n_atoms": 65,
+  "cell_in_plane": [
+   [
+    11.7606,
+    0.0
+   ],
+   [
+    5.8803,
+    10.185
+   ]
+  ],
+  "metal_top_z": 14.603,
+  "kpoints": "3 3 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-5.1071",
+   "FERMICONVERGE": "0.01",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 714.761478,
+  "mu_e_final": -5.109558,
+  "targetmu_log": -5.1071,
+  "scf_steps": 210,
+  "TOTEN_eV": -196.14753215,
+  "elapsed_s": 9530.256,
+  "job_ids": [
+   20872309
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "02:38:55",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "A1_fcc_dUp00": {
+  "dir": "03_pilot/A1_fcc_dUp00",
+  "n_atoms": 65,
+  "cell_in_plane": [
+   [
+    11.7606,
+    0.0
+   ],
+   [
+    5.8803,
+    10.185
+   ]
+  ],
+  "metal_top_z": 14.603,
+  "kpoints": "3 3 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-4.9071",
+   "FERMICONVERGE": "0.01",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 714.938718,
+  "mu_e_final": -4.906938,
+  "targetmu_log": -4.9071,
+  "scf_steps": 205,
+  "TOTEN_eV": -197.03224874,
+  "elapsed_s": 9198.592,
+  "job_ids": [
+   20872882
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "02:33:29",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "A1_fcc_dUp02": {
+  "dir": "03_pilot/A1_fcc_dUp02",
+  "n_atoms": 65,
+  "cell_in_plane": [
+   [
+    11.7606,
+    0.0
+   ],
+   [
+    5.8803,
+    10.185
+   ]
+  ],
+  "metal_top_z": 14.603,
+  "kpoints": "3 3 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-4.7071",
+   "FERMICONVERGE": "0.01",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 715.117065,
+  "mu_e_final": -4.707176,
+  "targetmu_log": -4.7071,
+  "scf_steps": 168,
+  "TOTEN_eV": -197.89851185,
+  "elapsed_s": 7639.852,
+  "job_ids": [
+   20873259
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "02:07:28",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "Flat16x1_dUp02": {
+  "dir": "03_pilot/Flat16x1_dUp02",
+  "n_atoms": 64,
+  "cell_in_plane": [
+   [
+    47.0424,
+    0.0
+   ],
+   [
+    1.4701,
+    2.5462
+   ]
+  ],
+  "metal_top_z": 12.202,
+  "kpoints": "1 12 1",
+  "incar": {
+   "NPAR": "16",
+   "PREC": "Normal",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Fast",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-5.1071",
+   "FERMICONVERGE": "0.01",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 16,
+   "threads_per_rank": 8,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 703.9,
+  "mu_e_final": -5.098393,
+  "targetmu_log": -5.1071,
+  "scf_steps": 98,
+  "TOTEN_eV": -194.76924354,
+  "elapsed_s": 1645.714,
+  "job_ids": [
+   20925041
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "00:27:36",
+  "config_version": "production-2026-09-26 (PREC=Normal, ALGO=Fast, NPAR=16 hybrid)"
+ },
+ "Flat16x1_muref": {
+  "dir": "03_pilot/Flat16x1_muref",
+  "n_atoms": 64,
+  "cell_in_plane": [
+   [
+    47.0424,
+    0.0
+   ],
+   [
+    1.4701,
+    2.5462
+   ]
+  ],
+  "metal_top_z": 12.202,
+  "kpoints": "1 12 1",
+  "incar": {
+   "NPAR": "16",
+   "PREC": "Normal",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Fast",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-4.9071",
+   "FERMICONVERGE": "0.01",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 16,
+   "threads_per_rank": 8,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 704.061404,
+  "mu_e_final": -4.906897,
+  "targetmu_log": -4.9071,
+  "scf_steps": 148,
+  "TOTEN_eV": -195.58009204,
+  "elapsed_s": 2309.481,
+  "job_ids": [
+   20925040
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "00:38:34",
+  "config_version": "production-2026-09-26 (PREC=Normal, ALGO=Fast, NPAR=16 hybrid)"
+ },
+ "Step-16x1_dUp02": {
+  "dir": "03_pilot/Step-16x1_dUp02",
+  "n_atoms": 72,
+  "cell_in_plane": [
+   [
+    47.0424,
+    0.0
+   ],
+   [
+    1.4701,
+    2.5462
+   ]
+  ],
+  "metal_top_z": 14.603,
+  "kpoints": "1 12 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-5.1071",
+   "FERMICONVERGE": "0.001",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 0,
+  "scf_steps": 321,
+  "TOTEN_eV": null,
+  "elapsed_s": null,
+  "job_ids": [
+   20913220
+  ],
+  "last_state": "TIMEOUT",
+  "last_elapsed": "06:00:16",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "Step-16x1_dUp02_algofast": {
+  "dir": "03_pilot/Step-16x1_dUp02_algofast",
+  "n_atoms": 72,
+  "cell_in_plane": [
+   [
+    47.0424,
+    0.0
+   ],
+   [
+    1.4701,
+    2.5462
+   ]
+  ],
+  "metal_top_z": 14.603,
+  "kpoints": "1 12 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Fast",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-5.1071",
+   "FERMICONVERGE": "0.001",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 0,
+  "scf_steps": 90,
+  "TOTEN_eV": null,
+  "elapsed_s": null,
+  "job_ids": [
+   20915640
+  ],
+  "last_state": "CANCELLED+",
+  "last_elapsed": "01:34:57",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "Step-16x1_dUp02_fastcfg": {
+  "dir": "03_pilot/Step-16x1_dUp02_fastcfg",
+  "n_atoms": 72,
+  "cell_in_plane": [
+   [
+    47.0424,
+    0.0
+   ],
+   [
+    1.4701,
+    2.5462
+   ]
+  ],
+  "metal_top_z": 14.603,
+  "kpoints": "1 12 1",
+  "incar": {
+   "NPAR": "16",
+   "PREC": "Normal",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Fast",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-5.1071",
+   "FERMICONVERGE": "0.01",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 16,
+   "threads_per_rank": 8,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 791.862697,
+  "mu_e_final": -5.107525,
+  "targetmu_log": -5.1071,
+  "scf_steps": 144,
+  "TOTEN_eV": -219.73558603,
+  "elapsed_s": 2417.784,
+  "job_ids": [
+   20916399
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "00:40:22",
+  "config_version": "production-2026-09-26 (PREC=Normal, ALGO=Fast, NPAR=16 hybrid)"
+ },
+ "Step-16x1_muref": {
+  "dir": "03_pilot/Step-16x1_muref",
+  "n_atoms": 72,
+  "cell_in_plane": [
+   [
+    47.0424,
+    0.0
+   ],
+   [
+    1.4701,
+    2.5462
+   ]
+  ],
+  "metal_top_z": 14.603,
+  "kpoints": "1 12 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-4.9071",
+   "FERMICONVERGE": "0.001",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 792.038384,
+  "mu_e_final": -4.908008,
+  "targetmu_log": -4.9071,
+  "scf_steps": 212,
+  "TOTEN_eV": -220.64150384,
+  "elapsed_s": 14405.708,
+  "job_ids": [
+   20913219
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "04:00:12",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "Step-16x1_muref_fastcfg": {
+  "dir": "03_pilot/Step-16x1_muref_fastcfg",
+  "n_atoms": 72,
+  "cell_in_plane": [
+   [
+    47.0424,
+    0.0
+   ],
+   [
+    1.4701,
+    2.5462
+   ]
+  ],
+  "metal_top_z": 14.603,
+  "kpoints": "1 12 1",
+  "incar": {
+   "NPAR": "16",
+   "PREC": "Normal",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Fast",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-4.9071",
+   "FERMICONVERGE": "0.01",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 16,
+   "threads_per_rank": 8,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 792.03871,
+  "mu_e_final": -4.907016,
+  "targetmu_log": -4.9071,
+  "scf_steps": 149,
+  "TOTEN_eV": -220.61924435,
+  "elapsed_s": 2581.903,
+  "job_ids": [
+   20916398
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "00:43:11",
+  "config_version": "production-2026-09-26 (PREC=Normal, ALGO=Fast, NPAR=16 hybrid)"
+ },
+ "Step-8x1_dUp02": {
+  "dir": "03_pilot/Step-8x1_dUp02",
+  "n_atoms": 36,
+  "cell_in_plane": [
+   [
+    23.5212,
+    0.0
+   ],
+   [
+    1.4701,
+    2.5462
+   ]
+  ],
+  "metal_top_z": 14.603,
+  "kpoints": "2 12 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-5.1071",
+   "FERMICONVERGE": "0.001",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 395.923404,
+  "mu_e_final": -5.106659,
+  "targetmu_log": -5.1071,
+  "scf_steps": 233,
+  "TOTEN_eV": -109.55218325,
+  "elapsed_s": 5879.998,
+  "job_ids": [
+   20907809
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "01:38:10",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "Step-8x1_muref": {
+  "dir": "03_pilot/Step-8x1_muref",
+  "n_atoms": 36,
+  "cell_in_plane": [
+   [
+    23.5212,
+    0.0
+   ],
+   [
+    1.4701,
+    2.5462
+   ]
+  ],
+  "metal_top_z": 14.603,
+  "kpoints": "2 12 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-4.9071",
+   "FERMICONVERGE": "0.001",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 396.014037,
+  "mu_e_final": -4.907178,
+  "targetmu_log": -4.9071,
+  "scf_steps": 221,
+  "TOTEN_eV": -110.00726734,
+  "elapsed_s": 5543.086,
+  "job_ids": [
+   20903924
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "01:32:34",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "Step-8x1_muref_fastcfg": {
+  "dir": "03_pilot/Step-8x1_muref_fastcfg",
+  "n_atoms": 36,
+  "cell_in_plane": [
+   [
+    23.5212,
+    0.0
+   ],
+   [
+    1.4701,
+    2.5462
+   ]
+  ],
+  "metal_top_z": 14.603,
+  "kpoints": "2 12 1",
+  "incar": {
+   "NPAR": "16",
+   "PREC": "Normal",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Fast",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-4.9071",
+   "FERMICONVERGE": "0.01",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 16,
+   "threads_per_rank": 8,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 396.014694,
+  "mu_e_final": -4.907015,
+  "targetmu_log": -4.9071,
+  "scf_steps": 138,
+  "TOTEN_eV": -109.99805616,
+  "elapsed_s": 1073.278,
+  "job_ids": [
+   20916201
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "00:17:57",
+  "config_version": "production-2026-09-26 (PREC=Normal, ALGO=Fast, NPAR=16 hybrid)"
+ },
+ "Step-8x2_muref": {
+  "dir": "03_pilot/Step-8x2_muref",
+  "n_atoms": 72,
+  "cell_in_plane": [
+   [
+    23.5212,
+    0.0
+   ],
+   [
+    2.9401,
+    5.0925
+   ]
+  ],
+  "metal_top_z": 14.603,
+  "kpoints": "2 6 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-4.9071",
+   "FERMICONVERGE": "0.001",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 792.029095,
+  "mu_e_final": -4.90737,
+  "targetmu_log": -4.9071,
+  "scf_steps": 225,
+  "TOTEN_eV": -220.02225587,
+  "elapsed_s": 17161.392,
+  "job_ids": [
+   20903925
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "04:46:13",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "T_dUm02": {
+  "dir": "03_pilot/T_dUm02",
+  "n_atoms": 64,
+  "cell_in_plane": [
+   [
+    11.7606,
+    0.0
+   ],
+   [
+    5.8803,
+    10.185
+   ]
+  ],
+  "metal_top_z": 12.202,
+  "kpoints": "3 3 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-5.1071",
+   "FERMICONVERGE": "0.01",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 703.835517,
+  "mu_e_final": -5.107917,
+  "targetmu_log": -5.1071,
+  "scf_steps": 166,
+  "TOTEN_eV": -194.1761942,
+  "elapsed_s": 7019.285,
+  "job_ids": [
+   20869741
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "01:57:07",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "T_dUp00": {
+  "dir": "03_pilot/T_dUp00",
+  "n_atoms": 64,
+  "cell_in_plane": [
+   [
+    11.7606,
+    0.0
+   ],
+   [
+    5.8803,
+    10.185
+   ]
+  ],
+  "metal_top_z": 12.202,
+  "kpoints": "3 3 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-4.9071",
+   "FERMICONVERGE": "0.01",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 704.0,
+  "mu_e_final": -4.907118,
+  "targetmu_log": -4.9071,
+  "scf_steps": 48,
+  "TOTEN_eV": -194.99900109,
+  "elapsed_s": 2420.936,
+  "job_ids": [
+   20869742
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "00:40:32",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "T_dUp02": {
+  "dir": "03_pilot/T_dUp02",
+  "n_atoms": 64,
+  "cell_in_plane": [
+   [
+    11.7606,
+    0.0
+   ],
+   [
+    5.8803,
+    10.185
+   ]
+  ],
+  "metal_top_z": 12.202,
+  "kpoints": "3 3 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-4.7071",
+   "FERMICONVERGE": "0.01",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 704.166912,
+  "mu_e_final": -4.707643,
+  "targetmu_log": -4.7071,
+  "scf_steps": 175,
+  "TOTEN_eV": -195.81198756,
+  "elapsed_s": 7418.193,
+  "job_ids": [
+   20869745
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "02:03:49",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "T_neutral_v3": {
+  "dir": "03_pilot/T_neutral_v3",
+  "n_atoms": 64,
+  "cell_in_plane": [
+   [
+    11.7606,
+    0.0
+   ],
+   [
+    5.8803,
+    10.185
+   ]
+  ],
+  "metal_top_z": 12.202,
+  "kpoints": "3 3 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 0,
+  "scf_steps": 49,
+  "TOTEN_eV": -194.9990012,
+  "elapsed_s": 2449.784,
+  "job_ids": [
+   20869066
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "00:40:56",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "V1_dUm02": {
+  "dir": "03_pilot/V1_dUm02",
+  "n_atoms": 63,
+  "cell_in_plane": [
+   [
+    11.7606,
+    0.0
+   ],
+   [
+    5.8803,
+    10.185
+   ]
+  ],
+  "metal_top_z": 12.202,
+  "kpoints": "3 3 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-5.1071",
+   "FERMICONVERGE": "0.01",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 692.843135,
+  "mu_e_final": -5.107683,
+  "targetmu_log": -5.1071,
+  "scf_steps": 190,
+  "TOTEN_eV": -190.42491961,
+  "elapsed_s": 7872.179,
+  "job_ids": [
+   20869756
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "02:11:22",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "V1_dUp00": {
+  "dir": "03_pilot/V1_dUp00",
+  "n_atoms": 63,
+  "cell_in_plane": [
+   [
+    11.7606,
+    0.0
+   ],
+   [
+    5.8803,
+    10.185
+   ]
+  ],
+  "metal_top_z": 12.202,
+  "kpoints": "3 3 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-4.9071",
+   "FERMICONVERGE": "0.01",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 693.010903,
+  "mu_e_final": -4.907015,
+  "targetmu_log": -4.9071,
+  "scf_steps": 193,
+  "TOTEN_eV": -191.26535657,
+  "elapsed_s": 8479.363,
+  "job_ids": [
+   20870523
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "02:21:27",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "V1_dUp02": {
+  "dir": "03_pilot/V1_dUp02",
+  "n_atoms": 63,
+  "cell_in_plane": [
+   [
+    11.7606,
+    0.0
+   ],
+   [
+    5.8803,
+    10.185
+   ]
+  ],
+  "metal_top_z": 12.202,
+  "kpoints": "3 3 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-4.7071",
+   "FERMICONVERGE": "0.01",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 1,
+  "N_e_final": 693.180361,
+  "mu_e_final": -4.707257,
+  "targetmu_log": -4.7071,
+  "scf_steps": 188,
+  "TOTEN_eV": -192.09220835,
+  "elapsed_s": 8125.742,
+  "job_ids": [
+   20871775
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "02:15:41",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "Step16x1_hybrid16x8": {
+  "dir": "04_speedtest/Step16x1_hybrid16x8",
+  "n_atoms": 72,
+  "cell_in_plane": [
+   [
+    47.0424,
+    0.0
+   ],
+   [
+    1.4701,
+    2.5462
+   ]
+  ],
+  "metal_top_z": 14.603,
+  "kpoints": "1 12 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-4.9071",
+   "FERMICONVERGE": "0.001",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 16,
+   "threads_per_rank": 8,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 0,
+  "scf_steps": 13,
+  "TOTEN_eV": null,
+  "elapsed_s": null,
+  "job_ids": [
+   20915732,
+   20915784
+  ],
+  "last_state": "CANCELLED+",
+  "last_elapsed": "00:11:15",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "Step16x1_kpar7": {
+  "dir": "04_speedtest/Step16x1_kpar7",
+  "n_atoms": 72,
+  "cell_in_plane": [
+   [
+    47.0424,
+    0.0
+   ],
+   [
+    1.4701,
+    2.5462
+   ]
+  ],
+  "metal_top_z": 14.603,
+  "kpoints": "1 12 1",
+  "incar": {
+   "NCORE": "8",
+   "KPAR": "7",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-4.9071",
+   "FERMICONVERGE": "0.001",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 112,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 0,
+  "scf_steps": 16,
+  "TOTEN_eV": null,
+  "elapsed_s": null,
+  "job_ids": [
+   20915782
+  ],
+  "last_state": "CANCELLED+",
+  "last_elapsed": "00:23:08",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "Step16x1_mdlike": {
+  "dir": "04_speedtest/Step16x1_mdlike",
+  "n_atoms": 72,
+  "cell_in_plane": [
+   [
+    47.0424,
+    0.0
+   ],
+   [
+    1.4701,
+    2.5462
+   ]
+  ],
+  "metal_top_z": 14.603,
+  "kpoints": "1 12 1",
+  "incar": {
+   "NPAR": "16",
+   "PREC": "Normal",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Fast",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-4.9071",
+   "FERMICONVERGE": "0.001",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 16,
+   "threads_per_rank": 8,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 0,
+  "scf_steps": 14,
+  "TOTEN_eV": null,
+  "elapsed_s": null,
+  "job_ids": [
+   20916091
+  ],
+  "last_state": "CANCELLED+",
+  "last_elapsed": "00:04:37",
+  "config_version": "production-2026-09-26 (PREC=Normal, ALGO=Fast, NPAR=16 hybrid)"
+ },
+ "Step16x1_precnormal": {
+  "dir": "04_speedtest/Step16x1_precnormal",
+  "n_atoms": 72,
+  "cell_in_plane": [
+   [
+    47.0424,
+    0.0
+   ],
+   [
+    1.4701,
+    2.5462
+   ]
+  ],
+  "metal_top_z": 14.603,
+  "kpoints": "1 12 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Normal",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "NESCHEME": "3",
+   "TARGETMU": "-4.9071",
+   "FERMICONVERGE": "0.001",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "34.603",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 0,
+  "scf_steps": 14,
+  "TOTEN_eV": null,
+  "elapsed_s": null,
+  "job_ids": [
+   20916054
+  ],
+  "last_state": "CANCELLED+",
+  "last_elapsed": "00:06:58",
+  "config_version": "other/test"
+ },
+ "T4L_331": {
+  "dir": "04_speedtest/T4L_331",
+  "n_atoms": 64,
+  "cell_in_plane": [
+   [
+    11.7606,
+    0.0
+   ],
+   [
+    5.8803,
+    10.185
+   ]
+  ],
+  "metal_top_z": 12.202,
+  "kpoints": "3 3 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "9.801",
+   "SOL_Z1": "32.202",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 0,
+  "scf_steps": 35,
+  "TOTEN_eV": -194.99421218,
+  "elapsed_s": 1809.434,
+  "job_ids": [
+   20868648
+  ],
+  "last_state": "COMPLETED",
+  "last_elapsed": "00:30:23",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "T_ismear1_algofast_kpar4": {
+  "dir": "04_speedtest/T_ismear1_algofast_kpar4",
+  "n_atoms": 96,
+  "cell_in_plane": [
+   [
+    11.7606,
+    0.0
+   ],
+   [
+    5.8803,
+    10.185
+   ]
+  ],
+  "metal_top_z": 17.003,
+  "kpoints": "4 4 1",
+  "incar": {
+   "NCORE": "8",
+   "KPAR": "4",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Fast",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "14.602",
+   "SOL_Z1": "39.404",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 0,
+  "scf_steps": 4,
+  "TOTEN_eV": null,
+  "elapsed_s": null,
+  "job_ids": [
+   20868401
+  ],
+  "last_state": "CANCELLED+",
+  "last_elapsed": "00:12:50",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "T_ismear1_sigma02": {
+  "dir": "04_speedtest/T_ismear1_sigma02",
+  "n_atoms": 96,
+  "cell_in_plane": [
+   [
+    11.7606,
+    0.0
+   ],
+   [
+    5.8803,
+    10.185
+   ]
+  ],
+  "metal_top_z": 17.003,
+  "kpoints": "4 4 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "14.602",
+   "SOL_Z1": "39.404",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 0,
+  "scf_steps": 26,
+  "TOTEN_eV": null,
+  "elapsed_s": null,
+  "job_ids": [
+   20868364
+  ],
+  "last_state": "CANCELLED+",
+  "last_elapsed": "01:00:48",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "T_kpar4_331": {
+  "dir": "04_speedtest/T_kpar4_331",
+  "n_atoms": 96,
+  "cell_in_plane": [
+   [
+    11.7606,
+    0.0
+   ],
+   [
+    5.8803,
+    10.185
+   ]
+  ],
+  "metal_top_z": 17.003,
+  "kpoints": "3 3 1",
+  "incar": {
+   "NCORE": "8",
+   "KPAR": "4",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "-1",
+   "SIGMA": "0.05",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "14.602",
+   "SOL_Z1": "39.404",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 0,
+  "job_ids": [],
+  "last_state": null,
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ },
+ "T_nosolvent": {
+  "dir": "04_speedtest/T_nosolvent",
+  "n_atoms": 96,
+  "cell_in_plane": [
+   [
+    11.7606,
+    0.0
+   ],
+   [
+    5.8803,
+    10.185
+   ]
+  ],
+  "metal_top_z": 17.003,
+  "kpoints": "4 4 1",
+  "incar": {
+   "NCORE": "8",
+   "PREC": "Accurate",
+   "ENCUT": "500",
+   "ISYM": "0",
+   "LREAL": "Auto",
+   "ALGO": "Normal",
+   "EDIFF": "1E-7",
+   "ISMEAR": "1",
+   "SIGMA": "0.2",
+   "IBRION": "-1",
+   "NSW": "0",
+   "C_MOLAR": "1.0",
+   "R_ION": "4.0",
+   "DIPOL": "0.5 0.5 0.5",
+   "LVAC": ".TRUE.",
+   "SOL_Z0": "14.602",
+   "SOL_Z1": "39.404",
+   "SOL_SIGMA": "0.8"
+  },
+  "parallel": {
+   "nodes": 1,
+   "mpi_ranks": 128,
+   "threads_per_rank": 1,
+   "partition": "highmem"
+  },
+  "cpm_ion_lines": 0,
+  "scf_steps": 5,
+  "TOTEN_eV": null,
+  "elapsed_s": null,
+  "job_ids": [
+   20868529
+  ],
+  "last_state": "CANCELLED+",
+  "last_elapsed": "00:13:14",
+  "config_version": "pilot-2026-09-22 (PREC=Accurate, ALGO=Normal, NCORE=8)"
+ }
+}

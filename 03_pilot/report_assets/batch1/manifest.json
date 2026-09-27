@@ -21,6 +21,28 @@
     "submission_status": "submitted_completed",
     "note": "reused"
   },
+  "Flat-16x1": {
+    "facet": "(111)",
+    "N_total": 64,
+    "base_z_span": 7.2,
+    "all_atoms_z_span": 7.202,
+    "in_plane_cell_vectors": [
+      [
+        47.042399938778644,
+        0.0
+      ],
+      [
+        1.4700749980868326,
+        2.5462445876231135
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "reference",
+    "pipeline_status": "converged",
+    "dft_queue_status": "computed",
+    "submission_status": "submitted_completed",
+    "note": "flat 64-atom slab in the Step-16x1 cell (47.04 x 2.94 A, sheared), same-numerics baseline for the Step-16x1 pair; not a new morphology. Static CP-DFT at TARGETMU=-4.9071 (Flat16x1_muref, mu_e reached -4.906897) and -5.1071 (Flat16x1_dUp02, stopped at mu_e=-5.098393 inside FERMICONVERGE=0.01 -- actual step -0.1915 eV), production config"
+  },
   "V1": {
     "facet": "(111)",
     "N_total": 63,

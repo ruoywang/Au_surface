@@ -291,11 +291,16 @@ the same time.
 (`step8x1_potential_response.md`, `step8x1_ion_species_analysis.md`,
 `step8x1_mechanism_check.md`); Step-16x1 at both potentials with the production config
 (`step16x1_width_dependence.md`). `dft_queue_status` for Step-8x1, Step-8x2, Step-16x1 is
-now `computed`. The width study *does* need more: the across-step profiles show the
-lower terrace still 1.2× enhanced at 10 Å from the risers, and the earlier "near-edge
-weaker" reading was an average over a raised/lower-terrace asymmetry. Recommended next
-(not submitted): a flat 64-atom slab in the Step-16x1 cell at both potentials as a
-same-numerics baseline, then Step-24x1. See the report's §6.
+now `computed`. The earlier "near-edge weaker" reading was an average over a
+raised/lower-terrace asymmetry. **2026-09-27:** the same-cell flat baseline (Flat-16x1, 64
+atoms, both potentials, `dft_queue_status` = computed) is done; against it, per unit
+potential step, Step-16x1 takes 4 % more charge per projected area, its raised terrace
+responds 5–7 % below flat, the lower terrace 19 % above, the foot peaks 40 % above, and
+the trench centre is still 1.17× flat 10 Å from the risers (report rev 2, §3–5). Not
+submitted and not required for labelling: Step-24x1 (trench-width convergence), a
+Flat-8x1 pair (same-numerics 8×1 ratios), a FERMICONVERGE=0.001 rerun of Flat16x1_dUp02
+(its μ_e stopped 8.7 meV short of target; normalised per eV in the report). Note for all
+future two-point comparisons: read the actual μ_e from the CPM-ion lines, not TARGETMU.
 
 ## Phase 2 — recorded, not built this round
 

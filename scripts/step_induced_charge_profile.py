@@ -19,6 +19,7 @@ differ (fine FFT grid vs solvent grid), so each is resampled to fractional x bef
 Usage (from 03_pilot/):  ../scripts/pyrun.sh ../scripts/step_induced_charge_profile.py
 """
 import json
+import os
 
 import numpy as np
 import matplotlib
@@ -77,11 +78,39 @@ def geometry(D):
     return dict(V=V, area=area, L_perp=L_perp, ztop=ztop, upper_u=(float(top.min()), float(top.max())))
 
 
-out = {}
+import re
+
+
+def cpm_electrons(D):
+    m = re.findall(r"CPM-ion:.*?N_ele=\s*([-\d.]+)", open(f"{D}/log.out").read())
+    return float(m[-1]) if m else None
+
+
+# same-cell flat reference (2026-09-27), used as horizontal reference lines when its fields exist
+FLAT = ("Flat16x1_muref", "Flat16x1_dUp02")
+flat_ref = None
+if all(os.path.exists(f"{d}/PHI") for d in FLAT) and cpm_electrons(FLAT[1]) is not None:
+    gF = geometry(FLAT[0])
+    NeFA, NeFB = cpm_electrons(FLAT[0]), cpm_electrons(FLAT[1])
+    pA, pB = read_grid_block(f"{FLAT[0]}/PHI"), read_grid_block(f"{FLAT[1]}/PHI")
+    sFA, sFB = read_grid_block(f"{FLAT[0]}/SION"), read_grid_block(f"{FLAT[1]}/SION")
+    anFA, catFA = species(pA, sFA); anFB, catFB = species(pB, sFB)
+    dVF = gF["V"] / pA.size
+    flat_ref = dict(sigma=-(NeFB - NeFA) / gF["area"],
+                    q_ion=((anFB - catFB) - (anFA - catFA)).sum() * dVF / gF["area"],
+                    dG_an=(anFB - anFA).sum() * dVF / gF["area"])
+    zF = np.arange(pA.shape[0]) / pA.shape[0] * Lz
+    szF = sFA.mean(axis=(1, 2)); zmF = (szF > 0.01) & (zF > gF["ztop"]) & (zF < gF["ztop"] + NEAR_SURFACE_DEPTH)
+    wF = sFA[zmF]; flat_ref["dpsi_S"] = float((wF * (pB - pA)[zmF]).sum() / wF.sum())
+    print(f"== Flat16x1 reference: dN_e={NeFB-NeFA:+.6f}  induced sigma={flat_ref['sigma']*1e3:.4f} e-3 e/A^2  "
+          f"ion countercharge {flat_ref['q_ion']*1e3:.4f}  anion part {flat_ref['dG_an']*1e3:.4f} (e-3 A^-2, full cell)  S-weighted dpsi {flat_ref['dpsi_S']*1e3:+.3f} mV")
+
+out = {"flat16x1_reference": flat_ref}
 fig, axes = plt.subplots(2, 2, figsize=(12, 7.5), dpi=200, sharey="row",
                          gridspec_kw=dict(width_ratios=[1, 2]))
 for col, (label, dA, dB, NeA, NeB, color) in enumerate(PAIRS):
     g = geometry(dA)
+    NeA, NeB = cpm_electrons(dA), cpm_electrons(dB)
     dNe = NeB - NeA
     # --- metal side: CHGCAR (rho*V on the fine grid) ---
     rA = read_grid_block(f"{dA}/CHGCAR"); rB = read_grid_block(f"{dB}/CHGCAR")
@@ -144,19 +173,23 @@ for col, (label, dA, dB, NeA, NeB, color) in enumerate(PAIRS):
     print(f"   dGamma_- mean: raised {rec['dG_anion_mean_upper']*1e3:.4f}, lower {rec['dG_anion_mean_lower']*1e3:.4f} (e-3 e/A^2)")
 
     ax = axes[0, col]
-    ax.plot(s_c, dsig_e * 1e3, "-", lw=1.4, color="#444444", label="induced metal charge  d(sigma_e)")
-    ax.plot(s_s, dq_ion * 1e3, "-", lw=1.6, color=color, label="ionic countercharge  d(q_ion) = dGamma_- - dGamma_+")
-    ax.plot(s_s, dG_an * 1e3, "--", lw=1.0, color=color, alpha=0.7, label="anion part  dGamma_-")
-    ax.plot(s_s, -dG_cat * 1e3, ":", lw=1.0, color=color, alpha=0.7, label="cation part  -dGamma_+")
+    ax.plot(s_c, dsig_e * 1e3, "-", lw=1.4, color="#444444", label="induced metal charge  +d(sigma_e)  [e/A^2, electrons removed]")
+    ax.plot(s_s, dq_ion * 1e3, "-", lw=1.6, color=color, label="ion countercharge magnitude  d(N_-) - d(N_+)  [ions/A^2; carries charge -e per unit]")
+    ax.plot(s_s, dG_an * 1e3, "--", lw=1.0, color=color, alpha=0.7, label="anion number change  d(N_-)  [ions/A^2]")
+    ax.plot(s_s, -dG_cat * 1e3, ":", lw=1.0, color=color, alpha=0.7, label="cation number change, sign flipped  -d(N_+)  [ions/A^2]")
     ax.axhline(0, color="#999", lw=0.6)
+    if flat_ref is not None:
+        ax.axhline(flat_ref["sigma"] * 1e3, color="#2a7f62", ls="--", lw=1.1, label="Flat16x1 (same cell): induced sigma_e, cell mean")
     for ue in (0.0, 0.5):
         ax.axvline(ue * g["L_perp"], color="#333", lw=0.8, ls="--")
     ax.axvspan(lo * g["L_perp"], hi * g["L_perp"], color="#d9a441", alpha=0.18, label="raised terrace (atoms)")
     ax.set_title(f"{label}: terrace {g['L_perp']/2:.1f} A/side"); ax.grid(alpha=0.25)
     if col == 0:
-        ax.set_ylabel("induced charge per projected area (1e-3 e/A^2)")
-    ax.legend(fontsize=7, loc="upper left")
+        ax.set_ylabel("per projected area (1e-3 e/A^2 metal; 1e-3 ions/A^2 electrolyte)")
+    ax.legend(fontsize=6.5, loc="upper left", title="sign: all curves positive when compensating a positive metal charge", title_fontsize=6.5)
     ax = axes[1, col]
+    if flat_ref is not None:
+        ax.axhline(flat_ref["dpsi_S"] * 1e3, color="#2a7f62", ls="--", lw=1.1, label="Flat16x1 (same cell): S-weighted d(psi)")
     ax.plot(s_s, dpsi_S * 1e3, "-", lw=1.4, color=color, label="S_ion-weighted  d(psi)")
     ax.plot(s_s, dpsi_unw * 1e3, "--", lw=1.0, color="#777777", label="unweighted column mean (for reference)")
     for ue in (0.0, 0.5):

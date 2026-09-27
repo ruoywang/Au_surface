@@ -1,0 +1,44 @@
+# Flat 64-atom reference slab in the Step-16x1 cell: the 8 strip atoms of Step-16x1_muref_fastcfg
+# removed, base atoms and cell untouched. TARGETMU=-4.9071. All numerical tags, k-points,
+# window (SOL_Z0/SOL_Z1), DIPOL and run configuration identical to the Step-16x1
+# production runs. Static, no relaxation. Baseline for d(sigma) and d(Gamma_-) comparisons.
+SYSTEM = Flat16x1_muref
+
+NPAR  = 16
+
+PREC   = Normal
+ENCUT  = 500
+ISPIN  = 1
+ISYM   = 0
+LREAL  = Auto
+ALGO   = Fast
+EDIFF  = 1E-7
+NELM   = 200
+ISMEAR = 1
+SIGMA  = 0.2
+IBRION = -1
+NSW    = 0
+LCHARG = .TRUE.
+LWAVE  = .FALSE.
+LVHAR  = .TRUE.
+
+LSOL    = .TRUE.
+ISOL    = 2
+C_MOLAR = 1.0
+R_ION   = 4.0
+
+LCEP          = .TRUE.
+NESCHEME      = 3
+TARGETMU      = -4.9071
+FERMICONVERGE = 0.01
+CAP_MAX       = 2.0
+NEADJUST      = 1
+
+IDIPOL = 3
+LDIPOL = .TRUE.
+DIPOL  = 0.5 0.5 0.5
+
+LVAC      = .TRUE.
+SOL_Z0    = 9.801
+SOL_Z1    = 34.603
+SOL_SIGMA = 0.8

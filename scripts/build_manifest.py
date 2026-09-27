@@ -9,6 +9,15 @@ from ase.io import read
 
 STRUCTS = {
     "T": {"path": "T.poscar", "facet": "(111)", "role": "relaxed_candidate", "note": "reused", "dft": "computed"},
+    # 2026-09-27: same-cell flat reference for Step-16x1 (the 64 base atoms of Step-16x1, strip removed, cell/window/
+    # k-mesh/config identical). Built by scripts/build_flat16x1_pair.py; validation in
+    # report_assets/batch1/flat16x1_build_validation.json. Static CP-DFT at TARGETMU=-4.9071/-5.1071 submitted
+    # 2026-09-27 (jobs 20925040/20925041) -> dft set to computed once both finish.
+    "Flat-16x1": {"path": "Flat-16x1.poscar", "facet": "(111)", "role": "reference",
+                  "note": "flat 64-atom slab in the Step-16x1 cell (47.04 x 2.94 A, sheared), same-numerics baseline for "
+                          "the Step-16x1 pair; not a new morphology. Static CP-DFT at TARGETMU=-4.9071 (Flat16x1_muref, "
+                          "mu_e reached -4.906897) and -5.1071 (Flat16x1_dUp02, stopped at mu_e=-5.098393 inside "
+                          "FERMICONVERGE=0.01 -- actual step -0.1915 eV), production config", "dft": "computed"},
     "V1": {"path": "V1.poscar", "facet": "(111)", "role": "relaxed_candidate", "note": "reused", "dft": "computed"},
     "A1-fcc": {"path": "A1_fcc.poscar", "facet": "(111)", "role": "relaxed_candidate", "note": "reused", "dft": "computed"},
     "Pit-7": {"path": "V7.poscar", "facet": "(111)", "role": "relaxed_candidate",
@@ -126,7 +135,7 @@ for name, meta in STRUCTS.items():
 # base_z_span: for the (111)-family structures, this is the span of the 4-layer
 # base only (excludes any added strip/island atoms, which raise all_atoms_z_span)
 zlevel_cache = {}
-for name in ["T", "V1", "A1-fcc", "Pit-7", "Step-8x4", "Step-16x4", "Step-24x4",
+for name in ["T", "Flat-16x1", "V1", "A1-fcc", "Pit-7", "Step-8x4", "Step-16x4", "Step-24x4",
              "Step-8x1", "Step-16x1", "Step-24x1", "Step-8x2", "Step-16x2", "Step-24x2",
              "Island-7", "Island-7-8x8", "Island-19-8x8", "Pit-7-8x8", "Pit-19-8x8"]:
     a = read(f"{SRC}/{STRUCTS[name]['path']}")
