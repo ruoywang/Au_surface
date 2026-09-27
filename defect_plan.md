@@ -307,6 +307,16 @@ dataset work. Two standing rules from this stage: read the actual μ_e/N_e from 
 CPM-ion lines and label states by them, not by TARGETMU; keep PREC=Accurate and
 PREC=Normal energies as separately labelled sources (see `03_pilot/run_registry.md`).
 
+**Baseline for what follows:** report rev 3 (`03_pilot/step16x1_width_dependence.md`) is
+the reference statement of this stage's conclusions and their conditions;
+`03_pilot/run_registry.{json,md}` is the index of raw runs and actual converged states
+(not a sample list — it includes timed-out, cancelled and speed-test runs, and repeats of
+one geometry are not added coverage); the three profile JSONs hold analysis results for
+regression of the analysis code, not training labels. If a next stage starts, its first
+step is curating the existing runs (which to keep, one consistent label standard, which
+training targets the raw outputs support) — not submitting DFT. The superseded "13 %
+weaker near-edge" reading is not to be reopened.
+
 ## Phase 2 — recorded, not built this round
 
 Au(100) flat reference; one (100)-terrace stepped surface (exact Miller index TBD);

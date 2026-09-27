@@ -2,6 +2,8 @@
 
 One row per run directory with INCAR+POSCAR. `config_version` in the JSON separates the pilot configuration (PREC=Accurate, ALGO=Normal, 128 MPI, NCORE=8) from the production configuration adopted 2026-09-26 (PREC=Normal, ALGO=Fast, NPAR=16, 16 MPI × 8 OpenMP). TOTEN values from different PREC settings carry a grid-dependent offset (~0.3 meV/atom measured on Step-8x1/16x1) and are NOT to be mixed as energy labels without recording this field; no blanket correction is applied. TARGETMU is the internal μ₀ reference, not V vs RHE.
 
+**What this table is and is not (2026-09-27).** It is an index for locating raw runs, their actual converged state (N_e, μ_e from the CPM-ion lines) and their numerical configuration. It is NOT a list of training samples: the rows include completed, timed-out, cancelled and speed-test runs, and repeated calculations of the same geometry in different directories are not additional structural coverage. Force, 3D electron-density or solvent-field labels must come from the raw outputs of the corresponding run, not from the integrated/averaged analysis JSONs in 03_pilot/. The first step of the next stage is curation of these runs (which to keep, which label standard, which training targets the existing outputs support), not new DFT.
+
 | run | atoms | k-mesh | PREC | ALGO | TARGETMU | FERMICONV | ranks×thr | SCF | N_e final | μ_e final | TOTEN (eV) | wall | state |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | A1_fcc_dUm02 | 65 | 3 3 1 | Accurate | Normal | -5.1071 | 0.01 | 128×1 | 210 | 714.761478 | -5.109558 | -196.14753 | 02:38:55 | COMPLETED |
