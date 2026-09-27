@@ -87,7 +87,7 @@
   "n_movable": 14,
   "kpoints": "6x4x1",
   "priority": 10,
-  "status": "submitted",
+  "status": "running",
   "job_id": 20927791,
   "note": "",
   "submitted_at": "2026-09-27 05:00"
@@ -105,7 +105,7 @@
   "n_movable": 24,
   "kpoints": "5x3x1",
   "priority": 10,
-  "status": "submitted",
+  "status": "running",
   "job_id": 20927792,
   "note": "",
   "submitted_at": "2026-09-27 05:00"
