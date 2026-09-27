@@ -1,0 +1,83 @@
+{
+ "Au221": {
+  "n_atoms": 28,
+  "planes": 14,
+  "plane_spacing_A": 0.6930000000000001,
+  "plane_spacing_expected_A": 0.6930000000000001,
+  "thickness_A": 9.009,
+  "min_AuAu_A": 2.940149996173657,
+  "in_plane_A": [
+   5.880299992347334,
+   8.820449988520995
+  ],
+  "recovered_cubic_normal": [
+   2.0,
+   2.0,
+   1.0
+  ],
+  "atoms_per_plane": 2.0,
+  "role": "main",
+  "step_repeats": 2,
+  "ase_layers": 14,
+  "primitive_indices_used": [
+   3,
+   3,
+   4
+  ],
+  "validation": "PASS"
+ },
+ "Au332": {
+  "n_atoms": 21,
+  "planes": 21,
+  "plane_spacing_A": 0.4432499999999999,
+  "plane_spacing_expected_A": 0.4432442893033141,
+  "thickness_A": 8.864999999999998,
+  "min_AuAu_A": 2.9401499961736506,
+  "in_plane_A": [
+   2.9401499961736524,
+   13.790525878297743
+  ],
+  "recovered_cubic_normal": [
+   1.5,
+   1.5,
+   1.0
+  ],
+  "atoms_per_plane": 1.0,
+  "role": "reference",
+  "step_repeats": 1,
+  "ase_layers": 21,
+  "primitive_indices_used": [
+   5,
+   5,
+   6
+  ],
+  "validation": "PASS"
+ },
+ "Au554": {
+  "n_atoms": 36,
+  "planes": 36,
+  "plane_spacing_A": 0.25591428571428576,
+  "plane_spacing_expected_A": 0.25590720974603276,
+  "thickness_A": 8.957,
+  "min_AuAu_A": 2.9401499961736497,
+  "in_plane_A": [
+   2.940149996173684,
+   23.88589148430517
+  ],
+  "recovered_cubic_normal": [
+   1.25,
+   1.25,
+   1.0
+  ],
+  "atoms_per_plane": 1.0,
+  "role": "reference",
+  "step_repeats": 1,
+  "ase_layers": 36,
+  "primitive_indices_used": [
+   9,
+   9,
+   10
+  ],
+  "validation": "PASS"
+ }
+}

@@ -36,13 +36,13 @@ print("Au211", len(au211), "atoms, thickness",
       au211.get_positions()[:, 2].max() - au211.get_positions()[:, 2].min(), "A")
 
 # --- Au(221): B-type step ({111} microfacet) ---
-au_bulk = bulk('Au', 'fcc', a=A0)
-au221 = surface(au_bulk, (2, 2, 1), layers=8, vacuum=None, periodic=True)
-au221 = au221 * (3, 3, 1)
-au221 = pad_z(au221)
-write(f"{OUT}/Au221.poscar", au221, format="vasp", direct=False, sort=True)
-print("Au221", len(au221), "atoms, thickness",
-      au221.get_positions()[:, 2].max() - au221.get_positions()[:, 2].min(), "A")
+# RETIRED 2026-09-27: this block used bulk('Au','fcc') = the PRIMITIVE cell, so surface(..., (2,2,1))
+# built the cubic (113) face (verified from the coordinates: plane spacing 1.254 A = a/sqrt(11)).
+# The file it produced is kept as Au113_retired.poscar. The correct Au(221)/(332)/(554) slabs are
+# built by scripts/build_vicinal_fixed.py from bulk('Au','fcc', a, cubic=True). Do not re-enable.
+if False:
+    au_bulk = bulk('Au', 'fcc', a=A0)          # WRONG basis for conventional Miller indices
+    au221 = surface(au_bulk, (2, 2, 1), layers=8, vacuum=None, periodic=True)
 
 
 # --- Island-7 on 6x6 (corrected base cell per Correction 3) ---

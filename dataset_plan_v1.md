@@ -1,124 +1,124 @@
-# Complete Au surface dataset — computation plan v1 (2026-09-27)
+# Complete Au surface dataset — computation plan v1 (rev 2, 2026-09-27)
 
-Generated from `dataset_plan_v1.csv` by `scripts/build_dataset_plan.py`; edit the CSV, not this file. Scope is fixed here once; execution is batched by cluster limits afterwards. No DFT is submitted by this document.
+Generated from `dataset_plan_v1.csv` by `scripts/build_dataset_plan.py`; edit the CSV, not this file. Scope and sampling weights are frozen here once; execution is batched by cluster limits afterwards. No DFT is submitted by this document. Rev 2 applies the user's decisions of 2026-09-27: nine families kept, two-scale lean sampling, relaxation cost shown at 6/10/15 single points with 10× as the working budget, and four definition fixes (vicinal faces rebuilt from the correct basis, atom-conserving step path, R1/R2 registry and layer count, kink/C1 naming and periodicity).
 
 ## 1. Scope
 
-**Included families** (each with main sampling and a few references, all in one table): flat Au(111); point defects / minimal clusters; straight strip steps; crystallographic vicinal step faces; kinks / edge rearrangement; single-layer islands; single-layer pits; reconstruction-related stacking environments; two composite morphologies as references.
+**Included families** (each with main sampling and a few references, all in one table): flat Au(111); point defects / minimal clusters; straight strip steps; crystallographic vicinal step faces; kinks / edge rearrangement; single-layer islands; single-layer pits; reconstruction-related stacking environments; two composite morphologies as references. No further family is added in v1.
 
-**Explicitly excluded**: arbitrary grain boundaries, nanoparticles, multilayer spikes/towers, other low-index faces (Au(100) phase-2 stays recorded in defect_plan.md, not budgeted here), the full surface phase diagram, explicit water, any Cl species, MD trajectories. The 22×√3 herringbone cell itself (~63 Å period) is not built; R2 is its stripe/soliton approximation.
+**Explicitly excluded**: arbitrary grain boundaries, nanoparticles, multilayer spikes/towers, other low-index faces (Au(100) phase-2 stays recorded in defect_plan.md, not budgeted here), the full surface phase diagram, explicit water, any Cl species, MD trajectories. The 22×√3 herringbone cell itself (~63 Å period) is not built; R2 is a constrained stripe/domain-wall approximation.
 
-**Model, potentials, label standard**: fixed 4-layer slabs (bottom two layers fixed), a = 4.158 Å, single-sided 1 M implicit electrolyte, static CP-DFT single points; production configuration (PREC=Normal, ALGO=Fast, NPAR=16 hybrid, FERMICONVERGE=0.01) is the label standard; three common internal electron chemical potentials μ_e = −5.1071, −4.9071, −4.7071 eV (internal μ₀ reference, not V vs RHE); states are labelled by the actual converged μ_e/N_e. PREC=Accurate pilot results stay a separate reference group and are **not** counted as reusable coverage.
+**Model, potentials, label standard**: fixed 4-layer (111) slabs (bottom two layers fixed) or ~9 Å-thick vicinal slabs, a = 4.158 Å, single-sided 1 M implicit electrolyte, static CP-DFT single points; production configuration (PREC=Normal, ALGO=Fast, NPAR=16 hybrid, FERMICONVERGE=0.01, mixing untouched) is the label standard; three common internal electron chemical potentials μ_e = −5.1071, −4.9071, −4.7071 eV (internal μ₀ reference, not V vs RHE); states are labelled by the actual converged μ_e/N_e. PREC=Accurate pilot results stay a separate reference group and are **not** counted as reusable coverage. The 33 rows are plan entries; the final dataset counts actual coordinates and states — duplicates that appear after building or relaxing are merged and recorded, not kept to preserve a count.
 
-## 2. Sampling template (what one row means)
+## 2. Sampling rule (frozen)
 
-| column | definition |
+| item | decision |
 |---|---|
-| n_ref | reference configurations: the ideal bulk-truncated geometry, plus the CP-relaxed geometry when n_relax = 1 |
-| n_relax | CP relaxations at μ_e = −4.9071 (movable atoms free, bottom two layers fixed), charged as 6 single points each; produce the relaxed reference |
-| n_perturb | random-displacement configurations of the relaxed geometry on the movable atoms: Gaussian σ = 0.05 Å (seeds 1,2) and 0.10 Å (seeds 3,4); halved sets use seeds 1,3 |
-| n_collective | collective deformations of the relaxed geometry: top interlayer spacing −3 %; in-plane strain +1 % (cell scaled); for strips the second one is an edge-row bend of ±0.15 Å along the period |
-| n_path | local rearrangement images: linear interpolation between the relaxed initial and final geometries of the named move, end points excluded (they are their own rows or the relaxed reference) |
-| mu_list | electron chemical potentials computed for every configuration of the row |
-| n_states_target | n_configs × n_mu — the number of labelled states the row contributes |
-| n_reusable_states | states already computed in the production standard with identical cell/window/k-mesh |
-| cost | highmem node-hours from the measured production timings (see cost model in the script header) |
-
-Perturbed and path configurations are single points on non-equilibrium geometries; none of them is relaxed back, so no near-duplicate minima are generated.
+| reference configs (n_ref = 2 for main rows) | the ideal bulk-truncated geometry and the CP-relaxed geometry; the second one *is* the product of n_relax = 1, not an extra relaxation |
+| relaxation | one per main row at μ_e = −4.9071 eV, movable atoms free; if the relaxed state leaves the initial registry (A1-hcp, R1) it is recorded under its actual geometry, and coincidences with other rows are de-duplicated and logged |
+| random perturbations | two per main row: one configuration at σ = 0.05 Å and one at σ = 0.10 Å (Gaussian, movable atoms, fixed seeds), applied to the relaxed geometry |
+| collective deformations | kept where the table already had them (2): top interlayer spacing −3 %; in-plane strain +1 % (strips: edge-row bend ±0.15 Å instead); rows with 0 stay at 0 |
+| path images | kept at the low counts in the table; images are constructed non-equilibrium geometries by linear interpolation on the movable atoms with **atom number and mapping conserved**; where the end point has no row of its own, the last image *is* the end point (unrelaxed) — no hidden end-point relaxations |
+| potentials, reference configs | all three μ_e for every row that lists them |
+| potentials, other configs | three μ_e if N ≤ 100; the two end points −5.1071 and −4.7071 eV if N > 100 |
+| reference rows (tier = reference) | the one to three states already listed, no expansion |
+| relaxed final step as a state | reused as the relaxed-reference single point only if its energy, forces and every grid belong to the same final geometry; otherwise a static export is run — never counted twice, never omitted |
 
 ## 3. Master table
 
-| ID | family | tier | coordinates | N | movable | ref | relax | pert | coll | path | μ_e (eV) | states | reusable | new DFT | cost (node·h) | purpose |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| T-4x4 | flat Au(111) | main | library T.poscar (4x4x4 layers) | 64 | top 2 layers | 2 | 1 | 4 | 2 | 0 | -5.1071, -4.9071, -4.7071 | 24 | 0 | 24 | 17.6 | flat baseline; charging response of the ideal terrace; non-equilibrium flat configurations |
-| Flat-16x1 | flat Au(111) | reference | library Flat-16x1.poscar (built 2026-09-27) | 64 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | 3 | 2 | 1 | 0.6 | same-cell flat baseline for the Step-16x1 family; only the -4.7071 state is new |
-| Flat-8x2 | flat Au(111) | reference | to build: Step-8x2 with its 8 strip atoms removed (same recipe as Flat-16x1) | 64 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | 3 | 0 | 3 | 1.8 | same-cell flat baseline for the Step-8x2 main strip |
-| V1 | point defect | main | library V1.poscar | 63 | top 2 layers | 2 | 1 | 4 | 2 | 0 | -5.1071, -4.9071, -4.7071 | 24 | 0 | 24 | 17.3 | single vacancy; charging response and forces around a missing top-layer atom |
-| A1-fcc | point defect | main | library A1_fcc.poscar | 65 | top 2 layers + adatom | 2 | 1 | 4 | 2 | 1 | -5.1071, -4.9071, -4.7071 | 27 | 0 | 27 | 19.7 | fcc adatom; path image = adatom at the bridge site between fcc and hcp (the hcp end is A1-hcp) |
-| A1-hcp | point defect | main | library A1_hcp.poscar | 65 | top 2 layers + adatom | 2 | 1 | 4 | 2 | 0 | -5.1071, -4.9071, -4.7071 | 24 | 0 | 24 | 17.9 | hcp adatom; not a reconstruction model; end point of the A1 fcc->hcp path |
-| V2 | point defect | reference | library V2.poscar | 62 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | 3 | 0 | 3 | 1.7 | divacancy; low weight |
-| V3 | point defect | reference | library V3.poscar | 61 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | 3 | 0 | 3 | 1.7 | triangular trivacancy; low weight |
-| A3 | point defect | reference | library A3.poscar | 67 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | 3 | 0 | 3 | 1.8 | three-atom cluster; low weight |
-| Step-8x2 | strip step | main | library Step-8x2.poscar | 72 | top 2 base layers + strip (along-edge displacements independent) | 2 | 1 | 4 | 2 | 3 | -5.1071, -4.9071, -4.7071 | 33 | 0 | 33 | 25.7 | straight A/B strip edges 10 A terraces; collective = edge-row bending; path = one upper-edge atom detaching to the lower-terrace foot (3 images) |
-| Step-16x2 | strip step | main | library Step-16x2.poscar | 144 | top 2 base layers + strip | 2 | 1 | 2 | 0 | 0 | -5.1071, -4.9071, -4.7071 | 12 | 0 | 12 | 33.6 | 20 A terraces with along-edge-independent displacements; reduced sampling because of size |
-| Step-8x1 | strip step | reference | library Step-8x1.poscar | 36 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | 3 | 1 | 2 | 0.7 | ideal minimal-period strip; width series member |
-| Step-16x1 | strip step | reference | library Step-16x1.poscar | 72 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | 3 | 2 | 1 | 0.7 | ideal minimal-period strip; width series member |
-| Step-24x1 | strip step | reference | library Step-24x1.poscar | 108 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | 3 | 0 | 3 | 3.6 | ideal strip 30 A terraces; width extrapolation |
-| Au211 | vicinal step face | main | library Au211.poscar | 48 | top 2 layers (all step-face atoms) | 2 | 1 | 4 | 2 | 0 | -5.1071, -4.9071, -4.7071 | 24 | 0 | 24 | 13.2 | A-type {100}-microfacet step face with 3-row terraces |
-| Au221 | vicinal step face | main | library Au221.poscar | 72 | top 2 layers | 2 | 1 | 4 | 2 | 0 | -5.1071, -4.9071, -4.7071 | 24 | 0 | 24 | 19.8 | B-type {111}-microfacet step face representative |
-| Au332 | vicinal step face | reference | library Au332.poscar | 48 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | 3 | 0 | 3 | 1.3 | wider {111}-type terrace; same-family width check |
-| Au554 | vicinal step face | reference | library Au554.poscar | 40 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | 3 | 0 | 3 | 1.1 | widest {111}-type terrace in the library; same-family width check |
-| Kink-A | kink / edge rearrangement | main | to build: Step-8x3 strip (base 8x3x4 = 96 + strip 12) with one extra edge atom on edge1 in one of the 3 rows | 109 | top 2 base layers + strip | 2 | 1 | 3 | 0 | 2 | -5.1071, -4.9071, -4.7071 | 21 | 0 | 21 | 33.2 | kink on the edge1 row; path = kink atom moving one site along the edge (2 intermediate images); needs ny=3 period - not reducible |
-| Kink-B | kink / edge rearrangement | main | to build: as Kink-A with the extra atom on edge2 | 109 | top 2 base layers + strip | 2 | 1 | 3 | 0 | 2 | -5.1071, -4.9071, -4.7071 | 21 | 0 | 21 | 33.2 | kink on the other (inequivalent) edge; same path recipe |
-| Step-8x2+foot-adatom | kink / edge rearrangement | reference | to build: Step-8x2 + one Au adatom at the lower-terrace foot site next to edge2 | 73 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | 3 | 0 | 3 | 2.0 | edge attachment environment (attached-atom end point of the Step-8x2 detachment path) |
-| Island-7-compact | single-layer island | main | library Island-7-6x6.poscar | 151 | top base layer + island | 2 | 1 | 2 | 0 | 2 | -5.1071, -4.9071, -4.7071 | 18 | 0 | 18 | 48.1 | compact 7-atom island in the 6x6 cell; path = one island-edge atom detaching to the terrace (2 images) |
-| Island-7-elongated | single-layer island | main | to build: 7 atoms as a 2-row zigzag chain (3+4) on the 6x6 slab | 151 | top base layer + island | 2 | 1 | 2 | 0 | 0 | -5.1071, -4.9071, -4.7071 | 12 | 0 | 12 | 36.1 | shape variant at equal atom count; edge-length/coordination contrast to the compact island |
-| Island-19-8x8 | single-layer island | reference | library Island-19-8x8.poscar | 275 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071 | 2 | 0 | 2 | 9.9 | size extrapolation; two states only |
-| Island-7-8x8 | single-layer island | reference | library Island-7-8x8.poscar | 263 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -4.9071 | 1 | 0 | 1 | 4.6 | cell-size check for Island-7 (6x6 vs 8x8) and same-cell partner of Island-19-8x8; one state |
-| Pit-7-compact | single-layer pit | main | library V7.poscar / Pit-7 | 137 | top base layer + pit rim | 2 | 1 | 2 | 0 | 2 | -5.1071, -4.9071, -4.7071 | 18 | 0 | 18 | 41.6 | compact 7-vacancy pit; path = one rim atom moving into the pit (2 images) |
-| Pit-7-trench | single-layer pit | main | to build: 7 vacancies as a 2-row zigzag trench in the 6x6 top layer | 137 | top base layer + pit rim | 2 | 1 | 2 | 0 | 0 | -5.1071, -4.9071, -4.7071 | 12 | 0 | 12 | 31.2 | shape variant at equal vacancy count |
-| Pit-19-8x8 | single-layer pit | reference | library Pit-19-8x8.poscar | 237 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071 | 2 | 0 | 2 | 7.9 | size extrapolation; two states only |
-| Pit-7-8x8 | single-layer pit | reference | library Pit-7-8x8.poscar | 249 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -4.9071 | 1 | 0 | 1 | 4.2 | cell-size check for Pit-7 and same-cell partner of Pit-19-8x8; one state |
-| R1-hcp-terminated | reconstruction-related | main | to build: T-4x4 with the whole top layer shifted to hcp registry (stacking fault at the surface) | 64 | top 2 layers | 2 | 1 | 2 | 0 | 0 | -5.1071, -4.9071, -4.7071 | 12 | 0 | 12 | 10.6 | hcp-stacked surface region as the local model of a reconstruction domain (not an adatom) |
-| R2-stripe-wall | reconstruction-related | main | to build: 16x1 cell, 4 base layers (64) + top layer of 17 atoms (one extra row, 6% compression) with fcc->hcp->fcc registry and two domain walls; validated by min distance >= 2.6 A, registry check, periodic closure | 81 | top layer + first base layer | 2 | 1 | 2 | 0 | 0 | -5.1071, -4.9071, -4.7071 | 12 | 0 | 12 | 14.2 | stripe-reconstruction approximation (herringbone soliton walls); ny=1 keeps the walls straight - valid only without along-wall perturbations |
-| C1-island-near-step | composite | reference | to build: Step-8x3 strip (108) + compact 7-atom island on the lower terrace 1 row from edge2 | 115 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071 | 2 | 0 | 2 | 2.7 | island-step proximity environment; two states |
-| C2-island+pit | composite | reference | to build: 6x6 slab with the compact 7-atom island and the compact 7-vacancy pit 2 rows apart (144 atoms net) | 144 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071 | 2 | 0 | 2 | 3.7 | island-pit pair at fixed separation; two states |
+| ID | family | tier | coordinates | N | movable | ref | relax | pert | coll | path | μ_e ref configs | μ_e other configs | states | reusable | new DFT | single-point cost (node·h) | purpose |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T-4x4 | flat Au(111) | main | library T.poscar (4x4x4 layers) | 64 | top 2 layers | 2 | 1 | 2 | 2 | 0 | -5.1071, -4.9071, -4.7071 | -5.1071, -4.9071, -4.7071 | 18 | 0 | 18 | 10.6 | flat baseline; charging response of the ideal terrace; non-equilibrium flat configurations |
+| Flat-16x1 | flat Au(111) | reference | library Flat-16x1.poscar (built 2026-09-27) | 64 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | — | 3 | 2 | 1 | 0.6 | same-cell flat baseline for the Step-16x1 family; only the -4.7071 state is new |
+| Flat-8x2 | flat Au(111) | reference | to build: Step-8x2 with its 8 strip atoms removed (same recipe as Flat-16x1) | 64 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | — | 3 | 0 | 3 | 1.8 | same-cell flat baseline for the Step-8x2 main strip |
+| V1 | point defect | main | library V1.poscar | 63 | top 2 layers | 2 | 1 | 2 | 2 | 0 | -5.1071, -4.9071, -4.7071 | -5.1071, -4.9071, -4.7071 | 18 | 0 | 18 | 10.4 | single vacancy; charging response and forces around a missing top-layer atom |
+| A1-fcc | point defect | main | library A1_fcc.poscar | 65 | top 2 layers + adatom | 2 | 1 | 2 | 2 | 1 | -5.1071, -4.9071, -4.7071 | -5.1071, -4.9071, -4.7071 | 21 | 0 | 21 | 12.5 | fcc adatom; the one path image = adatom at the bridge site between fcc and hcp (the hcp end point is the A1-hcp row) |
+| A1-hcp | point defect | main | library A1_hcp.poscar | 65 | top 2 layers + adatom | 2 | 1 | 2 | 2 | 0 | -5.1071, -4.9071, -4.7071 | -5.1071, -4.9071, -4.7071 | 18 | 0 | 18 | 10.7 | hcp adatom (initial controlled geometry); if relaxation leaves the hcp site the relaxed state is recorded under its actual registry - not a reconstruction model |
+| V2 | point defect | reference | library V2.poscar | 62 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | — | 3 | 0 | 3 | 1.7 | divacancy; low weight |
+| V3 | point defect | reference | library V3.poscar | 61 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | — | 3 | 0 | 3 | 1.7 | triangular trivacancy; low weight |
+| A3 | point defect | reference | library A3.poscar | 67 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | — | 3 | 0 | 3 | 1.8 | three-atom cluster; low weight |
+| Step-8x2 | strip step | main | library Step-8x2.poscar | 72 | top 2 base layers + strip (along-edge displacements independent) | 2 | 1 | 2 | 2 | 3 | -5.1071, -4.9071, -4.7071 | -5.1071, -4.9071, -4.7071 | 27 | 0 | 27 | 17.8 | straight strip edges (edge1/edge2 inequivalent; A/B not assigned) with 10 A terraces; collective = top-spacing -3 % and edge-row bend +-0.15 A; path = 3 interpolated images of one edge2 atom moving to the lower-terrace foot site (72 atoms conserved; end point = the Step-8x2_edge-vacancy_plus_foot-adatom row) |
+| Step-16x2 | strip step | main | library Step-16x2.poscar | 144 | top 2 base layers + strip | 2 | 1 | 2 | 0 | 0 | -5.1071, -4.9071, -4.7071 | -5.1071, -4.7071 | 10 | 0 | 10 | 18.7 | 20 A terraces with along-edge-independent displacements; perturbations at 2 potentials (N > 100) |
+| Step-8x1 | strip step | reference | library Step-8x1.poscar | 36 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | — | 3 | 1 | 2 | 0.7 | ideal minimal-period strip; width series member |
+| Step-16x1 | strip step | reference | library Step-16x1.poscar | 72 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | — | 3 | 2 | 1 | 0.7 | ideal minimal-period strip; width series member |
+| Step-24x1 | strip step | reference | library Step-24x1.poscar | 108 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | — | 3 | 0 | 3 | 3.6 | ideal strip 30 A terraces; width extrapolation |
+| Au211 | vicinal step face | main | library Au211.poscar (fcc211; normal verified (211)) | 48 | atoms within 4.8 A of the top (two (111)-spacings) | 2 | 1 | 2 | 2 | 0 | -5.1071, -4.9071, -4.7071 | -5.1071, -4.9071, -4.7071 | 18 | 0 | 18 | 7.9 | A-type {100}-microfacet step face with 3-row (111) terraces; 4 step periods along the edge (11.76 A) |
+| Au221 | vicinal step face | main | REBUILT 2026-09-27 by scripts/build_vicinal_fixed.py: primitive cell + transformed indices (3,3,4), normal verified (221), 14 planes x 0.693 A, 2 step periods (5.88 x 8.82 A cell); old 'Au221' was cubic (113) -> Au113_retired | 28 | atoms within 4.8 A of the top | 2 | 1 | 2 | 2 | 0 | -5.1071, -4.9071, -4.7071 | -5.1071, -4.9071, -4.7071 | 18 | 0 | 18 | 4.6 | B-type {111}-microfacet step face representative; 2 step periods allow along-edge-independent perturbations |
+| Au332 | vicinal step face | reference | REBUILT 2026-09-27: primitive indices (5,5,6), normal verified (332), 21 planes x 0.443 A, 1 step period (2.94 x 13.79 A); old 'Au332' was a second (211) cell -> Au211b_retired | 21 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | — | 3 | 0 | 3 | 0.6 | wider {111}-type terrace; same-family width check |
+| Au554 | vicinal step face | reference | REBUILT 2026-09-27: primitive indices (9,9,10), normal verified (554), 36 planes x 0.256 A, 1 step period (2.94 x 23.89 A); old 'Au554' was cubic (223) -> Au223_retired | 36 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | — | 3 | 0 | 3 | 1.0 | widest {111}-type terrace in the library; same-family width check |
+| Kink-edge1 | kink / edge rearrangement | main | to build: Step-8x3 strip (base 8x3x4 = 96 + strip 12) with one extra edge atom on edge1 in one of the 3 rows; the ny = 3 period is the minimum for one kink per period | 109 | top 2 base layers + strip | 2 | 1 | 2 | 0 | 2 | -5.1071, -4.9071, -4.7071 | -5.1071, -4.7071 | 14 | 0 | 14 | 17.2 | kinked edge1; named by edge only (A/B assignment not made); path = 2 images with the kink atom moving one site along the edge (image 2 = the translated end point; nothing else relaxed); non-reference configs at 2 potentials |
+| Kink-edge2 | kink / edge rearrangement | main | to build: as Kink-edge1 with the extra atom on edge2 | 109 | top 2 base layers + strip | 2 | 1 | 2 | 0 | 2 | -5.1071, -4.9071, -4.7071 | -5.1071, -4.7071 | 14 | 0 | 14 | 17.2 | kinked edge2 (the electronically inequivalent edge); same path recipe |
+| Step-8x2_edge-vacancy_plus_foot-adatom | kink / edge rearrangement | reference | to build: Step-8x2 with one edge2 atom removed from the strip and placed in the fcc hollow of the lower terrace adjacent to edge2 | 72 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071, -4.7071 | — | 3 | 0 | 3 | 2.0 | edge gap + attached foot atom in one 72-atom structure; end point of the Step-8x2 detachment path (atom number and mapping conserved) |
+| Island-7-compact | single-layer island | main | library Island-7-6x6.poscar | 151 | top base layer + island | 2 | 1 | 2 | 0 | 2 | -5.1071, -4.9071, -4.7071 | -5.1071, -4.7071 | 14 | 0 | 14 | 28.1 | compact 7-atom island in the 6x6 cell; path = 2 images of one island-edge atom moving to an adjacent terrace hollow (image 2 = end point; not relaxed); non-reference configs at 2 potentials |
+| Island-7-elongated | single-layer island | main | to build: 7 atoms as a 3+4 two-row zigzag chain on the 6x6 slab | 151 | top base layer + island | 2 | 1 | 2 | 0 | 0 | -5.1071, -4.9071, -4.7071 | -5.1071, -4.7071 | 10 | 0 | 10 | 20.0 | shape variant at equal atom count; edge-length/coordination contrast to the compact island |
+| Island-19-8x8 | single-layer island | reference | library Island-19-8x8.poscar | 275 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071 | — | 2 | 0 | 2 | 9.9 | size extrapolation; two states only |
+| Island-7-8x8 | single-layer island | reference | library Island-7-8x8.poscar | 263 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -4.9071 | — | 1 | 0 | 1 | 4.6 | cell-size check for Island-7 (6x6 vs 8x8) and same-cell partner of Island-19-8x8; one state |
+| Pit-7-compact | single-layer pit | main | library V7.poscar / Pit-7 | 137 | top base layer + pit rim | 2 | 1 | 2 | 0 | 2 | -5.1071, -4.9071, -4.7071 | -5.1071, -4.7071 | 14 | 0 | 14 | 24.3 | compact 7-vacancy pit; path = 2 images of one rim atom moving into the pit (image 2 = end point; not relaxed); non-reference configs at 2 potentials |
+| Pit-7-trench | single-layer pit | main | to build: 7 vacancies as a 3+4 two-row zigzag trench in the 6x6 top layer | 137 | top base layer + pit rim | 2 | 1 | 2 | 0 | 0 | -5.1071, -4.9071, -4.7071 | -5.1071, -4.7071 | 10 | 0 | 10 | 17.3 | shape variant at equal vacancy count |
+| Pit-19-8x8 | single-layer pit | reference | library Pit-19-8x8.poscar | 237 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071 | — | 2 | 0 | 2 | 7.9 | size extrapolation; two states only |
+| Pit-7-8x8 | single-layer pit | reference | library Pit-7-8x8.poscar | 249 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -4.9071 | — | 1 | 0 | 1 | 4.2 | cell-size check for Pit-7 and same-cell partner of Pit-19-8x8; one state |
+| R1-hcp-terminated | reconstruction-related | main | to build: T-4x4 with the top layer translated by the fcc->hcp registry vector (length a/sqrt6 = 1.70 A, an in-plane a/6<112>-type direction) extracted from the slab's own hollow positions | 64 | top 2 layers | 2 | 1 | 2 | 0 | 0 | -5.1071, -4.9071, -4.7071 | -5.1071, -4.9071, -4.7071 | 12 | 0 | 12 | 7.0 | hcp-stacked top layer (surface stacking fault) as the local model of a reconstruction domain; if relaxation returns to fcc the relaxed state is recorded as such |
+| R2-stripe-wall | reconstruction-related | main | to build: 16x1 cell, 3 base layers (48) + top layer of 17 atoms on the 16-site row (6 % compression) with fcc->hcp->fcc registry and two domain walls; 4 layers in total; validated by min distance >= 2.6 A, registry in the domain centres, periodic closure | 65 | top layer + first base layer | 2 | 1 | 2 | 0 | 0 | -5.1071, -4.9071, -4.7071 | -5.1071, -4.9071, -4.7071 | 12 | 0 | 12 | 7.2 | constrained straight-domain-wall / compressed-stacking approximation of the stripe reconstruction; not a reproduction of the herringbone; ny = 1 keeps the walls straight |
+| C1-island-near-step | composite | reference | to build: Step-8x4 strip (base 128 + strip 16 = 144) + compact 7-atom island on the lower terrace (Step-8x3 rejected: a 7-atom hexagon in a 3-row period touches its own image) | 151 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071 | — | 2 | 0 | 2 | 4.0 | island-step proximity environment; classified after building as step-attached or step-detached by actual connectivity; two states |
+| C2-island+pit | composite | reference | to build: 6x6 slab with the compact 7-atom island and the compact 7-vacancy pit with rims two rows apart (144 atoms net) | 144 | none (ideal only) | 1 | 0 | 0 | 0 | 0 | -5.1071, -4.9071 | — | 2 | 0 | 2 | 3.7 | island-pit pair at fixed separation; two states |
 
 ## 4. Totals and budget
 
-| | structures | configs | target states | reusable | new DFT states | relaxations | cost (highmem node·h) |
-|---|---|---|---|---|---|---|---|
-| main | 16 | 106 | 318 | 0 | 318 | 16 | 413 |
-| reference | 17 | 17 | 43 | 5 | 38 | 0 | 50 |
-| **all** | 33 | 123 | 361 | 5 | 356 | 16 | 463 |
+| | structures | configs | target states | reusable | new DFT single points | relaxations | single-point cost (node·h) | + relax 6× | + relax **10× (working)** | + relax 15× |
+|---|---|---|---|---|---|---|---|---|---|---|
+| main | 16 | 90 | 248 | 0 | 248 | 16 | 232 | 332 | **398** | 482 |
+| reference | 17 | 17 | 43 | 5 | 38 | 0 | 50 | 50 | **50** | 50 |
+| **all** | 33 | 107 | 291 | 5 | 286 | 16 | 282 | 382 | **449** | 532 |
 
-Per family (full scenario):
+Per family (working budget, relaxation at 10×):
 
-| family | structures | new DFT states | cost (node·h) | share |
-|---|---|---|---|---|
-| flat Au(111) | 3 | 28 | 20 | 4 % |
-| point defect | 6 | 84 | 60 | 13 % |
-| strip step | 5 | 51 | 64 | 14 % |
-| vicinal step face | 4 | 54 | 35 | 8 % |
-| kink / edge rearrangement | 3 | 45 | 68 | 15 % |
-| single-layer island | 4 | 33 | 99 | 21 % |
-| single-layer pit | 4 | 33 | 85 | 18 % |
-| reconstruction-related | 2 | 24 | 25 | 5 % |
-| composite | 2 | 4 | 6 | 1 % |
+| family | structures | new DFT single points | relaxations | cost (node·h) | share |
+|---|---|---|---|---|---|
+| flat Au(111) | 3 | 22 | 1 | 19 | 4 % |
+| point defect | 6 | 66 | 3 | 57 | 13 % |
+| strip step | 5 | 43 | 2 | 67 | 15 % |
+| vicinal step face | 4 | 42 | 2 | 21 | 5 % |
+| kink / edge rearrangement | 3 | 31 | 2 | 61 | 14 % |
+| single-layer island | 4 | 27 | 2 | 103 | 23 % |
+| single-layer pit | 4 | 27 | 2 | 88 | 20 % |
+| reconstruction-related | 2 | 24 | 2 | 26 | 6 % |
+| composite | 2 | 4 | 0 | 8 | 2 % |
 
-**Lean scenario** (perturbations halved on main rows; 2 potentials instead of 3 for perturbation/path configurations of rows with N > 100; references unchanged): 266 new DFT states, 367 node·h (79 % of the full scenario). Rows with the largest savings: Island-7-compact (12 h), Kink-A (11 h), Kink-B (11 h), Pit-7-compact (10 h), Island-7-elongated (8 h), Step-16x2 (7 h).
+The four > 200-atom references (Island-19-8x8, Island-7-8x8, Pit-19-8x8, Pit-7-8x8) cost 27 node·h (6 % of the working budget) for 6 states; they are kept, without perturbations or paths.
 
-**Throughput**: highmem allows 2 running jobs per user; at 1 job = 1 node the full scenario is ≈ 10 days of continuous submission (8 days lean). Highmem is billed at 4× (audit §F); node·h × 128 cores × 4 ≈ 237 k SU full, 188 k SU lean. Warm-starting each perturbed configuration from its parent CHGCAR (ICHARG=1) would cut SCF steps by roughly a third; not assumed in the numbers above.
+**Reading the numbers.** Node·h are highmem node-hours (16 MPI × 8 OpenMP per node). The single-point cost model is fitted on 36–72-atom runs only; its N^1.5 growth for 108–275 atoms and the relaxation factor are assumptions — the 10× column is the working budget, 6× and 15× are the optimistic and high scenarios, none is an upper bound (failed/re-started runs are not included). Highmem is billed at 4 SU per core-hour of *requested* resources (audit §F): working budget ≈ 230 k SU, range 196–273 k SU. With the 2-concurrent-job limit the *ideal full-load* time is node·h/48 days (≈ 9 days at the working budget) — before queueing, dependencies (relax → perturb) and re-runs; it is not a completion promise. Warm-starting perturbed configurations from the parent CHGCAR is not assumed anywhere (not measured).
 
-**Cost-model limits**: measured points cover 36–72 atoms only; the N^1.5 growth used for 108–275 atoms is an assumption, so the island/pit/kink rows (≈ half of the budget) carry the largest uncertainty. The first completed run of each size class recalibrates the CSV.
+**Recalibration**: the first completed Batch-A relaxation of each size class and the first > 100-atom single points update `c_min` and `F_RELAX` in this script and regenerate this document; scope and weights do not change with them.
 
-## 5. Structures that still have to be built (concrete specifications)
+## 5. Structures that still have to be built, and the four corrected definitions
 
-All builds use the existing generators' conventions (a = 4.158 Å, 4 base layers at z = 5.0/7.4/9.8/12.2 Å, Lz = 44.603 Å, SOL_Z0 = 9.801, SOL_Z1 = 34.603 Å, DIPOL 0.5 0.5 0.5, k-mesh by the N·|a| ≈ 35 Å rule) and pass the existing checks (minimum Au–Au distance ≥ 2.6 Å after perturbation, ≥ 2.9 Å for ideal builds; periodic-image isolation; registry check of every added layer).
+All builds use the existing generators' conventions (a = 4.158 Å; (111) slabs: 4 layers at z = 5.0/7.4/9.8/12.2 Å; vicinal slabs: ~9 Å metal thickness like Au211; Lz = 44.603 Å, SOL_Z0 = 9.801, SOL_Z1 = 34.603 Å, DIPOL 0.5 0.5 0.5, k-mesh by the N·|a| ≈ 35 Å rule) and pass the existing checks (minimum Au–Au distance ≥ 2.6 Å after perturbation, ≥ 2.9 Å for ideal builds; periodic-image isolation; registry check of every added layer).
 
-| ID | build recipe | validation |
+| ID | build recipe | validation / acceptance |
 |---|---|---|
+| **Au221 / Au332 / Au554 (DONE, corrected)** | `scripts/build_vicinal_fixed.py`: fcc primitive cell with indices transformed to the primitive basis ((2,2,1)→(3,3,4), (3,3,2)→(5,5,6), (5,5,4)→(9,9,10)), Gauss-reduced surface cell, 14/21/36 atomic planes (0.693/0.443/0.256 Å) for ~9 Å thickness; Au221 repeated ×2 along the 2.94 Å step vector | surface normal recovered from the coordinates ∥ (h,k,l), plane spacing = a/(2√(h²+k²+l²)), min distance 2.940 Å — recorded in `report_assets/batch1/vicinal_rebuild_validation.json`. The previous files were cubic (113), a second (211) cell and (223): kept as `Au113_retired`, `Au211b_retired`, `Au223_retired`, not in the plan; the old generator block is disabled with a note |
 | Flat-8x2 | remove the 8 strip atoms from Step-8x2 (as done for Flat-16x1) | base atoms unchanged (bijective match), 64 atoms |
-| Kink-A / Kink-B | Step-8x3 (base 96, strip 12) plus one extra edge atom on edge1 (A) or edge2 (B) in one of the three rows; the ny = 3 period is the minimum for one kink per period and is **not** reducible | added atom in a hollow of the layer below (registry), CN of kink atom = 5, min distance 2.94 Å |
-| Step-8x2+foot-adatom | Step-8x2 plus one adatom in the fcc hollow of the lower terrace adjacent to edge2 | registry, min distance |
+| Kink-edge1 / Kink-edge2 | Step-8x3 (base 96, strip 12) plus one extra edge atom on edge1 or edge2 in one of the three rows; ny = 3 is the minimum period for one kink per period and is **not** reducible | added atom in a hollow of the layer below (registry); the actual edge contour is traced and the number of corners per period recorded — the name states the edge only, no A/B assignment |
+| Step-8x2_edge-vacancy_plus_foot-adatom | Step-8x2 with one edge2 strip atom removed and placed in the fcc hollow of the lower terrace adjacent to edge2 — **72 atoms** | registry, min distance; same cell, atom count and atom mapping as Step-8x2 so the 3 detachment images interpolate between the two rows |
 | Island-7-elongated | 7 atoms as a 3+4 two-row zigzag chain in fcc hollows on the 6x6 slab (same cell as Island-7-6x6) | connected island (every atom ≥ 2 island neighbours), image separation ≥ 8 Å |
 | Pit-7-trench | 7 vacancies forming a 3+4 two-row zigzag trench in the 6x6 top layer | connected vacancy footprint, image separation as Pit-7 |
-| R1-hcp-terminated | T-4x4 with the top layer translated by (a/√3)·[1̄10]-type shift into hcp registry | every top atom above a second-layer atom (hcp), min distance 2.94 Å |
-| R2-stripe-wall | 16x1 cell; top layer with 17 atoms on the 16-site row: two domains (fcc, hcp) joined by two walls of ~4 atoms each along a1, compression 1/16 spread over the walls; positions from a 1-D soliton profile, then constrained relaxation | min distance ≥ 2.6 Å before relaxation, registry fcc/hcp in the domain centres, periodic closure of the displacement field (total shift = one row spacing) |
-| C1-island-near-step | Step-8x3 strip (108) + compact 7-atom island on the lower terrace, nearest island atom one row from edge2 | island–edge distance recorded; no island–image contact |
+| R1-hcp-terminated | T-4x4 with the whole top layer translated by the fcc→hcp registry vector taken from the slab itself (difference between the fcc and hcp hollow positions of the second layer; length a/√6 = 1.70 Å, an in-plane a/6⟨112⟩-type direction — **not** a/√3 [1̄10]) | every top atom in a threefold hollow of layer n−1 **and** vertically above an atom of layer n−2 (hcp stacking); no atom atop a layer n−1 atom; min distance 2.94 Å |
+| R2-stripe-wall | 16x1 cell; **3 base layers (48 atoms) + a 17-atom top layer** on the 16-site row = 65 atoms, 4 layers in total; two domains (fcc, hcp registry) joined by two walls of ~4 atoms along a1 carrying the 1/16 compression, positions from a 1-D soliton profile; constrained relaxation follows | min distance ≥ 2.6 Å before relaxation, fcc/hcp registry in the domain centres, periodic closure of the displacement field (total shift = one row spacing); described as a constrained domain-wall approximation, not as the herringbone |
+| C1-island-near-step | **Step-8x4** strip (base 128 + strip 16 = 144) + compact 7-atom island on the lower terrace = 151 atoms (Step-8x3 rejected: a 7-atom hexagon spans 3 rows, so in a 3-row period it touches its own image) | island–image separation ≥ 1 vacant row; island–edge distance recorded; classified as step-attached or step-detached by actual connectivity after building |
 | C2-island+pit | 6x6 slab, compact 7-atom island and compact 7-vacancy pit with rims two rows apart | 144 atoms net; separation recorded |
-| path images | A1: bridge site (1); Step-8x2 detachment: 3 images between the relaxed strip and the relaxed foot-adatom structure; kinks: 2 images of the kink atom moving one site along the edge; Island-7 / Pit-7: 2 images of one rim atom leaving/entering | interpolated on movable atoms only; end points are their own rows |
+| path images | A1: 1 image (bridge site); Step-8x2: 3 images between the relaxed strip and the Step-8x2_edge-vacancy_plus_foot-adatom geometry; kinks: 2 images of the kink atom moving one site along the edge (image 2 = translated end point); Island-7 / Pit-7: 2 images of one rim atom leaving / entering (image 2 = end point) | interpolated on movable atoms only; atom number, order and mapping identical at both ends; no end point is relaxed unless it has its own row |
 
-## 6. Execution batches (resource management only — the scope above does not change)
+## 6. Execution batches (resource management only — the frozen scope and weights do not change)
 
-1. **Batch A (≤ 72 atoms, anchors)**: T-4x4, V1, A1-fcc, A1-hcp, Flat-16x1 (+1), Flat-8x2, Step-8x1 (+2), Step-16x1 (+1), Step-8x2, Au211, Au221, R1, V2/V3/A3, Au332/Au554, Step-8x2+foot-adatom. Relaxations first, then perturbations/paths.
-2. **Batch B (73–151 atoms)**: R2, Step-24x1, Kink-A/B, C1, Pit-7-compact, Pit-7-trench, Step-16x2, C2, Island-7-compact, Island-7-elongated. The first completed run of each size recalibrates the cost model.
-3. **Batch C (> 200 atoms, references)**: Pit-19-8x8, Pit-7-8x8, Island-7-8x8, Island-19-8x8 — one or two states each; submitted last, cancelled first if the budget tightens.
+1. **Batch A (≤ 72 atoms, anchors)**: T-4x4, V1, A1-fcc, A1-hcp, Au221, Au211, Flat-16x1 (+1), Flat-8x2, Step-8x1 (+2), Step-16x1 (+1), Step-8x2, R1, R2, V2/V3/A3, Au332/Au554, Step-8x2_edge-vacancy_plus_foot-adatom. Relaxations first (they recalibrate the relaxation factor), then perturbations/collective/paths.
+2. **Batch B (73–151 atoms)**: Step-24x1, Kink-edge1/edge2, Pit-7-compact, Pit-7-trench, Step-16x2, C2, Island-7-compact, Island-7-elongated, C1. The first completed single point of each size recalibrates the cost model.
+3. **Batch C (> 200 atoms, references)**: Pit-19-8x8, Pit-7-8x8, Island-7-8x8, Island-19-8x8 — one or two states each; submitted last.
 
-Batch order does not decide scope; if the budget is cut, apply the lean scenario (or a further global reduction of perturbation counts) across all rows rather than dropping a family.
+Adjustments after freezing are made only for (a) a build that fails its acceptance test, (b) an actual duplicate found after building/relaxing, (c) an explicit budget cut applied globally to perturbation counts — each recorded in the CSV with the reason. Batches are not decision points.
 
 ## 7. Not decided or not required here
 
-- The trainer's energy target and input keys (settled against the training code on its own machine, not here); this plan only guarantees that every state carries TOTEN, E_without_entropy, E(σ→0), GCE, forces, actual N_e/μ_e and the indexed 3D fields.
+- The trainer's energy target and input keys (settled against the training code on its own machine); every state carries TOTEN, E_without_entropy, E(σ→0), GCE, forces, actual N_e/μ_e and the indexed 3D fields.
 - Model interface tests or small-sample training are not prerequisites for starting Batch A.
-- The closed step-mechanism study is not reopened; Step-16x1/8x1 results enter only as reusable states.
+- The closed step-mechanism study is not reopened; Step-16x1/8x1 results enter only as reusable states. The old-fork interface example in `dataset_v0/mace_input/` is unrelated to this production plan.
+- Follow-up outside this plan: the structure-gallery figures for the three replaced vicinal faces still show the retired geometries and need re-rendering.

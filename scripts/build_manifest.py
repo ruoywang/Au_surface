@@ -52,9 +52,22 @@ STRUCTS = {
     "Step-24x2": {"path": "Step-24x2.poscar", "facet": "(111) strip", "role": "constrained_model",
                   "note": "reduced-cell, 2x along-step margin over Step-24x1", "dft": "validation_candidate"},
     "Au211": {"path": "Au211.poscar", "facet": "(211)", "role": "constrained_model", "note": "new", "dft": "candidate"},
-    "Au221": {"path": "Au221.poscar", "facet": "(221)", "role": "constrained_model", "note": "new", "dft": "candidate"},
-    "Au332": {"path": "Au332.poscar", "facet": "(332)", "role": "constrained_model", "note": "new (Batch 2)", "dft": "candidate"},
-    "Au554": {"path": "Au554.poscar", "facet": "(554)", "role": "constrained_model", "note": "new (Batch 2)", "dft": "candidate"},
+    # 2026-09-27: the previous Au221/Au332/Au554 files were built with primitive-cell Miller indices and were in fact
+    # cubic (113), a second (211) cell and (223) (verified from the coordinates). Rebuilt by scripts/build_vicinal_fixed.py
+    # (normal verified); the old files are retired under their true indices and kept for the record only.
+    "Au221": {"path": "Au221.poscar", "facet": "(221)", "role": "constrained_model",
+              "note": "REBUILT 2026-09-27 (primitive indices (3,3,4), normal verified (221), 14 planes x 0.693 A, 2 step periods); "
+                      "see report_assets/batch1/vicinal_rebuild_validation.json", "dft": "candidate"},
+    "Au332": {"path": "Au332.poscar", "facet": "(332)", "role": "constrained_model",
+              "note": "REBUILT 2026-09-27 (primitive indices (5,5,6), normal verified (332), 21 planes x 0.443 A, 1 step period)", "dft": "candidate"},
+    "Au554": {"path": "Au554.poscar", "facet": "(554)", "role": "constrained_model",
+              "note": "REBUILT 2026-09-27 (primitive indices (9,9,10), normal verified (554), 36 planes x 0.256 A, 1 step period)", "dft": "candidate"},
+    "Au113_retired": {"path": "Au113_retired.poscar", "facet": "(113) [was labelled (221)]", "role": "retired_mislabeled",
+                      "note": "built 2026-09 with bulk('Au','fcc') primitive cell + surface((2,2,1)); true face (113); not in the plan", "dft": "excluded"},
+    "Au211b_retired": {"path": "Au211b_retired.poscar", "facet": "(211) [was labelled (332)]", "role": "retired_mislabeled",
+                       "note": "primitive (3,3,2) = cubic (112): a second, larger-cell (211) slab duplicating Au211; not in the plan", "dft": "excluded"},
+    "Au223_retired": {"path": "Au223_retired.poscar", "facet": "(223) [was labelled (554)]", "role": "retired_mislabeled",
+                      "note": "primitive (5,5,4) = cubic (223); not in the plan", "dft": "excluded"},
     "Island-7": {"path": "Island-7-6x6.poscar", "facet": "(111)+island", "role": "relaxed_candidate", "note": "new",
                  "dft": "candidate"},
     "Island-7-8x8": {"path": "Island-7-8x8.poscar", "facet": "(111)+island", "role": "relaxed_candidate",

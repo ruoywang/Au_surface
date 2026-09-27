@@ -396,6 +396,72 @@
   },
   "Au221": {
     "facet": "(221)",
+    "N_total": 28,
+    "base_z_span": null,
+    "all_atoms_z_span": 9.009,
+    "in_plane_cell_vectors": [
+      [
+        1.8595141300888258,
+        5.57854239026648
+      ],
+      [
+        8.367813585399713,
+        -2.78927119513324
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "candidate",
+    "submission_status": "not_submitted",
+    "note": "REBUILT 2026-09-27 (primitive indices (3,3,4), normal verified (221), 14 planes x 0.693 A, 2 step periods); see report_assets/batch1/vicinal_rebuild_validation.json"
+  },
+  "Au332": {
+    "facet": "(332)",
+    "N_total": 21,
+    "base_z_span": null,
+    "all_atoms_z_span": 8.865,
+    "in_plane_cell_vectors": [
+      [
+        1.1532217079522518,
+        2.7045446367748527
+      ],
+      [
+        12.685438787474766,
+        -5.409089273549705
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "candidate",
+    "submission_status": "not_submitted",
+    "note": "REBUILT 2026-09-27 (primitive indices (5,5,6), normal verified (332), 21 planes x 0.443 A, 1 step period)"
+  },
+  "Au554": {
+    "facet": "(554)",
+    "N_total": 36,
+    "base_z_span": null,
+    "all_atoms_z_span": 8.957,
+    "in_plane_cell_vectors": [
+      [
+        1.298741003865647,
+        2.6377554482700183
+      ],
+      [
+        21.4292265637832,
+        -10.551021793080073
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "candidate",
+    "submission_status": "not_submitted",
+    "note": "REBUILT 2026-09-27 (primitive indices (9,9,10), normal verified (554), 36 planes x 0.256 A, 1 step period)"
+  },
+  "Au113_retired": {
+    "facet": "(113) [was labelled (221)]",
     "N_total": 72,
     "base_z_span": null,
     "all_atoms_z_span": 8.776,
@@ -410,14 +476,14 @@
       ]
     ],
     "minimum_Au_Au_distance": 2.94,
-    "role": "constrained_model",
+    "role": "retired_mislabeled",
     "pipeline_status": "geometry_only",
-    "dft_queue_status": "candidate",
+    "dft_queue_status": "excluded",
     "submission_status": "not_submitted",
-    "note": "new"
+    "note": "built 2026-09 with bulk('Au','fcc') primitive cell + surface((2,2,1)); true face (113); not in the plan"
   },
-  "Au332": {
-    "facet": "(332)",
+  "Au211b_retired": {
+    "facet": "(211) [was labelled (332)]",
     "N_total": 48,
     "base_z_span": null,
     "all_atoms_z_span": 9.336,
@@ -432,14 +498,14 @@
       ]
     ],
     "minimum_Au_Au_distance": 2.94,
-    "role": "constrained_model",
+    "role": "retired_mislabeled",
     "pipeline_status": "geometry_only",
-    "dft_queue_status": "candidate",
+    "dft_queue_status": "excluded",
     "submission_status": "not_submitted",
-    "note": "new (Batch 2)"
+    "note": "primitive (3,3,2) = cubic (112): a second, larger-cell (211) slab duplicating Au211; not in the plan"
   },
-  "Au554": {
-    "facet": "(554)",
+  "Au223_retired": {
+    "facet": "(223) [was labelled (554)]",
     "N_total": 40,
     "base_z_span": null,
     "all_atoms_z_span": 9.58,
@@ -454,11 +520,11 @@
       ]
     ],
     "minimum_Au_Au_distance": 2.94,
-    "role": "constrained_model",
+    "role": "retired_mislabeled",
     "pipeline_status": "geometry_only",
-    "dft_queue_status": "candidate",
+    "dft_queue_status": "excluded",
     "submission_status": "not_submitted",
-    "note": "new (Batch 2)"
+    "note": "primitive (5,5,4) = cubic (223); not in the plan"
   },
   "Island-7": {
     "facet": "(111)+island",

@@ -324,11 +324,25 @@ The full-scope computation plan is `dataset_plan_v1.md`, generated from `dataset
 in (flat, point defects, strip steps, vicinal step faces, kinks, islands, pits,
 reconstruction-related stacking, two composite references) and out, the per-structure
 sampling (reference / relaxation / random perturbation / collective deformation / path
-images / three μ_e), the reuse of same-standard results, and the cost: 33 structures,
-361 target states, 5 reusable, 356 new DFT single points + 16 relaxations ≈ 463 highmem
-node·h (lean scenario 266 new states ≈ 367 node·h). Nothing in it is submitted yet; batches
-in its §6 are resource management, not scope decisions. The `dft_queue_status` labels in
-`manifest.json` remain the geometry-library view and are not the plan.
+images / three μ_e), the reuse of same-standard results, and the cost. **Rev 2 (frozen
+2026-09-27 by the user):** nine families, 33 plan entries (16 main / 17 reference), two-scale
+lean sampling (σ = 0.05 and 0.10 Å, one configuration each), non-reference configurations of
+> 100-atom rows at the two end-point potentials; 291 target states, 5 reusable, 286 new DFT
+single points + 16 CP relaxations; cost 282 node·h for the single points, 382 / **449** / 532
+node·h with relaxations at 6× / 10× (working budget) / 15× single points — none is a
+completion promise. Nothing in it is submitted yet; batches in its §6 are resource
+management, not scope decisions. The `dft_queue_status` labels in `manifest.json` remain
+the geometry-library view and are not the plan.
+
+**Correction 2026-09-27 — vicinal faces.** The library's Au221/Au332/Au554 had been built
+with `ase.build.surface()` on the fcc *primitive* cell, so the Miller indices were read in
+the primitive basis: the files were cubic (113), a second (211) cell and (223) (verified from
+the coordinates: recovered normals and plane spacings 1.254 / 0.849 / 0.504 Å). Only Au211
+(`fcc211`) was correct. Rebuilt by `scripts/build_vicinal_fixed.py` (primitive indices
+(3,3,4)/(5,5,6)/(9,9,10), Gauss-reduced surface cell, ~9 Å thickness, normals verified:
+28 / 21 / 36 atoms); the old files are kept as `Au113_retired`, `Au211b_retired`,
+`Au223_retired` (manifest role `retired_mislabeled`). The gallery figures for these three
+faces still show the retired geometries (re-render pending).
 
 ## Phase 2 — recorded, not built this round
 
