@@ -317,6 +317,19 @@ step is curating the existing runs (which to keep, one consistent label standard
 training targets the raw outputs support) — not submitting DFT. The superseded "13 %
 weaker near-edge" reading is not to be reopened.
 
+## Complete dataset computation plan (2026-09-27) — supersedes the candidate/deferred labels above
+
+The full-scope computation plan is `dataset_plan_v1.md`, generated from `dataset_plan_v1.csv`
+(single source of truth; every multiplier is a column). It fixes in one pass which families are
+in (flat, point defects, strip steps, vicinal step faces, kinks, islands, pits,
+reconstruction-related stacking, two composite references) and out, the per-structure
+sampling (reference / relaxation / random perturbation / collective deformation / path
+images / three μ_e), the reuse of same-standard results, and the cost: 33 structures,
+361 target states, 5 reusable, 356 new DFT single points + 16 relaxations ≈ 463 highmem
+node·h (lean scenario 266 new states ≈ 367 node·h). Nothing in it is submitted yet; batches
+in its §6 are resource management, not scope decisions. The `dft_queue_status` labels in
+`manifest.json` remain the geometry-library view and are not the plan.
+
 ## Phase 2 — recorded, not built this round
 
 Au(100) flat reference; one (100)-terrace stepped surface (exact Miller index TBD);

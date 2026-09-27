@@ -1,0 +1,2738 @@
+{
+ "A1_fcc_dUm02": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUm02/CHGCAR",
+   "bytes": 396405708,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUm02/LOCPOT",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUm02/PHI",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUm02/PHISOLV",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUm02/VSOLV",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUm02/RHOB",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUm02/RHOION",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUm02/ELOC",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUm02/P",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUm02/SVDW",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUm02/SION",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUm02/SSOLV",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUm02/SCAV",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUm02/SDIEL",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUm02/POT",
+   "bytes": 396405708,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ },
+ "A1_fcc_dUp00": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp00/CHGCAR",
+   "bytes": 396405708,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp00/LOCPOT",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp00/PHI",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp00/PHISOLV",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp00/VSOLV",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp00/RHOB",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp00/RHOION",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp00/ELOC",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp00/P",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp00/SVDW",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp00/SION",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp00/SSOLV",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp00/SCAV",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp00/SDIEL",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp00/POT",
+   "bytes": 396405708,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ },
+ "A1_fcc_dUp02": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp02/CHGCAR",
+   "bytes": 396405708,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp02/LOCPOT",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp02/PHI",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp02/PHISOLV",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp02/VSOLV",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp02/RHOB",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp02/RHOION",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp02/ELOC",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp02/P",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp02/SVDW",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp02/SION",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp02/SSOLV",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp02/SCAV",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp02/SDIEL",
+   "bytes": 396267193,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/A1_fcc_dUp02/POT",
+   "bytes": 396405708,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ },
+ "Flat16x1_dUp02": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_dUp02/CHGCAR",
+   "bytes": 157386586,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_dUp02/LOCPOT",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_dUp02/PHI",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_dUp02/PHISOLV",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_dUp02/VSOLV",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_dUp02/RHOB",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_dUp02/RHOION",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_dUp02/ELOC",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_dUp02/P",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_dUp02/SVDW",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_dUp02/SION",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_dUp02/SSOLV",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_dUp02/SCAV",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_dUp02/SDIEL",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_dUp02/POT",
+   "bytes": 157386586,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ },
+ "Flat16x1_muref": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_muref/CHGCAR",
+   "bytes": 157386586,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_muref/LOCPOT",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_muref/PHI",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_muref/PHISOLV",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_muref/VSOLV",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_muref/RHOB",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_muref/RHOION",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_muref/ELOC",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_muref/P",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_muref/SVDW",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_muref/SION",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_muref/SSOLV",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_muref/SCAV",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_muref/SDIEL",
+   "bytes": 157250202,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Flat16x1_muref/POT",
+   "bytes": 157386586,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ },
+ "Step-16x1_dUp02_fastcfg": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_dUp02_fastcfg/CHGCAR",
+   "bytes": 157403882,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_dUp02_fastcfg/LOCPOT",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_dUp02_fastcfg/PHI",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_dUp02_fastcfg/PHISOLV",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_dUp02_fastcfg/VSOLV",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_dUp02_fastcfg/RHOB",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_dUp02_fastcfg/RHOION",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_dUp02_fastcfg/ELOC",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_dUp02_fastcfg/P",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_dUp02_fastcfg/SVDW",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_dUp02_fastcfg/SION",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_dUp02_fastcfg/SSOLV",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_dUp02_fastcfg/SCAV",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_dUp02_fastcfg/SDIEL",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_dUp02_fastcfg/POT",
+   "bytes": 157403882,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ },
+ "Step-16x1_muref": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref/CHGCAR",
+   "bytes": 411097322,
+   "grid": [
+    700,
+    48,
+    672
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref/LOCPOT",
+   "bytes": 410943890,
+   "grid": [
+    700,
+    48,
+    672
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref/PHI",
+   "bytes": 410943890,
+   "grid": [
+    700,
+    48,
+    672
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref/PHISOLV",
+   "bytes": 410943890,
+   "grid": [
+    700,
+    48,
+    672
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref/VSOLV",
+   "bytes": 410943890,
+   "grid": [
+    700,
+    48,
+    672
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref/RHOB",
+   "bytes": 410943890,
+   "grid": [
+    700,
+    48,
+    672
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref/RHOION",
+   "bytes": 410943890,
+   "grid": [
+    700,
+    48,
+    672
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref/ELOC",
+   "bytes": 410943890,
+   "grid": [
+    700,
+    48,
+    672
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref/P",
+   "bytes": 410943890,
+   "grid": [
+    700,
+    48,
+    672
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref/SVDW",
+   "bytes": 410943890,
+   "grid": [
+    700,
+    48,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref/SION",
+   "bytes": 410943890,
+   "grid": [
+    700,
+    48,
+    672
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref/SSOLV",
+   "bytes": 410943890,
+   "grid": [
+    700,
+    48,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref/SCAV",
+   "bytes": 410943890,
+   "grid": [
+    700,
+    48,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref/SDIEL",
+   "bytes": 410943890,
+   "grid": [
+    700,
+    48,
+    672
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref/POT",
+   "bytes": 411097322,
+   "grid": [
+    700,
+    48,
+    672
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ },
+ "Step-16x1_muref_fastcfg": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref_fastcfg/CHGCAR",
+   "bytes": 157403882,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref_fastcfg/LOCPOT",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref_fastcfg/PHI",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref_fastcfg/PHISOLV",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref_fastcfg/VSOLV",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref_fastcfg/RHOB",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref_fastcfg/RHOION",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref_fastcfg/ELOC",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref_fastcfg/P",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref_fastcfg/SVDW",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref_fastcfg/SION",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref_fastcfg/SSOLV",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref_fastcfg/SCAV",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref_fastcfg/SDIEL",
+   "bytes": 157250450,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-16x1_muref_fastcfg/POT",
+   "bytes": 157403882,
+   "grid": [
+    540,
+    32,
+    500
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ },
+ "Step-8x1_dUp02": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_dUp02/CHGCAR",
+   "bytes": 211419362,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_dUp02/LOCPOT",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_dUp02/PHI",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_dUp02/PHISOLV",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_dUp02/VSOLV",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_dUp02/RHOB",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_dUp02/RHOION",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_dUp02/ELOC",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_dUp02/P",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_dUp02/SVDW",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_dUp02/SION",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_dUp02/SSOLV",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_dUp02/SCAV",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_dUp02/SDIEL",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_dUp02/POT",
+   "bytes": 211419362,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ },
+ "Step-8x1_muref": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref/CHGCAR",
+   "bytes": 211419362,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref/LOCPOT",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref/PHI",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref/PHISOLV",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref/VSOLV",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref/RHOB",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref/RHOION",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref/ELOC",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref/P",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref/SVDW",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref/SION",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref/SSOLV",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref/SCAV",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref/SDIEL",
+   "bytes": 211342646,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref/POT",
+   "bytes": 211419362,
+   "grid": [
+    360,
+    48,
+    672
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ },
+ "Step-8x1_muref_fastcfg": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref_fastcfg/CHGCAR",
+   "bytes": 81614050,
+   "grid": [
+    280,
+    32,
+    500
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref_fastcfg/LOCPOT",
+   "bytes": 81537334,
+   "grid": [
+    280,
+    32,
+    500
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref_fastcfg/PHI",
+   "bytes": 81537334,
+   "grid": [
+    280,
+    32,
+    500
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref_fastcfg/PHISOLV",
+   "bytes": 81537334,
+   "grid": [
+    280,
+    32,
+    500
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref_fastcfg/VSOLV",
+   "bytes": 81537334,
+   "grid": [
+    280,
+    32,
+    500
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref_fastcfg/RHOB",
+   "bytes": 81537334,
+   "grid": [
+    280,
+    32,
+    500
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref_fastcfg/RHOION",
+   "bytes": 81537334,
+   "grid": [
+    280,
+    32,
+    500
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref_fastcfg/ELOC",
+   "bytes": 81537334,
+   "grid": [
+    280,
+    32,
+    500
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref_fastcfg/P",
+   "bytes": 81537334,
+   "grid": [
+    280,
+    32,
+    500
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref_fastcfg/SVDW",
+   "bytes": 81537334,
+   "grid": [
+    280,
+    32,
+    500
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref_fastcfg/SION",
+   "bytes": 81537334,
+   "grid": [
+    280,
+    32,
+    500
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref_fastcfg/SSOLV",
+   "bytes": 81537334,
+   "grid": [
+    280,
+    32,
+    500
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref_fastcfg/SCAV",
+   "bytes": 81537334,
+   "grid": [
+    280,
+    32,
+    500
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref_fastcfg/SDIEL",
+   "bytes": 81537334,
+   "grid": [
+    280,
+    32,
+    500
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x1_muref_fastcfg/POT",
+   "bytes": 81614050,
+   "grid": [
+    280,
+    32,
+    500
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ },
+ "Step-8x2_muref": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x2_muref/CHGCAR",
+   "bytes": 422838506,
+   "grid": [
+    360,
+    96,
+    672
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x2_muref/LOCPOT",
+   "bytes": 422685074,
+   "grid": [
+    360,
+    96,
+    672
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x2_muref/PHI",
+   "bytes": 422685074,
+   "grid": [
+    360,
+    96,
+    672
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x2_muref/PHISOLV",
+   "bytes": 422685074,
+   "grid": [
+    360,
+    96,
+    672
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x2_muref/VSOLV",
+   "bytes": 422685074,
+   "grid": [
+    360,
+    96,
+    672
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x2_muref/RHOB",
+   "bytes": 422685074,
+   "grid": [
+    360,
+    96,
+    672
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x2_muref/RHOION",
+   "bytes": 422685074,
+   "grid": [
+    360,
+    96,
+    672
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x2_muref/ELOC",
+   "bytes": 422685074,
+   "grid": [
+    360,
+    96,
+    672
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x2_muref/P",
+   "bytes": 422685074,
+   "grid": [
+    360,
+    96,
+    672
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x2_muref/SVDW",
+   "bytes": 422685074,
+   "grid": [
+    360,
+    96,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x2_muref/SION",
+   "bytes": 422685074,
+   "grid": [
+    360,
+    96,
+    672
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x2_muref/SSOLV",
+   "bytes": 422685074,
+   "grid": [
+    360,
+    96,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x2_muref/SCAV",
+   "bytes": 422685074,
+   "grid": [
+    360,
+    96,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x2_muref/SDIEL",
+   "bytes": 422685074,
+   "grid": [
+    360,
+    96,
+    672
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/Step-8x2_muref/POT",
+   "bytes": 422838506,
+   "grid": [
+    360,
+    96,
+    672
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ },
+ "T_dUm02": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUm02/CHGCAR",
+   "bytes": 396403546,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUm02/LOCPOT",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUm02/PHI",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUm02/PHISOLV",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUm02/VSOLV",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUm02/RHOB",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUm02/RHOION",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUm02/ELOC",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUm02/P",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUm02/SVDW",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUm02/SION",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUm02/SSOLV",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUm02/SCAV",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUm02/SDIEL",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUm02/POT",
+   "bytes": 396403546,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ },
+ "T_dUp00": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp00/CHGCAR",
+   "bytes": 396403546,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp00/LOCPOT",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp00/PHI",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp00/PHISOLV",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp00/VSOLV",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp00/RHOB",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp00/RHOION",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp00/ELOC",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp00/P",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp00/SVDW",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp00/SION",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp00/SSOLV",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp00/SCAV",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp00/SDIEL",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp00/POT",
+   "bytes": 396403546,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ },
+ "T_dUp02": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp02/CHGCAR",
+   "bytes": 396403546,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp02/LOCPOT",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp02/PHI",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp02/PHISOLV",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp02/VSOLV",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp02/RHOB",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp02/RHOION",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp02/ELOC",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp02/P",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp02/SVDW",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp02/SION",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp02/SSOLV",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp02/SCAV",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp02/SDIEL",
+   "bytes": 396267162,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/T_dUp02/POT",
+   "bytes": 396403546,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ },
+ "V1_dUm02": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUm02/CHGCAR",
+   "bytes": 396401384,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUm02/LOCPOT",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUm02/PHI",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUm02/PHISOLV",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUm02/VSOLV",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUm02/RHOB",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUm02/RHOION",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUm02/ELOC",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUm02/P",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUm02/SVDW",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUm02/SION",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUm02/SSOLV",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUm02/SCAV",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUm02/SDIEL",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUm02/POT",
+   "bytes": 396401384,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ },
+ "V1_dUp00": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp00/CHGCAR",
+   "bytes": 396401384,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp00/LOCPOT",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp00/PHI",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp00/PHISOLV",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp00/VSOLV",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp00/RHOB",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp00/RHOION",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp00/ELOC",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp00/P",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp00/SVDW",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp00/SION",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp00/SSOLV",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp00/SCAV",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp00/SDIEL",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp00/POT",
+   "bytes": 396401384,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ },
+ "V1_dUp02": {
+  "CHGCAR": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp02/CHGCAR",
+   "bytes": 396401384,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "electron density rho_e(r)*V on the fine FFT grid (first block only; PAW augmentation block follows). sum/N_grid = N_e electrons. Positive = electrons."
+  },
+  "LOCPOT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp02/LOCPOT",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "LVHAR=.TRUE.: Hartree (electrostatic) potential only, eV, fine grid."
+  },
+  "PHI": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp02/PHI",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi = phi_explicit + phi_solv (solvation.F:1846): total electrostatic potential of the electrolyte model that drives the ion response; u = PHI/(k_B*298 K) with k_B = 8.6173857e-5 eV/K in the code. No volume factor. Sign: more negative -> anion enrichment."
+  },
+  "PHISOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp02/PHISOLV",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "phi_solv (solvation.F:1848): solvent feedback potential alone."
+  },
+  "VSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp02/VSOLV",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "V_corr (solvation.F:1832): correction potential actually added to the KS Hamiltonian."
+  },
+  "RHOB": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp02/RHOB",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric bound charge n_b(r) multiplied by the cell volume Omega (solvation.F:1375/1851): divide by V for e/A^3."
+  },
+  "RHOION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp02/RHOION",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "net mobile-ion charge density multiplied by Omega (solvation.F:1384/1852): RHOION/V = n_anion - n_cation in ions/A^3 (validated against the PHI/SION reconstruction, relL2 ~1e-11)."
+  },
+  "ELOC": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp02/ELOC",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "local electric field, z component only (solvation.F:1849)."
+  },
+  "P": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp02/P",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "polarisation, z component only (solvation.F:1850)."
+  },
+  "SVDW": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp02/SVDW",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2048)."
+  },
+  "SION": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp02/SION",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "ion accessibility mask in [0,1] (Stern layer excluded), solvation.F:2067."
+  },
+  "SSOLV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp02/SSOLV",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2085)."
+  },
+  "SCAV": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp02/SCAV",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "cavity/accessibility mask in [0,1] (solvation.F:2104)."
+  },
+  "SDIEL": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp02/SDIEL",
+   "bytes": 396267131,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "dielectric cavity mask in [0,1] (solvation.F:2124)."
+  },
+  "POT": {
+   "path": "/anvil/scratch/x-rywang/Au_Cl/03_pilot/V1_dUp02/POT",
+   "bytes": 396401384,
+   "grid": [
+    180,
+    180,
+    672
+   ],
+   "note": "present in the run directories; semantics NOT verified in the source audit (parameter_map.md section C does not cover it)."
+  }
+ }
+}

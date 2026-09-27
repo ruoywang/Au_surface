@@ -1,0 +1,52 @@
+#!/bin/bash
+#SBATCH --job-name=mace_iface_test
+#SBATCH -o slurm.o%j
+#SBATCH -e slurm.e%j
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=16
+#SBATCH --time=00:40:00
+#SBATCH --partition=shared
+#SBATCH --account=CHE190065
+
+# INTERFACE TEST ONLY (2026-09-27): can the Au constant-potential states be loaded by the
+# FermiMACE fork, run forward, produce the fermi_weighted loss, and update weights?
+# 4 train / 1 valid states, 5 epochs, CPU. Not a generalisation test, not production training.
+#
+# Energy key for THIS TEST: E_without_entropy_eV -- the convention used by the group's existing
+# converters (surface_charge/6-Au/*/vasp2all.py). This is the test mapping, NOT the decision on
+# the training energy target (see dataset_v0/README.md, "Energy label: UNCONFIRMED").
+# potential (= actual mu_e) and electron (= actual N_e) are literal keys required by the fork.
+
+export PYTHONNOUSERSITE=1
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+ENV=/anvil/projects/x-che190065/sry/miniconda3/envs/cp-mace-0524
+cd "$SLURM_SUBMIT_DIR"
+echo "env: $ENV"; $ENV/bin/python -c "import mace, torch; print('mace', mace.__version__, mace.__file__); print('torch', torch.__version__)"
+$ENV/bin/python make_split.py
+
+$ENV/bin/mace_run_train \
+    --name="iface_test" \
+    --train_file="train.extxyz" \
+    --valid_file="valid.extxyz" \
+    --config_type_weights='{"Default":1.0}' \
+    --energy_key='E_without_entropy_eV' \
+    --forces_key='forces' \
+    --E0s='average' \
+    --model="FermiMACE" \
+    --loss="fermi_weighted" \
+    --error_table="Fermi_PerAtomRMSE" \
+    --energy_weight=1.0 \
+    --forces_weight=100.0 \
+    --potential_weight=10.0 \
+    --hidden_irreps='128x0e + 128x1o' \
+    --r_max=5.0 \
+    --batch_size=2 \
+    --valid_batch_size=2 \
+    --max_num_epochs=5 \
+    --eval_interval=1 \
+    --device=cpu \
+    --default_dtype=float64 \
+    --seed=1 \
+    --log_level=DEBUG
+echo "exit status: $?"
