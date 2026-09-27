@@ -7,5 +7,5 @@
 # reached through the .pyshim symlink inside this project directory.
 PY=/anvil/projects/x-che190065/rywang/anaconda3/bin/python3
 export PYTHONNOUSERSITE=1
-export PYTHONPATH=/anvil/scratch/x-rywang/Au_Cl/.pyshim${PYTHONPATH:+:$PYTHONPATH}
+export PYTHONPATH=/anvil/scratch/x-rywang/Au_Cl/.pyshim   # inherited PYTHONPATH deliberately dropped (2026-09-27: the spack python module injected an Intel-built scipy -> undefined symbol __intel_sse4_strcat)
 exec "$PY" "$@"

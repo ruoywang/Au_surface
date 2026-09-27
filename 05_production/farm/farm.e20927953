@@ -1,0 +1,30 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) xalt/2.10.45
+Traceback (most recent call last):
+  File "/anvil/scratch/x-rywang/Au_Cl/scripts/production.py", line 40, in <module>
+    from ase.io import read, write
+  File "/anvil/scratch/x-rywang/Au_Cl/.pyshim/ase/io/__init__.py", line 4, in <module>
+    from ase.io.trajectory import PickleTrajectory, Trajectory
+  File "/anvil/scratch/x-rywang/Au_Cl/.pyshim/ase/io/trajectory.py", line 15, in <module>
+    from ase.io.pickletrajectory import PickleTrajectory
+  File "/anvil/scratch/x-rywang/Au_Cl/.pyshim/ase/io/pickletrajectory.py", line 13, in <module>
+    from ase.constraints import FixAtoms
+  File "/anvil/scratch/x-rywang/Au_Cl/.pyshim/ase/constraints.py", line 22, in <module>
+    from ase.spacegroup.symmetrize import (
+  File "/anvil/scratch/x-rywang/Au_Cl/.pyshim/ase/spacegroup/__init__.py", line 7, in <module>
+    from ase.spacegroup.xtal import crystal
+  File "/anvil/scratch/x-rywang/Au_Cl/.pyshim/ase/spacegroup/xtal.py", line 13, in <module>
+    from scipy import spatial
+  File "/apps/spack/anvil/apps/py-scipy/1.6.0-intel-19.0.5-xlyhjoj/lib/python3.9/site-packages/scipy/spatial/__init__.py", line 101, in <module>
+    from ._procrustes import procrustes
+  File "/apps/spack/anvil/apps/py-scipy/1.6.0-intel-19.0.5-xlyhjoj/lib/python3.9/site-packages/scipy/spatial/_procrustes.py", line 9, in <module>
+    from scipy.linalg import orthogonal_procrustes
+  File "/apps/spack/anvil/apps/py-scipy/1.6.0-intel-19.0.5-xlyhjoj/lib/python3.9/site-packages/scipy/linalg/__init__.py", line 195, in <module>
+    from .misc import *
+  File "/apps/spack/anvil/apps/py-scipy/1.6.0-intel-19.0.5-xlyhjoj/lib/python3.9/site-packages/scipy/linalg/misc.py", line 3, in <module>
+    from .blas import get_blas_funcs
+  File "/apps/spack/anvil/apps/py-scipy/1.6.0-intel-19.0.5-xlyhjoj/lib/python3.9/site-packages/scipy/linalg/blas.py", line 213, in <module>
+    from scipy.linalg import _fblas
+ImportError: /apps/spack/anvil/apps/py-scipy/1.6.0-intel-19.0.5-xlyhjoj/lib/python3.9/site-packages/scipy/linalg/_fblas.cpython-39-x86_64-linux-gnu.so: undefined symbol: __intel_sse4_strcat

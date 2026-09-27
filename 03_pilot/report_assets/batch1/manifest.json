@@ -405,8 +405,8 @@
         5.57854239026648
       ],
       [
-        8.367813585399713,
-        -2.78927119513324
+        -8.367813585399713,
+        2.78927119513324
       ]
     ],
     "minimum_Au_Au_distance": 2.94,
@@ -427,8 +427,8 @@
         2.7045446367748527
       ],
       [
-        12.685438787474766,
-        -5.409089273549705
+        -12.685438787474766,
+        5.409089273549705
       ]
     ],
     "minimum_Au_Au_distance": 2.94,
@@ -449,8 +449,8 @@
         2.6377554482700183
       ],
       [
-        21.4292265637832,
-        -10.551021793080073
+        -21.4292265637832,
+        10.551021793080073
       ]
     ],
     "minimum_Au_Au_distance": 2.94,
@@ -459,6 +459,94 @@
     "dft_queue_status": "candidate",
     "submission_status": "not_submitted",
     "note": "REBUILT 2026-09-27 (primitive indices (9,9,10), normal verified (554), 36 planes x 0.256 A, 1 step period)"
+  },
+  "Flat-8x2": {
+    "facet": "(111)",
+    "N_total": 64,
+    "base_z_span": null,
+    "all_atoms_z_span": 7.202,
+    "in_plane_cell_vectors": [
+      [
+        23.521199969389322,
+        0.0
+      ],
+      [
+        2.9401499961736652,
+        5.092489175246227
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "reference",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "candidate",
+    "submission_status": "not_submitted",
+    "note": "Step-8x2 minus its 8 strip atoms; same-cell flat baseline for Step-8x2 (production queue)"
+  },
+  "Step-8x2_edge-vacancy_plus_foot-adatom": {
+    "facet": "(111) strip",
+    "N_total": 72,
+    "base_z_span": null,
+    "all_atoms_z_span": 9.6,
+    "in_plane_cell_vectors": [
+      [
+        23.521199969389322,
+        0.0
+      ],
+      [
+        2.9401499961736652,
+        5.092489175246227
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.938,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "candidate",
+    "submission_status": "not_submitted",
+    "note": "one edge2 strip atom moved to the adjacent lower-terrace fcc hollow (72 atoms, atom order = Step-8x2); end point of the Step-8x2 detachment path (production queue)"
+  },
+  "R1-hcp-terminated": {
+    "facet": "(111) hcp-terminated",
+    "N_total": 64,
+    "base_z_span": null,
+    "all_atoms_z_span": 7.202,
+    "in_plane_cell_vectors": [
+      [
+        11.760599984694661,
+        0.0
+      ],
+      [
+        5.8802999923473305,
+        10.184978350492454
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.94,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "candidate",
+    "submission_status": "not_submitted",
+    "note": "T-4x4 with the top layer shifted by a/sqrt6 into hcp registry (above layer n-2, in hollows of n-1); reconstruction-related stacking model (production queue)"
+  },
+  "R2-stripe-wall": {
+    "facet": "(111) compressed top layer",
+    "N_total": 65,
+    "base_z_span": null,
+    "all_atoms_z_span": 7.202,
+    "in_plane_cell_vectors": [
+      [
+        47.042399938778644,
+        0.0
+      ],
+      [
+        1.4700749980868326,
+        2.5462445876231135
+      ]
+    ],
+    "minimum_Au_Au_distance": 2.634,
+    "role": "constrained_model",
+    "pipeline_status": "geometry_only",
+    "dft_queue_status": "candidate",
+    "submission_status": "not_submitted",
+    "note": "16x1 cell, 3 base layers + 17-atom top layer (6 % compression along [1-10]) with two fcc/hcp domain walls; constrained straight-wall approximation, not the herringbone (production queue)"
   },
   "Au113_retired": {
     "facet": "(113) [was labelled (221)]",

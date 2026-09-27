@@ -135,10 +135,8 @@ def main(sid, dry=False, contcar_override=None):
               f"{(len(row['mu'])-1) + len(children)*len(mus)} single points")
         return
 
-    # queue (lock against the feeder)
-    while os.path.exists(LOCK): import time; time.sleep(5)
-    open(LOCK, "w").write(str(os.getpid()))
-    try:
+    # queue (flock shared with the farm jobs)
+    with P.queue_lock():
         q = P.load_queue(); made = 0
         # relaxed reference: reuse the relaxation at MU_RELAX, single points at the other potentials
         for mu in row["mu"]:
@@ -157,8 +155,6 @@ def main(sid, dry=False, contcar_override=None):
         q.sort(key=lambda t: (t["priority"], t["n_atoms"], t["task_id"]))
         P.save_queue(q)
         P.log(f"[children] {sid}: {len(children)} derived configurations ({', '.join(children)}), {made} new single-point tasks queued")
-    finally:
-        os.remove(LOCK)
 
 
 if __name__ == "__main__":

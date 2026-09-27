@@ -10,7 +10,9 @@ Rules implemented here, from the user's decisions:
   * Order: main-row relaxations at TARGETMU=-4.9071 first; ideal single points of main and reference rows follow and
     are interleaved by the feeder; children (perturbations/collective/paths) of a parent are generated as soon as ITS
     relaxation is accepted (scripts/production_children.py), not when the whole batch is done.
-  * Concurrency: highmem MaxSubmitPU=4 / MaxJobsPU=2 -- the feeder keeps <= 4 of our jobs in the partition.
+  * Execution: ONE multi-node 'farm' job (wholenode) queues once; inside it, production.py farm assigns pending tasks to
+    free nodes back-to-back (one VASP instance per node, 16 MPI x 8 OpenMP) until the queue is empty or the walltime nears.
+    The single-node feeder remains available as a fallback.
   * A relaxation is accepted only if VASP reports 'reached required accuracy' (EDIFFG) and the last CP round closed;
     timed-out / unconverged runs are recorded as failed and are NOT used as relaxed references.
   * Reused states (same production standard) are recorded, not recomputed.
@@ -24,6 +26,7 @@ Usage (from Au_Cl/, via scripts/pyrun.sh):
   production.py status              # summary
 """
 import csv
+import fcntl
 import json
 import math
 import os
@@ -44,7 +47,9 @@ LOG = f"{PROD}/feeder.log"
 POTCAR_SRC = f"{ROOT}/03_pilot/Flat16x1_muref/POTCAR"
 LZ, SOL_Z0, SOL_Z1 = 44.603, 9.801, 34.603
 ZMIN = 5.0
-MAX_IN_PARTITION = 4
+PARTITION = "wholenode"      # 2026-09-27: switched from highmem (MaxJobsPU=2/MaxSubmitPU=4, 4x billing). Measured need:
+                             # 22-23 GB per 72-atom production run (sacct MaxRSS of the hydra step) vs 257 GB on a standard node.
+MAX_ACTIVE = 8               # our submitted+running production jobs across partitions (wholenode allows 64 running per user)
 MU_RELAX = "-4.9071"
 
 # library file per structure_id (explicit; nothing is scanned)
@@ -120,7 +125,7 @@ JOBRUN = """#!/bin/bash
 #SBATCH --ntasks=16
 #SBATCH --cpus-per-task=8
 #SBATCH --time={walltime}
-#SBATCH --partition=highmem
+#SBATCH --partition={partition}
 #SBATCH --account=CHE190065
 
 module purge
@@ -151,13 +156,45 @@ def load_plan():
     return rows
 
 
+class queue_lock:
+    """exclusive lock for read-modify-write of queue.json shared by several farm jobs on DIFFERENT nodes.
+    flock() proved ineffective across nodes on this filesystem (2026-09-27: two farms launched the same task
+    in the same second), so the lock is an atomic mkdir() of a lock directory, with a stale-lock timeout."""
+    LOCKDIR = f"{PROD}/queue.lockdir"
+    STALE_S = 900
+
+    def __enter__(self):
+        os.makedirs(PROD, exist_ok=True)
+        t0 = time.time()
+        while True:
+            try:
+                os.mkdir(self.LOCKDIR)
+                open(f"{self.LOCKDIR}/owner", "w").write(f"{os.uname()[1]} pid {os.getpid()} {time.strftime('%F %T')}")
+                return self
+            except FileExistsError:
+                try:
+                    age = time.time() - os.stat(self.LOCKDIR).st_mtime
+                except FileNotFoundError:
+                    continue
+                if age > self.STALE_S:
+                    log(f"[lock] breaking stale queue lock (age {age:.0f} s)")
+                    shutil.rmtree(self.LOCKDIR, ignore_errors=True); continue
+                if time.time() - t0 > 2 * self.STALE_S:
+                    raise RuntimeError("queue lock not acquired in 30 min")
+                time.sleep(1.0 + 2.0 * (os.getpid() % 5) / 5.0)
+
+    def __exit__(self, *a):
+        shutil.rmtree(self.LOCKDIR, ignore_errors=True)
+
+
 def load_queue():
     return json.load(open(QUEUE)) if os.path.exists(QUEUE) else []
 
 
 def save_queue(q):
     os.makedirs(PROD, exist_ok=True)
-    tmp = QUEUE + ".tmp"; json.dump(q, open(tmp, "w"), indent=1); os.replace(tmp, QUEUE)
+    tmp = f"{QUEUE}.{os.uname()[1]}.{os.getpid()}.tmp"        # unique per writer: a shared .tmp name raced between farms on 2026-09-27
+    json.dump(q, open(tmp, "w"), indent=1); os.replace(tmp, QUEUE)
 
 
 def run_ready_atoms(structure_id, row, template_path=None):
@@ -207,7 +244,7 @@ def make_task(q, structure_id, row, config, mu, kind, at, movable, priority, not
     open(f"{d}/INCAR", "w").write(tmpl.format(task=task, mu=mu, sol_z0=SOL_Z0, sol_z1=SOL_Z1))
     shutil.copy(POTCAR_SRC, f"{d}/POTCAR")
     wall = "24:00:00" if kind == "relax" else "04:00:00"
-    open(f"{d}/job-run", "w").write(JOBRUN.format(task=task, walltime=wall))
+    open(f"{d}/job-run", "w").write(JOBRUN.format(task=task, walltime=wall, partition=PARTITION))
     t = dict(task_id=task, structure_id=structure_id, family=row["family"], tier=row["tier"], config=config, mu=mu, kind=kind,
              dir=d, n_atoms=len(at), n_movable=int(movable.sum()), kpoints=f"{n[0]}x{n[1]}x1", priority=priority,
              status="pending", job_id=None, note=note)
@@ -244,8 +281,10 @@ def prepare_batchA():
 
 
 def squeue_mine():
-    out = subprocess.run(["squeue", "-u", os.environ["USER"], "-h", "-p", "highmem", "-o", "%i %j %T"], capture_output=True, text=True).stdout
-    return [l.split() for l in out.splitlines() if l.strip()]
+    """our production jobs (any partition): job id, name, state -- only names that are queue task ids"""
+    out = subprocess.run(["squeue", "-u", os.environ["USER"], "-h", "-o", "%i %j %T"], capture_output=True, text=True).stdout
+    ids = {t["task_id"] for t in load_queue()}
+    return [l.split() for l in out.splitlines() if l.strip() and l.split()[1] in ids]
 
 
 def sacct_state(job_id):
@@ -296,7 +335,7 @@ def feed(once=False):
         # submit
         n_in = len(mine)
         for t in sorted([x for x in q if x["status"] == "pending"], key=lambda x: (x["priority"], x["n_atoms"], x["task_id"])):
-            if n_in >= MAX_IN_PARTITION: break
+            if n_in >= MAX_ACTIVE: break
             r = subprocess.run(["sbatch", "job-run"], cwd=t["dir"], capture_output=True, text=True)
             mj = re.search(r"Submitted batch job (\d+)", r.stdout)
             if mj:
@@ -309,6 +348,102 @@ def feed(once=False):
         if not any(t["status"] in ("pending", "submitted", "running") for t in q):
             log("[feed] nothing pending or active -- feeder exits"); break
         time.sleep(300)
+
+
+def retarget(partition):
+    """rewrite job-run of every PENDING task to the given partition (idempotent)."""
+    q = load_queue(); n = 0
+    for t in q:
+        if t["status"] == "pending":
+            jr = f"{t['dir']}/job-run"; txt = open(jr).read()
+            new = re.sub(r"#SBATCH --partition=\S+", f"#SBATCH --partition={partition}", txt)
+            if new != txt: open(jr, "w").write(new); n += 1
+    log(f"[retarget] {n} pending job-run files now use partition={partition}")
+
+
+def expected_minutes(t):
+    n = t["n_atoms"]; c = 0.55 * n * max(1.0, n / 72.0) ** 0.5
+    return c * (10.0 if t["kind"] == "relax" else 1.5)
+
+
+def farm():
+    """In-allocation task farm: run inside a multi-node SLURM job; one VASP instance per node."""
+    jobid = os.environ["SLURM_JOB_ID"]
+    nodes = subprocess.run(["scontrol", "show", "hostnames", os.environ["SLURM_JOB_NODELIST"]], capture_output=True, text=True).stdout.split()
+    end = subprocess.run(["squeue", "-j", jobid, "-h", "-o", "%e"], capture_output=True, text=True).stdout.strip()
+    end_ts = time.mktime(time.strptime(end, "%Y-%m-%dT%H:%M:%S")) if end and end != "N/A" else time.time() + 4 * 86400
+    log(f"[farm {jobid}] {len(nodes)} nodes {nodes}; allocation ends {end}")
+    slots = {n: None for n in nodes}          # node -> (task_id, Popen, t0)
+    pw = "/anvil/projects/x-che190065/rywang/CEP-HALF/bin/vasp_std"
+    env = dict(os.environ, OMP_NUM_THREADS="8", OMP_STACKSIZE="512m", I_MPI_JOB_RESPECT_PROCESS_PLACEMENT="0", I_MPI_PIN_DOMAIN="omp")
+    while True:
+        children_for = []
+        with queue_lock():
+            q = load_queue(); byid = {t["task_id"]: t for t in q}
+            # 1) finished farm instances (only the ones this farm launched)
+            for node, run in list(slots.items()):
+                if run and run[1].poll() is not None:
+                    t = byid[run[0]]; status, note = evaluate(t)
+                    t["status"], t["result"], t["elapsed_farm_min"], t["node"] = status, note, round((time.time() - run[2]) / 60, 1), node
+                    log(f"[{status}] {t['task_id']} on {node} in {t['elapsed_farm_min']} min :: {note}")
+                    slots[node] = None
+                    if status == "completed" and t["kind"] == "relax": children_for.append(t["structure_id"])
+            # 2) tasks submitted as individual SLURM jobs: finished -> evaluate; still PENDING -> adopt into the farm
+            mine = squeue_mine(); active = {j[0] for j in mine}
+            for j in mine:
+                if j[2] == "PENDING" and j[1] in byid and byid[j[1]].get("launcher") != "farm" and byid[j[1]]["status"] == "submitted":
+                    subprocess.run(["scancel", j[0]], check=False)
+                    byid[j[1]].update(status="pending", job_id=None, note=(byid[j[1]].get("note", "") + f" | single-node job {j[0]} cancelled while PENDING, adopted by farm {jobid}").strip(" |"))
+                    log(f"[adopt] {j[1]}: cancelled pending job {j[0]}, will run inside a farm")
+                    active.discard(j[0])
+            for t in q:
+                if t["status"] in ("submitted", "running") and t.get("job_id") and t.get("launcher") != "farm" and str(t["job_id"]) not in active:
+                    state, elapsed = sacct_state(t["job_id"]); status, note = evaluate(t)
+                    t["status"], t["slurm_state"], t["elapsed"], t["result"] = status, state, elapsed, note
+                    log(f"[{status}] {t['task_id']} slurm={state} elapsed={elapsed} :: {note}")
+                    if status == "completed" and t["kind"] == "relax": children_for.append(t["structure_id"])
+            # 3) launch on free nodes
+            remaining_min = (end_ts - time.time()) / 60
+            pending = sorted([x for x in q if x["status"] == "pending"], key=lambda x: (x["priority"], x["n_atoms"], x["task_id"]))
+            for node in [n for n, r in slots.items() if r is None]:
+                cand = next((x for x in pending if expected_minutes(x) * 1.3 + 10 < remaining_min), None)
+                if cand is None: break
+                pending.remove(cand)
+                lo = f"{cand['dir']}/log.out"
+                if os.path.exists(lo) and time.time() - os.path.getmtime(lo) < 180:
+                    log(f"[skip] {cand['task_id']}: log.out modified {time.time()-os.path.getmtime(lo):.0f} s ago -- another instance may be running; left pending")
+                    continue
+                cmd = ["mpirun", "-np", "16", "-ppn", "16", "-hosts", node, pw]
+                proc = subprocess.Popen(cmd, cwd=cand["dir"], stdout=open(f"{cand['dir']}/log.out", "w"), stderr=open(f"{cand['dir']}/farm.err", "w"), env=env)
+                slots[node] = (cand["task_id"], proc, time.time())
+                cand.update(status="running", job_id=int(jobid), node=node, started_at=time.strftime("%Y-%m-%d %H:%M"), launcher="farm")
+                log(f"[launch] {cand['task_id']} -> {node} (farm {jobid}, expected ~{expected_minutes(cand):.0f} min, {remaining_min/60:.1f} h left)")
+            save_queue(q)
+            n_pending = len([x for x in q if x["status"] == "pending"])
+        for sid in children_for:
+            subprocess.run([f"{ROOT}/scripts/pyrun.sh", f"{ROOT}/scripts/production_children.py", sid], check=False, timeout=900)
+        busy = any(r is not None for r in slots.values())
+        if not busy and n_pending == 0:
+            log(f"[farm {jobid}] queue drained -- exiting"); break
+        if not busy and remaining_min < 30:
+            log(f"[farm {jobid}] walltime nearly over, nothing launchable -- exiting"); break
+        time.sleep(60)
+
+
+def refresh():
+    """refresh statuses of tasks running as individual SLURM jobs and generate children of accepted relaxations; submits nothing."""
+    children_for = []
+    with queue_lock():
+        q = load_queue(); mine = squeue_mine(); active = {j[0] for j in mine}
+        for t in q:
+            if t["status"] in ("submitted", "running") and t.get("job_id") and t.get("launcher") != "farm" and str(t["job_id"]) not in active:
+                state, elapsed = sacct_state(t["job_id"]); st, note = evaluate(t)
+                t["status"], t["slurm_state"], t["elapsed"], t["result"] = st, state, elapsed, note
+                log(f"[{st}] {t['task_id']} slurm={state} elapsed={elapsed} :: {note}")
+                if st == "completed" and t["kind"] == "relax": children_for.append(t["structure_id"])
+        save_queue(q)
+    for sid in children_for:
+        subprocess.run([f"{ROOT}/scripts/pyrun.sh", f"{ROOT}/scripts/production_children.py", sid], check=False, timeout=900)
 
 
 def status():
@@ -325,4 +460,7 @@ if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "status"
     if cmd == "prepare-batchA": prepare_batchA()
     elif cmd == "feed": feed(once="--once" in sys.argv)
+    elif cmd == "retarget": retarget(sys.argv[2] if len(sys.argv) > 2 else PARTITION)
+    elif cmd == "farm": farm()
+    elif cmd == "refresh": refresh()
     else: status()

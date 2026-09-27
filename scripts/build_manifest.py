@@ -62,6 +62,18 @@ STRUCTS = {
               "note": "REBUILT 2026-09-27 (primitive indices (5,5,6), normal verified (332), 21 planes x 0.443 A, 1 step period)", "dft": "candidate"},
     "Au554": {"path": "Au554.poscar", "facet": "(554)", "role": "constrained_model",
               "note": "REBUILT 2026-09-27 (primitive indices (9,9,10), normal verified (554), 36 planes x 0.256 A, 1 step period)", "dft": "candidate"},
+    # 2026-09-27 Batch-A builds (scripts/build_batchA_structures.py, build_R2_stripe_wall.py; validation JSONs in report_assets/batch1)
+    "Flat-8x2": {"path": "Flat-8x2.poscar", "facet": "(111)", "role": "reference",
+                 "note": "Step-8x2 minus its 8 strip atoms; same-cell flat baseline for Step-8x2 (production queue)", "dft": "candidate"},
+    "Step-8x2_edge-vacancy_plus_foot-adatom": {"path": "Step-8x2_edge-vacancy_plus_foot-adatom.poscar", "facet": "(111) strip",
+                 "role": "constrained_model", "note": "one edge2 strip atom moved to the adjacent lower-terrace fcc hollow (72 atoms, "
+                 "atom order = Step-8x2); end point of the Step-8x2 detachment path (production queue)", "dft": "candidate"},
+    "R1-hcp-terminated": {"path": "R1-hcp-terminated.poscar", "facet": "(111) hcp-terminated", "role": "constrained_model",
+                 "note": "T-4x4 with the top layer shifted by a/sqrt6 into hcp registry (above layer n-2, in hollows of n-1); "
+                 "reconstruction-related stacking model (production queue)", "dft": "candidate"},
+    "R2-stripe-wall": {"path": "R2-stripe-wall.poscar", "facet": "(111) compressed top layer", "role": "constrained_model",
+                 "note": "16x1 cell, 3 base layers + 17-atom top layer (6 % compression along [1-10]) with two fcc/hcp domain walls; "
+                 "constrained straight-wall approximation, not the herringbone (production queue)", "dft": "candidate"},
     "Au113_retired": {"path": "Au113_retired.poscar", "facet": "(113) [was labelled (221)]", "role": "retired_mislabeled",
                       "note": "built 2026-09 with bulk('Au','fcc') primitive cell + surface((2,2,1)); true face (113); not in the plan", "dft": "excluded"},
     "Au211b_retired": {"path": "Au211b_retired.poscar", "facet": "(211) [was labelled (332)]", "role": "retired_mislabeled",

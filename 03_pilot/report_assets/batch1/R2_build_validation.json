@@ -1,0 +1,68 @@
+{
+ "n_atoms": 65,
+ "layers_z": [
+  5.0,
+  7.401,
+  9.801,
+  12.202
+ ],
+ "top_atoms": 17,
+ "sites": 16,
+ "compression": 0.05882352941176472,
+ "hcp_vector_A": [
+  -1.4700749980868308,
+  0.8487481958743711
+ ],
+ "wall_width_atoms": 2.3,
+ "wall_centres": [
+  4.25,
+  12.75
+ ],
+ "min_AuAu_A": 2.6341134852463433,
+ "registry_labels_along_row": [
+  "fcc",
+  "fcc",
+  "fcc",
+  "wall",
+  "wall",
+  "wall",
+  "wall",
+  "hcp",
+  "hcp",
+  "hcp",
+  "hcp",
+  "wall",
+  "wall",
+  "wall",
+  "wall",
+  "fcc",
+  "fcc"
+ ],
+ "n_fcc": 5,
+ "n_hcp": 4,
+ "n_wall": 8,
+ "row_gaps_A": [
+  2.894,
+  2.84,
+  2.751,
+  2.655,
+  2.628,
+  2.698,
+  2.794,
+  2.858,
+  2.878,
+  2.858,
+  2.794,
+  2.698,
+  2.628,
+  2.655,
+  2.751,
+  2.84,
+  2.822
+ ],
+ "gap_min_A": 2.62802163911914,
+ "gap_max_A": 2.8935158766536895,
+ "closure_total_length_A": 47.04239993877864,
+ "cell_a1_A": 47.042399938778644,
+ "validation": "PASS"
+}

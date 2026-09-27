@@ -4,3 +4,35 @@
 2026-09-27 05:00:26 [submit] Au211__relax__mu-4.9071 -> job 20927792
 2026-09-27 05:00:26 [submit] V1__relax__mu-4.9071 -> job 20927793
 2026-09-27 05:00:26 [submit] R1-hcp-terminated__relax__mu-4.9071 -> job 20927794
+2026-09-27 05:20:41 [retarget] 55 pending job-run files now use partition=wholenode
+2026-09-27 05:20:42 [submit] V1__relax__mu-4.9071 -> job 20927907
+2026-09-27 05:20:42 [submit] R1-hcp-terminated__relax__mu-4.9071 -> job 20927908
+2026-09-27 05:20:42 [submit] T-4x4__relax__mu-4.9071 -> job 20927909
+2026-09-27 05:20:42 [submit] A1-fcc__relax__mu-4.9071 -> job 20927910
+2026-09-27 05:20:42 [submit] A1-hcp__relax__mu-4.9071 -> job 20927911
+2026-09-27 05:20:42 [submit] Step-8x2__relax__mu-4.9071 -> job 20927912
+2026-09-27 06:43:26 [completed] Au221__relax__mu-4.9071 slurm=COMPLETED elapsed=00:33:33 :: relaxed: 30 ionic steps, final N_e=307.989316 mu_e=-4.907473
+2026-09-27 06:43:26 [completed] Au211__relax__mu-4.9071 slurm=COMPLETED elapsed=01:03:23 :: relaxed: 21 ionic steps, final N_e=527.998203 mu_e=-4.907158
+2026-09-27 06:43:27 [children] Au221: 4 derived configurations (pert05, pert10, coll_topspacing-3pct, coll_strain+1pct), 14 new single-point tasks queued
+2026-09-27 06:43:28 [children] Au211: 4 derived configurations (pert05, pert10, coll_topspacing-3pct, coll_strain+1pct), 14 new single-point tasks queued
+2026-09-27 06:45:35 [farm 20928283] 1 nodes ['b015']; allocation ends 2026-09-29T06:45:24
+2026-09-27 06:45:35 [farm 20928282] 1 nodes ['b007']; allocation ends 2026-09-29T06:45:24
+2026-09-27 06:45:35 [adopt] Step-8x2__relax__mu-4.9071: cancelled pending job 20927912, will run inside a farm
+2026-09-27 06:45:35 [adopt] Step-8x2__relax__mu-4.9071: cancelled pending job 20927912, will run inside a farm
+2026-09-27 06:45:35 [adopt] A1-fcc__relax__mu-4.9071: cancelled pending job 20927910, will run inside a farm
+2026-09-27 06:45:35 [adopt] A1-fcc__relax__mu-4.9071: cancelled pending job 20927910, will run inside a farm
+2026-09-27 06:45:35 [adopt] A1-hcp__relax__mu-4.9071: cancelled pending job 20927911, will run inside a farm
+2026-09-27 06:45:35 [adopt] A1-hcp__relax__mu-4.9071: cancelled pending job 20927911, will run inside a farm
+2026-09-27 06:45:35 [adopt] R1-hcp-terminated__relax__mu-4.9071: cancelled pending job 20927908, will run inside a farm
+2026-09-27 06:45:35 [adopt] R1-hcp-terminated__relax__mu-4.9071: cancelled pending job 20927908, will run inside a farm
+2026-09-27 06:45:35 [adopt] T-4x4__relax__mu-4.9071: cancelled pending job 20927909, will run inside a farm
+2026-09-27 06:45:35 [adopt] T-4x4__relax__mu-4.9071: cancelled pending job 20927909, will run inside a farm
+2026-09-27 06:45:35 [adopt] V1__relax__mu-4.9071: cancelled pending job 20927907, will run inside a farm
+2026-09-27 06:45:35 [adopt] V1__relax__mu-4.9071: cancelled pending job 20927907, will run inside a farm
+2026-09-27 06:45:35 [launch] V1__relax__mu-4.9071 -> b015 (farm 20928283, expected ~347 min, 48.0 h left)
+2026-09-27 06:45:35 [launch] V1__relax__mu-4.9071 -> b007 (farm 20928282, expected ~347 min, 48.0 h left)
+2026-09-27 06:52:34 [farm 20928320] 1 nodes ['b015']; allocation ends 2026-09-29T06:52:32
+2026-09-27 06:52:34 [farm 20928319] 1 nodes ['b007']; allocation ends 2026-09-29T06:52:32
+2026-09-27 06:52:34 [launch] V1__relax__mu-4.9071 -> b015 (farm 20928320, expected ~347 min, 48.0 h left)
+2026-09-27 06:52:36 [launch] R1-hcp-terminated__relax__mu-4.9071 -> b007 (farm 20928319, expected ~352 min, 48.0 h left)
+2026-09-27 07:03:37 [prepare] Batch A: 4 new tasks written; queue now 96 entries (85 pending, 7 reused)

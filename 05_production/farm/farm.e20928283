@@ -1,0 +1,12 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) xalt/2.10.45
+Traceback (most recent call last):
+  File "/anvil/scratch/x-rywang/Au_Cl/scripts/production.py", line 437, in <module>
+    elif cmd == "farm": farm()
+  File "/anvil/scratch/x-rywang/Au_Cl/scripts/production.py", line 394, in farm
+    save_queue(q)
+  File "/anvil/scratch/x-rywang/Au_Cl/scripts/production.py", line 174, in save_queue
+    tmp = QUEUE + ".tmp"; json.dump(q, open(tmp, "w"), indent=1); os.replace(tmp, QUEUE)
+FileNotFoundError: [Errno 2] No such file or directory: '/anvil/scratch/x-rywang/Au_Cl/05_production/queue.json.tmp' -> '/anvil/scratch/x-rywang/Au_Cl/05_production/queue.json'

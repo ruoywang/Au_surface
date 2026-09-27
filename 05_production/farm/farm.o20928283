@@ -1,0 +1,8 @@
+2026-09-27 06:45:35 [farm 20928283] 1 nodes ['b015']; allocation ends 2026-09-29T06:45:24
+2026-09-27 06:45:35 [adopt] Step-8x2__relax__mu-4.9071: cancelled pending job 20927912, will run inside a farm
+2026-09-27 06:45:35 [adopt] A1-fcc__relax__mu-4.9071: cancelled pending job 20927910, will run inside a farm
+2026-09-27 06:45:35 [adopt] A1-hcp__relax__mu-4.9071: cancelled pending job 20927911, will run inside a farm
+2026-09-27 06:45:35 [adopt] R1-hcp-terminated__relax__mu-4.9071: cancelled pending job 20927908, will run inside a farm
+2026-09-27 06:45:35 [adopt] T-4x4__relax__mu-4.9071: cancelled pending job 20927909, will run inside a farm
+2026-09-27 06:45:35 [adopt] V1__relax__mu-4.9071: cancelled pending job 20927907, will run inside a farm
+2026-09-27 06:45:35 [launch] V1__relax__mu-4.9071 -> b015 (farm 20928283, expected ~347 min, 48.0 h left)

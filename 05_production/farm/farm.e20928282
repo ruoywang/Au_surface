@@ -1,0 +1,5 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) xalt/2.10.45
+[2026-09-27T06:50:52.207] error: *** JOB 20928282 ON b007 CANCELLED AT 2026-09-27T06:50:52 DUE to SIGNAL Terminated ***
