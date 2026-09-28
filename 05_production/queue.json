@@ -210,6 +210,36 @@
   "note": "final ionic step of the accepted relaxation (forces/grids of the final geometry)"
  },
  {
+  "task_id": "Kink-edge2__relaxed__mu-4.9071",
+  "structure_id": "Kink-edge2",
+  "family": "kink / edge rearrangement",
+  "tier": "main",
+  "config": "relaxed",
+  "mu": "-4.9071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Kink-edge2/relax__mu-4.9071",
+  "n_atoms": 109,
+  "priority": 0,
+  "status": "reused",
+  "job_id": null,
+  "note": "final ionic step of the accepted relaxation (forces/grids of the final geometry)"
+ },
+ {
+  "task_id": "Pit-7-compact__relaxed__mu-4.9071",
+  "structure_id": "Pit-7-compact",
+  "family": "single-layer pit",
+  "tier": "main",
+  "config": "relaxed",
+  "mu": "-4.9071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/relax__mu-4.9071",
+  "n_atoms": 137,
+  "priority": 0,
+  "status": "reused",
+  "job_id": null,
+  "note": "final ionic step of the accepted relaxation (forces/grids of the final geometry)"
+ },
+ {
   "task_id": "Au221__relax__mu-4.9071",
   "structure_id": "Au221",
   "family": "vicinal step face",
@@ -732,12 +762,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 20,
-  "status": "running",
+  "status": "completed",
   "job_id": 20928320,
   "note": "",
   "node": "b015",
   "started_at": "2026-09-27 16:34",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=703.834347 mu_e=-5.108375",
+  "elapsed_farm_min": 24.3
  },
  {
   "task_id": "A1-fcc__ideal__mu-4.7071",
@@ -752,12 +784,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 20,
-  "status": "running",
+  "status": "completed",
   "job_id": 20928319,
   "note": "",
   "node": "b007",
   "started_at": "2026-09-27 16:34",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=715.121343 mu_e=-4.707132",
+  "elapsed_farm_min": 26.4
  },
  {
   "task_id": "A1-fcc__ideal__mu-4.9071",
@@ -772,12 +806,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 20,
-  "status": "running",
+  "status": "completed",
   "job_id": 20929396,
   "note": "",
   "node": "a282",
   "started_at": "2026-09-27 16:36",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=714.941339 mu_e=-4.906946",
+  "elapsed_farm_min": 26.3
  },
  {
   "task_id": "A1-fcc__ideal__mu-5.1071",
@@ -792,12 +828,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 20,
-  "status": "running",
+  "status": "completed",
   "job_id": 20929396,
   "note": "",
   "node": "a292",
   "started_at": "2026-09-27 16:36",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=714.762520 mu_e=-5.109807",
+  "elapsed_farm_min": 27.3
  },
  {
   "task_id": "A1-hcp__ideal__mu-4.7071",
@@ -812,12 +850,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 20,
-  "status": "running",
+  "status": "completed",
   "job_id": 20929396,
   "note": "",
   "node": "a412",
   "started_at": "2026-09-27 16:36",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=715.120121 mu_e=-4.707154",
+  "elapsed_farm_min": 27.3
  },
  {
   "task_id": "A1-hcp__ideal__mu-4.9071",
@@ -832,12 +872,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 20,
-  "status": "running",
+  "status": "completed",
   "job_id": 20929396,
   "note": "",
   "node": "a414",
   "started_at": "2026-09-27 16:36",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=714.940308 mu_e=-4.906946",
+  "elapsed_farm_min": 26.3
  },
  {
   "task_id": "A1-hcp__ideal__mu-5.1071",
@@ -852,12 +894,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 20,
-  "status": "running",
+  "status": "completed",
   "job_id": 20929396,
   "note": "",
   "node": "a851",
   "started_at": "2026-09-27 16:36",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=714.761695 mu_e=-5.109693",
+  "elapsed_farm_min": 27.3
  },
  {
   "task_id": "R2-stripe-wall__ideal__mu-4.7071",
@@ -872,12 +916,14 @@
   "n_movable": 33,
   "kpoints": "1x12x1",
   "priority": 20,
-  "status": "running",
+  "status": "completed",
   "job_id": 20928946,
   "note": "",
   "node": "a400",
   "started_at": "2026-09-27 16:36",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=715.219808 mu_e=-4.708739",
+  "elapsed_farm_min": 45.5
  },
  {
   "task_id": "R2-stripe-wall__ideal__mu-4.9071",
@@ -892,12 +938,14 @@
   "n_movable": 33,
   "kpoints": "1x12x1",
   "priority": 20,
-  "status": "running",
+  "status": "completed",
   "job_id": 20928948,
   "note": "",
   "node": "a835",
   "started_at": "2026-09-27 16:37",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=715.051756 mu_e=-4.906878",
+  "elapsed_farm_min": 43.6
  },
  {
   "task_id": "R2-stripe-wall__ideal__mu-5.1071",
@@ -912,12 +960,14 @@
   "n_movable": 33,
   "kpoints": "1x12x1",
   "priority": 20,
-  "status": "running",
+  "status": "completed",
   "job_id": 20928950,
   "note": "",
   "node": "a330",
   "started_at": "2026-09-27 16:38",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=714.885529 mu_e=-5.107277",
+  "elapsed_farm_min": 37.3
  },
  {
   "task_id": "Step-8x2__ideal__mu-4.7071",
@@ -932,12 +982,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 20,
-  "status": "running",
+  "status": "completed",
   "job_id": 20929207,
   "note": "",
   "node": "a850",
   "started_at": "2026-09-27 16:39",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=792.213559 mu_e=-4.706486",
+  "elapsed_farm_min": 55.3
  },
  {
   "task_id": "Step-8x2__ideal__mu-4.9071",
@@ -952,12 +1004,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 20,
-  "status": "running",
+  "status": "completed",
   "job_id": 20928952,
   "note": "",
   "node": "a492",
   "started_at": "2026-09-27 16:40",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=792.029185 mu_e=-4.907097",
+  "elapsed_farm_min": 55.7
  },
  {
   "task_id": "Step-8x2__ideal__mu-5.1071",
@@ -972,12 +1026,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 20,
-  "status": "running",
+  "status": "completed",
   "job_id": 20929208,
   "note": "",
   "node": "a559",
   "started_at": "2026-09-27 16:40",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=791.845771 mu_e=-5.107626",
+  "elapsed_farm_min": 61.4
  },
  {
   "task_id": "Au221__coll_strain+1pct__mu-4.7071",
@@ -992,12 +1048,14 @@
   "n_movable": 14,
   "kpoints": "6x4x1",
   "priority": 25,
-  "status": "running",
+  "status": "completed",
   "job_id": 20929209,
   "note": "in-plane cell and xy scaled by 1.01",
   "node": "a820",
   "started_at": "2026-09-27 16:46",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=308.066982 mu_e=-4.707753",
+  "elapsed_farm_min": 12.1
  },
  {
   "task_id": "Au221__coll_strain+1pct__mu-4.9071",
@@ -1012,12 +1070,14 @@
   "n_movable": 14,
   "kpoints": "6x4x1",
   "priority": 25,
-  "status": "running",
+  "status": "completed",
   "job_id": 20929210,
   "note": "in-plane cell and xy scaled by 1.01",
   "node": "a425",
   "started_at": "2026-09-27 16:49",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=307.989297 mu_e=-4.906767",
+  "elapsed_farm_min": 12.2
  },
  {
   "task_id": "Au221__coll_strain+1pct__mu-5.1071",
@@ -1032,9 +1092,14 @@
   "n_movable": 14,
   "kpoints": "6x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "in-plane cell and xy scaled by 1.01"
+  "status": "completed",
+  "job_id": 20929209,
+  "note": "in-plane cell and xy scaled by 1.01",
+  "node": "a820",
+  "started_at": "2026-09-27 16:59",
+  "launcher": "farm",
+  "result": "N_e=307.912206 mu_e=-5.106611",
+  "elapsed_farm_min": 12.0
  },
  {
   "task_id": "Au221__coll_topspacing-3pct__mu-4.7071",
@@ -1049,9 +1114,14 @@
   "n_movable": 14,
   "kpoints": "6x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (2 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20928320,
+  "note": "top plane (2 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "b015",
+  "started_at": "2026-09-27 16:59",
+  "launcher": "farm",
+  "result": "N_e=308.058063 mu_e=-4.707681",
+  "elapsed_farm_min": 12.1
  },
  {
   "task_id": "Au221__coll_topspacing-3pct__mu-4.9071",
@@ -1066,9 +1136,14 @@
   "n_movable": 14,
   "kpoints": "6x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (2 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20928319,
+  "note": "top plane (2 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "b007",
+  "started_at": "2026-09-27 17:01",
+  "launcher": "farm",
+  "result": "N_e=307.982102 mu_e=-4.906544",
+  "elapsed_farm_min": 11.1
  },
  {
   "task_id": "Au221__coll_topspacing-3pct__mu-5.1071",
@@ -1083,9 +1158,14 @@
   "n_movable": 14,
   "kpoints": "6x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (2 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20929210,
+  "note": "top plane (2 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "a425",
+  "started_at": "2026-09-27 17:01",
+  "launcher": "farm",
+  "result": "N_e=307.906710 mu_e=-5.106794",
+  "elapsed_farm_min": 10.1
  },
  {
   "task_id": "Au221__pert05__mu-4.7071",
@@ -1100,9 +1180,14 @@
   "n_movable": 14,
   "kpoints": "6x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 14 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.05 A on 14 movable atoms, seed 1",
+  "node": "a282",
+  "started_at": "2026-09-27 17:03",
+  "launcher": "farm",
+  "result": "N_e=308.059479 mu_e=-4.707717",
+  "elapsed_farm_min": 11.0
  },
  {
   "task_id": "Au221__pert05__mu-4.9071",
@@ -1117,9 +1202,14 @@
   "n_movable": 14,
   "kpoints": "6x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 14 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.05 A on 14 movable atoms, seed 1",
+  "node": "a414",
+  "started_at": "2026-09-27 17:03",
+  "launcher": "farm",
+  "result": "N_e=307.983458 mu_e=-4.906711",
+  "elapsed_farm_min": 11.0
  },
  {
   "task_id": "Au221__pert05__mu-5.1071",
@@ -1134,9 +1224,14 @@
   "n_movable": 14,
   "kpoints": "6x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 14 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.05 A on 14 movable atoms, seed 1",
+  "node": "a292",
+  "started_at": "2026-09-27 17:04",
+  "launcher": "farm",
+  "result": "N_e=307.908058 mu_e=-5.106778",
+  "elapsed_farm_min": 10.0
  },
  {
   "task_id": "Au221__pert10__mu-4.7071",
@@ -1151,9 +1246,14 @@
   "n_movable": 14,
   "kpoints": "6x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 14 movable atoms, seed 4"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.1 A on 14 movable atoms, seed 4",
+  "node": "a412",
+  "started_at": "2026-09-27 17:04",
+  "launcher": "farm",
+  "result": "N_e=308.089569 mu_e=-4.707379",
+  "elapsed_farm_min": 12.1
  },
  {
   "task_id": "Au221__pert10__mu-4.9071",
@@ -1168,9 +1268,14 @@
   "n_movable": 14,
   "kpoints": "6x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 14 movable atoms, seed 4"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.1 A on 14 movable atoms, seed 4",
+  "node": "a851",
+  "started_at": "2026-09-27 17:04",
+  "launcher": "farm",
+  "result": "N_e=308.012815 mu_e=-4.906911",
+  "elapsed_farm_min": 12.1
  },
  {
   "task_id": "Au221__pert10__mu-5.1071",
@@ -1185,9 +1290,14 @@
   "n_movable": 14,
   "kpoints": "6x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 14 movable atoms, seed 4"
+  "status": "completed",
+  "job_id": 20929209,
+  "note": "gaussian sigma=0.1 A on 14 movable atoms, seed 4",
+  "node": "a820",
+  "started_at": "2026-09-27 17:11",
+  "launcher": "farm",
+  "result": "N_e=307.936741 mu_e=-5.106160",
+  "elapsed_farm_min": 11.0
  },
  {
   "task_id": "Au221__relaxed__mu-4.7071",
@@ -1202,9 +1312,14 @@
   "n_movable": 14,
   "kpoints": "6x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "completed",
+  "job_id": 20928320,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "b015",
+  "started_at": "2026-09-27 17:11",
+  "launcher": "farm",
+  "result": "N_e=308.066042 mu_e=-4.707669",
+  "elapsed_farm_min": 11.1
  },
  {
   "task_id": "Au221__relaxed__mu-5.1071",
@@ -1219,9 +1334,14 @@
   "n_movable": 14,
   "kpoints": "6x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "completed",
+  "job_id": 20929210,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a425",
+  "started_at": "2026-09-27 17:11",
+  "launcher": "farm",
+  "result": "N_e=307.913799 mu_e=-5.106539",
+  "elapsed_farm_min": 10.2
  },
  {
   "task_id": "Au211__coll_strain+1pct__mu-4.7071",
@@ -1236,9 +1356,14 @@
   "n_movable": 24,
   "kpoints": "5x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "in-plane cell and xy scaled by 1.01"
+  "status": "completed",
+  "job_id": 20928319,
+  "note": "in-plane cell and xy scaled by 1.01",
+  "node": "b007",
+  "started_at": "2026-09-27 17:12",
+  "launcher": "farm",
+  "result": "N_e=528.135146 mu_e=-4.706485",
+  "elapsed_farm_min": 19.4
  },
  {
   "task_id": "Au211__coll_strain+1pct__mu-4.9071",
@@ -1253,9 +1378,14 @@
   "n_movable": 24,
   "kpoints": "5x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "in-plane cell and xy scaled by 1.01"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "in-plane cell and xy scaled by 1.01",
+  "node": "a282",
+  "started_at": "2026-09-27 17:14",
+  "launcher": "farm",
+  "result": "N_e=528.013115 mu_e=-4.907054",
+  "elapsed_farm_min": 20.2
  },
  {
   "task_id": "Au211__coll_strain+1pct__mu-5.1071",
@@ -1270,9 +1400,14 @@
   "n_movable": 24,
   "kpoints": "5x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "in-plane cell and xy scaled by 1.01"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "in-plane cell and xy scaled by 1.01",
+  "node": "a292",
+  "started_at": "2026-09-27 17:14",
+  "launcher": "farm",
+  "result": "N_e=527.891131 mu_e=-5.107202",
+  "elapsed_farm_min": 18.2
  },
  {
   "task_id": "Au211__coll_topspacing-3pct__mu-4.7071",
@@ -1287,9 +1422,14 @@
   "n_movable": 24,
   "kpoints": "5x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (4 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "top plane (4 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "a414",
+  "started_at": "2026-09-27 17:14",
+  "launcher": "farm",
+  "result": "N_e=528.114588 mu_e=-4.706938",
+  "elapsed_farm_min": 16.1
  },
  {
   "task_id": "Au211__coll_topspacing-3pct__mu-4.9071",
@@ -1304,9 +1444,14 @@
   "n_movable": 24,
   "kpoints": "5x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (4 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20928950,
+  "note": "top plane (4 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "a330",
+  "started_at": "2026-09-27 17:16",
+  "launcher": "farm",
+  "result": "N_e=528.000000 mu_e=-4.900160",
+  "elapsed_farm_min": 6.0
  },
  {
   "task_id": "Au211__coll_topspacing-3pct__mu-5.1071",
@@ -1321,9 +1466,14 @@
   "n_movable": 24,
   "kpoints": "5x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (4 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "top plane (4 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "a412",
+  "started_at": "2026-09-27 17:16",
+  "launcher": "farm",
+  "result": "N_e=527.877538 mu_e=-5.107434",
+  "elapsed_farm_min": 16.2
  },
  {
   "task_id": "Au211__pert05__mu-4.7071",
@@ -1338,9 +1488,14 @@
   "n_movable": 24,
   "kpoints": "5x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 24 movable atoms, seed 2"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.05 A on 24 movable atoms, seed 2",
+  "node": "a851",
+  "started_at": "2026-09-27 17:16",
+  "launcher": "farm",
+  "result": "N_e=528.110538 mu_e=-4.707421",
+  "elapsed_farm_min": 15.1
  },
  {
   "task_id": "Au211__pert05__mu-4.9071",
@@ -1355,9 +1510,14 @@
   "n_movable": 24,
   "kpoints": "5x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 24 movable atoms, seed 2"
+  "status": "completed",
+  "job_id": 20928948,
+  "note": "gaussian sigma=0.05 A on 24 movable atoms, seed 2",
+  "node": "a835",
+  "started_at": "2026-09-27 17:21",
+  "launcher": "farm",
+  "result": "N_e=527.991745 mu_e=-4.907129",
+  "elapsed_farm_min": 18.1
  },
  {
   "task_id": "Au211__pert05__mu-5.1071",
@@ -1372,9 +1532,14 @@
   "n_movable": 24,
   "kpoints": "5x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 24 movable atoms, seed 2"
+  "status": "completed",
+  "job_id": 20929210,
+  "note": "gaussian sigma=0.05 A on 24 movable atoms, seed 2",
+  "node": "a425",
+  "started_at": "2026-09-27 17:21",
+  "launcher": "farm",
+  "result": "N_e=527.873141 mu_e=-5.107584",
+  "elapsed_farm_min": 17.2
  },
  {
   "task_id": "Au211__pert10__mu-4.7071",
@@ -1389,9 +1554,14 @@
   "n_movable": 24,
   "kpoints": "5x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 24 movable atoms, seed 4"
+  "status": "completed",
+  "job_id": 20929209,
+  "note": "gaussian sigma=0.1 A on 24 movable atoms, seed 4",
+  "node": "a820",
+  "started_at": "2026-09-27 17:22",
+  "launcher": "farm",
+  "result": "N_e=528.120321 mu_e=-4.706875",
+  "elapsed_farm_min": 18.1
  },
  {
   "task_id": "Au211__pert10__mu-4.9071",
@@ -1406,9 +1576,14 @@
   "n_movable": 24,
   "kpoints": "5x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 24 movable atoms, seed 4"
+  "status": "completed",
+  "job_id": 20928950,
+  "note": "gaussian sigma=0.1 A on 24 movable atoms, seed 4",
+  "node": "a330",
+  "started_at": "2026-09-27 17:22",
+  "launcher": "farm",
+  "result": "N_e=528.000000 mu_e=-4.905155",
+  "elapsed_farm_min": 6.0
  },
  {
   "task_id": "Au211__pert10__mu-5.1071",
@@ -1423,9 +1598,14 @@
   "n_movable": 24,
   "kpoints": "5x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 24 movable atoms, seed 4"
+  "status": "completed",
+  "job_id": 20928320,
+  "note": "gaussian sigma=0.1 A on 24 movable atoms, seed 4",
+  "node": "b015",
+  "started_at": "2026-09-27 17:22",
+  "launcher": "farm",
+  "result": "N_e=527.877884 mu_e=-5.107387",
+  "elapsed_farm_min": 17.1
  },
  {
   "task_id": "Au211__relaxed__mu-4.7071",
@@ -1440,9 +1620,14 @@
   "n_movable": 24,
   "kpoints": "5x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "completed",
+  "job_id": 20928946,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a400",
+  "started_at": "2026-09-27 17:22",
+  "launcher": "farm",
+  "result": "N_e=528.117498 mu_e=-4.706905",
+  "elapsed_farm_min": 17.1
  },
  {
   "task_id": "Au211__relaxed__mu-5.1071",
@@ -1457,9 +1642,14 @@
   "n_movable": 24,
   "kpoints": "5x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "completed",
+  "job_id": 20928950,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a330",
+  "started_at": "2026-09-27 17:28",
+  "launcher": "farm",
+  "result": "N_e=527.879559 mu_e=-5.107114",
+  "elapsed_farm_min": 15.1
  },
  {
   "task_id": "V1__coll_strain+1pct__mu-4.7071",
@@ -1474,9 +1664,14 @@
   "n_movable": 31,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "in-plane cell and xy scaled by 1.01"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "in-plane cell and xy scaled by 1.01",
+  "node": "a414",
+  "started_at": "2026-09-27 17:30",
+  "launcher": "farm",
+  "result": "N_e=693.187976 mu_e=-4.707457",
+  "elapsed_farm_min": 29.1
  },
  {
   "task_id": "V1__coll_strain+1pct__mu-4.9071",
@@ -1491,9 +1686,14 @@
   "n_movable": 31,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "in-plane cell and xy scaled by 1.01"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "in-plane cell and xy scaled by 1.01",
+  "node": "a851",
+  "started_at": "2026-09-27 17:31",
+  "launcher": "farm",
+  "result": "N_e=693.010645 mu_e=-4.907019",
+  "elapsed_farm_min": 28.1
  },
  {
   "task_id": "V1__coll_strain+1pct__mu-5.1071",
@@ -1508,9 +1708,14 @@
   "n_movable": 31,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "in-plane cell and xy scaled by 1.01"
+  "status": "completed",
+  "job_id": 20928319,
+  "note": "in-plane cell and xy scaled by 1.01",
+  "node": "b007",
+  "started_at": "2026-09-27 17:31",
+  "launcher": "farm",
+  "result": "N_e=692.835166 mu_e=-5.107933",
+  "elapsed_farm_min": 31.3
  },
  {
   "task_id": "V1__coll_topspacing-3pct__mu-4.7071",
@@ -1525,9 +1730,14 @@
   "n_movable": 31,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (15 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "top plane (15 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "a292",
+  "started_at": "2026-09-27 17:32",
+  "launcher": "farm",
+  "result": "N_e=693.153199 mu_e=-4.707390",
+  "elapsed_farm_min": 25.1
  },
  {
   "task_id": "V1__coll_topspacing-3pct__mu-4.9071",
@@ -1542,9 +1752,14 @@
   "n_movable": 31,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (15 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "top plane (15 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "a412",
+  "started_at": "2026-09-27 17:32",
+  "launcher": "farm",
+  "result": "N_e=692.978985 mu_e=-4.906974",
+  "elapsed_farm_min": 25.1
  },
  {
   "task_id": "V1__coll_topspacing-3pct__mu-5.1071",
@@ -1559,9 +1774,14 @@
   "n_movable": 31,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (15 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "top plane (15 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "a282",
+  "started_at": "2026-09-27 17:34",
+  "launcher": "farm",
+  "result": "N_e=692.806559 mu_e=-5.108633",
+  "elapsed_farm_min": 28.1
  },
  {
   "task_id": "V1__pert05__mu-4.7071",
@@ -1576,9 +1796,14 @@
   "n_movable": 31,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 31 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20929207,
+  "note": "gaussian sigma=0.05 A on 31 movable atoms, seed 1",
+  "node": "a850",
+  "started_at": "2026-09-27 17:35",
+  "launcher": "farm",
+  "result": "N_e=693.173552 mu_e=-4.707457",
+  "elapsed_farm_min": 27.1
  },
  {
   "task_id": "V1__pert05__mu-4.9071",
@@ -1593,9 +1818,14 @@
   "n_movable": 31,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 31 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20928952,
+  "note": "gaussian sigma=0.05 A on 31 movable atoms, seed 1",
+  "node": "a492",
+  "started_at": "2026-09-27 17:35",
+  "launcher": "farm",
+  "result": "N_e=693.000000 mu_e=-4.908298",
+  "elapsed_farm_min": 9.1
  },
  {
   "task_id": "V1__pert05__mu-5.1071",
@@ -1610,9 +1840,14 @@
   "n_movable": 31,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 31 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20929210,
+  "note": "gaussian sigma=0.05 A on 31 movable atoms, seed 1",
+  "node": "a425",
+  "started_at": "2026-09-27 17:38",
+  "launcher": "farm",
+  "result": "N_e=692.830484 mu_e=-5.107995",
+  "elapsed_farm_min": 27.3
  },
  {
   "task_id": "V1__pert10__mu-4.7071",
@@ -1627,9 +1862,14 @@
   "n_movable": 31,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 31 movable atoms, seed 5"
+  "status": "completed",
+  "job_id": 20928320,
+  "note": "gaussian sigma=0.1 A on 31 movable atoms, seed 5",
+  "node": "b015",
+  "started_at": "2026-09-27 17:39",
+  "launcher": "farm",
+  "result": "N_e=693.194417 mu_e=-4.707478",
+  "elapsed_farm_min": 27.3
  },
  {
   "task_id": "V1__pert10__mu-4.9071",
@@ -1644,9 +1884,14 @@
   "n_movable": 31,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 31 movable atoms, seed 5"
+  "status": "completed",
+  "job_id": 20928946,
+  "note": "gaussian sigma=0.1 A on 31 movable atoms, seed 5",
+  "node": "a400",
+  "started_at": "2026-09-27 17:39",
+  "launcher": "farm",
+  "result": "N_e=693.021404 mu_e=-4.907015",
+  "elapsed_farm_min": 27.4
  },
  {
   "task_id": "V1__pert10__mu-5.1071",
@@ -1661,9 +1906,14 @@
   "n_movable": 31,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 31 movable atoms, seed 5"
+  "status": "completed",
+  "job_id": 20928948,
+  "note": "gaussian sigma=0.1 A on 31 movable atoms, seed 5",
+  "node": "a835",
+  "started_at": "2026-09-27 17:39",
+  "launcher": "farm",
+  "result": "N_e=692.850111 mu_e=-5.107675",
+  "elapsed_farm_min": 26.3
  },
  {
   "task_id": "V1__relaxed__mu-4.7071",
@@ -1678,9 +1928,14 @@
   "n_movable": 31,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "completed",
+  "job_id": 20929209,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a820",
+  "started_at": "2026-09-27 17:40",
+  "launcher": "farm",
+  "result": "N_e=693.178566 mu_e=-4.707607",
+  "elapsed_farm_min": 24.2
  },
  {
   "task_id": "V1__relaxed__mu-5.1071",
@@ -1695,9 +1950,14 @@
   "n_movable": 31,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "completed",
+  "job_id": 20929208,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a559",
+  "started_at": "2026-09-27 17:42",
+  "launcher": "farm",
+  "result": "N_e=692.836654 mu_e=-5.107872",
+  "elapsed_farm_min": 25.2
  },
  {
   "task_id": "R1-hcp-terminated__pert05__mu-4.7071",
@@ -1712,9 +1972,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 32 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20928950,
+  "note": "gaussian sigma=0.05 A on 32 movable atoms, seed 1",
+  "node": "a330",
+  "started_at": "2026-09-27 17:43",
+  "launcher": "farm",
+  "result": "N_e=704.163187 mu_e=-4.707774",
+  "elapsed_farm_min": 25.2
  },
  {
   "task_id": "R1-hcp-terminated__pert05__mu-4.9071",
@@ -1729,9 +1994,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 32 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20928952,
+  "note": "gaussian sigma=0.05 A on 32 movable atoms, seed 1",
+  "node": "a492",
+  "started_at": "2026-09-27 17:44",
+  "launcher": "farm",
+  "result": "N_e=704.000000 mu_e=-4.900689",
+  "elapsed_farm_min": 9.1
  },
  {
   "task_id": "R1-hcp-terminated__pert05__mu-5.1071",
@@ -1746,9 +2016,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 32 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20928952,
+  "note": "gaussian sigma=0.05 A on 32 movable atoms, seed 1",
+  "node": "a492",
+  "started_at": "2026-09-27 17:53",
+  "launcher": "farm",
+  "result": "N_e=703.828523 mu_e=-5.108174",
+  "elapsed_farm_min": 26.2
  },
  {
   "task_id": "R1-hcp-terminated__pert10__mu-4.7071",
@@ -1763,9 +2038,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 32 movable atoms, seed 4"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.1 A on 32 movable atoms, seed 4",
+  "node": "a292",
+  "started_at": "2026-09-27 17:57",
+  "launcher": "farm",
+  "result": "N_e=704.181598 mu_e=-4.707868",
+  "elapsed_farm_min": 28.2
  },
  {
   "task_id": "R1-hcp-terminated__pert10__mu-4.9071",
@@ -1780,9 +2060,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 32 movable atoms, seed 4"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.1 A on 32 movable atoms, seed 4",
+  "node": "a412",
+  "started_at": "2026-09-27 17:57",
+  "launcher": "farm",
+  "result": "N_e=704.013490 mu_e=-4.906977",
+  "elapsed_farm_min": 26.2
  },
  {
   "task_id": "R1-hcp-terminated__pert10__mu-5.1071",
@@ -1797,9 +2082,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 32 movable atoms, seed 4"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.1 A on 32 movable atoms, seed 4",
+  "node": "a414",
+  "started_at": "2026-09-27 17:59",
+  "launcher": "farm",
+  "result": "N_e=703.847694 mu_e=-5.107696",
+  "elapsed_farm_min": 25.2
  },
  {
   "task_id": "R1-hcp-terminated__relaxed__mu-4.7071",
@@ -1814,9 +2104,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a851",
+  "started_at": "2026-09-27 17:59",
+  "launcher": "farm",
+  "result": "N_e=704.172274 mu_e=-4.707803",
+  "elapsed_farm_min": 26.2
  },
  {
   "task_id": "R1-hcp-terminated__relaxed__mu-5.1071",
@@ -1831,9 +2126,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "completed",
+  "job_id": 20929207,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a850",
+  "started_at": "2026-09-27 18:02",
+  "launcher": "farm",
+  "result": "N_e=703.838007 mu_e=-5.107971",
+  "elapsed_farm_min": 25.2
  },
  {
   "task_id": "T-4x4__coll_strain+1pct__mu-4.7071",
@@ -1848,9 +2148,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "in-plane cell and xy scaled by 1.01"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "in-plane cell and xy scaled by 1.01",
+  "node": "a282",
+  "started_at": "2026-09-27 18:02",
+  "launcher": "farm",
+  "result": "N_e=704.186677 mu_e=-4.707838",
+  "elapsed_farm_min": 32.3
  },
  {
   "task_id": "T-4x4__coll_strain+1pct__mu-4.9071",
@@ -1865,9 +2170,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "in-plane cell and xy scaled by 1.01"
+  "status": "completed",
+  "job_id": 20928319,
+  "note": "in-plane cell and xy scaled by 1.01",
+  "node": "b007",
+  "started_at": "2026-09-27 18:03",
+  "launcher": "farm",
+  "result": "N_e=704.013098 mu_e=-4.906923",
+  "elapsed_farm_min": 30.3
  },
  {
   "task_id": "T-4x4__coll_strain+1pct__mu-5.1071",
@@ -1882,9 +2192,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "in-plane cell and xy scaled by 1.01"
+  "status": "completed",
+  "job_id": 20929209,
+  "note": "in-plane cell and xy scaled by 1.01",
+  "node": "a820",
+  "started_at": "2026-09-27 18:04",
+  "launcher": "farm",
+  "result": "N_e=703.841620 mu_e=-5.107774",
+  "elapsed_farm_min": 29.2
  },
  {
   "task_id": "T-4x4__coll_topspacing-3pct__mu-4.7071",
@@ -1899,9 +2214,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (16 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20928948,
+  "note": "top plane (16 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "a835",
+  "started_at": "2026-09-27 18:06",
+  "launcher": "farm",
+  "result": "N_e=704.153902 mu_e=-4.707612",
+  "elapsed_farm_min": 25.2
  },
  {
   "task_id": "T-4x4__coll_topspacing-3pct__mu-4.9071",
@@ -1916,9 +2236,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (16 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20929210,
+  "note": "top plane (16 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "a425",
+  "started_at": "2026-09-27 18:06",
+  "launcher": "farm",
+  "result": "N_e=703.984146 mu_e=-4.906953",
+  "elapsed_farm_min": 25.2
  },
  {
   "task_id": "T-4x4__coll_topspacing-3pct__mu-5.1071",
@@ -1933,9 +2258,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (16 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20928320,
+  "note": "top plane (16 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "b015",
+  "started_at": "2026-09-27 18:06",
+  "launcher": "farm",
+  "result": "N_e=703.816493 mu_e=-5.108342",
+  "elapsed_farm_min": 25.2
  },
  {
   "task_id": "T-4x4__pert05__mu-4.7071",
@@ -1950,9 +2280,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 32 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20928946,
+  "note": "gaussian sigma=0.05 A on 32 movable atoms, seed 1",
+  "node": "a400",
+  "started_at": "2026-09-27 18:06",
+  "launcher": "farm",
+  "result": "N_e=704.164881 mu_e=-4.707648",
+  "elapsed_farm_min": 26.2
  },
  {
   "task_id": "T-4x4__pert05__mu-4.9071",
@@ -1967,9 +2302,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 32 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20929208,
+  "note": "gaussian sigma=0.05 A on 32 movable atoms, seed 1",
+  "node": "a559",
+  "started_at": "2026-09-27 18:07",
+  "launcher": "farm",
+  "result": "N_e=704.000000 mu_e=-4.902650",
+  "elapsed_farm_min": 9.0
  },
  {
   "task_id": "T-4x4__pert05__mu-5.1071",
@@ -1984,9 +2324,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 32 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20928950,
+  "note": "gaussian sigma=0.05 A on 32 movable atoms, seed 1",
+  "node": "a330",
+  "started_at": "2026-09-27 18:08",
+  "launcher": "farm",
+  "result": "N_e=703.830274 mu_e=-5.108070",
+  "elapsed_farm_min": 25.1
  },
  {
   "task_id": "T-4x4__pert10__mu-4.7071",
@@ -2001,9 +2346,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 32 movable atoms, seed 4"
+  "status": "completed",
+  "job_id": 20929208,
+  "note": "gaussian sigma=0.1 A on 32 movable atoms, seed 4",
+  "node": "a559",
+  "started_at": "2026-09-27 18:16",
+  "launcher": "farm",
+  "result": "N_e=704.184686 mu_e=-4.707734",
+  "elapsed_farm_min": 27.3
  },
  {
   "task_id": "T-4x4__pert10__mu-4.9071",
@@ -2018,9 +2368,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 32 movable atoms, seed 4"
+  "status": "completed",
+  "job_id": 20928952,
+  "note": "gaussian sigma=0.1 A on 32 movable atoms, seed 4",
+  "node": "a492",
+  "started_at": "2026-09-27 18:20",
+  "launcher": "farm",
+  "result": "N_e=704.016062 mu_e=-4.907004",
+  "elapsed_farm_min": 27.2
  },
  {
   "task_id": "T-4x4__pert10__mu-5.1071",
@@ -2035,9 +2390,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 32 movable atoms, seed 4"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.1 A on 32 movable atoms, seed 4",
+  "node": "a412",
+  "started_at": "2026-09-27 18:23",
+  "launcher": "farm",
+  "result": "N_e=703.849712 mu_e=-5.107748",
+  "elapsed_farm_min": 27.3
  },
  {
   "task_id": "T-4x4__relaxed__mu-4.7071",
@@ -2052,9 +2412,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a414",
+  "started_at": "2026-09-27 18:24",
+  "launcher": "farm",
+  "result": "N_e=704.174907 mu_e=-4.707780",
+  "elapsed_farm_min": 29.3
  },
  {
   "task_id": "T-4x4__relaxed__mu-5.1071",
@@ -2069,9 +2434,14 @@
   "n_movable": 32,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a292",
+  "started_at": "2026-09-27 18:25",
+  "launcher": "farm",
+  "result": "N_e=703.840885 mu_e=-5.107900",
+  "elapsed_farm_min": 29.3
  },
  {
   "task_id": "A1-fcc__coll_strain+1pct__mu-4.7071",
@@ -2086,9 +2456,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "in-plane cell and xy scaled by 1.01"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "in-plane cell and xy scaled by 1.01",
+  "node": "a851",
+  "started_at": "2026-09-27 18:25",
+  "launcher": "farm",
+  "result": "N_e=715.100000 mu_e=-4.697814",
+  "elapsed_farm_min": 26.3
  },
  {
   "task_id": "A1-fcc__coll_strain+1pct__mu-4.9071",
@@ -2103,9 +2478,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "in-plane cell and xy scaled by 1.01"
+  "status": "completed",
+  "job_id": 20929207,
+  "note": "in-plane cell and xy scaled by 1.01",
+  "node": "a850",
+  "started_at": "2026-09-27 18:27",
+  "launcher": "farm",
+  "result": "N_e=714.915299 mu_e=-4.906991",
+  "elapsed_farm_min": 29.2
  },
  {
   "task_id": "A1-fcc__coll_strain+1pct__mu-5.1071",
@@ -2120,9 +2500,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "in-plane cell and xy scaled by 1.01"
+  "status": "completed",
+  "job_id": 20928948,
+  "note": "in-plane cell and xy scaled by 1.01",
+  "node": "a835",
+  "started_at": "2026-09-27 18:31",
+  "launcher": "farm",
+  "result": "N_e=714.739361 mu_e=-5.110713",
+  "elapsed_farm_min": 31.2
  },
  {
   "task_id": "A1-fcc__coll_topspacing-3pct__mu-4.7071",
@@ -2137,9 +2522,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (1 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20929210,
+  "note": "top plane (1 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "a425",
+  "started_at": "2026-09-27 18:31",
+  "launcher": "farm",
+  "result": "N_e=715.066688 mu_e=-4.707076",
+  "elapsed_farm_min": 26.2
  },
  {
   "task_id": "A1-fcc__coll_topspacing-3pct__mu-4.9071",
@@ -2154,9 +2544,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (1 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20928320,
+  "note": "top plane (1 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "b015",
+  "started_at": "2026-09-27 18:32",
+  "launcher": "farm",
+  "result": "N_e=714.900000 mu_e=-4.898967",
+  "elapsed_farm_min": 20.1
  },
  {
   "task_id": "A1-fcc__coll_topspacing-3pct__mu-5.1071",
@@ -2171,9 +2566,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (1 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20928946,
+  "note": "top plane (1 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "a400",
+  "started_at": "2026-09-27 18:33",
+  "launcher": "farm",
+  "result": "N_e=714.719794 mu_e=-5.112378",
+  "elapsed_farm_min": 26.2
  },
  {
   "task_id": "A1-fcc__path_bridge__mu-4.7071",
@@ -2188,9 +2588,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "adatom moved half-way (0.844 A) toward the nearest hcp hollow (bridge site)"
+  "status": "completed",
+  "job_id": 20928319,
+  "note": "adatom moved half-way (0.844 A) toward the nearest hcp hollow (bridge site)",
+  "node": "b007",
+  "started_at": "2026-09-27 18:33",
+  "launcher": "farm",
+  "result": "N_e=715.074914 mu_e=-4.707097",
+  "elapsed_farm_min": 25.2
  },
  {
   "task_id": "A1-fcc__path_bridge__mu-4.9071",
@@ -2205,9 +2610,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "adatom moved half-way (0.844 A) toward the nearest hcp hollow (bridge site)"
+  "status": "completed",
+  "job_id": 20929209,
+  "note": "adatom moved half-way (0.844 A) toward the nearest hcp hollow (bridge site)",
+  "node": "a820",
+  "started_at": "2026-09-27 18:33",
+  "launcher": "farm",
+  "result": "N_e=714.900000 mu_e=-4.908084",
+  "elapsed_farm_min": 21.1
  },
  {
   "task_id": "A1-fcc__path_bridge__mu-5.1071",
@@ -2222,9 +2632,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "adatom moved half-way (0.844 A) toward the nearest hcp hollow (bridge site)"
+  "status": "completed",
+  "job_id": 20928950,
+  "note": "adatom moved half-way (0.844 A) toward the nearest hcp hollow (bridge site)",
+  "node": "a330",
+  "started_at": "2026-09-27 18:33",
+  "launcher": "farm",
+  "result": "N_e=714.727465 mu_e=-5.111778",
+  "elapsed_farm_min": 28.4
  },
  {
   "task_id": "A1-fcc__pert05__mu-4.7071",
@@ -2239,9 +2654,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 2"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 2",
+  "node": "a282",
+  "started_at": "2026-09-27 18:34",
+  "launcher": "farm",
+  "result": "N_e=715.070605 mu_e=-4.707126",
+  "elapsed_farm_min": 25.2
  },
  {
   "task_id": "A1-fcc__pert05__mu-4.9071",
@@ -2256,9 +2676,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 2"
+  "status": "completed",
+  "job_id": 20929208,
+  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 2",
+  "node": "a559",
+  "started_at": "2026-09-27 18:43",
+  "launcher": "farm",
+  "result": "N_e=714.900000 mu_e=-4.903188",
+  "elapsed_farm_min": 20.2
  },
  {
   "task_id": "A1-fcc__pert05__mu-5.1071",
@@ -2273,9 +2698,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 2"
+  "status": "completed",
+  "job_id": 20928952,
+  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 2",
+  "node": "a492",
+  "started_at": "2026-09-27 18:47",
+  "launcher": "farm",
+  "result": "N_e=714.723312 mu_e=-5.112008",
+  "elapsed_farm_min": 26.2
  },
  {
   "task_id": "A1-fcc__pert10__mu-4.7071",
@@ -2290,9 +2720,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 6"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 6",
+  "node": "a412",
+  "started_at": "2026-09-27 18:50",
+  "launcher": "farm",
+  "result": "N_e=715.063257 mu_e=-4.707110",
+  "elapsed_farm_min": 28.2
  },
  {
   "task_id": "A1-fcc__pert10__mu-4.9071",
@@ -2307,9 +2742,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 6"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 6",
+  "node": "a851",
+  "started_at": "2026-09-27 18:51",
+  "launcher": "farm",
+  "result": "N_e=714.889352 mu_e=-4.907193",
+  "elapsed_farm_min": 25.2
  },
  {
   "task_id": "A1-fcc__pert10__mu-5.1071",
@@ -2324,9 +2764,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 6"
+  "status": "completed",
+  "job_id": 20928320,
+  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 6",
+  "node": "b015",
+  "started_at": "2026-09-27 18:52",
+  "launcher": "farm",
+  "result": "N_e=714.715964 mu_e=-5.112375",
+  "elapsed_farm_min": 28.2
  },
  {
   "task_id": "A1-fcc__relaxed__mu-4.7071",
@@ -2341,9 +2786,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a414",
+  "started_at": "2026-09-27 18:54",
+  "launcher": "farm",
+  "result": "N_e=715.074722 mu_e=-4.707108",
+  "elapsed_farm_min": 26.2
  },
  {
   "task_id": "A1-fcc__relaxed__mu-5.1071",
@@ -2358,9 +2808,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "completed",
+  "job_id": 20929209,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a820",
+  "started_at": "2026-09-27 18:54",
+  "launcher": "farm",
+  "result": "N_e=714.726760 mu_e=-5.112041",
+  "elapsed_farm_min": 27.3
  },
  {
   "task_id": "A1-hcp__coll_strain+1pct__mu-4.7071",
@@ -2375,9 +2830,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "in-plane cell and xy scaled by 1.01"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "in-plane cell and xy scaled by 1.01",
+  "node": "a292",
+  "started_at": "2026-09-27 18:55",
+  "launcher": "farm",
+  "result": "N_e=715.100000 mu_e=-4.700504",
+  "elapsed_farm_min": 27.2
  },
  {
   "task_id": "A1-hcp__coll_strain+1pct__mu-4.9071",
@@ -2392,9 +2852,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "in-plane cell and xy scaled by 1.01"
+  "status": "completed",
+  "job_id": 20929207,
+  "note": "in-plane cell and xy scaled by 1.01",
+  "node": "a850",
+  "started_at": "2026-09-27 18:56",
+  "launcher": "farm",
+  "result": "N_e=714.917274 mu_e=-4.907006",
+  "elapsed_farm_min": 30.3
  },
  {
   "task_id": "A1-hcp__coll_strain+1pct__mu-5.1071",
@@ -2409,9 +2874,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "in-plane cell and xy scaled by 1.01"
+  "status": "completed",
+  "job_id": 20929210,
+  "note": "in-plane cell and xy scaled by 1.01",
+  "node": "a425",
+  "started_at": "2026-09-27 18:57",
+  "launcher": "farm",
+  "result": "N_e=714.741073 mu_e=-5.110663",
+  "elapsed_farm_min": 36.5
  },
  {
   "task_id": "A1-hcp__coll_topspacing-3pct__mu-4.7071",
@@ -2426,9 +2896,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (1 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20928319,
+  "note": "top plane (1 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "b007",
+  "started_at": "2026-09-27 18:58",
+  "launcher": "farm",
+  "result": "N_e=715.069357 mu_e=-4.707086",
+  "elapsed_farm_min": 25.4
  },
  {
   "task_id": "A1-hcp__coll_topspacing-3pct__mu-4.9071",
@@ -2443,9 +2918,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (1 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20928946,
+  "note": "top plane (1 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "a400",
+  "started_at": "2026-09-27 18:59",
+  "launcher": "farm",
+  "result": "N_e=714.900000 mu_e=-4.901485",
+  "elapsed_farm_min": 21.2
  },
  {
   "task_id": "A1-hcp__coll_topspacing-3pct__mu-5.1071",
@@ -2460,9 +2940,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (1 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "top plane (1 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "a282",
+  "started_at": "2026-09-27 19:00",
+  "launcher": "farm",
+  "result": "N_e=714.721476 mu_e=-5.112371",
+  "elapsed_farm_min": 30.2
  },
  {
   "task_id": "A1-hcp__pert05__mu-4.7071",
@@ -2477,9 +2962,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20928950,
+  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 1",
+  "node": "a330",
+  "started_at": "2026-09-27 19:02",
+  "launcher": "farm",
+  "result": "N_e=715.068476 mu_e=-4.707119",
+  "elapsed_farm_min": 25.2
  },
  {
   "task_id": "A1-hcp__pert05__mu-4.9071",
@@ -2494,9 +2984,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20928948,
+  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 1",
+  "node": "a835",
+  "started_at": "2026-09-27 19:02",
+  "launcher": "farm",
+  "result": "N_e=714.900000 mu_e=-4.900647",
+  "elapsed_farm_min": 20.2
  },
  {
   "task_id": "A1-hcp__pert05__mu-5.1071",
@@ -2511,9 +3006,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20929208,
+  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 1",
+  "node": "a559",
+  "started_at": "2026-09-27 19:04",
+  "launcher": "farm",
+  "result": "N_e=714.721026 mu_e=-5.112250",
+  "elapsed_farm_min": 26.2
  },
  {
   "task_id": "A1-hcp__pert10__mu-4.7071",
@@ -2528,9 +3028,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 8"
+  "status": "completed",
+  "job_id": 20928952,
+  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 8",
+  "node": "a492",
+  "started_at": "2026-09-27 19:13",
+  "launcher": "farm",
+  "result": "N_e=715.121208 mu_e=-4.707107",
+  "elapsed_farm_min": 28.3
  },
  {
   "task_id": "A1-hcp__pert10__mu-4.9071",
@@ -2545,9 +3050,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 8"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 8",
+  "node": "a851",
+  "started_at": "2026-09-27 19:17",
+  "launcher": "farm",
+  "result": "N_e=714.947164 mu_e=-4.909237",
+  "elapsed_farm_min": 24.3
  },
  {
   "task_id": "A1-hcp__pert10__mu-5.1071",
@@ -2562,9 +3072,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 8"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 8",
+  "node": "a412",
+  "started_at": "2026-09-27 19:19",
+  "launcher": "farm",
+  "result": "N_e=714.774256 mu_e=-5.109831",
+  "elapsed_farm_min": 30.3
  },
  {
   "task_id": "A1-hcp__relaxed__mu-4.7071",
@@ -2579,9 +3094,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a414",
+  "started_at": "2026-09-27 19:20",
+  "launcher": "farm",
+  "result": "N_e=715.078086 mu_e=-4.707033",
+  "elapsed_farm_min": 26.2
  },
  {
   "task_id": "A1-hcp__relaxed__mu-5.1071",
@@ -2596,9 +3116,14 @@
   "n_movable": 33,
   "kpoints": "3x3x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "completed",
+  "job_id": 20928320,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "b015",
+  "started_at": "2026-09-27 19:20",
+  "launcher": "farm",
+  "result": "N_e=714.729128 mu_e=-5.111828",
+  "elapsed_farm_min": 28.1
  },
  {
   "task_id": "R2-stripe-wall__pert05__mu-4.7071",
@@ -2613,9 +3138,14 @@
   "n_movable": 33,
   "kpoints": "1x12x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20928946,
+  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 1",
+  "node": "a400",
+  "started_at": "2026-09-27 19:20",
+  "launcher": "farm",
+  "result": "N_e=715.263938 mu_e=-4.709142",
+  "elapsed_farm_min": 42.3
  },
  {
   "task_id": "R2-stripe-wall__pert05__mu-4.9071",
@@ -2630,9 +3160,14 @@
   "n_movable": 33,
   "kpoints": "1x12x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20929209,
+  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 1",
+  "node": "a820",
+  "started_at": "2026-09-27 19:22",
+  "launcher": "farm",
+  "result": "N_e=715.100000 mu_e=-4.904580",
+  "elapsed_farm_min": 31.3
  },
  {
   "task_id": "R2-stripe-wall__pert05__mu-5.1071",
@@ -2647,9 +3182,14 @@
   "n_movable": 33,
   "kpoints": "1x12x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.05 A on 33 movable atoms, seed 1",
+  "node": "a292",
+  "started_at": "2026-09-27 19:22",
+  "launcher": "farm",
+  "result": "N_e=714.933043 mu_e=-5.106960",
+  "elapsed_farm_min": 38.3
  },
  {
   "task_id": "R2-stripe-wall__pert10__mu-4.7071",
@@ -2664,9 +3204,14 @@
   "n_movable": 33,
   "kpoints": "1x12x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 10"
+  "status": "completed",
+  "job_id": 20928948,
+  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 10",
+  "node": "a835",
+  "started_at": "2026-09-27 19:22",
+  "launcher": "farm",
+  "result": "N_e=715.270407 mu_e=-4.708753",
+  "elapsed_farm_min": 44.3
  },
  {
   "task_id": "R2-stripe-wall__pert10__mu-4.9071",
@@ -2681,9 +3226,14 @@
   "n_movable": 33,
   "kpoints": "1x12x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 10"
+  "status": "completed",
+  "job_id": 20928319,
+  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 10",
+  "node": "b007",
+  "started_at": "2026-09-27 19:23",
+  "launcher": "farm",
+  "result": "N_e=715.100000 mu_e=-4.912514",
+  "elapsed_farm_min": 33.3
  },
  {
   "task_id": "R2-stripe-wall__pert10__mu-5.1071",
@@ -2698,9 +3248,14 @@
   "n_movable": 33,
   "kpoints": "1x12x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 10"
+  "status": "completed",
+  "job_id": 20929207,
+  "note": "gaussian sigma=0.1 A on 33 movable atoms, seed 10",
+  "node": "a850",
+  "started_at": "2026-09-27 19:27",
+  "launcher": "farm",
+  "result": "N_e=714.939513 mu_e=-5.107785",
+  "elapsed_farm_min": 44.4
  },
  {
   "task_id": "R2-stripe-wall__relaxed__mu-4.7071",
@@ -2715,9 +3270,14 @@
   "n_movable": 33,
   "kpoints": "1x12x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "completed",
+  "job_id": 20928950,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a330",
+  "started_at": "2026-09-27 19:27",
+  "launcher": "farm",
+  "result": "N_e=715.257629 mu_e=-4.709284",
+  "elapsed_farm_min": 52.4
  },
  {
   "task_id": "R2-stripe-wall__relaxed__mu-5.1071",
@@ -2732,9 +3292,14 @@
   "n_movable": 33,
   "kpoints": "1x12x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "completed",
+  "job_id": 20929208,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a559",
+  "started_at": "2026-09-27 19:30",
+  "launcher": "farm",
+  "result": "N_e=714.926661 mu_e=-5.106880",
+  "elapsed_farm_min": 34.3
  },
  {
   "task_id": "Step-8x2__coll_edgebend0.15__mu-4.7071",
@@ -2749,9 +3314,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "edge rows (4 atoms) displaced +-0.15 A across the step, alternating by row"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "edge rows (4 atoms) displaced +-0.15 A across the step, alternating by row",
+  "node": "a282",
+  "started_at": "2026-09-27 19:30",
+  "launcher": "farm",
+  "result": "N_e=792.213649 mu_e=-4.706486",
+  "elapsed_farm_min": 43.4
  },
  {
   "task_id": "Step-8x2__coll_edgebend0.15__mu-4.9071",
@@ -2766,9 +3336,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "edge rows (4 atoms) displaced +-0.15 A across the step, alternating by row"
+  "status": "completed",
+  "job_id": 20929210,
+  "note": "edge rows (4 atoms) displaced +-0.15 A across the step, alternating by row",
+  "node": "a425",
+  "started_at": "2026-09-27 19:34",
+  "launcher": "farm",
+  "result": "N_e=792.032650 mu_e=-4.907053",
+  "elapsed_farm_min": 43.4
  },
  {
   "task_id": "Step-8x2__coll_edgebend0.15__mu-5.1071",
@@ -2783,9 +3358,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "edge rows (4 atoms) displaced +-0.15 A across the step, alternating by row"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "edge rows (4 atoms) displaced +-0.15 A across the step, alternating by row",
+  "node": "a851",
+  "started_at": "2026-09-27 19:41",
+  "launcher": "farm",
+  "result": "N_e=791.852820 mu_e=-5.108239",
+  "elapsed_farm_min": 41.3
  },
  {
   "task_id": "Step-8x2__coll_topspacing-3pct__mu-4.7071",
@@ -2800,9 +3380,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (8 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20928952,
+  "note": "top plane (8 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "a492",
+  "started_at": "2026-09-27 19:42",
+  "launcher": "farm",
+  "result": "N_e=792.192311 mu_e=-4.706779",
+  "elapsed_farm_min": 47.3
  },
  {
   "task_id": "Step-8x2__coll_topspacing-3pct__mu-4.9071",
@@ -2817,9 +3402,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (8 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "top plane (8 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "a414",
+  "started_at": "2026-09-27 19:46",
+  "launcher": "farm",
+  "result": "N_e=792.011038 mu_e=-4.907135",
+  "elapsed_farm_min": 45.3
  },
  {
   "task_id": "Step-8x2__coll_topspacing-3pct__mu-5.1071",
@@ -2834,9 +3424,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "top plane (8 atoms) moved down by 0.03*d111 = 0.072 A"
+  "status": "completed",
+  "job_id": 20928320,
+  "note": "top plane (8 atoms) moved down by 0.03*d111 = 0.072 A",
+  "node": "b015",
+  "started_at": "2026-09-27 19:48",
+  "launcher": "farm",
+  "result": "N_e=791.831124 mu_e=-5.107949",
+  "elapsed_farm_min": 44.3
  },
  {
   "task_id": "Step-8x2__path_detach1__mu-4.7071",
@@ -2851,9 +3446,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "linear image 0.25 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 0.78 A; min d 2.56 A (path images accepted >= 2.4 A)"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "linear image 0.25 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 0.78 A; min d 2.56 A (path images accepted >= 2.4 A)",
+  "node": "a412",
+  "started_at": "2026-09-27 19:49",
+  "launcher": "farm",
+  "result": "N_e=792.205410 mu_e=-4.706527",
+  "elapsed_farm_min": 46.4
  },
  {
   "task_id": "Step-8x2__path_detach1__mu-4.9071",
@@ -2868,9 +3468,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "linear image 0.25 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 0.78 A; min d 2.56 A (path images accepted >= 2.4 A)"
+  "status": "completed",
+  "job_id": 20929209,
+  "note": "linear image 0.25 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 0.78 A; min d 2.56 A (path images accepted >= 2.4 A)",
+  "node": "a820",
+  "started_at": "2026-09-27 19:53",
+  "launcher": "farm",
+  "result": "N_e=792.022619 mu_e=-4.907049",
+  "elapsed_farm_min": 45.3
  },
  {
   "task_id": "Step-8x2__path_detach1__mu-5.1071",
@@ -2885,9 +3490,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "linear image 0.25 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 0.78 A; min d 2.56 A (path images accepted >= 2.4 A)"
+  "status": "completed",
+  "job_id": 20928319,
+  "note": "linear image 0.25 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 0.78 A; min d 2.56 A (path images accepted >= 2.4 A)",
+  "node": "b007",
+  "started_at": "2026-09-27 19:57",
+  "launcher": "farm",
+  "result": "N_e=791.840749 mu_e=-5.107705",
+  "elapsed_farm_min": 46.3
  },
  {
   "task_id": "Step-8x2__path_detach2__mu-4.7071",
@@ -2902,9 +3512,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "linear image 0.50 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 1.55 A; min d 2.44 A (path images accepted >= 2.4 A)"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "linear image 0.50 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 1.55 A; min d 2.44 A (path images accepted >= 2.4 A)",
+  "node": "a292",
+  "started_at": "2026-09-27 20:00",
+  "launcher": "farm",
+  "result": "N_e=792.189795 mu_e=-4.706602",
+  "elapsed_farm_min": 50.3
  },
  {
   "task_id": "Step-8x2__path_detach2__mu-4.9071",
@@ -2919,9 +3534,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "linear image 0.50 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 1.55 A; min d 2.44 A (path images accepted >= 2.4 A)"
+  "status": "completed",
+  "job_id": 20928946,
+  "note": "linear image 0.50 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 1.55 A; min d 2.44 A (path images accepted >= 2.4 A)",
+  "node": "a400",
+  "started_at": "2026-09-27 20:02",
+  "launcher": "farm",
+  "result": "N_e=792.000000 mu_e=-4.912699",
+  "elapsed_farm_min": 15.2
  },
  {
   "task_id": "Step-8x2__path_detach2__mu-5.1071",
@@ -2936,9 +3556,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "linear image 0.50 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 1.55 A; min d 2.44 A (path images accepted >= 2.4 A)"
+  "status": "completed",
+  "job_id": 20929208,
+  "note": "linear image 0.50 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 1.55 A; min d 2.44 A (path images accepted >= 2.4 A)",
+  "node": "a559",
+  "started_at": "2026-09-27 20:04",
+  "launcher": "farm",
+  "result": "N_e=791.821267 mu_e=-5.107944",
+  "elapsed_farm_min": 46.3
  },
  {
   "task_id": "Step-8x2__path_detach3__mu-4.7071",
@@ -2953,9 +3578,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "linear image 0.75 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 2.33 A; min d 2.58 A (path images accepted >= 2.4 A)"
+  "status": "completed",
+  "job_id": 20928948,
+  "note": "linear image 0.75 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 2.33 A; min d 2.58 A (path images accepted >= 2.4 A)",
+  "node": "a835",
+  "started_at": "2026-09-27 20:07",
+  "launcher": "farm",
+  "result": "N_e=792.168588 mu_e=-4.706648",
+  "elapsed_farm_min": 48.4
  },
  {
   "task_id": "Step-8x2__path_detach3__mu-4.9071",
@@ -2970,9 +3600,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "linear image 0.75 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 2.33 A; min d 2.58 A (path images accepted >= 2.4 A)"
+  "status": "completed",
+  "job_id": 20929207,
+  "note": "linear image 0.75 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 2.33 A; min d 2.58 A (path images accepted >= 2.4 A)",
+  "node": "a850",
+  "started_at": "2026-09-27 20:11",
+  "launcher": "farm",
+  "result": "N_e=791.982649 mu_e=-4.907102",
+  "elapsed_farm_min": 45.4
  },
  {
   "task_id": "Step-8x2__path_detach3__mu-5.1071",
@@ -2987,9 +3622,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "linear image 0.75 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 2.33 A; min d 2.58 A (path images accepted >= 2.4 A)"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "linear image 0.75 between relaxed Step-8x2 and the edge-vacancy+foot-adatom end point; moving atom displaced 2.33 A; min d 2.58 A (path images accepted >= 2.4 A)",
+  "node": "a282",
+  "started_at": "2026-09-27 20:13",
+  "launcher": "farm",
+  "result": "N_e=791.797254 mu_e=-5.108359",
+  "elapsed_farm_min": 47.4
  },
  {
   "task_id": "Step-8x2__pert05__mu-4.7071",
@@ -3004,9 +3644,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 40 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20929210,
+  "note": "gaussian sigma=0.05 A on 40 movable atoms, seed 1",
+  "node": "a425",
+  "started_at": "2026-09-27 20:17",
+  "launcher": "farm",
+  "result": "N_e=792.204157 mu_e=-4.706645",
+  "elapsed_farm_min": 49.5
  },
  {
   "task_id": "Step-8x2__pert05__mu-4.9071",
@@ -3021,9 +3666,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 40 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20928946,
+  "note": "gaussian sigma=0.05 A on 40 movable atoms, seed 1",
+  "node": "a400",
+  "started_at": "2026-09-27 20:18",
+  "launcher": "farm",
+  "result": "N_e=792.022684 mu_e=-4.907075",
+  "elapsed_farm_min": 48.3
  },
  {
   "task_id": "Step-8x2__pert05__mu-5.1071",
@@ -3038,9 +3688,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 40 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20928950,
+  "note": "gaussian sigma=0.05 A on 40 movable atoms, seed 1",
+  "node": "a330",
+  "started_at": "2026-09-27 20:19",
+  "launcher": "farm",
+  "result": "N_e=791.842408 mu_e=-5.107802",
+  "elapsed_farm_min": 44.3
  },
  {
   "task_id": "Step-8x2__pert10__mu-4.7071",
@@ -3055,9 +3710,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 40 movable atoms, seed 5"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.1 A on 40 movable atoms, seed 5",
+  "node": "a851",
+  "started_at": "2026-09-27 20:22",
+  "launcher": "farm",
+  "result": "N_e=792.232374 mu_e=-4.706177",
+  "elapsed_farm_min": 44.4
  },
  {
   "task_id": "Step-8x2__pert10__mu-4.9071",
@@ -3072,9 +3732,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 40 movable atoms, seed 5"
+  "status": "completed",
+  "job_id": 20928952,
+  "note": "gaussian sigma=0.1 A on 40 movable atoms, seed 5",
+  "node": "a492",
+  "started_at": "2026-09-27 20:29",
+  "launcher": "farm",
+  "result": "N_e=792.050890 mu_e=-4.907070",
+  "elapsed_farm_min": 44.3
  },
  {
   "task_id": "Step-8x2__pert10__mu-5.1071",
@@ -3089,9 +3754,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 40 movable atoms, seed 5"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.1 A on 40 movable atoms, seed 5",
+  "node": "a414",
+  "started_at": "2026-09-27 20:31",
+  "launcher": "farm",
+  "result": "N_e=791.870218 mu_e=-5.107366",
+  "elapsed_farm_min": 49.4
  },
  {
   "task_id": "Step-8x2__relaxed__mu-4.7071",
@@ -3106,9 +3776,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "completed",
+  "job_id": 20928320,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "b015",
+  "started_at": "2026-09-27 20:32",
+  "launcher": "farm",
+  "result": "N_e=792.214791 mu_e=-4.706509",
+  "elapsed_farm_min": 49.4
  },
  {
   "task_id": "Step-8x2__relaxed__mu-5.1071",
@@ -3122,6 +3797,351 @@
   "n_atoms": 72,
   "n_movable": 40,
   "kpoints": "2x6x1",
+  "priority": 25,
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a412",
+  "started_at": "2026-09-27 20:35",
+  "launcher": "farm",
+  "result": "N_e=791.854269 mu_e=-5.107009",
+  "elapsed_farm_min": 40.3
+ },
+ {
+  "task_id": "Kink-edge2__path_kinkmove1__mu-4.7071",
+  "structure_id": "Kink-edge2",
+  "family": "kink / edge rearrangement",
+  "tier": "main",
+  "config": "path_kinkmove1",
+  "mu": "-4.7071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Kink-edge2/path_kinkmove1__mu-4.7071",
+  "n_atoms": 109,
+  "n_movable": 61,
+  "kpoints": "2x4x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "kink atom translated one site along the edge (end point = equivalent kink; direction with the larger mid-image clearance); image 0.5, moving atom displaced 1.47 A; min d 2.27 A (path images accepted >= 2.2 A)"
+ },
+ {
+  "task_id": "Kink-edge2__path_kinkmove1__mu-5.1071",
+  "structure_id": "Kink-edge2",
+  "family": "kink / edge rearrangement",
+  "tier": "main",
+  "config": "path_kinkmove1",
+  "mu": "-5.1071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Kink-edge2/path_kinkmove1__mu-5.1071",
+  "n_atoms": 109,
+  "n_movable": 61,
+  "kpoints": "2x4x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "kink atom translated one site along the edge (end point = equivalent kink; direction with the larger mid-image clearance); image 0.5, moving atom displaced 1.47 A; min d 2.27 A (path images accepted >= 2.2 A)"
+ },
+ {
+  "task_id": "Kink-edge2__path_kinkmove2__mu-4.7071",
+  "structure_id": "Kink-edge2",
+  "family": "kink / edge rearrangement",
+  "tier": "main",
+  "config": "path_kinkmove2",
+  "mu": "-4.7071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Kink-edge2/path_kinkmove2__mu-4.7071",
+  "n_atoms": 109,
+  "n_movable": 61,
+  "kpoints": "2x4x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "kink atom translated one site along the edge (end point = equivalent kink; direction with the larger mid-image clearance); image 1.0, moving atom displaced 2.94 A; min d 2.56 A (path images accepted >= 2.2 A)"
+ },
+ {
+  "task_id": "Kink-edge2__path_kinkmove2__mu-5.1071",
+  "structure_id": "Kink-edge2",
+  "family": "kink / edge rearrangement",
+  "tier": "main",
+  "config": "path_kinkmove2",
+  "mu": "-5.1071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Kink-edge2/path_kinkmove2__mu-5.1071",
+  "n_atoms": 109,
+  "n_movable": 61,
+  "kpoints": "2x4x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "kink atom translated one site along the edge (end point = equivalent kink; direction with the larger mid-image clearance); image 1.0, moving atom displaced 2.94 A; min d 2.56 A (path images accepted >= 2.2 A)"
+ },
+ {
+  "task_id": "Kink-edge2__pert05__mu-4.7071",
+  "structure_id": "Kink-edge2",
+  "family": "kink / edge rearrangement",
+  "tier": "main",
+  "config": "pert05",
+  "mu": "-4.7071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Kink-edge2/pert05__mu-4.7071",
+  "n_atoms": 109,
+  "n_movable": 61,
+  "kpoints": "2x4x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "gaussian sigma=0.05 A on 61 movable atoms, seed 1"
+ },
+ {
+  "task_id": "Kink-edge2__pert05__mu-5.1071",
+  "structure_id": "Kink-edge2",
+  "family": "kink / edge rearrangement",
+  "tier": "main",
+  "config": "pert05",
+  "mu": "-5.1071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Kink-edge2/pert05__mu-5.1071",
+  "n_atoms": 109,
+  "n_movable": 61,
+  "kpoints": "2x4x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "gaussian sigma=0.05 A on 61 movable atoms, seed 1"
+ },
+ {
+  "task_id": "Kink-edge2__pert10__mu-4.7071",
+  "structure_id": "Kink-edge2",
+  "family": "kink / edge rearrangement",
+  "tier": "main",
+  "config": "pert10",
+  "mu": "-4.7071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Kink-edge2/pert10__mu-4.7071",
+  "n_atoms": 109,
+  "n_movable": 61,
+  "kpoints": "2x4x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "gaussian sigma=0.1 A on 61 movable atoms, seed 62, min d 2.62 A"
+ },
+ {
+  "task_id": "Kink-edge2__pert10__mu-5.1071",
+  "structure_id": "Kink-edge2",
+  "family": "kink / edge rearrangement",
+  "tier": "main",
+  "config": "pert10",
+  "mu": "-5.1071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Kink-edge2/pert10__mu-5.1071",
+  "n_atoms": 109,
+  "n_movable": 61,
+  "kpoints": "2x4x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "gaussian sigma=0.1 A on 61 movable atoms, seed 62, min d 2.62 A"
+ },
+ {
+  "task_id": "Kink-edge2__relaxed__mu-4.7071",
+  "structure_id": "Kink-edge2",
+  "family": "kink / edge rearrangement",
+  "tier": "main",
+  "config": "relaxed",
+  "mu": "-4.7071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Kink-edge2/relaxed__mu-4.7071",
+  "n_atoms": 109,
+  "n_movable": 61,
+  "kpoints": "2x4x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "single point on the relaxed geometry (CONTCAR)"
+ },
+ {
+  "task_id": "Kink-edge2__relaxed__mu-5.1071",
+  "structure_id": "Kink-edge2",
+  "family": "kink / edge rearrangement",
+  "tier": "main",
+  "config": "relaxed",
+  "mu": "-5.1071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Kink-edge2/relaxed__mu-5.1071",
+  "n_atoms": 109,
+  "n_movable": 61,
+  "kpoints": "2x4x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "single point on the relaxed geometry (CONTCAR)"
+ },
+ {
+  "task_id": "Pit-7-compact__path_rimin1__mu-4.7071",
+  "structure_id": "Pit-7-compact",
+  "family": "single-layer pit",
+  "tier": "main",
+  "config": "path_rimin1",
+  "mu": "-4.7071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/path_rimin1__mu-4.7071",
+  "n_atoms": 137,
+  "n_movable": 65,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "pit rim atom moved into an adjacent vacancy site (pair with the largest mid-image clearance); image 0.5, moving atom displaced 1.47 A; min d 2.38 A (path images accepted >= 2.2 A)"
+ },
+ {
+  "task_id": "Pit-7-compact__path_rimin1__mu-5.1071",
+  "structure_id": "Pit-7-compact",
+  "family": "single-layer pit",
+  "tier": "main",
+  "config": "path_rimin1",
+  "mu": "-5.1071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/path_rimin1__mu-5.1071",
+  "n_atoms": 137,
+  "n_movable": 65,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "pit rim atom moved into an adjacent vacancy site (pair with the largest mid-image clearance); image 0.5, moving atom displaced 1.47 A; min d 2.38 A (path images accepted >= 2.2 A)"
+ },
+ {
+  "task_id": "Pit-7-compact__path_rimin2__mu-4.7071",
+  "structure_id": "Pit-7-compact",
+  "family": "single-layer pit",
+  "tier": "main",
+  "config": "path_rimin2",
+  "mu": "-4.7071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/path_rimin2__mu-4.7071",
+  "n_atoms": 137,
+  "n_movable": 65,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "pit rim atom moved into an adjacent vacancy site (pair with the largest mid-image clearance); image 1.0, moving atom displaced 2.94 A; min d 2.71 A (path images accepted >= 2.2 A)"
+ },
+ {
+  "task_id": "Pit-7-compact__path_rimin2__mu-5.1071",
+  "structure_id": "Pit-7-compact",
+  "family": "single-layer pit",
+  "tier": "main",
+  "config": "path_rimin2",
+  "mu": "-5.1071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/path_rimin2__mu-5.1071",
+  "n_atoms": 137,
+  "n_movable": 65,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "pit rim atom moved into an adjacent vacancy site (pair with the largest mid-image clearance); image 1.0, moving atom displaced 2.94 A; min d 2.71 A (path images accepted >= 2.2 A)"
+ },
+ {
+  "task_id": "Pit-7-compact__pert05__mu-4.7071",
+  "structure_id": "Pit-7-compact",
+  "family": "single-layer pit",
+  "tier": "main",
+  "config": "pert05",
+  "mu": "-4.7071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/pert05__mu-4.7071",
+  "n_atoms": 137,
+  "n_movable": 65,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "gaussian sigma=0.05 A on 65 movable atoms, seed 1"
+ },
+ {
+  "task_id": "Pit-7-compact__pert05__mu-5.1071",
+  "structure_id": "Pit-7-compact",
+  "family": "single-layer pit",
+  "tier": "main",
+  "config": "pert05",
+  "mu": "-5.1071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/pert05__mu-5.1071",
+  "n_atoms": 137,
+  "n_movable": 65,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "gaussian sigma=0.05 A on 65 movable atoms, seed 1"
+ },
+ {
+  "task_id": "Pit-7-compact__pert10__mu-4.7071",
+  "structure_id": "Pit-7-compact",
+  "family": "single-layer pit",
+  "tier": "main",
+  "config": "pert10",
+  "mu": "-4.7071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/pert10__mu-4.7071",
+  "n_atoms": 137,
+  "n_movable": 65,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "gaussian sigma=0.1 A on 65 movable atoms, seed 5"
+ },
+ {
+  "task_id": "Pit-7-compact__pert10__mu-5.1071",
+  "structure_id": "Pit-7-compact",
+  "family": "single-layer pit",
+  "tier": "main",
+  "config": "pert10",
+  "mu": "-5.1071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/pert10__mu-5.1071",
+  "n_atoms": 137,
+  "n_movable": 65,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "gaussian sigma=0.1 A on 65 movable atoms, seed 5"
+ },
+ {
+  "task_id": "Pit-7-compact__relaxed__mu-4.7071",
+  "structure_id": "Pit-7-compact",
+  "family": "single-layer pit",
+  "tier": "main",
+  "config": "relaxed",
+  "mu": "-4.7071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/relaxed__mu-4.7071",
+  "n_atoms": 137,
+  "n_movable": 65,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "single point on the relaxed geometry (CONTCAR)"
+ },
+ {
+  "task_id": "Pit-7-compact__relaxed__mu-5.1071",
+  "structure_id": "Pit-7-compact",
+  "family": "single-layer pit",
+  "tier": "main",
+  "config": "relaxed",
+  "mu": "-5.1071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/relaxed__mu-5.1071",
+  "n_atoms": 137,
+  "n_movable": 65,
+  "kpoints": "2x2x1",
   "priority": 25,
   "status": "pending",
   "job_id": null,
@@ -3140,9 +4160,14 @@
   "n_movable": 11,
   "kpoints": "12x3x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929209,
+  "note": "",
+  "node": "a820",
+  "started_at": "2026-09-27 20:38",
+  "launcher": "farm",
+  "result": "N_e=231.065833 mu_e=-4.708380",
+  "elapsed_farm_min": 9.1
  },
  {
   "task_id": "Au332__ideal__mu-4.9071",
@@ -3157,9 +4182,14 @@
   "n_movable": 11,
   "kpoints": "12x3x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20928319,
+  "note": "",
+  "node": "b007",
+  "started_at": "2026-09-27 20:43",
+  "launcher": "farm",
+  "result": "N_e=231.005019 mu_e=-4.907295",
+  "elapsed_farm_min": 8.0
  },
  {
   "task_id": "Au332__ideal__mu-5.1071",
@@ -3174,9 +4204,14 @@
   "n_movable": 11,
   "kpoints": "12x3x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929209,
+  "note": "",
+  "node": "a820",
+  "started_at": "2026-09-27 20:47",
+  "launcher": "farm",
+  "result": "N_e=230.945181 mu_e=-5.105261",
+  "elapsed_farm_min": 9.1
  },
  {
   "task_id": "Au554__ideal__mu-4.7071",
@@ -3191,9 +4226,14 @@
   "n_movable": 19,
   "kpoints": "12x2x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929208,
+  "note": "",
+  "node": "a559",
+  "started_at": "2026-09-27 20:50",
+  "launcher": "farm",
+  "result": "N_e=396.137140 mu_e=-4.706638",
+  "elapsed_farm_min": 21.2
  },
  {
   "task_id": "Au554__ideal__mu-4.9071",
@@ -3208,9 +4248,14 @@
   "n_movable": 19,
   "kpoints": "12x2x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "",
+  "node": "a292",
+  "started_at": "2026-09-27 20:51",
+  "launcher": "farm",
+  "result": "N_e=396.033848 mu_e=-4.906731",
+  "elapsed_farm_min": 21.1
  },
  {
   "task_id": "Au554__ideal__mu-5.1071",
@@ -3225,9 +4270,14 @@
   "n_movable": 19,
   "kpoints": "12x2x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20928319,
+  "note": "",
+  "node": "b007",
+  "started_at": "2026-09-27 20:51",
+  "launcher": "farm",
+  "result": "N_e=395.931708 mu_e=-5.106626",
+  "elapsed_farm_min": 18.2
  },
  {
   "task_id": "Step-8x1__ideal__mu-4.7071",
@@ -3242,9 +4292,14 @@
   "n_movable": 20,
   "kpoints": "2x12x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20928948,
+  "note": "",
+  "node": "a835",
+  "started_at": "2026-09-27 20:55",
+  "launcher": "farm",
+  "result": "N_e=396.105968 mu_e=-4.706712",
+  "elapsed_farm_min": 21.2
  },
  {
   "task_id": "Step-8x1__ideal__mu-5.1071",
@@ -3259,9 +4314,14 @@
   "n_movable": 20,
   "kpoints": "2x12x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929207,
+  "note": "",
+  "node": "a850",
+  "started_at": "2026-09-27 20:56",
+  "launcher": "farm",
+  "result": "N_e=395.922918 mu_e=-5.106752",
+  "elapsed_farm_min": 18.2
  },
  {
   "task_id": "V3__ideal__mu-4.7071",
@@ -3276,9 +4336,14 @@
   "n_movable": 29,
   "kpoints": "3x3x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929209,
+  "note": "",
+  "node": "a820",
+  "started_at": "2026-09-27 20:56",
+  "launcher": "farm",
+  "result": "N_e=671.189723 mu_e=-4.706995",
+  "elapsed_farm_min": 25.3
  },
  {
   "task_id": "V3__ideal__mu-4.9071",
@@ -3293,9 +4358,14 @@
   "n_movable": 29,
   "kpoints": "3x3x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "",
+  "node": "a282",
+  "started_at": "2026-09-27 21:01",
+  "launcher": "farm",
+  "result": "N_e=671.009324 mu_e=-4.907021",
+  "elapsed_farm_min": 25.2
  },
  {
   "task_id": "V3__ideal__mu-5.1071",
@@ -3310,9 +4380,14 @@
   "n_movable": 29,
   "kpoints": "3x3x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20928950,
+  "note": "",
+  "node": "a330",
+  "started_at": "2026-09-27 21:03",
+  "launcher": "farm",
+  "result": "N_e=670.830144 mu_e=-5.107724",
+  "elapsed_farm_min": 26.3
  },
  {
   "task_id": "V2__ideal__mu-4.7071",
@@ -3327,9 +4402,14 @@
   "n_movable": 30,
   "kpoints": "3x3x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20928946,
+  "note": "",
+  "node": "a400",
+  "started_at": "2026-09-27 21:06",
+  "launcher": "farm",
+  "result": "N_e=682.181366 mu_e=-4.707591",
+  "elapsed_farm_min": 26.1
  },
  {
   "task_id": "V2__ideal__mu-4.9071",
@@ -3344,9 +4424,14 @@
   "n_movable": 30,
   "kpoints": "3x3x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929210,
+  "note": "",
+  "node": "a425",
+  "started_at": "2026-09-27 21:07",
+  "launcher": "farm",
+  "result": "N_e=682.000000 mu_e=-4.914763",
+  "elapsed_farm_min": 9.1
  },
  {
   "task_id": "V2__ideal__mu-5.1071",
@@ -3361,9 +4446,14 @@
   "n_movable": 30,
   "kpoints": "3x3x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "",
+  "node": "a851",
+  "started_at": "2026-09-27 21:07",
+  "launcher": "farm",
+  "result": "N_e=681.833458 mu_e=-5.107883",
+  "elapsed_farm_min": 30.2
  },
  {
   "task_id": "Flat-16x1__ideal__mu-4.7071",
@@ -3378,9 +4468,14 @@
   "n_movable": 32,
   "kpoints": "1x12x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20928319,
+  "note": "",
+  "node": "b007",
+  "started_at": "2026-09-27 21:09",
+  "launcher": "farm",
+  "result": "N_e=704.231823 mu_e=-4.708337",
+  "elapsed_farm_min": 40.3
  },
  {
   "task_id": "Flat-8x2__ideal__mu-4.7071",
@@ -3395,9 +4490,14 @@
   "n_movable": 32,
   "kpoints": "2x6x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929208,
+  "note": "",
+  "node": "a559",
+  "started_at": "2026-09-27 21:12",
+  "launcher": "farm",
+  "result": "N_e=704.231758 mu_e=-4.708333",
+  "elapsed_farm_min": 43.3
  },
  {
   "task_id": "Flat-8x2__ideal__mu-4.9071",
@@ -3412,9 +4512,14 @@
   "n_movable": 32,
   "kpoints": "2x6x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "",
+  "node": "a292",
+  "started_at": "2026-09-27 21:12",
+  "launcher": "farm",
+  "result": "N_e=704.061755 mu_e=-4.906875",
+  "elapsed_farm_min": 41.3
  },
  {
   "task_id": "Flat-8x2__ideal__mu-5.1071",
@@ -3429,9 +4534,14 @@
   "n_movable": 32,
   "kpoints": "2x6x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20928952,
+  "note": "",
+  "node": "a492",
+  "started_at": "2026-09-27 21:13",
+  "launcher": "farm",
+  "result": "N_e=703.900000 mu_e=-5.099246",
+  "elapsed_farm_min": 31.1
  },
  {
   "task_id": "A3__ideal__mu-4.7071",
@@ -3446,9 +4556,14 @@
   "n_movable": 35,
   "kpoints": "3x3x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929207,
+  "note": "",
+  "node": "a850",
+  "started_at": "2026-09-27 21:14",
+  "launcher": "farm",
+  "result": "N_e=737.100000 mu_e=-4.715327",
+  "elapsed_farm_min": 23.2
  },
  {
   "task_id": "A3__ideal__mu-4.9071",
@@ -3463,9 +4578,14 @@
   "n_movable": 35,
   "kpoints": "3x3x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929210,
+  "note": "",
+  "node": "a425",
+  "started_at": "2026-09-27 21:16",
+  "launcher": "farm",
+  "result": "N_e=736.915605 mu_e=-4.907058",
+  "elapsed_farm_min": 26.3
  },
  {
   "task_id": "A3__ideal__mu-5.1071",
@@ -3480,9 +4600,14 @@
   "n_movable": 35,
   "kpoints": "3x3x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "",
+  "node": "a412",
+  "started_at": "2026-09-27 21:16",
+  "launcher": "farm",
+  "result": "N_e=736.723529 mu_e=-5.109106",
+  "elapsed_farm_min": 29.2
  },
  {
   "task_id": "Step-16x1__ideal__mu-4.7071",
@@ -3497,9 +4622,14 @@
   "n_movable": 40,
   "kpoints": "1x12x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "",
+  "node": "a414",
+  "started_at": "2026-09-27 21:21",
+  "launcher": "farm",
+  "result": "N_e=792.215436 mu_e=-4.707248",
+  "elapsed_farm_min": 48.4
  },
  {
   "task_id": "Step-8x2_edge-vacancy_plus_foot-adatom__ideal__mu-4.7071",
@@ -3514,9 +4644,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20928320,
+  "note": "",
+  "node": "b015",
+  "started_at": "2026-09-27 21:22",
+  "launcher": "farm",
+  "result": "N_e=792.165215 mu_e=-4.706693",
+  "elapsed_farm_min": 48.4
  },
  {
   "task_id": "Step-8x2_edge-vacancy_plus_foot-adatom__ideal__mu-4.9071",
@@ -3531,9 +4666,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "",
+  "node": "a282",
+  "started_at": "2026-09-27 21:26",
+  "launcher": "farm",
+  "result": "N_e=791.978003 mu_e=-4.907079",
+  "elapsed_farm_min": 45.4
  },
  {
   "task_id": "Step-8x2_edge-vacancy_plus_foot-adatom__ideal__mu-5.1071",
@@ -3548,9 +4688,14 @@
   "n_movable": 40,
   "kpoints": "2x6x1",
   "priority": 30,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "",
+  "node": "a851",
+  "started_at": "2026-09-27 21:37",
+  "launcher": "farm",
+  "result": "N_e=791.791095 mu_e=-5.108241",
+  "elapsed_farm_min": 46.4
  },
  {
   "task_id": "Kink-edge1__relax__mu-4.9071",
@@ -3565,9 +4710,12 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 40,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "running",
+  "job_id": 20929396,
+  "note": "",
+  "node": "a412",
+  "started_at": "2026-09-27 21:45",
+  "launcher": "farm"
  },
  {
   "task_id": "Kink-edge2__relax__mu-4.9071",
@@ -3582,9 +4730,14 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 40,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20928319,
+  "note": "",
+  "node": "b007",
+  "started_at": "2026-09-27 21:50",
+  "launcher": "farm",
+  "result": "relaxed: 36 ionic steps, final N_e=1199.035731 mu_e=-4.907161",
+  "elapsed_farm_min": 395.8
  },
  {
   "task_id": "Pit-7-compact__relax__mu-4.9071",
@@ -3599,9 +4752,14 @@
   "n_movable": 65,
   "kpoints": "2x2x1",
   "priority": 40,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "",
+  "node": "a292",
+  "started_at": "2026-09-27 21:53",
+  "launcher": "farm",
+  "result": "relaxed: 15 ionic steps, final N_e=1506.965684 mu_e=-4.907013",
+  "elapsed_farm_min": 302.7
  },
  {
   "task_id": "Pit-7-trench__relax__mu-4.9071",
@@ -3616,9 +4774,12 @@
   "n_movable": 65,
   "kpoints": "2x2x1",
   "priority": 40,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "running",
+  "job_id": 20929396,
+  "note": "",
+  "node": "a414",
+  "started_at": "2026-09-27 22:09",
+  "launcher": "farm"
  },
  {
   "task_id": "Step-16x2__relax__mu-4.9071",
@@ -3633,9 +4794,12 @@
   "n_movable": 80,
   "kpoints": "1x6x1",
   "priority": 40,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "running",
+  "job_id": 20928320,
+  "note": "",
+  "node": "b015",
+  "started_at": "2026-09-27 22:10",
+  "launcher": "farm"
  },
  {
   "task_id": "Island-7-compact__relax__mu-4.9071",
@@ -3650,9 +4814,12 @@
   "n_movable": 79,
   "kpoints": "2x2x1",
   "priority": 40,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "running",
+  "job_id": 20929396,
+  "note": "",
+  "node": "a282",
+  "started_at": "2026-09-27 22:11",
+  "launcher": "farm"
  },
  {
   "task_id": "Island-7-elongated__relax__mu-4.9071",
@@ -3667,9 +4834,12 @@
   "n_movable": 79,
   "kpoints": "2x2x1",
   "priority": 40,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "running",
+  "job_id": 20929396,
+  "note": "",
+  "node": "a851",
+  "started_at": "2026-09-27 22:23",
+  "launcher": "farm"
  },
  {
   "task_id": "Kink-edge1__ideal__mu-4.7071",
@@ -3684,9 +4854,14 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 50,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "",
+  "node": "a292",
+  "started_at": "2026-09-28 02:56",
+  "launcher": "farm",
+  "result": "N_e=1199.305194 mu_e=-4.706363",
+  "elapsed_farm_min": 86.8
  },
  {
   "task_id": "Kink-edge1__ideal__mu-4.9071",
@@ -3701,9 +4876,14 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 50,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "",
+  "node": "a292",
+  "started_at": "2026-09-28 04:22",
+  "launcher": "farm",
+  "result": "N_e=1199.027502 mu_e=-4.907084",
+  "elapsed_farm_min": 86.5
  },
  {
   "task_id": "Kink-edge1__ideal__mu-5.1071",
@@ -3718,9 +4898,14 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 50,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20928319,
+  "note": "",
+  "node": "b007",
+  "started_at": "2026-09-28 04:26",
+  "launcher": "farm",
+  "result": "N_e=1198.750496 mu_e=-5.108060",
+  "elapsed_farm_min": 88.5
  },
  {
   "task_id": "Kink-edge2__ideal__mu-4.7071",
@@ -3735,9 +4920,12 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 50,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "running",
+  "job_id": 20929396,
+  "note": "",
+  "node": "a292",
+  "started_at": "2026-09-28 05:49",
+  "launcher": "farm"
  },
  {
   "task_id": "Kink-edge2__ideal__mu-4.9071",
@@ -3752,9 +4940,14 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 50,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "completed",
+  "job_id": 20928319,
+  "note": "",
+  "node": "b007",
+  "started_at": "2026-09-28 05:54",
+  "launcher": "farm",
+  "result": "N_e=1199.000000 mu_e=-4.916724",
+  "elapsed_farm_min": 28.3
  },
  {
   "task_id": "Kink-edge2__ideal__mu-5.1071",
@@ -3769,9 +4962,12 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 50,
-  "status": "pending",
-  "job_id": null,
-  "note": ""
+  "status": "running",
+  "job_id": 20928319,
+  "note": "",
+  "node": "b007",
+  "started_at": "2026-09-28 06:22",
+  "launcher": "farm"
  },
  {
   "task_id": "Pit-7-compact__ideal__mu-4.7071",

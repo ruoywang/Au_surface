@@ -72,14 +72,23 @@ def main(sid, dry=False, contcar_override=None):
     # perturbations
     if row["n_perturb"] >= 1:
         for name, (seed, sigma) in list(SEEDS.items())[: row["n_perturb"]]:
-            for s in range(seed, seed + 20):
+            best = None
+            for s in range(seed, seed + 200):
                 rng = np.random.default_rng(s)
                 a = rel.copy(); p = pos0.copy()
                 p[movable] += rng.normal(0.0, sigma, size=(movable.sum(), 3))
-                a.set_positions(p)
-                if min_dist_xy_periodic(a) >= 2.6:
-                    children[name] = (a, f"gaussian sigma={sigma} A on {movable.sum()} movable atoms, seed {s}")
+                a.set_positions(p); md = min_dist_xy_periodic(a)
+                if best is None or md > best[0]: best = (md, s, a)
+                if md >= 2.6:
+                    children[name] = (a, f"gaussian sigma={sigma} A on {movable.sum()} movable atoms, seed {s}, min d {md:.2f} A")
                     break
+            else:
+                # relaxed parents with already-short contacts (kinks, islands) may not admit 2.6 A at sigma = 0.10 within 200 seeds:
+                # take the best seed if it clears 2.5 A and RECORD it; otherwise report loudly instead of dropping the configuration
+                if best[0] >= 2.5:
+                    children[name] = (best[2], f"gaussian sigma={sigma} A on {movable.sum()} movable atoms, seed {best[1]}, min d {best[0]:.2f} A (fallback: best of 200 seeds, 2.6 A not reachable)")
+                else:
+                    raise RuntimeError(f"{sid} {name}: no seed of 200 gives min distance >= 2.5 A (best {best[0]:.2f})")
     # collective
     if row["n_collective"] >= 1:
         a = rel.copy(); p = pos0.copy(); top = p[:, 2] > p[:, 2].max() - 0.3
@@ -114,35 +123,45 @@ def main(sid, dry=False, contcar_override=None):
         a = rel.copy(); p = pos0.copy(); p[ad, :2] += 0.5 * shift[:2]; a.set_positions(p)
         children["path_bridge"] = (a, f"adatom moved half-way ({0.5*np.linalg.norm(shift[:2]):.3f} A) toward the nearest hcp hollow (bridge site)")
     # --- Batch B path recipes (2 images each: 0.5 = bridge/midpoint, 1.0 = constructed end point, nothing relaxed) ---
-    def path_images(mover, target_xy, name, note):
+    PATH_MIN_D = 2.2          # path images are transition-like geometries on RELAXED parents (linear interpolation, no z-lift); 2.2 A accepted, value recorded
+    def path_clearance(mover, target_xy):
         d = np.zeros((len(rel), 3)); d[mover, :2] = mic(np.array([*target_xy, pos0[mover, 2]]) - pos0[mover], cell)[:2]
+        a = rel.copy(); a.set_positions(pos0 + 0.5 * d); return min_dist_xy_periodic(a), d
+    def path_images(mover, target_xy, name, note):
+        md05, d = path_clearance(mover, target_xy)
+        assert md05 >= PATH_MIN_D, f"{name}: mid-image min distance {md05:.2f} A < {PATH_MIN_D}"
         for k, f in enumerate((0.5, 1.0), start=1):
             a = rel.copy(); a.set_positions(pos0 + f * d); md = min_dist_xy_periodic(a)
-            assert md >= 2.4, f"{name}{k}: min distance {md:.2f} A"
-            children[f"{name}{k}"] = (a, f"{note}; image {f:.1f}, moving atom displaced {np.linalg.norm(f*d[mover]):.2f} A; min d {md:.2f} A")
-    def inplane_neighbors(k, zsel, cutoff=0.15):
-        return [m for m in zsel if m != k and abs(np.linalg.norm(mic(pos0[m] - pos0[k], cell)[:2]) - A0 / np.sqrt(2)) < cutoff]
+            children[f"{name}{k}"] = (a, f"{note}; image {f:.1f}, moving atom displaced {np.linalg.norm(f*d[mover]):.2f} A; min d {md:.2f} A (path images accepted >= {PATH_MIN_D} A)")
+    def inplane_neighbors(k, zsel, lo=2.4, hi=3.4):
+        """in-plane neighbours within [lo, hi] A -- relaxed geometries deviate from the ideal 2.94 A by up to ~0.3 A"""
+        return [m for m in zsel if m != k and lo <= np.linalg.norm(mic(pos0[m] - pos0[k], cell)[:2]) <= hi]
     if row["n_path"] >= 1 and sid.startswith("Kink-edge"):
         # kink atom = strip atom with only 2 in-plane strip neighbours; it moves one site along the edge (a2 direction)
         strip = np.where(pos0[:, 2] > pos0[:, 2].max() - 0.3)[0]
         cn = {k: len(inplane_neighbors(k, strip)) for k in strip}
-        kink = min(cn, key=cn.get); assert cn[kink] == 2, cn[kink]
+        kink = min(cn, key=cn.get); assert cn[kink] == 2, f"kink atom in-plane neighbours = {cn[kink]} (expected 2); counts {sorted(cn.values())}"
         ny = int(round(np.linalg.norm(cell[1]) / (A0 / np.sqrt(2)))); step_vec = cell[1][:2] / ny
-        path_images(kink, pos0[kink, :2] + step_vec, "path_kinkmove", "kink atom translated one site along the edge (end point = equivalent kink)")
+        # both directions along the edge are equivalent end points; take the one with the larger mid-image clearance
+        tgt = max((pos0[kink, :2] + sgn * step_vec for sgn in (1, -1)), key=lambda c: path_clearance(kink, c)[0])
+        path_images(kink, tgt, "path_kinkmove", "kink atom translated one site along the edge (end point = equivalent kink; direction with the larger mid-image clearance)")
     if row["n_path"] >= 1 and sid.startswith("Island-7"):
         # a ring atom (in-plane CN 3) moves to the empty hollow adjacent to it that is farthest from the island centre
         isl = np.where(pos0[:, 2] > pos0[:, 2].max() - 0.3)[0]
         centre = pos0[isl, :2].mean(axis=0)
         cn = {k: len(inplane_neighbors(k, isl)) for k in isl}
-        mover = min(cn, key=lambda k: (cn[k], np.linalg.norm(pos0[k, :2] - centre)))
-        # candidate hollows: the 6 in-plane NN positions of the mover (hexagonal), excluding occupied ones
         a1v, a2v = cell[0][:2], cell[1][:2]; ny = int(round(np.linalg.norm(a2v) / (A0 / np.sqrt(2)))); nx = int(round(np.linalg.norm(a1v) / (A0 / np.sqrt(2))))
         e1, e2 = a1v / nx, a2v / ny
-        cands = [pos0[mover, :2] + v for v in (e1, -e1, e2, -e2, e1 - e2, e2 - e1)]
-        occupied = pos0[isl, :2]
-        free = [c for c in cands if all(np.linalg.norm(mic(np.array([*c, 0]) - np.array([*o, 0]), cell)[:2]) > 1.0 for o in occupied)]
-        target = max(free, key=lambda c: np.linalg.norm(mic(np.array([*c, 0]) - np.array([*centre, 0]), cell)[:2]))
-        path_images(mover, target, "path_detach", "island ring atom moved to the adjacent empty hollow farthest from the island centre")
+        occupied = pos0[isl, :2]; best = None
+        for mover in sorted(isl, key=lambda k: cn[k]):            # outer atoms (fewest neighbours) first
+            if cn[mover] > 3: continue
+            for v in (e1, -e1, e2, -e2, e1 - e2, e2 - e1):
+                c = pos0[mover, :2] + v
+                if all(np.linalg.norm(mic(np.array([*c, 0]) - np.array([*o, 0]), cell)[:2]) > 1.0 for o in occupied):
+                    md05, _ = path_clearance(mover, c)
+                    if best is None or md05 > best[0]: best = (md05, mover, c)
+        assert best is not None, "no island edge atom with a free adjacent hollow"
+        path_images(best[1], best[2], "path_detach", "island edge atom moved to an adjacent empty hollow (pair with the largest mid-image clearance)")
     if row["n_path"] >= 1 and sid.startswith("Pit-7"):
         # a rim atom (top-layer atom next to a vacancy) moves into the adjacent vacancy site
         top = np.where(np.abs(pos0[:, 2] - pos0[:, 2].max()) < 0.3)[0]
@@ -153,10 +172,10 @@ def main(sid, dry=False, contcar_override=None):
             for v in (e1, -e1, e2, -e2, e1 - e2, e2 - e1):
                 c = pos0[k, :2] + v
                 if all(np.linalg.norm(mic(np.array([*c, 0]) - np.array([*pos0[m, :2], 0]), cell)[:2]) > 1.0 for m in top):
-                    best = (k, c); break
-            if best: break
+                    md05, _ = path_clearance(k, c)
+                    if best is None or md05 > best[0]: best = (md05, k, c)
         assert best is not None, "no rim atom with an adjacent vacancy found"
-        path_images(best[0], best[1], "path_rimin", "pit rim atom moved into the adjacent vacancy site")
+        path_images(best[1], best[2], "path_rimin", "pit rim atom moved into an adjacent vacancy site (pair with the largest mid-image clearance)")
     if row["n_path"] >= 1 and sid == "Step-8x2":
         end = read(f"{P.LIB}/Step-8x2_edge-vacancy_plus_foot-adatom.poscar")
         pe = end.get_positions(); pe[:, 2] += P.ZMIN - pe[:, 2].min()

@@ -448,7 +448,9 @@ def farm():
             save_queue(q)
             n_pending = len([x for x in q if x["status"] == "pending"])
         for sid in children_for:
-            subprocess.run([f"{ROOT}/scripts/pyrun.sh", f"{ROOT}/scripts/production_children.py", sid], check=False, timeout=900)
+            r = subprocess.run([f"{ROOT}/scripts/pyrun.sh", f"{ROOT}/scripts/production_children.py", sid], capture_output=True, text=True, timeout=900)
+            if r.returncode != 0:
+                log(f"[children-error] {sid}: rc={r.returncode} :: {(r.stderr.strip().splitlines() or ['no stderr'])[-1][:200]}")
         busy = any(r is not None for r in slots.values())
         if not busy and n_pending == 0:
             log(f"[farm {jobid}] queue drained -- exiting"); break
