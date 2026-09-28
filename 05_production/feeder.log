@@ -459,3 +459,26 @@
 2026-09-28 06:27:24 [children] Pit-7-compact: 4 derived configurations (pert05, pert10, path_rimin1, path_rimin2), 10 new single-point tasks queued
 2026-09-28 06:27:28 [children] Kink-edge2: 3 derived configurations (pert05, path_kinkmove1, path_kinkmove2), 8 new single-point tasks queued
 2026-09-28 06:28:23 [children] Kink-edge2: 4 derived configurations (pert05, pert10, path_kinkmove1, path_kinkmove2), 2 new single-point tasks queued
+2026-09-28 06:33:48 [completed] Pit-7-trench__relax__mu-4.9071 on a414 in 504.2 min :: relaxed: 34 ionic steps, final N_e=1506.985479 mu_e=-4.907166
+2026-09-28 06:33:48 [launch] Kink-edge2__path_kinkmove1__mu-4.7071 -> a414 (farm 20929396, expected ~111 min, 34.0 h left)
+2026-09-28 06:33:49 [children] Pit-7-trench: 2 derived configurations (pert05, pert10), 6 new single-point tasks queued
+2026-09-28 06:39:51 [completed] Kink-edge1__relax__mu-4.9071 on a412 in 534.4 min :: relaxed: 40 ionic steps, final N_e=1199.054733 mu_e=-4.907287
+2026-09-28 06:39:51 [launch] Kink-edge2__path_kinkmove1__mu-5.1071 -> a412 (farm 20929396, expected ~111 min, 33.9 h left)
+2026-09-28 06:45:27 [children] Kink-edge1: 4 derived configurations (pert05, pert10, path_kinkmove1, path_kinkmove2), 10 new single-point tasks queued
+2026-09-28 07:25:10 [completed] Kink-edge2__ideal__mu-4.7071 on a292 in 95.8 min :: N_e=1199.292306 mu_e=-4.706417
+2026-09-28 07:25:12 [launch] Kink-edge1__path_kinkmove1__mu-4.7071 -> a292 (farm 20929396, expected ~111 min, 33.2 h left)
+2026-09-28 07:44:23 [completed] Kink-edge2__ideal__mu-5.1071 on b007 in 81.6 min :: N_e=1198.735702 mu_e=-5.108340
+2026-09-28 07:44:23 [launch] Kink-edge1__path_kinkmove1__mu-5.1071 -> b007 (farm 20928319, expected ~111 min, 23.1 h left)
+2026-09-28 08:08:06 [completed] Kink-edge2__path_kinkmove1__mu-4.7071 on a414 in 94.3 min :: N_e=1199.272175 mu_e=-4.706443
+2026-09-28 08:08:08 [launch] Kink-edge1__path_kinkmove2__mu-4.7071 -> a414 (farm 20929396, expected ~111 min, 32.5 h left)
+2026-09-28 08:10:08 [completed] Kink-edge2__path_kinkmove1__mu-5.1071 on a412 in 90.3 min :: N_e=1198.729709 mu_e=-5.108368
+2026-09-28 08:10:08 [launch] Kink-edge1__path_kinkmove2__mu-5.1071 -> a412 (farm 20929396, expected ~111 min, 32.4 h left)
+2026-09-28 08:51:26 [completed] Kink-edge1__path_kinkmove1__mu-4.7071 on a292 in 86.2 min :: N_e=1199.325791 mu_e=-4.706430
+2026-09-28 08:51:26 [launch] Kink-edge1__pert05__mu-4.7071 -> a292 (farm 20929396, expected ~111 min, 31.8 h left)
+2026-09-28 09:11:32 [completed] Kink-edge1__path_kinkmove1__mu-5.1071 on b007 in 87.1 min :: N_e=1198.783639 mu_e=-5.107899
+2026-09-28 09:11:32 [launch] Kink-edge1__pert05__mu-5.1071 -> b007 (farm 20928319, expected ~111 min, 21.7 h left)
+2026-09-28 09:37:50 [completed] Island-7-elongated__relax__mu-4.9071 on a851 in 674.1 min :: relaxed: 32 ionic steps, final N_e=1660.912654 mu_e=-4.906959
+2026-09-28 09:37:50 [launch] Kink-edge1__pert10__mu-4.7071 -> a851 (farm 20929396, expected ~111 min, 31.0 h left)
+2026-09-28 09:37:51 [children] Island-7-elongated: 2 derived configurations (pert05, pert10), 6 new single-point tasks queued
+2026-09-28 09:38:51 [completed] Kink-edge1__path_kinkmove2__mu-5.1071 on a412 in 88.7 min :: N_e=1198.753531 mu_e=-5.108217
+2026-09-28 09:38:51 [launch] Kink-edge1__pert10__mu-5.1071 -> a412 (farm 20929396, expected ~111 min, 31.0 h left)

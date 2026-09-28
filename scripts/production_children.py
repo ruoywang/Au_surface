@@ -138,7 +138,7 @@ def main(sid, dry=False, contcar_override=None):
         return [m for m in zsel if m != k and lo <= np.linalg.norm(mic(pos0[m] - pos0[k], cell)[:2]) <= hi]
     if row["n_path"] >= 1 and sid.startswith("Kink-edge"):
         # kink atom = strip atom with only 2 in-plane strip neighbours; it moves one site along the edge (a2 direction)
-        strip = np.where(pos0[:, 2] > pos0[:, 2].max() - 0.3)[0]
+        strip = np.where(pos0[:, 2] > pos0[:, 2].max() - 0.8)[0]      # relaxed kink atoms sink by up to ~0.3 A: 0.8 A window (< d111/3)
         cn = {k: len(inplane_neighbors(k, strip)) for k in strip}
         kink = min(cn, key=cn.get); assert cn[kink] == 2, f"kink atom in-plane neighbours = {cn[kink]} (expected 2); counts {sorted(cn.values())}"
         ny = int(round(np.linalg.norm(cell[1]) / (A0 / np.sqrt(2)))); step_vec = cell[1][:2] / ny
@@ -147,7 +147,7 @@ def main(sid, dry=False, contcar_override=None):
         path_images(kink, tgt, "path_kinkmove", "kink atom translated one site along the edge (end point = equivalent kink; direction with the larger mid-image clearance)")
     if row["n_path"] >= 1 and sid.startswith("Island-7"):
         # a ring atom (in-plane CN 3) moves to the empty hollow adjacent to it that is farthest from the island centre
-        isl = np.where(pos0[:, 2] > pos0[:, 2].max() - 0.3)[0]
+        isl = np.where(pos0[:, 2] > pos0[:, 2].max() - 0.8)[0]
         centre = pos0[isl, :2].mean(axis=0)
         cn = {k: len(inplane_neighbors(k, isl)) for k in isl}
         a1v, a2v = cell[0][:2], cell[1][:2]; ny = int(round(np.linalg.norm(a2v) / (A0 / np.sqrt(2)))); nx = int(round(np.linalg.norm(a1v) / (A0 / np.sqrt(2))))
@@ -164,7 +164,7 @@ def main(sid, dry=False, contcar_override=None):
         path_images(best[1], best[2], "path_detach", "island edge atom moved to an adjacent empty hollow (pair with the largest mid-image clearance)")
     if row["n_path"] >= 1 and sid.startswith("Pit-7"):
         # a rim atom (top-layer atom next to a vacancy) moves into the adjacent vacancy site
-        top = np.where(np.abs(pos0[:, 2] - pos0[:, 2].max()) < 0.3)[0]
+        top = np.where(np.abs(pos0[:, 2] - pos0[:, 2].max()) < 0.8)[0]
         a1v, a2v = cell[0][:2], cell[1][:2]; ny = int(round(np.linalg.norm(a2v) / (A0 / np.sqrt(2)))); nx = int(round(np.linalg.norm(a1v) / (A0 / np.sqrt(2))))
         e1, e2 = a1v / nx, a2v / ny
         best = None
