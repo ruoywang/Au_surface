@@ -487,3 +487,36 @@
 2026-09-28 09:48:56 [completed] Step-16x2__relax__mu-4.9071 on b015 in 698.3 min :: relaxed: 45 ionic steps, final N_e=1584.098816 mu_e=-4.907092
 2026-09-28 09:48:56 [launch] Kink-edge1__relaxed__mu-5.1071 -> b015 (farm 20928320, expected ~111 min, 21.1 h left)
 2026-09-28 09:48:58 [children] Step-16x2: 2 derived configurations (pert05, pert10), 6 new single-point tasks queued
+2026-09-28 10:13:37 [farm 20934087] 5 nodes ['a428', 'a429', 'a631', 'a632', 'a660']; allocation ends 2026-09-30T10:13:23
+2026-09-28 10:13:37 [launch] Kink-edge2__path_kinkmove2__mu-4.7071 -> a428 (farm 20934087, expected ~111 min, 48.0 h left)
+2026-09-28 10:13:37 [launch] Kink-edge2__path_kinkmove2__mu-5.1071 -> a429 (farm 20934087, expected ~111 min, 48.0 h left)
+2026-09-28 10:13:37 [launch] Kink-edge2__pert05__mu-4.7071 -> a631 (farm 20934087, expected ~111 min, 48.0 h left)
+2026-09-28 10:13:37 [launch] Kink-edge2__pert05__mu-5.1071 -> a632 (farm 20934087, expected ~111 min, 48.0 h left)
+2026-09-28 10:13:37 [launch] Kink-edge2__pert10__mu-4.7071 -> a660 (farm 20934087, expected ~111 min, 48.0 h left)
+2026-09-28 10:24:07 [completed] Kink-edge1__pert05__mu-4.7071 on a292 in 92.7 min :: N_e=1199.317536 mu_e=-4.706617
+2026-09-28 10:24:07 [launch] Kink-edge2__pert10__mu-5.1071 -> a292 (farm 20929396, expected ~111 min, 30.2 h left)
+2026-09-28 10:37:07 [completed] Kink-edge1__pert05__mu-5.1071 on b007 in 85.6 min :: N_e=1198.775653 mu_e=-5.108036
+2026-09-28 10:37:07 [launch] Kink-edge2__relaxed__mu-4.7071 -> b007 (farm 20928319, expected ~111 min, 20.3 h left)
+2026-09-28 11:04:18 [completed] Kink-edge1__pert10__mu-5.1071 on a412 in 85.5 min :: N_e=1198.780554 mu_e=-5.107764
+2026-09-28 11:04:18 [launch] Kink-edge2__relaxed__mu-5.1071 -> a412 (farm 20929396, expected ~111 min, 29.5 h left)
+2026-09-28 11:10:19 [completed] Kink-edge1__pert10__mu-4.7071 on a851 in 92.5 min :: N_e=1199.320133 mu_e=-4.706410
+2026-09-28 11:10:20 [launch] Pit-7-compact__path_rimin1__mu-4.7071 -> a851 (farm 20929396, expected ~156 min, 29.4 h left)
+2026-09-28 11:11:20 [completed] Kink-edge1__relaxed__mu-4.7071 on a414 in 90.5 min :: N_e=1199.326221 mu_e=-4.706469
+2026-09-28 11:11:20 [launch] Pit-7-compact__path_rimin1__mu-5.1071 -> a414 (farm 20929396, expected ~156 min, 29.4 h left)
+2026-09-28 11:13:28 [completed] Kink-edge1__relaxed__mu-5.1071 on b015 in 84.5 min :: N_e=1198.784913 mu_e=-5.107891
+2026-09-28 11:13:28 [launch] Pit-7-compact__path_rimin2__mu-4.7071 -> b015 (farm 20928320, expected ~156 min, 19.7 h left)
+2026-09-28 11:38:13 [completed] Kink-edge2__path_kinkmove2__mu-4.7071 on a428 in 84.6 min :: N_e=1199.280766 mu_e=-4.706598
+2026-09-28 11:38:14 [launch] Pit-7-compact__path_rimin2__mu-5.1071 -> a428 (farm 20934087, expected ~156 min, 46.6 h left)
+2026-09-28 11:40:14 [completed] Kink-edge2__pert05__mu-5.1071 on a632 in 86.6 min :: N_e=1198.766357 mu_e=-5.108039
+2026-09-28 11:40:14 [launch] Pit-7-compact__pert05__mu-4.7071 -> a632 (farm 20934087, expected ~156 min, 46.6 h left)
+2026-09-28 11:44:15 [completed] Kink-edge2__pert05__mu-4.7071 on a631 in 90.6 min :: N_e=1199.310382 mu_e=-4.706613
+2026-09-28 11:44:15 [launch] Pit-7-compact__pert05__mu-5.1071 -> a631 (farm 20934087, expected ~156 min, 46.5 h left)
+2026-09-28 11:52:18 [completed] Kink-edge2__path_kinkmove2__mu-5.1071 on a429 in 98.7 min :: N_e=1198.735721 mu_e=-5.108391
+2026-09-28 11:52:18 [launch] Pit-7-compact__pert10__mu-4.7071 -> a429 (farm 20934087, expected ~156 min, 46.4 h left)
+2026-09-28 11:54:19 [completed] Kink-edge2__pert10__mu-4.7071 on a660 in 100.7 min :: N_e=1199.326268 mu_e=-4.706154
+2026-09-28 11:54:19 [launch] Pit-7-compact__pert10__mu-5.1071 -> a660 (farm 20934087, expected ~156 min, 46.3 h left)
+2026-09-28 11:57:40 [completed] Kink-edge2__pert10__mu-5.1071 on a292 in 93.5 min :: N_e=1198.786891 mu_e=-5.107830
+2026-09-28 11:57:40 [launch] Pit-7-compact__relaxed__mu-4.7071 -> a292 (farm 20929396, expected ~156 min, 28.6 h left)
+2026-09-28 12:03:42 [completed] Island-7-compact__relax__mu-4.9071 on a282 in 832.0 min :: relaxed: 37 ionic steps, final N_e=1660.933118 mu_e=-4.907064
+2026-09-28 12:03:44 [launch] Pit-7-compact__relaxed__mu-5.1071 -> a282 (farm 20929396, expected ~156 min, 28.5 h left)
+2026-09-28 12:03:46 [children] Island-7-compact: 4 derived configurations (pert05, pert10, path_detach1, path_detach2), 10 new single-point tasks queued

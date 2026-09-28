@@ -12,17 +12,17 @@ Sampling rule (frozen):
 Cost model c(N) [min per static CP single point, 1 highmem node = 16 MPI x 8 OpenMP, production config]:
   c(N) = 0.55 * N * max(1, N/72)**0.5   fitted to measured 36 -> 17.9 min, 64 -> 27-39 min, 72 -> 40-43 min;
   growth beyond 72 atoms is an assumption (untested above 72 atoms in this configuration).
-Relaxation cost = f_relax * c(N) with f_relax in {3.3 (measured mean), 5 (WORKING BUDGET), 7.5 (measured max)},
-  recalibrated 2026-09-27 from the nine Batch-A relaxations (the a-priori 6/10/15 assumption is retired).
+Relaxation cost = f_relax * c(N) with f_relax in {4.3 (measured mean), 5.5 (WORKING BUDGET), 7.5 (measured max)},
+  recalibrated 2026-09-28 from all sixteen relaxations (the a-priori 6/10/15 assumption is retired).
 
 Usage (from Au_Cl/):  scripts/pyrun.sh scripts/build_dataset_plan.py
 """
 import csv
 
-# Measured on the 9 Batch-A relaxations (2026-09-27, 28-72 atoms, EDIFFG=-0.02, 3-57 ionic steps):
-# 2.2, 2.4, 2.7, 1.0, 1.3, 3.9, 3.7, 7.3, 5.4 x the single-point time -> mean 3.3x, max 7.3x.
-F_RELAX = {"3.3x (measured mean)": 3.3, "5x (working budget)": 5.0, "7.5x (measured max)": 7.5}
-F_WORK = 5.0
+# Measured on ALL 16 relaxations (2026-09-27/28, 28-151 atoms, EDIFFG=-0.02, 3-57 ionic steps), wall / model single point:
+# Batch A: 2.2, 2.4, 2.7, 1.0, 1.3, 3.9, 3.7, 7.3, 5.4;  Batch B: 2.9, 5.4, 4.9, 7.2, 5.6, 6.2, 6.9  -> mean 4.3x, median 4.4x, max 7.3x.
+F_RELAX = {"4.3x (measured mean, n=16)": 4.3, "5.5.5x (working budget)": 5.5, "7.5x (measured max)": 7.5}
+F_WORK = 5.5
 MU_ENDPOINTS = ["-5.1071", "-4.7071"]
 
 
@@ -66,7 +66,7 @@ L += ["# Complete Au surface dataset — computation plan v1 (rev 2, 2026-09-27)
       "Generated from `dataset_plan_v1.csv` by `scripts/build_dataset_plan.py`; edit the CSV, not this file. Scope and sampling "
       "weights are frozen here once; execution is batched by cluster limits afterwards. No DFT is submitted by this document. "
       "Rev 2 applies the user's decisions of 2026-09-27: nine families kept, two-scale lean sampling, relaxation cost shown at "
-      "3.3/5/7.5 single points (measured mean / working budget / measured max, recalibrated from the nine Batch-A relaxations; the a-priori 6/10/15 assumption is retired), and four definition fixes (vicinal faces rebuilt from the correct "
+      "4.3/5.5/7.5 single points (measured mean / working budget / measured max, recalibrated from all sixteen relaxations; the a-priori 6/10/15 assumption is retired), and four definition fixes (vicinal faces rebuilt from the correct "
       "basis, atom-conserving step path, R1/R2 registry and layer count, kink/C1 naming and periodicity).", "",
       "## 1. Scope", "",
       "**Included families** (each with main sampling and a few references, all in one table): flat Au(111); point defects / minimal "
@@ -103,15 +103,15 @@ for fam in fam_order:
                  f"{r['cost_sp_h']:.1f} | {r['purpose']} |")
 
 L += ["", "## 4. Totals and budget", "",
-      "| | structures | configs | target states | reusable | new DFT single points | relaxations | single-point cost (node·h) | + relax 3.3× (measured mean) | + relax **5× (working)** | + relax 7.5× (measured max) |",
+      "| | structures | configs | target states | reusable | new DFT single points | relaxations | single-point cost (node·h) | + relax 4.3× (measured mean, n=16) | + relax **5.5× (working)** | + relax 7.5× (measured max) |",
       "|---|---|---|---|---|---|---|---|---|---|---|"]
 for name, sel in (("main", lambda r: r["tier"] == "main"), ("reference", lambda r: r["tier"] == "reference"), ("**all**", lambda r: True)):
     sp = tot("cost_sp_h", sel)
     L.append(f"| {name} | {sum(1 for r in rows if sel(r))} | {tot('n_configs', sel)} | {tot('n_states_target', sel)} | {tot('n_reusable_states', sel)} | "
-             f"{tot('n_new_dft', sel)} | {tot('n_relax', sel)} | {sp:.0f} | {sp + tot_relax('3.3x (measured mean)', sel):.0f} | "
-             f"**{sp + tot_relax('5x (working budget)', sel):.0f}** | {sp + tot_relax('7.5x (measured max)', sel):.0f} |")
+             f"{tot('n_new_dft', sel)} | {tot('n_relax', sel)} | {sp:.0f} | {sp + tot_relax('4.3x (measured mean, n=16)', sel):.0f} | "
+             f"**{sp + tot_relax('5.5x (working budget)', sel):.0f}** | {sp + tot_relax('7.5x (measured max)', sel):.0f} |")
 W = tot("cost_work_h")
-L += ["", "Per family (working budget, relaxation at 5×):", "", "| family | structures | new DFT single points | relaxations | cost (node·h) | share |", "|---|---|---|---|---|---|"]
+L += ["", "Per family (working budget, relaxation at 5.5×):", "", "| family | structures | new DFT single points | relaxations | cost (node·h) | share |", "|---|---|---|---|---|---|"]
 for fam in fam_order:
     sel = lambda r, f=fam: r["family"] == f
     L.append(f"| {fam} | {sum(1 for r in rows if sel(r))} | {tot('n_new_dft', sel)} | {tot('n_relax', sel)} | {tot('cost_work_h', sel):.0f} | {tot('cost_work_h', sel)/W*100:.0f} % |")
@@ -119,9 +119,9 @@ big = lambda r: r["n_atoms"] > 200
 L += ["", f"The four > 200-atom references (Island-19-8x8, Island-7-8x8, Pit-19-8x8, Pit-7-8x8) cost {tot('cost_work_h', big):.0f} node·h "
       f"({tot('cost_work_h', big)/W*100:.0f} % of the working budget) for {tot('n_new_dft', big)} states; they are kept, without perturbations or paths.", "",
       "**Reading the numbers.** Node·h are highmem node-hours (16 MPI × 8 OpenMP per node). The single-point cost model is fitted on 36–72-atom "
-      "runs only; its N^1.5 growth for 108–275 atoms and the relaxation factor are assumptions — the 5× column is the working budget, 3.3× and 7.5× "
-      "are the measured mean and maximum over the nine Batch-A relaxations, none is an upper bound (failed/re-started runs are not included). Highmem is billed at 4 SU per "
-      f"core-hour of *requested* resources (audit §F): working budget ≈ {W*128*4/1000:.0f} k SU, range {(tot('cost_sp_h')+tot_relax('3.3x (measured mean)'))*128*4/1000:.0f}–"
+      "runs only; its N^1.5 growth for 108–275 atoms and the relaxation factor are assumptions — the 5.5× column is the working budget, 4.3× and 7.5× "
+      "are the measured mean and maximum over all sixteen relaxations, none is an upper bound (failed/re-started runs are not included). Highmem is billed at 4 SU per "
+      f"core-hour of *requested* resources (audit §F): working budget ≈ {W*128*4/1000:.0f} k SU, range {(tot('cost_sp_h')+tot_relax('4.3x (measured mean, n=16)'))*128*4/1000:.0f}–"
       f"{(tot('cost_sp_h')+tot_relax('7.5x (measured max)'))*128*4/1000:.0f} k SU. With the 2-concurrent-job limit the *ideal full-load* time is node·h/48 days "
       f"(≈ {W/48:.0f} days at the working budget) — before queueing, dependencies (relax → perturb) and re-runs; it is not a completion promise. "
       "Warm-starting perturbed configurations from the parent CHGCAR is not assumed anywhere (not measured).", "",
@@ -158,7 +158,7 @@ open("dataset_plan_v1.md", "w").write("\n".join(L))
 print(f"rows={len(rows)}  main={sum(1 for r in rows if r['tier']=='main')}  reference={sum(1 for r in rows if r['tier']=='reference')}")
 print(f"configs={tot('n_configs')}  target states={tot('n_states_target')}  reusable={tot('n_reusable_states')}  new DFT single points={tot('n_new_dft')}  relaxations={tot('n_relax')}")
 sp = tot("cost_sp_h")
-print(f"single points {sp:.0f} node-h; +relax 3.3x {sp+tot_relax('3.3x (measured mean)'):.0f}; 5x (working) {sp+tot_relax('5x (working budget)'):.0f}; 7.5x {sp+tot_relax('7.5x (measured max)'):.0f}")
+print(f"single points {sp:.0f} node-h; +relax 4.3x {sp+tot_relax('4.3x (measured mean, n=16)'):.0f}; 5.5x (working) {sp+tot_relax('5.5x (working budget)'):.0f}; 7.5x {sp+tot_relax('7.5x (measured max)'):.0f}")
 for fam in fam_order:
     sel = lambda r, f=fam: r["family"] == f
     print(f"  {fam:28s} new={tot('n_new_dft', sel):4d}  relax={tot('n_relax', sel)}  work={tot('cost_work_h', sel):6.0f} h")

@@ -285,6 +285,21 @@
   "note": "final ionic step of the accepted relaxation (forces/grids of the final geometry)"
  },
  {
+  "task_id": "Island-7-compact__relaxed__mu-4.9071",
+  "structure_id": "Island-7-compact",
+  "family": "single-layer island",
+  "tier": "main",
+  "config": "relaxed",
+  "mu": "-4.9071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/relax__mu-4.9071",
+  "n_atoms": 151,
+  "priority": 0,
+  "status": "reused",
+  "job_id": null,
+  "note": "final ionic step of the accepted relaxation (forces/grids of the final geometry)"
+ },
+ {
   "task_id": "Island-7-elongated__relaxed__mu-4.9071",
   "structure_id": "Island-7-elongated",
   "family": "single-layer island",
@@ -3968,12 +3983,14 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 25,
-  "status": "running",
+  "status": "completed",
   "job_id": 20929396,
   "note": "gaussian sigma=0.05 A on 61 movable atoms, seed 1, min d 2.64 A",
   "node": "a292",
   "started_at": "2026-09-28 08:51",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=1199.317536 mu_e=-4.706617",
+  "elapsed_farm_min": 92.7
  },
  {
   "task_id": "Kink-edge1__pert05__mu-5.1071",
@@ -3988,12 +4005,14 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 25,
-  "status": "running",
+  "status": "completed",
   "job_id": 20928319,
   "note": "gaussian sigma=0.05 A on 61 movable atoms, seed 1, min d 2.64 A",
   "node": "b007",
   "started_at": "2026-09-28 09:11",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=1198.775653 mu_e=-5.108036",
+  "elapsed_farm_min": 85.6
  },
  {
   "task_id": "Kink-edge1__pert10__mu-4.7071",
@@ -4008,12 +4027,14 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 25,
-  "status": "running",
+  "status": "completed",
   "job_id": 20929396,
   "note": "gaussian sigma=0.1 A on 61 movable atoms, seed 4, min d 2.62 A",
   "node": "a851",
   "started_at": "2026-09-28 09:37",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=1199.320133 mu_e=-4.706410",
+  "elapsed_farm_min": 92.5
  },
  {
   "task_id": "Kink-edge1__pert10__mu-5.1071",
@@ -4028,12 +4049,14 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 25,
-  "status": "running",
+  "status": "completed",
   "job_id": 20929396,
   "note": "gaussian sigma=0.1 A on 61 movable atoms, seed 4, min d 2.62 A",
   "node": "a412",
   "started_at": "2026-09-28 09:38",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=1198.780554 mu_e=-5.107764",
+  "elapsed_farm_min": 85.5
  },
  {
   "task_id": "Kink-edge1__relaxed__mu-4.7071",
@@ -4048,12 +4071,14 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 25,
-  "status": "running",
+  "status": "completed",
   "job_id": 20929396,
   "note": "single point on the relaxed geometry (CONTCAR)",
   "node": "a414",
   "started_at": "2026-09-28 09:40",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=1199.326221 mu_e=-4.706469",
+  "elapsed_farm_min": 90.5
  },
  {
   "task_id": "Kink-edge1__relaxed__mu-5.1071",
@@ -4068,12 +4093,14 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 25,
-  "status": "running",
+  "status": "completed",
   "job_id": 20928320,
   "note": "single point on the relaxed geometry (CONTCAR)",
   "node": "b015",
   "started_at": "2026-09-28 09:48",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "N_e=1198.784913 mu_e=-5.107891",
+  "elapsed_farm_min": 84.5
  },
  {
   "task_id": "Kink-edge2__path_kinkmove1__mu-4.7071",
@@ -4132,9 +4159,14 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "kink atom translated one site along the edge (end point = equivalent kink; direction with the larger mid-image clearance); image 1.0, moving atom displaced 2.94 A; min d 2.56 A (path images accepted >= 2.2 A)"
+  "status": "completed",
+  "job_id": 20934087,
+  "note": "kink atom translated one site along the edge (end point = equivalent kink; direction with the larger mid-image clearance); image 1.0, moving atom displaced 2.94 A; min d 2.56 A (path images accepted >= 2.2 A)",
+  "node": "a428",
+  "started_at": "2026-09-28 10:13",
+  "launcher": "farm",
+  "result": "N_e=1199.280766 mu_e=-4.706598",
+  "elapsed_farm_min": 84.6
  },
  {
   "task_id": "Kink-edge2__path_kinkmove2__mu-5.1071",
@@ -4149,9 +4181,14 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "kink atom translated one site along the edge (end point = equivalent kink; direction with the larger mid-image clearance); image 1.0, moving atom displaced 2.94 A; min d 2.56 A (path images accepted >= 2.2 A)"
+  "status": "completed",
+  "job_id": 20934087,
+  "note": "kink atom translated one site along the edge (end point = equivalent kink; direction with the larger mid-image clearance); image 1.0, moving atom displaced 2.94 A; min d 2.56 A (path images accepted >= 2.2 A)",
+  "node": "a429",
+  "started_at": "2026-09-28 10:13",
+  "launcher": "farm",
+  "result": "N_e=1198.735721 mu_e=-5.108391",
+  "elapsed_farm_min": 98.7
  },
  {
   "task_id": "Kink-edge2__pert05__mu-4.7071",
@@ -4166,9 +4203,14 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 61 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20934087,
+  "note": "gaussian sigma=0.05 A on 61 movable atoms, seed 1",
+  "node": "a631",
+  "started_at": "2026-09-28 10:13",
+  "launcher": "farm",
+  "result": "N_e=1199.310382 mu_e=-4.706613",
+  "elapsed_farm_min": 90.6
  },
  {
   "task_id": "Kink-edge2__pert05__mu-5.1071",
@@ -4183,9 +4225,14 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 61 movable atoms, seed 1"
+  "status": "completed",
+  "job_id": 20934087,
+  "note": "gaussian sigma=0.05 A on 61 movable atoms, seed 1",
+  "node": "a632",
+  "started_at": "2026-09-28 10:13",
+  "launcher": "farm",
+  "result": "N_e=1198.766357 mu_e=-5.108039",
+  "elapsed_farm_min": 86.6
  },
  {
   "task_id": "Kink-edge2__pert10__mu-4.7071",
@@ -4200,9 +4247,14 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 61 movable atoms, seed 62, min d 2.62 A"
+  "status": "completed",
+  "job_id": 20934087,
+  "note": "gaussian sigma=0.1 A on 61 movable atoms, seed 62, min d 2.62 A",
+  "node": "a660",
+  "started_at": "2026-09-28 10:13",
+  "launcher": "farm",
+  "result": "N_e=1199.326268 mu_e=-4.706154",
+  "elapsed_farm_min": 100.7
  },
  {
   "task_id": "Kink-edge2__pert10__mu-5.1071",
@@ -4217,9 +4269,14 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 61 movable atoms, seed 62, min d 2.62 A"
+  "status": "completed",
+  "job_id": 20929396,
+  "note": "gaussian sigma=0.1 A on 61 movable atoms, seed 62, min d 2.62 A",
+  "node": "a292",
+  "started_at": "2026-09-28 10:24",
+  "launcher": "farm",
+  "result": "N_e=1198.786891 mu_e=-5.107830",
+  "elapsed_farm_min": 93.5
  },
  {
   "task_id": "Kink-edge2__relaxed__mu-4.7071",
@@ -4234,9 +4291,12 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "running",
+  "job_id": 20928319,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "b007",
+  "started_at": "2026-09-28 10:37",
+  "launcher": "farm"
  },
  {
   "task_id": "Kink-edge2__relaxed__mu-5.1071",
@@ -4251,9 +4311,12 @@
   "n_movable": 61,
   "kpoints": "2x4x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "running",
+  "job_id": 20929396,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a412",
+  "started_at": "2026-09-28 11:04",
+  "launcher": "farm"
  },
  {
   "task_id": "Pit-7-compact__path_rimin1__mu-4.7071",
@@ -4268,9 +4331,12 @@
   "n_movable": 65,
   "kpoints": "2x2x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "pit rim atom moved into an adjacent vacancy site (pair with the largest mid-image clearance); image 0.5, moving atom displaced 1.47 A; min d 2.38 A (path images accepted >= 2.2 A)"
+  "status": "running",
+  "job_id": 20929396,
+  "note": "pit rim atom moved into an adjacent vacancy site (pair with the largest mid-image clearance); image 0.5, moving atom displaced 1.47 A; min d 2.38 A (path images accepted >= 2.2 A)",
+  "node": "a851",
+  "started_at": "2026-09-28 11:10",
+  "launcher": "farm"
  },
  {
   "task_id": "Pit-7-compact__path_rimin1__mu-5.1071",
@@ -4285,9 +4351,12 @@
   "n_movable": 65,
   "kpoints": "2x2x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "pit rim atom moved into an adjacent vacancy site (pair with the largest mid-image clearance); image 0.5, moving atom displaced 1.47 A; min d 2.38 A (path images accepted >= 2.2 A)"
+  "status": "running",
+  "job_id": 20929396,
+  "note": "pit rim atom moved into an adjacent vacancy site (pair with the largest mid-image clearance); image 0.5, moving atom displaced 1.47 A; min d 2.38 A (path images accepted >= 2.2 A)",
+  "node": "a414",
+  "started_at": "2026-09-28 11:11",
+  "launcher": "farm"
  },
  {
   "task_id": "Pit-7-compact__path_rimin2__mu-4.7071",
@@ -4302,9 +4371,12 @@
   "n_movable": 65,
   "kpoints": "2x2x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "pit rim atom moved into an adjacent vacancy site (pair with the largest mid-image clearance); image 1.0, moving atom displaced 2.94 A; min d 2.71 A (path images accepted >= 2.2 A)"
+  "status": "running",
+  "job_id": 20928320,
+  "note": "pit rim atom moved into an adjacent vacancy site (pair with the largest mid-image clearance); image 1.0, moving atom displaced 2.94 A; min d 2.71 A (path images accepted >= 2.2 A)",
+  "node": "b015",
+  "started_at": "2026-09-28 11:13",
+  "launcher": "farm"
  },
  {
   "task_id": "Pit-7-compact__path_rimin2__mu-5.1071",
@@ -4319,9 +4391,12 @@
   "n_movable": 65,
   "kpoints": "2x2x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "pit rim atom moved into an adjacent vacancy site (pair with the largest mid-image clearance); image 1.0, moving atom displaced 2.94 A; min d 2.71 A (path images accepted >= 2.2 A)"
+  "status": "running",
+  "job_id": 20934087,
+  "note": "pit rim atom moved into an adjacent vacancy site (pair with the largest mid-image clearance); image 1.0, moving atom displaced 2.94 A; min d 2.71 A (path images accepted >= 2.2 A)",
+  "node": "a428",
+  "started_at": "2026-09-28 11:38",
+  "launcher": "farm"
  },
  {
   "task_id": "Pit-7-compact__pert05__mu-4.7071",
@@ -4336,9 +4411,12 @@
   "n_movable": 65,
   "kpoints": "2x2x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 65 movable atoms, seed 1"
+  "status": "running",
+  "job_id": 20934087,
+  "note": "gaussian sigma=0.05 A on 65 movable atoms, seed 1",
+  "node": "a632",
+  "started_at": "2026-09-28 11:40",
+  "launcher": "farm"
  },
  {
   "task_id": "Pit-7-compact__pert05__mu-5.1071",
@@ -4353,9 +4431,12 @@
   "n_movable": 65,
   "kpoints": "2x2x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.05 A on 65 movable atoms, seed 1"
+  "status": "running",
+  "job_id": 20934087,
+  "note": "gaussian sigma=0.05 A on 65 movable atoms, seed 1",
+  "node": "a631",
+  "started_at": "2026-09-28 11:44",
+  "launcher": "farm"
  },
  {
   "task_id": "Pit-7-compact__pert10__mu-4.7071",
@@ -4370,9 +4451,12 @@
   "n_movable": 65,
   "kpoints": "2x2x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 65 movable atoms, seed 5"
+  "status": "running",
+  "job_id": 20934087,
+  "note": "gaussian sigma=0.1 A on 65 movable atoms, seed 5",
+  "node": "a429",
+  "started_at": "2026-09-28 11:52",
+  "launcher": "farm"
  },
  {
   "task_id": "Pit-7-compact__pert10__mu-5.1071",
@@ -4387,9 +4471,12 @@
   "n_movable": 65,
   "kpoints": "2x2x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "gaussian sigma=0.1 A on 65 movable atoms, seed 5"
+  "status": "running",
+  "job_id": 20934087,
+  "note": "gaussian sigma=0.1 A on 65 movable atoms, seed 5",
+  "node": "a660",
+  "started_at": "2026-09-28 11:54",
+  "launcher": "farm"
  },
  {
   "task_id": "Pit-7-compact__relaxed__mu-4.7071",
@@ -4404,9 +4491,12 @@
   "n_movable": 65,
   "kpoints": "2x2x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "running",
+  "job_id": 20929396,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a292",
+  "started_at": "2026-09-28 11:57",
+  "launcher": "farm"
  },
  {
   "task_id": "Pit-7-compact__relaxed__mu-5.1071",
@@ -4421,9 +4511,12 @@
   "n_movable": 65,
   "kpoints": "2x2x1",
   "priority": 25,
-  "status": "pending",
-  "job_id": null,
-  "note": "single point on the relaxed geometry (CONTCAR)"
+  "status": "running",
+  "job_id": 20929396,
+  "note": "single point on the relaxed geometry (CONTCAR)",
+  "node": "a282",
+  "started_at": "2026-09-28 12:03",
+  "launcher": "farm"
  },
  {
   "task_id": "Pit-7-trench__pert05__mu-4.7071",
@@ -4624,6 +4717,176 @@
   "n_atoms": 144,
   "n_movable": 80,
   "kpoints": "1x6x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "single point on the relaxed geometry (CONTCAR)"
+ },
+ {
+  "task_id": "Island-7-compact__path_detach1__mu-4.7071",
+  "structure_id": "Island-7-compact",
+  "family": "single-layer island",
+  "tier": "main",
+  "config": "path_detach1",
+  "mu": "-4.7071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/path_detach1__mu-4.7071",
+  "n_atoms": 151,
+  "n_movable": 79,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "island edge atom moved to an adjacent empty hollow (pair with the largest mid-image clearance); image 0.5, moving atom displaced 1.47 A; min d 2.31 A (path images accepted >= 2.2 A)"
+ },
+ {
+  "task_id": "Island-7-compact__path_detach1__mu-5.1071",
+  "structure_id": "Island-7-compact",
+  "family": "single-layer island",
+  "tier": "main",
+  "config": "path_detach1",
+  "mu": "-5.1071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/path_detach1__mu-5.1071",
+  "n_atoms": 151,
+  "n_movable": 79,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "island edge atom moved to an adjacent empty hollow (pair with the largest mid-image clearance); image 0.5, moving atom displaced 1.47 A; min d 2.31 A (path images accepted >= 2.2 A)"
+ },
+ {
+  "task_id": "Island-7-compact__path_detach2__mu-4.7071",
+  "structure_id": "Island-7-compact",
+  "family": "single-layer island",
+  "tier": "main",
+  "config": "path_detach2",
+  "mu": "-4.7071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/path_detach2__mu-4.7071",
+  "n_atoms": 151,
+  "n_movable": 79,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "island edge atom moved to an adjacent empty hollow (pair with the largest mid-image clearance); image 1.0, moving atom displaced 2.94 A; min d 2.56 A (path images accepted >= 2.2 A)"
+ },
+ {
+  "task_id": "Island-7-compact__path_detach2__mu-5.1071",
+  "structure_id": "Island-7-compact",
+  "family": "single-layer island",
+  "tier": "main",
+  "config": "path_detach2",
+  "mu": "-5.1071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/path_detach2__mu-5.1071",
+  "n_atoms": 151,
+  "n_movable": 79,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "island edge atom moved to an adjacent empty hollow (pair with the largest mid-image clearance); image 1.0, moving atom displaced 2.94 A; min d 2.56 A (path images accepted >= 2.2 A)"
+ },
+ {
+  "task_id": "Island-7-compact__pert05__mu-4.7071",
+  "structure_id": "Island-7-compact",
+  "family": "single-layer island",
+  "tier": "main",
+  "config": "pert05",
+  "mu": "-4.7071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/pert05__mu-4.7071",
+  "n_atoms": 151,
+  "n_movable": 79,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "gaussian sigma=0.05 A on 79 movable atoms, seed 1, min d 2.71 A"
+ },
+ {
+  "task_id": "Island-7-compact__pert05__mu-5.1071",
+  "structure_id": "Island-7-compact",
+  "family": "single-layer island",
+  "tier": "main",
+  "config": "pert05",
+  "mu": "-5.1071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/pert05__mu-5.1071",
+  "n_atoms": 151,
+  "n_movable": 79,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "gaussian sigma=0.05 A on 79 movable atoms, seed 1, min d 2.71 A"
+ },
+ {
+  "task_id": "Island-7-compact__pert10__mu-4.7071",
+  "structure_id": "Island-7-compact",
+  "family": "single-layer island",
+  "tier": "main",
+  "config": "pert10",
+  "mu": "-4.7071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/pert10__mu-4.7071",
+  "n_atoms": 151,
+  "n_movable": 79,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "gaussian sigma=0.1 A on 79 movable atoms, seed 119, min d 2.60 A"
+ },
+ {
+  "task_id": "Island-7-compact__pert10__mu-5.1071",
+  "structure_id": "Island-7-compact",
+  "family": "single-layer island",
+  "tier": "main",
+  "config": "pert10",
+  "mu": "-5.1071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/pert10__mu-5.1071",
+  "n_atoms": 151,
+  "n_movable": 79,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "gaussian sigma=0.1 A on 79 movable atoms, seed 119, min d 2.60 A"
+ },
+ {
+  "task_id": "Island-7-compact__relaxed__mu-4.7071",
+  "structure_id": "Island-7-compact",
+  "family": "single-layer island",
+  "tier": "main",
+  "config": "relaxed",
+  "mu": "-4.7071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/relaxed__mu-4.7071",
+  "n_atoms": 151,
+  "n_movable": 79,
+  "kpoints": "2x2x1",
+  "priority": 25,
+  "status": "pending",
+  "job_id": null,
+  "note": "single point on the relaxed geometry (CONTCAR)"
+ },
+ {
+  "task_id": "Island-7-compact__relaxed__mu-5.1071",
+  "structure_id": "Island-7-compact",
+  "family": "single-layer island",
+  "tier": "main",
+  "config": "relaxed",
+  "mu": "-5.1071",
+  "kind": "sp",
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/relaxed__mu-5.1071",
+  "n_atoms": 151,
+  "n_movable": 79,
+  "kpoints": "2x2x1",
   "priority": 25,
   "status": "pending",
   "job_id": null,
@@ -5404,12 +5667,14 @@
   "n_movable": 79,
   "kpoints": "2x2x1",
   "priority": 40,
-  "status": "running",
+  "status": "completed",
   "job_id": 20929396,
   "note": "",
   "node": "a282",
   "started_at": "2026-09-27 22:11",
-  "launcher": "farm"
+  "launcher": "farm",
+  "result": "relaxed: 37 ionic steps, final N_e=1660.933118 mu_e=-4.907064",
+  "elapsed_farm_min": 832.0
  },
  {
   "task_id": "Island-7-elongated__relax__mu-4.9071",
