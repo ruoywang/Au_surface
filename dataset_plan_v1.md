@@ -1,6 +1,6 @@
 # Complete Au surface dataset — computation plan v1 (rev 2, 2026-09-27)
 
-Generated from `dataset_plan_v1.csv` by `scripts/build_dataset_plan.py`; edit the CSV, not this file. Scope and sampling weights are frozen here once; execution is batched by cluster limits afterwards. No DFT is submitted by this document. Rev 2 applies the user's decisions of 2026-09-27: nine families kept, two-scale lean sampling, relaxation cost shown at 3.3/5/7.5 single points (measured mean / working budget / measured max, recalibrated from the nine Batch-A relaxations; the a-priori 6/10/15 assumption is retired), and four definition fixes (vicinal faces rebuilt from the correct basis, atom-conserving step path, R1/R2 registry and layer count, kink/C1 naming and periodicity).
+Generated from `dataset_plan_v1.csv` by `scripts/build_dataset_plan.py`; edit the CSV, not this file. Scope and sampling weights are frozen here once; execution is batched by cluster limits afterwards. No DFT is submitted by this document. Rev 2 applies the user's decisions of 2026-09-27: nine families kept, two-scale lean sampling, relaxation cost shown at 4.3/5.5/7.5 single points (measured mean / working budget / measured max, recalibrated from all sixteen relaxations; the a-priori 6/10/15 assumption is retired), and four definition fixes (vicinal faces rebuilt from the correct basis, atom-conserving step path, R1/R2 registry and layer count, kink/C1 naming and periodicity).
 
 ## 1. Scope
 
@@ -64,29 +64,29 @@ Generated from `dataset_plan_v1.csv` by `scripts/build_dataset_plan.py`; edit th
 
 ## 4. Totals and budget
 
-| | structures | configs | target states | reusable | new DFT single points | relaxations | single-point cost (node·h) | + relax 3.3× (measured mean) | + relax **5× (working)** | + relax 7.5× (measured max) |
+| | structures | configs | target states | reusable | new DFT single points | relaxations | single-point cost (node·h) | + relax 4.3× (measured mean, n=16) | + relax **5.5× (working)** | + relax 7.5× (measured max) |
 |---|---|---|---|---|---|---|---|---|---|---|
-| main | 16 | 90 | 248 | 0 | 248 | 16 | 232 | 287 | **315** | 357 |
+| main | 16 | 90 | 248 | 0 | 248 | 16 | 232 | 303 | **323** | 357 |
 | reference | 17 | 17 | 43 | 5 | 38 | 0 | 56 | 56 | **56** | 56 |
-| **all** | 33 | 107 | 291 | 5 | 286 | 16 | 287 | 342 | **371** | 412 |
+| **all** | 33 | 107 | 291 | 5 | 286 | 16 | 287 | 359 | **379** | 412 |
 
-Per family (working budget, relaxation at 5×):
+Per family (working budget, relaxation at 5.5×):
 
 | family | structures | new DFT single points | relaxations | cost (node·h) | share |
 |---|---|---|---|---|---|
 | flat Au(111) | 3 | 22 | 1 | 16 | 4 % |
-| point defect | 6 | 66 | 3 | 48 | 13 % |
-| strip step | 5 | 43 | 2 | 54 | 15 % |
+| point defect | 6 | 66 | 3 | 49 | 13 % |
+| strip step | 5 | 43 | 2 | 55 | 15 % |
 | vicinal step face | 4 | 42 | 2 | 18 | 5 % |
-| kink / edge rearrangement | 3 | 31 | 2 | 49 | 13 % |
-| single-layer island | 4 | 27 | 2 | 83 | 22 % |
-| single-layer pit | 4 | 27 | 2 | 71 | 19 % |
-| reconstruction-related | 2 | 24 | 2 | 20 | 5 % |
+| kink / edge rearrangement | 3 | 31 | 2 | 50 | 13 % |
+| single-layer island | 4 | 27 | 2 | 85 | 22 % |
+| single-layer pit | 4 | 27 | 2 | 73 | 19 % |
+| reconstruction-related | 2 | 24 | 2 | 21 | 5 % |
 | composite | 2 | 4 | 0 | 13 | 3 % |
 
-The four > 200-atom references (Island-19-8x8, Island-7-8x8, Pit-19-8x8, Pit-7-8x8) cost 35 node·h (10 % of the working budget) for 8 states; they are kept, without perturbations or paths.
+The four > 200-atom references (Island-19-8x8, Island-7-8x8, Pit-19-8x8, Pit-7-8x8) cost 35 node·h (9 % of the working budget) for 8 states; they are kept, without perturbations or paths.
 
-**Reading the numbers.** Node·h are highmem node-hours (16 MPI × 8 OpenMP per node). The single-point cost model is fitted on 36–72-atom runs only; its N^1.5 growth for 108–275 atoms and the relaxation factor are assumptions — the 5× column is the working budget, 3.3× and 7.5× are the measured mean and maximum over the nine Batch-A relaxations, none is an upper bound (failed/re-started runs are not included). Highmem is billed at 4 SU per core-hour of *requested* resources (audit §F): working budget ≈ 190 k SU, range 175–211 k SU. With the 2-concurrent-job limit the *ideal full-load* time is node·h/48 days (≈ 8 days at the working budget) — before queueing, dependencies (relax → perturb) and re-runs; it is not a completion promise. Warm-starting perturbed configurations from the parent CHGCAR is not assumed anywhere (not measured).
+**Reading the numbers.** Node·h are highmem node-hours (16 MPI × 8 OpenMP per node). The single-point cost model is fitted on 36–72-atom runs only; its N^1.5 growth for 108–275 atoms and the relaxation factor are assumptions — the 5.5× column is the working budget, 4.3× and 7.5× are the measured mean and maximum over all sixteen relaxations, none is an upper bound (failed/re-started runs are not included). Highmem is billed at 4 SU per core-hour of *requested* resources (audit §F): working budget ≈ 194 k SU, range 184–211 k SU. With the 2-concurrent-job limit the *ideal full-load* time is node·h/48 days (≈ 8 days at the working budget) — before queueing, dependencies (relax → perturb) and re-runs; it is not a completion promise. Warm-starting perturbed configurations from the parent CHGCAR is not assumed anywhere (not measured).
 
 **Recalibration**: the first completed Batch-A relaxation of each size class and the first > 100-atom single points update `c_min` and `F_RELAX` in this script and regenerate this document; scope and weights do not change with them.
 
