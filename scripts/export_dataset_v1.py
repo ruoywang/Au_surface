@@ -169,7 +169,7 @@ for t in sorted(q, key=lambda t: t["status"] != "completed"):          # compute
 
 os.makedirs(OUT, exist_ok=True)
 for k, s in states.items(): s["aliases"] = [a for a, b in aliases.items() if b == k]
-json.dump(dict(created="2026-09-28", plan="dataset_plan_v1 rev 2", label_standard="production configuration", n_states=len(states), states=states,
+json.dump(dict(created=time.strftime("%Y-%m-%d %H:%M"), plan="dataset_plan_v1 rev 2 + mu05 extension", label_standard="production configuration", n_states=len(states), states=states,
                aliases=aliases, skipped=skipped), open(f"{OUT}/states.json", "w"), indent=1)
 json.dump({k: v["fields"] for k, v in states.items()}, open(f"{OUT}/fields_index.json", "w"), indent=1)
 lst = []

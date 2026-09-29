@@ -389,8 +389,18 @@ def retarget(partition):
 
 
 def expected_minutes(t):
+    """CONSERVATIVE walltime estimate. Its only use is the farm's dispatch guard (expected*1.3+10 < remaining), so it
+    must not UNDER-predict: a task launched with too little walltime left is killed and its node-hours are lost.
+    Recalibrated 2026-09-29 on 394 completed tasks. measured / (0.55 N (N/72)^0.5), median by size:
+        N <= 72  0.53 (max 1.7) | 73-110  0.82 (max 1.7) | 111-160  0.79 (max 1.5) | 231-300  1.46 (max 3.0)
+    The old flat 1.5 under-predicted the large cells badly: it would have let a farm with 471 min left start
+    Pit-19-8x8 (237 atoms), which actually ran 710 min. The four measured > 200-atom single points took
+    463 / 564 / 653 / 710 min with no clear size trend (the spread is SCF convergence, not N), so above 200 atoms
+    the guard uses a flat upper envelope instead of the model."""
     n = t["n_atoms"]; c = 0.55 * n * max(1.0, n / 72.0) ** 0.5
-    return c * (10.0 if t["kind"] == "relax" else 1.5)
+    if t["kind"] == "relax": return c * 10.0
+    if n > 200: return 760.0
+    return c * (1.8 if n <= 160 else 2.2)
 
 
 def farm():

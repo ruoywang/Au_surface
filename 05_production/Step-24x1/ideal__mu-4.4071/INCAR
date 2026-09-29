@@ -13,6 +13,7 @@ EDIFF  = 1E-7
 NELM   = 200
 ISMEAR = 1
 SIGMA  = 0.2
+ICHARG = 1
 IBRION = -1
 NSW    = 0
 LCHARG = .TRUE.

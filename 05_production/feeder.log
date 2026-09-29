@@ -613,3 +613,354 @@
 2026-09-28 20:45:49 [completed] Pit-7-trench__ideal__mu-4.9071 on a428 in 116.0 min :: N_e=1507.023680 mu_e=-4.906238
 2026-09-28 20:45:51 [launch] Step-24x1__ideal__mu-4.9071 -> a428 (farm 20934087, expected ~109 min, 37.5 h left)
 2026-09-28 20:50:22 [extend_mu05] refresh: 1 pending cold-start tasks given a warm start, 193 records re-pointed to their geometry source
+2026-09-28 20:56:57 [completed] Step-16x2__ideal__mu-4.9071 on a429 in 119.0 min :: N_e=1584.075059 mu_e=-4.907057
+2026-09-28 20:56:57 [completed] Pit-7-trench__ideal__mu-5.1071 on a632 in 126.1 min :: N_e=1506.619794 mu_e=-5.105882
+2026-09-28 20:56:59 [launch] Step-24x1__ideal__mu-5.1071 -> a429 (farm 20934087, expected ~109 min, 37.3 h left)
+2026-09-28 20:56:59 [launch] C1-island-near-step__ideal__mu-4.9071 -> a632 (farm 20934087, expected ~180 min, 37.3 h left)
+2026-09-28 21:02:58 [completed] Step-16x2__ideal__mu-5.1071 on b007 in 120.9 min :: N_e=1583.721843 mu_e=-5.108218
+2026-09-28 21:02:58 [launch] C1-island-near-step__ideal__mu-5.1071 -> b007 (farm 20928319, expected ~180 min, 9.8 h left)
+2026-09-28 21:14:14 [completed] Island-7-compact__ideal__mu-4.9071 on a412 in 117.8 min :: N_e=1660.856914 mu_e=-4.906360
+2026-09-28 21:14:14 [launch] C2-island+pit__ideal__mu-4.9071 -> a412 (farm 20929396, expected ~398 min, 19.4 h left)
+2026-09-28 21:15:07 [completed] Step-16x2__ideal__mu-4.7071 on a631 in 143.2 min :: N_e=1584.430384 mu_e=-4.708014
+2026-09-28 21:15:07 [launch] C2-island+pit__ideal__mu-5.1071 -> a631 (farm 20934087, expected ~398 min, 37.0 h left)
+2026-09-28 21:19:16 [completed] Island-7-compact__ideal__mu-4.7071 on a282 in 133.9 min :: N_e=1661.266923 mu_e=-4.711459
+2026-09-28 21:19:16 [launch] Pit-19-8x8__ideal__mu-4.9071 -> a282 (farm 20929396, expected ~355 min, 19.3 h left)
+2026-09-28 22:08:30 [completed] Island-7-elongated__ideal__mu-4.9071 on a660 in 118.0 min :: N_e=1660.900000 mu_e=-4.900603
+2026-09-28 22:08:31 [launch] Pit-19-8x8__ideal__mu-5.1071 -> a660 (farm 20934087, expected ~355 min, 36.1 h left)
+2026-09-28 22:12:42 [completed] Island-7-compact__ideal__mu-5.1071 on a414 in 133.9 min :: N_e=1660.456914 mu_e=-5.099974
+2026-09-28 22:12:42 [launch] Pit-7-8x8__ideal__mu-4.9071 -> a414 (farm 20929396, expected ~382 min, 18.4 h left)
+2026-09-28 22:23:47 [completed] Island-7-elongated__ideal__mu-4.7071 on a851 in 136.0 min :: N_e=1661.297912 mu_e=-4.712798
+2026-09-28 22:23:47 [launch] Island-7-8x8__ideal__mu-4.9071 -> a851 (farm 20929396, expected ~415 min, 18.2 h left)
+2026-09-28 22:39:49 [completed] Step-24x1__ideal__mu-4.9071 on a428 in 114.0 min :: N_e=1188.085710 mu_e=-4.907036
+2026-09-28 22:39:49 [launch] Island-19-8x8__ideal__mu-4.9071 -> a428 (farm 20934087, expected ~443 min, 35.6 h left)
+2026-09-28 22:45:59 [completed] Step-24x1__ideal__mu-4.7071 on a292 in 123.1 min :: N_e=1188.349058 mu_e=-4.707984
+2026-09-28 22:45:59 [launch] Island-19-8x8__ideal__mu-5.1071 -> a292 (farm 20929396, expected ~443 min, 17.8 h left)
+2026-09-28 22:46:53 [completed] Step-24x1__ideal__mu-5.1071 on a429 in 109.9 min :: N_e=1187.824150 mu_e=-5.107663
+2026-09-28 22:46:53 [launch] Au332__ideal__mu-4.4071 -> a429 (farm 20934087, expected ~17 min, 35.4 h left)
+2026-09-28 22:54:59 [completed] Au332__ideal__mu-4.4071 on a429 in 8.1 min :: N_e=231.157047 mu_e=-4.397712
+2026-09-28 22:54:59 [launch] Au332__ideal__mu-5.4071 -> a429 (farm 20934087, expected ~17 min, 35.3 h left)
+2026-09-28 23:03:04 [completed] Au332__ideal__mu-5.4071 on a429 in 8.1 min :: N_e=230.855583 mu_e=-5.412488
+2026-09-28 23:03:04 [completed] C1-island-near-step__ideal__mu-4.9071 on a632 in 126.1 min :: N_e=1660.941632 mu_e=-4.907076
+2026-09-28 23:03:04 [launch] Au221__coll_strain+1pct__mu-4.4071 -> a429 (farm 20934087, expected ~23 min, 35.2 h left)
+2026-09-28 23:03:04 [launch] Au221__coll_strain+1pct__mu-5.4071 -> a632 (farm 20934087, expected ~23 min, 35.2 h left)
+2026-09-28 23:13:12 [completed] Au221__coll_strain+1pct__mu-4.4071 on a429 in 10.1 min :: N_e=308.183654 mu_e=-4.399777
+2026-09-28 23:13:12 [launch] Au221__coll_topspacing-3pct__mu-4.4071 -> a429 (farm 20934087, expected ~23 min, 35.0 h left)
+2026-09-28 23:14:05 [completed] C1-island-near-step__ideal__mu-5.1071 on b007 in 131.1 min :: N_e=1660.568173 mu_e=-5.109437
+2026-09-28 23:14:06 [launch] Au221__coll_topspacing-3pct__mu-5.4071 -> b007 (farm 20928319, expected ~23 min, 7.6 h left)
+2026-09-28 23:16:13 [completed] Au221__coll_strain+1pct__mu-5.4071 on a632 in 13.1 min :: N_e=307.800913 mu_e=-5.406795
+2026-09-28 23:16:14 [launch] Au221__ideal__mu-4.4071 -> a632 (farm 20934087, expected ~23 min, 35.0 h left)
+2026-09-28 23:22:16 [completed] Au221__coll_topspacing-3pct__mu-4.4071 on a429 in 9.1 min :: N_e=308.172340 mu_e=-4.400924
+2026-09-28 23:22:17 [launch] Au221__ideal__mu-5.4071 -> a429 (farm 20934087, expected ~23 min, 34.9 h left)
+2026-09-28 23:25:09 [completed] Au221__coll_topspacing-3pct__mu-5.4071 on b007 in 11.1 min :: N_e=307.798456 mu_e=-5.406763
+2026-09-28 23:25:09 [launch] Au221__pert05__mu-4.4071 -> b007 (farm 20928319, expected ~23 min, 7.5 h left)
+2026-09-28 23:25:18 [completed] Au221__ideal__mu-4.4071 on a632 in 9.1 min :: N_e=308.192235 mu_e=-4.397440
+2026-09-28 23:25:18 [launch] Au221__pert05__mu-5.4071 -> a632 (farm 20934087, expected ~23 min, 34.8 h left)
+2026-09-28 23:28:22 [completed] Island-7-elongated__ideal__mu-5.1071 on b015 in 174.1 min :: N_e=1660.487005 mu_e=-5.098783
+2026-09-28 23:28:22 [launch] Au221__pert10__mu-4.4071 -> b015 (farm 20928320, expected ~23 min, 7.4 h left)
+2026-09-28 23:29:45 [extend_mu05] refresh: 10 pending cold-start tasks given a warm start, 0 records re-pointed to their geometry source
+2026-09-28 23:33:12 [completed] Au221__pert05__mu-4.4071 on b007 in 8.0 min :: N_e=308.173793 mu_e=-4.400884
+2026-09-28 23:33:12 [launch] Au221__pert10__mu-5.4071 -> b007 (farm 20928319, expected ~23 min, 7.3 h left)
+2026-09-28 23:33:22 [completed] Au221__ideal__mu-5.4071 on a429 in 11.1 min :: N_e=307.804156 mu_e=-5.406860
+2026-09-28 23:33:22 [launch] Au221__relaxed__mu-4.4071 -> a429 (farm 20934087, expected ~23 min, 34.7 h left)
+2026-09-28 23:37:22 [completed] Au221__pert05__mu-5.4071 on a632 in 12.1 min :: N_e=307.799683 mu_e=-5.406715
+2026-09-28 23:37:24 [launch] Au221__relaxed__mu-5.4071 -> a632 (farm 20934087, expected ~23 min, 34.6 h left)
+2026-09-28 23:40:29 [completed] Au221__pert10__mu-4.4071 on b015 in 12.1 min :: N_e=308.200355 mu_e=-4.407520
+2026-09-28 23:40:29 [launch] Au554__ideal__mu-4.4071 -> b015 (farm 20928320, expected ~30 min, 7.2 h left)
+2026-09-28 23:42:29 [completed] Au221__relaxed__mu-4.4071 on a429 in 9.1 min :: N_e=308.180938 mu_e=-4.399579
+2026-09-28 23:42:29 [launch] Au554__ideal__mu-5.4071 -> a429 (farm 20934087, expected ~30 min, 34.5 h left)
+2026-09-28 23:43:16 [completed] Au221__pert10__mu-5.4071 on b007 in 10.1 min :: N_e=307.822836 mu_e=-5.414428
+2026-09-28 23:43:16 [launch] Step-8x1__ideal__mu-4.4071 -> b007 (farm 20928319, expected ~30 min, 7.2 h left)
+2026-09-28 23:49:32 [completed] Au221__relaxed__mu-5.4071 on a632 in 12.1 min :: N_e=307.804432 mu_e=-5.406830
+2026-09-28 23:49:32 [launch] Step-8x1__ideal__mu-5.4071 -> a632 (farm 20934087, expected ~30 min, 34.4 h left)
+2026-09-28 23:59:35 [completed] Au554__ideal__mu-5.4071 on a429 in 17.1 min :: N_e=395.779278 mu_e=-5.413924
+2026-09-28 23:59:35 [launch] Au211__coll_strain+1pct__mu-4.4071 -> a429 (farm 20934087, expected ~40 min, 34.2 h left)
+2026-09-29 00:01:41 [completed] Au554__ideal__mu-4.4071 on b015 in 21.2 min :: N_e=396.283681 mu_e=-4.408064
+2026-09-29 00:01:41 [launch] Au211__coll_strain+1pct__mu-5.4071 -> b015 (farm 20928320, expected ~40 min, 6.8 h left)
+2026-09-29 00:03:26 [completed] Step-8x1__ideal__mu-4.4071 on b007 in 20.2 min :: N_e=396.237291 mu_e=-4.407824
+2026-09-29 00:03:27 [launch] Au211__coll_topspacing-3pct__mu-4.4071 -> b007 (farm 20928319, expected ~40 min, 6.8 h left)
+2026-09-29 00:06:37 [completed] Step-8x1__ideal__mu-5.4071 on a632 in 17.1 min :: N_e=395.786296 mu_e=-5.414965
+2026-09-29 00:06:39 [launch] Au211__coll_topspacing-3pct__mu-5.4071 -> a632 (farm 20934087, expected ~40 min, 34.1 h left)
+2026-09-29 00:22:02 [completed] Au211__coll_strain+1pct__mu-5.4071 on b015 in 20.3 min :: N_e=527.708234 mu_e=-5.414941
+2026-09-29 00:22:02 [launch] Au211__ideal__mu-4.4071 -> b015 (farm 20928320, expected ~40 min, 6.5 h left)
+2026-09-29 00:22:07 [completed] Au211__coll_strain+1pct__mu-4.4071 on a429 in 22.5 min :: N_e=528.309923 mu_e=-4.407883
+2026-09-29 00:22:07 [launch] Au211__ideal__mu-5.4071 -> a429 (farm 20934087, expected ~40 min, 33.9 h left)
+2026-09-29 00:25:06 [completed] Au211__coll_topspacing-3pct__mu-4.4071 on b007 in 21.7 min :: N_e=528.286638 mu_e=-4.407437
+2026-09-29 00:25:07 [launch] Au211__pert05__mu-4.4071 -> b007 (farm 20928319, expected ~40 min, 6.5 h left)
+2026-09-29 00:26:12 [completed] Au211__coll_topspacing-3pct__mu-5.4071 on a632 in 19.6 min :: N_e=527.705858 mu_e=-5.406822
+2026-09-29 00:26:13 [launch] Au211__pert05__mu-5.4071 -> a632 (farm 20934087, expected ~40 min, 33.8 h left)
+2026-09-29 00:39:10 [completed] Au211__ideal__mu-4.4071 on b015 in 17.1 min :: N_e=528.287712 mu_e=-4.400173
+2026-09-29 00:39:10 [launch] Au211__pert10__mu-4.4071 -> b015 (farm 20928320, expected ~40 min, 6.2 h left)
+2026-09-29 00:41:16 [completed] Au211__pert05__mu-4.4071 on b007 in 16.1 min :: N_e=528.289054 mu_e=-4.398179
+2026-09-29 00:41:16 [launch] Au211__pert10__mu-5.4071 -> b007 (farm 20928319, expected ~40 min, 6.2 h left)
+2026-09-29 00:42:23 [completed] Au211__ideal__mu-5.4071 on a429 in 20.3 min :: N_e=527.682782 mu_e=-5.406743
+2026-09-29 00:42:24 [launch] Au211__relaxed__mu-4.4071 -> a429 (farm 20934087, expected ~40 min, 33.5 h left)
+2026-09-29 00:44:41 [farm 20937661] 1 nodes ['a578']; allocation ends 2026-09-29T12:44:28
+2026-09-29 00:44:41 [launch] Au211__relaxed__mu-5.4071 -> a578 (farm 20937661, expected ~40 min, 12.0 h left)
+2026-09-29 00:45:24 [completed] Au211__pert05__mu-5.4071 on a632 in 19.2 min :: N_e=527.701607 mu_e=-5.406798
+2026-09-29 00:45:25 [launch] V3__ideal__mu-4.4071 -> a632 (farm 20934087, expected ~50 min, 33.5 h left)
+2026-09-29 00:58:16 [completed] Au211__pert10__mu-4.4071 on b015 in 19.1 min :: N_e=528.296300 mu_e=-4.407451
+2026-09-29 00:58:16 [launch] V3__ideal__mu-5.4071 -> b015 (farm 20928320, expected ~50 min, 5.9 h left)
+2026-09-29 01:01:27 [completed] Au211__pert10__mu-5.4071 on b007 in 20.2 min :: N_e=527.702401 mu_e=-5.406854
+2026-09-29 01:01:27 [launch] V2__ideal__mu-4.4071 -> b007 (farm 20928319, expected ~51 min, 5.9 h left)
+2026-09-29 01:01:32 [completed] Au211__relaxed__mu-4.4071 on a429 in 19.1 min :: N_e=528.290374 mu_e=-4.407396
+2026-09-29 01:01:32 [launch] V2__ideal__mu-5.4071 -> a429 (farm 20934087, expected ~51 min, 33.2 h left)
+2026-09-29 01:04:50 [completed] Au211__relaxed__mu-5.4071 on a578 in 20.1 min :: N_e=527.706902 mu_e=-5.406849
+2026-09-29 01:04:50 [launch] V1__coll_strain+1pct__mu-4.4071 -> a578 (farm 20937661, expected ~52 min, 11.7 h left)
+2026-09-29 01:15:32 [farm 20937663] 1 nodes ['a548']; allocation ends 2026-09-29T13:15:19
+2026-09-29 01:15:34 [launch] V1__coll_strain+1pct__mu-5.4071 -> a548 (farm 20937663, expected ~52 min, 12.0 h left)
+2026-09-29 01:17:39 [completed] V3__ideal__mu-4.4071 on a632 in 32.2 min :: N_e=671.450714 mu_e=-4.407693
+2026-09-29 01:17:39 [launch] V1__coll_topspacing-3pct__mu-4.4071 -> a632 (farm 20934087, expected ~52 min, 32.9 h left)
+2026-09-29 01:23:30 [completed] V3__ideal__mu-5.4071 on b015 in 25.2 min :: N_e=670.561488 mu_e=-5.416992
+2026-09-29 01:23:30 [launch] V1__coll_topspacing-3pct__mu-5.4071 -> b015 (farm 20928320, expected ~52 min, 5.5 h left)
+2026-09-29 01:25:41 [completed] V2__ideal__mu-4.4071 on b007 in 24.2 min :: N_e=682.443676 mu_e=-4.397294
+2026-09-29 01:25:41 [launch] V1__ideal__mu-4.4071 -> b007 (farm 20928319, expected ~52 min, 5.4 h left)
+2026-09-29 01:33:01 [completed] V1__coll_strain+1pct__mu-4.4071 on a578 in 28.2 min :: N_e=693.453839 mu_e=-4.397920
+2026-09-29 01:33:01 [launch] V1__ideal__mu-5.4071 -> a578 (farm 20937661, expected ~52 min, 11.2 h left)
+2026-09-29 01:34:52 [completed] V2__ideal__mu-5.4071 on a429 in 33.3 min :: N_e=681.583334 mu_e=-5.406807
+2026-09-29 01:34:52 [launch] V1__pert05__mu-4.4071 -> a429 (farm 20934087, expected ~52 min, 32.6 h left)
+2026-09-29 01:41:54 [completed] V1__coll_topspacing-3pct__mu-4.4071 on a632 in 24.3 min :: N_e=693.414832 mu_e=-4.401004
+2026-09-29 01:41:55 [launch] V1__pert05__mu-5.4071 -> a632 (farm 20934087, expected ~52 min, 32.5 h left)
+2026-09-29 01:53:54 [completed] V1__ideal__mu-4.4071 on b007 in 28.2 min :: N_e=693.436643 mu_e=-4.399123
+2026-09-29 01:53:55 [launch] V1__pert10__mu-4.4071 -> b007 (farm 20928319, expected ~52 min, 5.0 h left)
+2026-09-29 01:54:47 [completed] V1__coll_topspacing-3pct__mu-5.4071 on b015 in 31.3 min :: N_e=692.559923 mu_e=-5.406618
+2026-09-29 01:54:48 [launch] V1__pert10__mu-5.4071 -> b015 (farm 20928320, expected ~52 min, 5.0 h left)
+2026-09-29 01:56:51 [completed] V1__coll_strain+1pct__mu-5.4071 on a548 in 41.3 min :: N_e=692.582200 mu_e=-5.406778
+2026-09-29 01:56:51 [launch] V1__relaxed__mu-4.4071 -> a548 (farm 20937663, expected ~52 min, 11.3 h left)
+2026-09-29 01:59:01 [completed] V1__pert05__mu-4.4071 on a429 in 24.1 min :: N_e=693.433415 mu_e=-4.397940
+2026-09-29 01:59:03 [launch] V1__relaxed__mu-5.4071 -> a429 (farm 20934087, expected ~52 min, 32.2 h left)
+2026-09-29 02:02:13 [completed] V1__ideal__mu-5.4071 on a578 in 29.2 min :: N_e=692.597843 mu_e=-5.406835
+2026-09-29 02:02:14 [launch] Flat-16x1__ideal__mu-4.4071 -> a578 (farm 20937661, expected ~53 min, 10.7 h left)
+2026-09-29 02:14:07 [completed] V1__pert05__mu-5.4071 on a632 in 32.2 min :: N_e=692.584411 mu_e=-5.406790
+2026-09-29 02:14:07 [launch] Flat-16x1__ideal__mu-5.4071 -> a632 (farm 20934087, expected ~53 min, 32.0 h left)
+2026-09-29 02:17:02 [completed] V1__pert10__mu-4.4071 on b007 in 23.1 min :: N_e=693.453504 mu_e=-4.398090
+2026-09-29 02:17:02 [launch] Flat-8x2__ideal__mu-4.4071 -> b007 (farm 20928319, expected ~53 min, 4.6 h left)
+2026-09-29 02:22:00 [completed] V1__relaxed__mu-4.4071 on a548 in 25.2 min :: N_e=693.436813 mu_e=-4.398737
+2026-09-29 02:22:00 [launch] Flat-8x2__ideal__mu-5.4071 -> a548 (farm 20937663, expected ~53 min, 10.9 h left)
+2026-09-29 02:23:58 [completed] V1__pert10__mu-5.4071 on b015 in 29.2 min :: N_e=692.602513 mu_e=-5.406823
+2026-09-29 02:23:58 [launch] R1-hcp-terminated__ideal__mu-4.4071 -> b015 (farm 20928320, expected ~53 min, 4.5 h left)
+2026-09-29 02:30:13 [completed] V1__relaxed__mu-5.4071 on a429 in 31.2 min :: N_e=692.590937 mu_e=-5.406800
+2026-09-29 02:30:13 [launch] R1-hcp-terminated__ideal__mu-5.4071 -> a429 (farm 20934087, expected ~53 min, 31.7 h left)
+2026-09-29 02:47:35 [completed] Flat-16x1__ideal__mu-4.4071 on a578 in 45.4 min :: N_e=704.487143 mu_e=-4.397661
+2026-09-29 02:47:35 [launch] R1-hcp-terminated__pert05__mu-4.4071 -> a578 (farm 20937661, expected ~53 min, 9.9 h left)
+2026-09-29 02:48:08 [completed] R1-hcp-terminated__ideal__mu-4.4071 on b015 in 24.2 min :: N_e=704.412722 mu_e=-4.403898
+2026-09-29 02:48:08 [launch] R1-hcp-terminated__pert05__mu-5.4071 -> b015 (farm 20928320, expected ~53 min, 4.1 h left)
+2026-09-29 02:50:22 [completed] Flat-16x1__ideal__mu-5.4071 on a632 in 36.2 min :: N_e=703.641053 mu_e=-5.416476
+2026-09-29 02:50:22 [launch] R1-hcp-terminated__pert10__mu-4.4071 -> a632 (farm 20934087, expected ~53 min, 31.4 h left)
+2026-09-29 02:53:16 [completed] Flat-8x2__ideal__mu-4.4071 on b007 in 36.2 min :: N_e=704.486315 mu_e=-4.397864
+2026-09-29 02:53:16 [launch] R1-hcp-terminated__pert10__mu-5.4071 -> b007 (farm 20928319, expected ~53 min, 4.0 h left)
+2026-09-29 03:00:26 [completed] R1-hcp-terminated__ideal__mu-5.4071 on a429 in 30.2 min :: N_e=703.588416 mu_e=-5.406821
+2026-09-29 03:00:26 [launch] R1-hcp-terminated__relaxed__mu-4.4071 -> a429 (farm 20934087, expected ~53 min, 31.2 h left)
+2026-09-29 03:02:16 [completed] Flat-8x2__ideal__mu-5.4071 on a548 in 40.3 min :: N_e=703.642423 mu_e=-5.416469
+2026-09-29 03:02:16 [launch] R1-hcp-terminated__relaxed__mu-5.4071 -> a548 (farm 20937663, expected ~53 min, 10.2 h left)
+2026-09-29 03:07:10 [farm 20937664] 1 nodes ['a613']; allocation ends 2026-09-29T15:06:57
+2026-09-29 03:07:10 [launch] T-4x4__coll_strain+1pct__mu-4.4071 -> a613 (farm 20937664, expected ~53 min, 12.0 h left)
+2026-09-29 03:12:45 [completed] R1-hcp-terminated__pert05__mu-4.4071 on a578 in 25.2 min :: N_e=704.416309 mu_e=-4.403229
+2026-09-29 03:12:45 [launch] T-4x4__coll_strain+1pct__mu-5.4071 -> a578 (farm 20937661, expected ~53 min, 9.5 h left)
+2026-09-29 03:23:19 [completed] R1-hcp-terminated__pert05__mu-5.4071 on b015 in 35.2 min :: N_e=703.589355 mu_e=-5.406802
+2026-09-29 03:23:19 [launch] T-4x4__coll_topspacing-3pct__mu-4.4071 -> b015 (farm 20928320, expected ~53 min, 3.5 h left)
+2026-09-29 03:24:39 [completed] R1-hcp-terminated__pert10__mu-4.4071 on a632 in 34.3 min :: N_e=704.433764 mu_e=-4.402170
+2026-09-29 03:24:39 [launch] T-4x4__coll_topspacing-3pct__mu-5.4071 -> a632 (farm 20934087, expected ~53 min, 30.8 h left)
+2026-09-29 03:25:24 [completed] R1-hcp-terminated__pert10__mu-5.4071 on b007 in 32.1 min :: N_e=703.608017 mu_e=-5.406908
+2026-09-29 03:25:24 [launch] T-4x4__ideal__mu-4.4071 -> b007 (farm 20928319, expected ~53 min, 3.5 h left)
+2026-09-29 03:26:40 [completed] R1-hcp-terminated__relaxed__mu-4.4071 on a429 in 26.2 min :: N_e=704.424703 mu_e=-4.403126
+2026-09-29 03:26:40 [launch] T-4x4__ideal__mu-5.4071 -> a429 (farm 20934087, expected ~53 min, 30.8 h left)
+2026-09-29 03:36:25 [completed] R1-hcp-terminated__relaxed__mu-5.4071 on a548 in 34.2 min :: N_e=703.598895 mu_e=-5.406764
+2026-09-29 03:36:26 [launch] T-4x4__pert05__mu-4.4071 -> a548 (farm 20937663, expected ~53 min, 9.6 h left)
+2026-09-29 03:37:18 [completed] T-4x4__coll_strain+1pct__mu-4.4071 on a613 in 30.1 min :: N_e=704.447106 mu_e=-4.399513
+2026-09-29 03:37:18 [launch] T-4x4__pert05__mu-5.4071 -> a613 (farm 20937664, expected ~53 min, 11.5 h left)
+2026-09-29 03:46:27 [completed] T-4x4__coll_topspacing-3pct__mu-4.4071 on b015 in 23.1 min :: N_e=704.408797 mu_e=-4.402770
+2026-09-29 03:46:27 [launch] T-4x4__pert10__mu-4.4071 -> b015 (farm 20928320, expected ~53 min, 3.1 h left)
+2026-09-29 03:46:56 [completed] T-4x4__coll_strain+1pct__mu-5.4071 on a578 in 34.2 min :: N_e=703.593903 mu_e=-5.406858
+2026-09-29 03:46:56 [launch] T-4x4__pert10__mu-5.4071 -> a578 (farm 20937661, expected ~53 min, 9.0 h left)
+2026-09-29 03:51:37 [completed] T-4x4__ideal__mu-4.4071 on b007 in 26.2 min :: N_e=704.418182 mu_e=-4.403292
+2026-09-29 03:51:37 [launch] T-4x4__relaxed__mu-4.4071 -> b007 (farm 20928319, expected ~53 min, 3.0 h left)
+2026-09-29 03:52:47 [completed] T-4x4__ideal__mu-5.4071 on a429 in 26.1 min :: N_e=703.596526 mu_e=-5.406772
+2026-09-29 03:52:47 [launch] T-4x4__relaxed__mu-5.4071 -> a429 (farm 20934087, expected ~53 min, 30.3 h left)
+2026-09-29 03:56:49 [completed] T-4x4__coll_topspacing-3pct__mu-5.4071 on a632 in 32.2 min :: N_e=703.575507 mu_e=-5.406776
+2026-09-29 03:56:49 [launch] A1-fcc__coll_strain+1pct__mu-4.4071 -> a632 (farm 20934087, expected ~54 min, 30.3 h left)
+2026-09-29 03:58:34 [completed] T-4x4__pert05__mu-4.4071 on a548 in 22.1 min :: N_e=704.417823 mu_e=-4.402310
+2026-09-29 03:58:35 [launch] A1-fcc__coll_strain+1pct__mu-5.4071 -> a548 (farm 20937663, expected ~54 min, 9.3 h left)
+2026-09-29 04:08:29 [completed] T-4x4__pert05__mu-5.4071 on a613 in 31.2 min :: N_e=703.590679 mu_e=-5.406790
+2026-09-29 04:08:29 [launch] A1-fcc__coll_topspacing-3pct__mu-4.4071 -> a613 (farm 20937664, expected ~54 min, 11.0 h left)
+2026-09-29 04:11:37 [completed] T-4x4__pert10__mu-4.4071 on b015 in 25.2 min :: N_e=704.437443 mu_e=-4.401072
+2026-09-29 04:11:37 [launch] A1-fcc__coll_topspacing-3pct__mu-5.4071 -> b015 (farm 20928320, expected ~54 min, 2.7 h left)
+2026-09-29 04:18:48 [completed] T-4x4__relaxed__mu-4.4071 on b007 in 27.2 min :: N_e=704.427167 mu_e=-4.402222
+2026-09-29 04:18:48 [launch] A1-fcc__ideal__mu-4.4071 -> b007 (farm 20928319, expected ~54 min, 2.6 h left)
+2026-09-29 04:20:08 [completed] T-4x4__pert10__mu-5.4071 on a578 in 33.2 min :: N_e=703.609288 mu_e=-5.406830
+2026-09-29 04:20:08 [launch] A1-fcc__ideal__mu-5.4071 -> a578 (farm 20937661, expected ~54 min, 8.4 h left)
+2026-09-29 04:22:59 [completed] A1-fcc__coll_strain+1pct__mu-4.4071 on a632 in 26.2 min :: N_e=715.357371 mu_e=-4.401230
+2026-09-29 04:22:59 [launch] A1-fcc__path_bridge__mu-4.4071 -> a632 (farm 20934087, expected ~54 min, 29.8 h left)
+2026-09-29 04:31:40 [completed] A1-fcc__coll_topspacing-3pct__mu-4.4071 on a613 in 23.2 min :: N_e=715.329403 mu_e=-4.401059
+2026-09-29 04:31:40 [launch] A1-fcc__path_bridge__mu-5.4071 -> a613 (farm 20937664, expected ~54 min, 10.6 h left)
+2026-09-29 04:33:03 [completed] T-4x4__relaxed__mu-5.4071 on a429 in 40.3 min :: N_e=703.601479 mu_e=-5.406826
+2026-09-29 04:33:03 [launch] A1-fcc__pert05__mu-4.4071 -> a429 (farm 20934087, expected ~54 min, 29.7 h left)
+2026-09-29 04:43:56 [completed] A1-fcc__ideal__mu-4.4071 on b007 in 25.1 min :: N_e=715.392077 mu_e=-4.403554
+2026-09-29 04:43:56 [launch] A1-fcc__pert05__mu-5.4071 -> b007 (farm 20928319, expected ~54 min, 2.1 h left)
+2026-09-29 04:44:09 [completed] A1-fcc__path_bridge__mu-4.4071 on a632 in 21.2 min :: N_e=715.338620 mu_e=-4.400933
+2026-09-29 04:44:09 [launch] A1-fcc__pert10__mu-4.4071 -> a632 (farm 20934087, expected ~54 min, 29.5 h left)
+2026-09-29 04:46:54 [completed] A1-fcc__coll_strain+1pct__mu-5.4071 on a548 in 48.3 min :: N_e=714.493566 mu_e=-5.406265
+2026-09-29 04:46:54 [launch] A1-fcc__pert10__mu-5.4071 -> a548 (farm 20937663, expected ~54 min, 8.5 h left)
+2026-09-29 04:51:47 [completed] A1-fcc__coll_topspacing-3pct__mu-5.4071 on b015 in 40.2 min :: N_e=714.482670 mu_e=-5.405809
+2026-09-29 04:51:47 [launch] A1-fcc__relaxed__mu-4.4071 -> b015 (farm 20928320, expected ~54 min, 2.0 h left)
+2026-09-29 04:55:11 [completed] A1-fcc__pert05__mu-4.4071 on a429 in 22.1 min :: N_e=715.333060 mu_e=-4.402152
+2026-09-29 04:55:11 [launch] A1-fcc__relaxed__mu-5.4071 -> a429 (farm 20934087, expected ~54 min, 29.3 h left)
+2026-09-29 04:59:21 [completed] A1-fcc__ideal__mu-5.4071 on a578 in 39.2 min :: N_e=714.512465 mu_e=-5.406124
+2026-09-29 04:59:21 [launch] A1-hcp__coll_strain+1pct__mu-4.4071 -> a578 (farm 20937661, expected ~54 min, 7.8 h left)
+2026-09-29 05:11:12 [completed] A1-fcc__pert10__mu-4.4071 on a632 in 27.1 min :: N_e=715.325562 mu_e=-4.402724
+2026-09-29 05:11:12 [launch] A1-hcp__coll_strain+1pct__mu-5.4071 -> a632 (farm 20934087, expected ~54 min, 29.0 h left)
+2026-09-29 05:13:10 [completed] A1-fcc__path_bridge__mu-5.4071 on a613 in 41.5 min :: N_e=714.488894 mu_e=-5.405899
+2026-09-29 05:13:10 [launch] A1-hcp__coll_topspacing-3pct__mu-4.4071 -> a613 (farm 20937664, expected ~54 min, 9.9 h left)
+2026-09-29 05:15:17 [completed] A1-fcc__relaxed__mu-4.4071 on b015 in 23.5 min :: N_e=715.337358 mu_e=-4.402201
+2026-09-29 05:15:18 [launch] A1-hcp__coll_topspacing-3pct__mu-5.4071 -> b015 (farm 20928320, expected ~54 min, 1.6 h left)
+2026-09-29 05:25:10 [completed] A1-fcc__pert05__mu-5.4071 on b007 in 41.2 min :: N_e=714.485506 mu_e=-5.405810
+2026-09-29 05:25:10 [launch] A1-hcp__ideal__mu-4.4071 -> b007 (farm 20928319, expected ~54 min, 1.5 h left)
+2026-09-29 05:30:22 [completed] A1-fcc__pert10__mu-5.4071 on a548 in 43.5 min :: N_e=714.478523 mu_e=-5.405831
+2026-09-29 05:30:22 [launch] A1-hcp__ideal__mu-5.4071 -> a548 (farm 20937663, expected ~54 min, 7.7 h left)
+2026-09-29 05:33:11 [completed] A1-hcp__coll_strain+1pct__mu-4.4071 on a578 in 33.8 min :: N_e=715.360386 mu_e=-4.401354
+2026-09-29 05:33:13 [launch] A1-hcp__pert05__mu-4.4071 -> a578 (farm 20937661, expected ~54 min, 7.2 h left)
+2026-09-29 05:37:21 [completed] A1-hcp__coll_topspacing-3pct__mu-4.4071 on a613 in 24.2 min :: N_e=715.331938 mu_e=-4.402223
+2026-09-29 05:37:21 [launch] A1-hcp__pert05__mu-5.4071 -> a613 (farm 20937664, expected ~54 min, 9.5 h left)
+2026-09-29 05:37:26 [completed] A1-fcc__relaxed__mu-5.4071 on a429 in 42.2 min :: N_e=714.488303 mu_e=-5.405874
+2026-09-29 05:37:26 [launch] A1-hcp__pert10__mu-4.4071 -> a429 (farm 20934087, expected ~54 min, 28.6 h left)
+2026-09-29 05:48:34 [completed] A1-hcp__coll_topspacing-3pct__mu-5.4071 on b015 in 33.3 min :: N_e=714.483814 mu_e=-5.405864
+2026-09-29 05:49:21 [completed] A1-hcp__ideal__mu-4.4071 on b007 in 24.2 min :: N_e=715.390708 mu_e=-4.403440
+2026-09-29 05:52:33 [completed] A1-hcp__coll_strain+1pct__mu-5.4071 on a632 in 41.3 min :: N_e=714.495303 mu_e=-5.406239
+2026-09-29 05:52:33 [launch] A1-hcp__pert10__mu-5.4071 -> a632 (farm 20934087, expected ~54 min, 28.3 h left)
+2026-09-29 05:58:20 [completed] A1-hcp__pert05__mu-4.4071 on a578 in 25.1 min :: N_e=715.331166 mu_e=-4.402328
+2026-09-29 05:58:20 [launch] A1-hcp__relaxed__mu-4.4071 -> a578 (farm 20937661, expected ~54 min, 6.8 h left)
+2026-09-29 06:02:36 [completed] A1-hcp__pert10__mu-4.4071 on a429 in 25.2 min :: N_e=715.382967 mu_e=-4.400956
+2026-09-29 06:02:37 [launch] A1-hcp__relaxed__mu-5.4071 -> a429 (farm 20934087, expected ~54 min, 28.2 h left)
+2026-09-29 06:06:31 [completed] Island-7-8x8__ideal__mu-4.9071 on a851 in 462.7 min :: N_e=2893.100000 mu_e=-4.915459
+2026-09-29 06:06:31 [launch] R2-stripe-wall__ideal__mu-4.4071 -> a851 (farm 20929396, expected ~54 min, 10.5 h left)
+2026-09-29 06:12:39 [completed] A1-hcp__ideal__mu-5.4071 on a548 in 42.3 min :: N_e=714.511748 mu_e=-5.406130
+2026-09-29 06:12:39 [launch] R2-stripe-wall__ideal__mu-5.4071 -> a548 (farm 20937663, expected ~54 min, 7.0 h left)
+2026-09-29 06:20:30 [completed] A1-hcp__relaxed__mu-4.4071 on a578 in 22.2 min :: N_e=715.341484 mu_e=-4.402135
+2026-09-29 06:20:30 [launch] R2-stripe-wall__pert05__mu-4.4071 -> a578 (farm 20937661, expected ~54 min, 6.4 h left)
+2026-09-29 06:22:32 [farm 20928319] walltime nearly over, nothing launchable -- exiting
+2026-09-29 06:22:50 [farm 20937659] 1 nodes ['b005']; allocation ends 2026-10-01T06:22:42
+2026-09-29 06:22:50 [launch] R2-stripe-wall__pert05__mu-5.4071 -> b005 (farm 20937659, expected ~54 min, 48.0 h left)
+2026-09-29 06:22:50 [farm 20928320] walltime nearly over, nothing launchable -- exiting
+2026-09-29 06:23:31 [farm 20937660] 1 nodes ['b007']; allocation ends 2026-10-01T06:23:25
+2026-09-29 06:23:31 [launch] R2-stripe-wall__pert10__mu-4.4071 -> b007 (farm 20937660, expected ~54 min, 48.0 h left)
+2026-09-29 06:27:44 [completed] A1-hcp__pert05__mu-5.4071 on a613 in 50.4 min :: N_e=714.483443 mu_e=-5.405745
+2026-09-29 06:27:44 [launch] R2-stripe-wall__pert10__mu-5.4071 -> a613 (farm 20937664, expected ~54 min, 8.7 h left)
+2026-09-29 06:31:50 [completed] A1-hcp__pert10__mu-5.4071 on a632 in 39.3 min :: N_e=714.531794 mu_e=-5.406318
+2026-09-29 06:31:51 [launch] R2-stripe-wall__relaxed__mu-4.4071 -> a632 (farm 20934087, expected ~54 min, 27.7 h left)
+2026-09-29 06:46:56 [completed] A1-hcp__relaxed__mu-5.4071 on a429 in 44.3 min :: N_e=714.489901 mu_e=-5.405885
+2026-09-29 06:46:57 [launch] R2-stripe-wall__relaxed__mu-5.4071 -> a429 (farm 20934087, expected ~54 min, 27.4 h left)
+2026-09-29 06:47:55 [completed] R2-stripe-wall__ideal__mu-5.4071 on a548 in 35.3 min :: N_e=714.637518 mu_e=-5.416555
+2026-09-29 06:47:55 [launch] A3__ideal__mu-4.4071 -> a548 (farm 20937663, expected ~55 min, 6.5 h left)
+2026-09-29 06:54:41 [completed] R2-stripe-wall__pert05__mu-4.4071 on a578 in 34.2 min :: N_e=715.512240 mu_e=-4.399481
+2026-09-29 06:54:42 [launch] A3__ideal__mu-5.4071 -> a578 (farm 20937661, expected ~55 min, 5.8 h left)
+2026-09-29 06:56:51 [completed] R2-stripe-wall__ideal__mu-4.4071 on a851 in 50.3 min :: N_e=715.469801 mu_e=-4.405005
+2026-09-29 06:56:51 [launch] Step-16x1__ideal__mu-4.4071 -> a851 (farm 20929396, expected ~59 min, 9.7 h left)
+2026-09-29 06:59:02 [completed] R2-stripe-wall__pert05__mu-5.4071 on b005 in 36.2 min :: N_e=714.688038 mu_e=-5.413771
+2026-09-29 06:59:02 [launch] Step-16x1__ideal__mu-5.4071 -> b005 (farm 20937659, expected ~59 min, 47.4 h left)
+2026-09-29 06:59:47 [completed] R2-stripe-wall__pert10__mu-4.4071 on b007 in 36.3 min :: N_e=715.519039 mu_e=-4.397557
+2026-09-29 06:59:47 [launch] Step-8x2__coll_edgebend0.15__mu-4.4071 -> b007 (farm 20937660, expected ~59 min, 47.4 h left)
+2026-09-29 07:05:55 [completed] R2-stripe-wall__pert10__mu-5.4071 on a613 in 38.2 min :: N_e=714.694359 mu_e=-5.413530
+2026-09-29 07:05:55 [launch] Step-8x2__coll_edgebend0.15__mu-5.4071 -> a613 (farm 20937664, expected ~59 min, 8.0 h left)
+2026-09-29 07:11:00 [completed] A3__ideal__mu-4.4071 on a548 in 23.1 min :: N_e=737.396066 mu_e=-4.400098
+2026-09-29 07:11:00 [launch] Step-8x2__coll_topspacing-3pct__mu-4.4071 -> a548 (farm 20937663, expected ~59 min, 6.1 h left)
+2026-09-29 07:11:05 [completed] R2-stripe-wall__relaxed__mu-4.4071 on a632 in 39.2 min :: N_e=715.506578 mu_e=-4.399820
+2026-09-29 07:11:05 [launch] Step-8x2__coll_topspacing-3pct__mu-5.4071 -> a632 (farm 20934087, expected ~59 min, 27.0 h left)
+2026-09-29 07:19:07 [completed] R2-stripe-wall__relaxed__mu-5.4071 on a429 in 32.2 min :: N_e=714.681652 mu_e=-5.413841
+2026-09-29 07:19:07 [launch] Step-8x2__ideal__mu-4.4071 -> a429 (farm 20934087, expected ~59 min, 26.9 h left)
+2026-09-29 07:31:53 [completed] A3__ideal__mu-5.4071 on a578 in 37.2 min :: N_e=736.452523 mu_e=-5.406212
+2026-09-29 07:31:53 [launch] Step-8x2__ideal__mu-5.4071 -> a578 (farm 20937661, expected ~59 min, 5.2 h left)
+2026-09-29 07:37:04 [completed] Step-16x1__ideal__mu-4.4071 on a851 in 40.2 min :: N_e=792.471755 mu_e=-4.407694
+2026-09-29 07:37:04 [launch] Step-8x2__path_detach1__mu-4.4071 -> a851 (farm 20929396, expected ~59 min, 9.0 h left)
+2026-09-29 07:48:21 [completed] Step-16x1__ideal__mu-5.4071 on b005 in 49.3 min :: N_e=791.607971 mu_e=-5.406740
+2026-09-29 07:48:22 [launch] Step-8x2__path_detach1__mu-5.4071 -> b005 (farm 20937659, expected ~59 min, 46.6 h left)
+2026-09-29 07:57:06 [completed] Step-8x2__coll_edgebend0.15__mu-4.4071 on b007 in 57.3 min :: N_e=792.471787 mu_e=-4.407929
+2026-09-29 07:57:06 [launch] Step-8x2__path_detach2__mu-4.4071 -> b007 (farm 20937660, expected ~59 min, 46.4 h left)
+2026-09-29 07:59:16 [completed] Step-8x2__coll_topspacing-3pct__mu-4.4071 on a548 in 48.3 min :: N_e=792.452665 mu_e=-4.407712
+2026-09-29 07:59:16 [launch] Step-8x2__path_detach2__mu-5.4071 -> a548 (farm 20937663, expected ~59 min, 5.3 h left)
+2026-09-29 08:00:18 [completed] Step-8x2__coll_edgebend0.15__mu-5.4071 on a613 in 54.4 min :: N_e=791.593742 mu_e=-5.406777
+2026-09-29 08:00:18 [launch] Step-8x2__path_detach3__mu-4.4071 -> a613 (farm 20937664, expected ~59 min, 7.1 h left)
+2026-09-29 08:03:22 [completed] Island-19-8x8__ideal__mu-4.9071 on a428 in 563.5 min :: N_e=3025.069235 mu_e=-4.899989
+2026-09-29 08:03:22 [launch] Step-8x2__path_detach3__mu-5.4071 -> a428 (farm 20934087, expected ~59 min, 26.2 h left)
+2026-09-29 08:05:23 [completed] Step-8x2__coll_topspacing-3pct__mu-5.4071 on a632 in 54.3 min :: N_e=791.573244 mu_e=-5.406666
+2026-09-29 08:05:23 [launch] Step-8x2__pert05__mu-4.4071 -> a632 (farm 20934087, expected ~59 min, 26.1 h left)
+2026-09-29 08:07:18 [completed] C2-island+pit__ideal__mu-4.9071 on a412 in 653.1 min :: N_e=2816.078912 mu_e=-4.902206
+2026-09-29 08:07:18 [launch] Step-8x2__pert05__mu-5.4071 -> a412 (farm 20929396, expected ~59 min, 8.5 h left)
+2026-09-29 08:10:26 [completed] Step-8x2__ideal__mu-4.4071 on a429 in 51.3 min :: N_e=792.476298 mu_e=-4.407935
+2026-09-29 08:10:26 [launch] Step-8x2__pert10__mu-4.4071 -> a429 (farm 20934087, expected ~59 min, 26.0 h left)
+2026-09-29 08:28:11 [completed] Step-8x2__ideal__mu-5.4071 on a578 in 56.3 min :: N_e=791.580898 mu_e=-5.406791
+2026-09-29 08:28:11 [launch] Step-8x2__pert10__mu-5.4071 -> a578 (farm 20937661, expected ~59 min, 4.3 h left)
+2026-09-29 08:28:28 [completed] Step-8x2__path_detach1__mu-4.4071 on a851 in 51.4 min :: N_e=792.466553 mu_e=-4.407872
+2026-09-29 08:28:28 [launch] Step-8x2__relaxed__mu-4.4071 -> a851 (farm 20929396, expected ~59 min, 8.1 h left)
+2026-09-29 08:45:42 [completed] Step-8x2__path_detach1__mu-5.4071 on b005 in 57.3 min :: N_e=791.578872 mu_e=-5.406717
+2026-09-29 08:45:42 [launch] Step-8x2__relaxed__mu-5.4071 -> b005 (farm 20937659, expected ~59 min, 45.6 h left)
+2026-09-29 08:50:23 [completed] Step-8x2__path_detach2__mu-4.4071 on b007 in 53.3 min :: N_e=792.454110 mu_e=-4.407767
+2026-09-29 08:50:23 [launch] Step-8x2_edge-vacancy_plus_foot-adatom__ideal__mu-4.4071 -> b007 (farm 20937660, expected ~59 min, 45.6 h left)
+2026-09-29 08:58:47 [completed] Step-8x2__pert05__mu-4.4071 on a632 in 53.4 min :: N_e=792.463827 mu_e=-4.407841
+2026-09-29 08:58:47 [launch] Step-8x2_edge-vacancy_plus_foot-adatom__ideal__mu-5.4071 -> a632 (farm 20934087, expected ~59 min, 25.2 h left)
+2026-09-29 09:00:42 [completed] Step-8x2__path_detach2__mu-5.4071 on a548 in 61.4 min :: N_e=791.557303 mu_e=-5.406641
+2026-09-29 09:00:42 [launch] Step-24x1__ideal__mu-4.4071 -> a548 (farm 20937663, expected ~109 min, 4.2 h left)
+2026-09-29 09:02:54 [completed] Step-8x2__path_detach3__mu-5.4071 on a428 in 59.5 min :: N_e=791.532374 mu_e=-5.406530
+2026-09-29 09:02:54 [launch] Step-24x1__ideal__mu-5.4071 -> a428 (farm 20934087, expected ~109 min, 25.2 h left)
+2026-09-29 09:04:47 [completed] Step-8x2__path_detach3__mu-4.4071 on a613 in 64.5 min :: N_e=792.435360 mu_e=-4.407700
+2026-09-29 09:04:48 [launch] Kink-edge1__ideal__mu-4.4071 -> a613 (farm 20937664, expected ~111 min, 6.0 h left)
+2026-09-29 09:07:41 [completed] Step-8x2__pert05__mu-5.4071 on a412 in 60.4 min :: N_e=791.583428 mu_e=-5.406705
+2026-09-29 09:07:43 [launch] Kink-edge1__ideal__mu-5.4071 -> a412 (farm 20929396, expected ~111 min, 7.5 h left)
+2026-09-29 09:09:43 [completed] Pit-19-8x8__ideal__mu-4.9071 on a282 in 710.4 min :: N_e=2607.185976 mu_e=-4.913177
+2026-09-29 09:09:43 [launch] Kink-edge1__path_kinkmove1__mu-4.4071 -> a282 (farm 20929396, expected ~111 min, 7.4 h left)
+2026-09-29 09:16:59 [completed] Step-8x2__pert10__mu-4.4071 on a429 in 66.6 min :: N_e=792.489884 mu_e=-4.408049
+2026-09-29 09:16:59 [launch] Kink-edge1__path_kinkmove1__mu-5.4071 -> a429 (farm 20934087, expected ~111 min, 24.9 h left)
+2026-09-29 09:20:25 [completed] Step-8x2__pert10__mu-5.4071 on a578 in 52.2 min :: N_e=791.608846 mu_e=-5.406820
+2026-09-29 09:20:25 [launch] Kink-edge1__path_kinkmove2__mu-4.4071 -> a578 (farm 20937661, expected ~111 min, 3.4 h left)
+2026-09-29 09:22:47 [completed] Step-8x2__relaxed__mu-4.4071 on a851 in 54.3 min :: N_e=792.472606 mu_e=-4.407936
+2026-09-29 09:22:49 [launch] Kink-edge1__path_kinkmove2__mu-5.4071 -> a851 (farm 20929396, expected ~111 min, 7.2 h left)
+2026-09-29 09:39:33 [completed] Step-8x2_edge-vacancy_plus_foot-adatom__ideal__mu-4.4071 on b007 in 49.2 min :: N_e=792.434464 mu_e=-4.407645
+2026-09-29 09:39:33 [launch] Kink-edge1__pert05__mu-4.4071 -> b007 (farm 20937660, expected ~111 min, 44.7 h left)
+2026-09-29 09:46:07 [completed] Step-8x2__relaxed__mu-5.4071 on b005 in 60.4 min :: N_e=791.595382 mu_e=-5.406754
+2026-09-29 09:46:07 [launch] Kink-edge1__pert05__mu-5.4071 -> b005 (farm 20937659, expected ~111 min, 44.6 h left)
+2026-09-29 09:59:16 [completed] Step-8x2_edge-vacancy_plus_foot-adatom__ideal__mu-5.4071 on a632 in 60.5 min :: N_e=791.523489 mu_e=-5.406551
+2026-09-29 09:59:18 [launch] Kink-edge1__pert10__mu-4.4071 -> a632 (farm 20934087, expected ~111 min, 24.2 h left)
+2026-09-29 10:21:26 [extend_mu05] 10 large (>200 atom) end points moved to priority 75 (ahead of the small extension tasks): long jobs must start while the long-lived farms still satisfy the walltime guard; short farms skip them via the guard
+2026-09-29 10:21:40 [extend_mu05] refresh: 8 pending cold-start tasks given a warm start, 0 records re-pointed to their geometry source
+2026-09-29 10:58:33 [completed] Kink-edge1__ideal__mu-4.4071 on a613 in 113.7 min :: N_e=1199.700842 mu_e=-4.407952
+2026-09-29 10:58:33 [launch] Kink-edge1__pert10__mu-5.4071 -> a613 (farm 20937664, expected ~111 min, 4.1 h left)
+2026-09-29 11:05:27 [completed] Kink-edge1__ideal__mu-5.4071 on a412 in 117.7 min :: N_e=1198.352868 mu_e=-5.406633
+2026-09-29 11:05:27 [launch] Kink-edge1__relaxed__mu-4.4071 -> a412 (farm 20929396, expected ~111 min, 5.5 h left)
+2026-09-29 11:08:43 [completed] Kink-edge1__path_kinkmove1__mu-5.4071 on a429 in 111.7 min :: N_e=1198.395171 mu_e=-5.406690
+2026-09-29 11:08:43 [launch] Pit-19-8x8__ideal__mu-4.4071 -> a429 (farm 20934087, expected ~355 min, 23.1 h left)
+2026-09-29 11:11:28 [completed] Kink-edge1__path_kinkmove1__mu-4.4071 on a282 in 121.8 min :: N_e=1199.711905 mu_e=-4.408052
+2026-09-29 11:11:28 [launch] Kink-edge1__relaxed__mu-5.4071 -> a282 (farm 20929396, expected ~111 min, 5.4 h left)
+2026-09-29 11:16:29 [completed] Kink-edge1__path_kinkmove2__mu-5.4071 on a851 in 113.7 min :: N_e=1198.366636 mu_e=-5.406594
+2026-09-29 11:16:29 [launch] Kink-edge2__ideal__mu-4.4071 -> a851 (farm 20929396, expected ~111 min, 5.3 h left)
+2026-09-29 11:20:00 [completed] Kink-edge1__path_kinkmove2__mu-4.4071 on a578 in 119.6 min :: N_e=1199.682053 mu_e=-4.408025
+2026-09-29 11:30:41 [completed] Step-24x1__ideal__mu-4.4071 on a548 in 150.0 min :: N_e=1188.729549 mu_e=-4.407788
+2026-09-29 11:32:49 [completed] Step-24x1__ideal__mu-5.4071 on a428 in 149.9 min :: N_e=1187.447808 mu_e=-5.406750
+2026-09-29 11:32:49 [launch] Pit-19-8x8__ideal__mu-5.4071 -> a428 (farm 20934087, expected ~355 min, 22.7 h left)
+2026-09-29 11:34:11 [completed] Kink-edge1__pert05__mu-4.4071 on b007 in 114.6 min :: N_e=1199.704575 mu_e=-4.407951
+2026-09-29 11:34:13 [launch] Pit-7-8x8__ideal__mu-4.4071 -> b007 (farm 20937660, expected ~382 min, 42.8 h left)
+2026-09-29 11:34:49 [completed] Kink-edge1__pert05__mu-5.4071 on b005 in 108.7 min :: N_e=1198.387636 mu_e=-5.406672
+2026-09-29 11:34:51 [launch] Pit-7-8x8__ideal__mu-5.4071 -> b005 (farm 20937659, expected ~382 min, 42.8 h left)
+2026-09-29 11:54:41 [completed] Pit-7-8x8__ideal__mu-4.9071 on a414 in 822.0 min :: N_e=2739.311104 mu_e=-4.912745
+2026-09-29 11:54:41 [launch] Kink-edge2__ideal__mu-5.4071 -> a414 (farm 20929396, expected ~111 min, 4.7 h left)
+2026-09-29 11:56:02 [completed] Kink-edge1__pert10__mu-4.4071 on a632 in 116.7 min :: N_e=1199.705424 mu_e=-4.407962
+2026-09-29 11:56:04 [launch] C2-island+pit__ideal__mu-4.4071 -> a632 (farm 20934087, expected ~398 min, 22.3 h left)
+2026-09-29 12:15:22 [farm 20937661] walltime nearly over, nothing launchable -- exiting
+2026-09-29 12:26:20 [completed] Pit-19-8x8__ideal__mu-5.1071 on a660 in 857.8 min :: N_e=2606.501335 mu_e=-5.102673
+2026-09-29 12:26:20 [launch] C2-island+pit__ideal__mu-5.4071 -> a660 (farm 20934087, expected ~398 min, 21.8 h left)
+2026-09-29 12:45:59 [farm 20937663] walltime nearly over, nothing launchable -- exiting
+2026-09-29 12:58:16 [completed] Kink-edge1__pert10__mu-5.4071 on a613 in 119.7 min :: N_e=1198.393385 mu_e=-5.406686
+2026-09-29 13:09:19 [completed] Kink-edge1__relaxed__mu-5.4071 on a282 in 117.8 min :: N_e=1198.396583 mu_e=-5.406695
+2026-09-29 13:09:19 [launch] Kink-edge2__path_kinkmove1__mu-4.4071 -> a282 (farm 20929396, expected ~111 min, 3.5 h left)
+2026-09-29 13:21:23 [completed] Kink-edge1__relaxed__mu-4.4071 on a412 in 135.9 min :: N_e=1199.711403 mu_e=-4.408034
+2026-09-29 13:21:23 [completed] Kink-edge2__ideal__mu-4.4071 on a851 in 124.9 min :: N_e=1199.690298 mu_e=-4.407920
+2026-09-29 13:21:23 [launch] Kink-edge2__path_kinkmove1__mu-5.4071 -> a412 (farm 20929396, expected ~111 min, 3.3 h left)
+2026-09-29 13:21:23 [launch] Kink-edge2__path_kinkmove2__mu-4.4071 -> a851 (farm 20929396, expected ~111 min, 3.3 h left)
+2026-09-29 13:55:37 [completed] Kink-edge2__ideal__mu-5.4071 on a414 in 120.9 min :: N_e=1198.338281 mu_e=-5.406586
+2026-09-29 13:55:38 [launch] Kink-edge2__path_kinkmove2__mu-5.4071 -> a414 (farm 20929396, expected ~111 min, 2.7 h left)
+2026-09-29 14:36:58 [farm 20937664] walltime nearly over, nothing launchable -- exiting
+2026-09-29 14:54:02 [completed] Kink-edge2__path_kinkmove1__mu-4.4071 on a282 in 104.7 min :: N_e=1199.660407 mu_e=-4.407850
+2026-09-29 15:11:09 [completed] Kink-edge2__path_kinkmove2__mu-4.4071 on a851 in 109.8 min :: N_e=1199.670864 mu_e=-4.407865
+2026-09-29 15:25:13 [completed] Kink-edge2__path_kinkmove1__mu-5.4071 on a412 in 123.8 min :: N_e=1198.343552 mu_e=-5.406520
+2026-09-29 15:37:22 [completed] Island-19-8x8__ideal__mu-5.1071 on a292 in 1011.4 min :: N_e=3024.331339 mu_e=-5.100300
+2026-09-29 15:55:33 [completed] Kink-edge2__path_kinkmove2__mu-5.4071 on a414 in 119.9 min :: N_e=1198.347469 mu_e=-5.406542
+2026-09-29 16:07:36 [farm 20929396] walltime nearly over, nothing launchable -- exiting
+2026-09-29 17:35:01 [completed] C2-island+pit__ideal__mu-5.1071 on a631 in 1219.9 min :: N_e=2815.348286 mu_e=-5.100509
+2026-09-29 17:35:01 [launch] Island-7-8x8__ideal__mu-4.4071 -> a631 (farm 20934087, expected ~415 min, 16.6 h left)
