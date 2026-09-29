@@ -1,43 +1,32 @@
 # Dataset v1 (production states) — summary
 
-Generated 2026-09-28 from 05_production/queue.json. **225 accepted states** (90 distinct geometries, 25 structures), 0 skipped. Labels are by the actual converged state; no `energy` key is assigned (see dataset_v0/README.md).
+Generated 2026-09-28 from 05_production/queue.json. **268 accepted states** (97 distinct geometries, 26 structures), 0 skipped. Labels are by the actual converged state; no `energy` key is assigned (see dataset_v0/README.md).
 
 | family | states |
 |---|---|
-| point defect | 69 |
-| vicinal step face | 44 |
-| strip step | 36 |
-| reconstruction-related | 26 |
-| flat Au(111) | 25 |
-| kink / edge rearrangement | 19 |
-| single-layer pit | 4 |
-| single-layer island | 2 |
+| point defect | 66 |
+| vicinal step face | 42 |
+| strip step | 40 |
+| kink / edge rearrangement | 31 |
+| reconstruction-related | 24 |
+| flat Au(111) | 24 |
+| single-layer pit | 23 |
+| single-layer island | 18 |
 
 | config type | states |
 |---|---|
-| ideal | 63 |
+| ideal | 68 |
 | coll | 42 |
-| relaxed | 33 |
-| pert05 | 27 |
-| pert10 | 27 |
-| path | 18 |
-| relax | 15 |
+| pert05 | 41 |
+| pert10 | 41 |
+| relaxed | 32 |
+| path | 28 |
+| relax | 16 |
 
 - μ_e more than 5 meV from TARGETMU (inside FERMICONVERGE = 0.01): 20 states; max |Δμ| = 9.6 meV.
-- |total drift_z|: median 0.248, max 1.600 eV/Å (PREC=Normal aliasing; see dataset_v0/README.md).
-- relaxations included as final-geometry states: 15 (all with 'reached required accuracy').
+- |total drift_z|: median 0.313, max 2.899 eV/Å (PREC=Normal aliasing; see dataset_v0/README.md).
+- relaxations included as final-geometry states: 16 (all with 'reached required accuracy'); 16 queue records are aliases of an exported state (the reused relaxed@-4.9071 record = the relax task's final step) and are listed under `aliases`, not exported twice (before 2026-09-28 20:50 they were).
+- campaigns: {'dataset_plan_v1_rev2': 268}; TARGETMU coverage: {'-4.7071': 97, '-4.9071': 75, '-5.1071': 96}; states per geometry: {2: 23, 3: 74}.
+- QC (mu closure <= 0.011 eV, CHGCAR written after task start, 15 field files, geometry = registry within 0.005 Å, relaxation accuracy): 268 accepted, 0 flagged.
+- geometry deviation from the registry source: max 0.0030 Å (3 states above 1e-4 Å, the pilot-reused ideal states of Step-8x1/Step-16x1); states in the relaxation directory (relax task and reused relaxed@-4.9071) carry the CONTCAR geometry.
 - fields: every state indexes CHGCAR, LOCPOT, PHI, PHISOLV, VSOLV, RHOB, RHOION, ELOC, P, SVDW, SION, SSOLV, SCAV, SDIEL, POT in its run directory (not copied).
-
-## Force-label quality: egg-box error of the production configuration (found 2026-09-28)
-
-`total_drift` (sum of all forces, should vanish) is −1.26 to −1.60 eV/Å along z for every ideal single point in the
-4×4 cell (T, V1, V2, V3, A1, A3, R1: 0.02 eV/Å per atom, coherent), −0.27 in the 16×1 cells, −0.5 to −0.7 for
-perturbed/relaxed 4×4 configurations, −0.7 for the kink cells and −1.0 for the 6×6 pit/island cells. Cause, verified
-on the OUTCARs: PREC=Normal puts exactly 16.000 coarse FFT points per 2.94 Å atom spacing in the 4×4 cell, so the
-LREAL=Auto real-space projection ("egg-box") error is identical for every atom in a layer and adds up; in the 16×1
-cell (16.875 points) the phases differ and the error largely cancels in the sum; PREC=Accurate (22.5 points, tighter
-ROPT) gives 0.017 eV/Å total. The per-atom error is therefore of order 0.02 eV/Å (z) throughout the production set,
-visible in the drift only where the cell is commensurate. Options (none applied here): (a) subtract drift/N per atom
-— removes the coherent part only; (b) quantify directly by recomputing 2–3 states with LREAL=.FALSE. (~1–2 node·h);
-(c) change the label standard (ADDGRID or LREAL=.FALSE.) for a future relabelling. The v1 labels are exported as
-computed, with `total_drift_eV_per_A` per state.

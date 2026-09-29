@@ -520,3 +520,96 @@
 2026-09-28 12:03:42 [completed] Island-7-compact__relax__mu-4.9071 on a282 in 832.0 min :: relaxed: 37 ionic steps, final N_e=1660.933118 mu_e=-4.907064
 2026-09-28 12:03:44 [launch] Pit-7-compact__relaxed__mu-5.1071 -> a282 (farm 20929396, expected ~156 min, 28.5 h left)
 2026-09-28 12:03:46 [children] Island-7-compact: 4 derived configurations (pert05, pert10, path_detach1, path_detach2), 10 new single-point tasks queued
+2026-09-28 12:12:41 [completed] Kink-edge2__relaxed__mu-4.7071 on b007 in 95.6 min :: N_e=1199.308269 mu_e=-4.706399
+2026-09-28 12:12:41 [launch] Pit-7-trench__pert05__mu-4.7071 -> b007 (farm 20928319, expected ~156 min, 18.7 h left)
+2026-09-28 12:27:59 [completed] Kink-edge2__relaxed__mu-5.1071 on a412 in 83.7 min :: N_e=1198.764511 mu_e=-5.108039
+2026-09-28 12:28:01 [launch] Pit-7-trench__pert05__mu-5.1071 -> a412 (farm 20929396, expected ~156 min, 28.1 h left)
+2026-09-28 13:10:16 [completed] Pit-7-compact__path_rimin1__mu-4.7071 on a851 in 119.9 min :: N_e=1507.370929 mu_e=-4.709512
+2026-09-28 13:10:16 [launch] Pit-7-trench__pert10__mu-4.7071 -> a851 (farm 20929396, expected ~156 min, 27.4 h left)
+2026-09-28 13:16:19 [completed] Pit-7-compact__path_rimin1__mu-5.1071 on a414 in 125.0 min :: N_e=1506.568641 mu_e=-5.107897
+2026-09-28 13:16:20 [launch] Pit-7-trench__pert10__mu-5.1071 -> a414 (farm 20929396, expected ~156 min, 27.3 h left)
+2026-09-28 13:36:38 [completed] Pit-7-compact__path_rimin2__mu-4.7071 on b015 in 143.2 min :: N_e=1507.332436 mu_e=-4.710249
+2026-09-28 13:36:39 [launch] Pit-7-trench__relaxed__mu-4.7071 -> b015 (farm 20928320, expected ~156 min, 17.3 h left)
+2026-09-28 13:40:11 [completed] Pit-7-compact__pert05__mu-4.7071 on a632 in 119.9 min :: N_e=1507.370596 mu_e=-4.709024
+2026-09-28 13:40:11 [launch] Pit-7-trench__relaxed__mu-5.1071 -> a632 (farm 20934087, expected ~156 min, 44.6 h left)
+2026-09-28 13:56:19 [completed] Pit-7-compact__pert05__mu-5.1071 on a631 in 132.1 min :: N_e=1506.569218 mu_e=-5.108606
+2026-09-28 13:56:19 [launch] Step-16x2__pert05__mu-4.7071 -> a631 (farm 20934087, expected ~168 min, 44.3 h left)
+2026-09-28 13:58:46 [completed] Pit-7-compact__relaxed__mu-4.7071 on a292 in 121.1 min :: N_e=1507.366556 mu_e=-4.708801
+2026-09-28 13:58:46 [launch] Step-16x2__pert05__mu-5.1071 -> a292 (farm 20929396, expected ~168 min, 26.6 h left)
+2026-09-28 14:02:24 [completed] Pit-7-compact__pert10__mu-4.7071 on a429 in 130.1 min :: N_e=1507.470896 mu_e=-4.708622
+2026-09-28 14:02:24 [launch] Step-16x2__pert10__mu-4.7071 -> a429 (farm 20934087, expected ~168 min, 44.2 h left)
+2026-09-28 14:03:24 [completed] Pit-7-compact__pert10__mu-5.1071 on a660 in 129.1 min :: N_e=1506.670542 mu_e=-5.108036
+2026-09-28 14:03:24 [launch] Step-16x2__pert10__mu-5.1071 -> a660 (farm 20934087, expected ~168 min, 44.2 h left)
+2026-09-28 14:05:26 [completed] Pit-7-compact__path_rimin2__mu-5.1071 on a428 in 147.2 min :: N_e=1506.528142 mu_e=-5.106204
+2026-09-28 14:05:28 [launch] Step-16x2__relaxed__mu-4.7071 -> a428 (farm 20934087, expected ~168 min, 44.1 h left)
+2026-09-28 14:14:57 [completed] Pit-7-compact__relaxed__mu-5.1071 on a282 in 131.2 min :: N_e=1506.565284 mu_e=-5.108737
+2026-09-28 14:14:57 [launch] Step-16x2__relaxed__mu-5.1071 -> a282 (farm 20929396, expected ~168 min, 26.4 h left)
+2026-09-28 14:34:53 [completed] Pit-7-trench__pert05__mu-4.7071 on b007 in 142.2 min :: N_e=1507.396722 mu_e=-4.709633
+2026-09-28 14:34:53 [launch] Island-7-compact__path_detach1__mu-4.7071 -> b007 (farm 20928319, expected ~180 min, 16.3 h left)
+2026-09-28 14:38:12 [completed] Pit-7-trench__pert05__mu-5.1071 on a412 in 130.2 min :: N_e=1506.594447 mu_e=-5.107503
+2026-09-28 14:38:12 [launch] Island-7-compact__path_detach1__mu-5.1071 -> a412 (farm 20929396, expected ~180 min, 26.0 h left)
+2026-09-28 15:23:34 [completed] Pit-7-trench__pert10__mu-4.7071 on a851 in 133.3 min :: N_e=1507.413890 mu_e=-4.708469
+2026-09-28 15:23:35 [launch] Island-7-compact__path_detach2__mu-4.7071 -> a851 (farm 20929396, expected ~180 min, 25.2 h left)
+2026-09-28 15:31:40 [completed] Pit-7-trench__pert10__mu-5.1071 on a414 in 135.3 min :: N_e=1506.613355 mu_e=-5.108737
+2026-09-28 15:31:40 [launch] Island-7-compact__path_detach2__mu-5.1071 -> a414 (farm 20929396, expected ~180 min, 25.1 h left)
+2026-09-28 15:44:55 [completed] Pit-7-trench__relaxed__mu-4.7071 on b015 in 128.3 min :: N_e=1507.387066 mu_e=-4.709529
+2026-09-28 15:44:55 [launch] Island-7-compact__pert05__mu-4.7071 -> b015 (farm 20928320, expected ~180 min, 15.1 h left)
+2026-09-28 15:55:30 [completed] Pit-7-trench__relaxed__mu-5.1071 on a632 in 135.3 min :: N_e=1506.584870 mu_e=-5.107529
+2026-09-28 15:55:31 [launch] Island-7-compact__pert05__mu-5.1071 -> a632 (farm 20934087, expected ~180 min, 42.3 h left)
+2026-09-28 16:02:54 [completed] Step-16x2__pert05__mu-5.1071 on a292 in 124.1 min :: N_e=1583.738197 mu_e=-5.108193
+2026-09-28 16:02:55 [launch] Island-7-compact__pert10__mu-4.7071 -> a292 (farm 20929396, expected ~180 min, 24.6 h left)
+2026-09-28 16:03:34 [completed] Step-16x2__pert05__mu-4.7071 on a631 in 127.2 min :: N_e=1584.435027 mu_e=-4.708291
+2026-09-28 16:03:34 [completed] Step-16x2__pert10__mu-5.1071 on a660 in 120.2 min :: N_e=1583.753795 mu_e=-5.108031
+2026-09-28 16:03:35 [launch] Island-7-compact__pert10__mu-5.1071 -> a631 (farm 20934087, expected ~180 min, 42.2 h left)
+2026-09-28 16:03:35 [launch] Island-7-compact__relaxed__mu-4.7071 -> a660 (farm 20934087, expected ~180 min, 42.2 h left)
+2026-09-28 16:14:39 [completed] Step-16x2__pert10__mu-4.7071 on a429 in 132.2 min :: N_e=1584.453500 mu_e=-4.708429
+2026-09-28 16:14:39 [launch] Island-7-compact__relaxed__mu-5.1071 -> a429 (farm 20934087, expected ~180 min, 42.0 h left)
+2026-09-28 16:27:47 [completed] Step-16x2__relaxed__mu-4.7071 on a428 in 142.3 min :: N_e=1584.447831 mu_e=-4.708434
+2026-09-28 16:27:47 [launch] Island-7-elongated__pert05__mu-4.7071 -> a428 (farm 20934087, expected ~180 min, 41.8 h left)
+2026-09-28 16:30:07 [completed] Step-16x2__relaxed__mu-5.1071 on a282 in 135.2 min :: N_e=1583.751483 mu_e=-5.108073
+2026-09-28 16:30:08 [launch] Island-7-elongated__pert05__mu-5.1071 -> a282 (farm 20929396, expected ~180 min, 24.1 h left)
+2026-09-28 16:39:59 [completed] Island-7-compact__path_detach1__mu-4.7071 on b007 in 125.1 min :: N_e=1661.321397 mu_e=-4.709128
+2026-09-28 16:39:59 [launch] Island-7-elongated__pert10__mu-4.7071 -> b007 (farm 20928319, expected ~180 min, 14.2 h left)
+2026-09-28 17:03:23 [completed] Island-7-compact__path_detach1__mu-5.1071 on a412 in 145.2 min :: N_e=1660.518454 mu_e=-5.107841
+2026-09-28 17:03:23 [launch] Island-7-elongated__pert10__mu-5.1071 -> a412 (farm 20929396, expected ~180 min, 23.6 h left)
+2026-09-28 17:36:42 [completed] Island-7-compact__path_detach2__mu-4.7071 on a851 in 133.1 min :: N_e=1661.289961 mu_e=-4.709726
+2026-09-28 17:36:44 [launch] Island-7-elongated__relaxed__mu-4.7071 -> a851 (farm 20929396, expected ~180 min, 23.0 h left)
+2026-09-28 17:52:59 [completed] Island-7-compact__pert05__mu-4.7071 on b015 in 128.1 min :: N_e=1661.344337 mu_e=-4.707994
+2026-09-28 17:52:59 [launch] Island-7-elongated__relaxed__mu-5.1071 -> b015 (farm 20928320, expected ~180 min, 13.0 h left)
+2026-09-28 17:54:53 [completed] Island-7-compact__path_detach2__mu-5.1071 on a414 in 143.2 min :: N_e=1660.485201 mu_e=-5.105730
+2026-09-28 17:54:53 [launch] Pit-7-compact__ideal__mu-4.7071 -> a414 (farm 20929396, expected ~156 min, 22.7 h left)
+2026-09-28 18:14:32 [completed] Island-7-compact__pert05__mu-5.1071 on a632 in 139.0 min :: N_e=1660.543886 mu_e=-5.109868
+2026-09-28 18:14:32 [completed] Island-7-compact__relaxed__mu-4.7071 on a660 in 131.0 min :: N_e=1661.333596 mu_e=-4.707952
+2026-09-28 18:14:33 [launch] Pit-7-compact__ideal__mu-4.9071 -> a632 (farm 20934087, expected ~156 min, 40.0 h left)
+2026-09-28 18:14:33 [launch] Pit-7-compact__ideal__mu-5.1071 -> a660 (farm 20934087, expected ~156 min, 40.0 h left)
+2026-09-28 18:37:11 [completed] Island-7-compact__pert10__mu-4.7071 on a292 in 154.3 min :: N_e=1661.326486 mu_e=-4.708005
+2026-09-28 18:37:11 [launch] Pit-7-trench__ideal__mu-4.7071 -> a292 (farm 20929396, expected ~156 min, 22.0 h left)
+2026-09-28 18:49:52 [completed] Island-7-elongated__pert05__mu-4.7071 on a428 in 142.1 min :: N_e=1661.300703 mu_e=-4.709665
+2026-09-28 18:49:52 [launch] Pit-7-trench__ideal__mu-4.9071 -> a428 (farm 20934087, expected ~156 min, 39.4 h left)
+2026-09-28 18:50:52 [completed] Pit-7-compact__ideal__mu-4.9071 on a632 in 36.3 min :: N_e=1507.000000 mu_e=-4.906691
+2026-09-28 18:50:53 [launch] Pit-7-trench__ideal__mu-5.1071 -> a632 (farm 20934087, expected ~156 min, 39.4 h left)
+2026-09-28 18:51:53 [completed] Island-7-compact__pert10__mu-5.1071 on a631 in 168.3 min :: N_e=1660.525763 mu_e=-5.109919
+2026-09-28 18:51:54 [launch] Step-16x2__ideal__mu-4.7071 -> a631 (farm 20934087, expected ~168 min, 39.4 h left)
+2026-09-28 18:57:58 [completed] Island-7-compact__relaxed__mu-5.1071 on a429 in 163.3 min :: N_e=1660.537772 mu_e=-5.107696
+2026-09-28 18:57:58 [launch] Step-16x2__ideal__mu-4.9071 -> a429 (farm 20934087, expected ~168 min, 39.3 h left)
+2026-09-28 19:02:03 [completed] Island-7-elongated__pert10__mu-4.7071 on b007 in 142.1 min :: N_e=1661.319015 mu_e=-4.710917
+2026-09-28 19:02:03 [launch] Step-16x2__ideal__mu-5.1071 -> b007 (farm 20928319, expected ~168 min, 11.8 h left)
+2026-09-28 19:05:19 [completed] Island-7-elongated__pert05__mu-5.1071 on a282 in 155.2 min :: N_e=1660.496574 mu_e=-5.106112
+2026-09-28 19:05:20 [launch] Island-7-compact__ideal__mu-4.7071 -> a282 (farm 20929396, expected ~180 min, 21.5 h left)
+2026-09-28 19:16:23 [completed] Island-7-elongated__pert10__mu-5.1071 on a412 in 133.0 min :: N_e=1660.512679 mu_e=-5.104154
+2026-09-28 19:16:24 [launch] Island-7-compact__ideal__mu-4.9071 -> a412 (farm 20929396, expected ~180 min, 21.3 h left)
+2026-09-28 19:58:45 [completed] Pit-7-compact__ideal__mu-4.7071 on a414 in 123.9 min :: N_e=1507.400332 mu_e=-4.709441
+2026-09-28 19:58:45 [launch] Island-7-compact__ideal__mu-5.1071 -> a414 (farm 20929396, expected ~180 min, 20.6 h left)
+2026-09-28 20:07:49 [completed] Island-7-elongated__relaxed__mu-4.7071 on a851 in 151.1 min :: N_e=1661.316127 mu_e=-4.709703
+2026-09-28 20:07:49 [launch] Island-7-elongated__ideal__mu-4.7071 -> a851 (farm 20929396, expected ~180 min, 20.5 h left)
+2026-09-28 20:10:33 [completed] Pit-7-compact__ideal__mu-5.1071 on a660 in 116.0 min :: N_e=1506.598288 mu_e=-5.107726
+2026-09-28 20:10:33 [launch] Island-7-elongated__ideal__mu-4.9071 -> a660 (farm 20934087, expected ~180 min, 38.0 h left)
+2026-09-28 20:34:14 [completed] Island-7-elongated__relaxed__mu-5.1071 on b015 in 161.3 min :: N_e=1660.512175 mu_e=-5.106511
+2026-09-28 20:34:15 [launch] Island-7-elongated__ideal__mu-5.1071 -> b015 (farm 20928320, expected ~180 min, 10.3 h left)
+2026-09-28 20:40:47 [extend_mu05] 214 extension tasks queued (priority 80/85, campaign mu05_extension, est 243 node-h); queue now 521 entries
+2026-09-28 20:42:53 [completed] Pit-7-trench__ideal__mu-4.7071 on a292 in 125.7 min :: N_e=1507.423680 mu_e=-4.710837
+2026-09-28 20:42:53 [launch] Step-24x1__ideal__mu-4.7071 -> a292 (farm 20929396, expected ~109 min, 19.9 h left)
+2026-09-28 20:44:25 [extend_mu05] refresh: 1 pending cold-start tasks given a warm start, 32 records re-pointed to their geometry source
+2026-09-28 20:45:49 [completed] Pit-7-trench__ideal__mu-4.9071 on a428 in 116.0 min :: N_e=1507.023680 mu_e=-4.906238
+2026-09-28 20:45:51 [launch] Step-24x1__ideal__mu-4.9071 -> a428 (farm 20934087, expected ~109 min, 37.5 h left)
+2026-09-28 20:50:22 [extend_mu05] refresh: 1 pending cold-start tasks given a warm start, 193 records re-pointed to their geometry source

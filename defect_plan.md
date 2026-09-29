@@ -344,6 +344,27 @@ the coordinates: recovered normals and plane spacings 1.254 / 0.849 / 0.504 Å).
 `Au223_retired` (manifest role `retired_mislabeled`). The gallery figures for these three
 faces still show the retired geometries (re-render pending).
 
+**Extension 2026-09-28 — ±0.5 V end points (`scripts/extend_mu05.py`, campaign
+`mu05_extension`).** User instruction of 2026-09-28: every distinct retained geometry gets two
+more fixed-geometry CP single points at TARGETMU = −5.4071 (ΔU = +0.5 V) and −4.4071
+(ΔU = −0.5 V), μ_target = μ₀ − ΔU with μ₀ = −4.9071 eV (internal reference; not vs RHE, not a
+per-structure PZC); existing −5.1071/−4.9071/−4.7071 states kept, no intermediate points
+added. Task objects are geometries, not queue records: ideal/pert/coll/path use the POSCAR
+actually computed, relaxed uses the accepted CONTCAR (relax task and its reused −4.9071 record
+= one geometry); dedupe by geometry_id (structure__config__sha1 of cell+positions) + config
+version + TARGETMU; re-runs add nothing. Index result: 107 geometries (16 relaxed, 33 ideal,
+58 pert/coll/path) → 214 tasks queued 20:40 at priority 80 (85 for the ten > 200-atom
+references), below every original task; same KPOINTS/POTCAR/INCAR standard, IBRION = −1;
+warm start ICHARG = 1 from a copy of the same-side neighbour's CHGCAR (−5.1071 → −5.4071,
+−4.7071 → −4.4071; 193 of 214 at creation, the remaining 21 get theirs by `--refresh` once the
+neighbour completes; never ICHARG = 11/12). Cost estimate from measured same-structure
+single-point times: 243 node·h (200 of 214 measured, rest model), of which 36 node·h for the
+large references; the ±0.5 V states may need one more CP round, actual times are recorded.
+Recorded deviation: the three pilot-reused ideal states of Step-8x1/Step-16x1 differ from the
+production POSCAR by ≤ 0.003 Å (step-edge top atoms, rounding); treated as the same geometry,
+the production POSCAR is the source. Coverage/status table:
+`05_production/mu05_extension_manifest.md` (regenerate with `--report`).
+
 ## Phase 2 — recorded, not built this round
 
 Au(100) flat reference; one (100)-terrace stepped surface (exact Miller index TBD);
