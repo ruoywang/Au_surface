@@ -90,7 +90,7 @@ def registry_class(atoms, family=None):
     """0 = fcc-like, 1 = transition / domain wall, 2 = hcp-like, -1 = not applicable."""
     if family not in REGISTRY_FAMILIES: return np.full(len(atoms), -1)
     off = registry_offset(atoms)
-    ref = nn_spacing(atoms) / np.sqrt(3.0)          # the fcc lateral offset
+    ref = layer_spacing(atoms) / np.sqrt(3.0)       # the fcc lateral offset
     cls = np.full(len(atoms), 0)
     cls[off > 1e6] = 0
     cls[(off < 0.35 * ref)] = 2
@@ -313,25 +313,45 @@ def describe(H, family=None):
 PLAN_FILL = {2: "#dfb264", 1: "#e9c98f", 0: "#f2efe9", -1: "#bcd3dd", -2: "#9cbecd", -3: "#86adbf"}
 
 
-def nn_spacing(atoms):
+LAYER_DZ = 0.6          # A; two atoms are in the same atomic layer if their heights differ by less than this
+
+
+def layer_spacing(atoms, sel=None):
+    """Median in-plane nearest-neighbour distance between atoms of the SAME atomic layer.
+
+    This is the only lattice scale the drawing may use for connectivity: two surface atoms are bonded neighbours
+    when they are this far apart, so discs of radius 0.62 x this overlap exactly for bonded pairs.
+
+    It replaces an nn_spacing() that took the nearest neighbour in PROJECTION over all un-buried atoms and so
+    mixed layers. An adatom sits in a hollow a0/sqrt(3) = 1.6975 A laterally from each of the three terrace atoms
+    beneath it, and on A3, C1 and the compact pits more than half the un-buried atoms had such a cross-layer
+    partner as their projected nearest, so the median came back 1.6975 A instead of 2.9401 A. Discs of radius
+    0.62 x 1.6975 = 1.05 A cannot bridge a 2.94 A bond: A3's three-atom cluster was drawn as three separate
+    circles (atom graph 1 component, disc graph 3) and Pit-7-compact's floor as twelve. Restricting the pair to
+    |dz| < LAYER_DZ makes it the same-layer spacing it was always meant to be; R2's compressed stripe layer still
+    reports its own, smaller value, and that value no longer leaks into any other structure's scale."""
     pos = atoms.get_positions(); cell = atoms.get_cell().array
-    top = top_atoms(atoms); p = pos[top][:, :2]
+    p = pos[top_atoms(atoms) if sel is None else sel]
     if len(p) < 2: return 2.94
-    # per-atom nearest neighbour, then the median of those. A global percentile over all pair distances put the
-    # "nearest neighbour" of R2's compressed layer at 4.4 A, which then mis-scaled its registry thresholds.
     best = np.full(len(p), np.inf)
     for si in (-1, 0, 1):
         for sj in (-1, 0, 1):
             sh = (si * cell[0] + sj * cell[1])[:2]
-            d = np.linalg.norm(p[:, None, :] - (p[None, :, :] + sh), axis=-1)
-            d[d < 0.1] = np.inf
+            d = np.linalg.norm(p[:, None, :2] - (p[None, :, :2] + sh), axis=-1)
+            d = np.where((np.abs(p[:, None, 2] - p[None, :, 2]) < LAYER_DZ) & (d > 0.1), d, np.inf)
             best = np.minimum(best, d.min(axis=1))
     best = best[np.isfinite(best)]
     return float(np.median(best)) if len(best) else 2.94
 
 
 def blob_distance(pts_xy, gx, gy, cell):
-    """Distance from every grid point to the nearest of pts_xy, minimum image."""
+    """Distance from every grid point to the nearest of pts_xy, minimum image.
+
+    Call this ONCE, on the base-cell grid. The result is periodic by construction, so every tiled copy of the
+    schematic must be drawn by translating this array -- never by re-evaluating the function at a shifted query
+    position. The image search runs over -1,0,+1 only, so a query two cells out lost the atoms entirely: the
+    third copy of Step-8x2 came out 0.40% covered against 53.18% for the first, i.e. its upper terrace vanished
+    from a picture of a perfectly periodic structure."""
     best = np.full(gx.shape, np.inf)
     for si in (-1, 0, 1):
         for sj in (-1, 0, 1):
@@ -368,108 +388,381 @@ def wrap_offset(L):
     return 0, 0
 
 
-def choose_cut(at):
-    """(H, gx, gy, cut) -- the height map and which line the section should be taken along.
+def wrap_pad(gx, gy, A, cell):
+    """Repeat the first row and column one period out, so tiled fills abut instead of leaving a hairline.
 
-    Computed before anything is drawn, because the side-view atom band and the schematic must use the SAME line,
-    and the figure size depends on the atom band."""
-    H, gx, gy, _ = height_map(at, ng=110)
-    H = H - np.median(H)
-    gap, cut_h = height_gap(H)
-    M = H > cut_h if gap >= GAP_LAYER else np.zeros(H.shape, bool)
-    if not M.any() or M.all(): return H, gx, gy, None
-    base_h = float(np.median(H)); hi_lvl = base_h + 0.5 * gap; lo_lvl = base_h - 0.5 * gap
-    want_hi = bool((H > hi_lvl).any()); want_lo = bool((H < lo_lvl).any())
+    The grid samples cell centres, from 0.5/n to (n-0.5)/n of the cell, so neighbouring tiles of a periodic
+    field stopped a half cell short of each other and a white seam ran between every copy."""
+    gx = np.concatenate([gx, gx[:1] + cell[0][0]], axis=0)
+    gy = np.concatenate([gy, gy[:1] + cell[0][1]], axis=0)
+    A = np.concatenate([A, A[:1]], axis=0)
+    gx = np.concatenate([gx, gx[:, :1] + cell[1][0]], axis=1)
+    gy = np.concatenate([gy, gy[:, :1] + cell[1][1]], axis=1)
+    A = np.concatenate([A, A[:, :1]], axis=1)
+    return gx, gy, A
+
+
+def smooth_periodic(A, sigma_cells=1.3):
+    """Periodic Gaussian blur, in GRID cells. Applied to the distance field before it is both contoured and
+    sliced, so rounding the per-atom scallops off the outline cannot make the outline and the section disagree."""
+    n1, n2 = A.shape
+    k1 = np.fft.fftfreq(n1)[:, None]; k2 = np.fft.fftfreq(n2)[None, :]
+    return np.fft.ifft2(np.fft.fft2(A) * np.exp(-2 * (np.pi ** 2) * (sigma_cells ** 2)
+                                                * (k1 ** 2 + k2 ** 2))).real
+
+
+def schematic_surface(at, gx, gy):
+    """The cartoon surface the plan view is drawn from: a flat terrace with each feature's disc union raised or
+    sunk to that feature's MEASURED height.
+
+    The point of returning a surface rather than only an outline is that the plan view and the section below it
+    are then two views of ONE object. Before this, the outline was a union of discs while the section was sliced
+    out of the nearest-atom height partition; the two have different definitions, so a cluster could be drawn
+    connected above and show a notch between its atoms below."""
+    cell = at.get_cell().array
+    hi, lo, modal = feature_sets(at)
+    pos = at.get_positions(); top = top_atoms(at)
+    R = 0.62 * layer_spacing(at)
+    Z = np.zeros(gx.shape); layers = []
+    for pts, sgn in ((hi, +1.0), (lo, -1.0)):
+        if not len(pts):
+            layers.append(None); continue
+        zz = pos[top & (sgn * (pos[:, 2] - modal) > 1.0), 2]
+        h = float(np.median(zz) - modal) if len(zz) else sgn * D111
+        D = smooth_periodic(blob_distance(pts, gx, gy, cell))   # ONCE; tiled copies translate this array
+        Z[D < R] = h
+        layers.append(dict(D=D, h=h, n=len(pts)))
+    return Z, layers, R, modal
+
+
+def _runs(mask):
+    """(total samples set, longest CYCLIC run) -- a profile is a closed loop, so the run may wrap the seam."""
+    n = len(mask); tot = int(mask.sum())
+    if tot == 0 or tot == n: return tot, tot
+    best = cur = 0
+    for k in range(2 * n):
+        if mask[k % n]:
+            cur += 1; best = max(best, cur)
+        else:
+            cur = 0
+    return tot, min(best, n)
+
+
+def _line(F, ax_, idx):
+    return F[:, idx] if ax_ == 0 else F[idx, :]
+
+
+def _score(pr, hi_lvl, lo_lvl, target):
+    """Rank a candidate line by the LONGEST unbroken crossing, then by total samples inside the feature.
+
+    Ranking on the total alone rewards a line that shaves the scalloped rim of a blob: on C2 the best 'crosses
+    both' line by that measure entered the pit three times for 7 samples each and the island twice for 4, which
+    draws as several small dents rather than one pit and one island."""
+    th, rh = _runs(pr > hi_lvl); tl, rl = _runs(pr < lo_lvl)
+    if target == "hi": return (rh, th)
+    if target == "lo": return (rl, tl)
+    return (min(rh, rl), rh + rl)
+
+
+CONTIG = 0.8            # a crossing counts as ONE passage through the feature if this much of it is unbroken
+JOINT = 0.6             # and a joint line must give each feature this much of its own best line's crossing
+
+
+def pick_cuts(F, hi_lvl, lo_lvl):
+    """One section line, or TWO when no lattice-aligned line properly crosses both a raised and a sunken feature.
+
+    C2 carries an island and a pit on different rows of the same cell. Nothing along a1 or a2 passes cleanly
+    through both, and a line that merely clips their rims is worse than no line: it draws one pit as three.
+    Two lines, A-A' through the raised feature and B-B' through the sunken one, is the honest answer and costs
+    one panel. They are forced onto the same lattice direction so the two sections share an abscissa."""
+    want_hi = bool((F > hi_lvl).any()); want_lo = bool((F < lo_lvl).any())
+    if not (want_hi or want_lo): return []
+    cand = [(a, i) for a in (0, 1) for i in range(F.shape[1 - a])]
+
+    def best(target, axis=None):
+        c = [x for x in cand if axis is None or x[0] == axis]
+        return max(c, key=lambda x: _score(_line(F, *x), hi_lvl, lo_lvl, target))
+
+    if want_hi and want_lo:
+        bh = best("hi"); bl = best("lo")
+        sh = _score(_line(F, *bh), hi_lvl, lo_lvl, "hi")[0]
+        sl = _score(_line(F, *bl), hi_lvl, lo_lvl, "lo")[0]
+        bb = best("both"); pr = _line(F, *bb)
+        th, rh = _runs(pr > hi_lvl); tl, rl = _runs(pr < lo_lvl)
+        if rh >= CONTIG * th and rl >= CONTIG * tl and rh >= JOINT * sh and rl >= JOINT * sl:
+            return [dict(axis=bb[0], index=bb[1], label="A", target="both")]
+        pick = None
+        for a in (0, 1):
+            ch = best("hi", a); cl = best("lo", a)
+            s = (min(_score(_line(F, *ch), hi_lvl, lo_lvl, "hi")[0],
+                     _score(_line(F, *cl), hi_lvl, lo_lvl, "lo")[0]), )
+            if pick is None or s > pick[0]: pick = (s, ch, cl)
+        _, ch, cl = pick
+        return [dict(axis=ch[0], index=ch[1], label="A", target="hi"),
+                dict(axis=cl[0], index=cl[1], label="B", target="lo")]
+    t = "hi" if want_hi else "lo"
+    b = best(t)
+    if _score(_line(F, *b), hi_lvl, lo_lvl, t)[0] == 0: return []
+    return [dict(axis=b[0], index=b[1], label="A", target=t)]
+
+
+def centre_roll(pr, hi_lvl, lo_lvl, ramp=False):
+    """How far to slide the display origin A along the line so the feature is not cut by the panel edge.
+
+    This is a shift of the WHOLE display -- A, A', the profile and the side-view atom band all read the same
+    offset out of cut_frame -- not a roll applied to one curve. Rolling only the profile is what put Pit-19's
+    terrace in the middle of a picture whose plan view said the line starts on the terrace."""
+    n = len(pr)
+    if ramp:
+        # put the riser at ~85% along, so one period reads terrace -> step -> the start of the next terrace
+        # instead of losing the step under the panel's right edge
+        d = np.diff(np.append(pr, pr[0]))
+        return int(int(0.85 * n) - int(np.argmax(np.abs(d))))
+    m = (pr > hi_lvl) | (pr < lo_lvl)
+    idx = np.flatnonzero(m)
+    if not len(idx) or len(idx) == n: return 0
+    a = 2 * np.pi * idx / n
+    c = int(round((np.arctan2(np.sin(a).mean(), np.cos(a).mean()) % (2 * np.pi)) * n / (2 * np.pi))) % n
+    return int(n // 2 - c)
+
+
+RAMP_MIN = 0.35         # A; below this the surface is flat and there is no downhill direction to section
+
+
+def ramp_cut(H):
+    """The section line for a surface with no separated levels: the lattice line of greatest relief.
+
+    On a vicinal face this is the across-terrace direction, and the profile it returns is the staircase -- the
+    inclined (111) micro-facet followed by the riser at the periodic seam. The plan view's colour gradient shows
+    the height distribution but cannot show a step, which is why these four faces needed a real section."""
     best = None
     for ax_ in (0, 1):
         for idx in range(H.shape[1 - ax_]):
             pr = H[:, idx] if ax_ == 0 else H[idx, :]
-            nh = int((pr > hi_lvl).sum()); nl = int((pr < lo_lvl).sum())
-            score = (min(nh, nl) if (want_hi and want_lo) else max(nh, nl), nh + nl)
-            if best is None or score > best[0]: best = (score, ax_, idx)
-    if not best or best[0][1] == 0: return H, gx, gy, None
-    ax_, idx = best[1], best[2]
-    pr = H[:, idx] if ax_ == 0 else H[idx, :]
-    note = ""
-    if want_hi and want_lo and not ((pr > hi_lvl).any() and (pr < lo_lvl).any()):
-        note = ("（沿晶格方向的单条剖线无法同时穿过凸起与凹陷，此线只穿过"
-                + ("凸起；凹陷见俯视轮廓）" if (pr > hi_lvl).any() else "凹陷；凸起见俯视轮廓）"))
-    return H, gx, gy, dict(axis=ax_, index=idx, frac=(idx + 0.5) / H.shape[1 - ax_], note=note,
-                           hi_lvl=hi_lvl, lo_lvl=lo_lvl, gap=gap)
+            if best is None or float(np.ptp(pr)) > best[0]: best = (float(np.ptp(pr)), ax_, idx)
+    if best is None or best[0] < RAMP_MIN: return []
+    return [dict(axis=best[1], index=best[2], label="A", target="ramp")]
 
 
-def simple_schematic(fig, cell_spec, at, pre=None):
-    """The plain outline: no atoms at all. Top = plan view of the surface levels with their boundaries stroked,
-    bottom = the side silhouette. Both come from the real height map, so the cartoon cannot drift from the geometry."""
-    import matplotlib.gridspec as mgs
-    H, gx, gy, cutinfo_pre = pre if pre is not None else choose_cut(at)
+def cut_frame(cell, ci):
+    """(rA, t_hat, n_hat, L, P) for a section line: where A is, the unit vector A->A', the in-plane normal, the
+    line's length and the true PERPENDICULAR period across it.
+
+    Everything downstream -- which atoms are in the band, how wide the band really is, and where each atom lands
+    in the side view -- comes from this one frame. The band used to be selected from a fractional-coordinate
+    difference times the other cell vector's length, which in a 60 degree cell overstates the perpendicular
+    half-width by 1/sin(60): a band captioned +-3.23 A was in fact +-2.80 A. And the side view then projected on
+    the GLOBAL x axis whatever direction the line ran, so for a line along (0.5, 0.866) the picture was not a
+    view along A-A' at all."""
+    ax_ = ci["axis"]
+    along = cell[ax_][:2]; across = cell[1 - ax_][:2]
+    L = float(np.linalg.norm(along)); t = along / L
+    n = np.array([-t[1], t[0]])
+    s0 = -(ci.get("roll", 0) / max(1, ci.get("n", 1))) * L        # the one place the display offset is applied
+    rA = ci["frac"] * across + s0 * t
+    # wrap A back into the base cell so its label lands inside the drawn panel. A lattice translation changes
+    # neither s (taken mod L) nor the perpendicular offset (taken mod P), so nothing downstream shifts.
+    C = np.array([cell[0][:2], cell[1][:2]])
+    f = rA @ np.linalg.inv(C)
+    rA = (f - np.floor(f)) @ C
+    return rA, t, n, L, abs(float(across @ n))
+
+
+def cut_band(pos, cell, ci, half):
+    """(mask of atoms within `half` of the line, coordinate along it, signed offset across it) -- one frame.
+
+    `half` is a TRUE perpendicular distance in angstrom, so the caption on the picture is the band that was
+    actually taken. The signed offset doubles as the side view's depth cue."""
+    rA, t, n, L, P = cut_frame(cell, ci)
+    d = (pos[:, :2] - rA) @ n
+    dv = ((d / P) + 0.5) % 1.0 - 0.5
+    s = ((pos[:, :2] - rA) @ t) % L
+    return np.abs(dv) * P < half, s, dv * P
+
+
+def cut_profile(F, ci, cell):
+    """(s, profile) sampled along the line, in the order A -> A'.
+
+    NOT rolled. The profile used to be circularly shifted to centre the feature while the A and A' labels on the
+    plan view stayed put, so the two stopped corresponding: Pit-19-8x8 is sampled terrace(16) -> pit floor(75) ->
+    terrace(8) along its marked A-A', and the roll turned that into pit(38) -> terrace(24) -> pit(37), which is
+    why a pit read as a central bump. Centring is not worth breaking the correspondence the labels promise."""
+    pr = np.roll(_line(F, ci["axis"], ci["index"]).astype(float), ci.get("roll", 0))
+    L = float(np.linalg.norm(cell[ci["axis"]][:2]))
+    return (np.arange(len(pr)) + 0.5) / len(pr) * L, pr, L
+
+
+def prefer_row(F, ci, hi_lvl, lo_lvl, prefer_xy, cell):
+    """Slide a chosen section line onto the row that also passes through `prefer_xy`, if that costs nothing.
+
+    C1's seven island atoms sit at the same height as the step's upper terrace, so the height field holds no
+    separate feature for them and the line was free to miss the island the structure is named for. The build
+    knows where they are; if a line through them crosses the height feature nearly as well as the best line
+    does, it is strictly the more informative cut."""
+    if prefer_xy is None or not len(prefer_xy): return
+    ax_ = ci["axis"]; n = F.shape[1 - ax_]
+    C = np.array([cell[0][:2], cell[1][:2]])
+    fr = (np.asarray(prefer_xy) @ np.linalg.inv(C)) % 1.0
+    a = 2 * np.pi * fr[:, 1 - ax_]
+    f = (np.arctan2(np.sin(a).mean(), np.cos(a).mean()) % (2 * np.pi)) / (2 * np.pi)
+    want = int(np.clip(round(f * n - 0.5), 0, n - 1))
+    # Passing through the island necessarily breaks the lower terrace's run in two -- that break IS the island --
+    # so a longest-run test would reject exactly the line wanted. Accept while the feature is still well shown:
+    # at least half its best total, and one unbroken passage worth a quarter of that total.
+    base = _score(_line(F, ax_, ci["index"]), hi_lvl, lo_lvl, ci["target"])[1]
+    alt_run, alt_tot = _score(_line(F, ax_, want), hi_lvl, lo_lvl, ci["target"])
+    if alt_tot >= 0.5 * base and alt_run >= 0.25 * base:
+        ci["index"] = want; ci["through_prefer"] = True
+
+
+def surface_model(at, prefer_xy=None):
+    """Everything the three panels share: the height map, the cartoon surface, and the section line(s).
+
+    Computed once, before anything is drawn, because the schematic, the section and the side-view atom band must
+    all be the same line in the same frame, and the figure size depends on the band."""
     cell = at.get_cell().array
-    inner = mgs.GridSpecFromSubplotSpec(2, 1, subplot_spec=cell_spec, height_ratios=[2.35, 1.0], hspace=0.34)
+    H, gx, gy, _ = height_map(at, ng=110)
+    H = H - np.median(H)
+    hi, lo, modal = feature_sets(at)
+    gap, _ = height_gap(H)
+    v = np.sort(H.ravel())
+    levels = [float(0.5 * (a + b)) for a, b in zip(v[:-1], v[1:]) if b - a >= GAP_LAYER]
+    Z = layers = None; R = 0.62 * layer_spacing(at)
+    if levels and (len(hi) or len(lo)):
+        mode = "blob"
+        Z, layers, R, modal = schematic_surface(at, gx, gy)
+        F = Z; hi_lvl, lo_lvl = 0.5 * D111, -0.5 * D111
+    elif levels:
+        mode = "level"; F = H; hi_lvl, lo_lvl = 0.5 * gap, -0.5 * gap
+    else:
+        mode = "ramp"; F = H; hi_lvl, lo_lvl = np.inf, -np.inf
+    cuts = ramp_cut(H) if mode == "ramp" else pick_cuts(F, hi_lvl, lo_lvl)
+    for c in cuts:
+        if mode != "ramp" and len(cuts) == 1:
+            prefer_row(F, c, hi_lvl, lo_lvl, prefer_xy, cell)
+        c["frac"] = (c["index"] + 0.5) / F.shape[1 - c["axis"]]
+        pr = _line(F, c["axis"], c["index"])
+        c["n"] = int(len(pr))
+        c["roll"] = centre_roll(pr, hi_lvl, lo_lvl, ramp=(mode == "ramp"))
+    return dict(H=H, gx=gx, gy=gy, Z=Z, layers=layers, R=R, mode=mode, cuts=cuts, levels=levels,
+                gap=gap, field=F, hi=hi, lo=lo, modal=modal)
 
-    # Smooth before contouring so the outline reads as one clean curve instead of tracing the atomic scallops of the
-    # height map. Periodic Gaussian (via FFT), sigma ~1.2 A -- well under a nearest-neighbour spacing, so the feature
-    # keeps its real size and shape; it only removes the per-atom ripple on the boundary.
-    # sigma is fixed in GRID cells, not in angstrom: a vicinal face has terrace stripes barely 1 A wide, and a fixed
-    # 0.8 A kernel flattened them below the +-0.5 contour level, leaving a blank panel. 1.5 cells always rounds the
-    # per-atom scallops without ever erasing a feature the grid can resolve.
+
+def section_panel(axs, sm, ci, cell, reps, tag):
+    """One section, drawn from the SAME field the plan view above it is drawn from and in the order A -> A'."""
+    F = sm["Z"] if sm["mode"] == "blob" else sm["H"]
+    s, pr, L = cut_profile(F, ci, cell)
+    s = np.concatenate([s + k * L for k in range(reps)])
+    p = np.tile(pr, reps)
+    s = np.append(s, reps * L); p = np.append(p, p[0])
+    body = 3.4
+    floor = float(p.min()) - body
+    axs.fill_between(s, p, floor, step="mid", color="#e6e2da", zorder=1)
+    axs.step(s, p, where="mid", color="#2b3137", lw=2.1, zorder=3)
+    axs.axhline(0.0, color="#b9b3a7", lw=0.9, ls=(0, (4, 3)), zorder=2)
+    axs.text(reps * L, -0.55, "平台基准 ", fontproperties=CJK, fontsize=7.0, color="#9aa1a8",
+             ha="right", va="top", zorder=5)
+    axs.plot([0, reps * L], [floor] * 2, color="#c6c1b7", lw=1.0, zorder=3)
+    top = float(p.max())
+    # NO drawn "ion-accessible boundary": that surface is computed from SION and varies over the relief, which is
+    # the whole point of the spatial analysis, so a fixed horizontal line would contradict it.
+    axs.text(reps * L * 0.01, top + 0.5, "↑ 电解液侧", fontproperties=CJK, fontsize=8.0, color="#2e7d9a", va="bottom")
+    a, b = tag
+    axs.text(reps * L * 0.008, floor + 0.35, a, fontsize=9.5, color="#23272c", ha="left", va="bottom", zorder=5)
+    axs.text(reps * L * 0.992, floor + 0.35, b, fontsize=9.5, color="#23272c", ha="right", va="bottom", zorder=5)
+    extra = 6.6
+    if ci.get("target") == "ramp":
+        # the staircase, spelled out: which part is the inclined (111) micro-facet and where the riser is
+        d = np.diff(np.append(pr, pr[0]))
+        k = int(np.argmax(np.abs(d))); ds = L / len(pr)
+        riser = abs(float(d[k])); s_seam = float((k + 1.0) / len(pr) * L)
+        terr = L - ds
+        th = np.degrees(np.arctan2(float(np.ptp(pr)), terr)) if terr > 0 else 0.0
+        for rep in range(reps):
+            x = s_seam + rep * L
+            axs.annotate("", xy=(x, float(pr.max())), xytext=(x, float(pr.min())), zorder=6,
+                         arrowprops=dict(arrowstyle="<|-|>", lw=1.3, color="#b0543a", shrinkA=0, shrinkB=0))
+        axs.text(s_seam, top + 1.7, f"台阶 {riser:.2f} " + AA, fontproperties=CJK, fontsize=7.6,
+                 color="#b0543a", ha="center", va="bottom")
+        m0, m1 = 0.06 * terr, 0.80 * terr
+        axs.annotate("", xy=(m1, top + 3.2), xytext=(m0, top + 3.2), zorder=6,
+                     arrowprops=dict(arrowstyle="<|-|>", lw=1.2, color="#1d4e8f", shrinkA=0, shrinkB=0))
+        axs.text(0.5 * (m0 + m1), top + 3.5, f"局部 (111) 台面 {terr:.1f} " + AA + f"，倾斜 {th:.1f}°",
+                 fontproperties=CJK, fontsize=7.6, color="#1d4e8f", ha="center", va="bottom")
+        extra = 9.4
+    axs.set_xlim(0, reps * L); axs.set_ylim(floor - 1.0, top + extra)
+    return L
+
+
+def simple_schematic(fig, cell_spec, at, sm):
+    """The plain outline: no atoms at all. Top = plan view of the cartoon surface with its boundaries stroked,
+    bottom = one section per marked line, cut through that SAME surface."""
+    import matplotlib.gridspec as mgs
+    cell = at.get_cell().array
+    H, gx, gy, cuts = sm["H"], sm["gx"], sm["gy"], sm["cuts"]
+    nsec = max(1, len(cuts))
+    inner = mgs.GridSpecFromSubplotSpec(1 + nsec, 1, subplot_spec=cell_spec,
+                                        height_ratios=[2.35] + [1.0] * nsec, hspace=0.42)
+
+    # Smooth before contouring so a height-contoured outline reads as one clean curve instead of tracing the
+    # atomic scallops. sigma is fixed in GRID cells, not angstrom: a vicinal face has terrace stripes barely 1 A
+    # wide and a fixed 0.8 A kernel flattened them below the contour level, leaving a blank panel.
     n1g, n2g = H.shape
     k1 = np.fft.fftfreq(n1g)[:, None]; k2 = np.fft.fftfreq(n2g)[None, :]
     Hs = np.fft.ifft2(np.fft.fft2(H) * np.exp(-2 * (np.pi ** 2) * (1.5 ** 2) * (k1 ** 2 + k2 ** 2))).real
 
-    # --- plan: one flat tone per level, one stroke on each boundary, the cell outline dashed. Nothing else.
-    # A cell whose surface steps across the periodic seam (a vicinal terrace) is tiled with that offset added back,
-    # so the staircase appears instead of one uniform block.
     t1 = max(1, min(3, int(round(TILE_TARGET / np.linalg.norm(cell[0][:2])))))
     t2 = max(1, min(3, int(round(TILE_TARGET / np.linalg.norm(cell[1][:2])))))
+    # One tile of margin beyond the displayed window. A section whose A end sits mid-cell has its
+    # A' end one period further on, which fell outside a window drawn to exactly t1 x t2 tiles, so
+    # the far label vanished from the picture.
+    d1, d2 = range(-1, t1 + 1), range(-1, t2 + 1)
     axp = fig.add_subplot(inner[0]); axp.set_aspect("equal"); axp.axis("off")
-    # A simple drawing needs FEW strokes. Cut the height field only where it is genuinely discontinuous -- one bold
-    # outline per separated atomic level. A vicinal face has no such discontinuity inside the cell (its terrace is an
-    # inclined plane), so it gets a smooth shade and a downhill arrow instead of a fan of meaningless contour bands.
-    v = np.sort(H.ravel())
-    cuts = [float(0.5 * (a + b)) for a, b in zip(v[:-1], v[1:]) if b - a >= GAP_LAYER]
     cmap = plt.get_cmap("RdYlBu_r")
-    hi_xy, lo_xy, modal = feature_sets(at)
-    a0 = nn_spacing(at)
-    R_BLOB = 0.62 * a0          # two atoms a0 apart have overlapping discs, so a connected cluster stays connected
-    if cuts and (len(hi_xy) or len(lo_xy)):
-        # OUTLINE FROM THE ATOMS, not from the height partition: contour the distance to the nearest feature atom.
-        # The partition split A3's three-atom chain and the elongated island into separate blobs even though each
-        # is one connected component at 2.94 A. A union of discs cannot do that.
+    if sm["mode"] == "blob":
+        # OUTLINE FROM THE ATOMS: the level set of the distance to the nearest feature atom. The nearest-atom
+        # height partition, which this replaced, let a lower atom win territory between two upper ones and so
+        # split connected clusters. The distance field is computed ONCE on the base cell and TRANSLATED for each
+        # tiled copy -- re-evaluating it at a shifted query lost the atoms beyond the +-1 image search and blanked
+        # the third copy.
         axp.set_facecolor("none")
-        for i in range(t1):
-            for j in range(t2):
+        for i in d1:
+            for j in d2:
                 sh = (i * cell[0] + j * cell[1])[:2]
                 axp.fill([sh[0], sh[0] + cell[0][0], sh[0] + cell[0][0] + cell[1][0], sh[0] + cell[1][0]],
                          [sh[1], sh[1] + cell[0][1], sh[1] + cell[0][1] + cell[1][1], sh[1] + cell[1][1]],
                          color=PLAN_FILL[0], zorder=0)
-        for pts, col in ((hi_xy, PLAN_FILL[1]), (lo_xy, PLAN_FILL[-1])):
-            if not len(pts): continue
-            for i in range(t1):
-                for j in range(t2):
+        for lay, col in zip(sm["layers"], (PLAN_FILL[1], PLAN_FILL[-1])):
+            if lay is None: continue
+            px, py, pD = wrap_pad(gx, gy, lay["D"], cell)
+            for i in d1:
+                for j in d2:
                     sh = (i * cell[0] + j * cell[1])[:2]
-                    Dm = blob_distance(pts, gx + sh[0], gy + sh[1], cell)
-                    axp.contourf(gx + sh[0], gy + sh[1], Dm, levels=[0, R_BLOB], colors=[col], zorder=1)
-                    axp.contour(gx + sh[0], gy + sh[1], Dm, levels=[R_BLOB], colors="#23272c",
+                    axp.contourf(px + sh[0], py + sh[1], pD, levels=[0, sm["R"]], colors=[col], zorder=1)
+                    axp.contour(px + sh[0], py + sh[1], pD, levels=[sm["R"]], colors="#23272c",
                                 linewidths=2.2, linestyles="solid", zorder=3)
-    elif cuts:
-        edges = [Hs.min() - 1] + cuts + [Hs.max() + 1]
+    elif sm["mode"] == "level":
+        cuts_h = sm["levels"]
+        edges = [Hs.min() - 1] + cuts_h + [Hs.max() + 1]
         mids = [0.5 * (edges[k] + edges[k + 1]) for k in range(len(edges) - 1)]
         span = max(max(abs(m) for m in mids), 1.2)
         cols = [cmap(0.5 + 0.40 * m / span) for m in mids]
-        for i in range(t1):
-            for j in range(t2):
+        px, py, pH = wrap_pad(gx, gy, Hs, cell)
+        for i in d1:
+            for j in d2:
                 sh = (i * cell[0] + j * cell[1])[:2]
-                axp.contourf(gx + sh[0], gy + sh[1], Hs, levels=edges, colors=cols, zorder=1)
-                axp.contour(gx + sh[0], gy + sh[1], Hs, levels=cuts, colors="#23272c",
+                axp.contourf(px + sh[0], py + sh[1], pH, levels=edges, colors=cols, zorder=1)
+                axp.contour(px + sh[0], py + sh[1], pH, levels=cuts_h, colors="#23272c",
                             linewidths=2.2, linestyles="solid", zorder=3)
     else:
-        rng = max(Hs.ptp(), 1e-6)
-        for i in range(t1):
-            for j in range(t2):
+        rng = max(np.ptp(Hs), 1e-6)
+        px, py, pH = wrap_pad(gx, gy, Hs, cell)
+        for i in d1:
+            for j in d2:
                 sh = (i * cell[0] + j * cell[1])[:2]
-                axp.pcolormesh(gx + sh[0], gy + sh[1], Hs, cmap=cmap, vmin=-0.6 * rng, vmax=0.6 * rng,
+                axp.pcolormesh(px + sh[0], py + sh[1], pH, cmap=cmap, vmin=-0.6 * rng, vmax=0.6 * rng,
                                shading="gouraud", zorder=1)
-        if Hs.ptp() > 0.35:                                        # mark which way the inclined terrace runs downhill
+        if np.ptp(Hs) > RAMP_MIN:                                  # mark which way the inclined terrace runs downhill
             g1 = float(np.mean(np.gradient(Hs, axis=0))); g2 = float(np.mean(np.gradient(Hs, axis=1)))
             d = -(g1 * cell[0][:2] / np.linalg.norm(cell[0][:2]) + g2 * cell[1][:2] / np.linalg.norm(cell[1][:2]))
             if np.linalg.norm(d) > 0:
@@ -482,82 +775,144 @@ def simple_schematic(fig, cell_spec, at, pre=None):
     o = np.zeros(2)
     axp.plot(*zip(o, cell[0][:2], cell[0][:2] + cell[1][:2], cell[1][:2], o),
              color="#9aa1a8", lw=0.9, ls=(0, (4, 3)), zorder=4)
-    X = np.concatenate([(gx + (i * cell[0] + j * cell[1])[0]).ravel() for i in range(t1) for j in range(t2)])
-    Y = np.concatenate([(gy + (i * cell[0] + j * cell[1])[1]).ravel() for i in range(t1) for j in range(t2)])
-    axp.set_xlim(X.min(), X.max()); axp.set_ylim(Y.min(), Y.max())
-    axp.set_title(f"简笔示意 · 俯视轮廓（{t1}×{t2} 个胞）", fontproperties=CJK, fontsize=9.5, color="#4a5158", pad=3)
+    px, py, _ = wrap_pad(gx, gy, H, cell)
+    X = np.concatenate([(px + (i * cell[0] + j * cell[1])[0]).ravel() for i in range(t1) for j in range(t2)])
+    Y = np.concatenate([(py + (i * cell[0] + j * cell[1])[1]).ravel() for i in range(t1) for j in range(t2)])
+    xlo, xhi, ylo, yhi = X.min(), X.max(), Y.min(), Y.max()
+    for ci in cuts:
+        rA, _, _, _, _ = cut_frame(cell, ci)
+        for q in (rA, rA + cell[ci["axis"]][:2]):
+            xlo = min(xlo, q[0] - 1.2); xhi = max(xhi, q[0] + 1.2)
+            ylo = min(ylo, q[1] - 1.2); yhi = max(yhi, q[1] + 1.2)
+    axp.set_xlim(xlo, xhi); axp.set_ylim(ylo, yhi)
+    # the window is extended to hold the A' marker, so a fixed "t1 x t2 cells" would no longer be the truth
+    axp.set_title("简笔示意 · 俯视轮廓（周期重复；虚线框为一个胞）", fontproperties=CJK,
+                  fontsize=9.5, color="#4a5158", pad=3)
 
-    # --- section: a real CUT through the middle of the feature, not a projection. Projecting the maximum would turn
-    # a compact island into a plateau as wide as the island's whole footprint, i.e. make it look like a step.
-    axs = fig.add_subplot(inner[1]); axs.axis("off")
-
-    def circ_centre(mask_1d):
-        """Index of the circular mean of a periodic boolean mask (a feature may straddle the cell boundary)."""
-        n = len(mask_1d); idx = np.flatnonzero(mask_1d)
-        if not len(idx): return n // 2
-        a = 2 * np.pi * idx / n
-        return int(round((np.arctan2(np.sin(a).mean(), np.cos(a).mean()) % (2 * np.pi)) * n / (2 * np.pi))) % n
-
-    gap, cut = height_gap(H)
-    M = H > cut if gap >= GAP_LAYER else np.zeros(H.shape, bool)
-    is_cut = cutinfo_pre is not None
-    cut_axis = cutinfo_pre["axis"] if is_cut else None
-    cut_index = cutinfo_pre["index"] if is_cut else None
-    cut_note = cutinfo_pre["note"] if is_cut else ""
-    if is_cut:
-        use_a1 = cut_axis == 0
-        prof = (H[:, cut_index] if use_a1 else H[cut_index, :]).copy()
-    elif M.any() and not M.all():
-        minority = M if M.mean() <= 0.5 else ~M
-        use_a1 = minority.any(axis=1).mean() <= minority.any(axis=0).mean()
-        prof = H.max(axis=1) if use_a1 else H.max(axis=0)
-    if is_cut or (M.any() and not M.all()):
-        c = circ_centre(np.abs(prof - np.median(prof)) > 0.5 * gap)
-        prof = np.roll(prof, len(prof) // 2 - c)
-    else:                                                          # flat, or a continuous ramp with no separated level
-        use_a1 = H.max(axis=1).ptp() >= H.max(axis=0).ptp()
-        prof = H.max(axis=1) if use_a1 else H.max(axis=0)
-    length = np.linalg.norm(cell[0][:2] if use_a1 else cell[1][:2])
-    reps = max(1, min(2, int(round(TILE_TARGET / length))))
-    prof = np.tile(prof, reps)
-    s = np.append(np.linspace(0, reps * length, len(prof), endpoint=False), reps * length)
-    # reference the profile to the TERRACE level, not to its minimum: when a pit covers more than half the cut
-    # line, subtracting the minimum makes the terrace the raised part and the pit reads as an island.
-    p = np.append(prof, prof[0]) - float(np.median(H))
-    body = 4.8
-    floor = float(p.min()) - body
-    axs.fill_between(s, p, floor, step="mid", color="#e6e2da", zorder=1)
-    axs.step(s, p, where="mid", color="#2b3137", lw=2.1, zorder=3)
-    axs.axhline(0.0, color="#b9b3a7", lw=0.9, ls=(0, (4, 3)), zorder=2)
-    axs.text(reps * length, 0.15, "平台基准 ", fontproperties=CJK, fontsize=7.2, color="#9aa1a8",
-             ha="right", va="bottom")
-    axs.plot([0, reps * length], [floor] * 2, color="#c6c1b7", lw=1.0, zorder=3)
-    top = p.max()
-    # NO drawn "ion-accessible boundary". The accessible region is computed from SION and varies across raised
-    # terraces, islands and pits -- the whole point of the spatial analysis -- so a single horizontal line at a
-    # fixed offset would contradict it. Only a word marking which side the electrolyte is on.
-    axs.text(reps * length * 0.01, top + 1.4, "↑ 电解液侧", fontproperties=CJK, fontsize=8.4,
-             color="#2e7d9a", va="bottom")
-    axs.set_xlim(0, reps * length); axs.set_ylim(floor - 0.4, top + 6.6)
-    t_ = ("侧面：过 A–A′ 的真实剖线" if is_cut else "侧面：沿视线方向的投影包络（非剖线）") + f"，{reps} 个周期"
-    axs.set_title(t_, fontproperties=CJK, fontsize=9.0, color="#4a5158", pad=2)
-    axs.text(0.0, -0.06, ("下方实体仅为基底示意" + cut_note), transform=axs.transAxes, ha="left", va="top",
-             fontproperties=CJK, fontsize=7.4, color="#9aa1a8", wrap=True)
-
-    # draw A-A' on the plan so the reader can see WHERE the section was taken; without it a cut through an island
-    # is indistinguishable from one that missed it
-    if is_cut:
-        f = (cut_index + 0.5) / H.shape[1 - cut_axis]
-        along = cell[cut_axis][:2]; across = cell[1 - cut_axis][:2]
-        for i in range(t1):
-            for j in range(t2):
+    # the section line(s) on the plan, so the reader can see WHERE each was taken
+    for ci in cuts:
+        # A and A' come out of cut_frame, the same call the profile and the atom band use, so the label can only
+        # ever mark where the section actually starts.
+        rA, tv, _, L, _ = cut_frame(cell, ci)
+        along = cell[ci["axis"]][:2]
+        a, b = (ci["label"], ci["label"] + "′")
+        for i in d1:
+            for j in d2:
                 sh = (i * cell[0] + j * cell[1])[:2]
-                p0 = f * across + sh; p1 = p0 + along
-                axp.plot([p0[0], p1[0]], [p0[1], p1[1]], color="#23272c", lw=1.3, ls=(0, (6, 3)), zorder=6)
-        p0 = f * across; p1 = p0 + along
-        axp.text(p0[0], p0[1], " A", fontsize=9, color="#23272c", va="center", ha="left", zorder=7)
-        axp.text(p1[0], p1[1], "A′ ", fontsize=9, color="#23272c", va="center", ha="right", zorder=7)
+                p0 = rA + sh; p1 = p0 + along
+                axp.plot([p0[0] - along[0], p1[0]], [p0[1] - along[1], p1[1]],
+                         color="#23272c", lw=1.3, ls=(0, (6, 3)), zorder=6)
+        axp.text(rA[0], rA[1], " " + a, fontsize=9, color="#23272c", va="center", ha="left", zorder=7)
+        p1 = rA + along
+        axp.text(p1[0], p1[1], b + " ", fontsize=9, color="#23272c", va="center", ha="right", zorder=7)
+
+    if not cuts:
+        axs = fig.add_subplot(inner[1]); axs.axis("off")
+        use_a1 = float(np.ptp(H.max(axis=1))) >= float(np.ptp(H.max(axis=0)))
+        prof = H.max(axis=1) if use_a1 else H.max(axis=0)
+        L = float(np.linalg.norm(cell[0][:2] if use_a1 else cell[1][:2]))
+        reps = max(1, min(2, int(round(TILE_TARGET / L))))
+        s = np.append(np.concatenate([(np.arange(len(prof)) + .5) / len(prof) * L + k * L for k in range(reps)]),
+                      reps * L)
+        p = np.append(np.tile(prof, reps), prof[0])
+        floor = float(p.min()) - 4.8
+        axs.fill_between(s, p, floor, step="mid", color="#e6e2da", zorder=1)
+        axs.step(s, p, where="mid", color="#2b3137", lw=2.1, zorder=3)
+        axs.axhline(0.0, color="#b9b3a7", lw=0.9, ls=(0, (4, 3)), zorder=2)
+        axs.set_xlim(0, reps * L); axs.set_ylim(floor - 0.4, float(p.max()) + 6.6)
+        axs.set_title(f"侧面：沿视线方向的投影包络（非剖线），{reps} 个周期", fontproperties=CJK,
+                      fontsize=9.0, color="#4a5158", pad=2)
+    else:
+        for k, ci in enumerate(cuts):
+            axs = fig.add_subplot(inner[1 + k]); axs.axis("off")
+            L = float(np.linalg.norm(cell[ci["axis"]][:2]))
+            reps = max(1, min(2, int(round(TILE_TARGET / L))))
+            a, b = ci["label"], ci["label"] + "′"
+            section_panel(axs, sm, ci, cell, reps, (a, b))
+            src = "简笔轮廓面" if sm["mode"] == "blob" else "高度分区面"
+            cap = f"侧面：过 {a}–{b} 的剖线（切自上图同一{src}），{reps} 个周期"
+            if k == len(cuts) - 1:
+                cap += "\n下方实体仅为基底示意"
+                if len(cuts) == 2: cap += "；岛与坑不在同一条晶格线上"
+            axs.set_title(cap, fontproperties=CJK, fontsize=8.8, color="#4a5158", pad=2)
     return describe(H)
+LIB = f"{ROOT}/03_pilot/all_defect_structures"
+# child -> the parent POSCAR it was built from. Taken from the build scripts, not guessed: the diff below IS the
+# build-time atom mapping. Nothing geometric can recover it -- C1's seven island atoms sit at exactly the same
+# height as the step's upper terrace, so a "higher than most atoms" rule cannot see them.
+PARENT_FILE = {"C1-island-near-step": ("Step-8x4.poscar", "母结构 Step-8x4 的台阶边缘"),
+               "Step-8x2_edge-vacancy_plus_foot-adatom": ("Step-8x2.poscar", "母结构 Step-8x2 的直边")}
+# the kinks' parent was built inline (an 8x3 slab plus a straight 12-atom strip) and never written to disk. It is
+# recovered by the build's own rule: the strip is four full rows of three, plus one atom alone in a fifth row.
+PARENT_PARTIAL_ROW = {"Kink-edge1", "Kink-edge2"}
+PARENT_EDGE_COLOR = "#6b5b4a"
+
+
+def partial_row_atoms(at):
+    """Feature atoms sitting in a lattice row the rest of the feature leaves under-filled.
+
+    Used only where the build added exactly such an atom. The test is strict: along one lattice direction every
+    occupied row but one must hold the same number of atoms, and the odd row must hold fewer. Kink-edge1 gives
+    rows {3,3,3,3,1} along a1 and {5,4,4} along a2, so a1 answers and a2 is rejected."""
+    pos = at.get_positions(); cell = at.get_cell().array
+    top = top_atoms(at); modal = float(np.median(pos[top, 2]))
+    idx = np.flatnonzero(top & (pos[:, 2] > modal + 1.0))
+    if len(idx) < 4: return np.array([], int)
+    C = np.array([cell[0][:2], cell[1][:2]])
+    fr = (pos[idx, :2] @ np.linalg.inv(C)) % 1.0
+    a0 = layer_spacing(at)
+    for ax_ in (0, 1):
+        r = fr[:, ax_] * float(np.linalg.norm(cell[ax_][:2]))
+        order = np.argsort(r); rows = [[order[0]]]
+        for k in order[1:]:
+            if r[k] - r[rows[-1][-1]] < 0.4 * a0: rows[-1].append(k)
+            else: rows.append([k])
+        cnt = np.array([len(g) for g in rows])
+        full = int(np.median(cnt))
+        odd = [g for g, c in zip(rows, cnt) if c < full]
+        if len(odd) == 1 and full >= 2 and sum(1 for c in cnt if c == full) == len(cnt) - 1:
+            return idx[np.array(odd[0])]
+    return np.array([], int)
+
+
+def parent_of(sid, at):
+    """(parent Atoms in the SAME render frame, added xy, removed xy, caption), or None.
+
+    Split from the overlay drawing because the section line wants to know where the added atoms are before the
+    plotting grid exists."""
+    cell = at.get_cell().array
+    if sid in PARENT_FILE:
+        fn, cap = PARENT_FILE[sid]
+        par = flatten_cell(read(f"{LIB}/{fn}"))
+        Pc = at.get_positions(); Pp = par.get_positions()
+        C = np.array([cell[0][:2], cell[1][:2]]); Ci = np.linalg.inv(C)
+        f = (Pc[:, None, :2] - Pp[None, :, :2]) @ Ci
+        f -= np.round(f)
+        d = np.linalg.norm(f @ C, axis=-1) + np.abs(Pc[:, None, 2] - Pp[None, :, 2])
+        added = Pc[d.min(axis=1) > 0.8][:, :2]
+        removed = Pp[d.min(axis=0) > 0.8][:, :2]
+    elif sid in PARENT_PARTIAL_ROW:
+        k = partial_row_atoms(at)
+        if not len(k): return None
+        par = at.copy(); del par[[int(x) for x in k]]
+        added = at.get_positions()[k][:, :2]; removed = np.zeros((0, 2))
+        cap = "母结构（同一条带，无拐角）的直边"
+    else:
+        return None
+    return dict(parent=par, added=added, removed=removed, caption=cap)
+
+
+def parent_overlay(pa, at, gx, gy):
+    """The parent's own feature outline, on this structure's grid, to lay over the child as a dashed line."""
+    if pa is None: return None
+    cell = at.get_cell().array
+    hi, lo, _ = feature_sets(pa["parent"])
+    pts = hi if len(hi) else lo
+    if not len(pts): return None
+    D = smooth_periodic(blob_distance(pts, gx, gy, cell))
+    px, py, pD = wrap_pad(gx, gy, D, cell)
+    return dict(D=D, gx=px, gy=py, Dp=pD, R=0.62 * layer_spacing(pa["parent"]),
+                added=pa["added"], removed=pa["removed"], caption=pa["caption"])
 
 
 def render(sid, path, title, meta):
@@ -580,53 +935,88 @@ def render(sid, path, title, meta):
             P.append(pos[keep][:, :2] + sh); C.append(col[keep]); Z.append(pos[keep][:, 2]); E.append(exp[keep])
     P = np.vstack(P); C = np.concatenate(C); Z = np.concatenate(Z); E = np.concatenate(E)
 
-    pre = choose_cut(at); cutinfo = pre[3]
-    ns = max(1, min(3, int(round(TILE_TARGET / np.linalg.norm(cell[0][:2])))))
-    # For a finite feature (pit, island, point defect, composite) project only a NARROW BAND of atoms around the
-    # A-A' line. Projecting the whole cell stacks the near and far rim of a pit in front of it and fills it in --
-    # the pit looked closed although nothing had been removed from the calculation.
-    band = np.ones(len(pos), bool); band_w = None
-    if cutinfo is not None and meta.get("family") in BAND_FAMILIES:
-        ax_ = cutinfo["axis"]; f0 = cutinfo["frac"]
-        finv = np.linalg.inv(np.array([cell[0][:2], cell[1][:2]]))
-        fr = (pos[:, :2] @ finv)
-        dv = np.abs(((fr[:, 1 - ax_] - f0 + 0.5) % 1.0) - 0.5)
-        band_w = 1.1 * nn_spacing(at)
-        band = dv * np.linalg.norm(cell[1 - ax_][:2]) < band_w
-        if band.sum() < 8: band = np.ones(len(pos), bool); band_w = None
-    P2, C2, Z2, E2 = [], [], [], []
-    for i in range(ns):
-        P2.append(np.c_[pos[band, 0] + i * cell[0][0], pos[band, 2]]); C2.append(col[band]); Z2.append(pos[band, 1])
-        E2.append(exp[band])                                      # side view: same exposure flag, depth cue along y
-    P2 = np.vstack(P2); C2 = np.concatenate(C2); Z2 = np.concatenate(Z2); E2 = np.concatenate(E2)
+    pa = parent_of(sid, at)
+    sm = surface_model(at, prefer_xy=(pa["added"] if pa else None))
+    cuts = sm["cuts"]
+    # One side-view panel per section line, each projected in that line's OWN frame: s along A->A', z up, and
+    # the perpendicular offset as the depth cue. Projecting on the global x axis whatever the line's direction
+    # meant that for a cut along (0.5, 0.866) the "side view along A-A'" was nothing of the sort.
+    bands = []
+    for ci in (cuts if cuts else [None]):
+        if ci is None:
+            L = float(np.linalg.norm(cell[0][:2]))
+            bands.append(dict(ci=None, mask=np.ones(len(pos), bool), s=pos[:, 0], depth=pos[:, 1], half=None, L=L))
+            continue
+        L = float(np.linalg.norm(cell[ci["axis"]][:2]))
+        # BAND_HALF is a true perpendicular distance now, so it means what the caption says. 0.62 a0 keeps one
+        # atom row: the next row along a (111) close-packed direction is a0*sqrt(3)/2 = 2.55 A away, and the old
+        # nominal 1.1 a0 pulled in three rows, which stacked three different heights on top of one another.
+        half = 0.62 * layer_spacing(at) if meta.get("family") in BAND_FAMILIES else None
+        m, s, dp = cut_band(pos, cell, ci, half if half is not None else 1e9)
+        if half is not None and m.sum() < 8:
+            half = None; m, s, dp = cut_band(pos, cell, ci, 1e9)
+        bands.append(dict(ci=ci, mask=m, s=s, depth=dp, half=half, L=L))
+
+    panels = []
+    for bd in bands:
+        ns = max(1, min(3, int(round(TILE_TARGET / bd["L"]))))
+        m = bd["mask"]
+        A = np.vstack([np.c_[bd["s"][m] + i * bd["L"], pos[m, 2]] for i in range(ns)])
+        panels.append(dict(P=A, C=np.tile(col[m], ns), Z=np.tile(bd["depth"][m], ns), E=np.tile(exp[m], ns),
+                           ns=ns, ci=bd["ci"], half=bd["half"], L=bd["L"]))
+
+    # The marks are settled BEFORE the layout, because the legend's row count sets the bottom strip. It used to
+    # be a fixed 0.44 inch, which a two-row legend overran -- the section's A label and its caption ended up
+    # printed through the legend text.
+    rcls = registry_class(at, meta.get("family"))
+    added, missing = added_and_missing(at, meta.get("family"))
+    ov = parent_overlay(pa, at, sm["gx"], sm["gy"])
+    if ov is not None:                      # build-time provenance beats the height heuristic where both exist
+        added = np.array([], int); missing = np.zeros((0, 2))
+    hcp_top = np.flatnonzero((rcls == 2) & exp & keep)
+    wall_top = np.flatnonzero((rcls == 1) & exp & keep)
+    n_leg = 4 + (0 if ov is None else 1 + (len(ov["added"]) > 0) + (len(ov["removed"]) > 0)) \
+        + (len(added) > 0) + (len(missing) > 0) + (len(hcp_top) > 0) + (len(wall_top) > 0)
+    leg_rows = int(np.ceil(n_leg / min(4, n_leg)))
 
     def ext(A):
         return A[:, 0].max() - A[:, 0].min() + 3 * R_AU, A[:, 1].max() - A[:, 1].min() + 3 * R_AU
-    w1, h1 = ext(P); w2, h2 = ext(P2); h2 += 6.0                     # room for the electrolyte marker
-    H = max(h1, h2)
+    w1, h1 = ext(P)
+    ew = [ext(p["P"]) for p in panels]
+    w2 = max(e[0] for e in ew); h2 = max(e[1] for e in ew) + 6.0
+    nsp = len(panels)
+    H = max(h1, nsp * h2)
     FIGW = 12.0
     panel_w = FIGW * 0.97
     scale = panel_w / (w1 + w2 + 1.2)                                # inches per angstrom
-    FIGH = H * scale + 1.55                                          # + title strip and legend strip
+    LEG_H = 0.26 + 0.24 * leg_rows                                   # inches actually needed by the legend
+    FIGH = H * scale + 1.10 + LEG_H                                  # + title strip and legend strip
     fig = plt.figure(figsize=(FIGW, FIGH), dpi=185)
-    top_frac = 1 - 1.02 / FIGH; bot_frac = 0.44 / FIGH
+    top_frac = 1 - 1.02 / FIGH; bot_frac = LEG_H / FIGH
     wsch = 0.52 * (w1 + w2)
     gs = fig.add_gridspec(1, 3, width_ratios=[wsch, w1, w2], wspace=1.2 / (w1 + w2) * 2,
                           left=0.015, right=0.985, top=top_frac, bottom=bot_frac)
     meta["schematic_width_frac"] = float(0.015 + (0.985 - 0.015) * wsch / (wsch + w1 + w2))
     meta["legend_top_frac"] = float(bot_frac)
-    meta["schematic_note"] = simple_schematic(fig, gs[0, 0], at, pre=pre)
+    meta["schematic_note"] = simple_schematic(fig, gs[0, 0], at, sm)
+    meta["n_sections"] = len(cuts)
+    meta["section_axes"] = [f"a{c['axis'] + 1}" for c in cuts]
 
     ax = fig.add_subplot(gs[0, 1]); ax.set_aspect("equal"); ax.axis("off")
     draw(ax, P, C, Z, E, R_AU)
     # what was PUT ON and what was TAKEN OUT, and the stacking registry -- none of which colour or height show
-    rcls = registry_class(at, meta.get("family"))
-    added, missing = added_and_missing(at, meta.get("family"))
-    hcp_top = np.flatnonzero((rcls == 2) & exp & keep)
-    wall_top = np.flatnonzero((rcls == 1) & exp & keep)
     for i in range(n1):
         for j in range(n2):
             sh = (i * cell[0] + j * cell[1])[:2]
+            if ov is not None:
+                ax.contour(ov["gx"] + sh[0], ov["gy"] + sh[1], ov["Dp"], levels=[ov["R"]],
+                           colors=PARENT_EDGE_COLOR, linewidths=1.6, linestyles="dashed", zorder=5900)
+                for c in ov["added"]:
+                    ax.add_patch(Circle(c + sh, R_AU * 1.32, facecolor="none", edgecolor="#1f6f3f",
+                                        lw=1.9, zorder=6000))
+                for c in ov["removed"]:
+                    ax.add_patch(Circle(c + sh, R_AU * 1.05, facecolor="none", edgecolor="#8a3ffc",
+                                        lw=1.9, ls=(0, (3, 2)), zorder=6000))
             for k in added:
                 ax.add_patch(Circle(pos[k, :2] + sh, R_AU * 1.32, facecolor="none", edgecolor="#1f6f3f",
                                     lw=1.7, zorder=6000))
@@ -647,18 +1037,26 @@ def render(sid, path, title, meta):
     ax.set_title(f"俯视图 · {n1}×{n2} 个胞 · 最外 {TOP_DEPTH:.1f} " + AA,
                  fontproperties=CJK, fontsize=9.5, color="#4a5158", pad=3)
 
-    ax2 = fig.add_subplot(gs[0, 2]); ax2.set_aspect("equal"); ax2.axis("off")
-    draw(ax2, P2, C2, Z2, E2, R_AU)
-    # see the note in simple_schematic: no fabricated accessibility line, only a side label
-    ax2.text(P2[:, 0].min() - R_AU, zt + 3.2, "↑ 电解液侧",
-             fontproperties=CJK, fontsize=8.6, color="#2e7d9a")
-    ax2.text(P2[:, 0].min() - R_AU, zt + 1.6, "（下方为背面固定层）",
-             fontproperties=CJK, fontsize=7.4, color="#9aa1a8", va="bottom", ha="left")
-    ax2.set_xlim(P2[:, 0].min() - 1.5 * R_AU, P2[:, 0].max() + 1.5 * R_AU)
-    ax2.set_ylim(P2[:, 1].min() - 1.5 * R_AU, zt + 7.0)
-    ax2.set_title((f"侧视图 · 过 A–A′ 的 ±{band_w:.1f} " + AA + " 原子窄带" if band_w
-                   else f"侧视图 · 沿 a1 方向 {ns} 个胞 · 全胞投影"),
-                  fontproperties=CJK, fontsize=9.3, color="#4a5158", pad=3)
+    import matplotlib.gridspec as mgs
+    side = mgs.GridSpecFromSubplotSpec(nsp, 1, subplot_spec=gs[0, 2], hspace=0.30)
+    for k, pn in enumerate(panels):
+        ax2 = fig.add_subplot(side[k]); ax2.set_aspect("equal"); ax2.axis("off")
+        draw(ax2, pn["P"], pn["C"], pn["Z"], pn["E"], R_AU)
+        # see the note in section_panel: no fabricated accessibility line, only a side label
+        ax2.text(pn["P"][:, 0].min() - R_AU, zt + 3.2, "↑ 电解液侧",
+                 fontproperties=CJK, fontsize=8.6, color="#2e7d9a")
+        if k == nsp - 1:
+            ax2.text(pn["P"][:, 0].min() - R_AU, zt + 1.6, "（下方为背面固定层）",
+                     fontproperties=CJK, fontsize=7.4, color="#9aa1a8", va="bottom", ha="left")
+        ax2.set_xlim(pn["P"][:, 0].min() - 1.5 * R_AU, pn["P"][:, 0].max() + 1.5 * R_AU)
+        ax2.set_ylim(pn["P"][:, 1].min() - 1.5 * R_AU, zt + 7.0)
+        if pn["ci"] is None:
+            t_ = f"侧视图 · 沿 a1 方向 {pn['ns']} 个胞 · 全胞投影"
+        else:
+            lb = pn["ci"]["label"]; ab = f"{lb}–{lb}′"
+            t_ = (f"侧视图 · 沿 {ab} 的 ±{pn['half']:.1f} " + AA + " 原子窄带" if pn["half"]
+                  else f"侧视图 · 沿 {ab} 方向投影 · {pn['ns']} 个周期")
+        ax2.set_title(t_, fontproperties=CJK, fontsize=9.3, color="#4a5158", pad=3)
 
     fig.text(0.5, 1 - 0.30 / FIGH, title, ha="center", va="top", fontsize=13.5, color="#14181c", weight="medium")
     sub = (f"{meta['n_atoms']} 个 Au   ·   投影面积 {meta['A_proj']:.0f} " + AA + "$^2$"
@@ -667,23 +1065,30 @@ def render(sid, path, title, meta):
     h = [plt.Line2D([], [], marker="o", ls="", ms=7, mfc=CN_COLOR[k], mec="#2b2f36", mew=0.5, label=l)
          for k, l in [("kink", "CN≤6（常见于拐角、吸附原子）"), ("edge", "CN 7–8（台阶边、岛与坑的边缘）"),
                       ("terrace", "CN 9（平整平台）"), ("bulk", "CN≥10（台阶脚、岛脚、次表面）")]]
+    if ov is not None:
+        h.append(plt.Line2D([], [], ls=(0, (5, 3)), lw=1.6, color=PARENT_EDGE_COLOR, label=ov["caption"]))
+        if len(ov["added"]): h.append(plt.Line2D([], [], marker="o", ls="", ms=9, mfc="none", mec="#1f6f3f",
+                                                 mew=1.9, label=f"相对母结构新增的 Au（{len(ov['added'])} 个）"))
+        if len(ov["removed"]): h.append(plt.Line2D([], [], marker="o", ls="", ms=8, mfc="none", mec="#8a3ffc",
+                                                   mew=1.9, label=f"母结构中被移走的位点（{len(ov['removed'])} 个）"))
     if len(added): h.append(plt.Line2D([], [], marker="o", ls="", ms=9, mfc="none", mec="#1f6f3f", mew=1.7,
                                        label=f"加上去的 Au（{len(added)} 个）"))
     if len(missing): h.append(plt.Line2D([], [], marker="o", ls="", ms=8, mfc="none", mec="#8a3ffc", mew=1.7,
                                          label=f"移走的位点（{len(missing)} 个）"))
     nsurf = int(np.sum(exp & keep))
     if len(hcp_top): h.append(plt.Line2D([], [], marker="x", ls="", ms=6, mew=1.5, color="#1d4e8f",
-                                         label=f"hcp 配准（{len(hcp_top)}/{nsurf}）"))
+                                         label=f"类 hcp 配准（阈值显示分类，{len(hcp_top)}/{nsurf}）"))
     if len(wall_top): h.append(plt.Line2D([], [], marker="s", ls="", ms=6, mew=1.4, mfc="none", color="#b0543a",
-                                          label=f"过渡带 / 畴界（{len(wall_top)}/{nsurf}）"))
+                                          label=f"过渡 / 畴界（阈值显示分类，{len(wall_top)}/{nsurf}）"))
+    assert len(h) == n_leg, (len(h), n_leg)        # the layout reserved space for exactly this many entries
     lg = fig.legend(handles=h, loc="lower center", ncol=min(4, len(h)), fontsize=8.2, frameon=False,
-                    bbox_to_anchor=(0.5, 0.02 / FIGH), prop=CJK)
+                    bbox_to_anchor=(0.5, 0.04 / FIGH), prop=CJK)
     for t in lg.get_texts(): t.set_fontproperties(CJK); t.set_fontsize(8.4)
+    meta["registry_display_classes"] = dict(hcp_like=int(len(hcp_top)), transition=int(len(wall_top)),
+                                            fcc_like=int(nsurf - len(hcp_top) - len(wall_top)), n_surface=nsurf)
     fig.savefig(f"{OUT}/{sid}.png", facecolor="white")
     plt.close(fig)
     return {c: int((np.array([cn_class(x) for x in cn]) == c).sum()) for c in CN_COLOR}
-
-
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--only", default=None); a = ap.parse_args()
     os.makedirs(OUT, exist_ok=True)

@@ -25,8 +25,18 @@
    "bulk": 42
   },
   "schematic_width_frac": 0.34684210526315795,
-  "legend_top_frac": 0.07867222104412094,
+  "legend_top_frac": 0.08585550101005114,
   "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 18,
+   "n_surface": 18
+  },
   "U_pzc_V": 0.03190535413326031,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.263718592883805,
@@ -59,9 +69,19 @@
    "terrace": 61,
    "bulk": 84
   },
-  "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.06902639085933354,
+  "schematic_width_frac": 0.34684210526315795,
+  "legend_top_frac": 0.11587376894802112,
   "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 40,
+   "n_surface": 40
+  },
   "U_pzc_V": -0.06875705446956354,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.393881195729088,
@@ -95,8 +115,18 @@
    "bulk": 35
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.08107948314934041,
+  "legend_top_frac": 0.12203692178530674,
   "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 17,
+   "n_surface": 17
+  },
   "U_pzc_V": -0.06527082548166915,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.920161259404404,
@@ -130,8 +160,18 @@
    "bulk": 35
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.08107948314934041,
+  "legend_top_frac": 0.12203692178530674,
   "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 1,
+   "transition": 0,
+   "fcc_like": 16,
+   "n_surface": 17
+  },
   "U_pzc_V": -0.06647837067399359,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.910950646183682,
@@ -164,9 +204,19 @@
    "terrace": 25,
    "bulk": 39
   },
-  "schematic_width_frac": 0.34684210526315795,
-  "legend_top_frac": 0.07368207303891197,
+  "schematic_width_frac": 0.3468421052631579,
+  "legend_top_frac": 0.12203692178530674,
   "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a2"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 19,
+   "n_surface": 19
+  },
   "U_pzc_V": -0.08779458409932506,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.789859871738056,
@@ -199,9 +249,19 @@
    "terrace": 8,
    "bulk": 32
   },
-  "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.05378688140427936,
+  "schematic_width_frac": 0.34684210526315784,
+  "legend_top_frac": 0.05913663554202828,
   "schematic_note": "\u5c40\u90e8 (111) \u53f0\u9762\u76f8\u5bf9\u5b8f\u89c2\u6676\u9762\u503e\u659c\uff0c\u80de\u5185\u9ad8\u5dee 4.2 \u00c5\uff1b\u53f0\u9636\u843d\u5728\u5468\u671f\u8fb9\u754c\u4e0a\uff0c\u9ad8\u5ea6\u5206\u5e03\u91cc\u770b\u4e0d\u5230\u65ad\u5f00",
+  "n_sections": 1,
+  "section_axes": [
+   "a2"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 24,
+   "n_surface": 24
+  },
   "U_pzc_V": -0.030633809491797698,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.56602268754735,
@@ -235,8 +295,18 @@
    "bulk": 16
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.06663224442873072,
+  "legend_top_frac": 0.07483319509514814,
   "schematic_note": "\u5c40\u90e8 (111) \u53f0\u9762\u76f8\u5bf9\u5b8f\u89c2\u6676\u9762\u503e\u659c\uff0c\u80de\u5185\u9ad8\u5dee 2.1 \u00c5\uff1b\u53f0\u9636\u843d\u5728\u5468\u671f\u8fb9\u754c\u4e0a\uff0c\u9ad8\u5ea6\u5206\u5e03\u91cc\u770b\u4e0d\u5230\u65ad\u5f00",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 8,
+   "n_surface": 8
+  },
   "U_pzc_V": -0.012502728957702824,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.137429964234382,
@@ -270,8 +340,18 @@
    "bulk": 11
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.08597848826755176,
+  "legend_top_frac": 0.0974776129324561,
   "schematic_note": "\u5c40\u90e8 (111) \u53f0\u9762\u76f8\u5bf9\u5b8f\u89c2\u6676\u9762\u503e\u659c\uff0c\u80de\u5185\u9ad8\u5dee 2.2 \u00c5\uff1b\u53f0\u9636\u843d\u5728\u5468\u671f\u8fb9\u754c\u4e0a\uff0c\u9ad8\u5ea6\u5206\u5e03\u91cc\u770b\u4e0d\u5230\u65ad\u5f00",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 6,
+   "n_surface": 6
+  },
   "U_pzc_V": 0.01679968855912074,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.012361092780395,
@@ -305,8 +385,18 @@
    "bulk": 18
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.07898029030298245,
+  "legend_top_frac": 0.08830628830323087,
   "schematic_note": "\u5c40\u90e8 (111) \u53f0\u9762\u76f8\u5bf9\u5b8f\u89c2\u6676\u9762\u503e\u659c\uff0c\u80de\u5185\u9ad8\u5dee 2.3 \u00c5\uff1b\u53f0\u9636\u843d\u5728\u5468\u671f\u8fb9\u754c\u4e0a\uff0c\u9ad8\u5ea6\u5206\u5e03\u91cc\u770b\u4e0d\u5230\u65ad\u5f00",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 10,
+   "n_surface": 10
+  },
   "U_pzc_V": 0.0658738623457803,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.717082410464283,
@@ -340,8 +430,18 @@
    "bulk": 93
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.08107948314934041,
+  "legend_top_frac": 0.12203692178530674,
   "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u4f4e\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 39,
+   "n_surface": 39
+  },
   "U_pzc_V": null,
   "pzc_bracketed": false,
   "C_median_uF_cm2": 12.342607614307285,
@@ -374,9 +474,20 @@
    "terrace": 101,
    "bulk": 137
   },
-  "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.07744703024445257,
+  "schematic_width_frac": 0.34684210526315795,
+  "legend_top_frac": 0.08315384313339562,
   "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5171 3 \u4e2a\u5206\u79bb\u7684\u9ad8\u5ea6\u5c42\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 2,
+  "section_axes": [
+   "a1",
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 73,
+   "n_surface": 73
+  },
   "U_pzc_V": 0.016523916055531124,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.320452316635448,
@@ -410,8 +521,16 @@
    "bulk": 32
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.128181678676815,
+  "legend_top_frac": 0.14356974722294397,
   "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff1b\u4e0e\u5e73\u677f\u7684\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6",
+  "n_sections": 0,
+  "section_axes": [],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 16,
+   "n_surface": 16
+  },
   "U_pzc_V": 0.07264910022058269,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.37703402065413,
@@ -445,8 +564,16 @@
    "bulk": 32
   },
   "schematic_width_frac": 0.34684210526315795,
-  "legend_top_frac": 0.07867222104412094,
+  "legend_top_frac": 0.08860809261282673,
   "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff1b\u4e0e\u5e73\u677f\u7684\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6",
+  "n_sections": 0,
+  "section_axes": [],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 16,
+   "n_surface": 16
+  },
   "U_pzc_V": 0.07321860981108615,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.350104413897453,
@@ -480,8 +607,18 @@
    "bulk": 155
   },
   "schematic_width_frac": 0.34684210526315795,
-  "legend_top_frac": 0.07867222104412094,
+  "legend_top_frac": 0.12203692178530674,
   "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 71,
+   "n_surface": 71
+  },
   "U_pzc_V": 0.01168369747089728,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.318311178050337,
@@ -515,8 +652,18 @@
    "bulk": 140
   },
   "schematic_width_frac": 0.34684210526315795,
-  "legend_top_frac": 0.07867222104412094,
+  "legend_top_frac": 0.12203692178530674,
   "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 68,
+   "n_surface": 68
+  },
   "U_pzc_V": null,
   "pzc_bracketed": false,
   "C_median_uF_cm2": null,
@@ -549,9 +696,19 @@
    "terrace": 60,
    "bulk": 84
   },
-  "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.06901852400686903,
+  "schematic_width_frac": 0.34684210526315795,
+  "legend_top_frac": 0.11586134733014385,
   "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a2"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 41,
+   "n_surface": 41
+  },
   "U_pzc_V": -0.05369462158463978,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.492104667084545,
@@ -584,9 +741,19 @@
    "terrace": 37,
    "bulk": 65
   },
-  "schematic_width_frac": 0.34684210526315795,
-  "legend_top_frac": 0.07533197073179874,
+  "schematic_width_frac": 0.3468421052631579,
+  "legend_top_frac": 0.11539914002250255,
   "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 27,
+   "n_surface": 27
+  },
   "U_pzc_V": 0.019937509858943908,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.313685966586526,
@@ -619,9 +786,19 @@
    "terrace": 38,
    "bulk": 64
   },
-  "schematic_width_frac": 0.34684210526315795,
-  "legend_top_frac": 0.07533197073179874,
+  "schematic_width_frac": 0.3468421052631579,
+  "legend_top_frac": 0.11539914002250255,
   "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 28,
+   "n_surface": 28
+  },
   "U_pzc_V": 0.009624000000000521,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.346838751485599,
@@ -655,8 +832,18 @@
    "bulk": 116
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.07109486364188126,
+  "legend_top_frac": 0.08585550101005114,
   "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 72,
+   "n_surface": 72
+  },
   "U_pzc_V": 0.05755172631061448,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.081578224554168,
@@ -689,9 +876,19 @@
    "terrace": 112,
    "bulk": 125
   },
-  "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.07744703024445257,
+  "schematic_width_frac": 0.34684210526315795,
+  "legend_top_frac": 0.08585550101005114,
   "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 69,
+   "n_surface": 69
+  },
   "U_pzc_V": null,
   "pzc_bracketed": false,
   "C_median_uF_cm2": null,
@@ -724,9 +921,19 @@
    "terrace": 56,
    "bulk": 69
   },
-  "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.07707043745643939,
+  "schematic_width_frac": 0.34684210526315795,
+  "legend_top_frac": 0.0850492981316759,
   "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 41,
+   "n_surface": 41
+  },
   "U_pzc_V": -0.0004089999999994376,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.972219012015358,
@@ -760,8 +967,18 @@
    "bulk": 70
   },
   "schematic_width_frac": 0.34684210526315795,
-  "legend_top_frac": 0.06889448751581108,
+  "legend_top_frac": 0.0850492981316759,
   "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a2"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 41,
+   "n_surface": 41
+  },
   "U_pzc_V": 0.010843208697508855,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.098004355828316,
@@ -795,8 +1012,16 @@
    "bulk": 32
   },
   "schematic_width_frac": 0.34684210526315784,
-  "legend_top_frac": 0.08198016948128403,
+  "legend_top_frac": 0.13080787802986651,
   "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff1b\u4e0e\u5e73\u677f\u7684\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6",
+  "n_sections": 0,
+  "section_axes": [],
+  "registry_display_classes": {
+   "hcp_like": 16,
+   "transition": 0,
+   "fcc_like": 0,
+   "n_surface": 16
+  },
   "U_pzc_V": -0.009303000000000061,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.153033234258505,
@@ -830,8 +1055,16 @@
    "bulk": 32
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.12722129632170126,
+  "legend_top_frac": 0.1974101677669209,
   "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff1b\u4e0e\u5e73\u677f\u7684\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6",
+  "n_sections": 0,
+  "section_axes": [],
+  "registry_display_classes": {
+   "hcp_like": 6,
+   "transition": 4,
+   "fcc_like": 7,
+   "n_surface": 17
+  },
   "U_pzc_V": 0.062173703730410805,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.21986350368762,
@@ -865,8 +1098,18 @@
    "bulk": 41
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.11923169376138416,
+  "legend_top_frac": 0.1326352592671134,
   "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 17,
+   "n_surface": 17
+  },
   "U_pzc_V": 0.04401333025405477,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.787365810211952,
@@ -900,8 +1143,18 @@
    "bulk": 82
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.11142490727395399,
+  "legend_top_frac": 0.12311012070456609,
   "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 34,
+   "n_surface": 34
+  },
   "U_pzc_V": 0.04270405420763271,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.841136175738548,
@@ -935,8 +1188,18 @@
    "bulk": 61
   },
   "schematic_width_frac": 0.34684210526315795,
-  "legend_top_frac": 0.144627704904486,
+  "legend_top_frac": 0.16095035727921309,
   "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 25,
+   "n_surface": 25
+  },
   "U_pzc_V": 0.06567900416731548,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.71153933517279,
@@ -970,8 +1233,18 @@
    "bulk": 21
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.0825054594924381,
+  "legend_top_frac": 0.09130847240867529,
   "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 9,
+   "n_surface": 9
+  },
   "U_pzc_V": 0.031894335316453165,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.241078128822247,
@@ -1004,9 +1277,19 @@
    "terrace": 23,
    "bulk": 43
   },
-  "schematic_width_frac": 0.34684210526315795,
-  "legend_top_frac": 0.07867222104412094,
+  "schematic_width_frac": 0.3468421052631579,
+  "legend_top_frac": 0.12203692178530674,
   "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 20,
+   "n_surface": 20
+  },
   "U_pzc_V": -0.02356591614859102,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.462253107444791,
@@ -1040,8 +1323,16 @@
    "bulk": 32
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.08107948314934041,
+  "legend_top_frac": 0.09129462618049738,
   "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff1b\u4e0e\u5e73\u677f\u7684\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6",
+  "n_sections": 0,
+  "section_axes": [],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 16,
+   "n_surface": 16
+  },
   "U_pzc_V": 3.300000000017178e-05,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.111008813288034,
@@ -1075,8 +1366,18 @@
    "bulk": 32
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.07744703024445257,
+  "legend_top_frac": 0.12203692178530674,
   "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 18,
+   "n_surface": 18
+  },
   "U_pzc_V": 0.01271795612596183,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.326269855013464,
@@ -1110,8 +1411,18 @@
    "bulk": 32
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.07744703024445257,
+  "legend_top_frac": 0.12203692178530674,
   "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 19,
+   "n_surface": 19
+  },
   "U_pzc_V": 0.007662999999999975,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.6223444159026,
@@ -1144,9 +1455,19 @@
    "terrace": 20,
    "bulk": 32
   },
-  "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.07744703024445257,
+  "schematic_width_frac": 0.34684210526315795,
+  "legend_top_frac": 0.12203692178530674,
   "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "n_sections": 1,
+  "section_axes": [
+   "a1"
+  ],
+  "registry_display_classes": {
+   "hcp_like": 0,
+   "transition": 0,
+   "fcc_like": 19,
+   "n_surface": 19
+  },
   "U_pzc_V": 0.010364993593028372,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.00239953861604,
