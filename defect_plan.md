@@ -356,8 +356,8 @@ version + TARGETMU; re-runs add nothing. Index result: 107 geometries (16 relaxe
 58 pert/coll/path) → 214 tasks queued 20:40 at priority 80 (85 for the ten > 200-atom
 references), below every original task; same KPOINTS/POTCAR/INCAR standard, IBRION = −1;
 warm start ICHARG = 1 from a copy of the same-side neighbour's CHGCAR (−5.1071 → −5.4071,
-−4.7071 → −4.4071; 193 of 214 at creation, the remaining 21 get theirs by `--refresh` once the
-neighbour completes; never ICHARG = 11/12). Cost estimate from measured same-structure
+−4.7071 → −4.4071; 192 of 214 at creation, 194 after two `--refresh` passes by 20:50, the
+remaining 20 get theirs by `--refresh` once their neighbour completes; never ICHARG = 11/12). Cost estimate from measured same-structure
 single-point times: 243 node·h (200 of 214 measured, rest model), of which 36 node·h for the
 large references; the ±0.5 V states may need one more CP round, actual times are recorded.
 Recorded deviation: the three pilot-reused ideal states of Step-8x1/Step-16x1 differ from the

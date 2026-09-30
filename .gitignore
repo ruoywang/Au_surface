@@ -1,0 +1,11 @@
+# Intermediate field reductions: 291 files, ~291 MB. Regenerate with
+#   scripts/pyrun.sh scripts/analysis_spatial.py --states all --workers 4 --transmission
+analysis/spatial/percolumn/
+
+# Staging copies of the gallery and map PNGs, made only to publish the page as an artifact.
+# The originals live in analysis/gallery/ and analysis/maps/ and the site references those.
+analysis/web/gallery/
+analysis/web/maps/
+
+__pycache__/
+*.pyc
