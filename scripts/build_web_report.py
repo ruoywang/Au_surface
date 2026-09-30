@@ -42,6 +42,46 @@ HTML = r"""<title>Au 表面形貌与充电响应</title>
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.78;margin:0;
   font-weight:400;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:0}
+/* Figures break out of the 1180px reading column. A 12-inch-wide render shown at 560px puts its 9pt labels
+   below 7 CSS px, which is not readable at all; at ~1700px the same labels land near 18px. Text stays in the
+   narrow column because long measures are hard to read. */
+.bleed{width:min(1780px,96vw);margin-left:50%;transform:translateX(-50%)}
+
+/* The structure lineage is drawn with page text, not rendered to a PNG: it is almost entirely words, and a
+   raster of it shown at column width put every label under 9 CSS px. As markup it stays sharp, selectable and
+   readable at any width. */
+.lin{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;
+  box-shadow:var(--shadow)}
+.lin-root{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;padding:16px 22px;
+  background:var(--surface-2);border-bottom:1px solid var(--line-2)}
+.lin-root b{font-size:19px}
+.lin-root span{font-size:14px;color:var(--ink-2)}
+.lin-route{border-top:1px solid var(--line-2)}
+.lin-route[data-r="a"]{border-left:5px solid var(--gold-soft)}
+.lin-route[data-r="b"]{border-left:5px solid #b9d3de}
+.lin-rhead{padding:13px 22px;font-size:15.5px;font-weight:600}
+.lin-rhead span{font-weight:400;color:var(--ink-2)}
+.lin-row{display:grid;grid-template-columns:minmax(290px,1.1fr) 26px minmax(190px,220px) minmax(320px,1.45fr);
+  gap:0 18px;align-items:start;padding:17px 22px;border-top:1px dashed var(--line)}
+.lin-op{font-size:15px;line-height:1.72}
+.lin-arrow{font-size:20px;color:var(--muted);text-align:center;line-height:1.5}
+.lin-fam{border:1px solid var(--line-2);border-radius:8px;padding:9px 13px;background:var(--surface-2)}
+.lin-fam b{display:block;font-size:15.5px;line-height:1.4}
+.lin-fam span{font-size:13px;color:var(--ink-2)}
+.lin-mem{font-size:14.5px;line-height:1.75;color:var(--ink)}
+.lin-mem em{display:block;margin-top:6px;font-size:13px;color:var(--muted);font-style:normal}
+.lin-cfg{display:grid;grid-template-columns:minmax(230px,1fr) minmax(300px,1.6fr);gap:0 20px;
+  padding:16px 22px;border-top:1px dashed var(--line);align-items:start}
+.lin-cfg h4{margin:0;font-size:15.5px;font-weight:600}
+.lin-cfg p{margin:4px 0 0;font-size:14.5px;line-height:1.72;color:var(--ink-2)}
+.lin-cfg.sub{padding-left:60px}
+.lin-cfg.sub h4{font-weight:500}
+@media (max-width:900px){
+  .lin-row{grid-template-columns:1fr;gap:10px}
+  .lin-arrow{display:none}
+  .lin-cfg{grid-template-columns:1fr;gap:6px}
+  .lin-cfg.sub{padding-left:34px}
+}
 h1,h2,h3{font-family:var(--serif);font-weight:600;text-wrap:balance;margin:0;letter-spacing:.01em}
 h1{font-size:clamp(28px,5vw,46px);line-height:1.22}
 h2{font-size:clamp(20px,2.9vw,27px);line-height:1.35;margin-bottom:.4em}
@@ -99,8 +139,8 @@ tbody tr:hover{background:var(--surface-2)}
 .filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .filters button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 
-.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(430px,1fr));gap:20px}
-.gal.wide{grid-template-columns:1fr;gap:26px}
+/* ONE figure per row. Two-up put every structure figure at ~560px, where its labels were illegible. */
+.gal{display:grid;grid-template-columns:1fr;gap:26px}
 .gcard{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
 .gcard button.zoom{display:block;width:100%;padding:0;border:0;background:#fff;cursor:zoom-in;line-height:0}
 .gcard button.zoom:focus-visible{outline:2px solid var(--teal);outline-offset:-2px}
@@ -133,7 +173,7 @@ dialog.lb .bar{display:flex;justify-content:space-between;align-items:center;gap
 dialog.lb button{background:transparent;border:1px solid rgba(232,234,236,.35);color:#e8eaec;border-radius:6px;
   padding:4px 12px;font-size:12.5px;cursor:pointer;font-family:inherit}
 footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
-@media (max-width:560px){.gal{grid-template-columns:1fr}section{padding-block:38px}}
+@media (max-width:560px){section{padding-block:38px}}
 </style>
 
 <header class="top"><div class="wrap">
@@ -166,11 +206,11 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
 
 <section id="origin"><div class="finding">
   <div><div class="eyebrow">结构来源</div><h2>从 Au 晶体到缺陷构型：结构库的生成与采样</h2></div>
-  <p class="lede">这张图回答的是"这些结构为什么存在、怎么构建、哪些之间才是受控对照"。
-  每条箭头旁写的是<b>几何操作</b>，不是结构名称，操作取自实际写出 POSCAR 的建构脚本。
-  单看下面的 33 张结构图，Island-7-compact 与 Island-7-elongated 像是两个无关的岛；
-  谱系图说明它们是<b>同一个胞里同样七个原子的两种排布</b>。</p>
-  <div class="card pad" id="originfig"></div>
+  <p class="lede">下面这张谱系回答的是"这些结构为什么存在、怎么构建、哪些之间才是受控对照"。
+  每一行左边写的是<b>几何操作</b>，不是结构名称，操作取自实际写出 POSCAR 的建构脚本。
+  单看后面的 33 张结构图，Island-7-compact 与 Island-7-elongated 像是两个无关的岛；
+  谱系说明它们是<b>同一个胞里同样七个原子的两种排布</b>。</p>
+  <div class="bleed">__LINEAGE__</div>
   <div class="note"><b>两件容易误会的事。</b>
   <br>· <b>四个高指数面不是"在 Au(111) 上加一条带"得到的。</b>Au(221)/(332)/(554) 由立方胞直接按 (hkl) 切割
   （面间距 a/(2√(h²+k²+l²)) = 0.693 / 0.443 / 0.256&nbsp;&Aring;），构成同一条路线上的台面宽度系列；
@@ -188,7 +228,7 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
   吸附原子所在低配位区的平均阴离子富集 <span data-n="fl_Kad"></span>，<b>低于</b>它周围台面的
   <span data-n="fl_Kte"></span>。与此同时整个电极更正：<span data-n="fl_sig"></span>。
   在条带台阶上这种错位更直接——<span data-n="fl_step"></span>。</p>
-  <div class="card pad" id="localfig"></div>
+  <div class="card pad bleed" id="localfig"></div>
   <div class="note"><b>这里不能说"吸附原子排斥阴离子"。</b>K&nbsp;&gt;&nbsp;1 说明该区仍然富集，只是不如台面强。
   准确的说法是：<b>在本模型与本积分口径下，凸出的低配位位点可以增强整体正向充电，却不一定增强其正上方区域的平均阴离子富集。</b>
   这把三件事分开了——整个电极带多少电、金属电荷集中在哪里、离子在哪片可达液体中最多。
@@ -204,7 +244,7 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
   <p class="claim">Step-8x2 与 Step-8x2_edge-vacancy_plus_foot-adatom 在<b>同一个胞</b>里、同样 72 个 Au，
   差别只是一颗台阶边缘原子移到了脚部空位。零电荷电势 <span data-n="mv_pzc"></span>，
   而割线电容 <span data-n="mv_C"></span>。两条 &sigma;(U) 斜率接近，横向位置不同。</p>
-  <div class="card pad" id="movefig"></div>
+  <div class="card pad bleed" id="movefig"></div>
   <div class="note"><b>有意思的不是"多一个缺陷所以充电变了"。</b>原子数量没有改变，只是放置位置变了，
   充电曲线就明显平移。更有用的表述是：<b>在当前电势区间内，某些局部重排首先改变的是界面充电的零点，
   而不是显著改变整条曲线的斜率。</b>这里不是在比较"毫伏"和"百分比"哪个大，而是在描述两条曲线的形状与位置。
@@ -223,7 +263,7 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
   而割线电容跨度约 <span data-n="cspread"></span>。在本样本和本电势区间内，零电荷位置变化所对应的电荷尺度，
   比割线电容变化所对应的尺度大约一个量级。</p>
   <div class="stats" id="s1"></div>
-  <div class="card pad"><div class="chartbox"><div id="c_sigma"></div></div>
+  <div class="card pad bleed"><div class="chartbox"><div id="c_sigma"></div></div>
     <div class="caption">每个几何的表面电荷密度对内部电势 U&nbsp;=&nbsp;&mu;<sub>0</sub>&nbsp;&minus;&nbsp;&mu;<sub>e</sub>
     的曲线，全部取自实际收敛的 &mu;<sub>e</sub> 与 N<sub>e</sub>。实线是三个基准电势（统计口径）；金色虚线之外的浅色点线是
     已完成的 &plusmn;0.5&nbsp;V 扩展，仅供参看，不进入任何数值。曲线彼此接近平行：族与族之间的差别主要是横向平移。</div>
@@ -387,7 +427,7 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
   <br><br><b>简笔轮廓用于辅助辨认形貌，不要用于定量读取边界位置、宽度或峰位。</b>形貌类别由冻结计划的结构族加周期
   连通性判定，不由高低区面积比判定。</div>
   <div class="filters" id="filters"></div>
-  <div class="gal" id="gal"></div>
+  <div class="gal bleed" id="gal"></div>
 </div></section>
 
 <section id="maps"><div class="finding">
@@ -398,7 +438,7 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
   只能比较图内的空间分布。全为同号的量用顺序色（深=大），跨正负的量用以 0 为中心的发散色。单位：
   &Gamma;<sub>&minus;</sub> 与 &Delta;&Gamma;<sub>&minus;</sub> 是每投影面积的离子数（&Aring;<sup>&minus;2</sup>）；
   金属一侧画的是<b>正电荷</b>变化 &minus;&Delta;n<sub>e</sub>（e/&Aring;<sup>2</sup>，正值=失去电子）；配位数是离散标度。</div>
-  <div class="gal wide" id="mapgrid"></div>
+  <div class="gal bleed" id="mapgrid"></div>
 </div></section>
 
 <section id="method"><div class="finding">
@@ -441,9 +481,13 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
   单元检验复核过。</p>
   <details open><summary style="cursor:pointer;font-weight:500;padding:10px 0">最近一轮（结构来源与主要结果）</summary>
   <ul class="small" style="line-height:1.9;max-width:62em">
-    <li><b>新增结构生成谱系图。</b>此前 33 张结构图说明了每个结构长什么样，却没有说明哪些之间是受控对照。
-      谱系图把每一步几何操作写在箭头上，并把四个高指数面从"Au(111) 加条带"那一支里分出来——它们由不同的生成器
-      直接按晶面切割。</li>
+    <li><b>新增结构生成谱系。</b>此前 33 张结构图说明了每个结构长什么样，却没有说明哪些之间是受控对照。
+      谱系把每一步几何操作写出来，并把四个高指数面从"Au(111) 加条带"那一支里分出来——它们由不同的生成器
+      直接按晶面切割。它用<b>页面文字</b>排版，不是一张图片：内容几乎全是字，栅格化之后被页面缩到栏宽就看不清了。</li>
+    <li><b>所有图改为整行显示，并放宽到栏宽之外。</b>结构图与空间图原本两张一行、各约 560&nbsp;px，
+      12 英寸画布上的 9&nbsp;pt 标签在屏幕上只有 7&nbsp;px，等于看不清。现在每行一张、最宽 1780&nbsp;px，
+      同样的标签约 18&nbsp;px。空间图由 1×4 改为 2×2（画布 17.2 → 10 英寸），字号同时调大；
+      SVG 图表也改为随容器放大。</li>
     <li><b>低配位区与平台的比较由写死改为重算。</b>正文原来写"41 个几何中 37 个、四个例外全是空位边缘，
       超出量只有 0.1%–0.3%"，而这个数字没有记录它的定义，也无法从 <code>regions.json</code> 复现。
       现在建站时按明确定义重算：<span data-n="uc_main"></span>；例外是
@@ -524,7 +568,8 @@ function median(a){const b=[...a].sort((x,y)=>x-y);const n=b.length;return n%2?b
 /* every number quoted in the prose is written here from the same data object the charts read, so the text can
    never drift from the figures the way a hardcoded "291 states at three potentials" did. */
 function fill(key,text){for(const e of document.querySelectorAll(`[data-n="${key}"]`)) e.textContent=text;}
-function frame(w,h,m){return {s:el("svg",{viewBox:`0 0 ${w} ${h}`,width:w,height:h,role:"img"}),w,h,m};}
+function frame(w,h,m){return {s:el("svg",{viewBox:`0 0 ${w} ${h}`,role:"img",
+  style:`width:100%;min-width:${w}px;height:auto`}),w,h,m};}
 
 /* ---- lightbox ---- */
 const LB=document.getElementById("lb"), LBI=document.getElementById("lbimg"), LBC=document.getElementById("lbcap");
@@ -598,9 +643,6 @@ fill("pzcspread2",`${PZCSPREAD.toFixed(0)} mV`);
   const L=FD.local, M=FD.move, R=FD.relax;
   const put=(id,src,cap,alt)=>{const n=document.getElementById(id); if(n)
     n.append(zoomable(src,cap,alt), el("div",{class:"caption"},cap), el("div",{class:"hint"},"点击放大"));};
-  put("originfig",`${D.imgbase}gallery/_lineage.png`,
-      "结构生成谱系：上半部分是结构种类的来源，箭头上写的是几何操作；下半部分是一个几何如何变成多个计算构型。",
-      "从 fcc Au 晶体到 33 种结构，再到 107 个几何的生成谱系图");
   put("localfig",`${D.imgbase}gallery/_finding_local.png`,
       "左：A1-hcp 的区域平均阴离子富集，吸附原子区低于周围台面。右：Step-16x1 上金属响应与阴离子响应的剖面，"
       +"各自对自身整胞平均归一化；金属的峰在台阶边，阴离子的峰在下台面里几个埃处。",
@@ -892,6 +934,102 @@ img{max-width:100%}
 SKELETON_TAIL = "\n</body>\n</html>\n"
 
 
+# --------------------------------------------------------------------------------------------------------
+# The structure-generation lineage. Content lives here, as data, and is rendered to markup rather than to an
+# image: it is almost entirely text, and a raster of it is unreadable once the page scales it to the column.
+# Every operation is taken from the build script that actually wrote the POSCAR.
+LINEAGE_ROUTES = [
+    ("a", "路线一 · 切出 Au(111) 四层平板", "再做局部增删 / 重排", [
+        ("切出四层 (111) 平板（层高 5.0 / 7.4 / 9.8 / 12.2&nbsp;&Aring;）；只改面内周期胞，表面本身不动",
+         "平整 Au(111)", 3,
+         "T-4x4（4×4）　Flat-8x2（8×2）　Flat-16x1（16×1）",
+         "共同基底与尺寸／镜像间距参考，不是三种缺陷"),
+        ("顶层<b>移走</b> 1 / 2 / 3 个 Au；或在三重空位上<b>加</b> 1 或 3 个 Au",
+         "点缺陷 / 极小团簇", 6,
+         "V1 · V2 · V3（移走的位点）<br>A1-fcc · A1-hcp（同一个加原子，落在不同空位）　A3（三原子团簇）",
+         "V 是移走，A 是加上；A1-fcc 与 A1-hcp 只差落在哪个三重空位"),
+        ("按 fcc 延续注册，在顶层加一条<b>有限宽的单层条带</b>（条带恒占胞长的一半）",
+         "条带直台阶", 5,
+         "Step-8x1 · Step-16x1 · Step-24x1（上下台面各 4 / 8 / 12 行）<br>"
+         "Step-8x2 · Step-16x2（沿台阶方向周期 ×2）",
+         "一次同时产生上台面、下台面与两条不等价边缘"),
+        ("从直台阶出发：在一条边<b>多放一个</b>原子；或把一个边缘原子<b>移到</b>脚部空位",
+         "拐角 / 边缘重排", 3,
+         "Kink-edge1 · Kink-edge2（8×3 条带，edge1 / edge2 各加一个）<br>"
+         "Step-8x2_edge-vacancy_plus_foot-adatom（总 Au 数不变）",
+         "后者与 Step-8x2 原子数、原子序都相同，只是一颗 Au 换了位置"),
+        ("在顶层之上<b>加</b> 7 或 19 个 Au；或把同样 7 个 Au <b>改排</b>成 3+4 两排",
+         "单层岛", 4,
+         "Island-7-compact · Island-19-8x8（改尺寸）　Island-7-elongated（改形状，原子数不变）<br>"
+         "Island-7-8x8（同一缺陷，扩大周围周期胞）",
+         "尺寸、形状、镜像间距是三组分开的对照"),
+        ("只从顶层<b>移走</b> 7 或 19 个 Au；或把 7 个缺失位改成 3+4 沟槽",
+         "单层坑", 4,
+         "Pit-7-compact · Pit-19-8x8（改宽度）　Pit-7-trench（改边缘形状）<br>"
+         "Pit-7-8x8（同一缺陷，扩大周围周期胞）",
+         "坑深恒为一层，比较的是宽度与边缘形状"),
+        ("把<b>整个顶层</b>平移到 hcp 注册；或在 16 个位点的长度内放 <b>17</b> 个顶层 Au",
+         "重构相关堆垛", 2,
+         "R1-hcp-terminated（整层改注册）<br>R2-stripe-wall（多一个原子，形成注册过渡带）",
+         "R1 不是一个 hcp 位吸附原子；R2 不是完整鱼骨重构"),
+        ("在台阶<b>脚部</b>加七原子岛；或把坑里移走的 Au <b>就地</b>用来堆岛",
+         "复合形貌", 2,
+         "C1-island-near-step（Step-8x4 + 7 个 Au，实际与台阶相连）<br>"
+         "C2-island+pit（8×8 胞内移走 7 个、加回 7 个，总 Au 数不变）",
+         "C1 的岛与台阶连通，不是孤立的岛"),
+    ]),
+    ("b", "路线二 · 按高指数晶面直接切割", "得到规则台阶面，<b>不是</b>在 Au(111) 上加条带", [
+        ("由立方胞直接按 (hkl) 切割（<code>build_vicinal_fixed.py</code>）；"
+         "面间距 a/(2&radic;(h²+k²+l²)) = 0.693 / 0.443 / 0.256&nbsp;&Aring;",
+         "台面宽度系列", 3,
+         "Au221 · Au332 · Au554<br>与 (111) 的名义夹角 15.79° → 10.02° → 5.77°（台面渐宽）",
+         "同一条构建路线上的宽度系列"),
+        ("由 <code>ase.build.fcc211</code> 直接切割，<b>与上面三者不是同一个生成器</b>",
+         "另一类台阶环境", 1,
+         "Au211（与 (111) 的名义夹角 19.47°）",
+         "不在上面的宽度系列里"),
+    ]),
+]
+LINEAGE_CFG = [
+    (0, "理想几何 · ideal", "33 个几何。直接作为静态参考态计算，不弛豫。"),
+    (0, "在公共参考电势 &mu;<sub>0</sub> 下弛豫 · relax / relaxed",
+     "16 个几何。给出每个结构的局部参考态；下面三类都由它生成。"),
+    (1, "随机位移 · pert05 / pert10", "16 + 16 个几何。可动原子随机位移 0.05 / 0.10&nbsp;&Aring;。"),
+    (1, "集体变形 · coll", "14 个几何。顶层间距 &minus;3%、面内应变 +1%、台阶边缘弯曲 0.15&nbsp;&Aring;。"),
+    (1, "路径构型 · path",
+     "12 个几何。吸附原子过桥位、边缘原子脱离到脚部、拐角原子沿边移动、岛／坑边原子进出。"),
+]
+
+
+def lineage_html():
+    out = ['<div class="lin">',
+           '<div class="lin-root"><b>fcc Au 晶体</b><span>建构用 a<sub>0</sub> = 4.158&nbsp;&Aring;</span>'
+           '<span>33 种结构由下面两条路线生成</span></div>']
+    for rid, head, sub, rows in LINEAGE_ROUTES:
+        out.append(f'<div class="lin-route" data-r="{rid}">')
+        out.append(f'<div class="lin-rhead">{head}　<span>{sub}</span></div>')
+        for op, fam, n, mem, note in rows:
+            out.append('<div class="lin-row">'
+                       f'<div class="lin-op">{op}</div>'
+                       '<div class="lin-arrow">&rarr;</div>'
+                       f'<div class="lin-fam"><b>{fam}</b><span>{n} 个结构</span></div>'
+                       f'<div class="lin-mem">{mem}<em>{note}</em></div>'
+                       '</div>')
+        out.append('</div>')
+    out.append('<div class="lin-route" data-r="c">')
+    out.append('<div class="lin-rhead">一个建构好的几何，如何变成多个被计算的构型　'
+               '<span>33 个人工建构，其余都是它们的像；合计 107 个几何</span></div>')
+    for depth, name, note in LINEAGE_CFG:
+        cls = "lin-cfg sub" if depth else "lin-cfg"
+        out.append(f'<div class="{cls}"><h4>{name}</h4><p>{note}</p></div>')
+    out.append('<div class="lin-cfg"><h4>再乘上电势</h4><p>同一个几何在若干 TARGETMU 下各算一个电子态，'
+               'U&nbsp;=&nbsp;&mu;<sub>0</sub>&nbsp;&minus;&nbsp;&mu;<sub>e</sub>。'
+               '&plusmn;0.2&nbsp;V 窗口 291 个电子态已完成；&plusmn;0.5&nbsp;V 扩展进行中，本页结论不使用。'
+               '<b>并非每个几何都有五个电势点。</b></p></div>')
+    out.append('</div>')
+    return "\n".join(out)
+
+
 def undercoordinated_vs_terrace():
     """Do under-coordinated columns enrich anions less than the terrace of the SAME structure?
 
@@ -926,7 +1064,8 @@ def undercoordinated_vs_terrace():
 
 def build(data, standalone=False, imgbase="", out_path=None):
     data = dict(data, imgbase=imgbase)
-    page = HTML.replace("__DATA__", json.dumps(data, separators=(",", ":")).replace("</", "<\\/"))
+    page = HTML.replace("__LINEAGE__", lineage_html())
+    page = page.replace("__DATA__", json.dumps(data, separators=(",", ":")).replace("</", "<\\/"))
     if standalone:
         k = page.index("</style>") + len("</style>")
         page = SKELETON_HEAD + page[:k] + "\n</head>\n<body>\n" + page[k:] + SKELETON_TAIL

@@ -72,9 +72,15 @@ def step_profiles(sid):
 
 
 def check(fig, texts, tol=1.0):
+    """No label may overlap another or run off the canvas. The second half matters as much as the first: a
+    caption that overflows the right edge is silently truncated in the PNG."""
     fig.canvas.draw(); r = fig.canvas.get_renderer()
     bb = [(t, t.get_window_extent(renderer=r)) for t in texts]
     bad = []
+    fw, fh = fig.canvas.get_width_height()
+    for t, a in bb:
+        if a.x0 < -tol or a.y0 < -tol or a.x1 > fw + tol or a.y1 > fh + tol:
+            bad.append((f"OFF-CANVAS {t.get_text()[:44]!r}", ""))
     for i in range(len(bb)):
         for j in range(i + 1, len(bb)):
             a, b = bb[i][1], bb[j][1]
@@ -95,16 +101,16 @@ def fig_local():
     g_ad = geom(G, "A1-hcp"); g_fl = geom(G, "T-4x4")
     p_ad = max(g_ad["points"], key=lambda p: p["U"]); p_fl = max(g_fl["points"], key=lambda p: p["U"])
 
-    fig = plt.figure(figsize=(14.2, 6.3), dpi=170)
+    fig = plt.figure(figsize=(14.2, 7.0), dpi=170)
     # the left column is split so the sigma comparison has its own space instead of hanging off the axes
     gs = fig.add_gridspec(1, 2, width_ratios=[1.0, 1.22],
                           left=0.235, right=0.985, top=0.80, bottom=0.235, wspace=0.14)
     T = []
     T.append(fig.text(0.020, 0.955, "整体充多少电，和液相在哪里富集，不是同一件事",
-                      fontproperties=CJK, fontsize=16.5, color=INK, va="top", weight="semibold"))
+                      fontproperties=CJK, fontsize=20.6, color=INK, va="top", weight="semibold"))
     T.append(fig.text(0.020, 0.895, "左：同一个电势下，A1-hcp 的吸附原子区平均阴离子富集低于它周围的台面。"
                                     "右：条带台阶上，金属响应的峰在台阶边，阴离子响应的峰不在。",
-                      fontproperties=CJK, fontsize=11, color=SUB, va="top"))
+                      fontproperties=CJK, fontsize=13.8, color=SUB, va="top"))
 
     ax = fig.add_subplot(gs[0, 0])
     y = np.arange(len(rows))[::-1]
@@ -112,26 +118,25 @@ def fig_local():
     cols = ["#c0392b", "#d8b34a", "#9aa3ad", "#5a616a"]
     ax.barh(y, vals, height=0.56, color=cols, edgecolor="#2b2f36", linewidth=0.6)
     for yy, (name, k, af), v in zip(y, rows, vals):
-        T.append(ax.text(v + 0.35, yy, f"K = {k:.4f}", fontproperties=CJK, fontsize=10.5, va="center", color=INK))
+        T.append(ax.text(v + 0.35, yy, f"K = {k:.4f}", fontproperties=CJK, fontsize=13.1, va="center", color=INK))
         T.append(ax.text(-0.02, (yy + 0.75) / len(rows), f"{name}（占面积 {100*af:.0f}%）",
-                         transform=ax.transAxes, fontproperties=CJK, fontsize=10.5,
+                         transform=ax.transAxes, fontproperties=CJK, fontsize=13.1,
                          va="center", ha="right", color=INK))
     ax.axvline(0, color="#2b3137", lw=1.2)
     ax.set_xlim(-9.0, 26.0); ax.set_ylim(-0.75, len(rows) - 0.25)
     ax.set_yticks([]); ax.tick_params(axis="x", labelsize=9.5, colors=SUB)
-    ax.set_xlabel(r"区域平均阴离子富集相对体相的偏离 ($K-1$)，%", fontproperties=CJK, fontsize=10.5, color=SUB)
+    ax.set_xlabel(r"区域平均阴离子富集相对体相的偏离 ($K-1$)，%", fontproperties=CJK, fontsize=13.1, color=SUB)
     for sp in ("top", "right", "left"): ax.spines[sp].set_visible(False)
     ax.spines["bottom"].set_color("#c6c1b7")
-    T.append(ax.set_title(f"A1-hcp（一个吸附原子），U = {U:+.4f} V", fontproperties=CJK, fontsize=12,
+    T.append(ax.set_title(f"A1-hcp（一个吸附原子），U = {U:+.4f} V", fontproperties=CJK, fontsize=15.0,
                           color=INK, pad=8))
     # a full-width caption rather than a box inside the left column, which the longest line overflowed
-    box = ("同一电势附近的整胞面电荷："
-           f"A1-hcp σ = {p_ad['sigma_uC_per_cm2']:+.2f} μC/cm²（U = {p_ad['U']:+.4f} V）；"
-           f"T-4x4 σ = {p_fl['sigma_uC_per_cm2']:+.2f} μC/cm²（U = {p_fl['U']:+.4f} V）。"
-           "加上吸附原子后整个电极更正，但它上方区域的平均富集反而低于台面。\n"
-           "两者电势接近但不完全相等，此处只作量级比较。K > 1 说明吸附原子区仍然富集，只是不如台面；"
-           "这不是“吸附原子排斥阴离子”。")
-    T.append(fig.text(0.020, 0.135, box, fontproperties=CJK, fontsize=10, color=INK, va="top", ha="left",
+    box = (f"同一电势附近的整胞面电荷：A1-hcp σ = {p_ad['sigma_uC_per_cm2']:+.2f} μC/cm²"
+           f"（U = {p_ad['U']:+.4f} V）；T-4x4 σ = {p_fl['sigma_uC_per_cm2']:+.2f} μC/cm²"
+           f"（U = {p_fl['U']:+.4f} V）。\n"
+           "加上吸附原子后整个电极更正，但它上方区域的平均富集反而低于台面。两者电势接近但不完全相等，只作量级比较。\n"
+           "K > 1 说明吸附原子区仍然富集，只是不如台面；这不是“吸附原子排斥阴离子”。")
+    T.append(fig.text(0.020, 0.135, box, fontproperties=CJK, fontsize=12.5, color=INK, va="top", ha="left",
                       linespacing=1.75))
 
     ax2 = fig.add_subplot(gs[0, 1])
@@ -158,21 +163,21 @@ def fig_local():
         ax2.annotate("", xy=(s[jg], dg[jg] + 0.06), xytext=(s[jm], dg[jg] + 0.06), zorder=5,
                      arrowprops=dict(arrowstyle="<|-|>", lw=1.1, color="#5a616a", shrinkA=0, shrinkB=0))
         T.append(ax2.text(0.5 * (s[jm] + s[jg]), dg[jg] + 0.10, f"{abs(offs[-1]):.1f} " + AA,
-                          fontproperties=CJK, fontsize=9.5, color="#5a616a", ha="center", va="bottom"))
+                          fontproperties=CJK, fontsize=11.9, color="#5a616a", ha="center", va="bottom"))
     ax2.set_xlim(0, L); ax2.set_ylim(0.55, max(dq.max(), dg.max()) + 0.42)
-    ax2.set_xlabel("沿台阶法向的位置 (" + AA + ")", fontproperties=CJK, fontsize=10.5, color=SUB)
-    ax2.set_ylabel("响应 / 该量自身的整胞平均", fontproperties=CJK, fontsize=10.5, color=SUB)
+    ax2.set_xlabel("沿台阶法向的位置 (" + AA + ")", fontproperties=CJK, fontsize=13.1, color=SUB)
+    ax2.set_ylabel("响应 / 该量自身的整胞平均", fontproperties=CJK, fontsize=13.1, color=SUB)
     ax2.tick_params(labelsize=9.5, colors=SUB)
     for sp in ("top", "right"): ax2.spines[sp].set_visible(False)
     for sp in ("bottom", "left"): ax2.spines[sp].set_color("#c6c1b7")
     T.append(ax2.set_title(f"{sid}：U 从 $-$0.2 V 到 +0.2 V 的响应（阴影为下台面）",
-                           fontproperties=CJK, fontsize=12, color=INK, pad=8))
+                           fontproperties=CJK, fontsize=15.0, color=INK, pad=8))
     T.append(ax2.text(0.015, 0.965, r"金属：正电荷增量 ($-\Delta n_e$)", transform=ax2.transAxes, fontproperties=CJK,
-                      fontsize=10.5, color=C_METAL, va="top", weight="semibold"))
+                      fontsize=13.1, color=C_METAL, va="top", weight="semibold"))
     T.append(ax2.text(0.015, 0.895, r"液相：阴离子过量增量 ($\Delta\Gamma_-$)", transform=ax2.transAxes, fontproperties=CJK,
-                      fontsize=10.5, color=C_ION, va="top", weight="semibold"))
+                      fontsize=13.1, color=C_ION, va="top", weight="semibold"))
     T.append(ax2.text(0.985, 0.045, f"峰值：金属 {dq.max():.2f}×，阴离子 {dg.max():.2f}× 各自的整胞平均",
-                      transform=ax2.transAxes, fontproperties=CJK, fontsize=9.8, color=INK,
+                      transform=ax2.transAxes, fontproperties=CJK, fontsize=12.2, color=INK,
                       ha="right", va="bottom"))
 
     bad = check(fig, T)
@@ -190,15 +195,15 @@ def fig_move():
     G = charging()
     A, B = "Step-8x2", "Step-8x2_edge-vacancy_plus_foot-adatom"
     gA, gB = geom(G, A), geom(G, B)
-    fig = plt.figure(figsize=(13.6, 5.6), dpi=170)
+    fig = plt.figure(figsize=(13.6, 6.2), dpi=170)
     gs = fig.add_gridspec(1, 3, width_ratios=[1.0, 1.0, 1.45], left=0.02, right=0.975, top=0.79,
                           bottom=0.145, wspace=0.14)
     T = []
     T.append(fig.text(0.02, 0.955, "原子数不变，只把一颗 Au 换个位置，充电曲线就整体平移",
-                      fontproperties=CJK, fontsize=16.5, color=INK, va="top", weight="semibold"))
+                      fontproperties=CJK, fontsize=20.6, color=INK, va="top", weight="semibold"))
     T.append(fig.text(0.02, 0.895, "同一个胞、同样 72 个 Au：把台阶上边缘的一颗原子移到脚部空位。"
                                    "零电荷电势移动约 55 mV，而割线电容几乎不变。",
-                      fontproperties=CJK, fontsize=11, color=SUB, va="top"))
+                      fontproperties=CJK, fontsize=13.8, color=SUB, va="top"))
 
     gal = json.load(open(f"{GAL}/gallery.json"))
     # one cell only: with the defect repeated over a tiling, six green circles read as six moved atoms
@@ -237,10 +242,10 @@ def fig_move():
                                                     shrinkA=9, shrinkB=9))
         ax.set_xlim(P[:, 0].min() - 2, P[:, 0].max() + 2); ax.set_ylim(P[:, 1].min() - 2, P[:, 1].max() + 2)
         lab = "直台阶 Step-8x2（紫圈＝将要移动的那颗）" if k == 0 else "移位后（箭头＝它去了哪里）"
-        T.append(ax.set_title(lab, fontproperties=CJK, fontsize=11.5, color=INK, pad=6))
+        T.append(ax.set_title(lab, fontproperties=CJK, fontsize=14.4, color=INK, pad=6))
     T.append(fig.text(0.02, 0.055, "紫色圈＝原来的边缘位点　绿色圈＝它的新位置（台阶脚部空位）　"
                                    "两图各画 1 个胞、沿短边重复 2 次",
-                      fontproperties=CJK, fontsize=9.6, color=SUB, va="bottom"))
+                      fontproperties=CJK, fontsize=12.0, color=SUB, va="bottom"))
 
     ax = fig.add_subplot(gs[0, 2])
     out = {}
@@ -259,25 +264,25 @@ def fig_move():
     ax.annotate("", xy=(out[B]["U_pzc_mV"] / 1000, 0.55), xytext=(out[A]["U_pzc_mV"] / 1000, 0.55), zorder=5,
                 arrowprops=dict(arrowstyle="<|-|>", lw=1.4, color=INK, shrinkA=0, shrinkB=0))
     T.append(ax.text(0.5 * (out[A]["U_pzc_mV"] + out[B]["U_pzc_mV"]) / 1000, 0.68,
-                     f"零电荷电势移动 {d:+.1f} mV", fontproperties=CJK, fontsize=11, color=INK,
+                     f"零电荷电势移动 {d:+.1f} mV", fontproperties=CJK, fontsize=13.8, color=INK,
                      ha="center", va="bottom", weight="semibold"))
     T.append(ax.text(0.03, 0.965,
                      f"{A}：U0 = {out[A]['U_pzc_mV']:+.1f} mV，割线电容 {out[A]['C']:.2f} μF/cm²\n"
                      f"移位后：U0 = {out[B]['U_pzc_mV']:+.1f} mV，割线电容 {out[B]['C']:.2f} μF/cm²\n"
                      f"电容差 {100*(out[B]['C']/out[A]['C']-1):+.1f}%：两条曲线斜率接近，横向位置不同",
-                     transform=ax.transAxes, fontproperties=CJK, fontsize=9.8, color=INK, va="top",
+                     transform=ax.transAxes, fontproperties=CJK, fontsize=12.2, color=INK, va="top",
                      linespacing=1.6,
                      bbox=dict(boxstyle="round,pad=0.5", facecolor="#f6f4f0", edgecolor="#c9c3b8", lw=1.0)))
-    ax.set_xlabel(r"U = $\mu_0-\mu_e$  (V，内部参考，不对 RHE)", fontproperties=CJK, fontsize=10.5, color=SUB)
-    ax.set_ylabel("面电荷 σ (μC/cm²)", fontproperties=CJK, fontsize=10.5, color=SUB)
+    ax.set_xlabel(r"U = $\mu_0-\mu_e$  (V，内部参考，不对 RHE)", fontproperties=CJK, fontsize=13.1, color=SUB)
+    ax.set_ylabel("面电荷 σ (μC/cm²)", fontproperties=CJK, fontsize=13.1, color=SUB)
     ax.tick_params(labelsize=9.5, colors=SUB)
     for sp in ("top", "right"): ax.spines[sp].set_visible(False)
     for sp in ("bottom", "left"): ax.spines[sp].set_color("#c6c1b7")
-    lg = ax.legend(loc="lower right", frameon=False, fontsize=9.5, prop=CJK)
+    lg = ax.legend(loc="lower right", frameon=False, fontsize=11.9, prop=CJK)
     for t in lg.get_texts(): t.set_fontproperties(CJK); t.set_fontsize(9.5)
     T.append(ax.text(0.97, 0.30, "▼ 标记＝线性插值得到的零电荷电势", transform=ax.transAxes,
-                     fontproperties=CJK, fontsize=9.3, color=FAINT, ha="right", va="bottom"))
-    T.append(ax.set_title("两条 σ(U)：三个基础电势点", fontproperties=CJK, fontsize=12, color=INK, pad=6))
+                     fontproperties=CJK, fontsize=11.6, color=FAINT, ha="right", va="bottom"))
+    T.append(ax.set_title("两条 σ(U)：三个基础电势点", fontproperties=CJK, fontsize=15.0, color=INK, pad=6))
 
     bad = check(fig, T)
     fig.savefig(f"{GAL}/_finding_move.png", facecolor="white"); plt.close(fig)

@@ -319,9 +319,15 @@ def make_map(struct, gid, A, B, U_hi, U_lo):
               ("表面配位数", A["cn_label"].astype(float), "viridis", (5.5, 12.5), "分区依据（离散标度）")]
     panels = [p for p in panels if p[1] is not None]
     aspect = (ylim[1] - ylim[0]) / (xlim[1] - xlim[0])
-    PW = 4.3
-    fig, axes = plt.subplots(1, len(panels), figsize=(PW * len(panels), PW * aspect + 1.35), dpi=190)
-    for ax, (t, D, cm, lim, sub) in zip(np.atleast_1d(axes), panels):
+    # 2 x 2, not 1 x 4. Four panels in a row made a 17-inch-wide strip whose 8-10 pt labels came out near 10
+    # CSS px once the page scaled it to the column; halving the width doubles every label on screen.
+    PW = 5.0
+    ncol = 2 if len(panels) > 1 else 1
+    nrow = int(np.ceil(len(panels) / ncol))
+    fig, axes = plt.subplots(nrow, ncol, figsize=(PW * ncol, (PW * aspect + 1.25) * nrow + 0.45), dpi=190)
+    axl = np.atleast_1d(axes).ravel()
+    for ax in axl[len(panels):]: ax.axis("off")
+    for ax, (t, D, cm, lim, sub) in zip(axl, panels):
         if lim:
             v0, v1 = lim
         elif D.min() * D.max() < 0:                # crosses zero: diverging scale centred on zero
@@ -333,13 +339,13 @@ def make_map(struct, gid, A, B, U_hi, U_lo):
         ax.set_aspect("equal"); ax.set_xticks([]); ax.set_yticks([])
         ax.set_xlim(*xlim); ax.set_ylim(*ylim)
         for s in ax.spines.values(): s.set_color("#c9cdd2")
-        ax.set_title(t, fontproperties=CJK, fontsize=10.5, color="#2c3238", pad=7)
+        ax.set_title(t, fontproperties=CJK, fontsize=13, color="#2c3238", pad=7)
         ax.text(0.5, -0.035, sub, transform=ax.transAxes, ha="center", va="top",
-                fontproperties=CJK, fontsize=8.6, color="#767d85")
-        cb = fig.colorbar(im, ax=ax, fraction=0.045, pad=0.015); cb.ax.tick_params(labelsize=7.5)
-    fig.suptitle(f"{struct} · {gid.split('__')[1]} · {n1}×{n2} 个胞", fontproperties=CJK, fontsize=13,
-                 y=0.985, color="#14181c")
-    fig.tight_layout(rect=(0, 0.01, 1, 0.94))
+                fontproperties=CJK, fontsize=11, color="#767d85")
+        cb = fig.colorbar(im, ax=ax, fraction=0.045, pad=0.015); cb.ax.tick_params(labelsize=9.5)
+    fig.suptitle(f"{struct} · {gid.split('__')[1]} · {n1}×{n2} 个胞", fontproperties=CJK, fontsize=16,
+                 y=0.992, color="#14181c")
+    fig.tight_layout(rect=(0, 0.01, 1, 0.965))
     fig.savefig(f"{MAPS}/{struct}.png", facecolor="white"); plt.close(fig)
 
 
