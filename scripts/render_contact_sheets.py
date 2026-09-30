@@ -33,9 +33,11 @@ def main():
     by = {}
     for sid, m in gal.items():
         by.setdefault(m["family"], []).append(sid)
-    lines = ["# 结构简笔示意 · 分族拼图", "",
-             "每张拼图按族纵向拼接**完整图**，原分辨率、不裁切、不缩放，因此文字与单张一致。",
-             "完整图（含按配位数着色的俯视图与侧视图）仍是每个结构一个 PNG。","", ""]
+    lines = ["# Structure figures, contact sheets by family", "",
+             "Each sheet stacks the **full figures** of one family vertically, at native resolution, "
+             "uncropped and unscaled, so the text reads exactly as it does in the single figures.",
+             "The full figure, with the coordination-coloured top view and the side view, is still one PNG "
+             "per structure.", "", ""]
     made = 0
     for fam in ORDER:
         sids = sorted(by.get(fam, []))
@@ -59,11 +61,11 @@ def main():
         for ax, (sid, im) in zip(axes, imgs):
             ax.imshow(im); ax.axis("off")
             # the CJK fallback face has no U+00C5; the sheet caption is plain text, so spell the unit
-            note = gal[sid].get("schematic_note", "").replace("\u00c5", " 埃")
+            note = gal[sid].get("schematic_note", "")
             ax.set_title(f"{sid}", fontsize=12, color="#14181c", pad=1)
             ax.text(0.5, -0.02, note, transform=ax.transAxes, ha="center", va="top",
                     fontproperties=CJK, fontsize=7.6, color="#5a616a", wrap=True)
-        fig.suptitle(f"{FAMILY_ZH.get(fam, fam)}　·　{len(imgs)} 个结构", fontproperties=CJK,
+        fig.suptitle(f"{FAMILY_ZH.get(fam, fam)}  \u00b7  {len(imgs)} structures", fontproperties=CJK,
                      fontsize=15, y=0.995, color="#14181c")
         fig.tight_layout(rect=(0, 0, 1, 0.97))
         # full-family slug: "single-layer island" and "single-layer pit" collided on the first word and

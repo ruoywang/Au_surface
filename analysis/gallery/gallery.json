@@ -16,8 +16,8 @@
    "bulk": 4
   },
   "n_upper_surface": 18,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 18 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 4  \u5e73\u53f0 10  \u6b21\u8868\u9762 4",
-  "family_zh": "\u6761\u5e26\u53f0\u9636",
+  "cn_counts_zh": "upper surface 18 atoms:  edge 4  terrace 10  sub-surface 4",
+  "family_zh": "strip step",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 4,
@@ -25,8 +25,8 @@
    "bulk": 42
   },
   "schematic_width_frac": 0.34684210526315795,
-  "legend_top_frac": 0.08585550101005114,
-  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "legend_top_frac": 0.12203692178530674,
+  "schematic_note": "upper terrace spanning the cell (one side of a strip step)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -37,6 +37,7 @@
    "fcc_like": 18,
    "n_surface": 18
   },
+  "off_canvas": [],
   "U_pzc_V": 0.03190535413326031,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.263718592883805,
@@ -61,8 +62,8 @@
    "bulk": 9
   },
   "n_upper_surface": 40,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 40 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 6  \u5e73\u53f0 25  \u6b21\u8868\u9762 9",
-  "family_zh": "\u5355\u5c42\u5c9b",
+  "cn_counts_zh": "upper surface 40 atoms:  kink 6  terrace 25  sub-surface 9",
+  "family_zh": "single-layer island",
   "cn_counts_dict": {
    "kink": 6,
    "edge": 0,
@@ -71,7 +72,7 @@
   },
   "schematic_width_frac": 0.34684210526315795,
   "legend_top_frac": 0.11587376894802112,
-  "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "closed protrusion (island or adatom cluster)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -82,6 +83,7 @@
    "fcc_like": 40,
    "n_surface": 40
   },
+  "off_canvas": [],
   "U_pzc_V": -0.06875705446956354,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.393881195729088,
@@ -106,8 +108,8 @@
    "bulk": 3
   },
   "n_upper_surface": 17,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 17 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 1  \u5e73\u53f0 13  \u6b21\u8868\u9762 3",
-  "family_zh": "\u70b9\u7f3a\u9677",
+  "cn_counts_zh": "upper surface 17 atoms:  kink 1  terrace 13  sub-surface 3",
+  "family_zh": "point defect",
   "cn_counts_dict": {
    "kink": 1,
    "edge": 0,
@@ -116,7 +118,7 @@
   },
   "schematic_width_frac": 0.3468421052631579,
   "legend_top_frac": 0.12203692178530674,
-  "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "closed protrusion (island or adatom cluster)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -127,6 +129,7 @@
    "fcc_like": 17,
    "n_surface": 17
   },
+  "off_canvas": [],
   "U_pzc_V": -0.06527082548166915,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.920161259404404,
@@ -151,8 +154,8 @@
    "bulk": 3
   },
   "n_upper_surface": 17,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 17 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 1  \u5e73\u53f0 13  \u6b21\u8868\u9762 3",
-  "family_zh": "\u70b9\u7f3a\u9677",
+  "cn_counts_zh": "upper surface 17 atoms:  kink 1  terrace 13  sub-surface 3",
+  "family_zh": "point defect",
   "cn_counts_dict": {
    "kink": 1,
    "edge": 0,
@@ -161,7 +164,7 @@
   },
   "schematic_width_frac": 0.3468421052631579,
   "legend_top_frac": 0.12203692178530674,
-  "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "closed protrusion (island or adatom cluster)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -172,6 +175,7 @@
    "fcc_like": 16,
    "n_surface": 17
   },
+  "off_canvas": [],
   "U_pzc_V": -0.06647837067399359,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.910950646183682,
@@ -196,8 +200,8 @@
    "bulk": 7
   },
   "n_upper_surface": 19,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 19 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 3  \u5e73\u53f0 9  \u6b21\u8868\u9762 7",
-  "family_zh": "\u70b9\u7f3a\u9677",
+  "cn_counts_zh": "upper surface 19 atoms:  kink 3  terrace 9  sub-surface 7",
+  "family_zh": "point defect",
   "cn_counts_dict": {
    "kink": 3,
    "edge": 0,
@@ -206,7 +210,7 @@
   },
   "schematic_width_frac": 0.3468421052631579,
   "legend_top_frac": 0.12203692178530674,
-  "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "closed protrusion (island or adatom cluster)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a2"
@@ -217,6 +221,7 @@
    "fcc_like": 19,
    "n_surface": 19
   },
+  "off_canvas": [],
   "U_pzc_V": -0.08779458409932506,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.789859871738056,
@@ -241,8 +246,8 @@
    "bulk": 14
   },
   "n_upper_surface": 24,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 24 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 5  \u5e73\u53f0 5  \u6b21\u8868\u9762 14",
-  "family_zh": "\u90bb\u6676\u9762\u53f0\u9636",
+  "cn_counts_zh": "upper surface 24 atoms:  edge 5  terrace 5  sub-surface 14",
+  "family_zh": "vicinal step face",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 8,
@@ -250,8 +255,8 @@
    "bulk": 32
   },
   "schematic_width_frac": 0.34684210526315784,
-  "legend_top_frac": 0.05913663554202828,
-  "schematic_note": "\u5c40\u90e8 (111) \u53f0\u9762\u76f8\u5bf9\u5b8f\u89c2\u6676\u9762\u503e\u659c\uff0c\u80de\u5185\u9ad8\u5dee 4.2 \u00c5\uff1b\u53f0\u9636\u843d\u5728\u5468\u671f\u8fb9\u754c\u4e0a\uff0c\u9ad8\u5ea6\u5206\u5e03\u91cc\u770b\u4e0d\u5230\u65ad\u5f00",
+  "legend_top_frac": 0.08510642493795816,
+  "schematic_note": "the local (111) terrace is inclined to the macroscopic face, relief 4.2 A in the cell; the step sits on the periodic seam, so the height distribution shows no break",
   "n_sections": 1,
   "section_axes": [
    "a2"
@@ -262,6 +267,7 @@
    "fcc_like": 24,
    "n_surface": 24
   },
+  "off_canvas": [],
   "U_pzc_V": -0.030633809491797698,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.56602268754735,
@@ -286,8 +292,8 @@
    "bulk": 2
   },
   "n_upper_surface": 8,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 8 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 2  \u5e73\u53f0 4  \u6b21\u8868\u9762 2",
-  "family_zh": "\u90bb\u6676\u9762\u53f0\u9636",
+  "cn_counts_zh": "upper surface 8 atoms:  edge 2  terrace 4  sub-surface 2",
+  "family_zh": "vicinal step face",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 4,
@@ -295,8 +301,8 @@
    "bulk": 16
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.07483319509514814,
-  "schematic_note": "\u5c40\u90e8 (111) \u53f0\u9762\u76f8\u5bf9\u5b8f\u89c2\u6676\u9762\u503e\u659c\uff0c\u80de\u5185\u9ad8\u5dee 2.1 \u00c5\uff1b\u53f0\u9636\u843d\u5728\u5468\u671f\u8fb9\u754c\u4e0a\uff0c\u9ad8\u5ea6\u5206\u5e03\u91cc\u770b\u4e0d\u5230\u65ad\u5f00",
+  "legend_top_frac": 0.10691282708601835,
+  "schematic_note": "the local (111) terrace is inclined to the macroscopic face, relief 2.1 A in the cell; the step sits on the periodic seam, so the height distribution shows no break",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -307,6 +313,7 @@
    "fcc_like": 8,
    "n_surface": 8
   },
+  "off_canvas": [],
   "U_pzc_V": -0.012502728957702824,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.137429964234382,
@@ -331,8 +338,8 @@
    "bulk": 1
   },
   "n_upper_surface": 6,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 6 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 1  \u5e73\u53f0 4  \u6b21\u8868\u9762 1",
-  "family_zh": "\u90bb\u6676\u9762\u53f0\u9636",
+  "cn_counts_zh": "upper surface 6 atoms:  edge 1  terrace 4  sub-surface 1",
+  "family_zh": "vicinal step face",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 2,
@@ -340,8 +347,8 @@
    "bulk": 11
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.0974776129324561,
-  "schematic_note": "\u5c40\u90e8 (111) \u53f0\u9762\u76f8\u5bf9\u5b8f\u89c2\u6676\u9762\u503e\u659c\uff0c\u80de\u5185\u9ad8\u5dee 2.2 \u00c5\uff1b\u53f0\u9636\u843d\u5728\u5468\u671f\u8fb9\u754c\u4e0a\uff0c\u9ad8\u5ea6\u5206\u5e03\u91cc\u770b\u4e0d\u5230\u65ad\u5f00",
+  "legend_top_frac": 0.1378184448876916,
+  "schematic_note": "the local (111) terrace is inclined to the macroscopic face, relief 2.2 A in the cell; the step sits on the periodic seam, so the height distribution shows no break",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -352,6 +359,7 @@
    "fcc_like": 6,
    "n_surface": 6
   },
+  "off_canvas": [],
   "U_pzc_V": 0.01679968855912074,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.012361092780395,
@@ -376,8 +384,8 @@
    "bulk": 1
   },
   "n_upper_surface": 10,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 10 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 1  \u5e73\u53f0 8  \u6b21\u8868\u9762 1",
-  "family_zh": "\u90bb\u6676\u9762\u53f0\u9636",
+  "cn_counts_zh": "upper surface 10 atoms:  edge 1  terrace 8  sub-surface 1",
+  "family_zh": "vicinal step face",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 2,
@@ -385,8 +393,8 @@
    "bulk": 18
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.0883062883032309,
-  "schematic_note": "\u5c40\u90e8 (111) \u53f0\u9762\u76f8\u5bf9\u5b8f\u89c2\u6676\u9762\u503e\u659c\uff0c\u80de\u5185\u9ad8\u5dee 2.3 \u00c5\uff1b\u53f0\u9636\u843d\u5728\u5468\u671f\u8fb9\u754c\u4e0a\uff0c\u9ad8\u5ea6\u5206\u5e03\u91cc\u770b\u4e0d\u5230\u65ad\u5f00",
+  "legend_top_frac": 0.12537887021194827,
+  "schematic_note": "the local (111) terrace is inclined to the macroscopic face, relief 2.3 A in the cell; the step sits on the periodic seam, so the height distribution shows no break",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -397,6 +405,7 @@
    "fcc_like": 10,
    "n_surface": 10
   },
+  "off_canvas": [],
   "U_pzc_V": 0.0658738623457803,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.717082410464283,
@@ -421,8 +430,8 @@
    "bulk": 13
   },
   "n_upper_surface": 39,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 39 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 4  \u8fb9\u7f18 9  \u5e73\u53f0 13  \u6b21\u8868\u9762 13",
-  "family_zh": "\u590d\u5408\u5f62\u8c8c",
+  "cn_counts_zh": "upper surface 39 atoms:  kink 4  edge 9  terrace 13  sub-surface 13",
+  "family_zh": "composite",
   "cn_counts_dict": {
    "kink": 4,
    "edge": 9,
@@ -431,7 +440,7 @@
   },
   "schematic_width_frac": 0.3468421052631579,
   "legend_top_frac": 0.12203692178530674,
-  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u4f4e\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "lower terrace spanning the cell (one side of a strip step)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -442,6 +451,7 @@
    "fcc_like": 39,
    "n_surface": 39
   },
+  "off_canvas": [],
   "U_pzc_V": null,
   "pzc_bracketed": false,
   "C_median_uF_cm2": 12.342607614307285,
@@ -466,8 +476,8 @@
    "bulk": 18
   },
   "n_upper_surface": 73,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 73 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 6  \u8fb9\u7f18 12  \u5e73\u53f0 37  \u6b21\u8868\u9762 18",
-  "family_zh": "\u590d\u5408\u5f62\u8c8c",
+  "cn_counts_zh": "upper surface 73 atoms:  kink 6  edge 12  terrace 37  sub-surface 18",
+  "family_zh": "composite",
   "cn_counts_dict": {
    "kink": 6,
    "edge": 12,
@@ -476,7 +486,7 @@
   },
   "schematic_width_frac": 0.34684210526315795,
   "legend_top_frac": 0.08315384313339562,
-  "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5171 3 \u4e2a\u5206\u79bb\u7684\u9ad8\u5ea6\u5c42\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "closed protrusion (island or adatom cluster)  \u00b7  closed depression (pit or vacancy)  \u00b7  3 separated height levels  \u00b7  level gap 2.4 A",
   "n_sections": 2,
   "section_axes": [
    "a1",
@@ -488,6 +498,7 @@
    "fcc_like": 73,
    "n_surface": 73
   },
+  "off_canvas": [],
   "U_pzc_V": 0.016523916055531124,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.320452316635448,
@@ -512,8 +523,8 @@
    "bulk": 0
   },
   "n_upper_surface": 16,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 16 \u4e2a\u539f\u5b50\uff1a\u5e73\u53f0 16",
-  "family_zh": "\u5e73\u6574 Au(111)",
+  "cn_counts_zh": "upper surface 16 atoms:  terrace 16",
+  "family_zh": "flat Au(111)",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 0,
@@ -521,8 +532,8 @@
    "bulk": 32
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.14356974722294397,
-  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff1b\u4e0e\u5e73\u677f\u7684\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6",
+  "legend_top_frac": 0.1987843077392325,
+  "schematic_note": "uniform height, no relief; it differs from the flat slab in stacking or in-plane registry, not in height",
   "n_sections": 0,
   "section_axes": [],
   "registry_display_classes": {
@@ -531,6 +542,7 @@
    "fcc_like": 16,
    "n_surface": 16
   },
+  "off_canvas": [],
   "U_pzc_V": 0.07264910022058269,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.37703402065413,
@@ -555,8 +567,8 @@
    "bulk": 0
   },
   "n_upper_surface": 16,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 16 \u4e2a\u539f\u5b50\uff1a\u5e73\u53f0 16",
-  "family_zh": "\u5e73\u6574 Au(111)",
+  "cn_counts_zh": "upper surface 16 atoms:  terrace 16",
+  "family_zh": "flat Au(111)",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 0,
@@ -564,8 +576,8 @@
    "bulk": 32
   },
   "schematic_width_frac": 0.34684210526315795,
-  "legend_top_frac": 0.08860809261282673,
-  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff1b\u4e0e\u5e73\u677f\u7684\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6",
+  "legend_top_frac": 0.12578989575522204,
+  "schematic_note": "uniform height, no relief; it differs from the flat slab in stacking or in-plane registry, not in height",
   "n_sections": 0,
   "section_axes": [],
   "registry_display_classes": {
@@ -574,6 +586,7 @@
    "fcc_like": 16,
    "n_surface": 16
   },
+  "off_canvas": [],
   "U_pzc_V": 0.07321860981108615,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.350104413897453,
@@ -598,8 +611,8 @@
    "bulk": 15
   },
   "n_upper_surface": 71,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 71 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 6  \u8fb9\u7f18 6  \u5e73\u53f0 44  \u6b21\u8868\u9762 15",
-  "family_zh": "\u5355\u5c42\u5c9b",
+  "cn_counts_zh": "upper surface 71 atoms:  kink 6  edge 6  terrace 44  sub-surface 15",
+  "family_zh": "single-layer island",
   "cn_counts_dict": {
    "kink": 6,
    "edge": 6,
@@ -608,7 +621,7 @@
   },
   "schematic_width_frac": 0.34684210526315795,
   "legend_top_frac": 0.12203692178530674,
-  "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "closed protrusion (island or adatom cluster)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -619,6 +632,7 @@
    "fcc_like": 71,
    "n_surface": 71
   },
+  "off_canvas": [],
   "U_pzc_V": 0.01168369747089728,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.318311178050337,
@@ -643,8 +657,8 @@
    "bulk": 9
   },
   "n_upper_surface": 68,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 68 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 6  \u5e73\u53f0 53  \u6b21\u8868\u9762 9",
-  "family_zh": "\u5355\u5c42\u5c9b",
+  "cn_counts_zh": "upper surface 68 atoms:  kink 6  terrace 53  sub-surface 9",
+  "family_zh": "single-layer island",
   "cn_counts_dict": {
    "kink": 6,
    "edge": 0,
@@ -653,7 +667,7 @@
   },
   "schematic_width_frac": 0.34684210526315795,
   "legend_top_frac": 0.12203692178530674,
-  "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "closed protrusion (island or adatom cluster)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -664,6 +678,7 @@
    "fcc_like": 68,
    "n_surface": 68
   },
+  "off_canvas": [],
   "U_pzc_V": null,
   "pzc_bracketed": false,
   "C_median_uF_cm2": null,
@@ -688,8 +703,8 @@
    "bulk": 10
   },
   "n_upper_surface": 41,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 41 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 4  \u8fb9\u7f18 3  \u5e73\u53f0 24  \u6b21\u8868\u9762 10",
-  "family_zh": "\u5355\u5c42\u5c9b",
+  "cn_counts_zh": "upper surface 41 atoms:  kink 4  edge 3  terrace 24  sub-surface 10",
+  "family_zh": "single-layer island",
   "cn_counts_dict": {
    "kink": 4,
    "edge": 3,
@@ -698,7 +713,7 @@
   },
   "schematic_width_frac": 0.34684210526315795,
   "legend_top_frac": 0.11586134733014385,
-  "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "closed protrusion (island or adatom cluster)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a2"
@@ -709,6 +724,7 @@
    "fcc_like": 41,
    "n_surface": 41
   },
+  "off_canvas": [],
   "U_pzc_V": -0.05369462158463978,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.492104667084545,
@@ -733,8 +749,8 @@
    "bulk": 7
   },
   "n_upper_surface": 27,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 27 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 1  \u8fb9\u7f18 6  \u5e73\u53f0 13  \u6b21\u8868\u9762 7",
-  "family_zh": "\u62d0\u89d2 / \u8fb9\u7f18\u91cd\u6392",
+  "cn_counts_zh": "upper surface 27 atoms:  kink 1  edge 6  terrace 13  sub-surface 7",
+  "family_zh": "kink / edge rearrangement",
   "cn_counts_dict": {
    "kink": 1,
    "edge": 6,
@@ -742,8 +758,8 @@
    "bulk": 65
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.11539914002250255,
-  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "legend_top_frac": 0.14731246173817372,
+  "schematic_note": "upper terrace spanning the cell (one side of a strip step)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -754,6 +770,7 @@
    "fcc_like": 27,
    "n_surface": 27
   },
+  "off_canvas": [],
   "U_pzc_V": 0.019937509858943908,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.313685966586526,
@@ -778,8 +795,8 @@
    "bulk": 7
   },
   "n_upper_surface": 28,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 28 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 1  \u8fb9\u7f18 6  \u5e73\u53f0 14  \u6b21\u8868\u9762 7",
-  "family_zh": "\u62d0\u89d2 / \u8fb9\u7f18\u91cd\u6392",
+  "cn_counts_zh": "upper surface 28 atoms:  kink 1  edge 6  terrace 14  sub-surface 7",
+  "family_zh": "kink / edge rearrangement",
   "cn_counts_dict": {
    "kink": 1,
    "edge": 6,
@@ -787,8 +804,8 @@
    "bulk": 64
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.11539914002250255,
-  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "legend_top_frac": 0.14731246173817372,
+  "schematic_note": "upper terrace spanning the cell (one side of a strip step)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -799,6 +816,7 @@
    "fcc_like": 28,
    "n_surface": 28
   },
+  "off_canvas": [],
   "U_pzc_V": 0.009624000000000521,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.346838751485599,
@@ -823,8 +841,8 @@
    "bulk": 15
   },
   "n_upper_surface": 72,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 72 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 18  \u5e73\u53f0 39  \u6b21\u8868\u9762 15",
-  "family_zh": "\u5355\u5c42\u5751",
+  "cn_counts_zh": "upper surface 72 atoms:  edge 18  terrace 39  sub-surface 15",
+  "family_zh": "single-layer pit",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 18,
@@ -832,8 +850,8 @@
    "bulk": 116
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.08585550101005114,
-  "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "legend_top_frac": 0.12203692178530674,
+  "schematic_note": "closed depression (pit or vacancy)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -844,6 +862,7 @@
    "fcc_like": 72,
    "n_surface": 72
   },
+  "off_canvas": [],
   "U_pzc_V": 0.05755172631061448,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.081578224554168,
@@ -868,8 +887,8 @@
    "bulk": 9
   },
   "n_upper_surface": 69,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 69 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 12  \u5e73\u53f0 48  \u6b21\u8868\u9762 9",
-  "family_zh": "\u5355\u5c42\u5751",
+  "cn_counts_zh": "upper surface 69 atoms:  edge 12  terrace 48  sub-surface 9",
+  "family_zh": "single-layer pit",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 12,
@@ -877,8 +896,8 @@
    "bulk": 125
   },
   "schematic_width_frac": 0.34684210526315795,
-  "legend_top_frac": 0.08585550101005114,
-  "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "legend_top_frac": 0.12203692178530674,
+  "schematic_note": "closed depression (pit or vacancy)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -889,6 +908,7 @@
    "fcc_like": 69,
    "n_surface": 69
   },
+  "off_canvas": [],
   "U_pzc_V": null,
   "pzc_bracketed": false,
   "C_median_uF_cm2": null,
@@ -913,8 +933,8 @@
    "bulk": 9
   },
   "n_upper_surface": 41,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 41 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 12  \u5e73\u53f0 20  \u6b21\u8868\u9762 9",
-  "family_zh": "\u5355\u5c42\u5751",
+  "cn_counts_zh": "upper surface 41 atoms:  edge 12  terrace 20  sub-surface 9",
+  "family_zh": "single-layer pit",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 12,
@@ -922,8 +942,8 @@
    "bulk": 69
   },
   "schematic_width_frac": 0.34684210526315795,
-  "legend_top_frac": 0.0850492981316759,
-  "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "legend_top_frac": 0.12093591421585426,
+  "schematic_note": "closed depression (pit or vacancy)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -934,6 +954,7 @@
    "fcc_like": 41,
    "n_surface": 41
   },
+  "off_canvas": [],
   "U_pzc_V": -0.0004089999999994376,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.972219012015358,
@@ -958,8 +979,8 @@
    "bulk": 10
   },
   "n_upper_surface": 41,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 41 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 13  \u5e73\u53f0 18  \u6b21\u8868\u9762 10",
-  "family_zh": "\u5355\u5c42\u5751",
+  "cn_counts_zh": "upper surface 41 atoms:  edge 13  terrace 18  sub-surface 10",
+  "family_zh": "single-layer pit",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 13,
@@ -967,8 +988,8 @@
    "bulk": 70
   },
   "schematic_width_frac": 0.34684210526315795,
-  "legend_top_frac": 0.0850492981316759,
-  "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "legend_top_frac": 0.12093591421585426,
+  "schematic_note": "closed depression (pit or vacancy)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a2"
@@ -979,6 +1000,7 @@
    "fcc_like": 41,
    "n_surface": 41
   },
+  "off_canvas": [],
   "U_pzc_V": 0.010843208697508855,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.098004355828316,
@@ -1003,8 +1025,8 @@
    "bulk": 0
   },
   "n_upper_surface": 16,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 16 \u4e2a\u539f\u5b50\uff1a\u5e73\u53f0 16",
-  "family_zh": "\u91cd\u6784\u76f8\u5173",
+  "cn_counts_zh": "upper surface 16 atoms:  terrace 16",
+  "family_zh": "reconstruction-related",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 0,
@@ -1013,7 +1035,7 @@
   },
   "schematic_width_frac": 0.34684210526315784,
   "legend_top_frac": 0.13080787802986651,
-  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff1b\u4e0e\u5e73\u677f\u7684\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6",
+  "schematic_note": "uniform height, no relief; it differs from the flat slab in stacking or in-plane registry, not in height",
   "n_sections": 0,
   "section_axes": [],
   "registry_display_classes": {
@@ -1022,6 +1044,7 @@
    "fcc_like": 0,
    "n_surface": 16
   },
+  "off_canvas": [],
   "U_pzc_V": -0.009303000000000061,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.153033234258505,
@@ -1046,8 +1069,8 @@
    "bulk": 0
   },
   "n_upper_surface": 17,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 17 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 2  \u5e73\u53f0 15",
-  "family_zh": "\u91cd\u6784\u76f8\u5173",
+  "cn_counts_zh": "upper surface 17 atoms:  edge 2  terrace 15",
+  "family_zh": "reconstruction-related",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 2,
@@ -1056,7 +1079,7 @@
   },
   "schematic_width_frac": 0.3468421052631579,
   "legend_top_frac": 0.1974101677669209,
-  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff1b\u4e0e\u5e73\u677f\u7684\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6",
+  "schematic_note": "uniform height, no relief; it differs from the flat slab in stacking or in-plane registry, not in height",
   "n_sections": 0,
   "section_axes": [],
   "registry_display_classes": {
@@ -1065,6 +1088,7 @@
    "fcc_like": 7,
    "n_surface": 17
   },
+  "off_canvas": [],
   "U_pzc_V": 0.062173703730410805,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.21986350368762,
@@ -1089,8 +1113,8 @@
    "bulk": 2
   },
   "n_upper_surface": 17,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 17 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 2  \u5e73\u53f0 13  \u6b21\u8868\u9762 2",
-  "family_zh": "\u6761\u5e26\u53f0\u9636",
+  "cn_counts_zh": "upper surface 17 atoms:  edge 2  terrace 13  sub-surface 2",
+  "family_zh": "strip step",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 2,
@@ -1098,8 +1122,8 @@
    "bulk": 41
   },
   "schematic_width_frac": 0.34684210526315795,
-  "legend_top_frac": 0.13263525926711342,
-  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "legend_top_frac": 0.1845507727136535,
+  "schematic_note": "upper terrace spanning the cell (one side of a strip step)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -1110,6 +1134,7 @@
    "fcc_like": 17,
    "n_surface": 17
   },
+  "off_canvas": [],
   "U_pzc_V": 0.04401333025405477,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.787365810211952,
@@ -1134,8 +1159,8 @@
    "bulk": 4
   },
   "n_upper_surface": 34,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 34 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 4  \u5e73\u53f0 26  \u6b21\u8868\u9762 4",
-  "family_zh": "\u6761\u5e26\u53f0\u9636",
+  "cn_counts_zh": "upper surface 34 atoms:  edge 4  terrace 26  sub-surface 4",
+  "family_zh": "strip step",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 4,
@@ -1143,8 +1168,8 @@
    "bulk": 82
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.12311012070456609,
-  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "legend_top_frac": 0.1720368306490753,
+  "schematic_note": "upper terrace spanning the cell (one side of a strip step)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -1155,6 +1180,7 @@
    "fcc_like": 34,
    "n_surface": 34
   },
+  "off_canvas": [],
   "U_pzc_V": 0.04270405420763271,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.841136175738548,
@@ -1179,8 +1205,8 @@
    "bulk": 2
   },
   "n_upper_surface": 25,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 25 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 2  \u5e73\u53f0 21  \u6b21\u8868\u9762 2",
-  "family_zh": "\u6761\u5e26\u53f0\u9636",
+  "cn_counts_zh": "upper surface 25 atoms:  edge 2  terrace 21  sub-surface 2",
+  "family_zh": "strip step",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 2,
@@ -1188,8 +1214,8 @@
    "bulk": 61
   },
   "schematic_width_frac": 0.34684210526315795,
-  "legend_top_frac": 0.16095035727921309,
-  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "legend_top_frac": 0.22112338279099583,
+  "schematic_note": "upper terrace spanning the cell (one side of a strip step)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -1200,6 +1226,7 @@
    "fcc_like": 25,
    "n_surface": 25
   },
+  "off_canvas": [],
   "U_pzc_V": 0.06567900416731548,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.71153933517279,
@@ -1224,8 +1251,8 @@
    "bulk": 2
   },
   "n_upper_surface": 9,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 9 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 2  \u5e73\u53f0 5  \u6b21\u8868\u9762 2",
-  "family_zh": "\u6761\u5e26\u53f0\u9636",
+  "cn_counts_zh": "upper surface 9 atoms:  edge 2  terrace 5  sub-surface 2",
+  "family_zh": "strip step",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 2,
@@ -1233,8 +1260,8 @@
    "bulk": 21
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.09130847240867529,
-  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "legend_top_frac": 0.1294624502527455,
+  "schematic_note": "upper terrace spanning the cell (one side of a strip step)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -1245,6 +1272,7 @@
    "fcc_like": 9,
    "n_surface": 9
   },
+  "off_canvas": [],
   "U_pzc_V": 0.031894335316453165,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.241078128822247,
@@ -1269,8 +1297,8 @@
    "bulk": 7
   },
   "n_upper_surface": 20,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 20 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 2  \u8fb9\u7f18 4  \u5e73\u53f0 7  \u6b21\u8868\u9762 7",
-  "family_zh": "\u62d0\u89d2 / \u8fb9\u7f18\u91cd\u6392",
+  "cn_counts_zh": "upper surface 20 atoms:  kink 2  edge 4  terrace 7  sub-surface 7",
+  "family_zh": "kink / edge rearrangement",
   "cn_counts_dict": {
    "kink": 2,
    "edge": 4,
@@ -1278,8 +1306,8 @@
    "bulk": 43
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.12203692178530674,
-  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "legend_top_frac": 0.15546329782887802,
+  "schematic_note": "upper terrace spanning the cell (one side of a strip step)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -1290,6 +1318,7 @@
    "fcc_like": 20,
    "n_surface": 20
   },
+  "off_canvas": [],
   "U_pzc_V": -0.02356591614859102,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.462253107444791,
@@ -1314,8 +1343,8 @@
    "bulk": 0
   },
   "n_upper_surface": 16,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 16 \u4e2a\u539f\u5b50\uff1a\u5e73\u53f0 16",
-  "family_zh": "\u5e73\u6574 Au(111)",
+  "cn_counts_zh": "upper surface 16 atoms:  terrace 16",
+  "family_zh": "flat Au(111)",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 0,
@@ -1323,8 +1352,8 @@
    "bulk": 32
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.09129462618049738,
-  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff1b\u4e0e\u5e73\u677f\u7684\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6",
+  "legend_top_frac": 0.1294436424515875,
+  "schematic_note": "uniform height, no relief; it differs from the flat slab in stacking or in-plane registry, not in height",
   "n_sections": 0,
   "section_axes": [],
   "registry_display_classes": {
@@ -1333,6 +1362,7 @@
    "fcc_like": 16,
    "n_surface": 16
   },
+  "off_canvas": [],
   "U_pzc_V": 3.300000000017178e-05,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.111008813288034,
@@ -1357,8 +1387,8 @@
    "bulk": 3
   },
   "n_upper_surface": 18,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 18 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 6  \u5e73\u53f0 9  \u6b21\u8868\u9762 3",
-  "family_zh": "\u70b9\u7f3a\u9677",
+  "cn_counts_zh": "upper surface 18 atoms:  edge 6  terrace 9  sub-surface 3",
+  "family_zh": "point defect",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 6,
@@ -1367,7 +1397,7 @@
   },
   "schematic_width_frac": 0.3468421052631579,
   "legend_top_frac": 0.12203692178530674,
-  "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "closed depression (pit or vacancy)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -1378,6 +1408,7 @@
    "fcc_like": 18,
    "n_surface": 18
   },
+  "off_canvas": [],
   "U_pzc_V": 0.01271795612596183,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.326269855013464,
@@ -1402,8 +1433,8 @@
    "bulk": 5
   },
   "n_upper_surface": 19,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 19 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 8  \u5e73\u53f0 6  \u6b21\u8868\u9762 5",
-  "family_zh": "\u70b9\u7f3a\u9677",
+  "cn_counts_zh": "upper surface 19 atoms:  edge 8  terrace 6  sub-surface 5",
+  "family_zh": "point defect",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 8,
@@ -1412,7 +1443,7 @@
   },
   "schematic_width_frac": 0.3468421052631579,
   "legend_top_frac": 0.12203692178530674,
-  "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "closed depression (pit or vacancy)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -1423,6 +1454,7 @@
    "fcc_like": 19,
    "n_surface": 19
   },
+  "off_canvas": [],
   "U_pzc_V": 0.007662999999999975,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.6223444159026,
@@ -1447,8 +1479,8 @@
    "bulk": 6
   },
   "n_upper_surface": 19,
-  "cn_counts_zh": "\u4e0a\u8868\u9762 19 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 9  \u5e73\u53f0 4  \u6b21\u8868\u9762 6",
-  "family_zh": "\u70b9\u7f3a\u9677",
+  "cn_counts_zh": "upper surface 19 atoms:  edge 9  terrace 4  sub-surface 6",
+  "family_zh": "point defect",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 9,
@@ -1457,7 +1489,7 @@
   },
   "schematic_width_frac": 0.34684210526315795,
   "legend_top_frac": 0.12203692178530674,
-  "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "closed depression (pit or vacancy)  \u00b7  level gap 2.4 A",
   "n_sections": 1,
   "section_axes": [
    "a1"
@@ -1468,6 +1500,7 @@
    "fcc_like": 19,
    "n_surface": 19
   },
+  "off_canvas": [],
   "U_pzc_V": 0.010364993593028372,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.00239953861604,

@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
-"""One built geometry becomes several computed configurations -- the opening figure of the report.
+"""How one built geometry becomes several computed configurations -- the opening figure of the report.
 
 It answers one question and no more: the 107 geometries are not 107 independently designed defects. 33 are
 built by hand, and every other geometry is a relaxed, perturbed, collectively deformed or path image of one of
 those 33. The structure families are not drawn here; they are in the gallery.
+
+The footer names the FIVE potentials explicitly, because "constant potential" is otherwise easy to read as one
+setting: every geometry is computed at a fixed electron chemical potential, three of them complete and two
+still running, and the electron count is solved for rather than set.
 
 Deliberately sparse, so the type can be large. The canvas is laid out in POINTS, so a label's size in points
 is its size in layout units, and check_layout() asserts on the real rendered extents that nothing overlaps and
@@ -22,11 +26,16 @@ from matplotlib.patches import FancyBboxPatch
 
 ROOT = "/anvil/scratch/x-rywang/Au_Cl"
 OUT = f"{ROOT}/analysis/gallery/_lineage.png"
-CJK = matplotlib.font_manager.FontProperties(fname="/usr/share/fonts/google-droid/DroidSansFallback.ttf")
-AA = r"$\mathrm{\AA}$"          # Droid Sans Fallback has no U+00C5 / U+2212 / U+2080; those come from mathtext
+FONT = matplotlib.font_manager.FontProperties(family="DejaVu Sans")
 
 INK, SUB, FAINT, LINE = "#14181c", "#5a616a", "#9aa1a8", "#8b9299"
-W, H = 1120.0, 664.0
+GOLD, BLUE = "#c9a961", "#7fa8bd"
+W, H = 1360.0, 782.0
+
+MU0 = -4.9071
+# (TARGETMU eV, U V, label, complete?)
+POTENTIALS = [(-5.4071, +0.5, False), (-5.1071, +0.2, True), (-4.9071, 0.0, True),
+              (-4.7071, -0.2, True), (-4.4071, -0.5, False)]
 
 
 def rbox(ax, x, cy, w, h, fc, ec, lw=1.8):
@@ -34,9 +43,9 @@ def rbox(ax, x, cy, w, h, fc, ec, lw=1.8):
                                 facecolor=fc, edgecolor=ec, linewidth=lw, zorder=2))
 
 
-def tx(ax, x, y, s, size, color=INK, weight="normal", ha="left", store=None):
-    t = ax.text(x, y, s, fontproperties=CJK, fontsize=size, color=color, fontweight=weight,
-                ha=ha, va="center", zorder=5)
+def tx(ax, x, y, s, size, color=INK, weight="normal", ha="left", store=None, style="normal"):
+    t = ax.text(x, y, s, fontproperties=FONT, fontsize=size, color=color, fontweight=weight,
+                ha=ha, va="center", zorder=5, style=style)
     if store is not None: store.append(t)
     return t
 
@@ -80,41 +89,61 @@ def main():
     ax.add_patch(plt.Rectangle((0, 0), W, H, facecolor="white", edgecolor="none", zorder=0))
     T = []
 
-    tx(ax, 24, 40, "一个建构好的几何，如何变成多个被计算的构型", 26, INK, "semibold", store=T)
-    tx(ax, 24, 76, "33 个结构是人工建构的；其余几何都是它们的弛豫、扰动与路径像。合计 107 个几何，"
-                   "不是 107 个独立设计的缺陷。", 15, SUB, store=T)
+    tx(ax, 24, 40, "How one built geometry becomes many computed states", 26, INK, "semibold", store=T)
+    tx(ax, 24, 74, "33 structures are built by hand; every other geometry is a relaxed, perturbed or path "
+                   "image of one of them.", 15, SUB, store=T)
+    tx(ax, 24, 98, "107 geometries in all, not 107 separately designed defects.", 15, SUB, store=T)
 
-    X0, W0 = 24.0, 254.0
-    X1, W1 = 356.0, 306.0
-    X2, W2 = 740.0, 356.0
-    yA, yB = 186.0, 396.0
+    X0, W0 = 24.0, 268.0
+    X1, W1 = 370.0, 316.0
+    X2, W2 = 790.0, 540.0
+    yA, yB = 206.0, 416.0
     yRoot = 0.5 * (yA + yB)
-    y3 = [296.0, 388.0, 480.0]
+    y3 = [316.0, 408.0, 500.0]
 
-    node(ax, X0, yRoot, W0, 96, "人工建构的初始几何", "33 个", "见下方结构图谱",
+    node(ax, X0, yRoot, W0, 96, "Hand-built geometry", "33", "one per structure; see the gallery",
          "#ffffff", INK, T, ts=19, cs=16)
 
     elbow(ax, X0 + W0, yRoot, X1 - 8, yA)
-    node(ax, X1, yA, W1, 96, "理想几何 · ideal", "33 个几何", "直接算静态参考态，不弛豫",
-         "#f3efe7", "#c9a961", T)
+    node(ax, X1, yA, W1, 96, "Ideal  ·  ideal", "33 geometries", "static reference; never relaxed",
+         "#f3efe7", GOLD, T)
 
     elbow(ax, X0 + W0, yRoot, X1 - 8, yB)
-    node(ax, X1, yB, W1, 96, r"在公共参考电势 $\mu_0$ 下弛豫", "16 个几何 · relax / relaxed",
-         "给出每个结构的局部参考态", "#f3efe7", "#c9a961", T)
+    node(ax, X1, yB, W1, 96, "Relaxed at the reference $\\mu_0$", "16 geometries · relax / relaxed",
+         "local reference state for each structure", "#f3efe7", GOLD, T)
 
-    kids = [("随机位移 · pert05 / pert10", "16 + 16 个几何", "可动原子随机位移 0.05 / 0.10 " + AA),
-            ("集体变形 · coll", "14 个几何", "顶层间距 -3%、面内应变 +1%、台阶边缘弯曲"),
-            ("路径构型 · path", "12 个几何", "原子沿指定路径移动（过桥位、脱离、进出）")]
+    kids = [("Random displacement  ·  pert05 / pert10", "16 + 16 geometries",
+             "Gaussian 0.05 / 0.10 Å on the movable atoms"),
+            ("Collective deformation  ·  coll", "14 geometries",
+             "top-layer spacing −3%, in-plane strain +1%, edge bend"),
+            ("Path image  ·  path", "12 geometries",
+             "one atom moved along a hop; linear images, not NEB")]
     for (t_, c_, n_), y in zip(kids, y3):
         elbow(ax, X1 + W1, yB, X2 - 8, y)
-        node(ax, X2, y, W2, 88, t_, c_, n_, "#eef2f5", "#7fa8bd", T, ts=17.5, cs=14.5, ns=13)
+        node(ax, X2, y, W2, 88, t_, c_, n_, "#eef2f5", BLUE, T, ts=17.5, cs=14.5, ns=13)
 
-    fy = 594.0
-    rbox(ax, 24, fy, W - 48, 74, "#f2f6f8", "#9dbccb", 1.6)
-    tx(ax, 44, fy - 16, "再乘上电势", 16, INK, "semibold", store=T)
-    tx(ax, 44, fy + 12, r"同一个几何在若干 TARGETMU 下各算一个电子态，U = $\mu_0-\mu_e$。"
-                        r"±0.2 V 窗口 291 个电子态已完成；±0.5 V 扩展进行中。并非每个几何都有五个电势点。",
-       14.5, SUB, store=T)
+    # ---- the five potentials, spelled out ----
+    TOP, BH = 566.0, 190.0
+    rbox(ax, 24, TOP + BH / 2, W - 48, BH, "#f2f6f8", "#9dbccb", 1.6)
+    tx(ax, 44, TOP + 24, "Every geometry is then computed at FIVE fixed potentials", 17, INK,
+       "semibold", store=T)
+    tx(ax, 44, TOP + 48, r"constant-$\mu$ DFT: the electron chemical potential is set, the electron count is "
+                         r"solved for.   U = $\mu_0-\mu_e$,  $\mu_0$ = $-$4.9071 eV", 13.5, SUB, store=T)
+
+    xL, xR = 150.0, W - 150.0
+    ymark = TOP + 98
+    ax.plot([xL - 46, xR + 46], [ymark, ymark], color="#9dbccb", lw=1.6, zorder=2)
+    for k, (mu, u, done) in enumerate(POTENTIALS):
+        x = xL + (xR - xL) * k / (len(POTENTIALS) - 1)
+        ax.plot([x], [ymark], marker="o", ms=15 if done else 14,
+                mfc=("#2e7d9a" if done else "#ffffff"), mec="#2e7d9a", mew=2.2, zorder=4)
+        tx(ax, x, ymark - 24, f"U = {u:+.1f} V".replace("+0.0", " 0.0").replace("-", "\u2212"), 15,
+           INK if done else SUB, "semibold", "center", store=T)
+        tx(ax, x, ymark + 26, f"TARGETMU {mu:.4f}".replace("-", "−"), 12.5, SUB, ha="center", store=T)
+    tx(ax, 44, TOP + 150, "filled = the three base potentials, complete (291 electronic states). "
+                          "Every result on this page uses only these three.", 13, INK, store=T)
+    tx(ax, 44, TOP + 172, "open = the ±0.5 V extension, still running. Drawn as a faint overlay on the σ(U) "
+                          "chart; it enters no number here.", 13, SUB, store=T)
 
     bad = check_layout(fig, T)
     os.makedirs(os.path.dirname(OUT), exist_ok=True)

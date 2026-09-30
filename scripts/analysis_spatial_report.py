@@ -295,7 +295,7 @@ def main():
     pack(ch, reg, trans)
 
 
-CJK = matplotlib.font_manager.FontProperties(fname="/usr/share/fonts/google-droid/DroidSansFallback.ttf")
+CJK = matplotlib.font_manager.FontProperties(family="DejaVu Sans")
 
 
 def make_map(struct, gid, A, B, U_hi, U_lo):
@@ -310,13 +310,16 @@ def make_map(struct, gid, A, B, U_hi, U_lo):
              for i in range(n1) for j in range(n2)]
     xs = np.concatenate([X + t[0] for t in tiles]); ys = np.concatenate([Y + t[1] for t in tiles])
     xlim = (xs.min(), xs.max()); ylim = (ys.min(), ys.max())
-    panels = [("阴离子过量 $\\Gamma_-$   U = %+.2f V" % U_hi, A["gamma_rel"], None, None,
-               "离子数 / $\\mathrm{\\AA}^2$（投影面积）"),
-              ("其变化 $\\Delta\\Gamma_-$   U %+.2f → %+.2f V" % (U_lo, U_hi), A["gamma_rel"] - B["gamma_rel"], None, None,
-               "离子数 / $\\mathrm{\\AA}^2$，正=阴离子增多"),
-              ("同一电势步长下金属的 $-\\Delta n_e$", (B["ne_col"] - A["ne_col"]) if "ne_col" in A else None, None, None,
-               "正电荷变化，$e/\\mathrm{\\AA}^2$，正=失去电子"),
-              ("表面配位数", A["cn_label"].astype(float), "viridis", (5.5, 12.5), "分区依据（离散标度）")]
+    panels = [("anion excess $\\Gamma_-$   at U = %+.2f V" % U_hi, A["gamma_rel"], None, None,
+               "ions / $\\mathrm{\\AA}^2$ of projected area"),
+              ("its change $\\Delta\\Gamma_-$   U %+.2f $\\to$ %+.2f V" % (U_lo, U_hi),
+               A["gamma_rel"] - B["gamma_rel"], None, None,
+               "ions / $\\mathrm{\\AA}^2$; positive = more anions"),
+              ("the metal's $-\\Delta n_e$ over the same step",
+               (B["ne_col"] - A["ne_col"]) if "ne_col" in A else None, None, None,
+               "positive charge, $e/\\mathrm{\\AA}^2$; positive = electrons lost"),
+              ("surface coordination number", A["cn_label"].astype(float), "viridis", (5.5, 12.5),
+               "what the regions are cut from (discrete scale)")]
     panels = [p for p in panels if p[1] is not None]
     aspect = (ylim[1] - ylim[0]) / (xlim[1] - xlim[0])
     # 2 x 2, not 1 x 4. Four panels in a row made a 17-inch-wide strip whose 8-10 pt labels came out near 10
@@ -343,7 +346,7 @@ def make_map(struct, gid, A, B, U_hi, U_lo):
         ax.text(0.5, -0.035, sub, transform=ax.transAxes, ha="center", va="top",
                 fontproperties=CJK, fontsize=11, color="#767d85")
         cb = fig.colorbar(im, ax=ax, fraction=0.045, pad=0.015); cb.ax.tick_params(labelsize=9.5)
-    fig.suptitle(f"{struct} · {gid.split('__')[1]} · {n1}×{n2} 个胞", fontproperties=CJK, fontsize=16,
+    fig.suptitle(f"{struct} \u00b7 {gid.split('__')[1]} \u00b7 {n1}\u00d7{n2} cells", fontproperties=CJK, fontsize=16,
                  y=0.992, color="#14181c")
     fig.tight_layout(rect=(0, 0.01, 1, 0.965))
     fig.savefig(f"{MAPS}/{struct}.png", facecolor="white"); plt.close(fig)
@@ -400,8 +403,9 @@ def pack(ch, reg, trans):
                     n_base_states=base_pts, n_extension_states=ext_pts,
                     base_potentials=[-5.1071, -4.9071, -4.7071], extension_potentials=[-5.4071, -4.4071],
                     n_region_states=len(reg), n_region_structures=len(rsum), n_transmission=len(trans),
-                    policy=("每一个跨结构数值都只用三个基准电势（每个几何都齐全）。±0.5 V 扩展仍在计算、覆盖不全，"
-                            "只作为曲线叠加显示，不进入任何统计量。"))
+                    policy=("Every cross-structure number uses only the three base potentials. The +-0.5 V "
+                            "extension is still running and incomplete; it is drawn as an overlay on the "
+                            "curves and enters no statistic."))
     out = dict(mu0=MU0, snapshot=snapshot, decomposition=ch["decomposition"], cell_groups=ch["cell_groups"],
                pairs=[p for p in ch["same_composition_pairs"] if not p["same_structure"]][:60],
                same_structure_pair_scale=dict(

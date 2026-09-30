@@ -31,16 +31,16 @@ ROOT = "/anvil/scratch/x-rywang/Au_Cl"
 OUT = f"{ROOT}/analysis/gallery"
 R_AU = 1.44
 CN_COLOR = {"kink": "#c0392b", "edge": "#e08a2e", "terrace": "#d8b34a", "bulk": "#9aa3ad"}
-# Droid Sans Fallback is the only CJK face on this machine and matplotlib 3.5 has no per-glyph fallback, so the
-# Angstrom sign must come from mathtext ($\AA$), which is typeset with the math font, not the text font.
-CJK = matplotlib.font_manager.FontProperties(fname="/usr/share/fonts/google-droid/DroidSansFallback.ttf")
+# The figures are labelled in English, so the CJK fallback face is gone and the default sans is used. It has
+# U+00C5 and U+2212 directly; the mathtext Angstrom is kept only so existing call sites need no edit.
+CJK = matplotlib.font_manager.FontProperties(family="DejaVu Sans")
 AA = r"$\mathrm{\AA}$"
 
 
-FAMILY_ZH = {"flat Au(111)": "平整 Au(111)", "point defect": "点缺陷", "reconstruction-related": "重构相关",
-             "strip step": "条带台阶", "vicinal step face": "邻晶面台阶", "kink / edge rearrangement": "拐角 / 边缘重排",
-             "single-layer island": "单层岛", "single-layer pit": "单层坑", "composite": "复合形貌"}
-CN_ZH = {"kink": "拐角", "edge": "边缘", "terrace": "平台", "bulk": "次表面"}
+FAMILY_ZH = {k: k for k in ("flat Au(111)", "point defect", "reconstruction-related", "strip step",
+                            "vicinal step face", "kink / edge rearrangement", "single-layer island",
+                            "single-layer pit", "composite")}
+CN_ZH = {"kink": "kink", "edge": "edge", "terrace": "terrace", "bulk": "sub-surface"}
 
 
 def cn_class(c):
@@ -288,11 +288,11 @@ def describe(H, family=None):
     a step."""
     rng = float(H.max() - H.min())
     if rng < 0.35:
-        return "高度均匀，无起伏；与平板的差别在层序或面内配准，不在高度"
+        return "uniform height, no relief; it differs from the flat slab in stacking or in-plane registry, not in height"
     gap, cut = height_gap(H)
     if gap < GAP_LAYER:
-        return (f"局部 (111) 台面相对宏观晶面倾斜，胞内高差 {rng:.1f} Å；"
-                "台阶落在周期边界上，高度分布里看不到断开")
+        return (f"the local (111) terrace is inclined to the macroscopic face, relief {rng:.1f} A in the cell; "
+                "the step sits on the periodic seam, so the height distribution shows no break")
     v = np.sort(H.ravel())
     cuts = [0.5 * (a + b) for a, b in zip(v[:-1], v[1:]) if b - a >= GAP_LAYER]
     base = float(np.median(H))
@@ -302,14 +302,16 @@ def describe(H, family=None):
     for m, raised in ((hi_m, True), (lo_m, False)):
         if not m.any(): continue
         if percolates(m):
-            part.append(("贯穿整胞的高台面" if raised else "贯穿整胞的低台面") + f"（条带台阶的一侧）")
+            part.append(("upper terrace spanning the cell" if raised else "lower terrace spanning the cell")
+                        + " (one side of a strip step)")
         else:
-            part.append(("闭合的凸起（岛 / 吸附团簇）" if raised else "闭合的凹陷（坑 / 空位）"))
+            part.append("closed protrusion (island or adatom cluster)" if raised
+                        else "closed depression (pit or vacancy)")
     if len(cuts) >= 2:
-        part.append(f"共 {len(cuts)+1} 个分离的高度层")
+        part.append(f"{len(cuts)+1} separated height levels")
     if not part:
-        return f"高差 {rng:.1f} Å，未分出明确的高低区"
-    return "　·　".join(part) + f"　·　层间 {gap:.1f} Å"
+        return f"relief {rng:.1f} A, no clear high or low region resolved"
+    return "  ·  ".join(part) + f"  ·  level gap {gap:.1f} A"
 
 
 PLAN_FILL = {2: "#dfb264", 1: "#e9c98f", 0: "#f2efe9", -1: "#bcd3dd", -2: "#9cbecd", -3: "#86adbf"}
@@ -704,13 +706,14 @@ def section_panel(axs, sm, ci, cell, reps, tag, hkl=None):
     axs.step(s, p, where="mid", color="#2b3137", lw=2.1, zorder=3)
     axs.axhline(0.0, color="#b9b3a7", lw=0.9, ls=(0, (4, 3)), zorder=2)
     if ci.get("target") != "ramp":
-        axs.text(reps * L, -0.55, "平台基准 ", fontproperties=CJK, fontsize=7.0, color="#9aa1a8",
+        axs.text(reps * L, -0.55, "terrace baseline ", fontproperties=CJK, fontsize=7.6, color="#9aa1a8",
                  ha="right", va="top", zorder=5)
     axs.plot([0, reps * L], [floor] * 2, color="#c6c1b7", lw=1.0, zorder=3)
     top = float(p.max())
     # NO drawn "ion-accessible boundary": that surface is computed from SION and varies over the relief, which is
     # the whole point of the spatial analysis, so a fixed horizontal line would contradict it.
-    axs.text(reps * L * 0.01, top + 0.5, "↑ 电解液侧", fontproperties=CJK, fontsize=8.0, color="#2e7d9a", va="bottom")
+    axs.text(reps * L * 0.01, top + 0.5, "\u2191 electrolyte side", fontproperties=CJK, fontsize=8.6,
+             color="#2e7d9a", va="bottom")
     a, b = tag
     axs.text(reps * L * 0.008, floor + 0.35, a, fontsize=9.5, color="#23272c", ha="left", va="bottom", zorder=5)
     axs.text(reps * L * 0.992, floor + 0.35, b, fontsize=9.5, color="#23272c", ha="right", va="bottom", zorder=5)
@@ -728,22 +731,22 @@ def section_panel(axs, sm, ci, cell, reps, tag, hkl=None):
             x = s_seam + rep * L
             axs.annotate("", xy=(x, float(pr.max())), xytext=(x, float(pr.min())), zorder=6,
                          arrowprops=dict(arrowstyle="<|-|>", lw=1.3, color="#b0543a", shrinkA=0, shrinkB=0))
-        axs.text(s_seam, top + 1.7, "台阶", fontproperties=CJK, fontsize=7.8,
+        axs.text(s_seam, top + 1.7, "step", fontproperties=CJK, fontsize=8.4,
                  color="#b0543a", ha="center", va="bottom")
         m0, m1 = 0.06 * L, 0.78 * L
         axs.annotate("", xy=(m1, top + 3.2), xytext=(m0, top + 3.2), zorder=6,
                      arrowprops=dict(arrowstyle="<|-|>", lw=1.2, color="#1d4e8f", shrinkA=0, shrinkB=0))
-        axs.text(0.5 * (m0 + m1), top + 3.5, "局部 (111) 台面", fontproperties=CJK, fontsize=7.6,
+        axs.text(0.5 * (m0 + m1), top + 3.5, "local (111) terrace", fontproperties=CJK, fontsize=8.2,
                  color="#1d4e8f", ha="center", va="bottom")
         extra = 9.4
         if hkl is not None:
             # left-aligned, in AXES fractions. Centred under the arrow it ran off the panel's left edge, and
             # placed in data units the two lines sat a few pixels apart on this short, non-aspect-locked panel.
             h, k_, l_ = hkl
-            axs.text(0.0, 1.0, f"宏观 ({h}{k_}{l_}) 与 (111) 名义夹角 {miller_angle_to_111(hkl):.2f}°",
+            axs.text(0.0, 1.0, f"nominal ({h}{k_}{l_})\u2013(111) angle {miller_angle_to_111(hkl):.2f}\u00b0",
                      transform=axs.transAxes, fontproperties=CJK, fontsize=7.2, color="#1d4e8f",
                      ha="left", va="top")
-            axs.text(0.0, 0.90, "（由晶面法向算出，非本图测量）", transform=axs.transAxes,
+            axs.text(0.0, 0.90, "(from the plane normals, not measured here)", transform=axs.transAxes,
                      fontproperties=CJK, fontsize=6.8, color="#9aa1a8", ha="left", va="top")
     axs.set_xlim(0, reps * L); axs.set_ylim(floor - 1.0, top + extra)
     return L
@@ -819,7 +822,7 @@ def simple_schematic(fig, cell_spec, at, sm, hkl=None):
                 c0 = np.array([gx.mean() * t1, gy.mean() * t2])
                 axp.annotate("", xy=c0 + d, xytext=c0 - d, zorder=4,
                              arrowprops=dict(arrowstyle="-|>", lw=2.0, color="#23272c"))
-                axp.text(*(c0 + 1.25 * d), "下坡", fontproperties=CJK, fontsize=8.5, color="#23272c",
+                axp.text(*(c0 + 1.25 * d), "downhill", fontproperties=CJK, fontsize=9.0, color="#23272c",
                          ha="center", va="center", zorder=5)
     o = np.zeros(2)
     axp.plot(*zip(o, cell[0][:2], cell[0][:2] + cell[1][:2], cell[1][:2], o),
@@ -835,7 +838,7 @@ def simple_schematic(fig, cell_spec, at, sm, hkl=None):
             ylo = min(ylo, q[1] - 1.2); yhi = max(yhi, q[1] + 1.2)
     axp.set_xlim(xlo, xhi); axp.set_ylim(ylo, yhi)
     # the window is extended to hold the A' marker, so a fixed "t1 x t2 cells" would no longer be the truth
-    axp.set_title("简笔示意 · 俯视轮廓（周期重复；虚线框为一个胞）", fontproperties=CJK,
+    axp.set_title("outline \u00b7 plan view (dashes = one cell)", fontproperties=CJK,
                   fontsize=9.5, color="#4a5158", pad=3)
 
     # the section line(s) on the plan, so the reader can see WHERE each was taken
@@ -869,7 +872,7 @@ def simple_schematic(fig, cell_spec, at, sm, hkl=None):
         axs.step(s, p, where="mid", color="#2b3137", lw=2.1, zorder=3)
         axs.axhline(0.0, color="#b9b3a7", lw=0.9, ls=(0, (4, 3)), zorder=2)
         axs.set_xlim(0, reps * L); axs.set_ylim(floor - 0.4, float(p.max()) + 6.6)
-        axs.set_title(f"侧面：沿视线方向的投影包络（非剖线），{reps} 个周期", fontproperties=CJK,
+        axs.set_title(f"projected envelope, not a section \u00b7 {reps}\u00d7", fontproperties=CJK,
                       fontsize=9.0, color="#4a5158", pad=2)
     else:
         for k, ci in enumerate(cuts):
@@ -878,21 +881,21 @@ def simple_schematic(fig, cell_spec, at, sm, hkl=None):
             reps = max(1, min(2, int(round(TILE_TARGET / L))))
             a, b = ci["label"], ci["label"] + "′"
             section_panel(axs, sm, ci, cell, reps, (a, b), hkl=hkl)
-            src = "简笔轮廓面" if sm["mode"] == "blob" else "高度分区面"
-            cap = f"侧面：过 {a}–{b} 的剖线（切自上图同一{src}），{reps} 个周期"
+            src = "outline surface" if sm["mode"] == "blob" else "height field"
+            cap = f"section {a}\u2013{b} \u00b7 cut from the {src} above \u00b7 {reps}\u00d7"
             if ci.get("target") == "ramp":
-                cap += "\n纵向为胞坐标下的高度场，未标台面宽度与台阶高度"
+                cap += "\nheight in cell coordinates; no widths quoted"
             if k == len(cuts) - 1:
-                cap += "\n下方实体仅为基底示意"
-                if len(cuts) == 2: cap += "；岛与坑不在同一条晶格线上"
+                cap += "\nsolid below = substrate only"
+                if len(cuts) == 2: cap += "; island and pit are not on one lattice line"
             axs.set_title(cap, fontproperties=CJK, fontsize=8.8, color="#4a5158", pad=2)
     return describe(H)
 LIB = f"{ROOT}/03_pilot/all_defect_structures"
 # child -> the parent POSCAR it was built from. Taken from the build scripts, not guessed: the diff below IS the
 # build-time atom mapping. Nothing geometric can recover it -- C1's seven island atoms sit at exactly the same
 # height as the step's upper terrace, so a "higher than most atoms" rule cannot see them.
-PARENT_FILE = {"C1-island-near-step": ("Step-8x4.poscar", "母结构 Step-8x4 的台阶边缘"),
-               "Step-8x2_edge-vacancy_plus_foot-adatom": ("Step-8x2.poscar", "母结构 Step-8x2 的直边")}
+PARENT_FILE = {"C1-island-near-step": ("Step-8x4.poscar", "step edge of the parent Step-8x4"),
+               "Step-8x2_edge-vacancy_plus_foot-adatom": ("Step-8x2.poscar", "straight edge of the parent Step-8x2")}
 # the kinks' parent was built inline (an 8x3 slab plus a straight 12-atom strip) and never written to disk. It is
 # recovered by the build's own rule: the strip is four full rows of three, plus one atom alone in a fifth row.
 PARENT_PARTIAL_ROW = {"Kink-edge1", "Kink-edge2"}
@@ -947,7 +950,7 @@ def parent_of(sid, at):
         if not len(k): return None
         par = at.copy(); del par[[int(x) for x in k]]
         added = at.get_positions()[k][:, :2]; removed = np.zeros((0, 2))
-        cap = "母结构（同一条带，无拐角）的直边"
+        cap = "straight edge of the parent strip, without the kink"
     else:
         return None
     return dict(parent=par, added=added, removed=removed, caption=cap)
@@ -964,6 +967,21 @@ def parent_overlay(pa, at, gx, gy):
     px, py, pD = wrap_pad(gx, gy, D, cell)
     return dict(D=D, gx=px, gy=py, Dp=pD, R=0.62 * layer_spacing(pa["parent"]),
                 added=pa["added"], removed=pa["removed"], caption=pa["caption"])
+
+
+def off_canvas(fig, tol=1.0):
+    """Labels that run off the canvas. English labels are wider than the CJK ones this layout was first tuned
+    for, and a PNG truncates the overflow without complaint, so it has to be checked rather than eyeballed."""
+    fig.canvas.draw(); r = fig.canvas.get_renderer()
+    fw, fh = fig.canvas.get_width_height()
+    out = []
+    for t in fig.findobj(matplotlib.text.Text):
+        if not t.get_text().strip(): continue
+        try: bb = t.get_window_extent(renderer=r)
+        except Exception: continue
+        if bb.x0 < -tol or bb.y0 < -tol or bb.x1 > fw + tol or bb.y1 > fh + tol:
+            out.append(t.get_text().replace("\n", " / ")[:60])
+    return out
 
 
 def render(sid, path, title, meta):
@@ -1026,9 +1044,17 @@ def render(sid, path, title, meta):
         added = np.array([], int); missing = np.zeros((0, 2))
     hcp_top = np.flatnonzero((rcls == 2) & exp & keep)
     wall_top = np.flatnonzero((rcls == 1) & exp & keep)
+    nsurf = int(np.sum(exp & keep))
     n_leg = 4 + (0 if ov is None else 1 + (len(ov["added"]) > 0) + (len(ov["removed"]) > 0)) \
         + (len(added) > 0) + (len(missing) > 0) + (len(hcp_top) > 0) + (len(wall_top) > 0)
-    leg_rows = int(np.ceil(n_leg / min(4, n_leg)))
+    # Columns follow the LONGEST label, not a fixed 4: with wide English labels a four-column legend grew past
+    # the 12-inch figure and its first column was pushed off the left edge.
+    max_lab = max([24, len(f"hcp-like registry ({len(hcp_top)}/{nsurf})") if len(hcp_top) else 0,
+                   len(f"transition / domain wall ({len(wall_top)}/{nsurf})") if len(wall_top) else 0,
+                   len(ov["caption"]) if ov is not None else 0,
+                   len("CN \u2265 10 (step/island foot, sub-surface)")])
+    leg_ncol = min(n_leg, 4 if max_lab <= 34 else 3 if max_lab <= 46 else 2)
+    leg_rows = int(np.ceil(n_leg / leg_ncol))
 
     def ext(A):
         return A[:, 0].max() - A[:, 0].min() + 3 * R_AU, A[:, 1].max() - A[:, 1].min() + 3 * R_AU
@@ -1086,7 +1112,7 @@ def render(sid, path, title, meta):
                     color="#8b9299", lw=0.7, ls=(0, (4, 3)), zorder=5000)
     ax.set_xlim(P[:, 0].min() - 1.5 * R_AU, P[:, 0].max() + 1.5 * R_AU)
     ax.set_ylim(P[:, 1].min() - 1.5 * R_AU, P[:, 1].max() + 1.5 * R_AU)
-    ax.set_title(f"俯视图 · {n1}×{n2} 个胞 · 最外 {TOP_DEPTH:.1f} " + AA,
+    ax.set_title(f"top view \u00b7 {n1}\u00d7{n2} cells \u00b7 top {TOP_DEPTH:.1f} " + AA,
                  fontproperties=CJK, fontsize=9.5, color="#4a5158", pad=3)
 
     import matplotlib.gridspec as mgs
@@ -1095,51 +1121,52 @@ def render(sid, path, title, meta):
         ax2 = fig.add_subplot(side[k]); ax2.set_aspect("equal"); ax2.axis("off")
         draw(ax2, pn["P"], pn["C"], pn["Z"], pn["E"], R_AU)
         # see the note in section_panel: no fabricated accessibility line, only a side label
-        ax2.text(pn["P"][:, 0].min() - R_AU, zt + 3.2, "↑ 电解液侧",
+        ax2.text(pn["P"][:, 0].min() - R_AU, zt + 3.2, "\u2191 electrolyte side",
                  fontproperties=CJK, fontsize=8.6, color="#2e7d9a")
         if k == nsp - 1:
-            ax2.text(pn["P"][:, 0].min() - R_AU, zt + 1.6, "（下方为背面固定层）",
+            ax2.text(pn["P"][:, 0].min() - R_AU, zt + 1.6, "(the fixed back layers are below)",
                      fontproperties=CJK, fontsize=7.4, color="#9aa1a8", va="bottom", ha="left")
         ax2.set_xlim(pn["P"][:, 0].min() - 1.5 * R_AU, pn["P"][:, 0].max() + 1.5 * R_AU)
         ax2.set_ylim(pn["P"][:, 1].min() - 1.5 * R_AU, zt + 7.0)
         if pn["ci"] is None:
-            t_ = f"侧视图 · 沿 a1 方向 {pn['ns']} 个胞 · 全胞投影"
+            t_ = f"side view \u00b7 along a1 \u00b7 {pn['ns']} cells"
         else:
             lb = pn["ci"]["label"]; ab = f"{lb}–{lb}′"
-            t_ = (f"侧视图 · 沿 {ab} 的 ±{pn['half']:.1f} " + AA + " 原子窄带" if pn["half"]
-                  else f"侧视图 · 沿 {ab} 方向投影 · {pn['ns']} 个周期")
+            t_ = (f"side view \u00b7 \u00b1{pn['half']:.1f} " + AA + f" band about {ab}" if pn["half"]
+                  else f"side view \u00b7 along {ab} \u00b7 {pn['ns']}\u00d7")
         ax2.set_title(t_, fontproperties=CJK, fontsize=9.3, color="#4a5158", pad=3)
 
     fig.text(0.5, 1 - 0.30 / FIGH, title, ha="center", va="top", fontsize=13.5, color="#14181c", weight="medium")
-    sub = (f"{meta['n_atoms']} 个 Au   ·   投影面积 {meta['A_proj']:.0f} " + AA + "$^2$"
+    sub = (f"{meta['n_atoms']} Au   \u00b7   area {meta['A_proj']:.0f} " + AA + "$^2$"
            f"   ·   {meta['family_zh']}   ·   {meta['cn_counts_zh']}")
     fig.text(0.5, 1 - 0.70 / FIGH, sub, ha="center", va="top", fontproperties=CJK, fontsize=9.2, color="#5a616a")
     h = [plt.Line2D([], [], marker="o", ls="", ms=7, mfc=CN_COLOR[k], mec="#2b2f36", mew=0.5, label=l)
-         for k, l in [("kink", "CN≤6（常见于拐角、吸附原子）"), ("edge", "CN 7–8（台阶边、岛与坑的边缘）"),
-                      ("terrace", "CN 9（平整平台）"), ("bulk", "CN≥10（台阶脚、岛脚、次表面）")]]
+         for k, l in [("kink", "CN \u2264 6 (kinks, adatoms)"), ("edge", "CN 7\u20138 (step, island, pit edges)"),
+                      ("terrace", "CN 9 (flat terrace)"), ("bulk", "CN \u2265 10 (step/island foot, sub-surface)")]]
     if ov is not None:
         h.append(plt.Line2D([], [], ls=(0, (5, 3)), lw=1.6, color=PARENT_EDGE_COLOR, label=ov["caption"]))
         if len(ov["added"]): h.append(plt.Line2D([], [], marker="o", ls="", ms=9, mfc="none", mec="#1f6f3f",
-                                                 mew=1.9, label=f"相对母结构新增的 Au（{len(ov['added'])} 个）"))
+                                                 mew=1.9, label=f"Au added vs the parent ({len(ov['added'])})"))
         if len(ov["removed"]): h.append(plt.Line2D([], [], marker="o", ls="", ms=8, mfc="none", mec="#8a3ffc",
-                                                   mew=1.9, label=f"母结构中被移走的位点（{len(ov['removed'])} 个）"))
+                                                   mew=1.9, label=f"site removed from the parent ({len(ov['removed'])})"))
     if len(added): h.append(plt.Line2D([], [], marker="o", ls="", ms=9, mfc="none", mec="#1f6f3f", mew=1.7,
-                                       label=f"加上去的 Au（{len(added)} 个）"))
+                                       label=f"added Au ({len(added)})"))
     if len(missing): h.append(plt.Line2D([], [], marker="o", ls="", ms=8, mfc="none", mec="#8a3ffc", mew=1.7,
-                                         label=f"移走的位点（{len(missing)} 个）"))
-    nsurf = int(np.sum(exp & keep))
+                                         label=f"removed site ({len(missing)})"))
     if len(hcp_top): h.append(plt.Line2D([], [], marker="x", ls="", ms=6, mew=1.5, color="#1d4e8f",
-                                         label=f"类 hcp 配准（阈值显示分类，{len(hcp_top)}/{nsurf}）"))
+                                         label=f"hcp-like registry ({len(hcp_top)}/{nsurf})"))
     if len(wall_top): h.append(plt.Line2D([], [], marker="s", ls="", ms=6, mew=1.4, mfc="none", color="#b0543a",
-                                          label=f"过渡 / 畴界（阈值显示分类，{len(wall_top)}/{nsurf}）"))
+                                          label=f"transition / domain wall ({len(wall_top)}/{nsurf})"))
     assert len(h) == n_leg, (len(h), n_leg)        # the layout reserved space for exactly this many entries
-    lg = fig.legend(handles=h, loc="lower center", ncol=min(4, len(h)), fontsize=8.2, frameon=False,
+    lg = fig.legend(handles=h, loc="lower center", ncol=leg_ncol, fontsize=8.2, frameon=False,
                     bbox_to_anchor=(0.5, 0.04 / FIGH), prop=CJK)
     for t in lg.get_texts(): t.set_fontproperties(CJK); t.set_fontsize(8.4)
     meta["registry_display_classes"] = dict(hcp_like=int(len(hcp_top)), transition=int(len(wall_top)),
                                             fcc_like=int(nsurf - len(hcp_top) - len(wall_top)), n_surface=nsurf)
+    over = off_canvas(fig)
     fig.savefig(f"{OUT}/{sid}.png", facecolor="white")
     plt.close(fig)
+    meta["off_canvas"] = over
     return {c: int((np.array([cn_class(x) for x in cn]) == c).sum()) for c in CN_COLOR}
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--only", default=None); a = ap.parse_args()
@@ -1175,7 +1202,7 @@ def main():
         for x in cn_up: cu[cn_class(x)] += 1
         m["cn_counts_upper"] = cu
         m["n_upper_surface"] = int(up.sum())
-        m["cn_counts_zh"] = ("上表面 " + str(int(up.sum())) + " 个原子：" +
+        m["cn_counts_zh"] = ("upper surface " + str(int(up.sum())) + " atoms:  " +
                              "  ".join(f"{CN_ZH[k]} {v}" for k, v in cu.items() if v))
         m["family_zh"] = FAMILY_ZH.get(m["family"], m["family"])
         m["cn_counts_dict"] = cc
@@ -1189,7 +1216,13 @@ def main():
         print(f"  {sid:38s} {m['n_atoms']:4d} atoms  {m['cn_counts']}")
     old = json.load(open(f"{OUT}/gallery.json")) if os.path.exists(f"{OUT}/gallery.json") else {}
     old.update(out); json.dump(old, open(f"{OUT}/gallery.json", "w"), indent=1)
+    bad = {k: v["off_canvas"] for k, v in out.items() if v.get("off_canvas")}
     print(f"{len(out)} structures rendered -> {OUT}/")
+    if bad:
+        print(f"LABELS RUNNING OFF THE CANVAS in {len(bad)} figures:")
+        for k, v in sorted(bad.items()):
+            for t in v: print(f"   {k:34s} {t!r}")
+        raise SystemExit(1)
 
 
 def collections_counter(cn):

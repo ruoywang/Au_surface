@@ -10,9 +10,9 @@ import os
 ROOT = "/anvil/scratch/x-rywang/Au_Cl"
 WEB = f"{ROOT}/analysis/web"
 
-HTML = r"""<title>Au 表面形貌与充电响应</title>
+HTML = r"""<title>Au surface morphology and charging response</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600&family=Inter:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root{
   --bg:#f6f4ef; --surface:#fffefb; --surface-2:#f0ece4; --ink:#15181c; --ink-2:#565d65; --muted:#8a9199;
@@ -21,8 +21,8 @@ HTML = r"""<title>Au 表面形貌与充电响应</title>
   --terrace:#b99a3e; --sub:#79828c;
   --shadow:0 1px 2px rgba(30,24,10,.05),0 6px 20px -12px rgba(30,24,10,.18);
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-  --sans:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
-  --serif:"Noto Serif SC","Songti SC","SimSun",Georgia,serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --serif:"Noto Serif",Georgia,"Times New Roman",serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#121417; --surface:#191c21; --surface-2:#21252b; --ink:#e9ebee; --ink-2:#a6adb5; --muted:#79818a;
@@ -124,7 +124,7 @@ svg{display:block;max-width:100%;height:auto}
 .chartbox{overflow-x:auto;-webkit-overflow-scrolling:touch}
 @media (max-width:720px){
   .chartbox svg{max-width:none}
-  .chartbox::after{content:"← 左右滑动查看完整图表";display:block;font-size:11.5px;color:var(--muted);
+  .chartbox::after{content:"\2190 scroll sideways for the full chart";display:block;font-size:11.5px;color:var(--muted);
     padding:6px 2px 0;position:sticky;left:0}
 }
 .note{background:var(--surface-2);border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:8px;
@@ -142,326 +142,491 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
 </style>
 
 <header class="top"><div class="wrap">
-  <div class="eyebrow">恒电势 DFT · VASP + VASPsol++ · 1 M 隐式电解质</div>
-  <h1>Au 表面形貌与充电响应</h1>
-  <p class="lede" style="margin-top:14px">以 Au(111) 台面及相关邻晶面（Au(211)、(221)、(332)、(554)）为对象：表面形貌如何改变
-  金属容纳电荷的能力，以及这种原子尺度的差别有多少真正传递到液相中的离子。</p>
+  <div class="eyebrow">Constant-potential DFT · VASP + VASPsol++ · 1 M implicit electrolyte</div>
+  <h1>Au surface morphology and charging response</h1>
+  <p class="lede" style="margin-top:14px">Au(111) terraces and the related vicinal faces Au(211), (221), (332)
+  and (554): how surface morphology changes the metal's ability to hold charge, and how much of that
+  atomic-scale difference actually reaches the ions in the liquid.</p>
   <div class="kicker" id="kicker"></div>
-  <div class="note" style="margin-top:20px;max-width:none"><b>数据范围（所有图表共用同一口径）。</b><span id="scope"></span></div>
+  <div class="note" style="margin-top:20px;max-width:none"><b>Scope (every chart on this page uses the same
+  one).</b> <span id="scope"></span></div>
 </div></header>
 
 <nav class="sticky"><div class="wrap">
-  <a href="#origin">构型怎么来的</a>
-  <a href="#pzc">一 · 变的是零电荷点</a>
-  <a href="#which">二 · 哪些形貌，往哪个方向</a>
-  <a href="#where">三 · 阴离子究竟在哪里增多</a>
-  <a href="#filter">四 · 电解质这个低通滤波器</a>
-  <a href="#omega">五 · 电势与相对稳定性</a>
-  <a href="#gallery">结构图谱</a>
-  <a href="#maps">阴离子空间图</a>
-  <a href="#method">方法与边界</a>
-  <a href="#revlog">修订记录</a>
+  <a href="#origin">Where the states come from</a>
+  <a href="#pzc">1 · What moves is the zero-charge point</a>
+  <a href="#which">2 · Which morphologies, which way</a>
+  <a href="#where">3 · Where the anions actually gather</a>
+  <a href="#filter">4 · The electrolyte as a low-pass filter</a>
+  <a href="#omega">5 · Potential and relative stability</a>
+  <a href="#gallery">Structure gallery</a>
+  <a href="#maps">Anion maps</a>
+  <a href="#method">Method and limits</a>
+  <a href="#revlog">Revision log</a>
 </div></nav>
 
 <div class="wrap">
 
 <section id="origin"><div class="finding">
-  <div><div class="eyebrow">采样结构</div><h2>一个建构好的几何，如何变成多个被计算的构型</h2></div>
-  <p class="lede"><span data-n="ngeom2"></span> 个几何<b>不是</b> <span data-n="ngeom2"></span> 个独立设计的缺陷。
-  其中 33 个是人工建构的结构（见下方结构图谱），其余都是它们在公共参考电势下的弛豫几何，
-  以及由弛豫几何生成的随机位移、集体形变与路径像。</p>
+  <div><div class="eyebrow">Sampling</div><h2>How one built geometry becomes many computed states</h2></div>
+  <p class="lede">The <span data-n="ngeom2"></span> geometries are <b>not</b> <span data-n="ngeom2"></span>
+  separately designed defects. 33 of them are built by hand (see the gallery below); every other one is a
+  relaxation of those at the common reference potential, or a random displacement, collective deformation or
+  path image generated from that relaxed geometry.</p>
   <div class="card pad bleed" id="originfig"></div>
-  <div class="note"><b>这套采样是什么，不是什么。</b>结构类别由晶体学与几何操作构建；弛豫提供局部参考态；
-  扰动与路径用于覆盖非平衡构型。它们<b>不是</b>分子动力学中自然出现频率的统计，也<b>不是</b> DFT 自动找出的
-  全部稳定形貌。同一个几何再对应若干电势点，但并非每个几何都有五个电势点。</div>
+  <div class="note"><b>What this sampling is, and what it is not.</b> The structure classes are built from
+  crystallography and geometric operations; the relaxations supply a local reference state; the perturbations
+  and path images cover off-equilibrium configurations. They are <b>not</b> a statistic of how often such
+  configurations occur in molecular dynamics, and <b>not</b> the set of stable morphologies DFT would find on
+  its own. Each geometry then carries several potentials, but not every geometry has all five.</div>
 </div></section>
 
 <section id="pzc"><div class="finding">
-  <div><div class="eyebrow">结论一</div><h2>同一电势下的电荷差异，更多体现为零电荷位置的变化</h2></div>
-  <p class="claim">在采样点能夹住 &sigma;&nbsp;=&nbsp;0 的几何里，零电荷点跨度约 <span data-n="pzcspread"></span>，
-  而割线电容跨度约 <span data-n="cspread"></span>。在本样本和本电势区间内，零电荷位置变化所对应的电荷尺度，
-  比割线电容变化所对应的尺度大约一个量级。</p>
+  <div><div class="eyebrow">Finding 1</div><h2>At a fixed potential, the charge differences show up mostly as
+  a shift of the zero-charge point</h2></div>
+  <p class="claim">Over the geometries whose sampled points bracket &sigma;&nbsp;=&nbsp;0, the zero-charge
+  point spans about <span data-n="pzcspread"></span> while the secant capacitance spans about
+  <span data-n="cspread"></span>. Within this sample and this potential window, the charge scale that goes
+  with the shift in zero-charge point is roughly an order of magnitude larger than the one that goes with the
+  change in capacitance.</p>
   <div class="stats" id="s1"></div>
   <div class="card pad bleed"><div class="chartbox"><div id="c_sigma"></div></div>
-    <div class="caption">每个几何的表面电荷密度对内部电势 U&nbsp;=&nbsp;&mu;<sub>0</sub>&nbsp;&minus;&nbsp;&mu;<sub>e</sub>
-    的曲线，全部取自实际收敛的 &mu;<sub>e</sub> 与 N<sub>e</sub>。实线是三个基准电势（统计口径）；金色虚线之外的浅色点线是
-    已完成的 &plusmn;0.5&nbsp;V 扩展，仅供参看，不进入任何数值。曲线彼此接近平行：族与族之间的差别主要是横向平移。</div>
+    <div class="caption">Surface charge density against the internal potential
+    U&nbsp;=&nbsp;&mu;<sub>0</sub>&nbsp;&minus;&nbsp;&mu;<sub>e</sub> for every geometry, taken from the
+    <em>actually converged</em> &mu;<sub>e</sub> and N<sub>e</sub>. Solid lines are the three base potentials,
+    which are the statistical scope; the pale dotted points beyond the gold dashes are the completed part of
+    the &plusmn;0.5&nbsp;V extension, shown for orientation only and entering no number. The curves are close
+    to parallel: family to family, the difference is mostly a sideways shift.</div>
     <div class="legend" id="leg1"></div></div>
-  <div class="note"><b>这个比值是什么，不是什么。</b>某个缺陷在给定电势下带更多正电，并不等于它更容易被极化。把
-  &sigma;<sub>i</sub>&nbsp;=&nbsp;C<sub>i</sub>&thinsp;(U&nbsp;&minus;&nbsp;Z<sub>i</sub>) 在参考值附近展开，
-  &delta;&sigma;<sub>i</sub>&nbsp;=&nbsp;&minus;C<sub>0</sub>&delta;Z<sub>i</sub>&nbsp;+&nbsp;(U&minus;Z<sub>0</sub>)&delta;C<sub>i</sub>&nbsp;&minus;&nbsp;&delta;C<sub>i</sub>&delta;Z<sub>i</sub>，
-  除前两项外还有交叉项，而且跨几何时 &delta;C 与 &delta;Z 本身相关。下表给出的只是前两项按<b>极差</b>估计的<b>尺度</b>
-  及其比值，<b>不是方差分解，也不能读成"某一项解释了百分之多少"</b>。
-  <br><br>同样地，电容并非"几乎不变"：A3（三吸附原子）相对同胞平板就高约 15%。准确的说法是，在这个电势区间里，
-  电容变化带来的电荷差异小于零电荷点平移带来的电荷差异。</div>
+  <div class="note"><b>What this ratio is, and what it is not.</b> A defect carrying more positive charge at a
+  given potential does not mean it is easier to polarise. Expanding
+  &sigma;<sub>i</sub>&nbsp;=&nbsp;C<sub>i</sub>&thinsp;(U&nbsp;&minus;&nbsp;Z<sub>i</sub>) about the reference
+  gives &delta;&sigma;<sub>i</sub>&nbsp;=&nbsp;&minus;C<sub>0</sub>&delta;Z<sub>i</sub>&nbsp;+&nbsp;(U&minus;Z<sub>0</sub>)&delta;C<sub>i</sub>&nbsp;&minus;&nbsp;&delta;C<sub>i</sub>&delta;Z<sub>i</sub>:
+  besides the first two terms there is a cross term, and across geometries &delta;C and &delta;Z are themselves
+  correlated. The table below gives only the <b>scale</b> of the first two terms, estimated from their
+  <b>ranges</b>, and their ratio. It is <b>not a variance decomposition and must not be read as "term X
+  explains Y per cent"</b>.
+  <br><br>Nor is the capacitance "almost unchanged": A3, three adatoms, is about 15% above the flat member of
+  its own cell. The accurate statement is that within this potential window the charge difference from the
+  capacitance change is smaller than the one from the shift in zero-charge point.</div>
   <div class="tablewrap"><table id="t_decomp"></table></div>
-  <div class="caption">跨胞比较带有数值偏移：审计记录过两个<em>平板</em>胞仅因胞形、k 点网格与 PREC 就相差 72&nbsp;meV 的中性
-  &mu;<sub>e</sub>。同一个胞内部这项偏移对每一行是共同的，所以按胞分组更有利于隔离形貌效应，但这不等于所有数值误差都完全抵消。此外，全部
-  <span data-n="ngeom"></span> 个几何里包含人为扰动、集体形变和不同胞／采样设置，整体跨度不应全部归因于"缺陷种类本身"。</div>
+  <div class="caption">Comparisons across cells carry a numerical offset: the audit recorded two <em>flat</em>
+  cells differing by 72&nbsp;meV in neutral &mu;<sub>e</sub> from cell shape, k-mesh and PREC alone. Inside one
+  cell that offset is common to every row, which is why grouping by cell isolates the morphology effect
+  better, though it does not mean every numerical error cancels. The full set of <span data-n="ngeom"></span>
+  geometries also contains deliberate perturbations, collective deformations and different cells and sampling
+  settings, so the overall spread should not be attributed entirely to "the defect type itself".</div>
 </div></section>
 
 <section id="which"><div class="finding">
-  <div><div class="eyebrow">结论二</div><h2>在本组匹配对照中，凸起把零电荷点推负，空位把它推正</h2></div>
-  <p class="claim">以<em>同一个胞</em>里的平整平台为基准：本数据集中的吸附原子与台阶把零电荷点压低 29&ndash;97&nbsp;mV，
-  三个空位构型则抬高 8&ndash;13&nbsp;mV，两种堆垛重构几乎不动。符号与经典的功函数论证一致——凸起抹平电子溢出、
-  降低功函数，凹陷相反。这是对这批构型的描述，不是对所有凸／凹形貌的普遍规律。</p>
+  <div><div class="eyebrow">Finding 2</div><h2>In these matched pairs, protrusions push the zero-charge point
+  negative and vacancies push it positive</h2></div>
+  <p class="claim">Against the flat terrace <em>in the same cell</em>: the adatoms and steps in this dataset
+  lower the zero-charge point by 29&ndash;97&nbsp;mV, the three vacancy configurations raise it by
+  8&ndash;13&nbsp;mV, and the two stacking reconstructions barely move it. The sign agrees with the classical
+  work-function argument, in which a protrusion smooths the electron spill-out and lowers the work function
+  while a depression does the opposite. This describes these configurations; it is not a general rule for all
+  protrusions and depressions.</p>
   <div class="card pad"><div class="chartbox"><div id="c_dpzc"></div></div>
-    <div class="caption">只取理想构型，各自对照同一个胞里的平板成员。柱长是零电荷点的位移，右侧圆点标的是同一对照下的电容变化。</div></div>
-  <div class="note"><b>电容同向变化，但幅度小得多。</b>加上去的原子比挖掉的影响大：三个吸附原子 +15%，单个吸附原子 +8%，
-  一条台阶 +8%，而单个空位只有 +1%，两种重构在 1% 以内。凸向电解质的粗糙度既压低零电荷点又抬高电容。
-  <br><br><b>注意符号。</b>由 &sigma;&nbsp;=&nbsp;C&thinsp;(U&nbsp;&minus;&nbsp;U<sub>pzc</sub>)，固定 U 时
-  &Delta;&sigma;&nbsp;=&nbsp;&minus;C&thinsp;&Delta;U<sub>pzc</sub>：<b>零电荷点负移意味着同一电势下整体带更多正电</b>。
-  实际数据正是如此——A1-fcc 的零电荷点比同胞 T-4x4 低 65&nbsp;mV，在 U&nbsp;&asymp;&nbsp;+0.2&nbsp;V 时
-  &sigma; 是 +3.18 对 +2.22&nbsp;&micro;C/cm²。</div>
+    <div class="caption">Ideal configurations only, each against the flat member of its own cell. Bar length
+    is the shift in zero-charge point; the dot on the right marks the capacitance change for the same
+    pair.</div></div>
+  <div class="note"><b>The capacitance moves the same way, but far less.</b> Adding atoms matters more than
+  removing them: three adatoms +15%, a single adatom +8%, a step +8%, while a single vacancy is only +1% and
+  both reconstructions stay within 1%. Roughness that protrudes into the electrolyte both lowers the
+  zero-charge point and raises the capacitance.
+  <br><br><b>Mind the sign.</b> From &sigma;&nbsp;=&nbsp;C&thinsp;(U&nbsp;&minus;&nbsp;U<sub>pzc</sub>), at
+  fixed U, &Delta;&sigma;&nbsp;=&nbsp;&minus;C&thinsp;&Delta;U<sub>pzc</sub>: <b>a negative shift of the
+  zero-charge point means more positive charge overall at the same potential</b>. The data agree. A1-fcc sits
+  65&nbsp;mV below T-4x4 in the same cell, and at U&nbsp;&asymp;&nbsp;+0.2&nbsp;V its &sigma; is +3.18 against
+  +2.22&nbsp;&micro;C/cm².</div>
 </div></section>
 
 <section id="where"><div class="finding">
-  <div><div class="eyebrow">结论三</div><h2>整体充电变强，与某处离子变多，不是同一件事</h2></div>
-  <p class="claim">按最近表面原子的配位数给阴离子过量分区后，低配位位点（CN&nbsp;&le;&nbsp;8，按面积加权）的区域平均富集
-  <em>低于</em>同一结构的平台区：<span data-n="uc_main"></span>。取每个几何最正的采样电势，只用理想与弛豫几何。例外见
-  下面的例外表；两种积分口径给出相同的排序。</p>
-  <div class="note" style="margin-top:0"><b>例外。</b><span data-n="uc_exc"></span>
-  这个计数以前是写死在正文里的 37/41、四个例外；现在由 <code>regions.json</code> 在建站时重算并写入，
-  定义（CN&nbsp;&le;&nbsp;8 按面积加权、取最正采样电势、只用理想与弛豫几何）也一并写出。</div>
-  <p class="claim" style="border-left-color:var(--teal)">逐柱的空间相关进一步支持这一点：把金属的正电荷增量
-  (&minus;&Delta;n<sub>e</sub>) 与阴离子增量 (&Delta;&Gamma;<sub>&minus;</sub>) 按柱子求相关，
-  <span data-n="corr"></span>。这描述的是整张图上的<b>空间共变关系</b>：两者的起伏总体反号。它不直接给出峰位，也不保证每个结构的极大值都错开；具体位置请看下方各结构的空间图。</p>
+  <div><div class="eyebrow">Finding 3</div><h2>Charging more overall and gathering more ions somewhere are not
+  the same thing</h2></div>
+  <p class="claim">Partitioning the anion excess by the coordination number of the nearest surface atom, the
+  region-averaged enrichment over the under-coordinated sites (CN&nbsp;&le;&nbsp;8, area-weighted) is
+  <em>lower</em> than over the terrace of the same structure: <span data-n="uc_main"></span>. Each geometry is
+  taken at its most positive sampled potential, ideal and relaxed geometries only. The exceptions are listed
+  below, and the two integration conventions give the same ordering.</p>
+  <div class="note" style="margin-top:0"><b>Exceptions.</b> <span data-n="uc_exc"></span>
+  This count used to be written into the prose as 37/41 with four exceptions; it is now recomputed from
+  <code>regions.json</code> at build time, with its definition (CN&nbsp;&le;&nbsp;8 area-weighted, most
+  positive sampled potential, ideal and relaxed geometries only) written out alongside it.</div>
+  <p class="claim" style="border-left-color:var(--teal)">The per-column spatial correlation supports the same
+  point: correlating the metal's positive-charge gain (&minus;&Delta;n<sub>e</sub>) against the anion gain
+  (&Delta;&Gamma;<sub>&minus;</sub>) column by column, <span data-n="corr"></span>. This describes the
+  <b>spatial covariation</b> over the whole map, that the two undulations are broadly opposite in sign. It
+  does not give peak positions, and does not guarantee that every structure's maxima are displaced; for that,
+  see the individual maps below.</p>
   <div class="card pad"><div class="chartbox"><div id="c_regions"></div></div>
-    <div class="caption">边界相对窗口下的富集比
-    K<sub>&Omega;</sub>&nbsp;=&nbsp;&int;n<sub>&minus;</sub>&thinsp;/&thinsp;(n<sub>b</sub>&int;S<sub>ion</sub>)，
-    取各结构最正的那个采样电势。柱按配位类分组，虚线是该结构的全胞平均。此图每种结构只画一个代表几何（理想或弛豫），
-    共 33 条；上文 41 个的计数则覆盖同一结构的理想与弛豫两种几何。</div>
+    <div class="caption">Enrichment ratio in the boundary-relative window,
+    K<sub>&Omega;</sub>&nbsp;=&nbsp;&int;n<sub>&minus;</sub>&thinsp;/&thinsp;(n<sub>b</sub>&int;S<sub>ion</sub>),
+    at each structure's most positive sampled potential. Bars are grouped by coordination class; the dashed
+    line is that structure's whole-cell mean. This chart draws one representative geometry per structure,
+    ideal or relaxed, so 33 rows; the count quoted above covers both the ideal and the relaxed geometry of the
+    same structure.</div>
     <div class="legend" id="leg3"></div></div>
-  <div class="note"><b>整体充电与局部离子分布并非简单对应。</b>即使整体零电荷点负移、同一电势下金属总正电荷更多，
-  低配位原子对应的液相区域也可能没有更高的区域平均阴离子浓度。局部分布取决于自洽电势、离子可达性与几何分配三者共同作用。
-  这比原来的错误解释更值得注意。
-  <br><br>K 与 &Gamma; 回答的是不同问题，两者都给出：小区域可以浓度很高却只容纳很少额外离子，大区域可以只略微富集却贡献
-  大部分总过量。图中同时给出各区面积占比，避免混淆。区域平均本身只能说明"该区平均浓度较低"；"热点在哪里"由上面的
-  逐柱相关和下方的空间图支持。</div>
+  <div class="note"><b>Overall charging and the local ion distribution do not map onto each other simply.</b>
+  Even when the zero-charge point shifts negative and the metal carries more total positive charge at the same
+  potential, the liquid region above the under-coordinated atoms need not have a higher region-averaged anion
+  concentration. The local distribution is set jointly by the self-consistent potential, the ion
+  accessibility and the geometric partition.
+  <br><br>K and &Gamma; answer different questions and both are given: a small region can be highly
+  concentrated yet hold very few extra ions, while a large region can be barely enriched and still supply most
+  of the total excess. The area fraction of each region is shown alongside to keep the two apart. A region
+  average can only say that the mean concentration there is lower; where the hot spots are is supported by the
+  per-column correlation above and by the maps below.</div>
 </div></section>
 
 <section id="filter"><div class="finding">
-  <div><div class="eyebrow">结论四</div><h2>离子响应里的短波空间起伏明显减弱</h2></div>
-  <p class="claim">把金属电荷响应的每一个傅里叶模式与阴离子响应的同一模式相比，相对谱幅随波长<b>缩短</b>而单调降低：原子尺度
-  （&lambda;&nbsp;&asymp;&nbsp;1&nbsp;&Aring;）只剩参考值的百分之零点几，缺陷尺度（&lambda;&nbsp;&asymp;&nbsp;9&nbsp;&Aring;）
-  还有三成以上。这与空间屏蔽／平滑的图像相容。</p>
+  <div><div class="eyebrow">Finding 4</div><h2>Short-wavelength spatial structure is strongly damped in the
+  ion response</h2></div>
+  <p class="claim">Comparing each Fourier mode of the metal's charge response with the same mode of the anion
+  response, the relative spectral amplitude falls monotonically as the wavelength gets <b>shorter</b>: at the
+  atomic scale (&lambda;&nbsp;&asymp;&nbsp;1&nbsp;&Aring;) only a fraction of a per cent of the reference
+  survives, while at the defect scale (&lambda;&nbsp;&asymp;&nbsp;9&nbsp;&Aring;) more than 30% does. This is
+  consistent with a picture of spatial screening and smoothing.</p>
   <div class="stats" id="s4"></div>
   <div class="card pad"><div class="chartbox"><div id="c_tf"></div></div>
-    <div class="caption">相对谱幅 |F<sub>ion</sub>(k)|&thinsp;/&thinsp;|F<sub>metal</sub>(k)| 对横向波长，汇总了所有
-    两端电势齐全的几何。电子数面密度与离子数面密度量纲相同，但它们是不同的物理量，其比值没有绝对标度，所以每条曲线按<b>自身最长波长那一档</b>归一——这是分析选择，不是量纲所迫；因此长波端的
-    1.0 是归一化的定义，<b>不代表物理上 100% 传递</b>，而且不同晶胞可用的最小波数不同，各条曲线的参考档并不完全一致。
-    只有曲线形状有意义。阴影带是四分位距。</div></div>
-  <div class="note"><b>两个数字是指标，不是材料常数。</b>下面两项都依赖上面说的归一化和分箱方式，应按定义读：
-  <br>· <b><span data-n="half"></span></b>：相对谱幅降到各自参考值一半处的特征波长。这是"在当前傅里叶分箱、筛选与
-  逐几何归一化定义下"的经验指标，<b>不是电解质的普适分辨率</b>。
-  <br>· <b><span data-n="ratio"></span></b>：两个归一化对比度
-  (max&minus;min)/&lang;|f|&rang; 的比值。它<b>不是</b>百分之多少的电荷、多少个傅里叶模式或多少信息被保留下来。
-  <br><br><b>不把短波衰减唯一归因于某一项机制。</b>模型同时含非局域空腔、非线性介电与离子响应，三者耦合。观察到的谱幅随
-  波长下降与空间屏蔽相容，但仅凭一套参数下的比值曲线，不能断言短波段由 4&nbsp;&Aring; 空腔而非德拜屏蔽决定。
-  线性化 Poisson&ndash;Boltzmann 平板只作趋势参照，不是拟合。</div>
+    <div class="caption">Relative spectral amplitude
+    |F<sub>ion</sub>(k)|&thinsp;/&thinsp;|F<sub>metal</sub>(k)| against in-plane wavelength, pooled over every
+    geometry that has both end potentials. Electron areal density and ion areal density share dimensions but
+    are different physical quantities, so their ratio has no absolute scale; each curve is therefore
+    normalised to <b>its own longest-wavelength bin</b>. That is an analysis choice, not something the units
+    force, so the 1.0 at the long-wavelength end is a definition and <b>does not mean 100% physical
+    transmission</b>; different cells also admit different smallest wavevectors, so the reference bin is not
+    identical across curves. Only the shape of the curve is meaningful. The shaded band is the interquartile
+    range.</div></div>
+  <div class="note"><b>Both numbers are indicators, not material constants.</b> Each depends on the
+  normalisation and binning described above and should be read by its definition:
+  <br>· <b><span data-n="half"></span></b>: the wavelength at which the relative spectral amplitude falls to
+  half of its own reference. This is an empirical indicator <em>under the present Fourier binning, filtering
+  and per-geometry normalisation</em>, <b>not a universal resolution of the electrolyte</b>.
+  <br>· <b><span data-n="ratio"></span></b>: the ratio of the two normalised contrasts
+  (max&minus;min)/&lang;|f|&rang;. It is <b>not</b> the percentage of charge, of Fourier modes or of
+  information that survives.
+  <br><br><b>The short-wavelength damping is not attributed to any single mechanism.</b> The model contains a
+  non-local cavity, a non-linear dielectric and the ion response, all coupled. The observed fall of amplitude
+  with wavelength is consistent with spatial screening, but one ratio curve at one parameter set cannot
+  establish that the short-wavelength end is set by the 4&nbsp;&Aring; cavity rather than by Debye screening.
+  The linearised Poisson&ndash;Boltzmann slab is drawn as a trend reference, not as a fit.</div>
 </div></section>
 
 <section id="omega"><div class="finding">
-  <div><div class="eyebrow">结论五</div><h2>电势对同组成构型相对巨势的贡献</h2></div>
-  <p class="claim">对电子数曲线积分，可以得到电势<em>诱导</em>的相对巨势变化，全程不需要把两个总能相减。在
-  &plusmn;0.2&nbsp;V 窗口内，跨形貌的最大值是 <span data-n="dom"></span>，与同一形貌自身各采样构型之间的散布
-  （最大 <span data-n="domsame"></span>）同量级。<b>这不足以判断电势是否改变了稳定性排序</b>：那还需要参考电势下的
-  相对巨势基准，本数据集尚未确定。</p>
+  <div><div class="eyebrow">Finding 5</div><h2>What the potential contributes to the relative grand potential
+  of same-composition configurations</h2></div>
+  <p class="claim">Integrating the electron-number curve gives the potential-<em>induced</em> change in
+  relative grand potential without ever subtracting two total energies. Within the &plusmn;0.2&nbsp;V window
+  the largest cross-morphology value is <span data-n="dom"></span>, the same order as the scatter among the
+  sampled configurations of one morphology (at most <span data-n="domsame"></span>). <b>This is not enough to
+  say whether the potential re-ranks stability</b>: that needs a baseline for the relative grand potential at
+  the reference potential, which this dataset has not fixed.</p>
   <div class="card pad"><div class="chartbox"><div id="c_omega"></div></div>
-    <div class="caption">同成分、同胞、不同结构的配对，
-    D&nbsp;=&nbsp;+&int;<sub>&mu;₀&minus;w</sub><sup>&mu;₀+w</sup>&thinsp;[N<sub>A</sub>&minus;N<sub>B</sub>]&thinsp;d&mu;，
-    w&nbsp;=&nbsp;0.2&nbsp;V。负值表示电势往正方向移动时 A 相对被稳定。灰带是同一形貌自身采样构型之间配对的散布范围。
-    符号：因 &part;&Omega;/&part;&mu;<sub>e</sub>&nbsp;=&nbsp;&minus;N<sub>e</sub> 且
-    U&nbsp;=&nbsp;&mu;₀&minus;&mu;<sub>e</sub>，U&nbsp;=&nbsp;+w 对应<em>较低</em>的 &mu;。</div></div>
-  <div class="note"><b>这是什么，不是什么。</b>它只是电势<em>诱导</em>的那一部分。它不回答在参考电势下谁更稳定，
-  那需要数据集尚未确定的统一能量基准；没有这个基准，就无法判断排序是否发生了变化——若两个构型原本只差几 meV，
-  几十 meV 足以改变排序；若原本差 1&nbsp;eV，则未必。它也从不跨越不同的 Au 原子数，那需要引入储库项。
-  <br><br>&plusmn;0.5&nbsp;V 扩展完成后，应当用扩展后的实际曲线重新积分，而不是把现在的数值按窗口比例外推。</div>
+    <div class="caption">Pairs of different structures with the same composition in the same cell,
+    D&nbsp;=&nbsp;+&int;<sub>&mu;₀&minus;w</sub><sup>&mu;₀+w</sup>&thinsp;[N<sub>A</sub>&minus;N<sub>B</sub>]&thinsp;d&mu;,
+    w&nbsp;=&nbsp;0.2&nbsp;V. A negative value means A is relatively stabilised as the potential moves
+    positive. The grey band is the spread over pairs drawn from the sampled configurations of one morphology.
+    Sign: because &part;&Omega;/&part;&mu;<sub>e</sub>&nbsp;=&nbsp;&minus;N<sub>e</sub> and
+    U&nbsp;=&nbsp;&mu;₀&minus;&mu;<sub>e</sub>, U&nbsp;=&nbsp;+w is the <em>lower</em> &mu;.</div></div>
+  <div class="note"><b>What this is, and what it is not.</b> It is only the potential-<em>induced</em> part.
+  It does not say which configuration is more stable at the reference potential; that needs a common energy
+  baseline the dataset has not fixed, and without it there is no way to tell whether the ranking changes. If
+  two configurations start a few meV apart, tens of meV are enough to re-rank them; if they start 1&nbsp;eV
+  apart, they are not. It also never crosses different Au atom counts, which would require a reservoir term.
+  <br><br>When the &plusmn;0.5&nbsp;V extension finishes, these integrals should be redone over the actual
+  extended curves rather than scaled up from the present window.</div>
 </div></section>
 
 <section id="gallery"><div class="finding">
-  <div><div class="eyebrow">结构图谱</div><h2>全部三十三种结构，按配位数着色</h2></div>
-  <p class="lede">每张图分三块：最左是<b>不画原子的简笔轮廓</b>，一眼看出缺陷长什么样；中间是按配位数着色的俯视图；
-  右边是侧视图。三块全部由实际参与计算的几何生成，不是重新生成的理想结构，也不是手绘，所以简笔图不会和真实结构脱节。
-  <b>点击任意图片可放大。</b></p>
-  <div class="note" style="max-width:none"><b>图上各个标记的含义。</b>
-  <br>· <b>颜色</b>＝配位数（3.4&nbsp;&Aring; 内的 Au 近邻数），括号里只是该配位数<em>常见</em>的环境，配位数不等于形貌身份。
-  <br>· <b>亮度与描边</b>＝是否属于上表面，判据与区域分析一致（上方 2.35&nbsp;&Aring; 内有三个以上更高近邻即算被埋住）。
-  <br>· <b>绿色圆环</b>＝加上去的 Au；<b>紫色虚圆</b>＝移走的位点。只在结构族本身由"加原子"或"去原子"定义时才标，
-  避免把台阶上台面或邻晶面的台阶边误标成吸附原子。
-  <br>· <b>蓝色 ×</b>＝类 hcp 配准（正上方两层处有原子）；<b>棕色空心方块</b>＝过渡带／畴界（配准介于类 fcc 与
-  类 hcp 之间）。阈值按面内偏移量取 0.35 与 0.75 倍 fcc 偏移。这是一套<b>阈值相关的显示分类</b>，不是畴区的唯一定义，
-  与建构时另一套阈值给出的计数不必相同，也不应为了复现旧计数去调阈值。参照的 fcc 偏移取自同层最近邻间距
-  （R2 的压缩层量得 2.753&nbsp;&Aring;，而不是跨层投影给出的 4.40&nbsp;&Aring;）。
-  这些标记<b>只画在 (111) 法向的结构上</b>：判据用的是全局 z 与 (111) 层间距，在 Au(211)/(221)/(332)/(554) 上没有意义，
-  曾经在那里点出过几个无法解释的标记，现已撤下。
-  <br>· <b>A–A′</b>（必要时加 <b>B–B′</b>）＝侧面剖线的实际位置。标题注明是真实剖线还是沿视线的投影包络；
-  剖面以<b>平台高度</b>为基准，凸起在基准线上、凹陷在基准线下。
-  <br>· <b>棕色粗虚线</b>＝母结构的原边缘。只画在由某个已存在结构改出来的结构上，取自建构时的原子映射。
-  <br>· 有限特征（岛、坑、点缺陷、复合）的原子侧视图只画 A–A′ 附近的<b>一条窄带</b>。整胞投影会把坑前后两侧的顶层原子
-  叠在坑上面，看起来像被填平了。窄带宽度是<b>真实垂直距离</b>（先前按"分数坐标差×另一根基矢长度"算，
-  在 60° 胞里比标注值窄 1/sin60，标 ±3.23&nbsp;&Aring; 实为 ±2.80&nbsp;&Aring;）。
-  <br><br><b>轮廓来自原子邻接，不是高度分区，尺度取同层间距。</b>高度分区不是结构的外轮廓：较低的原子会在两个上层
-  原子之间抢到区域，把连通的团簇切成两半。现在轮廓是特征原子的圆盘并集，半径 0.62&nbsp;×&nbsp;同层最近邻间距，
-  <b>同层</b>三个字是关键：先前那一步在投影里取最近邻，而吸附原子与其下方台面原子的投影距离只有
-  a₀/√3&nbsp;=&nbsp;1.70&nbsp;&Aring;，在 A3、C1 和小坑上过半原子的"最近邻"都是这种跨层对，中位数因此给出
-  1.70 而不是 2.94&nbsp;&Aring;，圆盘直径 2.10&nbsp;&Aring; 跨不过 2.94&nbsp;&Aring; 的键——A3 的三原子团被画成三个圆，
-  Pit-7-compact 的坑底被画成十二个。逐结构复核过：圆盘连通分量数与原子成键连通分量数<b>逐一相等</b>。
-  <br><br><b>周期副本是平移复制的。</b>距离场只在基本胞上算一次，再原样平移；先前给每个显示副本重新调用一次搜索范围
-  只有 ±1 个像的距离函数，离中心两个胞远的副本就丢掉了特征——Step-8x2 三个副本的高区像素比例是
-  53.18%／51.11%／0.40%，同一个周期结构的副本不应有这种差别。
-  <br><br><b>剖面与 A–A′ 逐点对应。</b>先前只对剖面做循环移位而不动图上的 A、A′，两者因此脱节：Pit-19-8x8 沿所标
-  A–A′ 的采样顺序是平台 16 → 坑底 75 → 平台 8，移位后成了坑底 38 → 平台 24 → 坑底 37，这正是"坑看起来像中央凸起"
-  的原因。现在要把特征居中时，平移的是整套显示坐标（起点 A、剖线、剖面、原子窄带同时移动），不是单独一条曲线。
-  原子侧视图也改用沿剖线／垂直剖线的同一坐标系，不再一律投影到全局 x 轴。
-  <br><br><b>一个原子只取一个周期镜像。</b>沿线坐标与垂直距离曾各自独立折叠：垂直方向折回最近的周期带，沿线方向
-  却仍用原始位置。斜胞里跨线的晶格矢量本身带有沿线分量，这样做不成立。取
-  <b>a</b>&nbsp;=&nbsp;(10,&nbsp;0)、<b>b</b>&nbsp;=&nbsp;(5,&nbsp;8.6603)，同一个原子写成 <b>r</b> 与
-  <b>r</b>+<b>b</b> 时，沿线坐标分别是 9.5 与 4.5&nbsp;&Aring;——仅仅换了写法就差半个周期。现在先按垂直距离选定镜像
-  <b>r</b>−m<b>b</b>，两个坐标都从这一个镜像读出。
-  <br><br><b>绘图有回归测试，并且测试本身被变异测试验证过。</b><code>scripts/check_gallery_drawing.py</code> 对 33 个结构
-  断言五件事：圆盘轮廓的连通分量数等于特征原子成键图的连通分量数（键长阈值取胞内最短 Au–Au 距离的 1.15 倍，
-  <b>不</b>取自被测的间距函数）；每个周期副本都是基本胞数组的平移且水平集覆盖率完全相同；剖面等于在
-  A&nbsp;+&nbsp;s·t̂ 独立重采样的场；侧视窄带的宽度与坐标与一次独立的镜像搜索一致；整体平移一个面内晶格矢量后显示不变。
-  失败时<b>非零退出</b>。<code>scripts/check_drawing_mutations.py</code> 把上述四个 bug 逐个放回去，要求回归全部报错——
-  四个都被抓到，其中"圆盘半径取投影间距"这一项报出 8 条连通性不符，包括 A3（1 个成键团簇、3 个圆）与
-  Pit-7-compact（1 个、12 个）。
-  <br><br><b>图中没有画"离子可达边界"。</b>可达区域由 SION 决定，会随台面、岛、坑变化，用一条固定高度的水平线代表它
-  与本研究的结论冲突，因此只标"电解液侧"。
-  <br><br><b>几类结构的专门标注。</b>
-  <br>· <b>四个邻晶面</b>（Au(211)/(221)/(332)/(554)）：俯视的渐变图只是高度分布，承担不了"台阶示意"，
-  所以剖面改成沿落差最大的晶格方向的真实剖线，并<b>定性</b>标出局部 (111) 台面与周期边界处的台阶。
-  唯一给出的数字是<b>宏观 (hkl) 与 (111) 的名义夹角</b>，由 arccos[(h+k+l)/(√3·√(h²+k²+l²))] 从晶面法向算出，
-  <b>不是本图的测量值</b>。台面宽度与台阶高度<b>不标</b>：那需要先指定原子行并定义测量方向，本图没有做这件事。
-  <br>　　（先前这里标过一个"倾角"，取 ptp(剖面)/(L−网格步长)，即高度分区场沿单一晶格方向、跨近一个周期的表观斜率。
-  当剖线方向恰是最陡下降且台面很宽时它接近真值——Au554 给 5.6° 对名义 5.77°——但这不是同一个量，
-  也不普遍接近：Au211 给 25.8° 对名义 19.47°。已撤下。）
-  <br>· <b>拐角与边缘脱离终态</b>：叠加母结构的原直边（棕色虚线），并圈出改变的原子。Kink-edge1/2 的母结构是同一条
-  无拐角的条带，按建构规则复原（条带是四整行各三个原子，外加独立一行里的一个原子，那个就是拐角原子）；
-  Step-8x2_edge-vacancy_plus_foot-adatom 直接与 Step-8x2 逐原子比对，得到 1 个新增、1 个移走。
-  <br>· <b>C1</b>：七个岛原子与台阶上台面<b>同高</b>，任何"高于多数原子"的几何判据都看不见它们，因此改用建构时的
-  原子映射：与母结构 Step-8x4 逐原子比对，得 7 个新增、0 个移走。剖线也被拉到穿过这七个原子的那一行。
-  <br>· <b>C2</b>：岛与坑不在同一条晶格线上，沿晶格方向的单条直线只能擦过其中一个的边缘（会把一个坑画成三个浅坑），
-  所以画 A–A′ 过岛、B–B′ 过坑<b>两条</b>剖面，各配一张原子窄带侧视图。
-  <br><br><b>简笔轮廓用于辅助辨认形貌，不要用于定量读取边界位置、宽度或峰位。</b>形貌类别由冻结计划的结构族加周期
-  连通性判定，不由高低区面积比判定。</div>
+  <div><div class="eyebrow">Structure gallery</div><h2>All thirty-three structures, coloured by coordination
+  number</h2></div>
+  <p class="lede">Each figure has three panels. On the left is a <b>plain outline with no atoms drawn</b>, so
+  the shape of the defect is readable at a glance; in the middle, a top view coloured by coordination number;
+  on the right, a side view. All three are generated from the geometry that was actually computed, not from a
+  regenerated idealisation and not by hand, so the cartoon cannot drift from the real structure.
+  <b>Click any figure to enlarge.</b></p>
+  <div class="note" style="max-width:none"><b>What the marks mean.</b>
+  <br>· <b>Colour</b> = coordination number (Au neighbours within 3.4&nbsp;&Aring;). The environment named in
+  brackets is only what that coordination number <em>usually</em> means; coordination is not an identity.
+  <br>· <b>Brightness and outline</b> = whether the atom belongs to the upper surface, by the same rule the
+  region analysis uses: three or more higher neighbours within 2.35&nbsp;&Aring; counts as buried.
+  <br>· <b>Green ring</b> = an added Au; <b>purple dashed circle</b> = a removed site. Drawn only where the
+  structure family is itself defined by adding or removing atoms, so that a step's upper terrace or a vicinal
+  step edge is never mislabelled as an adatom.
+  <br>· <b>Blue &times;</b> = hcp-like registry (an atom directly two layers below); <b>brown open square</b> =
+  transition band or domain wall (registry between fcc-like and hcp-like). The thresholds are 0.35 and 0.75 of
+  the fcc in-plane offset. This is a <b>threshold-dependent display classification</b>, not the definition of
+  a domain; it need not match the count from the different threshold used at build time, and the threshold
+  should not be tuned to reproduce that count. The reference fcc offset comes from the <em>same-layer</em>
+  nearest-neighbour spacing (R2's compressed layer measures 2.753&nbsp;&Aring;, not the 4.40&nbsp;&Aring; a
+  cross-layer projection gives). These marks are drawn <b>only on structures whose normal is (111)</b>: the
+  test uses the global z axis and the (111) interlayer spacing, which means nothing on
+  Au(211)/(221)/(332)/(554). A few unexplainable marks once appeared there and have been withdrawn.
+  <br>· <b>A&ndash;A&prime;</b> (and <b>B&ndash;B&prime;</b> where needed) = where the section was actually
+  taken. The panel title says whether it is a real section or a projected envelope along the line of sight.
+  The section is referenced to the <b>terrace level</b>, so protrusions sit above the baseline and depressions
+  below it.
+  <br>· <b>Heavy brown dashes</b> = the parent structure's original edge. Drawn only on structures modified
+  from an existing one, and taken from the build-time atom mapping.
+  <br>· For a finite feature (island, pit, point defect, composite) the atom side view draws only a
+  <b>narrow band</b> around A&ndash;A&prime;. A whole-cell projection stacks the top-layer atoms in front of
+  and behind a pit on top of it, and the pit looks filled in. The band half-width is a <b>true perpendicular
+  distance</b>; it used to be computed as a fractional-coordinate difference times the other cell vector's
+  length, which in a 60&deg; cell is narrower than the caption by 1/sin60, so a stated
+  &plusmn;3.23&nbsp;&Aring; was really &plusmn;2.80&nbsp;&Aring;.
+  <br><br><b>The outline follows atom connectivity, not a height partition, and its scale is the same-layer
+  spacing.</b> A height partition is not the outline of a structure: a lower atom can win territory between
+  two upper ones and cut a connected cluster in two. The outline is now the union of discs around the feature
+  atoms, of radius 0.62&nbsp;&times;&nbsp;the same-layer nearest-neighbour spacing. The words <b>same
+  layer</b> are what matters: the previous version took the nearest neighbour in projection, and an adatom is
+  only a<sub>0</sub>/&radic;3&nbsp;=&nbsp;1.70&nbsp;&Aring; laterally from the terrace atoms beneath it, so on
+  A3, C1 and the small pits more than half the atoms had such a cross-layer partner as their nearest and the
+  median came out 1.70 instead of 2.94&nbsp;&Aring;. Discs 2.10&nbsp;&Aring; across cannot bridge a
+  2.94&nbsp;&Aring; bond, so A3's three-atom cluster was drawn as three circles and Pit-7-compact's floor as
+  twelve. Checked structure by structure: the number of disc components now <b>equals</b> the number of bonded
+  clusters, every time.
+  <br><br><b>Periodic copies are translations.</b> The distance field is computed once on the base cell and
+  translated. Previously each displayed copy re-called a distance function whose image search reached only
+  &plusmn;1 cell, so a copy two cells from the centre lost the feature entirely: the three copies of Step-8x2
+  covered 53.18% / 51.11% / 0.40% of their area, which no periodic structure should do.
+  <br><br><b>The section corresponds to A&ndash;A&prime; point by point.</b> The profile used to be rolled
+  while the A and A&prime; labels stayed put, so the two came apart: Pit-19-8x8 samples terrace 16 &rarr; pit
+  floor 75 &rarr; terrace 8 along its marked line, and the roll turned that into pit 38 &rarr; terrace 24
+  &rarr; pit 37, which is exactly why a pit looked like a central bump. Centring a feature now shifts the
+  whole display together, the origin A, the plan line, the profile and the atom band, rather than one curve.
+  The atom side view also uses the along-line and across-line coordinates rather than projecting on the
+  global x axis.
+  <br><br><b>One periodic image per atom.</b> The along-line coordinate and the perpendicular distance used to
+  be folded independently: the perpendicular one was wrapped into the nearest band while the along-line one
+  kept the atom's original position. In a sheared cell the across vector has a component along the line, so
+  that is not allowed. With <b>a</b>&nbsp;=&nbsp;(10,&nbsp;0) and <b>b</b>&nbsp;=&nbsp;(5,&nbsp;8.6603), the
+  same atom written as <b>r</b> and as <b>r</b>+<b>b</b> came out at 9.5 and 4.5&nbsp;&Aring; along the line,
+  half a period apart from nothing but a change of notation. The image <b>r</b>&minus;m<b>b</b> is now chosen
+  from the perpendicular distance and both coordinates are read off it.
+  <br><br><b>The drawing has a regression test, and the test itself is checked by a mutation test.</b>
+  <code>scripts/check_gallery_drawing.py</code> asserts five things for all 33 structures: the disc outline
+  has as many connected components as the feature atoms' bond graph (with the bond cutoff taken from the
+  shortest Au&ndash;Au distance in the cell, <b>not</b> from the spacing function under test); every periodic
+  copy is a translation of the base array with an identical level-set coverage; the profile equals the field
+  re-sampled independently at A&nbsp;+&nbsp;s&middot;t&#770;; the band width and the side-view coordinates
+  match an independent image search; and the view is unchanged by an in-plane lattice translation. It
+  <b>exits non-zero</b> on failure. <code>scripts/check_drawing_mutations.py</code> puts each of the four bugs
+  back one at a time and requires the regression to report it. All four are caught; the disc-radius mutation
+  raises eight connectivity failures, among them A3 (1 bonded cluster, 3 circles) and Pit-7-compact (1 and
+  12).
+  <br><br><b>No "ion-accessible boundary" is drawn.</b> That region is set by SION and varies over terraces,
+  islands and pits, which is one of this study's own results, so a horizontal line at a fixed height would
+  contradict it. Only the electrolyte side is labelled.
+  <br><br><b>Marks specific to certain families.</b>
+  <br>· <b>The four vicinal faces</b> (Au(211)/(221)/(332)/(554)): the plan-view gradient is only a height
+  distribution and cannot stand in for a step diagram, so the section is taken along the lattice direction of
+  greatest relief and marks the local (111) terrace and the riser at the periodic seam <b>qualitatively</b>.
+  The only number given is the <b>nominal angle between the macroscopic (hkl) and (111)</b>, computed from the
+  plane normals as arccos[(h+k+l)/(&radic;3&middot;&radic;(h²+k²+l²))], and <b>not measured from this
+  figure</b>. Terrace width and step height are <b>not</b> printed: those would need a chosen atom row and a
+  stated measurement direction, which this figure does not do.
+  <br>&nbsp;&nbsp;(A "tilt" used to be printed here, computed as ptp(profile)/(L&minus;grid step), the
+  apparent slope of the height-partition field along one lattice direction over nearly a whole period. When
+  the cut happens to be the steepest descent and the terrace is wide it comes close, as for Au554 at 5.6&deg;
+  against a nominal 5.77&deg;, but it is not the same quantity and is not generally close: Au211 gave
+  25.8&deg; against a nominal 19.47&deg;. Withdrawn.)
+  <br>· <b>Kinks and the edge-detachment end state</b>: the parent's original straight edge is overlaid in
+  brown dashes and the changed atoms circled. Kink-edge1/2's parent is the same strip without a kink,
+  recovered by the build's own rule (four full rows of three atoms plus one atom alone in a fifth row, which
+  is the kink); Step-8x2_edge-vacancy_plus_foot-adatom is diffed atom by atom against Step-8x2, giving 1 added
+  and 1 removed.
+  <br>· <b>C1</b>: the seven island atoms sit at exactly the <b>same height</b> as the step's upper terrace,
+  so no "higher than most atoms" rule can see them. They come from the build-time atom mapping instead,
+  diffing against the parent Step-8x4: 7 added, 0 removed. The section line is also pulled onto the row that
+  passes through them.
+  <br>· <b>C2</b>: its island and pit are not on the same lattice line, and a single straight line along a
+  lattice vector can only clip the rim of one of them, which draws one pit as three shallow ones. It gets
+  <b>two</b> sections, A&ndash;A&prime; through the island and B&ndash;B&prime; through the pit, each with its
+  own atom band.
+  <br><br><b>The outline is an aid to recognising the morphology; do not read boundary positions, widths or
+  peak positions off it.</b> The morphology class comes from the frozen plan's structure family plus periodic
+  connectivity, not from the area fraction of the high and low regions.</div>
   <div class="filters" id="filters"></div>
   <div class="gal bleed" id="gal"></div>
 </div></section>
 
 <section id="maps"><div class="finding">
-  <div><div class="eyebrow">阴离子空间图</div><h2>逐个结构的阴离子分布</h2></div>
-  <p class="lede">四张一组：最正采样电势下的逐柱阴离子过量、它在采样窗口两端之间的变化、同一电势步长下金属自身的正电荷变化
-  (&minus;&Delta;n<sub>e</sub>)，以及切分区域所依据的配位数图。按周期平铺以便看清重复。<b>点击可放大。</b></p>
-  <div class="note" style="max-width:none"><b>怎么读色标。</b>每幅图有<b>自己的</b>色标范围，<b>不同图之间不能直接比较幅度</b>，
-  只能比较图内的空间分布。全为同号的量用顺序色（深=大），跨正负的量用以 0 为中心的发散色。单位：
-  &Gamma;<sub>&minus;</sub> 与 &Delta;&Gamma;<sub>&minus;</sub> 是每投影面积的离子数（&Aring;<sup>&minus;2</sup>）；
-  金属一侧画的是<b>正电荷</b>变化 &minus;&Delta;n<sub>e</sub>（e/&Aring;<sup>2</sup>，正值=失去电子）；配位数是离散标度。</div>
+  <div><div class="eyebrow">Anion maps</div><h2>The anion distribution, structure by structure</h2></div>
+  <p class="lede">Four panels each: the per-column anion excess at the most positive sampled potential, how it
+  changes between the two ends of the sampled window, the metal's own positive-charge change over the same
+  potential step (&minus;&Delta;n<sub>e</sub>), and the coordination-number map the regions are cut from.
+  Tiled periodically so the repeat is visible. <b>Click to enlarge.</b></p>
+  <div class="note" style="max-width:none"><b>How to read the colour scales.</b> Each panel has <b>its
+  own</b> range, so <b>amplitudes cannot be compared between panels</b>, only the spatial distribution within
+  one. Single-signed quantities use a sequential scale (dark = large); quantities that cross zero use a
+  diverging scale centred on zero. Units: &Gamma;<sub>&minus;</sub> and &Delta;&Gamma;<sub>&minus;</sub> are
+  ions per projected area (&Aring;<sup>&minus;2</sup>); the metal panel shows the change in <b>positive</b>
+  charge, &minus;&Delta;n<sub>e</sub> (e/&Aring;<sup>2</sup>, positive = electrons lost); coordination number
+  is a discrete scale.</div>
   <div class="gal bleed" id="mapgrid"></div>
 </div></section>
 
 <section id="method"><div class="finding">
-  <div><div class="eyebrow">方法</div><h2>约定，以及这些数字不覆盖的范围</h2></div>
+  <div><div class="eyebrow">Method</div><h2>Conventions, and what these numbers do not cover</h2></div>
   <div class="grid2">
-    <div class="card pad"><h3>电势与电荷</h3><p class="small" style="margin-top:8px">
-      U&nbsp;=&nbsp;&mu;<sub>0</sub>&nbsp;&minus;&nbsp;&mu;<sub>e</sub>，&mu;<sub>0</sub>&nbsp;=&nbsp;&minus;4.9071&nbsp;eV
-      是项目内部参考，既不是相对 RHE 的电势，也不是各结构自己的零电荷电势。
-      &sigma;&nbsp;=&nbsp;&minus;e&thinsp;(N<sub>e</sub>&nbsp;&minus;&nbsp;N<sub>e</sub><sup>0</sup>)&thinsp;/&thinsp;A<sub>proj</sub>。
-      所有数值都取自运行中实际收敛的 &mu;<sub>e</sub> 与 N<sub>e</sub>，从不用目标值代替，因为收敛判据允许运行在离目标
-      10&nbsp;meV 处停下。</p></div>
-    <div class="card pad"><h3>离子密度</h3><p class="small" style="margin-top:8px">
-      由收敛后的电势和离子可达性掩码，通过模型自身的本构关系重建，含有限尺寸饱和项。没有加入任何显式离子，体系里也没有氯：
-      这是连续介质电解质中非特异性的阴离子响应，不等同于氯的化学吸附偏好。</p></div>
-    <div class="card pad"><h3>积分窗口</h3><p class="small" style="margin-top:8px">
-      绝对口径取 z&nbsp;&lt;&nbsp;31&nbsp;&Aring; 以下的全部空间，各柱之和精确等于全胞；边界相对口径从每根柱自己的可达性
-      边界往上取 10.4&nbsp;&Aring;，使抬高的岛与旁边的平台保留同样比例的衰减尾部。两种口径都给出，上述结论在两者下都成立。</p></div>
-    <div class="card pad"><h3>区域怎么切（一次已修正的定义）</h3><p class="small" style="margin-top:8px">
-      每根柱子指派给最近的<b>未被埋住</b>的表面原子，按该原子的配位数归类。最初的版本把"顶端 3&nbsp;&Aring; 内的所有原子"
-      都当作候选，但 (111) 层间距只有 2.4&nbsp;&Aring;，第二层因此也成了候选，而它恰好位于空位点的正下方——在完全平整的
-      T-4x4 上有 48% 的柱子被指派给 CN&nbsp;12 的第二层原子，把一个平整平台劈成了"平台"和"次表面"两类。改用未被埋住的
-      原子后，平整面回到 100% 平台；上面的结论在修正前后都成立（修正前 36/41、中位 &minus;1.7%）。</p></div>
-    <div class="card pad"><h3>数据范围的处理</h3><p class="small" style="margin-top:8px">
-      每一个跨结构数值都只用三个基准电势（&minus;5.1071 / &minus;4.9071 / &minus;4.7071&nbsp;eV）。注意这三点并非每个几何都齐全：按计划，部分参考结构本来就只算了一或两个电势，需要三点的量（零电荷点、两段割线、巨势积分）只在点数够的几何上计算，点数不足的不进入同一区间的比较，各图下方给出实际参与的个数。
-      &plusmn;0.5&nbsp;V 扩展仍在计算、覆盖不全，只在 &sigma;(U) 曲线上单独叠加显示，<b>不进入任何统计量</b>——
-      否则会拿采样到 &plusmn;0.5&nbsp;V 的几何去和只采样到 &plusmn;0.2&nbsp;V 的几何比较，而且每完成一个任务
-      页面上的数字就会变一次。页首的快照给出本页实际使用的态数、几何数与构建时间。</p></div>
-    <div class="card pad"><h3>修订记录</h3><p class="small" style="margin-top:8px">
-      本页经过两轮外部审查并据此修改。正文只写当前正确的解释；改动了什么、为什么改，收在页尾可展开的
-      <a href="#revlog">修订记录</a>里。原始数据与脚本都在仓库中可追溯。</p></div>
-    <div class="card pad"><h3>已知限制</h3><p class="small" style="margin-top:8px">
-      生产参数下的力带有约 0.02&nbsp;eV/&Aring; 每原子的 egg-box 误差，因此这里没有任何结论建立在细小的力差异上。
-      扰动构型与集体形变是人为设计的采样，不是热力学系综，只用于给出敏感性范围而不做平均。路径像很稀疏，不等于最小能量路径。</p></div>
+    <div class="card pad"><h3>Potential and charge</h3><p class="small" style="margin-top:8px">
+      U&nbsp;=&nbsp;&mu;<sub>0</sub>&nbsp;&minus;&nbsp;&mu;<sub>e</sub> with
+      &mu;<sub>0</sub>&nbsp;=&nbsp;&minus;4.9071&nbsp;eV is an internal reference for this project. It is
+      neither a potential against RHE nor each structure's own potential of zero charge.
+      &sigma;&nbsp;=&nbsp;&minus;e&thinsp;(N<sub>e</sub>&nbsp;&minus;&nbsp;N<sub>e</sub><sup>0</sup>)&thinsp;/&thinsp;A<sub>proj</sub>.
+      Every number comes from the &mu;<sub>e</sub> and N<sub>e</sub> the run actually converged to, never from
+      the target, because the convergence criterion lets a run stop up to 10&nbsp;meV from it.</p></div>
+    <div class="card pad"><h3>Ion density</h3><p class="small" style="margin-top:8px">
+      Reconstructed from the converged potential and the ion-accessibility mask through the model's own
+      constitutive relation, including the finite-size saturation term. No explicit ion is added and there is
+      no chlorine in the system: this is the non-specific anion response of a continuum electrolyte, not a
+      chemisorption preference of Cl.</p></div>
+    <div class="card pad"><h3>Integration windows</h3><p class="small" style="margin-top:8px">
+      The absolute window takes everything below z&nbsp;&lt;&nbsp;31&nbsp;&Aring;, so the columns sum exactly
+      to the whole cell. The boundary-relative window takes 10.4&nbsp;&Aring; upward from each column's own
+      accessibility boundary, so a raised island and the terrace beside it keep the same fraction of the decay
+      tail. Both are reported, and the findings above hold under either.</p></div>
+    <div class="card pad"><h3>How the regions are cut (a definition that was corrected)</h3>
+      <p class="small" style="margin-top:8px">
+      Each column is assigned to the nearest <b>un-buried</b> surface atom and classified by that atom's
+      coordination number. The first version treated every atom within 3&nbsp;&Aring; of the top as a
+      candidate, but the (111) interlayer spacing is only 2.4&nbsp;&Aring;, so the second layer qualified too
+      and it sits directly below the hollow sites: on a perfectly flat T-4x4, 48% of the columns were assigned
+      to a CN&nbsp;12 second-layer atom, splitting one flat terrace into "terrace" and "sub-surface". With the
+      un-buried rule a flat face is 100% terrace again. The conclusions above hold before and after the fix
+      (before: 36/41, median &minus;1.7%).</p></div>
+    <div class="card pad"><h3>How the scope is handled</h3><p class="small" style="margin-top:8px">
+      Every cross-structure number uses only the three base potentials (&minus;5.1071 / &minus;4.9071 /
+      &minus;4.7071&nbsp;eV). Not every geometry has all three: by plan, some reference structures were only
+      ever computed at one or two potentials, so quantities that need three (the zero-charge point, the two
+      secants, the grand-potential integral) are computed only where enough points exist, geometries with too
+      few do not enter the same comparison, and each chart states how many actually contributed. The
+      &plusmn;0.5&nbsp;V extension is still running and incomplete; it is drawn as a separate overlay on the
+      &sigma;(U) curves and <b>enters no statistic</b>, since otherwise a geometry sampled to
+      &plusmn;0.5&nbsp;V would be compared against one sampled only to &plusmn;0.2&nbsp;V, and every finished
+      task would change the numbers on the page. The snapshot at the top gives the state count, geometry count
+      and build time this page actually used.</p></div>
+    <div class="card pad"><h3>Revision log</h3><p class="small" style="margin-top:8px">
+      This page has been through several rounds of external review and was changed accordingly. The body keeps
+      only the currently correct explanation; what changed and why is in the expandable
+      <a href="#revlog">revision log</a> at the foot. The raw data and the scripts are traceable in the
+      repository.</p></div>
+    <div class="card pad"><h3>Known limits</h3><p class="small" style="margin-top:8px">
+      At production settings the forces carry an egg-box error of about 0.02&nbsp;eV/&Aring; per atom, so no
+      conclusion here rests on a small force difference. The perturbed and collectively deformed
+      configurations are a designed sampling, not a thermodynamic ensemble; they are used to give a
+      sensitivity range and are never averaged over. The path images are sparse and are not a minimum energy
+      path.</p></div>
   </div>
 </div></section>
 
 <section id="revlog"><div class="finding">
-  <div><div class="eyebrow">修订记录</div><h2>改过什么，为什么改</h2></div>
-  <p class="lede">正文只保留当前正确的解释。这里记录历次外部审查之后的实质改动，便于追溯；每一项在改之前都用数据或
-  单元检验复核过。</p>
-  <details open><summary style="cursor:pointer;font-weight:500;padding:10px 0">最近一轮（采样说明与图的可读性）</summary>
+  <div><div class="eyebrow">Revision log</div><h2>What was changed, and why</h2></div>
+  <p class="lede">The body keeps only the currently correct explanation. This records the substantive changes
+  made after each round of external review, so they can be traced; every one was checked against the data or
+  a unit test before it was made.</p>
+  <details open><summary style="cursor:pointer;font-weight:500;padding:10px 0">Latest round (sampling, and
+  figure legibility)</summary>
   <ul class="small" style="line-height:1.9;max-width:62em">
-    <li><b>开头新增一张采样分支图。</b>此前正文从"结论一"直接开始，读者无从知道 107 个几何是怎么来的，
-      容易读成 107 个独立设计的缺陷。图只画一件事：33 个人工建构的结构如何经弛豫、随机位移、集体形变与路径
-      变成 107 个几何。</li>
-    <li><b>所有图改为整行显示，并放宽到栏宽之外。</b>结构图与空间图原本两张一行、各约 560&nbsp;px，
-      12 英寸画布上的 9&nbsp;pt 标签在屏幕上只有 7&nbsp;px，等于看不清。现在每行一张、最宽 1780&nbsp;px，
-      同样的标签约 18&nbsp;px。空间图由 1×4 改为 2×2（画布 17.2 → 10 英寸），字号同时调大；
-      SVG 图表也改为随容器放大。</li>
-    <li><b>低配位区与平台的比较由写死改为重算。</b>正文原来写"41 个几何中 37 个、四个例外全是空位边缘，
-      超出量只有 0.1%–0.3%"，而这个数字没有记录它的定义，也无法从 <code>regions.json</code> 复现。
-      现在建站时按明确定义重算：<span data-n="uc_main"></span>；例外是
-      <span data-n="uc_exc"></span>旧说法漏掉了其中两个，并低估了最大超出量。</li>
-    <li><b>邻晶面剖面上的"台面倾角"撤下。</b>原先标的是高度分区剖面的 ptp/(L−网格步长)，即沿单一晶格方向、
-      跨近一个周期的表观斜率。Au554 给 5.6° 对名义 5.77° 只是巧合；Au211 给 25.8° 对名义 19.47°。
-      现在只标由晶面法向算出的名义夹角，并注明不是本图的测量值。</li>
+    <li><b>An opening figure of the sampling tree.</b> The body used to start straight at Finding 1, leaving
+      no way to know where the 107 geometries came from, and inviting the reading that they are 107 separately
+      designed defects. The figure shows one thing only: how 33 hand-built structures become 107 geometries
+      through relaxation, random displacement, collective deformation and path images. It also names the five
+      potentials explicitly, because "constant potential" reads as a single setting otherwise.</li>
+    <li><b>Every figure is now one per row and wider than the text column.</b> The structure gallery and the
+      maps were laid out two to a row at about 560&nbsp;px each; a 9&nbsp;pt label on a 12-inch canvas then
+      renders at about 7 CSS px, which is unreadable. One per row at up to 1780&nbsp;px puts the same label
+      near 18&nbsp;px. The maps went from 1&times;4 to 2&times;2 (canvas 17.2&nbsp;&rarr;&nbsp;10 inches) with
+      their type enlarged as well, and the SVG charts now scale with their container.</li>
+    <li><b>The under-coordinated versus terrace count is computed, not hardcoded.</b> The body used to state
+      "37 of 41 geometries, four exceptions, all vacancy rims, exceeding by only 0.1&ndash;0.3%" as a literal,
+      with no record of its definition, and it does not reproduce from <code>regions.json</code>. It is now
+      recomputed at build time with the definition written out: <span data-n="uc_main"></span>. The exceptions
+      are <span data-n="uc_exc"></span>The old wording missed two of them and understated the largest
+      excess.</li>
+    <li><b>The "terrace tilt" on the vicinal sections was withdrawn.</b> What it printed was
+      ptp(profile)/(L&minus;grid step), the apparent slope of the height-partition field along one lattice
+      direction over nearly a whole period. Au554 giving 5.6&deg; against a nominal 5.77&deg; was a
+      coincidence; Au211 gave 25.8&deg; against a nominal 19.47&deg;. Only the nominal angle from the plane
+      normals is shown now, labelled as not measured from the figure.</li>
   </ul></details>
-  <details><summary style="cursor:pointer;font-weight:500;padding:10px 0">第二轮（图示表达）</summary>
+  <details><summary style="cursor:pointer;font-weight:500;padding:10px 0">Second round (what the figures
+  assert)</summary>
   <ul class="small" style="line-height:1.9;max-width:62em">
-    <li><b>删除图中人为画的"离子可达边界"。</b>原来在原子侧视图上于最高原子上方固定 4.2&nbsp;&Aring;、在简笔剪影上固定
-      3.2&nbsp;&Aring; 各画一条水平虚线，两个偏移不同，都不是从 SION 读出来的。可达区域随台面、岛、坑变化，正是本研究的
-      结论之一，用一条固定水平线代表它自相矛盾。现在只标"电解液侧"。</li>
-    <li><b>形貌类别不再由面积比判定。</b>原规则把"高区占 30–70%"一律叫台阶，于是 Pit-19-8x8 这个有限浅坑被标成
-      "两层平台（台阶）"。现在由冻结计划中的结构族加周期连通性判定：贯穿整胞的才是条带台阶，闭合的是岛或坑。</li>
-    <li><b>剖线不再冒充。</b>过特征中心取不到时会退回投影包络，标题现在如实区分"过 A–A′ 的真实剖线"与"沿视线方向的
-      投影包络"，并在俯视图上画出 A–A′ 的实际位置；剖面下方的实体注明只是基底示意。</li>
-    <li><b>补上高度看不见的信息。</b>新增 hcp 配准标记（蓝色 ×），R1-hcp 终止面与平整 fcc 面、A1-hcp 与 A1-fcc
-      此前在图上完全无法区分；新增"加上去的 Au"与"移走的位点"标注，按结构族门控以免把台阶上台面误标成吸附原子。</li>
-    <li><b>配位数统计改为只针对上表面。</b>整块 slab 的统计把背面那一层也算进去，四层平整 slab 会写成"平台 32"，
-      而面向电解液的只有 16 个。</li>
-    <li>傅里叶段落的方向写反（应为"随波长缩短而降低"）；"不同量纲"改为"不同物理量"；逐柱相关不再被说成峰位定位；
-      "同胞内数值偏移完全相同"改为"更有利于隔离形貌效应，但不保证完全抵消"；"三个基准电势每个几何都齐全"更正为
-      部分参考结构本来就只有一两个电势。</li>
+    <li><b>The drawn "ion-accessible boundary" was removed.</b> A horizontal dashed line used to be drawn at a
+      fixed 4.2&nbsp;&Aring; above the highest atom in the atom side view and at a fixed 3.2&nbsp;&Aring; in
+      the outline, two different offsets, neither read from SION. The accessible region varies over terraces,
+      islands and pits, which is one of this study's results, so representing it by a line at fixed height
+      contradicts the work. Only the electrolyte side is labelled now.</li>
+    <li><b>The morphology class is no longer decided by area fraction.</b> The old rule called anything with
+      30&ndash;70% high area a step, so Pit-19-8x8, a finite shallow pit, was labelled "two-level terrace
+      (step)". It now comes from the frozen plan's structure family plus periodic connectivity: a strip step
+      spans the cell, an island or a pit closes on itself.</li>
+    <li><b>A section no longer pretends to be one.</b> When a cut through the feature centre was unavailable
+      the code fell back to a projected envelope. The title now says honestly which of the two it is and the
+      plan view shows where A&ndash;A&prime; actually lies; the solid body below the section is marked as
+      substrate indication only.</li>
+    <li><b>Information that height cannot show was added.</b> hcp registry marks (blue &times;) were
+      introduced, since R1-hcp-terminated and a flat fcc face, and A1-hcp and A1-fcc, had been indistinguishable
+      in the figures; so were the "added Au" and "removed site" marks, gated by structure family so that a
+      step's upper terrace is never mislabelled as an adatom.</li>
+    <li><b>Coordination counts are for the upper surface only.</b> A whole-slab count includes the back face,
+      so a four-layer flat slab read "terrace 32" when only 16 atoms face the electrolyte.</li>
+    <li>The Fourier paragraph had its direction reversed (it falls as the wavelength <em>shortens</em>);
+      "different dimensions" became "different physical quantities"; the per-column correlation is no longer
+      described as locating peaks; "the offset within a cell cancels exactly" became "isolates the morphology
+      effect better, without guaranteeing full cancellation"; and "all three base potentials are complete for
+      every geometry" was corrected, since some reference structures only ever had one or two.</li>
   </ul></details>
-  <details><summary style="cursor:pointer;font-weight:500;padding:10px 0">第一轮（科学与代码）</summary>
+  <details><summary style="cursor:pointer;font-weight:500;padding:10px 0">First round (science and
+  code)</summary>
   <ul class="small" style="line-height:1.9;max-width:62em">
-    <li><b>巨势积分符号反了。</b>因 &part;&Omega;/&part;&mu;&nbsp;=&nbsp;&minus;N 且 U&nbsp;=&nbsp;&mu;₀&minus;&mu;，
-      U&nbsp;=&nbsp;+w 对应更低的 &mu;，积分前不应再加负号。单元检验：令 N<sub>A</sub>&minus;N<sub>B</sub>&nbsp;=&nbsp;1、
-      窗口 &plusmn;0.2&nbsp;V，应得 +0.4&nbsp;eV，原代码给 &minus;0.4&nbsp;eV，即把"谁被正电势稳定"说反了。</li>
-    <li><b>结论三的机制解释反了，且混淆了全局与局部。</b>由 &sigma;&nbsp;=&nbsp;C(U&minus;U<sub>pzc</sub>)，零电荷点
-      负移对应同一电势下<em>更正</em>，不是更不正；而且这里的零电荷点是整个周期体系的标量，不能赋给某个分区。已撤回，
-      改为数据真正支持的说法。</li>
-    <li><b>金属—离子相位比较的符号。</b>正向充电时电子减少、阴离子增加，直接比较会给空间上同位的图案凭空加上
-      &pi; 相位。改为比较 &minus;&Delta;n<sub>e</sub> 与 &Delta;&Gamma;<sub>&minus;</sub>。</li>
-    <li><b>统计口径被未完成的扩展污染。</b>充电分析在陆续读入 &plusmn;0.5&nbsp;V 的态，107 个几何里已有 68 个是五点，
-      而页面仍写"三个电势"。现在跨结构数值只用三个基准电势，扩展单独叠加显示。</li>
-    <li><b>"八成来自零电荷点"不成立。</b>极差之比是尺度比较，不是方差分解（展开式有交叉项，&delta;C 与 &delta;Z 相关）。
-      同时删去"几乎不改变电容"（A3 相对同胞平板高 15%）。</li>
-    <li>撤回"电势没有改变稳定性排序"（缺参考电势基准）与"&plusmn;0.5 将同比放大 2.5 倍"；半衰波长与对比度比降级为
-      定义依赖的经验指标；短波衰减不再唯一归因于 4&nbsp;&Aring; 空腔。</li>
-    <li><b>区域划分把平整平台劈成两半。</b>柱体原按"顶端 3&nbsp;&Aring; 内最近原子"指派，而层间距只有 2.4&nbsp;&Aring;，
-      第二层恰在空位点正下方：完全平整的 T-4x4 有 48% 的柱子被标成 CN&nbsp;12。改为指派给未被埋住的原子后，
-      平整面回到 100% 平台，结论由 36/41 变为 37/41。</li>
-    <li>&sigma; 图纵轴写死 &plusmn;7&nbsp;&micro;C/cm² 而数据到 7.32，曲线被裁；改为按数据推导。</li>
+    <li><b>The grand-potential integral had the wrong sign.</b> Since
+      &part;&Omega;/&part;&mu;&nbsp;=&nbsp;&minus;N and U&nbsp;=&nbsp;&mu;₀&minus;&mu;, U&nbsp;=&nbsp;+w is
+      the lower &mu; and the integral must not be negated again. Unit test: with
+      N<sub>A</sub>&minus;N<sub>B</sub>&nbsp;=&nbsp;1 over a &plusmn;0.2&nbsp;V window the answer is
+      +0.4&nbsp;eV; the old code gave &minus;0.4&nbsp;eV, which named the opposite geometry as the one a
+      positive potential stabilises.</li>
+    <li><b>Finding 3's mechanism was backwards, and it confused global with local.</b> From
+      &sigma;&nbsp;=&nbsp;C(U&minus;U<sub>pzc</sub>), a negative shift of the zero-charge point means
+      <em>more</em> positive at the same potential, not less; and the zero-charge point here is a scalar for
+      the whole periodic cell and cannot be assigned to one region. Retracted and replaced with what the data
+      do support.</li>
+    <li><b>The metal&ndash;ion phase comparison had a sign error.</b> Charging positive removes electrons and
+      adds anions, so comparing the two directly put a spurious &pi; phase between patterns that are in
+      register. It now compares &minus;&Delta;n<sub>e</sub> against
+      &Delta;&Gamma;<sub>&minus;</sub>.</li>
+    <li><b>The statistical scope was being contaminated by the unfinished extension.</b> The charging analysis
+      had been ingesting &plusmn;0.5&nbsp;V states as they finished, 68 of the 107 geometries already carried
+      five points, while the page still said three potentials. Cross-structure numbers now use the three base
+      potentials only, with the extension drawn separately.</li>
+    <li><b>"Eight tenths of it comes from the zero-charge point" does not hold.</b> A ratio of ranges is a
+      scale comparison, not a variance decomposition: the expansion has a cross term and &delta;C and
+      &delta;Z are correlated. "The capacitance hardly changes" went too, since A3 is 15% above the flat
+      member of its cell.</li>
+    <li>Withdrawn: that the potential does not re-rank stability (no reference-potential baseline), and that
+      &plusmn;0.5&nbsp;V would scale these values by 2.5. The half-amplitude wavelength and the contrast ratio
+      were downgraded to definition-dependent indicators, and the short-wavelength damping is no longer
+      attributed solely to the 4&nbsp;&Aring; cavity.</li>
+    <li><b>The region partition split a flat terrace in two.</b> Columns were assigned to the nearest atom
+      within 3&nbsp;&Aring; of the top, but the interlayer spacing is only 2.4&nbsp;&Aring; and the second
+      layer sits directly under the hollow sites: a perfectly flat T-4x4 had 48% of its columns labelled
+      CN&nbsp;12. Assigning to un-buried atoms restores a flat face to 100% terrace and moved the count from
+      36/41 to 37/41.</li>
+    <li>The &sigma; chart had its y axis hardcoded to &plusmn;7&nbsp;&micro;C/cm² while the data reach 7.32,
+      so the curves were clipped; it is derived from the data now.</li>
   </ul></details>
 </div></section>
 
 </div>
 <footer><div class="wrap">
-  由 <span class="mono">dataset_v1/states.json</span> 与逐柱场归约生成。<span id="stamp"></span>
+  Built from <span class="mono">dataset_v1/states.json</span> and the per-column field reduction. <span id="stamp"></span>
 </div></footer>
 
 <dialog class="lb" id="lb">
-  <div class="bar"><span id="lbcap"></span><button type="button" id="lbclose">关闭 (Esc)</button></div>
+  <div class="bar"><span id="lbcap"></span><button type="button" id="lbclose">Close (Esc)</button></div>
   <img id="lbimg" alt="">
 </dialog>
 
@@ -470,10 +635,12 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
 const D = JSON.parse(document.getElementById("D").textContent);
 const FAM = ["flat Au(111)","point defect","reconstruction-related","strip step","vicinal step face",
              "kink / edge rearrangement","single-layer island","single-layer pit","composite"];
-const FZH = {"flat Au(111)":"平整 Au(111)","point defect":"点缺陷","reconstruction-related":"重构相关",
-  "strip step":"条带台阶","vicinal step face":"邻晶面台阶","kink / edge rearrangement":"拐角 / 边缘重排",
-  "single-layer island":"单层岛","single-layer pit":"单层坑","composite":"复合形貌"};
-const CZH = {"kink/adatom":"拐角 / 吸附原子","edge/rim":"边缘","terrace":"平整平台","sub-surface/foot":"台阶脚 / 次表面"};
+const FZH = {"flat Au(111)":"flat Au(111)","point defect":"point defect",
+  "reconstruction-related":"reconstruction-related","strip step":"strip step",
+  "vicinal step face":"vicinal step face","kink / edge rearrangement":"kink / edge rearrangement",
+  "single-layer island":"single-layer island","single-layer pit":"single-layer pit","composite":"composite"};
+const CZH = {"kink/adatom":"kink / adatom","edge/rim":"edge / rim","terrace":"terrace",
+  "sub-surface/foot":"step foot / sub-surface"};
 const FC = {"flat Au(111)":"#4c78a8","point defect":"#e08a2e","reconstruction-related":"#54a24b",
   "strip step":"#9c6bb0","vicinal step face":"#cf4f45","kink / edge rearrangement":"#3fa0a8",
   "single-layer island":"#c8a33a","single-layer pit":"#8a6a4e","composite":"#8d8f94"};
@@ -495,7 +662,7 @@ const LB=document.getElementById("lb"), LBI=document.getElementById("lbimg"), LB
 document.getElementById("lbclose").addEventListener("click",()=>LB.close());
 LB.addEventListener("click",e=>{if(e.target===LB||e.target===LBI) LB.close();});
 function zoomable(src,cap,alt){
-  const b=el("button",{type:"button",class:"zoom","aria-label":`放大 ${cap}`},
+  const b=el("button",{type:"button",class:"zoom","aria-label":`enlarge ${cap}`},
     el("img",{src:src,alt:alt,loading:"lazy"}));
   b.addEventListener("click",()=>{LBI.src=src;LBI.alt=alt;LBC.textContent=cap;
     if(LB.showModal) LB.showModal(); else LB.setAttribute("open","");});
@@ -507,17 +674,19 @@ const NG=Object.keys(D.geometries).length, NS=Object.keys(D.structures).length;
 const NPT=Object.values(D.geometries).reduce((a,g)=>a+g.pts.length,0);
 const NEXT=Object.values(D.geometries).reduce((a,g)=>a+(g.ext?g.ext.length:0),0);
 document.getElementById("kicker").append(
-  ...[[NS,"种结构"],[NG,"个独立几何"],[NPT,"个基准态"],["3","个基准电势"],[NEXT,"个 ±0.5 V 扩展态（仅叠加显示）"]]
+  ...[[NS,"structures"],[NG,"distinct geometries"],[NPT,"base states"],["3","base potentials"],[NEXT,"\u00b10.5 V extension states (overlay only)"]]
      .map(([v,l])=>el("span",{class:"chip"},`${v} ${l}`)));
 document.getElementById("scope").append(
-  `统计口径固定为三个基准电势 −5.1071 / −4.9071 / −4.7071 eV，共 ${NPT} 个态、`
-  +`${NG} 个几何、${NS} 种结构。±0.5 V 扩展目前有 ${NEXT} 个态，覆盖不全，只在 σ(U) 图上以浅色叠加，不进入任何数值。`
-  +`区域与空间分析覆盖 ${SN.n_region_states||"?"} 个态（${SN.n_region_structures||"?"} 种结构），`
-  +`两端电势齐全、可做金属—离子对照的几何 ${Object.keys(D.transmission).length} 个。`,
+  `Scope fixed to the three base potentials \u22125.1071 / \u22124.9071 / \u22124.7071 eV: `
+  +`${NPT} states, ${NG} geometries, ${NS} structures. The \u00b10.5 V extension currently has ${NEXT} states, `
+  +`is incomplete, and appears only as a pale overlay on the \u03c3(U) chart, entering no number. `
+  +`The region and spatial analysis covers ${SN.n_region_states||"?"} states `
+  +`(${SN.n_region_structures||"?"} structures); ${Object.keys(D.transmission).length} geometries have both `
+  +`end potentials and so admit a metal-to-ion comparison.`,
   el("br"),
   el("span",{class:"mono",style:"font-size:12px"},
-    `构建于 ${SN.built||"?"}${SN.commit?"　·　commit "+SN.commit:""}`));
-document.getElementById("stamp").textContent = ` · 快照 ${SN.built||""}${SN.commit?" / "+SN.commit:""}`;
+    `built ${SN.built||"?"}${SN.commit?"  \u00b7  commit "+SN.commit:""}`));
+document.getElementById("stamp").textContent = ` \u00b7 snapshot ${SN.built||""}${SN.commit?" / "+SN.commit:""}`;
 
 /* ---- Finding 1 stats ---- */
 const zs=Object.values(D.geometries).filter(g=>g.z!==null).map(g=>g.z);
@@ -525,10 +694,10 @@ const cs=Object.values(D.geometries).filter(g=>g.C!==null).map(g=>g.C);
 const dAll=D.decomposition["all geometries"];
 const PZCSPREAD=1000*(Math.max(...zs)-Math.min(...zs)), CSPREAD=100*(Math.max(...cs)-Math.min(...cs))/median(cs);
 document.getElementById("s1").append(...[
-  [`${PZCSPREAD.toFixed(0)} mV`,`零电荷点跨度（${zs.length} 个能被采样点夹住的几何）`],
-  [`${CSPREAD.toFixed(0)}%`,"同一批几何的割线电容跨度"],
-  [`${median(cs).toFixed(1)} µF/cm²`,"割线电容中位数"],
-  [`${dAll["U=+0.2V"].scale_ratio.toFixed(1)}倍`,"U = +0.2 V 处，两项的尺度之比（非贡献率）"],
+  [`${PZCSPREAD.toFixed(0)} mV`,`zero-charge point spread (${zs.length} geometries bracketed by their samples)`],
+  [`${CSPREAD.toFixed(0)}%`,"secant-capacitance spread, same geometries"],
+  [`${median(cs).toFixed(1)} µF/cm²`,"median secant capacitance"],
+  [`${dAll["U=+0.2V"].scale_ratio.toFixed(1)}\u00d7`,"ratio of the two scales at U = +0.2 V (not a share)"],
 ].map(([v,l])=>el("div",{class:"stat"},el("div",{class:"v"},v),el("div",{class:"l"},l))));
 fill("pzcspread",`${PZCSPREAD.toFixed(0)} mV`);
 fill("cspread",`${CSPREAD.toFixed(0)}%`);
@@ -539,29 +708,30 @@ fill("ngeom",String(NG));
 {const T=Object.values(D.transmission);
  const rs=T.map(v=>v.r).filter(x=>x!==null&&x!==undefined);
  const neg=rs.filter(x=>x<0).length;
- fill("corr",`${rs.length} 个几何里有 ${neg} 个为负，中位 r = ${median(rs).toFixed(2)}`);
+ fill("corr",`${neg} of ${rs.length} geometries are negative, median r = ${median(rs).toFixed(2)}`);
  const hs=T.map(v=>v.tf&&v.tf.half).filter(x=>x);
- fill("half",`半衰波长 ${median(hs).toFixed(1)} Å`);
- fill("ratio",`对比度比 ${(100*median(T.map(v=>v.ratio).filter(x=>x))).toFixed(0)}%`);
+ fill("half",`half-amplitude wavelength ${median(hs).toFixed(1)} Å`);
+ fill("ratio",`contrast ratio ${(100*median(T.map(v=>v.ratio).filter(x=>x))).toFixed(0)}%`);
 }
 {const U=D.undercoord;
  if(U){
-  const txt=`${U.n} 个同时含低配位区与平台区的几何里有 ${U.n_lower} 个，`
-    +`中位低 ${Math.abs(U.median_pct).toFixed(1)}%，最多低 ${Math.abs(U.min_pct).toFixed(1)}%（${U.min_structure}）`;
+  const txt=`${U.n_lower} of ${U.n} geometries carrying both region types, median `
+    +`${Math.abs(U.median_pct).toFixed(1)}% lower, at most ${Math.abs(U.min_pct).toFixed(1)}% lower `
+    +`(${U.min_structure})`;
   fill("uc_main",txt);
   const v=U.exceptions.filter(e=>/^V[0-9]/.test(e.structure)).length;
-  fill("uc_exc",`共 ${U.exceptions.length} 个：`
-    +U.exceptions.map(e=>`${e.structure}（${e.config}，高 ${e.pct.toFixed(1)}%）`).join("、")
-    +`。其中 ${v} 个是空位结构，另外的是 8×8 稀疏胞里的小岛与小坑。`);}}
+  fill("uc_exc",`${U.exceptions.length} in all: `
+    +U.exceptions.map(e=>`${e.structure} (${e.config}, ${e.pct.toFixed(1)}% higher)`).join(", ")
+    +`. ${v} are vacancy structures; the others are the small island and pit in the dilute 8\u00d78 cell. `);}}
 fill("ngeom2",String(NG));
 
 /* ---- the opening figure ---- */
 (function(){
   const n=document.getElementById("originfig"); if(!n) return;
   const src=`${D.imgbase}gallery/_lineage.png`;
-  const cap="33 个人工建构的结构，经弛豫、随机位移、集体形变与路径生成共 107 个几何；每个几何再对应若干电势点。";
-  n.append(zoomable(src,cap,"从人工建构的初始几何到 107 个被计算构型的分支图"),
-           el("div",{class:"caption"},cap), el("div",{class:"hint"},"点击放大"));
+  const cap="33 hand-built structures become 107 geometries through relaxation, random displacement, collective deformation and path images; each geometry then carries several potentials.";
+  n.append(zoomable(src,cap,"branching diagram from the hand-built geometries to the 107 computed ones"),
+           el("div",{class:"caption"},cap), el("div",{class:"hint"},"click to enlarge"));
 })();
 
 /* ---- sigma(U) ---- */
@@ -590,7 +760,7 @@ fill("ngeom2",String(NG));
       fill:"none",stroke:FC[g.f]||"#888","stroke-width":1.2,"stroke-opacity":.7,"stroke-linecap":"round"}));
   for(const u of [-0.2,0.2]) F.s.append(el("line",{x1:X(u),x2:X(u),y1:m.t,y2:h-m.b,
     stroke:CSS("--gold"),"stroke-width":1,"stroke-dasharray":"4 3","stroke-opacity":.7}));
-  F.s.append(el("text",{x:X(0.2)+5,y:m.t+13,"font-size":10,fill:CSS("--gold")},"统计口径边界 ±0.2 V"));
+  F.s.append(el("text",{x:X(0.2)+5,y:m.t+13,"font-size":10,fill:CSS("--gold")},"scope boundary \u00b10.2 V"));
   F.s.append(el("text",{x:(m.l+w-m.r)/2,y:h-5,"text-anchor":"middle","font-size":11,fill:CSS("--ink-2")},
     "U = μ₀ − μₑ   (V)"));
   F.s.append(el("text",{x:14,y:(m.t+h-m.b)/2,"text-anchor":"middle","font-size":11,fill:CSS("--ink-2"),
@@ -602,16 +772,16 @@ fill("ngeom2",String(NG));
 /* ---- decomposition table ---- */
 (function(){
   const t=document.getElementById("t_decomp");
-  t.append(el("thead",{},el("tr",{},...["范围","n","零电荷点跨度 (mV)","电容跨度 (%)","σ 散布：零电荷点项","电容项","比值"]
+  t.append(el("thead",{},el("tr",{},...["Set","n","U0 spread (mV)","C spread (%)","\u03c3 scale: U0 term","C term","ratio"]
     .map(h=>el("th",{},h)))));
   const tb=el("tbody");
-  const zh=k=>k==="all geometries"?"全部几何":k.replace(/^within cell A=(\d+) A\^2 \((.*)\)$/,"同一胞内 A=$1 Å² ($2)");
+  const zh=k=>k==="all geometries"?"all geometries":k.replace(/^within cell A=(\d+) A\^2 \((.*)\)$/,"within one cell, A=$1 Å² ($2)");
   for(const [k,v] of Object.entries(D.decomposition)){
     const w=v["U=+0.2V"];
     tb.append(el("tr",{},el("td",{},zh(k)),el("td",{class:"num"},String(v.n)),
       el("td",{class:"num"},fmt(v.U_pzc_spread_mV,0)),el("td",{class:"num"},fmt(v.C_spread_pct,1)),
       el("td",{class:"num"},fmt(w.from_pzc_shift_uC_per_cm2,2)),el("td",{class:"num"},fmt(w.from_capacitance_uC_per_cm2,2)),
-      el("td",{class:"num"},fmt(w.ratio_pzc_over_capacitance,1)+"倍")));}
+      el("td",{class:"num"},fmt(w.ratio_pzc_over_capacitance,1)+"\u00d7")));}
   t.append(tb);
 })();
 
@@ -635,8 +805,8 @@ fill("ngeom2",String(NG));
       F.s.append(el("circle",{cx:w-m.r+16,cy:y,r:4.4,fill:CSS("--surface"),stroke:CSS("--gold"),"stroke-width":1.6}));
       F.s.append(el("text",{x:w-m.r+25,y:y+3.6,"font-size":10,fill:CSS("--gold")},(v.dC>0?"+":"")+v.dC.toFixed(0)+"%"));}});
   F.s.append(el("text",{x:(m.l+w-m.r)/2,y:h-3,"text-anchor":"middle","font-size":11,fill:CSS("--ink-2")},
-    "相对同胞平整平台的零电荷点位移 (mV)"));
-  F.s.append(el("text",{x:w-m.r+12,y:m.t-13,"font-size":10,fill:CSS("--gold")},"电容变化"));
+    "shift of the zero-charge point vs the flat terrace in the same cell (mV)"));
+  F.s.append(el("text",{x:w-m.r+12,y:m.t-13,"font-size":10,fill:CSS("--gold")},"capacitance change"));
   document.getElementById("c_dpzc").append(F.s);
 })();
 
@@ -658,10 +828,10 @@ fill("ngeom2",String(NG));
   // lengths imply a ratio they do not carry
   if(lo<1&&hi>1){
     F.s.append(el("line",{x1:X(1),x2:X(1),y1:m.t-10,y2:h-m.b,stroke:CSS("--teal"),"stroke-width":1.6}));
-    F.s.append(el("text",{x:X(1)+5,y:m.t-2,"font-size":10.5,fill:CSS("--teal")},"体相浓度 K = 1"));}
+    F.s.append(el("text",{x:X(1)+5,y:m.t-2,"font-size":10.5,fill:CSS("--teal")},"bulk concentration K = 1"));}
   else{
     F.s.append(el("text",{x:m.l,y:m.t-2,"font-size":10.5,fill:CSS("--teal")},
-      `注意：横轴从 ${lo.toFixed(2)} 起，未含体相基线 K = 1`));}
+      `note: the axis starts at ${lo.toFixed(2)}, so the bulk baseline K = 1 is off-scale`));}
   rows.forEach(([k,v],i)=>{
     const y0=m.t+i*RH, present=CLS.filter(([c])=>v.regions[c]);
     const bh=Math.min(8,(RH-18)/Math.max(present.length,1));
@@ -672,14 +842,14 @@ fill("ngeom2",String(NG));
       const r=v.regions[c], y=y0+9+j*(bh+1.8);
       F.s.append(el("rect",{x:X(lo),y:y,width:Math.max(0,X(r.K)-X(lo)),height:bh,rx:1.5,fill:col,"fill-opacity":.9}));
       F.s.append(el("text",{x:X(r.K)+5,y:y+bh-0.4,"font-size":9,fill:CSS("--ink-2")},
-        r.K.toFixed(3)+"  (占面积 "+(100*r.a).toFixed(0)+"%)"));});
+        r.K.toFixed(3)+"  (area "+(100*r.a).toFixed(0)+"%)"));});
     F.s.append(el("line",{x1:X(v.regions.all.K),x2:X(v.regions.all.K),y1:y0+5,y2:y0+RH-7,stroke:CSS("--ink"),
       "stroke-width":1.2,"stroke-dasharray":"3 2"}));});
   F.s.append(el("text",{x:(m.l+w-m.r)/2,y:h-3,"text-anchor":"middle","font-size":11,fill:CSS("--ink-2")},
-    "KΩ = 该区域内阴离子浓度相对体相的倍数"));
+    "K\u03a9 = anion concentration in that region, relative to bulk"));
   document.getElementById("c_regions").append(F.s);
   document.getElementById("leg3").append(...CLS.map(([c,col])=>el("span",{},el("i",{class:"sw",style:`background:${col}`}),CZH[c])),
-    el("span",{},el("i",{class:"sw",style:`background:${CSS("--ink")}`}),"全胞平均"));
+    el("span",{},el("i",{class:"sw",style:`background:${CSS("--ink")}`}),"whole-cell mean"));
 })();
 
 /* ---- transfer function ---- */
@@ -688,11 +858,11 @@ fill("ngeom2",String(NG));
   if(!curves.length) return;
   const halves=curves.map(v=>v.tf.half).filter(x=>x);
   document.getElementById("s4").append(...[
-    [`${median(halves).toFixed(1)} Å`,"振幅衰减一半的波长（各几何的中位）"],
-    [`${curves.length}`,"两端电势齐全、参与分析的几何数"],
-    ["2.94 Å","Au–Au 最近邻间距，作为尺度参照"],
+    [`${median(halves).toFixed(1)} Å`,"wavelength at half amplitude (median over geometries)"],
+    [`${curves.length}`,"geometries with both end potentials, included here"],
+    ["2.94 Å","Au\u2013Au nearest-neighbour spacing, as a scale reference"],
     [`${(100*median(Object.values(D.transmission).map(v=>v.ratio).filter(x=>x))).toFixed(0)}%`,
-     "金属横向对比度存活到阴离子图的比例"],
+     "fraction of the metal's lateral contrast surviving into the anion map"],
   ].map(([v,l])=>el("div",{class:"stat"},el("div",{class:"v"},v),el("div",{class:"l"},l))));
   const bins=new Map();
   for(const v of curves) for(const [lam,T] of v.tf.b){
@@ -718,13 +888,13 @@ fill("ngeom2",String(NG));
   for(const p of pooled) F.s.append(el("circle",{cx:X(p.lam),cy:Y(p.T),r:3.2,fill:CSS("--teal")}));
   const hm=median(halves);
   F.s.append(el("line",{x1:X(hm),x2:X(hm),y1:m.t,y2:h-m.b,stroke:CSS("--gold"),"stroke-width":1.5,"stroke-dasharray":"5 3"}));
-  F.s.append(el("text",{x:X(hm)+6,y:m.t+14,"font-size":11,fill:CSS("--gold")},`半传输 ≈ ${hm.toFixed(1)} Å`));
+  F.s.append(el("text",{x:X(hm)+6,y:m.t+14,"font-size":11,fill:CSS("--gold")},`half transmission \u2248 ${hm.toFixed(1)} Å`));
   F.s.append(el("line",{x1:X(2.94),x2:X(2.94),y1:m.t,y2:h-m.b,stroke:CSS("--red"),"stroke-width":1.2,"stroke-dasharray":"2 3"}));
   F.s.append(el("text",{x:X(2.94)+5,y:h-m.b-9,"font-size":10,fill:CSS("--red")},"Au–Au 2.94 Å"));
   F.s.append(el("text",{x:(m.l+w-m.r)/2,y:h-5,"text-anchor":"middle","font-size":11,fill:CSS("--ink-2")},
-    "横向波长 λ  (Å，对数轴)"));
+    "in-plane wavelength \u03bb  (Å, log axis)"));
   F.s.append(el("text",{x:14,y:(m.t+h-m.b)/2,"text-anchor":"middle","font-size":11,fill:CSS("--ink-2"),
-    transform:`rotate(-90 14 ${(m.t+h-m.b)/2})`},"归一化传输率（对数）"));
+    transform:`rotate(-90 14 ${(m.t+h-m.b)/2})`},"normalised transmission (log)"));
   document.getElementById("c_tf").append(F.s);
 })();
 
@@ -735,7 +905,7 @@ fill("ngeom2",String(NG));
     const a=p.a.split("__"), b=p.b.split("__");
     if(!["ideal","relaxed"].includes(a[1])||!["ideal","relaxed"].includes(b[1])) continue;
     const key=[a[0],b[0]].sort().join("|"); if(seen.has(key)) continue; seen.add(key);
-    rows.push({l:`${a[0]} ${a[1]}  对  ${b[0]} ${b[1]}`,v:p.d_relative_Omega_eV,z:p.dU_pzc_mV});}
+    rows.push({l:`${a[0]} ${a[1]}  vs  ${b[0]} ${b[1]}`,v:p.d_relative_Omega_eV,z:p.dU_pzc_mV});}
   rows.sort((x,y)=>Math.abs(y.v)-Math.abs(x.v));
   const R=rows.slice(0,14); if(!R.length) return;
   const H=31,w=880,m={l:310,r:74,t:32,b:38},h=m.t+m.b+R.length*H;
@@ -745,7 +915,7 @@ fill("ngeom2",String(NG));
   F.s.append(el("rect",{x:X(-sc.max),y:m.t-8,width:X(sc.max)-X(-sc.max),height:h-m.b-m.t+8,
     fill:CSS("--ink-2"),"fill-opacity":.09}));
   F.s.append(el("text",{x:X(0),y:m.t-14,"text-anchor":"middle","font-size":10.5,fill:CSS("--ink-2")},
-    `同一形貌内部：|ΔΩ| 最大 ${(1000*sc.max).toFixed(0)} meV`));
+    `within one morphology: |\u0394\u03a9| at most ${(1000*sc.max).toFixed(0)} meV`));
   for(const t of [-0.03,-0.02,-0.01,0,0.01,0.02,0.03]){
     if(Math.abs(t)>lim) continue;
     F.s.append(el("line",{x1:X(t),x2:X(t),y1:m.t-8,y2:h-m.b,stroke:CSS("--line"),"stroke-width":1}));
@@ -758,7 +928,7 @@ fill("ngeom2",String(NG));
     F.s.append(el("text",{x:w-m.r+8,y:y+4,"font-size":10,fill:CSS("--muted")},
       r.z===null?"":`ΔU₀ ${r.z>0?"+":""}${r.z.toFixed(0)} mV`));});
   F.s.append(el("text",{x:(m.l+w-m.r)/2,y:h-3,"text-anchor":"middle","font-size":11,fill:CSS("--ink-2")},
-    "U = ±0.2 V 上的 Δ(Ωₐ − Ωᵦ)   (meV)"));
+    "\u0394(\u03a9\u2090 \u2212 \u03a9\u1d66) between U = \u00b10.2 V   (meV)"));
   document.getElementById("c_omega").append(F.s);
 })();
 
@@ -770,24 +940,24 @@ fill("ngeom2",String(NG));
   const mk=(id,label)=>{const b=el("button",{type:"button","aria-pressed":String(active===id),"data-f":id},label);
     b.addEventListener("click",()=>{active=id;[...bar.children].forEach(c=>c.setAttribute("aria-pressed",
       String(c.dataset.f===id)));render();}); return b;};
-  bar.append(mk("all",`全部 ${Object.keys(D.structures).length} 种`),
+  bar.append(mk("all",`all ${Object.keys(D.structures).length}`),
     ...fams.map(f=>mk(f,`${FZH[f]} (${Object.values(D.structures).filter(s=>s.f===f).length})`)));
   function render(){
     gal.textContent="";
     for(const [k,v] of Object.entries(D.structures).filter(([k,v])=>active==="all"||v.f===active)
         .sort((a,b)=>FAM.indexOf(a[1].f)-FAM.indexOf(b[1].f)||a[0].localeCompare(b[0]))){
-      const tags=[el("span",{class:"tag"},`${v.n} Au`),el("span",{class:"tag"},`面积 ${v.A} Å²`),
+      const tags=[el("span",{class:"tag"},`${v.n} Au`),el("span",{class:"tag"},`area ${v.A} Å²`),
         el("span",{class:"tag"},FZH[v.f]||v.f)];
-      if(v.cn.kink) tags.push(el("span",{class:"tag k"},`${v.cn.kink} 个 CN≤6`));
-      if(v.cn.edge) tags.push(el("span",{class:"tag e"},`${v.cn.edge} 个 CN 7–8`));
+      if(v.cn.kink) tags.push(el("span",{class:"tag k"},`${v.cn.kink} \u00d7 CN\u22646`));
+      if(v.cn.edge) tags.push(el("span",{class:"tag e"},`${v.cn.edge} \u00d7 CN 7\u20138`));
       if(v.C!=null) tags.push(el("span",{class:"tag"},`C ${v.C.toFixed(1)} µF/cm²`));
       if(v.z!=null) tags.push(el("span",{class:"tag"},`U₀ ${v.z>0?"+":""}${(1000*v.z).toFixed(0)} mV`));
       if(v.dz!=null) tags.push(el("span",{class:"tag"},`ΔU₀ ${v.dz>0?"+":""}${v.dz.toFixed(0)} mV`));
       gal.append(el("figure",{class:"gcard",style:"margin:0"},
-        el("div",{class:"ghead"},el("h3",{},k),el("span",{class:"small"},v.cfg==="ideal"?"理想构型":"弛豫构型")),
-        zoomable(`${D.imgbase}gallery/${k}.png`,`${k} · 简笔轮廓、俯视图与侧视图`,
-          `${k}：简笔轮廓、俯视图与侧视图，原子按配位数着色`),
-        v.sch?el("div",{class:"hint",style:"padding-top:10px;padding-bottom:0"},"轮廓："+v.sch):null,
+        el("div",{class:"ghead"},el("h3",{},k),el("span",{class:"small"},v.cfg==="ideal"?"ideal":"relaxed")),
+        zoomable(`${D.imgbase}gallery/${k}.png`,`${k} \u00b7 outline, top view and side view`,
+          `${k}: outline, top view and side view, atoms coloured by coordination number`),
+        v.sch?el("div",{class:"hint",style:"padding-top:10px;padding-bottom:0"},"outline: "+v.sch):null,
         el("div",{class:"gmeta"},...tags)));}
   }
   render();
@@ -800,9 +970,10 @@ fill("ngeom2",String(NG));
     const v=D.structures[k]||{};
     host.append(el("figure",{class:"gcard",style:"margin:0"},
       el("div",{class:"ghead"},el("h3",{},k),el("span",{class:"small"},FZH[v.f]||"")),
-      zoomable(`${D.imgbase}maps/${k}.png`,`${k} · 阴离子空间图`,
-        `${k}：阴离子过量、其随电势的变化、金属电子数变化与配位数图`),
-      el("div",{class:"hint"},"点击放大")));}
+      zoomable(`${D.imgbase}maps/${k}.png`,`${k} \u00b7 anion maps`,
+        `${k}: anion excess, its change with potential, the metal's electron-count change, and the `
+        +`coordination map`),
+      el("div",{class:"hint"},"click to enlarge")));}
 })();
 </script>
 """
@@ -811,12 +982,12 @@ fill("ngeom2",String(NG));
 # The Artifact platform wraps the file in its own document skeleton; GitHub Pages does not, so a standalone build
 # has to supply it. These are the parts of that skeleton the page actually relies on.
 SKELETON_HEAD = """<!doctype html>
-<html lang="zh-Hans">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="33 种 Au(111) 形貌在三个电子化学势下的恒电势 DFT 充电响应，以及有多少传递到了离子。">
+<meta name="description" content="Constant-potential DFT charging response of 33 Au(111) morphologies at three electron chemical potentials, and how much of it reaches the ions.">
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0}
