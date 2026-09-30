@@ -9,6 +9,8 @@
   "geometry_id": "Step-8x2__ideal__25c159395cb3",
   "A_proj": 119.78145623291701,
   "cn_counts": "edge 4, terrace 26, bulk 42",
+  "cn_counts_zh": "\u8fb9\u7f18 4  \u5e73\u53f0 26  \u6b21\u8868\u9762 42",
+  "family_zh": "\u6761\u5e26\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 4,
@@ -32,6 +34,8 @@
   "geometry_id": "Island-7-compact__ideal__791bbeaa8264",
   "A_proj": 269.50827652406326,
   "cn_counts": "kink 6, terrace 61, bulk 84",
+  "cn_counts_zh": "\u62d0\u89d2 6  \u5e73\u53f0 61  \u6b21\u8868\u9762 84",
+  "family_zh": "\u5355\u5c42\u5c9b",
   "cn_counts_dict": {
    "kink": 6,
    "edge": 0,
@@ -55,6 +59,8 @@
   "geometry_id": "A1-fcc__ideal__dae654c15784",
   "A_proj": 119.78145623291701,
   "cn_counts": "kink 1, terrace 29, bulk 35",
+  "cn_counts_zh": "\u62d0\u89d2 1  \u5e73\u53f0 29  \u6b21\u8868\u9762 35",
+  "family_zh": "\u70b9\u7f3a\u9677",
   "cn_counts_dict": {
    "kink": 1,
    "edge": 0,
@@ -78,6 +84,8 @@
   "geometry_id": "A1-hcp__ideal__f0af6d51e549",
   "A_proj": 119.78145623291701,
   "cn_counts": "kink 1, terrace 29, bulk 35",
+  "cn_counts_zh": "\u62d0\u89d2 1  \u5e73\u53f0 29  \u6b21\u8868\u9762 35",
+  "family_zh": "\u70b9\u7f3a\u9677",
   "cn_counts_dict": {
    "kink": 1,
    "edge": 0,
@@ -101,6 +109,8 @@
   "geometry_id": "A3__ideal__0a2dc2662874",
   "A_proj": 119.78145623291701,
   "cn_counts": "kink 3, terrace 25, bulk 39",
+  "cn_counts_zh": "\u62d0\u89d2 3  \u5e73\u53f0 25  \u6b21\u8868\u9762 39",
+  "family_zh": "\u70b9\u7f3a\u9677",
   "cn_counts_dict": {
    "kink": 3,
    "edge": 0,
@@ -124,6 +134,8 @@
   "geometry_id": "Au211__ideal__949f18784e31",
   "A_proj": 84.69827996269527,
   "cn_counts": "edge 8, terrace 8, bulk 32",
+  "cn_counts_zh": "\u8fb9\u7f18 8  \u5e73\u53f0 8  \u6b21\u8868\u9762 32",
+  "family_zh": "\u90bb\u6676\u9762\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 8,
@@ -147,6 +159,8 @@
   "geometry_id": "Au221__ideal__2e948d63458e",
   "A_proj": 51.86689200000004,
   "cn_counts": "edge 4, terrace 8, bulk 16",
+  "cn_counts_zh": "\u8fb9\u7f18 4  \u5e73\u53f0 8  \u6b21\u8868\u9762 16",
+  "family_zh": "\u90bb\u6676\u9762\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 4,
@@ -170,6 +184,8 @@
   "geometry_id": "Au332__ideal__f578c9d4d6dd",
   "A_proj": 40.54621460830976,
   "cn_counts": "edge 2, terrace 8, bulk 11",
+  "cn_counts_zh": "\u8fb9\u7f18 2  \u5e73\u53f0 8  \u6b21\u8868\u9762 11",
+  "family_zh": "\u90bb\u6676\u9762\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 2,
@@ -193,6 +209,8 @@
   "geometry_id": "Au554__ideal__cd99673dc9eb",
   "A_proj": 70.22810375618486,
   "cn_counts": "edge 2, terrace 16, bulk 18",
+  "cn_counts_zh": "\u8fb9\u7f18 2  \u5e73\u53f0 16  \u6b21\u8868\u9762 18",
+  "family_zh": "\u90bb\u6676\u9762\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 2,
@@ -216,6 +234,8 @@
   "geometry_id": "C1-island-near-step__ideal__2486ec5338ab",
   "A_proj": 239.56291246583402,
   "cn_counts": "kink 4, edge 9, terrace 45, bulk 93",
+  "cn_counts_zh": "\u62d0\u89d2 4  \u8fb9\u7f18 9  \u5e73\u53f0 45  \u6b21\u8868\u9762 93",
+  "family_zh": "\u590d\u5408\u5f62\u8c8c",
   "cn_counts_dict": {
    "kink": 4,
    "edge": 9,
@@ -239,6 +259,8 @@
   "geometry_id": "C2-island+pit__ideal__b433114f194a",
   "A_proj": 479.12582493166803,
   "cn_counts": "kink 6, edge 12, terrace 101, bulk 137",
+  "cn_counts_zh": "\u62d0\u89d2 6  \u8fb9\u7f18 12  \u5e73\u53f0 101  \u6b21\u8868\u9762 137",
+  "family_zh": "\u590d\u5408\u5f62\u8c8c",
   "cn_counts_dict": {
    "kink": 6,
    "edge": 12,
@@ -262,6 +284,8 @@
   "geometry_id": "Flat-16x1__ideal__234bab346496",
   "A_proj": 119.78145623291701,
   "cn_counts": "terrace 32, bulk 32",
+  "cn_counts_zh": "\u5e73\u53f0 32  \u6b21\u8868\u9762 32",
+  "family_zh": "\u5e73\u6574 Au(111)",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 0,
@@ -285,6 +309,8 @@
   "geometry_id": "Flat-8x2__ideal__8eddbc7a2602",
   "A_proj": 119.78145623291701,
   "cn_counts": "terrace 32, bulk 32",
+  "cn_counts_zh": "\u5e73\u53f0 32  \u6b21\u8868\u9762 32",
+  "family_zh": "\u5e73\u6574 Au(111)",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 0,
@@ -308,6 +334,8 @@
   "geometry_id": "Island-19-8x8__ideal__0b15ea7dd358",
   "A_proj": 479.12582493166803,
   "cn_counts": "kink 6, edge 6, terrace 108, bulk 155",
+  "cn_counts_zh": "\u62d0\u89d2 6  \u8fb9\u7f18 6  \u5e73\u53f0 108  \u6b21\u8868\u9762 155",
+  "family_zh": "\u5355\u5c42\u5c9b",
   "cn_counts_dict": {
    "kink": 6,
    "edge": 6,
@@ -331,6 +359,8 @@
   "geometry_id": "Island-7-8x8__ideal__e73d8e4d0ca4",
   "A_proj": 479.12582493166803,
   "cn_counts": "kink 6, terrace 117, bulk 140",
+  "cn_counts_zh": "\u62d0\u89d2 6  \u5e73\u53f0 117  \u6b21\u8868\u9762 140",
+  "family_zh": "\u5355\u5c42\u5c9b",
   "cn_counts_dict": {
    "kink": 6,
    "edge": 0,
@@ -354,6 +384,8 @@
   "geometry_id": "Island-7-elongated__ideal__169c1271614c",
   "A_proj": 269.50827652406326,
   "cn_counts": "kink 4, edge 3, terrace 60, bulk 84",
+  "cn_counts_zh": "\u62d0\u89d2 4  \u8fb9\u7f18 3  \u5e73\u53f0 60  \u6b21\u8868\u9762 84",
+  "family_zh": "\u5355\u5c42\u5c9b",
   "cn_counts_dict": {
    "kink": 4,
    "edge": 3,
@@ -377,6 +409,8 @@
   "geometry_id": "Kink-edge1__ideal__0a4b4cbb19ec",
   "A_proj": 179.6721843493755,
   "cn_counts": "kink 1, edge 6, terrace 37, bulk 65",
+  "cn_counts_zh": "\u62d0\u89d2 1  \u8fb9\u7f18 6  \u5e73\u53f0 37  \u6b21\u8868\u9762 65",
+  "family_zh": "\u62d0\u89d2 / \u8fb9\u7f18\u91cd\u6392",
   "cn_counts_dict": {
    "kink": 1,
    "edge": 6,
@@ -400,6 +434,8 @@
   "geometry_id": "Kink-edge2__ideal__6ffdcdbfea14",
   "A_proj": 179.6721843493755,
   "cn_counts": "kink 1, edge 6, terrace 38, bulk 64",
+  "cn_counts_zh": "\u62d0\u89d2 1  \u8fb9\u7f18 6  \u5e73\u53f0 38  \u6b21\u8868\u9762 64",
+  "family_zh": "\u62d0\u89d2 / \u8fb9\u7f18\u91cd\u6392",
   "cn_counts_dict": {
    "kink": 1,
    "edge": 6,
@@ -423,6 +459,8 @@
   "geometry_id": "Pit-19-8x8__ideal__4f0ab4b84b07",
   "A_proj": 479.12582493166803,
   "cn_counts": "edge 18, terrace 103, bulk 116",
+  "cn_counts_zh": "\u8fb9\u7f18 18  \u5e73\u53f0 103  \u6b21\u8868\u9762 116",
+  "family_zh": "\u5355\u5c42\u5751",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 18,
@@ -446,6 +484,8 @@
   "geometry_id": "Pit-7-8x8__ideal__5c83ee15111e",
   "A_proj": 479.12582493166803,
   "cn_counts": "edge 12, terrace 112, bulk 125",
+  "cn_counts_zh": "\u8fb9\u7f18 12  \u5e73\u53f0 112  \u6b21\u8868\u9762 125",
+  "family_zh": "\u5355\u5c42\u5751",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 12,
@@ -469,6 +509,8 @@
   "geometry_id": "Pit-7-compact__ideal__3885f5fc6fdb",
   "A_proj": 269.50827652406326,
   "cn_counts": "edge 12, terrace 56, bulk 69",
+  "cn_counts_zh": "\u8fb9\u7f18 12  \u5e73\u53f0 56  \u6b21\u8868\u9762 69",
+  "family_zh": "\u5355\u5c42\u5751",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 12,
@@ -492,6 +534,8 @@
   "geometry_id": "Pit-7-trench__ideal__7d7b5e791d4e",
   "A_proj": 269.50827652406326,
   "cn_counts": "edge 13, terrace 54, bulk 70",
+  "cn_counts_zh": "\u8fb9\u7f18 13  \u5e73\u53f0 54  \u6b21\u8868\u9762 70",
+  "family_zh": "\u5355\u5c42\u5751",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 13,
@@ -515,6 +559,8 @@
   "geometry_id": "R1-hcp-terminated__ideal__7618cb82f683",
   "A_proj": 119.78145623291701,
   "cn_counts": "terrace 32, bulk 32",
+  "cn_counts_zh": "\u5e73\u53f0 32  \u6b21\u8868\u9762 32",
+  "family_zh": "\u91cd\u6784\u76f8\u5173",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 0,
@@ -538,6 +584,8 @@
   "geometry_id": "R2-stripe-wall__ideal__4fc31e641288",
   "A_proj": 119.78145623291701,
   "cn_counts": "edge 2, terrace 31, bulk 32",
+  "cn_counts_zh": "\u8fb9\u7f18 2  \u5e73\u53f0 31  \u6b21\u8868\u9762 32",
+  "family_zh": "\u91cd\u6784\u76f8\u5173",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 2,
@@ -561,6 +609,8 @@
   "geometry_id": "Step-16x1__ideal__67e1e6a91868",
   "A_proj": 119.78145623291701,
   "cn_counts": "edge 2, terrace 29, bulk 41",
+  "cn_counts_zh": "\u8fb9\u7f18 2  \u5e73\u53f0 29  \u6b21\u8868\u9762 41",
+  "family_zh": "\u6761\u5e26\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 2,
@@ -584,6 +634,8 @@
   "geometry_id": "Step-16x2__ideal__67d374551088",
   "A_proj": 239.56291246583402,
   "cn_counts": "edge 4, terrace 58, bulk 82",
+  "cn_counts_zh": "\u8fb9\u7f18 4  \u5e73\u53f0 58  \u6b21\u8868\u9762 82",
+  "family_zh": "\u6761\u5e26\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 4,
@@ -607,6 +659,8 @@
   "geometry_id": "Step-24x1__ideal__6c2e77bf24c0",
   "A_proj": 179.6721843493755,
   "cn_counts": "edge 2, terrace 45, bulk 61",
+  "cn_counts_zh": "\u8fb9\u7f18 2  \u5e73\u53f0 45  \u6b21\u8868\u9762 61",
+  "family_zh": "\u6761\u5e26\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 2,
@@ -630,6 +684,8 @@
   "geometry_id": "Step-8x1__ideal__76f700b0afff",
   "A_proj": 59.890728116458504,
   "cn_counts": "edge 2, terrace 13, bulk 21",
+  "cn_counts_zh": "\u8fb9\u7f18 2  \u5e73\u53f0 13  \u6b21\u8868\u9762 21",
+  "family_zh": "\u6761\u5e26\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 2,
@@ -653,6 +709,8 @@
   "geometry_id": "Step-8x2_edge-vacancy_plus_foot-adatom__ideal__cc6ba4ff8a63",
   "A_proj": 119.78145623291701,
   "cn_counts": "kink 2, edge 4, terrace 23, bulk 43",
+  "cn_counts_zh": "\u62d0\u89d2 2  \u8fb9\u7f18 4  \u5e73\u53f0 23  \u6b21\u8868\u9762 43",
+  "family_zh": "\u62d0\u89d2 / \u8fb9\u7f18\u91cd\u6392",
   "cn_counts_dict": {
    "kink": 2,
    "edge": 4,
@@ -676,6 +734,8 @@
   "geometry_id": "T-4x4__ideal__8fa1fcc9706c",
   "A_proj": 119.78145623291701,
   "cn_counts": "terrace 32, bulk 32",
+  "cn_counts_zh": "\u5e73\u53f0 32  \u6b21\u8868\u9762 32",
+  "family_zh": "\u5e73\u6574 Au(111)",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 0,
@@ -699,6 +759,8 @@
   "geometry_id": "V1__ideal__9783e5791d1a",
   "A_proj": 119.78145623291701,
   "cn_counts": "edge 6, terrace 25, bulk 32",
+  "cn_counts_zh": "\u8fb9\u7f18 6  \u5e73\u53f0 25  \u6b21\u8868\u9762 32",
+  "family_zh": "\u70b9\u7f3a\u9677",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 6,
@@ -722,6 +784,8 @@
   "geometry_id": "V2__ideal__6ecdc750f1be",
   "A_proj": 119.78145623291701,
   "cn_counts": "edge 8, terrace 22, bulk 32",
+  "cn_counts_zh": "\u8fb9\u7f18 8  \u5e73\u53f0 22  \u6b21\u8868\u9762 32",
+  "family_zh": "\u70b9\u7f3a\u9677",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 8,
@@ -745,6 +809,8 @@
   "geometry_id": "V3__ideal__282b0bf2027f",
   "A_proj": 119.78145623291701,
   "cn_counts": "edge 9, terrace 20, bulk 32",
+  "cn_counts_zh": "\u8fb9\u7f18 9  \u5e73\u53f0 20  \u6b21\u8868\u9762 32",
+  "family_zh": "\u70b9\u7f3a\u9677",
   "cn_counts_dict": {
    "kink": 0,
    "edge": 9,

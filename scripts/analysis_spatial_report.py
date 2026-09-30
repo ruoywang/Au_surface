@@ -237,28 +237,49 @@ def main():
     pack(ch, reg, trans)
 
 
+CJK = matplotlib.font_manager.FontProperties(fname="/usr/share/fonts/google-droid/DroidSansFallback.ttf")
+
+
 def make_map(struct, gid, A, B, U_hi, U_lo):
     cell = A["cell"]; ngy, ngx = A["gamma_rel"].shape
     fx, fy = np.meshgrid((np.arange(ngx) + 0.5) / ngx, (np.arange(ngy) + 0.5) / ngy)
     X = fx * cell[0][0] + fy * cell[1][0]
     Y = fx * cell[0][1] + fy * cell[1][1]
-    panels = [("anion excess $\\Gamma_-$ at U = %+.2f V" % U_hi, A["gamma_rel"], "RdBu_r", None),
-              ("change $\\Delta\\Gamma_-$, U %+.2f $\\to$ %+.2f V" % (U_lo, U_hi), A["gamma_rel"] - B["gamma_rel"], "RdBu_r", None),
-              ("metal $\\Delta n_e$ over the same step", (A["ne_col"] - B["ne_col"]) if "ne_col" in A else None, "PuOr", None),
-              ("surface coordination number", A["cn_label"].astype(float), "viridis", (5.5, 12.5))]
+    # tile periodically so a sheared cell fills its panel and the motif's repeat is visible, as in the gallery
+    n1 = max(1, min(3, int(round(24.0 / np.linalg.norm(cell[0][:2])))))
+    n2 = max(1, min(3, int(round(24.0 / np.linalg.norm(cell[1][:2])))))
+    tiles = [(i * cell[0][0] + j * cell[1][0], i * cell[0][1] + j * cell[1][1])
+             for i in range(n1) for j in range(n2)]
+    xs = np.concatenate([X + t[0] for t in tiles]); ys = np.concatenate([Y + t[1] for t in tiles])
+    xlim = (xs.min(), xs.max()); ylim = (ys.min(), ys.max())
+    panels = [("阴离子过量 $\\Gamma_-$   U = %+.2f V" % U_hi, A["gamma_rel"], "RdBu_r", None,
+               "每单位投影面积的额外阴离子数"),
+              ("其变化 $\\Delta\\Gamma_-$   U %+.2f → %+.2f V" % (U_lo, U_hi), A["gamma_rel"] - B["gamma_rel"], "RdBu_r", None,
+               "红=阴离子增多"),
+              ("同一电势步长下金属的 $\\Delta n_e$", (A["ne_col"] - B["ne_col"]) if "ne_col" in A else None, "PuOr", None,
+               "每单位面积的电子数变化"),
+              ("表面配位数", A["cn_label"].astype(float), "viridis", (5.5, 12.5), "分区依据")]
     panels = [p for p in panels if p[1] is not None]
-    fig, axes = plt.subplots(1, len(panels), figsize=(3.5 * len(panels), 3.8), dpi=170)
-    for ax, (t, D, cm, lim) in zip(np.atleast_1d(axes), panels):
+    aspect = (ylim[1] - ylim[0]) / (xlim[1] - xlim[0])
+    PW = 4.3
+    fig, axes = plt.subplots(1, len(panels), figsize=(PW * len(panels), PW * aspect + 1.35), dpi=190)
+    for ax, (t, D, cm, lim, sub) in zip(np.atleast_1d(axes), panels):
         if lim: v0, v1 = lim
         else:
             m = np.abs(D - (0 if D.min() * D.max() < 0 else D.mean())).max()
             v0, v1 = (-m, m) if D.min() * D.max() < 0 else (D.min(), D.max())
-        im = ax.pcolormesh(X, Y, D, cmap=cm, vmin=v0, vmax=v1, shading="nearest", rasterized=True)
+        for tx, ty in tiles:
+            im = ax.pcolormesh(X + tx, Y + ty, D, cmap=cm, vmin=v0, vmax=v1, shading="nearest", rasterized=True)
         ax.set_aspect("equal"); ax.set_xticks([]); ax.set_yticks([])
-        ax.set_title(t, fontsize=7.6, color="#41474d", pad=3)
-        cb = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.02); cb.ax.tick_params(labelsize=6)
-    fig.suptitle(f"{struct} · {gid.split('__')[1]}", fontsize=11, y=0.99, color="#14181c")
-    fig.tight_layout(rect=(0, 0, 1, 0.94))
+        ax.set_xlim(*xlim); ax.set_ylim(*ylim)
+        for s in ax.spines.values(): s.set_color("#c9cdd2")
+        ax.set_title(t, fontproperties=CJK, fontsize=10.5, color="#2c3238", pad=7)
+        ax.text(0.5, -0.035, sub, transform=ax.transAxes, ha="center", va="top",
+                fontproperties=CJK, fontsize=8.6, color="#767d85")
+        cb = fig.colorbar(im, ax=ax, fraction=0.045, pad=0.015); cb.ax.tick_params(labelsize=7.5)
+    fig.suptitle(f"{struct} · {gid.split('__')[1]} · {n1}×{n2} 个胞", fontproperties=CJK, fontsize=13,
+                 y=0.985, color="#14181c")
+    fig.tight_layout(rect=(0, 0.01, 1, 0.94))
     fig.savefig(f"{MAPS}/{struct}.png", facecolor="white"); plt.close(fig)
 
 

@@ -31,20 +31,51 @@ ROOT = "/anvil/scratch/x-rywang/Au_Cl"
 OUT = f"{ROOT}/analysis/gallery"
 R_AU = 1.44
 CN_COLOR = {"kink": "#c0392b", "edge": "#e08a2e", "terrace": "#d8b34a", "bulk": "#9aa3ad"}
+# Droid Sans Fallback is the only CJK face on this machine and matplotlib 3.5 has no per-glyph fallback, so the
+# Angstrom sign must come from mathtext ($\AA$), which is typeset with the math font, not the text font.
+CJK = matplotlib.font_manager.FontProperties(fname="/usr/share/fonts/google-droid/DroidSansFallback.ttf")
+AA = r"$\mathrm{\AA}$"
+
+
+FAMILY_ZH = {"flat Au(111)": "平整 Au(111)", "point defect": "点缺陷", "reconstruction-related": "重构相关",
+             "strip step": "条带台阶", "vicinal step face": "邻晶面台阶", "kink / edge rearrangement": "拐角 / 边缘重排",
+             "single-layer island": "单层岛", "single-layer pit": "单层坑", "composite": "复合形貌"}
+CN_ZH = {"kink": "拐角", "edge": "边缘", "terrace": "平台", "bulk": "次表面"}
 
 
 def cn_class(c):
     return "kink" if c <= 6 else "edge" if c <= 8 else "terrace" if c == 9 else "bulk"
 
 
-def draw(ax, pts, colors, zs, r, lw=0.5):
-    order = np.argsort(zs)
-    zmin, zmax = (zs.min(), zs.max()) if len(zs) else (0, 1)
+SURFACE_BAND = 3.0      # A below the highest atom; the SAME surface set analysis_spatial.column_labels uses
+
+
+def exposed_atoms(atoms):
+    """The surface set: atoms within SURFACE_BAND of the highest one.
+
+    This is exactly the set the region analysis assigns columns to, so the emphasised atoms in the picture are the
+    atoms that carry a coordination label in the anion maps. It keeps BOTH terraces of a step (2.4 A apart) and the
+    step-foot row, which is over-coordinated but still faces the electrolyte; an absolute depth fade would wrongly
+    bury half of every stepped surface."""
+    z = atoms.get_positions()[:, 2]
+    return z > z.max() - SURFACE_BAND
+
+
+def draw(ax, pts, colors, depth, emph, r):
+    """Colour carries the coordination number. BRIGHTNESS and outline weight carry whether the atom is EXPOSED, so a
+    grey atom at the surface (a step foot, over-coordinated because the terrace above leans on it) is never confused
+    with a grey atom buried in the slab. Exposed atoms keep full colour and a dark outline; covered ones fade."""
+    order = np.argsort(depth)
+    dmax = depth.max() if len(depth) else 1.0
     for i in order:
-        f = 0.45 + 0.55 * ((zs[i] - zmin) / (zmax - zmin) if zmax > zmin else 1.0)   # depth cue
+        if emph[i]:
+            f, ec, lw, z = 1.0, "#23272c", 0.85, 3000
+        else:
+            f = float(np.clip(1.0 - (dmax - depth[i]) / 6.0, 0.22, 0.85)) ** 1.15
+            ec, lw, z = tuple(np.full(3, 0.96 - 0.28 * f)), 0.45, int(1500 * f)
         c = np.array(matplotlib.colors.to_rgb(colors[i]))
-        ax.add_patch(Circle(pts[i], r, facecolor=tuple(c * f + (1 - f) * 0.92), edgecolor="#2b2f36",
-                            linewidth=lw, zorder=int(1000 * f)))
+        ax.add_patch(Circle(pts[i], r, facecolor=tuple(c * f + (1 - f) * 0.975), edgecolor=ec,
+                            linewidth=lw, zorder=z + int(60 * depth[i])))
 
 
 TOP_DEPTH = 5.2         # A below the highest atom kept in the top view: two (111) terrace levels, no deep bulk
@@ -57,24 +88,26 @@ def render(sid, path, title, meta):
     pos = at.get_positions()
     cn = coordination(at)
     col = np.array([CN_COLOR[cn_class(c)] for c in cn])
+    exp = exposed_atoms(at)
     zt = pos[:, 2].max()
 
     n1 = max(1, min(4, int(round(TILE_TARGET / np.linalg.norm(cell[0][:2])))))
     n2 = max(1, min(4, int(round(TILE_TARGET / np.linalg.norm(cell[1][:2])))))
     keep = pos[:, 2] > zt - TOP_DEPTH
 
-    P, C, Z = [], [], []
+    P, C, Z, E = [], [], [], []
     for i in range(n1):
         for j in range(n2):
             sh = (i * cell[0] + j * cell[1])[:2]
-            P.append(pos[keep][:, :2] + sh); C.append(col[keep]); Z.append(pos[keep][:, 2])
-    P = np.vstack(P); C = np.concatenate(C); Z = np.concatenate(Z)
+            P.append(pos[keep][:, :2] + sh); C.append(col[keep]); Z.append(pos[keep][:, 2]); E.append(exp[keep])
+    P = np.vstack(P); C = np.concatenate(C); Z = np.concatenate(Z); E = np.concatenate(E)
 
     ns = max(1, min(3, int(round(TILE_TARGET / np.linalg.norm(cell[0][:2])))))
-    P2, C2, Z2 = [], [], []
+    P2, C2, Z2, E2 = [], [], [], []
     for i in range(ns):
         P2.append(np.c_[pos[:, 0] + i * cell[0][0], pos[:, 2]]); C2.append(col); Z2.append(pos[:, 1])
-    P2 = np.vstack(P2); C2 = np.concatenate(C2); Z2 = np.concatenate(Z2)
+        E2.append(exp)                                            # side view: same exposure flag, depth cue along y
+    P2 = np.vstack(P2); C2 = np.concatenate(C2); Z2 = np.concatenate(Z2); E2 = np.concatenate(E2)
 
     def ext(A):
         return A[:, 0].max() - A[:, 0].min() + 3 * R_AU, A[:, 1].max() - A[:, 1].min() + 3 * R_AU
@@ -90,7 +123,7 @@ def render(sid, path, title, meta):
                           left=0.015, right=0.985, top=top_frac, bottom=bot_frac)
 
     ax = fig.add_subplot(gs[0, 0]); ax.set_aspect("equal"); ax.axis("off")
-    draw(ax, P, C, Z, R_AU)
+    draw(ax, P, C, Z, E, R_AU)
     for i in range(n1):
         for j in range(n2):
             o = i * cell[0][:2] + j * cell[1][:2]
@@ -98,27 +131,29 @@ def render(sid, path, title, meta):
                     color="#8b9299", lw=0.7, ls=(0, (4, 3)), zorder=5000)
     ax.set_xlim(P[:, 0].min() - 1.5 * R_AU, P[:, 0].max() + 1.5 * R_AU)
     ax.set_ylim(P[:, 1].min() - 1.5 * R_AU, P[:, 1].max() + 1.5 * R_AU)
-    ax.set_title(f"top view · {n1}x{n2} cells · outermost {TOP_DEPTH:.1f} $\\AA$",
-                 fontsize=8.5, color="#4a5158", pad=3)
+    ax.set_title(f"俯视图 · {n1}×{n2} 个胞 · 最外 {TOP_DEPTH:.1f} " + AA,
+                 fontproperties=CJK, fontsize=9.5, color="#4a5158", pad=3)
 
     ax2 = fig.add_subplot(gs[0, 1]); ax2.set_aspect("equal"); ax2.axis("off")
-    draw(ax2, P2, C2, Z2, R_AU)
+    draw(ax2, P2, C2, Z2, E2, R_AU)
     ax2.axhline(zt + 4.2, color="#2e7d9a", lw=1.1, ls=(0, (5, 3)), zorder=6000)
-    ax2.text(P2[:, 0].min() - R_AU, zt + 4.8, "ion-accessible electrolyte above this line",
-             fontsize=7.2, color="#2e7d9a")
+    ax2.text(P2[:, 0].min() - R_AU, zt + 4.8, "此线以上为离子可达的电解质",
+             fontproperties=CJK, fontsize=8.2, color="#2e7d9a")
     ax2.set_xlim(P2[:, 0].min() - 1.5 * R_AU, P2[:, 0].max() + 1.5 * R_AU)
     ax2.set_ylim(P2[:, 1].min() - 1.5 * R_AU, zt + 7.0)
-    ax2.set_title(f"side view · {ns} cell(s) along a$_1$ · all layers", fontsize=8.5, color="#4a5158", pad=3)
+    ax2.set_title(f"侧视图 · 沿 a1 方向 {ns} 个胞 · 全部原子层",
+                  fontproperties=CJK, fontsize=9.5, color="#4a5158", pad=3)
 
     fig.text(0.5, 1 - 0.30 / FIGH, title, ha="center", va="top", fontsize=13.5, color="#14181c", weight="medium")
-    sub = (f"{meta['n_atoms']} Au   ·   $A_{{proj}}$ = {meta['A_proj']:.0f} $\\AA^2$   ·   {meta['family']}"
-           f"   ·   {meta['cn_counts']}")
-    fig.text(0.5, 1 - 0.68 / FIGH, sub, ha="center", va="top", fontsize=8.6, color="#5a616a")
+    sub = (f"{meta['n_atoms']} 个 Au   ·   投影面积 {meta['A_proj']:.0f} " + AA + "$^2$"
+           f"   ·   {meta['family_zh']}   ·   {meta['cn_counts_zh']}")
+    fig.text(0.5, 1 - 0.70 / FIGH, sub, ha="center", va="top", fontproperties=CJK, fontsize=9.2, color="#5a616a")
     h = [plt.Line2D([], [], marker="o", ls="", ms=7, mfc=CN_COLOR[k], mec="#2b2f36", mew=0.5, label=l)
-         for k, l in [("kink", "CN$\\leq$6  kink / adatom"), ("edge", "CN 7-8  step edge, island & pit rim"),
-                      ("terrace", "CN 9  terrace"), ("bulk", "CN$\\geq$10  sub-surface / step foot")]]
-    fig.legend(handles=h, loc="lower center", ncol=4, fontsize=7.6, frameon=False,
-               bbox_to_anchor=(0.5, 0.02 / FIGH))
+         for k, l in [("kink", "CN≤6  拐角 / 吸附原子"), ("edge", "CN 7–8  台阶边、岛与坑的边缘"),
+                      ("terrace", "CN 9  平整平台"), ("bulk", "CN≥10  台阶脚 / 岛脚 / 次表面")]]
+    lg = fig.legend(handles=h, loc="lower center", ncol=4, fontsize=8.4, frameon=False,
+                    bbox_to_anchor=(0.5, 0.02 / FIGH), prop=CJK)
+    for t in lg.get_texts(): t.set_fontproperties(CJK); t.set_fontsize(8.4)
     fig.savefig(f"{OUT}/{sid}.png", facecolor="white")
     plt.close(fig)
     return {c: int((np.array([cn_class(x) for x in cn]) == c).sum()) for c in CN_COLOR}
@@ -149,6 +184,8 @@ def main():
         cn = coordination(at)
         cc = collections_counter(cn)
         m["cn_counts"] = ", ".join(f"{k} {v}" for k, v in cc.items() if v)
+        m["cn_counts_zh"] = "  ".join(f"{CN_ZH[k]} {v}" for k, v in cc.items() if v)
+        m["family_zh"] = FAMILY_ZH.get(m["family"], m["family"])
         m["cn_counts_dict"] = cc
         render(sid, f"{m['dir']}/{m['geom']}", sid, m)
         pz = g.get("pzc", {})
