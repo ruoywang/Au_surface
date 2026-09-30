@@ -34,8 +34,8 @@ def main():
     for sid, m in gal.items():
         by.setdefault(m["family"], []).append(sid)
     lines = ["# 结构简笔示意 · 分族拼图", "",
-             "每张拼图取各结构图的最左一栏（简笔俯视轮廓 + 侧面剖线），原分辨率裁切，未缩放文字。",
-             "完整图（含按配位数着色的俯视图与侧视图）仍是每个结构一个 PNG。","注意：hcp 配准标记（蓝色 ×）、加上去的 Au（绿环）与移走的位点（紫色虚圆）画在完整图的俯视图上，""拼图这一栏看不到——例如 A1-fcc 与 A1-hcp 的简笔轮廓本来就相同，区别只在配准。", ""]
+             "每张拼图按族纵向拼接**完整图**，原分辨率、不裁切、不缩放，因此文字与单张一致。",
+             "完整图（含按配位数着色的俯视图与侧视图）仍是每个结构一个 PNG。","", ""]
     made = 0
     for fam in ORDER:
         sids = sorted(by.get(fam, []))
@@ -45,20 +45,22 @@ def main():
             p = f"{GAL}/{sid}.png"
             if not os.path.exists(p): continue
             a = plt.imread(p)
-            # also stop above the legend strip, which spans the full width and bleeds into the crop
-            imgs.append((sid, a[:int(0.88 * a.shape[0]), :int(LEFT_FRAC * a.shape[1])]))
+            # No cropping. Cropping to the schematic column cut through text, and for R1/R2 it removed the one
+            # column that carries the information (the registry marks live in the atom view). Full figures,
+            # native resolution, stacked -- nothing is lost and nothing is scaled down.
+            imgs.append((sid, a))
         if not imgs: continue
-        ncol = 2 if len(imgs) > 1 else 1
-        nrow = int(np.ceil(len(imgs) / ncol))
+        ncol = 1
+        nrow = len(imgs)
         hmax = max(im.shape[0] for _, im in imgs); wmax = max(im.shape[1] for _, im in imgs)
-        fig, axes = plt.subplots(nrow, ncol, figsize=(ncol * wmax / 190, nrow * (hmax / 190 + 0.42)), dpi=190)
+        fig, axes = plt.subplots(nrow, ncol, figsize=(wmax / 190, nrow * (hmax / 190 + 0.30)), dpi=190)
         axes = np.atleast_1d(axes).ravel()
         for ax in axes: ax.axis("off")
         for ax, (sid, im) in zip(axes, imgs):
             ax.imshow(im); ax.axis("off")
             # the CJK fallback face has no U+00C5; the sheet caption is plain text, so spell the unit
             note = gal[sid].get("schematic_note", "").replace("\u00c5", " 埃")
-            ax.set_title(f"{sid}", fontsize=11, color="#14181c", pad=2)
+            ax.set_title(f"{sid}", fontsize=12, color="#14181c", pad=1)
             ax.text(0.5, -0.02, note, transform=ax.transAxes, ha="center", va="top",
                     fontproperties=CJK, fontsize=7.6, color="#5a616a", wrap=True)
         fig.suptitle(f"{FAMILY_ZH.get(fam, fam)}　·　{len(imgs)} 个结构", fontproperties=CJK,
