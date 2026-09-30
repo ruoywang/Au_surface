@@ -51,14 +51,13 @@ SURFACE_BAND = 3.0      # A below the highest atom; the SAME surface set analysi
 
 
 def exposed_atoms(atoms):
-    """The surface set: atoms within SURFACE_BAND of the highest one.
+    """The surface set the picture emphasises: exactly the set the region analysis assigns columns to.
 
-    This is exactly the set the region analysis assigns columns to, so the emphasised atoms in the picture are the
-    atoms that carry a coordination label in the anion maps. It keeps BOTH terraces of a step (2.4 A apart) and the
-    step-foot row, which is over-coordinated but still faces the electrolyte; an absolute depth fade would wrongly
-    bury half of every stepped surface."""
-    z = atoms.get_positions()[:, 2]
-    return z > z.max() - SURFACE_BAND
+    It used to be "within 3 A of the highest atom", which on a flat (111) face also caught the second layer 2.4 A
+    below. The region analysis was corrected to the un-buried rule; this follows it, so the atoms drawn in full
+    colour are the atoms that actually carry a coordination label in the anion maps. Both terraces of a step and
+    the over-coordinated step-foot row stay in the set, as they should."""
+    return top_atoms(atoms)
 
 
 def draw(ax, pts, colors, depth, emph, r):

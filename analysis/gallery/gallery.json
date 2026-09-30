@@ -20,9 +20,9 @@
   "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 43%\u3001\u4e0b 57%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.03190535413326031,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 12.038416259412694,
+  "C_median_uF_cm2": 12.263718592883805,
   "dU_pzc_vs_cell_ref_mV": -41.313255677825836,
-  "dC_vs_cell_ref_pct": 8.385597638154142,
+  "dC_vs_cell_ref_pct": 8.049390081977492,
   "png": "Step-8x2.png"
  },
  "Island-7-compact": {
@@ -72,9 +72,9 @@
   "schematic_note": "\u9ad8\u51fa\u4e00\u5c42\u7684\u51f8\u8d77\uff0c\u5360\u9762\u79ef 3%\uff0c\u9ad8 2.4 \u00c5",
   "U_pzc_V": -0.06527082548166915,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 11.859652635286587,
+  "C_median_uF_cm2": 11.920161259404404,
   "dU_pzc_vs_cell_ref_mV": -65.30382548166932,
-  "dC_vs_cell_ref_pct": 7.617242149497727,
+  "dC_vs_cell_ref_pct": 7.282439063036983,
   "png": "A1-fcc.png"
  },
  "A1-hcp": {
@@ -98,9 +98,9 @@
   "schematic_note": "\u9ad8\u51fa\u4e00\u5c42\u7684\u51f8\u8d77\uff0c\u5360\u9762\u79ef 3%\uff0c\u9ad8 2.4 \u00c5",
   "U_pzc_V": -0.06647837067399359,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 11.850264426107701,
+  "C_median_uF_cm2": 11.910950646183682,
   "dU_pzc_vs_cell_ref_mV": -66.51137067399377,
-  "dC_vs_cell_ref_pct": 7.532051359208647,
+  "dC_vs_cell_ref_pct": 7.199542780840651,
   "png": "A1-hcp.png"
  },
  "A3": {
@@ -124,9 +124,9 @@
   "schematic_note": "\u9ad8\u51fa\u4e00\u5c42\u7684\u51f8\u8d77\uff0c\u5360\u9762\u79ef 9%\uff0c\u9ad8 2.4 \u00c5",
   "U_pzc_V": -0.08779458409932506,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 12.639189237917256,
+  "C_median_uF_cm2": 12.789859871738056,
   "dU_pzc_vs_cell_ref_mV": -87.82758409932524,
-  "dC_vs_cell_ref_pct": 14.690938311567002,
+  "dC_vs_cell_ref_pct": 15.1097986390059,
   "png": "A3.png"
  },
  "Au211": {
@@ -150,7 +150,7 @@
   "schematic_note": "\u8fde\u7eed\u503e\u659c\u7684\u5e73\u53f0\uff0c\u80de\u5185\u9ad8\u5dee 4.2 \u00c5 \u4e14\u65e0\u65ad\u5c42\u2014\u2014\u90bb\u6676\u9762\u7684\u5fae\u659c\u5207\u5272\uff0c\u53f0\u9636\u5e76\u5230\u80de\u8fb9",
   "U_pzc_V": -0.030633809491797698,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 11.424824453412928,
+  "C_median_uF_cm2": 11.56602268754735,
   "dU_pzc_vs_cell_ref_mV": null,
   "dC_vs_cell_ref_pct": null,
   "png": "Au211.png"
@@ -176,7 +176,7 @@
   "schematic_note": "\u8fde\u7eed\u503e\u659c\u7684\u5e73\u53f0\uff0c\u80de\u5185\u9ad8\u5dee 2.1 \u00c5 \u4e14\u65e0\u65ad\u5c42\u2014\u2014\u90bb\u6676\u9762\u7684\u5fae\u659c\u5207\u5272\uff0c\u53f0\u9636\u5e76\u5230\u80de\u8fb9",
   "U_pzc_V": -0.012502728957702824,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 11.92800280843357,
+  "C_median_uF_cm2": 12.137429964234382,
   "dU_pzc_vs_cell_ref_mV": null,
   "dC_vs_cell_ref_pct": null,
   "png": "Au221.png"
@@ -202,7 +202,7 @@
   "schematic_note": "\u8fde\u7eed\u503e\u659c\u7684\u5e73\u53f0\uff0c\u80de\u5185\u9ad8\u5dee 2.2 \u00c5 \u4e14\u65e0\u65ad\u5c42\u2014\u2014\u90bb\u6676\u9762\u7684\u5fae\u659c\u5207\u5272\uff0c\u53f0\u9636\u5e76\u5230\u80de\u8fb9",
   "U_pzc_V": 0.01679968855912074,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 11.772851030798313,
+  "C_median_uF_cm2": 12.012361092780395,
   "dU_pzc_vs_cell_ref_mV": null,
   "dC_vs_cell_ref_pct": null,
   "png": "Au332.png"
@@ -228,7 +228,7 @@
   "schematic_note": "\u8fde\u7eed\u503e\u659c\u7684\u5e73\u53f0\uff0c\u80de\u5185\u9ad8\u5dee 2.3 \u00c5 \u4e14\u65e0\u65ad\u5c42\u2014\u2014\u90bb\u6676\u9762\u7684\u5fae\u659c\u5207\u5272\uff0c\u53f0\u9636\u5e76\u5230\u80de\u8fb9",
   "U_pzc_V": 0.0658738623457803,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 11.486812735839841,
+  "C_median_uF_cm2": 11.717082410464283,
   "dU_pzc_vs_cell_ref_mV": null,
   "dC_vs_cell_ref_pct": null,
   "png": "Au554.png"
@@ -277,7 +277,7 @@
    "terrace": 101,
    "bulk": 137
   },
-  "schematic_note": "3 \u4e2a\u5206\u79bb\u7684\u9ad8\u5ea6\u5c42\uff0c\u6700\u9ad8\u5c42\u5360 8%",
+  "schematic_note": "3 \u4e2a\u5206\u79bb\u7684\u9ad8\u5ea6\u5c42\uff0c\u81ea\u4e0a\u800c\u4e0b\u5360 8%\u300177%\u300115%",
   "U_pzc_V": 0.016523916055531124,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.320452316635448,
@@ -306,7 +306,7 @@
   "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff08\u82e5\u4e0e\u5e73\u677f\u6709\u522b\uff0c\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6\uff09",
   "U_pzc_V": 0.07264910022058269,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 11.13323424722411,
+  "C_median_uF_cm2": 11.37703402065413,
   "dU_pzc_vs_cell_ref_mV": 0.0,
   "dC_vs_cell_ref_pct": 0.0,
   "png": "Flat-16x1.png"
@@ -332,7 +332,7 @@
   "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff08\u82e5\u4e0e\u5e73\u677f\u6709\u522b\uff0c\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6\uff09",
   "U_pzc_V": 0.07321860981108615,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 11.107025768869224,
+  "C_median_uF_cm2": 11.350104413897453,
   "dU_pzc_vs_cell_ref_mV": 0.0,
   "dC_vs_cell_ref_pct": 0.0,
   "png": "Flat-8x2.png"
@@ -436,7 +436,7 @@
   "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 48%\u3001\u4e0b 52%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.019937509858943908,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 12.08312599457578,
+  "C_median_uF_cm2": 12.313685966586526,
   "dU_pzc_vs_cell_ref_mV": null,
   "dC_vs_cell_ref_pct": null,
   "png": "Kink-edge1.png"
@@ -462,7 +462,7 @@
   "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 46%\u3001\u4e0b 54%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.009624000000000521,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 12.094563885844984,
+  "C_median_uF_cm2": 12.346838751485599,
   "dU_pzc_vs_cell_ref_mV": null,
   "dC_vs_cell_ref_pct": null,
   "png": "Kink-edge2.png"
@@ -592,9 +592,9 @@
   "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff08\u82e5\u4e0e\u5e73\u677f\u6709\u522b\uff0c\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6\uff09",
   "U_pzc_V": -0.009303000000000061,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 11.060122267520835,
+  "C_median_uF_cm2": 11.153033234258505,
   "dU_pzc_vs_cell_ref_mV": -9.336000000000233,
-  "dC_vs_cell_ref_pct": 0.3621179194915891,
+  "dC_vs_cell_ref_pct": 0.3782232709617972,
   "png": "R1-hcp-terminated.png"
  },
  "R2-stripe-wall": {
@@ -618,9 +618,9 @@
   "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff08\u82e5\u4e0e\u5e73\u677f\u6709\u522b\uff0c\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6\uff09",
   "U_pzc_V": 0.062173703730410805,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 11.052087247870205,
+  "C_median_uF_cm2": 11.21986350368762,
   "dU_pzc_vs_cell_ref_mV": -10.47539649017188,
-  "dC_vs_cell_ref_pct": -0.728871750579918,
+  "dC_vs_cell_ref_pct": -1.3814718025908945,
   "png": "R2-stripe-wall.png"
  },
  "Step-16x1": {
@@ -644,9 +644,9 @@
   "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 47%\u3001\u4e0b 53%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.04401333025405477,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 11.59350024457606,
+  "C_median_uF_cm2": 11.787365810211952,
   "dU_pzc_vs_cell_ref_mV": -28.635769966527917,
-  "dC_vs_cell_ref_pct": 4.134162518557538,
+  "dC_vs_cell_ref_pct": 3.6066675094132306,
   "png": "Step-16x1.png"
  },
  "Step-16x2": {
@@ -696,7 +696,7 @@
   "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 48%\u3001\u4e0b 52%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.06567900416731548,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 11.463926722650822,
+  "C_median_uF_cm2": 11.71153933517279,
   "dU_pzc_vs_cell_ref_mV": null,
   "dC_vs_cell_ref_pct": null,
   "png": "Step-24x1.png"
@@ -722,7 +722,7 @@
   "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 43%\u3001\u4e0b 57%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.031894335316453165,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 12.02421780145799,
+  "C_median_uF_cm2": 12.241078128822247,
   "dU_pzc_vs_cell_ref_mV": null,
   "dC_vs_cell_ref_pct": null,
   "png": "Step-8x1.png"
@@ -748,9 +748,9 @@
   "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 37%\u3001\u4e0b 63%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": -0.02356591614859102,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 12.235512057094887,
+  "C_median_uF_cm2": 12.462253107444791,
   "dU_pzc_vs_cell_ref_mV": -96.78452595967717,
-  "dC_vs_cell_ref_pct": 10.160112272257305,
+  "dC_vs_cell_ref_pct": 9.798576761862954,
   "png": "Step-8x2_edge-vacancy_plus_foot-adatom.png"
  },
  "T-4x4": {
@@ -774,7 +774,7 @@
   "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff08\u82e5\u4e0e\u5e73\u677f\u6709\u522b\uff0c\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6\uff09",
   "U_pzc_V": 3.300000000017178e-05,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 11.020216090291195,
+  "C_median_uF_cm2": 11.111008813288034,
   "dU_pzc_vs_cell_ref_mV": 0.0,
   "dC_vs_cell_ref_pct": 0.0,
   "png": "T-4x4.png"
@@ -800,9 +800,9 @@
   "schematic_note": "\u4f4e\u4e00\u5c42\u7684\u51f9\u9677\uff0c\u5360\u9762\u79ef 12%\uff0c\u6df1 2.4 \u00c5",
   "U_pzc_V": 0.01271795612596183,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 11.149356473205533,
+  "C_median_uF_cm2": 11.326269855013464,
   "dU_pzc_vs_cell_ref_mV": 12.684956125961659,
-  "dC_vs_cell_ref_pct": 1.17184982450671,
+  "dC_vs_cell_ref_pct": 1.9373672124892272,
   "png": "V1.png"
  },
  "V2": {
@@ -826,9 +826,9 @@
   "schematic_note": "\u4f4e\u4e00\u5c42\u7684\u51f9\u9677\uff0c\u5360\u9762\u79ef 23%\uff0c\u6df1 2.4 \u00c5",
   "U_pzc_V": 0.007662999999999975,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 11.421135480789355,
+  "C_median_uF_cm2": 11.6223444159026,
   "dU_pzc_vs_cell_ref_mV": 7.629999999999804,
-  "dC_vs_cell_ref_pct": 3.638035653868621,
+  "dC_vs_cell_ref_pct": 4.602062793821582,
   "png": "V2.png"
  },
  "V3": {
@@ -852,9 +852,9 @@
   "schematic_note": "\u4f4e\u4e00\u5c42\u7684\u51f9\u9677\uff0c\u5360\u9762\u79ef 28%\uff0c\u6df1 2.4 \u00c5",
   "U_pzc_V": 0.010364993593028372,
   "pzc_bracketed": true,
-  "C_median_uF_cm2": 11.802571930410322,
+  "C_median_uF_cm2": 12.00239953861604,
   "dU_pzc_vs_cell_ref_mV": 10.331993593028201,
-  "dC_vs_cell_ref_pct": 7.099278577743884,
+  "dC_vs_cell_ref_pct": 8.022590390369967,
   "png": "V3.png"
  }
 }

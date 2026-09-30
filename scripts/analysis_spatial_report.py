@@ -22,6 +22,7 @@ import collections
 import json
 import os
 import sys
+import time
 
 import numpy as np
 import matplotlib
@@ -255,12 +256,23 @@ def main():
             if arr is None: continue
             pp, c = contrast(arr)
             e[name] = dict(peak_to_peak=pp, contrast=c, mean=float(arr.mean()))
-        off = lateral_offset(d_gam, d_ne, cell)
-        tf = transfer_function(d_gam, d_ne, cell)
+        # SIGN. Charging positive REMOVES electrons (d_ne < 0) and ADDS anions (d_gam > 0). Comparing the two
+        # directly puts a pi phase between patterns that are actually in register, which the phase read-out would
+        # report as a half-wavelength displacement. Compare -d_ne (the metal's positive-charge change) with d_gam.
+        # The amplitude ratio and the transfer function are unaffected; only the phase is.
+        off = lateral_offset(d_gam, -d_ne, cell)
+        tf = transfer_function(d_gam, -d_ne, cell)
+        # A single robust spatial statement, with no mode picking: do the anions accumulate WHERE the metal takes on
+        # positive charge? Pearson r over all columns between -d_ne (positive-charge gain) and d_gam (anion gain).
+        # r > 0 = the two peak together; r < 0 = the anion response avoids the places the metal charges most.
+        # This is the map-level evidence for finding 3; the region averages alone could not locate a hot spot.
+        x = (-d_ne - (-d_ne).mean()).ravel(); y = (d_gam - d_gam.mean()).ravel()
+        rr = float(np.dot(x, y) / max(1e-30, np.linalg.norm(x) * np.linalg.norm(y)))
         s0 = S[pts[hi]]
         trans[gid] = dict(structure_id=s0["structure_id"], family=s0["family"],
                           config=("relaxed" if s0["config"] in ("relax", "relaxed") else s0["config"]),
                           U_lo=lo, U_hi=hi, n_atoms=s0["structure"]["n_atoms"], fields=e, offset=off, transfer=tf,
+                          corr_metal_ion=rr,
                           contrast_ratio_ion_over_metal=(e["anion_dGamma"]["contrast"] / e["metal_dne"]["contrast"]
                                                          if "metal_dne" in e and e["metal_dne"]["contrast"] else None))
     json.dump(dict(n_geometries=len(trans), geometries=trans), open(f"{ROOT}/analysis/spatial/transmission.json", "w"), indent=1)
@@ -298,22 +310,24 @@ def make_map(struct, gid, A, B, U_hi, U_lo):
              for i in range(n1) for j in range(n2)]
     xs = np.concatenate([X + t[0] for t in tiles]); ys = np.concatenate([Y + t[1] for t in tiles])
     xlim = (xs.min(), xs.max()); ylim = (ys.min(), ys.max())
-    panels = [("阴离子过量 $\\Gamma_-$   U = %+.2f V" % U_hi, A["gamma_rel"], "RdBu_r", None,
-               "每单位投影面积的额外阴离子数"),
-              ("其变化 $\\Delta\\Gamma_-$   U %+.2f → %+.2f V" % (U_lo, U_hi), A["gamma_rel"] - B["gamma_rel"], "RdBu_r", None,
-               "红=阴离子增多"),
-              ("同一电势步长下金属的 $\\Delta n_e$", (A["ne_col"] - B["ne_col"]) if "ne_col" in A else None, "PuOr", None,
-               "每单位面积的电子数变化"),
-              ("表面配位数", A["cn_label"].astype(float), "viridis", (5.5, 12.5), "分区依据")]
+    panels = [("阴离子过量 $\\Gamma_-$   U = %+.2f V" % U_hi, A["gamma_rel"], None, None,
+               "离子数 / $\\mathrm{\\AA}^2$（投影面积）"),
+              ("其变化 $\\Delta\\Gamma_-$   U %+.2f → %+.2f V" % (U_lo, U_hi), A["gamma_rel"] - B["gamma_rel"], None, None,
+               "离子数 / $\\mathrm{\\AA}^2$，正=阴离子增多"),
+              ("同一电势步长下金属的 $-\\Delta n_e$", (B["ne_col"] - A["ne_col"]) if "ne_col" in A else None, None, None,
+               "正电荷变化，$e/\\mathrm{\\AA}^2$，正=失去电子"),
+              ("表面配位数", A["cn_label"].astype(float), "viridis", (5.5, 12.5), "分区依据（离散标度）")]
     panels = [p for p in panels if p[1] is not None]
     aspect = (ylim[1] - ylim[0]) / (xlim[1] - xlim[0])
     PW = 4.3
     fig, axes = plt.subplots(1, len(panels), figsize=(PW * len(panels), PW * aspect + 1.35), dpi=190)
     for ax, (t, D, cm, lim, sub) in zip(np.atleast_1d(axes), panels):
-        if lim: v0, v1 = lim
-        else:
-            m = np.abs(D - (0 if D.min() * D.max() < 0 else D.mean())).max()
-            v0, v1 = (-m, m) if D.min() * D.max() < 0 else (D.min(), D.max())
+        if lim:
+            v0, v1 = lim
+        elif D.min() * D.max() < 0:                # crosses zero: diverging scale centred on zero
+            m = float(np.abs(D).max()); v0, v1 = -m, m; cm = cm or "RdBu_r"
+        else:                                      # all one sign: a diverging map would invent a false midpoint
+            v0, v1 = float(D.min()), float(D.max()); cm = cm or ("Reds" if D.mean() > 0 else "Blues_r")
         for tx, ty in tiles:
             im = ax.pcolormesh(X + tx, Y + ty, D, cmap=cm, vmin=v0, vmax=v1, shading="nearest", rasterized=True)
         ax.set_aspect("equal"); ax.set_xticks([]); ax.set_yticks([])
@@ -334,6 +348,8 @@ def pack(ch, reg, trans):
     G = ch["geometries"]
     geoms = {gid: dict(s=d["structure_id"], c=d["config"], f=d["family"], n=d["n_atoms"], A=round(d["A_proj"], 1),
                        pts=[[round(p["U"], 4), round(p["sigma_uC_per_cm2"], 4)] for p in d["points"]],
+                       # the +-0.5 V points kept separately: still incomplete, shown but never folded into a number
+                       ext=[[round(p["U"], 4), round(p["sigma_uC_per_cm2"], 4)] for p in d["all_points"] if not p["base"]],
                        C=round(float(np.median([x["C_uF_per_cm2"] for x in d["secants"]])), 3) if d["secants"] else None,
                        z=(round(d["pzc"]["U_pzc"], 5) if d["pzc"]["bracketed"] else None),
                        dz=(round(d["dU_pzc_vs_cell_ref_mV"], 1) if "dU_pzc_vs_cell_ref_mV" in d else None),
@@ -359,12 +375,28 @@ def pack(ch, reg, trans):
     tr = {g: dict(s=v["structure_id"], f=v["family"], cfg=v["config"], off=v["offset"].get("offset_A"),
                   period=v["offset"].get("period_A"), amp=v["offset"].get("amplitude_ratio_ion_over_metal"),
                   why=v["offset"].get("reason"), ratio=v["contrast_ratio_ion_over_metal"],
+                  r=v.get("corr_metal_ion"),
                   tf=(dict(d=round(v["transfer"]["d_eff_A"], 3), r2=round(v["transfer"]["r2"], 3),
                            half=(round(v["transfer"]["lambda_half_A"], 2) if v["transfer"]["lambda_half_A"] else None),
                            b=[[round(o["lam"], 3), round(o["Tn"], 6)] for o in v["transfer"]["bins"]])
                       if v.get("transfer") else None),
                   c={k: round(x["contrast"], 4) for k, x in v["fields"].items()}) for g, v in trans.items()}
-    out = dict(mu0=MU0, decomposition=ch["decomposition"], cell_groups=ch["cell_groups"],
+    import subprocess
+    try:
+        commit = subprocess.run(["git", "-C", ROOT, "rev-parse", "--short", "HEAD"],
+                                capture_output=True, text=True, timeout=10).stdout.strip() or None
+    except Exception:
+        commit = None
+    base_pts = sum(len(g["pts"]) for g in geoms.values())
+    ext_pts = sum(len(g["ext"]) for g in geoms.values())
+    snapshot = dict(built=time.strftime("%Y-%m-%d %H:%M"), commit=commit,
+                    n_structures=len(structs), n_geometries=len(geoms),
+                    n_base_states=base_pts, n_extension_states=ext_pts,
+                    base_potentials=[-5.1071, -4.9071, -4.7071], extension_potentials=[-5.4071, -4.4071],
+                    n_region_states=len(reg), n_region_structures=len(rsum), n_transmission=len(trans),
+                    policy=("每一个跨结构数值都只用三个基准电势（每个几何都齐全）。±0.5 V 扩展仍在计算、覆盖不全，"
+                            "只作为曲线叠加显示，不进入任何统计量。"))
+    out = dict(mu0=MU0, snapshot=snapshot, decomposition=ch["decomposition"], cell_groups=ch["cell_groups"],
                pairs=[p for p in ch["same_composition_pairs"] if not p["same_structure"]][:60],
                same_structure_pair_scale=dict(
                    median=float(np.median([abs(p["d_relative_Omega_eV"]) for p in ch["same_composition_pairs"] if p["same_structure"]])),

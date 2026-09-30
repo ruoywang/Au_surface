@@ -18,16 +18,21 @@ Three quantities are reported per geometry:
                                                           otherwise the distance to the nearest sampled point is given
                                                           and the row is marked "not bracketed" (no extrapolated PZC).
 
-Three points give two secants; five points (after the +-0.5 V extension) give four and show whether the slope varies.
+SCOPE. Every cross-structure number here uses only the three potentials every geometry has (-5.1071 / -4.9071 /
+-4.7071). The +-0.5 V extension is still running and covers some geometries and not others; folding it in as it
+arrives would compare a geometry sampled over +-0.5 V against one sampled over +-0.2 V and would move the published
+numbers every time a job finished. The extension points are kept on each geometry as `all_points` for plotting.
 No curvature fit is attempted on three points, and no PZC is extrapolated outside the sampled range.
 
-It also evaluates the grand-potential comparison for pairs of geometries with the SAME composition and cell:
+It also evaluates the grand-potential comparison for pairs of geometries with the SAME composition and cell. With
+dOmega/dmu = -N_e and U = mu_0 - mu_e, the potential-induced change across a symmetric window is
 
-    [Omega_A(mu2) - Omega_B(mu2)] - [Omega_A(mu1) - Omega_B(mu1)] = - int_{mu1}^{mu2} [N_A(mu) - N_B(mu)] dmu
+    D = [Omega_A - Omega_B]_{U=+w} - [Omega_A - Omega_B]_{U=-w} = + int_{mu_0-w}^{mu_0+w} [N_A(mu) - N_B(mu)] dmu
 
-integrated by the trapezoid rule over the shared sampled mu range. This is the potential-INDUCED relative
-stabilisation only: it does not say which is more stable at the reference potential, and it is not applied
-across different Au counts (that needs a reservoir term).
+(the sign follows because U = +w is the LOWER mu). D < 0 means A is relatively stabilised as U moves positive.
+This is the potential-INDUCED change only. It does NOT rank stability at the reference potential -- that needs the
+relative Omega there, which this dataset has not fixed -- so it cannot say whether the potential re-orders two
+morphologies. It is never applied across different Au counts (that needs a reservoir term).
 
 Usage (from Au_Cl/):  scripts/pyrun.sh scripts/analysis_charging.py
 Outputs: analysis/charging/{charging.json, charging_table.md, sigma_U.png, capacitance.png, pzc.png, domega.png}
@@ -52,7 +57,16 @@ FAMILY_COLOR = dict(zip(FAMILY_ORDER, ["#4c78a8", "#f58518", "#54a24b", "#b279a2
                                        "#72b7b2", "#eeca3b", "#9d755d", "#bab0ac"]))
 
 
+BASE_MU = {-5.1071, -4.9071, -4.7071}      # the three potentials EVERY geometry has; the +-0.5 V extension is partial
+BASE_LABEL = "+-0.2 V subset (complete for every geometry)"
+
+
 def load_geometries():
+    """Every geometry, with its points split into the complete base set and the still-incomplete extension.
+
+    Cross-structure numbers (PZC, secant capacitance, the scale comparison, the grand-potential pairs) are computed
+    on the BASE set only. Mixing in the +-0.5 V states as they arrive would silently compare a geometry sampled over
+    +-0.5 V with one sampled over +-0.2 V, and would change the published numbers every time a job finished."""
     S = json.load(open(f"{ROOT}/dataset_v1/states.json"))["states"]
     g = collections.defaultdict(lambda: dict(points=[]))
     for s in S.values():
@@ -66,13 +80,16 @@ def load_geometries():
         d["points"].append(dict(state_id=s["state_id"], TARGETMU=es["TARGETMU_eV"], mu_e=es["mu_e_actual_eV"],
                                 N_e=es["N_e_final"], q_e=es["delta_N_e"], campaign=s["campaign"]))
     for d in g.values():
-        d["points"].sort(key=lambda p: p["mu_e"])
         A = d["A_proj"]
         for p in d["points"]:
             p["U"] = MU0 - p["mu_e"]                                   # internal relative potential, volts
             p["sigma_e_per_A2"] = -p["q_e"] / A
             p["sigma_uC_per_cm2"] = -p["q_e"] / A * E_PER_A2_TO_UC_PER_CM2
+            p["base"] = round(p["TARGETMU"], 4) in BASE_MU
         d["points"].sort(key=lambda p: p["U"])
+        d["all_points"] = d["points"]
+        d["points"] = [p for p in d["points"] if p["base"]]            # everything below uses the base set only
+        d["n_extension_points"] = len(d["all_points"]) - len(d["points"])
     return dict(g)
 
 
@@ -126,7 +143,14 @@ def delta_omega_pairs(G, U_win=U_WINDOW):
             pa = sorted(A["points"], key=lambda p: p["mu_e"]); pb = sorted(B["points"], key=lambda p: p["mu_e"])
             NA = np.interp(grid, [p["mu_e"] for p in pa], [p["N_e"] for p in pa])
             NB = np.interp(grid, [p["mu_e"] for p in pb], [p["N_e"] for p in pb])
-            dOmega = -np.trapz(NA - NB, grid)                    # eV, change in (Omega_A - Omega_B) across the window
+            # SIGN. dOmega/dmu = -N, and U = mu0 - mu, so U = +win is the LOWER mu (mu_lo) and U = -win the higher.
+            #   D = [Om_A-Om_B](U=+win) - [Om_A-Om_B](U=-win)
+            #     = [Om_A-Om_B](mu_lo) - [Om_A-Om_B](mu_hi)
+            #     = -int_{mu_hi}^{mu_lo}(N_A-N_B) dmu  =  +int_{mu_lo}^{mu_hi}(N_A-N_B) dmu
+            # grid runs mu_lo -> mu_hi, so the integral is taken as-is. An earlier version negated it as well and
+            # therefore reported the opposite sign: with N_A-N_B = 1 over a +-0.2 V window it gave -0.4 eV
+            # instead of +0.4 eV, i.e. it named the wrong geometry as the one the potential stabilises.
+            dOmega = np.trapz(NA - NB, grid)                     # eV, change in (Omega_A - Omega_B) across the window
             pairs.append(dict(a=a, b=b, n_atoms=A["n_atoms"], family=A["family"], U_window_V=U_win,
                               same_structure=A["structure_id"] == B["structure_id"],
                               d_relative_Omega_eV=float(dOmega), mean_dN_e=float(np.mean(NA - NB)),
@@ -176,8 +200,16 @@ def cell_groups(G):
 
 
 def decompose(G, groups):
-    """How much of the cross-geometry spread of sigma at a fixed U comes from the PZC shift, and how much from the
-    capacitance difference? Using sigma(U) = C (U - U_pzc): d sigma = <C> d U_pzc + (U - <U_pzc>) d C."""
+    """Compare the SCALE of the two effects. Not a variance decomposition, and not a share of the variation.
+
+    With sigma_i = C_i (U - Z_i), expanding about a reference (C_0, Z_0) gives
+        d sigma_i = -C_0 dZ_i + (U - Z_0) dC_i - dC_i dZ_i,
+    i.e. a PZC term, a capacitance term AND a cross term, and across geometries dC and dZ are correlated. What is
+    computed here is only the size of the first two terms evaluated on the max-min SPANS:
+        A = <C> (max Z - min Z)        B = (max C - min C) |U - <Z>|
+    A/B says which effect operates on the larger scale in this sample. It must NOT be read as "A explains
+    A/(A+B) of the charge difference" -- that would need the cross term and the correlations, which this does not
+    touch. Reported as a scale ratio for exactly that reason."""
     out = {}
     for tag, sel in [("all geometries", list(G.values()))] + \
                     [(f"within cell A={g['A_proj']:.0f} A^2 ({', '.join(g['structures'][:3])}{'...' if len(g['structures'])>3 else ''})",
@@ -189,9 +221,9 @@ def decompose(G, groups):
         Cm, Zm = float(np.median(C)), float(np.median(Z))
         for U in (0.2, -0.2):
             out.setdefault(tag, {})[f"U={U:+.1f}V"] = dict(
-                from_pzc_shift_uC_per_cm2=Cm * (max(Z) - min(Z)),
-                from_capacitance_uC_per_cm2=(max(C) - min(C)) * abs(U - Zm),
-                ratio_pzc_over_capacitance=(Cm * (max(Z) - min(Z))) / max(1e-9, (max(C) - min(C)) * abs(U - Zm)))
+                scale_from_pzc_span_uC_per_cm2=Cm * (max(Z) - min(Z)),
+                scale_from_C_span_uC_per_cm2=(max(C) - min(C)) * abs(U - Zm),
+                scale_ratio=(Cm * (max(Z) - min(Z))) / max(1e-9, (max(C) - min(C)) * abs(U - Zm)))
         out[tag].update(n=len(sel), U_pzc_spread_mV=1000 * (max(Z) - min(Z)), C_spread_pct=100 * (max(C) - min(C)) / Cm,
                         C_median=Cm, U_pzc_median=Zm)
     return out
@@ -251,17 +283,19 @@ L += ["", "## Which matters more at a given potential: the PZC shift or the capa
 for tag, v in decomp.items():
     w = v["U=+0.2V"]
     L.append(f"| {tag} | {v['n']} | {v['U_pzc_spread_mV']:.0f} | {v['C_spread_pct']:.1f} | "
-             f"{w['from_pzc_shift_uC_per_cm2']:.2f} uC/cm2 | {w['from_capacitance_uC_per_cm2']:.2f} uC/cm2 | "
-             f"{w['ratio_pzc_over_capacitance']:.1f}x |")
+             f"{w['scale_from_pzc_span_uC_per_cm2']:.2f} uC/cm2 | {w['scale_from_C_span_uC_per_cm2']:.2f} uC/cm2 | "
+             f"{w['scale_ratio']:.1f}x |")
 L += ["", "(evaluated at U = +0.2 V; the ratio grows as U approaches the median PZC and shrinks far from it.)", ""]
 cross = [p for p in pairs if not p["same_structure"]]
 same = [p for p in pairs if p["same_structure"]]
 L += [f"## Potential-induced relative stabilisation, same composition and cell (fixed U window $\\pm${U_WINDOW} V)", "",
-      "d(Omega_A - Omega_B) = -int [N_A(mu) - N_B(mu)] dmu over the SAME window for every pair, so the values are "
-      "comparable. Negative means A is relatively stabilised as U becomes more positive. This is the potential-INDUCED "
-      "change only: it does not rank stability at the reference potential, and it is never taken across different Au "
-      "counts (that would need a reservoir term). N_A - N_B is nearly constant over this window, so the value tracks "
-      "the PZC offset, shown alongside.", "",
+      "D = +int_{mu0-w}^{mu0+w} [N_A(mu) - N_B(mu)] dmu over the SAME window for every pair, so the values are "
+      "comparable. The sign follows from dOmega/dmu = -N and U = mu0 - mu, which puts U = +w at the LOWER mu; an "
+      "earlier version negated the integral as well and so named the opposite geometry. D < 0 means A is relatively "
+      "stabilised as U becomes more positive. This is the potential-INDUCED change ONLY: without the relative Omega "
+      "at the reference potential it cannot say whether the potential re-orders the two morphologies, and it is never "
+      "taken across different Au counts. N_A - N_B is nearly constant over this window, so D tracks the PZC offset, "
+      "shown alongside.", "",
       f"{len(pairs)} pairs cover the window; {len(cross)} are between DIFFERENT structures. Those, largest first:", "",
       "| A | B | N | d(Omega_A-Omega_B) (eV) | mean N_A-N_B (e) | dU_pzc (mV) |", "|---|---|---|---|---|---|"]
 for p in cross[:40]:
