@@ -140,12 +140,17 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
   <div class="eyebrow">恒电势 DFT · VASP + VASPsol++ · 1 M 隐式电解质</div>
   <h1>Au 表面形貌与充电响应</h1>
   <p class="lede" style="margin-top:14px">以 Au(111) 台面及相关邻晶面（Au(211)、(221)、(332)、(554)）为对象：表面形貌如何改变
-  金属容纳电荷的能力，以及这种原子尺度的差别有多少真正传递到液相中的离子。</p>
+  金属容纳电荷的能力，以及这种原子尺度的差别有多少真正传递到液相中的离子。两条主要结果：
+  <b>金属上最容易积累正电荷的位置，不一定是阴离子富集最强的位置</b>；
+  <b>原子数不变、只把一颗 Au 换个位置，就能明显平移充电曲线</b>——所以"缺陷种类"这个标签不足以概括充电响应。</p>
   <div class="kicker" id="kicker"></div>
   <div class="note" style="margin-top:20px;max-width:none"><b>数据范围（所有图表共用同一口径）。</b><span id="scope"></span></div>
 </div></header>
 
 <nav class="sticky"><div class="wrap">
+  <a href="#origin">结构从哪来</a>
+  <a href="#f-local">整体充电 ≠ 局部富集</a>
+  <a href="#f-move">一颗原子换位置</a>
   <a href="#pzc">一 · 变的是零电荷点</a>
   <a href="#which">二 · 哪些形貌，往哪个方向</a>
   <a href="#where">三 · 阴离子究竟在哪里增多</a>
@@ -158,6 +163,59 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
 </div></nav>
 
 <div class="wrap">
+
+<section id="origin"><div class="finding">
+  <div><div class="eyebrow">结构来源</div><h2>从 Au 晶体到缺陷构型：结构库的生成与采样</h2></div>
+  <p class="lede">这张图回答的是"这些结构为什么存在、怎么构建、哪些之间才是受控对照"。
+  每条箭头旁写的是<b>几何操作</b>，不是结构名称，操作取自实际写出 POSCAR 的建构脚本。
+  单看下面的 33 张结构图，Island-7-compact 与 Island-7-elongated 像是两个无关的岛；
+  谱系图说明它们是<b>同一个胞里同样七个原子的两种排布</b>。</p>
+  <div class="card pad" id="originfig"></div>
+  <div class="note"><b>两件容易误会的事。</b>
+  <br>· <b>四个高指数面不是"在 Au(111) 上加一条带"得到的。</b>Au(221)/(332)/(554) 由立方胞直接按 (hkl) 切割
+  （面间距 a/(2√(h²+k²+l²)) = 0.693 / 0.443 / 0.256&nbsp;&Aring;），构成同一条路线上的台面宽度系列；
+  Au(211) 由 <code>ase.build.fcc211</code> 生成，不是同一个生成器，也不在那个宽度系列里。
+  <br>· <b><span data-n="ngeom2"></span> 个几何不是 <span data-n="ngeom2"></span> 个独立设计的缺陷。</b>
+  其中 33 个是人工建构的；其余是它们在公共参考电势下的弛豫几何，以及由弛豫几何生成的随机位移、集体形变与路径像。
+  <br><br><b>这套采样是什么，不是什么。</b>结构类别由晶体学与几何操作构建；弛豫提供局部参考态；扰动与路径用于覆盖
+  非平衡构型。它们<b>不是</b>分子动力学中自然出现频率的统计，也<b>不是</b> DFT 自动找出的全部稳定形貌。
+  同一个几何再对应若干电势点，但并非每个几何都有五个电势点。</div>
+</div></section>
+
+<section id="f-local"><div class="finding">
+  <div><div class="eyebrow">主要结果 A</div><h2>金属上最容易积累正电荷的位置，不一定是阴离子富集最强的位置</h2></div>
+  <p class="claim">A1-hcp（平板加一个吸附原子）在 U&nbsp;=&nbsp;<span data-n="fl_U"></span> 时，
+  吸附原子所在低配位区的平均阴离子富集 <span data-n="fl_Kad"></span>，<b>低于</b>它周围台面的
+  <span data-n="fl_Kte"></span>。与此同时整个电极更正：<span data-n="fl_sig"></span>。
+  在条带台阶上这种错位更直接——<span data-n="fl_step"></span>。</p>
+  <div class="card pad" id="localfig"></div>
+  <div class="note"><b>这里不能说"吸附原子排斥阴离子"。</b>K&nbsp;&gt;&nbsp;1 说明该区仍然富集，只是不如台面强。
+  准确的说法是：<b>在本模型与本积分口径下，凸出的低配位位点可以增强整体正向充电，却不一定增强其正上方区域的平均阴离子富集。</b>
+  这把三件事分开了——整个电极带多少电、金属电荷集中在哪里、离子在哪片可达液体中最多。
+  <br><br><b>不是孤例。</b>整个数据集里，低配位区的富集低于同一结构台面的有 <span data-n="corr2"></span>。
+  台阶上的错位在五个条带胞（三种台面宽度、两种沿边周期）里都出现，位移 4.3&ndash;4.6&nbsp;&Aring;，方向一致朝下台面。
+  <br><br><b>机制上还不能定论。</b>自洽电势、介电屏蔽与离子可达空间在连续电解质模型里是耦合的，仅凭上面的排序
+  不足以判定哪一项占主导。本数据也<b>不支持</b>"台阶两条边的金属响应显著不同"：
+  Step-16x1 两条边的金属峰是 1.67&times; 与 1.69&times;，差约 1%。</div>
+</div></section>
+
+<section id="f-move"><div class="finding">
+  <div><div class="eyebrow">主要结果 B</div><h2>原子数不变，只把一颗 Au 换个位置，充电曲线就整体平移</h2></div>
+  <p class="claim">Step-8x2 与 Step-8x2_edge-vacancy_plus_foot-adatom 在<b>同一个胞</b>里、同样 72 个 Au，
+  差别只是一颗台阶边缘原子移到了脚部空位。零电荷电势 <span data-n="mv_pzc"></span>，
+  而割线电容 <span data-n="mv_C"></span>。两条 &sigma;(U) 斜率接近，横向位置不同。</p>
+  <div class="card pad" id="movefig"></div>
+  <div class="note"><b>有意思的不是"多一个缺陷所以充电变了"。</b>原子数量没有改变，只是放置位置变了，
+  充电曲线就明显平移。更有用的表述是：<b>在当前电势区间内，某些局部重排首先改变的是界面充电的零点，
+  而不是显著改变整条曲线的斜率。</b>这里不是在比较"毫伏"和"百分比"哪个大，而是在描述两条曲线的形状与位置。
+  <br><br><b>弛豫本身也能移动几十毫伏。</b>在 <span data-n="rx_n"></span> 个同时有理想与弛豫几何的结构里，
+  弛豫使零电荷点移动的中位幅度 <span data-n="rx_med"></span>，最大 <span data-n="rx_max"></span>
+  （<span data-n="rx_top"></span>）。相比之下跨形貌的零电荷点总跨度是 <span data-n="pzcspread2"></span>。
+  所以"A1""Au211""R2"这些<b>名字并不足以唯一决定它们的电化学响应</b>；只用各类理想缺陷的一张 POSCAR 做排名，
+  容易把理想几何的偶然特征当成整个结构族的规律。这正是采集弛豫、位移与路径构型的理由。
+  <br><br><b>不能据此说什么。</b>不能说"正电势使这个原子更容易移动"，也不能说"这个终态更稳定"——
+  那需要相对巨势基准与合适的路径能量。当前能确认的是：不同的原子排列具有不同的充电响应。</div>
+</div></section>
 
 <section id="pzc"><div class="finding">
   <div><div class="eyebrow">结论一</div><h2>同一电势下的电荷差异，更多体现为零电荷位置的变化</h2></div>
@@ -200,9 +258,12 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
 
 <section id="where"><div class="finding">
   <div><div class="eyebrow">结论三</div><h2>整体充电变强，与某处离子变多，不是同一件事</h2></div>
-  <p class="claim">按最近表面原子的配位数给阴离子过量分区后，低配位位点的区域平均富集<em>低于</em>周围平台：在全部 41 个
-  同时含低配位区与平台区的理想／弛豫几何中有 37 个如此，中位低 1.5%，最多低 6.1%（A3 的三吸附原子）。四个例外全是
-  空位边缘，超出量只有 0.1%–0.3%。两种积分口径给出相同的排序。</p>
+  <p class="claim">按最近表面原子的配位数给阴离子过量分区后，低配位位点（CN&nbsp;&le;&nbsp;8，按面积加权）的区域平均富集
+  <em>低于</em>同一结构的平台区：<span data-n="uc_main"></span>。取每个几何最正的采样电势，只用理想与弛豫几何。例外见
+  下面的例外表；两种积分口径给出相同的排序。</p>
+  <div class="note" style="margin-top:0"><b>例外。</b><span data-n="uc_exc"></span>
+  这个计数以前是写死在正文里的 37/41、四个例外；现在由 <code>regions.json</code> 在建站时重算并写入，
+  定义（CN&nbsp;&le;&nbsp;8 按面积加权、取最正采样电势、只用理想与弛豫几何）也一并写出。</div>
   <p class="claim" style="border-left-color:var(--teal)">逐柱的空间相关进一步支持这一点：把金属的正电荷增量
   (&minus;&Delta;n<sub>e</sub>) 与阴离子增量 (&Delta;&Gamma;<sub>&minus;</sub>) 按柱子求相关，
   <span data-n="corr"></span>。这描述的是整张图上的<b>空间共变关系</b>：两者的起伏总体反号。它不直接给出峰位，也不保证每个结构的极大值都错开；具体位置请看下方各结构的空间图。</p>
@@ -376,8 +437,21 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
 
 <section id="revlog"><div class="finding">
   <div><div class="eyebrow">修订记录</div><h2>改过什么，为什么改</h2></div>
-  <p class="lede">正文只保留当前正确的解释。这里记录两轮外部审查之后的实质改动，便于追溯；每一项在改之前都用数据或
+  <p class="lede">正文只保留当前正确的解释。这里记录历次外部审查之后的实质改动，便于追溯；每一项在改之前都用数据或
   单元检验复核过。</p>
+  <details open><summary style="cursor:pointer;font-weight:500;padding:10px 0">最近一轮（结构来源与主要结果）</summary>
+  <ul class="small" style="line-height:1.9;max-width:62em">
+    <li><b>新增结构生成谱系图。</b>此前 33 张结构图说明了每个结构长什么样，却没有说明哪些之间是受控对照。
+      谱系图把每一步几何操作写在箭头上，并把四个高指数面从"Au(111) 加条带"那一支里分出来——它们由不同的生成器
+      直接按晶面切割。</li>
+    <li><b>低配位区与平台的比较由写死改为重算。</b>正文原来写"41 个几何中 37 个、四个例外全是空位边缘，
+      超出量只有 0.1%–0.3%"，而这个数字没有记录它的定义，也无法从 <code>regions.json</code> 复现。
+      现在建站时按明确定义重算：<span data-n="uc_main"></span>；例外是
+      <span data-n="uc_exc"></span>旧说法漏掉了其中两个，并低估了最大超出量。</li>
+    <li><b>邻晶面剖面上的"台面倾角"撤下。</b>原先标的是高度分区剖面的 ptp/(L−网格步长)，即沿单一晶格方向、
+      跨近一个周期的表观斜率。Au554 给 5.6° 对名义 5.77° 只是巧合；Au211 给 25.8° 对名义 19.47°。
+      现在只标由晶面法向算出的名义夹角，并注明不是本图的测量值。</li>
+  </ul></details>
   <details><summary style="cursor:pointer;font-weight:500;padding:10px 0">第二轮（图示表达）</summary>
   <ul class="small" style="line-height:1.9;max-width:62em">
     <li><b>删除图中人为画的"离子可达边界"。</b>原来在原子侧视图上于最高原子上方固定 4.2&nbsp;&Aring;、在简笔剪影上固定
@@ -504,7 +578,56 @@ fill("ngeom",String(NG));
  fill("corr",`${rs.length} 个几何里有 ${neg} 个为负，中位 r = ${median(rs).toFixed(2)}`);
  const hs=T.map(v=>v.tf&&v.tf.half).filter(x=>x);
  fill("half",`半衰波长 ${median(hs).toFixed(1)} Å`);
- fill("ratio",`对比度比 ${(100*median(T.map(v=>v.ratio).filter(x=>x))).toFixed(0)}%`);}
+ fill("ratio",`对比度比 ${(100*median(T.map(v=>v.ratio).filter(x=>x))).toFixed(0)}%`);
+}
+{const U=D.undercoord;
+ if(U){
+  const txt=`${U.n} 个同时含低配位区与平台区的几何里有 ${U.n_lower} 个，`
+    +`中位低 ${Math.abs(U.median_pct).toFixed(1)}%，最多低 ${Math.abs(U.min_pct).toFixed(1)}%（${U.min_structure}）`;
+  fill("uc_main",txt); fill("corr2",txt);
+  const v=U.exceptions.filter(e=>/^V[0-9]/.test(e.structure)).length;
+  fill("uc_exc",`共 ${U.exceptions.length} 个：`
+    +U.exceptions.map(e=>`${e.structure}（${e.config}，高 ${e.pct.toFixed(1)}%）`).join("、")
+    +`。其中 ${v} 个是空位结构，另外的是 8×8 稀疏胞里的小岛与小坑。`);}}
+fill("ngeom2",String(NG));
+fill("pzcspread2",`${PZCSPREAD.toFixed(0)} mV`);
+
+/* ---- the three lead figures, and every number quoted beside them ---- */
+(function(){
+  const FD=D.findings; if(!FD) return;
+  const L=FD.local, M=FD.move, R=FD.relax;
+  const put=(id,src,cap,alt)=>{const n=document.getElementById(id); if(n)
+    n.append(zoomable(src,cap,alt), el("div",{class:"caption"},cap), el("div",{class:"hint"},"点击放大"));};
+  put("originfig",`${D.imgbase}gallery/_lineage.png`,
+      "结构生成谱系：上半部分是结构种类的来源，箭头上写的是几何操作；下半部分是一个几何如何变成多个计算构型。",
+      "从 fcc Au 晶体到 33 种结构，再到 107 个几何的生成谱系图");
+  put("localfig",`${D.imgbase}gallery/_finding_local.png`,
+      "左：A1-hcp 的区域平均阴离子富集，吸附原子区低于周围台面。右：Step-16x1 上金属响应与阴离子响应的剖面，"
+      +"各自对自身整胞平均归一化；金属的峰在台阶边，阴离子的峰在下台面里几个埃处。",
+      "区域富集柱状图与台阶剖面");
+  put("movefig",`${D.imgbase}gallery/_finding_move.png`,
+      "左、中：Step-8x2 与把一颗边缘 Au 移到脚部之后的结构，紫圈是原位点、绿圈是新位置。"
+      +"右：两条 σ(U)，斜率接近而横向位置不同。",
+      "同组成对照的结构与两条充电曲线");
+  fill("fl_U",`${L.U.toFixed(4)} V`);
+  fill("fl_Kad",`K = ${L.K_adatom.toFixed(4)}（占面积 ${(100*L.area_adatom).toFixed(0)}%）`);
+  fill("fl_Kte",`K = ${L.K_terrace.toFixed(4)}`);
+  fill("fl_sig",`A1-hcp 的整胞面电荷 ${L.sigma_A1hcp>0?"+":""}${L.sigma_A1hcp.toFixed(2)} μC/cm²，`
+               +`同胞平板 T-4x4 是 ${L.sigma_T4x4>0?"+":""}${L.sigma_T4x4.toFixed(2)} μC/cm²`
+               +`（U = ${L.U_A1hcp.toFixed(4)} 与 ${L.U_T4x4.toFixed(4)} V，接近但不完全相等）`);
+  fill("fl_step",`${L.step} 上金属响应的峰在台阶边、达整胞平均的 ${L.metal_peak.toFixed(2)} 倍，`
+                +`而阴离子响应的峰移到下台面里 ${Math.min(...L.offsets_A.map(Math.abs)).toFixed(1)}–`
+                +`${Math.max(...L.offsets_A.map(Math.abs)).toFixed(1)} Å 处，只有 ${L.ion_peak.toFixed(2)} 倍`);
+  const A="Step-8x2", B="Step-8x2_edge-vacancy_plus_foot-adatom";
+  fill("mv_pzc",`从 ${M[A].U_pzc_mV>0?"+":""}${M[A].U_pzc_mV.toFixed(1)} mV 移到 `
+               +`${M[B].U_pzc_mV>0?"+":""}${M[B].U_pzc_mV.toFixed(1)} mV，共 ${M.dU_pzc_mV.toFixed(1)} mV`);
+  fill("mv_C",`只从 ${M[A].C.toFixed(2)} 变到 ${M[B].C.toFixed(2)} μF/cm²（${M.dC_pct>0?"+":""}`
+             +`${M.dC_pct.toFixed(1)}%）`);
+  fill("rx_n",String(R.n));
+  fill("rx_med",`${R.median_abs_dU_mV.toFixed(1)} mV`);
+  fill("rx_max",`${R.max_abs_dU_mV.toFixed(1)} mV`);
+  fill("rx_top",R.top.slice(0,3).map(t=>`${t.structure} ${t.dU_mV>0?"+":""}${t.dU_mV.toFixed(1)} mV`).join("、"));
+})();
 
 /* ---- sigma(U) ---- */
 (function(){
@@ -769,6 +892,38 @@ img{max-width:100%}
 SKELETON_TAIL = "\n</body>\n</html>\n"
 
 
+def undercoordinated_vs_terrace():
+    """Do under-coordinated columns enrich anions less than the terrace of the SAME structure?
+
+    Computed here instead of being written into the prose. The page used to state 37/41 with four exceptions as
+    a literal; recomputing it from regions.json with the definition spelled out gives 37 of 43 with six, four of
+    which are the vacancies. The definition, which the old literal did not record: the under-coordinated region
+    is the area-weighted mean over the CN <= 8 classes (kink/adatom and edge/rim), compared with the terrace
+    class, at each geometry's MOST POSITIVE sampled potential, over ideal and relaxed geometries only."""
+    import numpy as _np
+    S = json.load(open(f"{ROOT}/analysis/spatial/regions.json"))["states"]
+    best = {}
+    for v in S.values():
+        if v["config"] not in ("ideal", "relaxed"): continue
+        g = v["geometry_id"]
+        if g not in best or v["U"] > best[g]["U"]: best[g] = v
+    rows = []
+    for v in best.values():
+        R = v["regions"]
+        sel = [c for c in ("kink/adatom", "edge/rim") if c in R]
+        if not sel or "terrace" not in R: continue
+        a = sum(R[c]["area_fraction"] for c in sel)
+        K = sum(R[c]["K_rel"] * R[c]["area_fraction"] for c in sel) / a
+        rows.append((v["structure_id"], v["config"], 100.0 * (K / R["terrace"]["K_rel"] - 1.0)))
+    rel = [r[2] for r in rows]
+    lo = [r for r in rows if r[2] < 0]
+    ex = [r for r in rows if r[2] >= 0]
+    imin = int(_np.argmin(rel))
+    return dict(n=len(rows), n_lower=len(lo), median_pct=float(_np.median(rel)),
+                min_pct=float(min(rel)), min_structure=rows[imin][0],
+                exceptions=[{"structure": r[0], "config": r[1], "pct": r[2]} for r in ex])
+
+
 def build(data, standalone=False, imgbase="", out_path=None):
     data = dict(data, imgbase=imgbase)
     page = HTML.replace("__DATA__", json.dumps(data, separators=(",", ":")).replace("</", "<\\/"))
@@ -789,6 +944,12 @@ def main():
     a = ap.parse_args()
     data = json.load(open(f"{WEB}/data.json"))
     if a.commit: data.setdefault("snapshot", {})["commit"] = a.commit
+    # the lead figures' numbers come from the same file the figures were drawn from, so the prose beside a
+    # figure cannot drift from the figure
+    fpath = f"{ROOT}/analysis/gallery/_findings.json"
+    if os.path.exists(fpath): data["findings"] = json.load(open(fpath))
+    else: print("WARNING: no _findings.json; run scripts/render_findings.py first")
+    data["undercoord"] = undercoordinated_vs_terrace()
     mapped = sorted(f[:-4] for f in os.listdir(f"{ROOT}/analysis/maps")) if os.path.exists(f"{ROOT}/analysis/maps") else []
     data["mapped"] = [m for m in mapped if m in data["structures"]]
     out = a.out or f"{WEB}/index.html"
