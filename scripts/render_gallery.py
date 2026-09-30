@@ -103,6 +103,8 @@ def registry(atoms, family=None):
 
 
 BAND_FAMILIES = {"single-layer pit", "single-layer island", "point defect", "composite"}
+BAND_HALF_FRAC = 0.62   # x the same-layer spacing. One constant, so the regression tests the width the
+                        # renderer actually uses rather than a number copied by hand into the test.
 ADD_FAMILIES = {"point defect", "single-layer island", "composite"}     # families whose defining atoms sit ON the terrace
 MISS_FAMILIES = {"point defect"}                                       # families defined by removing terrace atoms
 
@@ -402,6 +404,20 @@ def wrap_pad(gx, gy, A, cell):
     return gx, gy, A
 
 
+def tiles(gx, gy, A, cell, i_range, j_range):
+    """Yield (x, y, A) for each periodic copy of a base-cell field.
+
+    The single place a tiled copy is produced, shared by the renderer and by check_gallery_drawing.py, so
+    "every copy is a pure translation" is enforced rather than asserted in a comment. The ARRAY yielded is the
+    same object every time; only the coordinates move. Re-evaluating the field at a shifted query instead is
+    what blanked the third copy of Step-8x2 (53.18% / 51.11% / 0.40% coverage), because the image search behind
+    it only reached +-1 cell."""
+    for i in i_range:
+        for j in j_range:
+            sh = (i * cell[0] + j * cell[1])[:2]
+            yield gx + sh[0], gy + sh[1], A
+
+
 def smooth_periodic(A, sigma_cells=1.3):
     """Periodic Gaussian blur, in GRID cells. Applied to the distance field before it is both contoured and
     sliced, so rounding the per-atom scallops off the outline cannot make the outline and the section disagree."""
@@ -528,6 +544,22 @@ def centre_roll(pr, hi_lvl, lo_lvl, ramp=False):
 
 RAMP_MIN = 0.35         # A; below this the surface is flat and there is no downhill direction to section
 
+# Miller indices of the vicinal slabs, taken from how they were built, not inferred from the picture.
+VICINAL_MILLER = {"Au211": (2, 1, 1), "Au221": (2, 2, 1), "Au332": (3, 3, 2), "Au554": (5, 5, 4)}
+
+
+def miller_angle_to_111(hkl):
+    """Angle between the macroscopic (hkl) normal and (111), in degrees, for a cubic lattice.
+
+    A crystallographic constant, arccos[(h+k+l)/(sqrt(3)sqrt(h^2+k^2+l^2))] -- NOT a measurement off this
+    figure. The section used to print an angle computed as arctan(ptp(profile)/(L - grid step)), i.e. the
+    apparent slope of the height-partition field along one lattice direction over nearly a whole period. That
+    happens to land near the right value when the cut direction is the steepest descent and the terrace is
+    wide, which is why Au554 came out 5.6 against 5.77 degrees, but it is not the same quantity and it is not
+    generally close: Au211 printed 25.8 against a nominal 19.47."""
+    h, k, l = hkl
+    return float(np.degrees(np.arccos((h + k + l) / (np.sqrt(3.0) * np.sqrt(h * h + k * k + l * l)))))
+
 
 def ramp_cut(H):
     """The section line for a surface with no separated levels: the lattice line of greatest relief.
@@ -571,13 +603,24 @@ def cut_frame(cell, ci):
 def cut_band(pos, cell, ci, half):
     """(mask of atoms within `half` of the line, coordinate along it, signed offset across it) -- one frame.
 
+    ONE periodic image per atom, chosen once, then BOTH coordinates read off it. The two used to be folded
+    independently: the offset across the line was wrapped into the nearest band while the coordinate along the
+    line kept the atom's original position. In a sheared cell the across vector has a component ALONG the line,
+    so that is not allowed. With a = (10, 0) and b = (5, 8.6603), the same atom written as r and as r + b came
+    out at s = 9.5 and s = 4.5 -- half a period apart, from nothing but a change of representation. Here the
+    image index m is picked from the perpendicular distance and r - m*across is used for both.
+
     `half` is a TRUE perpendicular distance in angstrom, so the caption on the picture is the band that was
     actually taken. The signed offset doubles as the side view's depth cue."""
-    rA, t, n, L, P = cut_frame(cell, ci)
-    d = (pos[:, :2] - rA) @ n
-    dv = ((d / P) + 0.5) % 1.0 - 0.5
-    s = ((pos[:, :2] - rA) @ t) % L
-    return np.abs(dv) * P < half, s, dv * P
+    rA, t, n, L, _ = cut_frame(cell, ci)
+    across = cell[1 - ci["axis"]][:2]
+    Pn = float(across @ n)                       # signed period across the line
+    r = pos[:, :2] - rA
+    m = np.round((r @ n) / Pn)
+    r = r - m[:, None] * across[None, :]
+    dv = r @ n
+    s = (r @ t) % L
+    return np.abs(dv) < half, s, dv
 
 
 def cut_profile(F, ci, cell):
@@ -648,7 +691,7 @@ def surface_model(at, prefer_xy=None):
                 gap=gap, field=F, hi=hi, lo=lo, modal=modal)
 
 
-def section_panel(axs, sm, ci, cell, reps, tag):
+def section_panel(axs, sm, ci, cell, reps, tag, hkl=None):
     """One section, drawn from the SAME field the plan view above it is drawn from and in the order A -> A'."""
     F = sm["Z"] if sm["mode"] == "blob" else sm["H"]
     s, pr, L = cut_profile(F, ci, cell)
@@ -660,8 +703,9 @@ def section_panel(axs, sm, ci, cell, reps, tag):
     axs.fill_between(s, p, floor, step="mid", color="#e6e2da", zorder=1)
     axs.step(s, p, where="mid", color="#2b3137", lw=2.1, zorder=3)
     axs.axhline(0.0, color="#b9b3a7", lw=0.9, ls=(0, (4, 3)), zorder=2)
-    axs.text(reps * L, -0.55, "平台基准 ", fontproperties=CJK, fontsize=7.0, color="#9aa1a8",
-             ha="right", va="top", zorder=5)
+    if ci.get("target") != "ramp":
+        axs.text(reps * L, -0.55, "平台基准 ", fontproperties=CJK, fontsize=7.0, color="#9aa1a8",
+                 ha="right", va="top", zorder=5)
     axs.plot([0, reps * L], [floor] * 2, color="#c6c1b7", lw=1.0, zorder=3)
     top = float(p.max())
     # NO drawn "ion-accessible boundary": that surface is computed from SION and varies over the relief, which is
@@ -672,29 +716,40 @@ def section_panel(axs, sm, ci, cell, reps, tag):
     axs.text(reps * L * 0.992, floor + 0.35, b, fontsize=9.5, color="#23272c", ha="right", va="bottom", zorder=5)
     extra = 6.6
     if ci.get("target") == "ramp":
-        # the staircase, spelled out: which part is the inclined (111) micro-facet and where the riser is
+        # The staircase, marked QUALITATIVELY: which part is the inclined (111) micro-facet and where the riser
+        # is. No number is read off the height field here. The terrace width and the step height need a chosen
+        # atom row and a stated measurement direction before they mean anything, and the "tilt" printed before
+        # was the apparent slope of the height partition along one lattice vector, which is not the miscut
+        # angle. The one number shown is the nominal (hkl)-to-(111) angle from the Miller indices.
         d = np.diff(np.append(pr, pr[0]))
-        k = int(np.argmax(np.abs(d))); ds = L / len(pr)
-        riser = abs(float(d[k])); s_seam = float((k + 1.0) / len(pr) * L)
-        terr = L - ds
-        th = np.degrees(np.arctan2(float(np.ptp(pr)), terr)) if terr > 0 else 0.0
+        k = int(np.argmax(np.abs(d)))
+        s_seam = float((k + 1.0) / len(pr) * L)
         for rep in range(reps):
             x = s_seam + rep * L
             axs.annotate("", xy=(x, float(pr.max())), xytext=(x, float(pr.min())), zorder=6,
                          arrowprops=dict(arrowstyle="<|-|>", lw=1.3, color="#b0543a", shrinkA=0, shrinkB=0))
-        axs.text(s_seam, top + 1.7, f"台阶 {riser:.2f} " + AA, fontproperties=CJK, fontsize=7.6,
+        axs.text(s_seam, top + 1.7, "台阶", fontproperties=CJK, fontsize=7.8,
                  color="#b0543a", ha="center", va="bottom")
-        m0, m1 = 0.06 * terr, 0.80 * terr
+        m0, m1 = 0.06 * L, 0.78 * L
         axs.annotate("", xy=(m1, top + 3.2), xytext=(m0, top + 3.2), zorder=6,
                      arrowprops=dict(arrowstyle="<|-|>", lw=1.2, color="#1d4e8f", shrinkA=0, shrinkB=0))
-        axs.text(0.5 * (m0 + m1), top + 3.5, f"局部 (111) 台面 {terr:.1f} " + AA + f"，倾斜 {th:.1f}°",
-                 fontproperties=CJK, fontsize=7.6, color="#1d4e8f", ha="center", va="bottom")
+        axs.text(0.5 * (m0 + m1), top + 3.5, "局部 (111) 台面", fontproperties=CJK, fontsize=7.6,
+                 color="#1d4e8f", ha="center", va="bottom")
         extra = 9.4
+        if hkl is not None:
+            # left-aligned, in AXES fractions. Centred under the arrow it ran off the panel's left edge, and
+            # placed in data units the two lines sat a few pixels apart on this short, non-aspect-locked panel.
+            h, k_, l_ = hkl
+            axs.text(0.0, 1.0, f"宏观 ({h}{k_}{l_}) 与 (111) 名义夹角 {miller_angle_to_111(hkl):.2f}°",
+                     transform=axs.transAxes, fontproperties=CJK, fontsize=7.2, color="#1d4e8f",
+                     ha="left", va="top")
+            axs.text(0.0, 0.90, "（由晶面法向算出，非本图测量）", transform=axs.transAxes,
+                     fontproperties=CJK, fontsize=6.8, color="#9aa1a8", ha="left", va="top")
     axs.set_xlim(0, reps * L); axs.set_ylim(floor - 1.0, top + extra)
     return L
 
 
-def simple_schematic(fig, cell_spec, at, sm):
+def simple_schematic(fig, cell_spec, at, sm, hkl=None):
     """The plain outline: no atoms at all. Top = plan view of the cartoon surface with its boundaries stroked,
     bottom = one section per marked line, cut through that SAME surface."""
     import matplotlib.gridspec as mgs
@@ -735,12 +790,10 @@ def simple_schematic(fig, cell_spec, at, sm):
         for lay, col in zip(sm["layers"], (PLAN_FILL[1], PLAN_FILL[-1])):
             if lay is None: continue
             px, py, pD = wrap_pad(gx, gy, lay["D"], cell)
-            for i in d1:
-                for j in d2:
-                    sh = (i * cell[0] + j * cell[1])[:2]
-                    axp.contourf(px + sh[0], py + sh[1], pD, levels=[0, sm["R"]], colors=[col], zorder=1)
-                    axp.contour(px + sh[0], py + sh[1], pD, levels=[sm["R"]], colors="#23272c",
-                                linewidths=2.2, linestyles="solid", zorder=3)
+            for x, y, D in tiles(px, py, pD, cell, d1, d2):
+                axp.contourf(x, y, D, levels=[0, sm["R"]], colors=[col], zorder=1)
+                axp.contour(x, y, D, levels=[sm["R"]], colors="#23272c",
+                            linewidths=2.2, linestyles="solid", zorder=3)
     elif sm["mode"] == "level":
         cuts_h = sm["levels"]
         edges = [Hs.min() - 1] + cuts_h + [Hs.max() + 1]
@@ -748,20 +801,16 @@ def simple_schematic(fig, cell_spec, at, sm):
         span = max(max(abs(m) for m in mids), 1.2)
         cols = [cmap(0.5 + 0.40 * m / span) for m in mids]
         px, py, pH = wrap_pad(gx, gy, Hs, cell)
-        for i in d1:
-            for j in d2:
-                sh = (i * cell[0] + j * cell[1])[:2]
-                axp.contourf(px + sh[0], py + sh[1], pH, levels=edges, colors=cols, zorder=1)
-                axp.contour(px + sh[0], py + sh[1], pH, levels=cuts_h, colors="#23272c",
-                            linewidths=2.2, linestyles="solid", zorder=3)
+        for x, y, Hh in tiles(px, py, pH, cell, d1, d2):
+            axp.contourf(x, y, Hh, levels=edges, colors=cols, zorder=1)
+            axp.contour(x, y, Hh, levels=cuts_h, colors="#23272c",
+                        linewidths=2.2, linestyles="solid", zorder=3)
     else:
         rng = max(np.ptp(Hs), 1e-6)
         px, py, pH = wrap_pad(gx, gy, Hs, cell)
-        for i in d1:
-            for j in d2:
-                sh = (i * cell[0] + j * cell[1])[:2]
-                axp.pcolormesh(px + sh[0], py + sh[1], pH, cmap=cmap, vmin=-0.6 * rng, vmax=0.6 * rng,
-                               shading="gouraud", zorder=1)
+        for x, y, Hh in tiles(px, py, pH, cell, d1, d2):
+            axp.pcolormesh(x, y, Hh, cmap=cmap, vmin=-0.6 * rng, vmax=0.6 * rng,
+                           shading="gouraud", zorder=1)
         if np.ptp(Hs) > RAMP_MIN:                                  # mark which way the inclined terrace runs downhill
             g1 = float(np.mean(np.gradient(Hs, axis=0))); g2 = float(np.mean(np.gradient(Hs, axis=1)))
             d = -(g1 * cell[0][:2] / np.linalg.norm(cell[0][:2]) + g2 * cell[1][:2] / np.linalg.norm(cell[1][:2]))
@@ -828,9 +877,11 @@ def simple_schematic(fig, cell_spec, at, sm):
             L = float(np.linalg.norm(cell[ci["axis"]][:2]))
             reps = max(1, min(2, int(round(TILE_TARGET / L))))
             a, b = ci["label"], ci["label"] + "′"
-            section_panel(axs, sm, ci, cell, reps, (a, b))
+            section_panel(axs, sm, ci, cell, reps, (a, b), hkl=hkl)
             src = "简笔轮廓面" if sm["mode"] == "blob" else "高度分区面"
             cap = f"侧面：过 {a}–{b} 的剖线（切自上图同一{src}），{reps} 个周期"
+            if ci.get("target") == "ramp":
+                cap += "\n纵向为胞坐标下的高度场，未标台面宽度与台阶高度"
             if k == len(cuts) - 1:
                 cap += "\n下方实体仅为基底示意"
                 if len(cuts) == 2: cap += "；岛与坑不在同一条晶格线上"
@@ -951,7 +1002,7 @@ def render(sid, path, title, meta):
         # BAND_HALF is a true perpendicular distance now, so it means what the caption says. 0.62 a0 keeps one
         # atom row: the next row along a (111) close-packed direction is a0*sqrt(3)/2 = 2.55 A away, and the old
         # nominal 1.1 a0 pulled in three rows, which stacked three different heights on top of one another.
-        half = 0.62 * layer_spacing(at) if meta.get("family") in BAND_FAMILIES else None
+        half = BAND_HALF_FRAC * layer_spacing(at) if meta.get("family") in BAND_FAMILIES else None
         m, s, dp = cut_band(pos, cell, ci, half if half is not None else 1e9)
         if half is not None and m.sum() < 8:
             half = None; m, s, dp = cut_band(pos, cell, ci, 1e9)
@@ -998,7 +1049,7 @@ def render(sid, path, title, meta):
                           left=0.015, right=0.985, top=top_frac, bottom=bot_frac)
     meta["schematic_width_frac"] = float(0.015 + (0.985 - 0.015) * wsch / (wsch + w1 + w2))
     meta["legend_top_frac"] = float(bot_frac)
-    meta["schematic_note"] = simple_schematic(fig, gs[0, 0], at, sm)
+    meta["schematic_note"] = simple_schematic(fig, gs[0, 0], at, sm, hkl=VICINAL_MILLER.get(sid))
     meta["n_sections"] = len(cuts)
     meta["section_axes"] = [f"a{c['axis'] + 1}" for c in cuts]
 
@@ -1011,6 +1062,7 @@ def render(sid, path, title, meta):
             if ov is not None:
                 ax.contour(ov["gx"] + sh[0], ov["gy"] + sh[1], ov["Dp"], levels=[ov["R"]],
                            colors=PARENT_EDGE_COLOR, linewidths=1.6, linestyles="dashed", zorder=5900)
+                # same array, translated: see tiles()
                 for c in ov["added"]:
                     ax.add_patch(Circle(c + sh, R_AU * 1.32, facecolor="none", edgecolor="#1f6f3f",
                                         lw=1.9, zorder=6000))

@@ -385,7 +385,7 @@
    "bulk": 18
   },
   "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.08830628830323087,
+  "legend_top_frac": 0.0883062883032309,
   "schematic_note": "\u5c40\u90e8 (111) \u53f0\u9762\u76f8\u5bf9\u5b8f\u89c2\u6676\u9762\u503e\u659c\uff0c\u80de\u5185\u9ad8\u5dee 2.3 \u00c5\uff1b\u53f0\u9636\u843d\u5728\u5468\u671f\u8fb9\u754c\u4e0a\uff0c\u9ad8\u5ea6\u5206\u5e03\u91cc\u770b\u4e0d\u5230\u65ad\u5f00",
   "n_sections": 1,
   "section_axes": [
@@ -1097,8 +1097,8 @@
    "terrace": 29,
    "bulk": 41
   },
-  "schematic_width_frac": 0.3468421052631579,
-  "legend_top_frac": 0.1326352592671134,
+  "schematic_width_frac": 0.34684210526315795,
+  "legend_top_frac": 0.13263525926711342,
   "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "n_sections": 1,
   "section_axes": [
