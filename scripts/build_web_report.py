@@ -154,12 +154,13 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
   <a href="#gallery">结构图谱</a>
   <a href="#maps">阴离子空间图</a>
   <a href="#method">方法与边界</a>
+  <a href="#revlog">修订记录</a>
 </div></nav>
 
 <div class="wrap">
 
 <section id="pzc"><div class="finding">
-  <div><div class="eyebrow">结论一</div><h2>零电荷点的移动幅度，明显大于电容的变化幅度</h2></div>
+  <div><div class="eyebrow">结论一</div><h2>同一电势下的电荷差异，更多体现为零电荷位置的变化</h2></div>
   <p class="claim">在采样点能夹住 &sigma;&nbsp;=&nbsp;0 的几何里，零电荷点跨度约 <span data-n="pzcspread"></span>，
   而割线电容跨度约 <span data-n="cspread"></span>。在本样本和本电势区间内，零电荷位置变化所对应的电荷尺度，
   比割线电容变化所对应的尺度大约一个量级。</p>
@@ -178,7 +179,7 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
   电容变化带来的电荷差异小于零电荷点平移带来的电荷差异。</div>
   <div class="tablewrap"><table id="t_decomp"></table></div>
   <div class="caption">跨胞比较带有数值偏移：审计记录过两个<em>平板</em>胞仅因胞形、k 点网格与 PREC 就相差 72&nbsp;meV 的中性
-  &mu;<sub>e</sub>。同一个胞内部这项偏移对每一行都相同，所以按胞分组的那几块才是形貌效应。此外，全部
+  &mu;<sub>e</sub>。同一个胞内部这项偏移对每一行是共同的，所以按胞分组更有利于隔离形貌效应，但这不等于所有数值误差都完全抵消。此外，全部
   <span data-n="ngeom"></span> 个几何里包含人为扰动、集体形变和不同胞／采样设置，整体跨度不应全部归因于"缺陷种类本身"。</div>
 </div></section>
 
@@ -194,7 +195,7 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
   <br><br><b>注意符号。</b>由 &sigma;&nbsp;=&nbsp;C&thinsp;(U&nbsp;&minus;&nbsp;U<sub>pzc</sub>)，固定 U 时
   &Delta;&sigma;&nbsp;=&nbsp;&minus;C&thinsp;&Delta;U<sub>pzc</sub>：<b>零电荷点负移意味着同一电势下整体带更多正电</b>。
   实际数据正是如此——A1-fcc 的零电荷点比同胞 T-4x4 低 65&nbsp;mV，在 U&nbsp;&asymp;&nbsp;+0.2&nbsp;V 时
-  &sigma; 是 +3.18 对 +2.22&nbsp;&micro;C/cm²。本页此前把方向写反了，已更正。</div>
+  &sigma; 是 +3.18 对 +2.22&nbsp;&micro;C/cm²。</div>
 </div></section>
 
 <section id="where"><div class="finding">
@@ -204,18 +205,14 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
   空位边缘，超出量只有 0.1%–0.3%。两种积分口径给出相同的排序。</p>
   <p class="claim" style="border-left-color:var(--teal)">逐柱的空间相关进一步支持这一点：把金属的正电荷增量
   (&minus;&Delta;n<sub>e</sub>) 与阴离子增量 (&Delta;&Gamma;<sub>&minus;</sub>) 按柱子求相关，
-  <span data-n="corr"></span>。也就是说，<b>阴离子增多的地方，往往不是金属正电荷增加最多的地方</b>。</p>
+  <span data-n="corr"></span>。这描述的是整张图上的<b>空间共变关系</b>：两者的起伏总体反号。它不直接给出峰位，也不保证每个结构的极大值都错开；具体位置请看下方各结构的空间图。</p>
   <div class="card pad"><div class="chartbox"><div id="c_regions"></div></div>
     <div class="caption">边界相对窗口下的富集比
     K<sub>&Omega;</sub>&nbsp;=&nbsp;&int;n<sub>&minus;</sub>&thinsp;/&thinsp;(n<sub>b</sub>&int;S<sub>ion</sub>)，
     取各结构最正的那个采样电势。柱按配位类分组，虚线是该结构的全胞平均。此图每种结构只画一个代表几何（理想或弛豫），
     共 33 条；上文 41 个的计数则覆盖同一结构的理想与弛豫两种几何。</div>
     <div class="legend" id="leg3"></div></div>
-  <div class="note"><b>此前的机制解释是错的，已撤回。</b>本页曾写"吸附原子压低局部零电荷点，于是同一电势下那一小块更不正，
-  吸引的阴离子更少"。这有两层问题：一是方向反了，零电荷点负移对应同一电势下<b>更正</b>（见结论二的更正说明）；
-  二是这里算出的零电荷点是<b>整个周期体系</b>的一个标量，不是"吸附原子那一小块的局部零电荷点"，不能未经局部定义就
-  当成分区属性。
-  <br><br>正确的表述是：<b>整体充电与局部离子分布并非简单对应。</b>即使整体零电荷点负移、同一电势下金属总正电荷更多，
+  <div class="note"><b>整体充电与局部离子分布并非简单对应。</b>即使整体零电荷点负移、同一电势下金属总正电荷更多，
   低配位原子对应的液相区域也可能没有更高的区域平均阴离子浓度。局部分布取决于自洽电势、离子可达性与几何分配三者共同作用。
   这比原来的错误解释更值得注意。
   <br><br>K 与 &Gamma; 回答的是不同问题，两者都给出：小区域可以浓度很高却只容纳很少额外离子，大区域可以只略微富集却贡献
@@ -225,13 +222,13 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
 
 <section id="filter"><div class="finding">
   <div><div class="eyebrow">结论四</div><h2>离子响应里的短波空间起伏明显减弱</h2></div>
-  <p class="claim">把金属电荷响应的每一个傅里叶模式与阴离子响应的同一模式相比，相对谱幅随波长单调下降：原子尺度
+  <p class="claim">把金属电荷响应的每一个傅里叶模式与阴离子响应的同一模式相比，相对谱幅随波长<b>缩短</b>而单调降低：原子尺度
   （&lambda;&nbsp;&asymp;&nbsp;1&nbsp;&Aring;）只剩参考值的百分之零点几，缺陷尺度（&lambda;&nbsp;&asymp;&nbsp;9&nbsp;&Aring;）
   还有三成以上。这与空间屏蔽／平滑的图像相容。</p>
   <div class="stats" id="s4"></div>
   <div class="card pad"><div class="chartbox"><div id="c_tf"></div></div>
     <div class="caption">相对谱幅 |F<sub>ion</sub>(k)|&thinsp;/&thinsp;|F<sub>metal</sub>(k)| 对横向波长，汇总了所有
-    两端电势齐全的几何。该比值联系的是两个不同量纲的量，所以每条曲线按<b>自身最长波长那一档</b>归一；因此长波端的
+    两端电势齐全的几何。电子数面密度与离子数面密度量纲相同，但它们是不同的物理量，其比值没有绝对标度，所以每条曲线按<b>自身最长波长那一档</b>归一——这是分析选择，不是量纲所迫；因此长波端的
     1.0 是归一化的定义，<b>不代表物理上 100% 传递</b>，而且不同晶胞可用的最小波数不同，各条曲线的参考档并不完全一致。
     只有曲线形状有意义。阴影带是四分位距。</div></div>
   <div class="note"><b>两个数字是指标，不是材料常数。</b>下面两项都依赖上面说的归一化和分箱方式，应按定义读：
@@ -254,9 +251,8 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
     <div class="caption">同成分、同胞、不同结构的配对，
     D&nbsp;=&nbsp;+&int;<sub>&mu;₀&minus;w</sub><sup>&mu;₀+w</sup>&thinsp;[N<sub>A</sub>&minus;N<sub>B</sub>]&thinsp;d&mu;，
     w&nbsp;=&nbsp;0.2&nbsp;V。负值表示电势往正方向移动时 A 相对被稳定。灰带是同一形貌自身采样构型之间配对的散布范围。
-    <b>符号更正</b>：因 &part;&Omega;/&part;&mu;<sub>e</sub>&nbsp;=&nbsp;&minus;N<sub>e</sub> 且
-    U&nbsp;=&nbsp;&mu;₀&minus;&mu;<sub>e</sub>，U&nbsp;=&nbsp;+w 对应<em>较低</em>的 &mu;，积分前不应再加负号；
-    此前的版本多加了一次负号，把"谁被相对稳定"说反了，现已改正。</div></div>
+    符号：因 &part;&Omega;/&part;&mu;<sub>e</sub>&nbsp;=&nbsp;&minus;N<sub>e</sub> 且
+    U&nbsp;=&nbsp;&mu;₀&minus;&mu;<sub>e</sub>，U&nbsp;=&nbsp;+w 对应<em>较低</em>的 &mu;。</div></div>
   <div class="note"><b>这是什么，不是什么。</b>它只是电势<em>诱导</em>的那一部分。它不回答在参考电势下谁更稳定，
   那需要数据集尚未确定的统一能量基准；没有这个基准，就无法判断排序是否发生了变化——若两个构型原本只差几 meV，
   几十 meV 足以改变排序；若原本差 1&nbsp;eV，则未必。它也从不跨越不同的 Au 原子数，那需要引入储库项。
@@ -268,19 +264,25 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
   <p class="lede">每张图分三块：最左是<b>不画原子的简笔轮廓</b>，一眼看出缺陷长什么样；中间是按配位数着色的俯视图；
   右边是侧视图。三块全部由实际参与计算的几何生成，不是重新生成的理想结构，也不是手绘，所以简笔图不会和真实结构脱节。
   <b>点击任意图片可放大。</b></p>
-  <div class="note" style="max-width:none"><b>简笔轮廓是怎么来的。</b>先从真实原子坐标算出表面高度场（每根柱子指派给最近的
-  未被埋住的原子），只在高度分布真的出现 &ge;1.2&nbsp;&Aring; 断层的地方切一刀画粗轮廓；没有断层的面（四个邻晶面）改用
-  平滑渐变加下坡箭头。侧面剪影是过特征中心的一条真实剖线，不是投影最大值——否则一个紧凑的岛会被拉成和它 footprint
-  一样宽的台阶。等高线之前做过一次小尺度高斯平滑。
+  <div class="note" style="max-width:none"><b>图上各个标记的含义。</b>
+  <br>· <b>颜色</b>＝配位数（3.4&nbsp;&Aring; 内的 Au 近邻数），后面括号里只是该配位数<em>常见</em>的环境，配位数本身不等于形貌身份。
+  <br>· <b>亮度与描边</b>＝是否属于上表面，判据与区域分析完全一致（上方 2.35&nbsp;&Aring; 内有三个以上更高近邻即算被埋住）。
+  <br>· <b>绿色圆环</b>＝加上去的 Au；<b>紫色虚圆</b>＝移走的位点。这两项只在结构族本身由"加原子"或"去原子"定义时才标注，
+  避免把台阶的上台面或邻晶面的台阶边误标成吸附原子。
+  <br>· <b>蓝色 ×</b>＝该表面原子位于 hcp 配准（正上方两层处有原子）。没有它，R1-hcp 终止面和平整 fcc 面、
+  A1-hcp 和 A1-fcc 在图上完全相同。
+  <br>· <b>A–A′</b>＝侧面剖线的实际位置。标题会注明这一侧是真实剖线还是沿视线的投影包络，两者不混用。
+  <br><br><b>图中没有画"离子可达边界"。</b>可达区域由 SION 决定，会随上下台面、岛和坑变化，用一条固定高度的水平线代表它
+  与本研究的结论直接冲突，因此只标"电解液侧"。真正的可达性请看空间图。
   <br><br><b>简笔轮廓用于辅助辨认形貌，不要用于定量读取缺陷的边界位置、宽度或峰位</b>：平滑会移动等高线，也会改变窄特征的
-  形状。定量的东西请看上面的分区数值和下面的空间图。<br>
-  高度均匀的结构（两种堆垛重构）在这里看起来就是平的，这是实话：它们与平板的差别在层序和面内配准，不在高度。</div>
-  <div class="note" style="max-width:none"><b>颜色的含义，以及为什么同一层里会出现不同颜色。</b>
-  颜色编码的是<b>配位数</b>（3.4&nbsp;&Aring; 内的 Au 近邻数），不是原子所在的层。同一层里配位数本来就会不同，这正是要看的信息：
-  台阶脚那一排原子虽然和平台同高，但上层平台压在它旁边，近邻数达到 10 以上，因此显灰色；而普通平台原子是 9，显黄色。
-  <br><br>亮度和描边编码的是另一件事：<b>是否属于表面</b>。判据与区域分析<b>完全一致</b>——一个原子若上方
-  2.35&nbsp;&Aring; 内有三个以上更高的近邻就算被埋住，否则算表面。实色深描边的正是区域分析给它分配柱体的那批原子；
-  淡色无描边的是被整层压住的次表面原子。台阶的上下两层平台都算表面，所以都是实色。</div>
+  形状；侧面剪影下方的实体只是基底示意，厚度不代表真实层数。形貌类别由冻结计划里的结构族与周期连通性判定，
+  不由高低区面积比判定——后者曾把 Pit-19-8x8 这样的有限浅坑错判成条带台阶。
+  <br>高度均匀的结构（两种堆垛重构）在这里看起来就是平的，这是实话：它们与平板的差别在层序和面内配准，不在高度，
+  由蓝色 × 表达。</div>
+  <div class="note" style="max-width:none"><b>为什么同一层里会出现不同颜色。</b>颜色是配位数，不是层。同一层里配位数本来就会
+  不同，这正是要看的信息：台阶脚那一排原子虽然和平台同高，但上层平台压在它旁边，近邻数达到 10 以上，因此显灰色；
+  普通平台原子是 9，显黄色。<br><br>标题里的配位数统计只针对<b>上表面</b>。整块 slab 的统计会把背面那一层也算进去——
+  例如四层平整 slab 有 32 个 CN&nbsp;9 原子，但只有 16 个面向电解液。</div>
   <div class="filters" id="filters"></div>
   <div class="gal" id="gal"></div>
 </div></section>
@@ -317,18 +319,61 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
       T-4x4 上有 48% 的柱子被指派给 CN&nbsp;12 的第二层原子，把一个平整平台劈成了"平台"和"次表面"两类。改用未被埋住的
       原子后，平整面回到 100% 平台；上面的结论在修正前后都成立（修正前 36/41、中位 &minus;1.7%）。</p></div>
     <div class="card pad"><h3>数据范围的处理</h3><p class="small" style="margin-top:8px">
-      每一个跨结构数值都只用三个基准电势（&minus;5.1071 / &minus;4.9071 / &minus;4.7071&nbsp;eV），因为每个几何都齐全。
+      每一个跨结构数值都只用三个基准电势（&minus;5.1071 / &minus;4.9071 / &minus;4.7071&nbsp;eV）。注意这三点并非每个几何都齐全：按计划，部分参考结构本来就只算了一或两个电势，需要三点的量（零电荷点、两段割线、巨势积分）只在点数够的几何上计算，点数不足的不进入同一区间的比较，各图下方给出实际参与的个数。
       &plusmn;0.5&nbsp;V 扩展仍在计算、覆盖不全，只在 &sigma;(U) 曲线上单独叠加显示，<b>不进入任何统计量</b>——
       否则会拿采样到 &plusmn;0.5&nbsp;V 的几何去和只采样到 &plusmn;0.2&nbsp;V 的几何比较，而且每完成一个任务
       页面上的数字就会变一次。页首的快照给出本页实际使用的态数、几何数与构建时间。</p></div>
-    <div class="card pad"><h3>本轮更正过的地方</h3><p class="small" style="margin-top:8px">
-      巨势积分的符号（此前多加一次负号，结论反向）；结论三的机制解释（零电荷点负移对应同一电势下更正，且整体零电荷点
-      不能当作局部属性）；金属—离子相位比较的符号（改用 &minus;&Delta;n<sub>e</sub>）；区域划分把平整平台的一半
-      误判为次表面；&sigma; 图纵轴被写死而裁掉曲线。原始数据与脚本都在仓库中可追溯。</p></div>
+    <div class="card pad"><h3>修订记录</h3><p class="small" style="margin-top:8px">
+      本页经过两轮外部审查并据此修改。正文只写当前正确的解释；改动了什么、为什么改，收在页尾可展开的
+      <a href="#revlog">修订记录</a>里。原始数据与脚本都在仓库中可追溯。</p></div>
     <div class="card pad"><h3>已知限制</h3><p class="small" style="margin-top:8px">
       生产参数下的力带有约 0.02&nbsp;eV/&Aring; 每原子的 egg-box 误差，因此这里没有任何结论建立在细小的力差异上。
       扰动构型与集体形变是人为设计的采样，不是热力学系综，只用于给出敏感性范围而不做平均。路径像很稀疏，不等于最小能量路径。</p></div>
   </div>
+</div></section>
+
+<section id="revlog"><div class="finding">
+  <div><div class="eyebrow">修订记录</div><h2>改过什么，为什么改</h2></div>
+  <p class="lede">正文只保留当前正确的解释。这里记录两轮外部审查之后的实质改动，便于追溯；每一项在改之前都用数据或
+  单元检验复核过。</p>
+  <details><summary style="cursor:pointer;font-weight:500;padding:10px 0">第二轮（图示表达）</summary>
+  <ul class="small" style="line-height:1.9;max-width:62em">
+    <li><b>删除图中人为画的"离子可达边界"。</b>原来在原子侧视图上于最高原子上方固定 4.2&nbsp;&Aring;、在简笔剪影上固定
+      3.2&nbsp;&Aring; 各画一条水平虚线，两个偏移不同，都不是从 SION 读出来的。可达区域随台面、岛、坑变化，正是本研究的
+      结论之一，用一条固定水平线代表它自相矛盾。现在只标"电解液侧"。</li>
+    <li><b>形貌类别不再由面积比判定。</b>原规则把"高区占 30–70%"一律叫台阶，于是 Pit-19-8x8 这个有限浅坑被标成
+      "两层平台（台阶）"。现在由冻结计划中的结构族加周期连通性判定：贯穿整胞的才是条带台阶，闭合的是岛或坑。</li>
+    <li><b>剖线不再冒充。</b>过特征中心取不到时会退回投影包络，标题现在如实区分"过 A–A′ 的真实剖线"与"沿视线方向的
+      投影包络"，并在俯视图上画出 A–A′ 的实际位置；剖面下方的实体注明只是基底示意。</li>
+    <li><b>补上高度看不见的信息。</b>新增 hcp 配准标记（蓝色 ×），R1-hcp 终止面与平整 fcc 面、A1-hcp 与 A1-fcc
+      此前在图上完全无法区分；新增"加上去的 Au"与"移走的位点"标注，按结构族门控以免把台阶上台面误标成吸附原子。</li>
+    <li><b>配位数统计改为只针对上表面。</b>整块 slab 的统计把背面那一层也算进去，四层平整 slab 会写成"平台 32"，
+      而面向电解液的只有 16 个。</li>
+    <li>傅里叶段落的方向写反（应为"随波长缩短而降低"）；"不同量纲"改为"不同物理量"；逐柱相关不再被说成峰位定位；
+      "同胞内数值偏移完全相同"改为"更有利于隔离形貌效应，但不保证完全抵消"；"三个基准电势每个几何都齐全"更正为
+      部分参考结构本来就只有一两个电势。</li>
+  </ul></details>
+  <details><summary style="cursor:pointer;font-weight:500;padding:10px 0">第一轮（科学与代码）</summary>
+  <ul class="small" style="line-height:1.9;max-width:62em">
+    <li><b>巨势积分符号反了。</b>因 &part;&Omega;/&part;&mu;&nbsp;=&nbsp;&minus;N 且 U&nbsp;=&nbsp;&mu;₀&minus;&mu;，
+      U&nbsp;=&nbsp;+w 对应更低的 &mu;，积分前不应再加负号。单元检验：令 N<sub>A</sub>&minus;N<sub>B</sub>&nbsp;=&nbsp;1、
+      窗口 &plusmn;0.2&nbsp;V，应得 +0.4&nbsp;eV，原代码给 &minus;0.4&nbsp;eV，即把"谁被正电势稳定"说反了。</li>
+    <li><b>结论三的机制解释反了，且混淆了全局与局部。</b>由 &sigma;&nbsp;=&nbsp;C(U&minus;U<sub>pzc</sub>)，零电荷点
+      负移对应同一电势下<em>更正</em>，不是更不正；而且这里的零电荷点是整个周期体系的标量，不能赋给某个分区。已撤回，
+      改为数据真正支持的说法。</li>
+    <li><b>金属—离子相位比较的符号。</b>正向充电时电子减少、阴离子增加，直接比较会给空间上同位的图案凭空加上
+      &pi; 相位。改为比较 &minus;&Delta;n<sub>e</sub> 与 &Delta;&Gamma;<sub>&minus;</sub>。</li>
+    <li><b>统计口径被未完成的扩展污染。</b>充电分析在陆续读入 &plusmn;0.5&nbsp;V 的态，107 个几何里已有 68 个是五点，
+      而页面仍写"三个电势"。现在跨结构数值只用三个基准电势，扩展单独叠加显示。</li>
+    <li><b>"八成来自零电荷点"不成立。</b>极差之比是尺度比较，不是方差分解（展开式有交叉项，&delta;C 与 &delta;Z 相关）。
+      同时删去"几乎不改变电容"（A3 相对同胞平板高 15%）。</li>
+    <li>撤回"电势没有改变稳定性排序"（缺参考电势基准）与"&plusmn;0.5 将同比放大 2.5 倍"；半衰波长与对比度比降级为
+      定义依赖的经验指标；短波衰减不再唯一归因于 4&nbsp;&Aring; 空腔。</li>
+    <li><b>区域划分把平整平台劈成两半。</b>柱体原按"顶端 3&nbsp;&Aring; 内最近原子"指派，而层间距只有 2.4&nbsp;&Aring;，
+      第二层恰在空位点正下方：完全平整的 T-4x4 有 48% 的柱子被标成 CN&nbsp;12。改为指派给未被埋住的原子后，
+      平整面回到 100% 平台，结论由 36/41 变为 37/41。</li>
+    <li>&sigma; 图纵轴写死 &plusmn;7&nbsp;&micro;C/cm² 而数据到 7.32，曲线被裁；改为按数据推导。</li>
+  </ul></details>
 </div></section>
 
 </div>
@@ -385,7 +430,7 @@ document.getElementById("kicker").append(
   ...[[NS,"种结构"],[NG,"个独立几何"],[NPT,"个基准态"],["3","个基准电势"],[NEXT,"个 ±0.5 V 扩展态（仅叠加显示）"]]
      .map(([v,l])=>el("span",{class:"chip"},`${v} ${l}`)));
 document.getElementById("scope").append(
-  `统计口径固定为三个基准电势 −5.1071 / −4.9071 / −4.7071 eV，每个几何都齐全，共 ${NPT} 个态、`
+  `统计口径固定为三个基准电势 −5.1071 / −4.9071 / −4.7071 eV，共 ${NPT} 个态、`
   +`${NG} 个几何、${NS} 种结构。±0.5 V 扩展目前有 ${NEXT} 个态，覆盖不全，只在 σ(U) 图上以浅色叠加，不进入任何数值。`
   +`区域与空间分析覆盖 ${SN.n_region_states||"?"} 个态（${SN.n_region_structures||"?"} 种结构），`
   +`两端电势齐全、可做金属—离子对照的几何 ${Object.keys(D.transmission).length} 个。`,

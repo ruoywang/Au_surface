@@ -60,6 +60,69 @@ def exposed_atoms(atoms):
     return top_atoms(atoms)
 
 
+def registry(atoms):
+    """For each atom: True if it sits directly above an atom TWO layers down (hcp registry), False if not (fcc).
+
+    In ABC stacking a surface atom lies above the atom three layers down, not two; an hcp-terminated layer lies
+    above the one two layers down. Without this, R1-hcp-terminated is pixel-identical to a flat fcc terrace and
+    A1-hcp to A1-fcc, because height and first-shell coordination are the same in both."""
+    pos = atoms.get_positions(); cell = atoms.get_cell().array
+    out = np.zeros(len(pos), bool)
+    for si in (-1, 0, 1):
+        for sj in (-1, 0, 1):
+            sh = (si * cell[0] + sj * cell[1])[:2]
+            d = np.linalg.norm(pos[:, None, :2] - (pos[None, :, :2] + sh), axis=-1)
+            dz = pos[:, None, 2] - pos[None, :, 2]
+            out |= ((d < 0.6) & (np.abs(dz - 2 * D111) < 0.7)).any(1)
+    return out
+
+
+ADD_FAMILIES = {"point defect", "single-layer island", "composite"}     # families whose defining atoms sit ON the terrace
+MISS_FAMILIES = {"point defect"}                                       # families defined by removing terrace atoms
+
+
+def added_and_missing(atoms, family=None):
+    """(atoms standing above the terrace, empty lattice sites inside the terrace), gated by the structure family.
+
+    A purely geometric detector is not reliable enough to stand alone: on a vicinal face the step-edge row sits
+    above the median and reads as an "adatom", on a strip step the whole upper terrace does, and just outside an
+    island edge there are sites that look like interior holes. The family comes from the frozen plan, i.e. from how
+    the structure was actually built, so it is used to decide WHICH marking is meaningful for this structure, and
+    the geometry only decides WHERE."""
+    pos = atoms.get_positions(); cell = atoms.get_cell().array
+    top = top_atoms(atoms)
+    zs = pos[top, 2]
+    modal = float(np.median(zs))
+    added = np.flatnonzero(top & (pos[:, 2] > modal + 1.0))
+    if family not in ADD_FAMILIES or len(added) > 0.30 * top.sum(): added = np.array([], int)
+    if family not in MISS_FAMILIES: return added, np.zeros((0, 2))
+    terr = pos[top & (np.abs(pos[:, 2] - modal) < 0.8)]
+    if len(terr) < 3: return added, np.zeros((0, 2))
+    d = np.linalg.norm(terr[:, None, :2] - terr[None, :, :2], axis=-1)
+    nn = d[(d > 0.1) & (d < 4.0)]
+    if not len(nn): return added, np.zeros((0, 2))
+    a0 = float(np.median(nn[nn < np.percentile(nn, 30)]))
+    vecs = [np.array([np.cos(t), np.sin(t)]) * a0 for t in np.arange(6) * np.pi / 3]
+    # candidate empty sites, then keep only those ringed by terrace atoms (interior holes, not island exteriors)
+    cand = np.vstack([terr[:, :2] + v for v in vecs])
+    keep = []
+    for c in cand:
+        dd = np.min([np.linalg.norm(terr[:, :2] + (si * cell[0] + sj * cell[1])[:2] - c, axis=-1).min()
+                     for si in (-1, 0, 1) for sj in (-1, 0, 1)])
+        if dd < 0.6 * a0: continue                       # occupied
+        n_ring = sum(int((np.linalg.norm(terr[:, :2] + (si * cell[0] + sj * cell[1])[:2] - c, axis=-1)
+                          < 1.25 * a0).sum()) for si in (-1, 0, 1) for sj in (-1, 0, 1))
+        if n_ring >= 4: keep.append(c)
+    if keep:
+        keep = np.array(keep); uniq = [keep[0]]
+        for c in keep[1:]:
+            if min(np.linalg.norm(np.array(uniq) - c, axis=1)) > 0.5 * a0: uniq.append(c)
+        keep = np.array(uniq)
+    else:
+        keep = np.zeros((0, 2))
+    return added, keep
+
+
 def draw(ax, pts, colors, depth, emph, r):
     """Colour carries the coordination number. BRIGHTNESS and outline weight carry whether the atom is EXPOSED, so a
     grey atom at the surface (a step foot, over-coordinated because the terrace above leans on it) is never confused
@@ -180,26 +243,45 @@ def height_gap(H):
     return float(d[i]), float(0.5 * (v[i] + v[i + 1]))
 
 
-def describe(H):
-    """One Chinese line saying what the outline shows, generated from the height field itself."""
+def percolates(M):
+    """True if the region spans the cell periodically rather than closing on itself.
+
+    Area fraction cannot tell a pit from a step: Pit-19-8x8 occupies 36% of its cell and the old rule called it a
+    'step'. What separates them is connectivity -- a strip step runs right across the cell, a pit or an island
+    closes. A region that covers every index along one axis after projection spans the cell along the other."""
+    return bool(M.any(axis=0).all() or M.any(axis=1).all())
+
+
+def describe(H, family=None):
+    """One Chinese line saying what the outline shows.
+
+    The height field draws the outline; it does NOT name the structure. The family comes from the frozen plan and
+    the open/closed distinction from connectivity, because an area fraction alone mislabels a broad shallow pit as
+    a step."""
     rng = float(H.max() - H.min())
     if rng < 0.35:
-        return "高度均匀，无起伏（若与平板有别，差别在层序或面内配准，不在高度）"
+        return "高度均匀，无起伏；与平板的差别在层序或面内配准，不在高度"
     gap, cut = height_gap(H)
     if gap < GAP_LAYER:
-        return f"连续倾斜的平台，胞内高差 {rng:.1f} Å 且无断层——邻晶面的微斜切割，台阶并到胞边"
+        return (f"局部 (111) 台面相对宏观晶面倾斜，胞内高差 {rng:.1f} Å；"
+                "台阶落在周期边界上，高度分布里看不到断开")
     v = np.sort(H.ravel())
     cuts = [0.5 * (a + b) for a, b in zip(v[:-1], v[1:]) if b - a >= GAP_LAYER]
-    if len(cuts) >= 2:                                     # three or more separated levels
-        edges = [-np.inf] + cuts + [np.inf]
-        fr = [float(((H > lo) & (H <= hi)).mean()) for lo, hi in zip(edges[:-1], edges[1:])]
-        return f"{len(fr)} 个分离的高度层，自上而下占 " + "、".join(f"{100*x:.0f}%" for x in reversed(fr))
-    up = float((H > cut).mean()); dn = 1 - up
-    if 0.30 <= up <= 0.70:
-        return f"两层平台，上 {100*up:.0f}%、下 {100*dn:.0f}%（台阶），层间 {gap:.1f} Å"
-    if up < dn:
-        return f"高出一层的凸起，占面积 {100*up:.0f}%，高 {gap:.1f} Å"
-    return f"低一层的凹陷，占面积 {100*dn:.0f}%，深 {gap:.1f} Å"
+    base = float(np.median(H))
+    hi_m = H > base + 0.5 * GAP_LAYER
+    lo_m = H < base - 0.5 * GAP_LAYER
+    part = []
+    for m, raised in ((hi_m, True), (lo_m, False)):
+        if not m.any(): continue
+        if percolates(m):
+            part.append(("贯穿整胞的高台面" if raised else "贯穿整胞的低台面") + f"（条带台阶的一侧）")
+        else:
+            part.append(("闭合的凸起（岛 / 吸附团簇）" if raised else "闭合的凹陷（坑 / 空位）"))
+    if len(cuts) >= 2:
+        part.append(f"共 {len(cuts)+1} 个分离的高度层")
+    if not part:
+        return f"高差 {rng:.1f} Å，未分出明确的高低区"
+    return "　·　".join(part) + f"　·　层间 {gap:.1f} Å"
 
 
 PLAN_FILL = {2: "#dfb264", 1: "#e9c98f", 0: "#f2efe9", -1: "#bcd3dd", -2: "#9cbecd", -3: "#86adbf"}
@@ -296,6 +378,7 @@ def simple_schematic(fig, cell_spec, at):
 
     gap, cut = height_gap(H)
     M = H > cut if gap >= GAP_LAYER else np.zeros(H.shape, bool)
+    is_cut = False; cut_axis = None; cut_index = None
     if M.any() and not M.all():
         minority = M if M.mean() <= 0.5 else ~M
         i0 = circ_centre(minority.any(axis=1)); j0 = circ_centre(minority.any(axis=0))
@@ -303,6 +386,8 @@ def simple_schematic(fig, cell_spec, at):
         prof = H[:, j0].copy() if use_a1 else H[i0, :].copy()
         if prof.ptp() < 0.5 * gap:                                # the centre line misses it: use the silhouette
             prof = H.max(axis=1) if use_a1 else H.max(axis=0)
+        else:
+            is_cut = True; cut_axis = 0 if use_a1 else 1; cut_index = j0 if use_a1 else i0
         c = circ_centre((prof > cut) if minority is M else (prof <= cut))
         prof = np.roll(prof, len(prof) // 2 - c)
     else:                                                          # flat, or a continuous ramp with no separated level
@@ -318,10 +403,29 @@ def simple_schematic(fig, cell_spec, at):
     axs.step(s, p, where="mid", color="#2b3137", lw=2.1, zorder=3)
     axs.plot([0, reps * length], [-body] * 2, color="#c6c1b7", lw=1.0, zorder=3)
     top = p.max()
-    axs.axhline(top + 3.2, color="#2e7d9a", lw=1.1, ls=(0, (5, 3)), zorder=2)
-    axs.text(reps * length * 0.01, top + 3.7, "电解质", fontproperties=CJK, fontsize=8.2, color="#2e7d9a", va="bottom")
+    # NO drawn "ion-accessible boundary". The accessible region is computed from SION and varies across raised
+    # terraces, islands and pits -- the whole point of the spatial analysis -- so a single horizontal line at a
+    # fixed offset would contradict it. Only a word marking which side the electrolyte is on.
+    axs.text(reps * length * 0.01, top + 1.4, "↑ 电解液侧", fontproperties=CJK, fontsize=8.4,
+             color="#2e7d9a", va="bottom")
     axs.set_xlim(0, reps * length); axs.set_ylim(-body - 0.4, top + 6.2)
-    axs.set_title(f"侧面剪影（{reps} 个周期，高度按真实比例）", fontproperties=CJK, fontsize=9.5, color="#4a5158", pad=2)
+    axs.set_title(("侧面：过 A–A′ 的真实剖线" if is_cut else "侧面：沿视线方向的投影包络（非剖线）")
+                  + f"，{reps} 个周期；下方实体仅为基底示意",
+                  fontproperties=CJK, fontsize=9.0, color="#4a5158", pad=2)
+
+    # draw A-A' on the plan so the reader can see WHERE the section was taken; without it a cut through an island
+    # is indistinguishable from one that missed it
+    if is_cut:
+        f = (cut_index + 0.5) / H.shape[1 - cut_axis]
+        along = cell[cut_axis][:2]; across = cell[1 - cut_axis][:2]
+        for i in range(t1):
+            for j in range(t2):
+                sh = (i * cell[0] + j * cell[1])[:2]
+                p0 = f * across + sh; p1 = p0 + along
+                axp.plot([p0[0], p1[0]], [p0[1], p1[1]], color="#23272c", lw=1.3, ls=(0, (6, 3)), zorder=6)
+        p0 = f * across; p1 = p0 + along
+        axp.text(p0[0], p0[1], " A", fontsize=9, color="#23272c", va="center", ha="left", zorder=7)
+        axp.text(p1[0], p1[1], "A′ ", fontsize=9, color="#23272c", va="center", ha="right", zorder=7)
     return describe(H)
 
 
@@ -368,6 +472,21 @@ def render(sid, path, title, meta):
 
     ax = fig.add_subplot(gs[0, 1]); ax.set_aspect("equal"); ax.axis("off")
     draw(ax, P, C, Z, E, R_AU)
+    # what was PUT ON and what was TAKEN OUT, and the stacking registry -- none of which colour or height show
+    reg = registry(at)
+    added, missing = added_and_missing(at, meta.get("family"))
+    hcp_top = np.flatnonzero(reg & exp & keep)
+    for i in range(n1):
+        for j in range(n2):
+            sh = (i * cell[0] + j * cell[1])[:2]
+            for k in added:
+                ax.add_patch(Circle(pos[k, :2] + sh, R_AU * 1.32, facecolor="none", edgecolor="#1f6f3f",
+                                    lw=1.7, zorder=6000))
+            for c in missing:
+                ax.add_patch(Circle(c + sh, R_AU * 0.95, facecolor="none", edgecolor="#8a3ffc",
+                                    lw=1.7, ls=(0, (3, 2)), zorder=6000))
+            for k in hcp_top:
+                ax.plot(*(pos[k, :2] + sh), marker="x", ms=4.4, mew=1.5, color="#1d4e8f", zorder=6100)
     for i in range(n1):
         for j in range(n2):
             o = i * cell[0][:2] + j * cell[1][:2]
@@ -380,9 +499,11 @@ def render(sid, path, title, meta):
 
     ax2 = fig.add_subplot(gs[0, 2]); ax2.set_aspect("equal"); ax2.axis("off")
     draw(ax2, P2, C2, Z2, E2, R_AU)
-    ax2.axhline(zt + 4.2, color="#2e7d9a", lw=1.1, ls=(0, (5, 3)), zorder=6000)
-    ax2.text(P2[:, 0].min() - R_AU, zt + 4.8, "此线以上为离子可达的电解质",
-             fontproperties=CJK, fontsize=8.2, color="#2e7d9a")
+    # see the note in simple_schematic: no fabricated accessibility line, only a side label
+    ax2.text(P2[:, 0].min() - R_AU, zt + 3.2, "↑ 电解液侧",
+             fontproperties=CJK, fontsize=8.6, color="#2e7d9a")
+    ax2.text(P2[:, 0].max() + R_AU, P2[:, 1].min() - 0.4, "↓ 背面（固定层，非研究界面）",
+             fontproperties=CJK, fontsize=7.6, color="#9aa1a8", va="top", ha="right")
     ax2.set_xlim(P2[:, 0].min() - 1.5 * R_AU, P2[:, 0].max() + 1.5 * R_AU)
     ax2.set_ylim(P2[:, 1].min() - 1.5 * R_AU, zt + 7.0)
     ax2.set_title(f"侧视图 · 沿 a1 方向 {ns} 个胞 · 全部原子层",
@@ -393,9 +514,15 @@ def render(sid, path, title, meta):
            f"   ·   {meta['family_zh']}   ·   {meta['cn_counts_zh']}")
     fig.text(0.5, 1 - 0.70 / FIGH, sub, ha="center", va="top", fontproperties=CJK, fontsize=9.2, color="#5a616a")
     h = [plt.Line2D([], [], marker="o", ls="", ms=7, mfc=CN_COLOR[k], mec="#2b2f36", mew=0.5, label=l)
-         for k, l in [("kink", "CN≤6  拐角 / 吸附原子"), ("edge", "CN 7–8  台阶边、岛与坑的边缘"),
-                      ("terrace", "CN 9  平整平台"), ("bulk", "CN≥10  台阶脚 / 岛脚 / 次表面")]]
-    lg = fig.legend(handles=h, loc="lower center", ncol=4, fontsize=8.4, frameon=False,
+         for k, l in [("kink", "CN≤6（常见于拐角、吸附原子）"), ("edge", "CN 7–8（台阶边、岛与坑的边缘）"),
+                      ("terrace", "CN 9（平整平台）"), ("bulk", "CN≥10（台阶脚、岛脚、次表面）")]]
+    if len(added): h.append(plt.Line2D([], [], marker="o", ls="", ms=9, mfc="none", mec="#1f6f3f", mew=1.7,
+                                       label=f"加上去的 Au（{len(added)} 个）"))
+    if len(missing): h.append(plt.Line2D([], [], marker="o", ls="", ms=8, mfc="none", mec="#8a3ffc", mew=1.7,
+                                         label=f"移走的位点（{len(missing)} 个）"))
+    if len(hcp_top): h.append(plt.Line2D([], [], marker="x", ls="", ms=6, mew=1.5, color="#1d4e8f",
+                                         label=f"hcp 配准（{len(hcp_top)}/{int(np.sum(exp & keep))} 个表面原子）"))
+    lg = fig.legend(handles=h, loc="lower center", ncol=min(4, len(h)), fontsize=8.2, frameon=False,
                     bbox_to_anchor=(0.5, 0.02 / FIGH), prop=CJK)
     for t in lg.get_texts(): t.set_fontproperties(CJK); t.set_fontsize(8.4)
     fig.savefig(f"{OUT}/{sid}.png", facecolor="white")
@@ -428,7 +555,17 @@ def main():
         cn = coordination(at)
         cc = collections_counter(cn)
         m["cn_counts"] = ", ".join(f"{k} {v}" for k, v in cc.items() if v)
-        m["cn_counts_zh"] = "  ".join(f"{CN_ZH[k]} {v}" for k, v in cc.items() if v)
+        # The whole-slab CN histogram counts the BOTTOM surface too: a 4-layer flat slab has 32 CN-9 atoms, but
+        # only 16 of them face the electrolyte. Report the upper surface separately so the caption cannot be read
+        # as "the electrolyte touches 32 terrace atoms".
+        at_r = flatten_cell(at)
+        up = top_atoms(at_r); cn_up = coordination(at_r)[up]
+        cu = {"kink": 0, "edge": 0, "terrace": 0, "bulk": 0}
+        for x in cn_up: cu[cn_class(x)] += 1
+        m["cn_counts_upper"] = cu
+        m["n_upper_surface"] = int(up.sum())
+        m["cn_counts_zh"] = ("上表面 " + str(int(up.sum())) + " 个原子：" +
+                             "  ".join(f"{CN_ZH[k]} {v}" for k, v in cu.items() if v))
         m["family_zh"] = FAMILY_ZH.get(m["family"], m["family"])
         m["cn_counts_dict"] = cc
         render(sid, f"{m['dir']}/{m['geom']}", sid, m)

@@ -9,7 +9,14 @@
   "geometry_id": "Step-8x2__ideal__25c159395cb3",
   "A_proj": 119.78145623291701,
   "cn_counts": "edge 4, terrace 26, bulk 42",
-  "cn_counts_zh": "\u8fb9\u7f18 4  \u5e73\u53f0 26  \u6b21\u8868\u9762 42",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 4,
+   "terrace": 10,
+   "bulk": 4
+  },
+  "n_upper_surface": 18,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 18 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 4  \u5e73\u53f0 10  \u6b21\u8868\u9762 4",
   "family_zh": "\u6761\u5e26\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
@@ -17,7 +24,7 @@
    "terrace": 26,
    "bulk": 42
   },
-  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 43%\u3001\u4e0b 57%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.03190535413326031,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.263718592883805,
@@ -35,7 +42,14 @@
   "geometry_id": "Island-7-compact__ideal__791bbeaa8264",
   "A_proj": 269.50827652406326,
   "cn_counts": "kink 6, terrace 61, bulk 84",
-  "cn_counts_zh": "\u62d0\u89d2 6  \u5e73\u53f0 61  \u6b21\u8868\u9762 84",
+  "cn_counts_upper": {
+   "kink": 6,
+   "edge": 0,
+   "terrace": 25,
+   "bulk": 9
+  },
+  "n_upper_surface": 40,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 40 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 6  \u5e73\u53f0 25  \u6b21\u8868\u9762 9",
   "family_zh": "\u5355\u5c42\u5c9b",
   "cn_counts_dict": {
    "kink": 6,
@@ -43,7 +57,7 @@
    "terrace": 61,
    "bulk": 84
   },
-  "schematic_note": "\u9ad8\u51fa\u4e00\u5c42\u7684\u51f8\u8d77\uff0c\u5360\u9762\u79ef 14%\uff0c\u9ad8 2.4 \u00c5",
+  "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": -0.06875705446956354,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.393881195729088,
@@ -61,7 +75,14 @@
   "geometry_id": "A1-fcc__ideal__dae654c15784",
   "A_proj": 119.78145623291701,
   "cn_counts": "kink 1, terrace 29, bulk 35",
-  "cn_counts_zh": "\u62d0\u89d2 1  \u5e73\u53f0 29  \u6b21\u8868\u9762 35",
+  "cn_counts_upper": {
+   "kink": 1,
+   "edge": 0,
+   "terrace": 13,
+   "bulk": 3
+  },
+  "n_upper_surface": 17,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 17 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 1  \u5e73\u53f0 13  \u6b21\u8868\u9762 3",
   "family_zh": "\u70b9\u7f3a\u9677",
   "cn_counts_dict": {
    "kink": 1,
@@ -69,7 +90,7 @@
    "terrace": 29,
    "bulk": 35
   },
-  "schematic_note": "\u9ad8\u51fa\u4e00\u5c42\u7684\u51f8\u8d77\uff0c\u5360\u9762\u79ef 3%\uff0c\u9ad8 2.4 \u00c5",
+  "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": -0.06527082548166915,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.920161259404404,
@@ -87,7 +108,14 @@
   "geometry_id": "A1-hcp__ideal__f0af6d51e549",
   "A_proj": 119.78145623291701,
   "cn_counts": "kink 1, terrace 29, bulk 35",
-  "cn_counts_zh": "\u62d0\u89d2 1  \u5e73\u53f0 29  \u6b21\u8868\u9762 35",
+  "cn_counts_upper": {
+   "kink": 1,
+   "edge": 0,
+   "terrace": 13,
+   "bulk": 3
+  },
+  "n_upper_surface": 17,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 17 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 1  \u5e73\u53f0 13  \u6b21\u8868\u9762 3",
   "family_zh": "\u70b9\u7f3a\u9677",
   "cn_counts_dict": {
    "kink": 1,
@@ -95,7 +123,7 @@
    "terrace": 29,
    "bulk": 35
   },
-  "schematic_note": "\u9ad8\u51fa\u4e00\u5c42\u7684\u51f8\u8d77\uff0c\u5360\u9762\u79ef 3%\uff0c\u9ad8 2.4 \u00c5",
+  "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": -0.06647837067399359,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.910950646183682,
@@ -113,7 +141,14 @@
   "geometry_id": "A3__ideal__0a2dc2662874",
   "A_proj": 119.78145623291701,
   "cn_counts": "kink 3, terrace 25, bulk 39",
-  "cn_counts_zh": "\u62d0\u89d2 3  \u5e73\u53f0 25  \u6b21\u8868\u9762 39",
+  "cn_counts_upper": {
+   "kink": 3,
+   "edge": 0,
+   "terrace": 9,
+   "bulk": 7
+  },
+  "n_upper_surface": 19,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 19 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 3  \u5e73\u53f0 9  \u6b21\u8868\u9762 7",
   "family_zh": "\u70b9\u7f3a\u9677",
   "cn_counts_dict": {
    "kink": 3,
@@ -121,7 +156,7 @@
    "terrace": 25,
    "bulk": 39
   },
-  "schematic_note": "\u9ad8\u51fa\u4e00\u5c42\u7684\u51f8\u8d77\uff0c\u5360\u9762\u79ef 9%\uff0c\u9ad8 2.4 \u00c5",
+  "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": -0.08779458409932506,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.789859871738056,
@@ -139,7 +174,14 @@
   "geometry_id": "Au211__ideal__949f18784e31",
   "A_proj": 84.69827996269527,
   "cn_counts": "edge 8, terrace 8, bulk 32",
-  "cn_counts_zh": "\u8fb9\u7f18 8  \u5e73\u53f0 8  \u6b21\u8868\u9762 32",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 5,
+   "terrace": 5,
+   "bulk": 14
+  },
+  "n_upper_surface": 24,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 24 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 5  \u5e73\u53f0 5  \u6b21\u8868\u9762 14",
   "family_zh": "\u90bb\u6676\u9762\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
@@ -147,7 +189,7 @@
    "terrace": 8,
    "bulk": 32
   },
-  "schematic_note": "\u8fde\u7eed\u503e\u659c\u7684\u5e73\u53f0\uff0c\u80de\u5185\u9ad8\u5dee 4.2 \u00c5 \u4e14\u65e0\u65ad\u5c42\u2014\u2014\u90bb\u6676\u9762\u7684\u5fae\u659c\u5207\u5272\uff0c\u53f0\u9636\u5e76\u5230\u80de\u8fb9",
+  "schematic_note": "\u5c40\u90e8 (111) \u53f0\u9762\u76f8\u5bf9\u5b8f\u89c2\u6676\u9762\u503e\u659c\uff0c\u80de\u5185\u9ad8\u5dee 4.2 \u00c5\uff1b\u53f0\u9636\u843d\u5728\u5468\u671f\u8fb9\u754c\u4e0a\uff0c\u9ad8\u5ea6\u5206\u5e03\u91cc\u770b\u4e0d\u5230\u65ad\u5f00",
   "U_pzc_V": -0.030633809491797698,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.56602268754735,
@@ -165,7 +207,14 @@
   "geometry_id": "Au221__ideal__2e948d63458e",
   "A_proj": 51.86689200000004,
   "cn_counts": "edge 4, terrace 8, bulk 16",
-  "cn_counts_zh": "\u8fb9\u7f18 4  \u5e73\u53f0 8  \u6b21\u8868\u9762 16",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 2,
+   "terrace": 4,
+   "bulk": 2
+  },
+  "n_upper_surface": 8,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 8 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 2  \u5e73\u53f0 4  \u6b21\u8868\u9762 2",
   "family_zh": "\u90bb\u6676\u9762\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
@@ -173,7 +222,7 @@
    "terrace": 8,
    "bulk": 16
   },
-  "schematic_note": "\u8fde\u7eed\u503e\u659c\u7684\u5e73\u53f0\uff0c\u80de\u5185\u9ad8\u5dee 2.1 \u00c5 \u4e14\u65e0\u65ad\u5c42\u2014\u2014\u90bb\u6676\u9762\u7684\u5fae\u659c\u5207\u5272\uff0c\u53f0\u9636\u5e76\u5230\u80de\u8fb9",
+  "schematic_note": "\u5c40\u90e8 (111) \u53f0\u9762\u76f8\u5bf9\u5b8f\u89c2\u6676\u9762\u503e\u659c\uff0c\u80de\u5185\u9ad8\u5dee 2.1 \u00c5\uff1b\u53f0\u9636\u843d\u5728\u5468\u671f\u8fb9\u754c\u4e0a\uff0c\u9ad8\u5ea6\u5206\u5e03\u91cc\u770b\u4e0d\u5230\u65ad\u5f00",
   "U_pzc_V": -0.012502728957702824,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.137429964234382,
@@ -191,7 +240,14 @@
   "geometry_id": "Au332__ideal__f578c9d4d6dd",
   "A_proj": 40.54621460830976,
   "cn_counts": "edge 2, terrace 8, bulk 11",
-  "cn_counts_zh": "\u8fb9\u7f18 2  \u5e73\u53f0 8  \u6b21\u8868\u9762 11",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 1,
+   "terrace": 4,
+   "bulk": 1
+  },
+  "n_upper_surface": 6,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 6 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 1  \u5e73\u53f0 4  \u6b21\u8868\u9762 1",
   "family_zh": "\u90bb\u6676\u9762\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
@@ -199,7 +255,7 @@
    "terrace": 8,
    "bulk": 11
   },
-  "schematic_note": "\u8fde\u7eed\u503e\u659c\u7684\u5e73\u53f0\uff0c\u80de\u5185\u9ad8\u5dee 2.2 \u00c5 \u4e14\u65e0\u65ad\u5c42\u2014\u2014\u90bb\u6676\u9762\u7684\u5fae\u659c\u5207\u5272\uff0c\u53f0\u9636\u5e76\u5230\u80de\u8fb9",
+  "schematic_note": "\u5c40\u90e8 (111) \u53f0\u9762\u76f8\u5bf9\u5b8f\u89c2\u6676\u9762\u503e\u659c\uff0c\u80de\u5185\u9ad8\u5dee 2.2 \u00c5\uff1b\u53f0\u9636\u843d\u5728\u5468\u671f\u8fb9\u754c\u4e0a\uff0c\u9ad8\u5ea6\u5206\u5e03\u91cc\u770b\u4e0d\u5230\u65ad\u5f00",
   "U_pzc_V": 0.01679968855912074,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.012361092780395,
@@ -217,7 +273,14 @@
   "geometry_id": "Au554__ideal__cd99673dc9eb",
   "A_proj": 70.22810375618486,
   "cn_counts": "edge 2, terrace 16, bulk 18",
-  "cn_counts_zh": "\u8fb9\u7f18 2  \u5e73\u53f0 16  \u6b21\u8868\u9762 18",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 1,
+   "terrace": 8,
+   "bulk": 1
+  },
+  "n_upper_surface": 10,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 10 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 1  \u5e73\u53f0 8  \u6b21\u8868\u9762 1",
   "family_zh": "\u90bb\u6676\u9762\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
@@ -225,7 +288,7 @@
    "terrace": 16,
    "bulk": 18
   },
-  "schematic_note": "\u8fde\u7eed\u503e\u659c\u7684\u5e73\u53f0\uff0c\u80de\u5185\u9ad8\u5dee 2.3 \u00c5 \u4e14\u65e0\u65ad\u5c42\u2014\u2014\u90bb\u6676\u9762\u7684\u5fae\u659c\u5207\u5272\uff0c\u53f0\u9636\u5e76\u5230\u80de\u8fb9",
+  "schematic_note": "\u5c40\u90e8 (111) \u53f0\u9762\u76f8\u5bf9\u5b8f\u89c2\u6676\u9762\u503e\u659c\uff0c\u80de\u5185\u9ad8\u5dee 2.3 \u00c5\uff1b\u53f0\u9636\u843d\u5728\u5468\u671f\u8fb9\u754c\u4e0a\uff0c\u9ad8\u5ea6\u5206\u5e03\u91cc\u770b\u4e0d\u5230\u65ad\u5f00",
   "U_pzc_V": 0.0658738623457803,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.717082410464283,
@@ -243,7 +306,14 @@
   "geometry_id": "C1-island-near-step__ideal__2486ec5338ab",
   "A_proj": 239.56291246583402,
   "cn_counts": "kink 4, edge 9, terrace 45, bulk 93",
-  "cn_counts_zh": "\u62d0\u89d2 4  \u8fb9\u7f18 9  \u5e73\u53f0 45  \u6b21\u8868\u9762 93",
+  "cn_counts_upper": {
+   "kink": 4,
+   "edge": 9,
+   "terrace": 13,
+   "bulk": 13
+  },
+  "n_upper_surface": 39,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 39 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 4  \u8fb9\u7f18 9  \u5e73\u53f0 13  \u6b21\u8868\u9762 13",
   "family_zh": "\u590d\u5408\u5f62\u8c8c",
   "cn_counts_dict": {
    "kink": 4,
@@ -251,7 +321,7 @@
    "terrace": 45,
    "bulk": 93
   },
-  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 60%\u3001\u4e0b 40%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u4f4e\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": null,
   "pzc_bracketed": false,
   "C_median_uF_cm2": 12.342607614307285,
@@ -269,7 +339,14 @@
   "geometry_id": "C2-island+pit__ideal__b433114f194a",
   "A_proj": 479.12582493166803,
   "cn_counts": "kink 6, edge 12, terrace 101, bulk 137",
-  "cn_counts_zh": "\u62d0\u89d2 6  \u8fb9\u7f18 12  \u5e73\u53f0 101  \u6b21\u8868\u9762 137",
+  "cn_counts_upper": {
+   "kink": 6,
+   "edge": 12,
+   "terrace": 37,
+   "bulk": 18
+  },
+  "n_upper_surface": 73,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 73 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 6  \u8fb9\u7f18 12  \u5e73\u53f0 37  \u6b21\u8868\u9762 18",
   "family_zh": "\u590d\u5408\u5f62\u8c8c",
   "cn_counts_dict": {
    "kink": 6,
@@ -277,7 +354,7 @@
    "terrace": 101,
    "bulk": 137
   },
-  "schematic_note": "3 \u4e2a\u5206\u79bb\u7684\u9ad8\u5ea6\u5c42\uff0c\u81ea\u4e0a\u800c\u4e0b\u5360 8%\u300177%\u300115%",
+  "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5171 3 \u4e2a\u5206\u79bb\u7684\u9ad8\u5ea6\u5c42\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.016523916055531124,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.320452316635448,
@@ -295,7 +372,14 @@
   "geometry_id": "Flat-16x1__ideal__234bab346496",
   "A_proj": 119.78145623291701,
   "cn_counts": "terrace 32, bulk 32",
-  "cn_counts_zh": "\u5e73\u53f0 32  \u6b21\u8868\u9762 32",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 0,
+   "terrace": 16,
+   "bulk": 0
+  },
+  "n_upper_surface": 16,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 16 \u4e2a\u539f\u5b50\uff1a\u5e73\u53f0 16",
   "family_zh": "\u5e73\u6574 Au(111)",
   "cn_counts_dict": {
    "kink": 0,
@@ -303,7 +387,7 @@
    "terrace": 32,
    "bulk": 32
   },
-  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff08\u82e5\u4e0e\u5e73\u677f\u6709\u522b\uff0c\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6\uff09",
+  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff1b\u4e0e\u5e73\u677f\u7684\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6",
   "U_pzc_V": 0.07264910022058269,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.37703402065413,
@@ -321,7 +405,14 @@
   "geometry_id": "Flat-8x2__ideal__8eddbc7a2602",
   "A_proj": 119.78145623291701,
   "cn_counts": "terrace 32, bulk 32",
-  "cn_counts_zh": "\u5e73\u53f0 32  \u6b21\u8868\u9762 32",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 0,
+   "terrace": 16,
+   "bulk": 0
+  },
+  "n_upper_surface": 16,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 16 \u4e2a\u539f\u5b50\uff1a\u5e73\u53f0 16",
   "family_zh": "\u5e73\u6574 Au(111)",
   "cn_counts_dict": {
    "kink": 0,
@@ -329,7 +420,7 @@
    "terrace": 32,
    "bulk": 32
   },
-  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff08\u82e5\u4e0e\u5e73\u677f\u6709\u522b\uff0c\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6\uff09",
+  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff1b\u4e0e\u5e73\u677f\u7684\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6",
   "U_pzc_V": 0.07321860981108615,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.350104413897453,
@@ -347,7 +438,14 @@
   "geometry_id": "Island-19-8x8__ideal__0b15ea7dd358",
   "A_proj": 479.12582493166803,
   "cn_counts": "kink 6, edge 6, terrace 108, bulk 155",
-  "cn_counts_zh": "\u62d0\u89d2 6  \u8fb9\u7f18 6  \u5e73\u53f0 108  \u6b21\u8868\u9762 155",
+  "cn_counts_upper": {
+   "kink": 6,
+   "edge": 6,
+   "terrace": 44,
+   "bulk": 15
+  },
+  "n_upper_surface": 71,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 71 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 6  \u8fb9\u7f18 6  \u5e73\u53f0 44  \u6b21\u8868\u9762 15",
   "family_zh": "\u5355\u5c42\u5c9b",
   "cn_counts_dict": {
    "kink": 6,
@@ -355,7 +453,7 @@
    "terrace": 108,
    "bulk": 155
   },
-  "schematic_note": "\u9ad8\u51fa\u4e00\u5c42\u7684\u51f8\u8d77\uff0c\u5360\u9762\u79ef 24%\uff0c\u9ad8 2.4 \u00c5",
+  "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.01168369747089728,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.318311178050337,
@@ -373,7 +471,14 @@
   "geometry_id": "Island-7-8x8__ideal__e73d8e4d0ca4",
   "A_proj": 479.12582493166803,
   "cn_counts": "kink 6, terrace 117, bulk 140",
-  "cn_counts_zh": "\u62d0\u89d2 6  \u5e73\u53f0 117  \u6b21\u8868\u9762 140",
+  "cn_counts_upper": {
+   "kink": 6,
+   "edge": 0,
+   "terrace": 53,
+   "bulk": 9
+  },
+  "n_upper_surface": 68,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 68 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 6  \u5e73\u53f0 53  \u6b21\u8868\u9762 9",
   "family_zh": "\u5355\u5c42\u5c9b",
   "cn_counts_dict": {
    "kink": 6,
@@ -381,7 +486,7 @@
    "terrace": 117,
    "bulk": 140
   },
-  "schematic_note": "\u9ad8\u51fa\u4e00\u5c42\u7684\u51f8\u8d77\uff0c\u5360\u9762\u79ef 8%\uff0c\u9ad8 2.4 \u00c5",
+  "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": null,
   "pzc_bracketed": false,
   "C_median_uF_cm2": null,
@@ -399,7 +504,14 @@
   "geometry_id": "Island-7-elongated__ideal__169c1271614c",
   "A_proj": 269.50827652406326,
   "cn_counts": "kink 4, edge 3, terrace 60, bulk 84",
-  "cn_counts_zh": "\u62d0\u89d2 4  \u8fb9\u7f18 3  \u5e73\u53f0 60  \u6b21\u8868\u9762 84",
+  "cn_counts_upper": {
+   "kink": 4,
+   "edge": 3,
+   "terrace": 24,
+   "bulk": 10
+  },
+  "n_upper_surface": 41,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 41 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 4  \u8fb9\u7f18 3  \u5e73\u53f0 24  \u6b21\u8868\u9762 10",
   "family_zh": "\u5355\u5c42\u5c9b",
   "cn_counts_dict": {
    "kink": 4,
@@ -407,7 +519,7 @@
    "terrace": 60,
    "bulk": 84
   },
-  "schematic_note": "\u9ad8\u51fa\u4e00\u5c42\u7684\u51f8\u8d77\uff0c\u5360\u9762\u79ef 12%\uff0c\u9ad8 2.4 \u00c5",
+  "schematic_note": "\u95ed\u5408\u7684\u51f8\u8d77\uff08\u5c9b / \u5438\u9644\u56e2\u7c07\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": -0.05369462158463978,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.492104667084545,
@@ -425,7 +537,14 @@
   "geometry_id": "Kink-edge1__ideal__0a4b4cbb19ec",
   "A_proj": 179.6721843493755,
   "cn_counts": "kink 1, edge 6, terrace 37, bulk 65",
-  "cn_counts_zh": "\u62d0\u89d2 1  \u8fb9\u7f18 6  \u5e73\u53f0 37  \u6b21\u8868\u9762 65",
+  "cn_counts_upper": {
+   "kink": 1,
+   "edge": 6,
+   "terrace": 13,
+   "bulk": 7
+  },
+  "n_upper_surface": 27,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 27 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 1  \u8fb9\u7f18 6  \u5e73\u53f0 13  \u6b21\u8868\u9762 7",
   "family_zh": "\u62d0\u89d2 / \u8fb9\u7f18\u91cd\u6392",
   "cn_counts_dict": {
    "kink": 1,
@@ -433,7 +552,7 @@
    "terrace": 37,
    "bulk": 65
   },
-  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 48%\u3001\u4e0b 52%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.019937509858943908,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.313685966586526,
@@ -451,7 +570,14 @@
   "geometry_id": "Kink-edge2__ideal__6ffdcdbfea14",
   "A_proj": 179.6721843493755,
   "cn_counts": "kink 1, edge 6, terrace 38, bulk 64",
-  "cn_counts_zh": "\u62d0\u89d2 1  \u8fb9\u7f18 6  \u5e73\u53f0 38  \u6b21\u8868\u9762 64",
+  "cn_counts_upper": {
+   "kink": 1,
+   "edge": 6,
+   "terrace": 14,
+   "bulk": 7
+  },
+  "n_upper_surface": 28,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 28 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 1  \u8fb9\u7f18 6  \u5e73\u53f0 14  \u6b21\u8868\u9762 7",
   "family_zh": "\u62d0\u89d2 / \u8fb9\u7f18\u91cd\u6392",
   "cn_counts_dict": {
    "kink": 1,
@@ -459,7 +585,7 @@
    "terrace": 38,
    "bulk": 64
   },
-  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 46%\u3001\u4e0b 54%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.009624000000000521,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.346838751485599,
@@ -477,7 +603,14 @@
   "geometry_id": "Pit-19-8x8__ideal__4f0ab4b84b07",
   "A_proj": 479.12582493166803,
   "cn_counts": "edge 18, terrace 103, bulk 116",
-  "cn_counts_zh": "\u8fb9\u7f18 18  \u5e73\u53f0 103  \u6b21\u8868\u9762 116",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 18,
+   "terrace": 39,
+   "bulk": 15
+  },
+  "n_upper_surface": 72,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 72 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 18  \u5e73\u53f0 39  \u6b21\u8868\u9762 15",
   "family_zh": "\u5355\u5c42\u5751",
   "cn_counts_dict": {
    "kink": 0,
@@ -485,7 +618,7 @@
    "terrace": 103,
    "bulk": 116
   },
-  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 64%\u3001\u4e0b 36%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.05755172631061448,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.081578224554168,
@@ -503,7 +636,14 @@
   "geometry_id": "Pit-7-8x8__ideal__5c83ee15111e",
   "A_proj": 479.12582493166803,
   "cn_counts": "edge 12, terrace 112, bulk 125",
-  "cn_counts_zh": "\u8fb9\u7f18 12  \u5e73\u53f0 112  \u6b21\u8868\u9762 125",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 12,
+   "terrace": 48,
+   "bulk": 9
+  },
+  "n_upper_surface": 69,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 69 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 12  \u5e73\u53f0 48  \u6b21\u8868\u9762 9",
   "family_zh": "\u5355\u5c42\u5751",
   "cn_counts_dict": {
    "kink": 0,
@@ -511,7 +651,7 @@
    "terrace": 112,
    "bulk": 125
   },
-  "schematic_note": "\u4f4e\u4e00\u5c42\u7684\u51f9\u9677\uff0c\u5360\u9762\u79ef 15%\uff0c\u6df1 2.4 \u00c5",
+  "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": null,
   "pzc_bracketed": false,
   "C_median_uF_cm2": null,
@@ -529,7 +669,14 @@
   "geometry_id": "Pit-7-compact__ideal__3885f5fc6fdb",
   "A_proj": 269.50827652406326,
   "cn_counts": "edge 12, terrace 56, bulk 69",
-  "cn_counts_zh": "\u8fb9\u7f18 12  \u5e73\u53f0 56  \u6b21\u8868\u9762 69",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 12,
+   "terrace": 20,
+   "bulk": 9
+  },
+  "n_upper_surface": 41,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 41 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 12  \u5e73\u53f0 20  \u6b21\u8868\u9762 9",
   "family_zh": "\u5355\u5c42\u5751",
   "cn_counts_dict": {
    "kink": 0,
@@ -537,7 +684,7 @@
    "terrace": 56,
    "bulk": 69
   },
-  "schematic_note": "\u4f4e\u4e00\u5c42\u7684\u51f9\u9677\uff0c\u5360\u9762\u79ef 27%\uff0c\u6df1 2.4 \u00c5",
+  "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": -0.0004089999999994376,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.972219012015358,
@@ -555,7 +702,14 @@
   "geometry_id": "Pit-7-trench__ideal__7d7b5e791d4e",
   "A_proj": 269.50827652406326,
   "cn_counts": "edge 13, terrace 54, bulk 70",
-  "cn_counts_zh": "\u8fb9\u7f18 13  \u5e73\u53f0 54  \u6b21\u8868\u9762 70",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 13,
+   "terrace": 18,
+   "bulk": 10
+  },
+  "n_upper_surface": 41,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 41 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 13  \u5e73\u53f0 18  \u6b21\u8868\u9762 10",
   "family_zh": "\u5355\u5c42\u5751",
   "cn_counts_dict": {
    "kink": 0,
@@ -563,7 +717,7 @@
    "terrace": 54,
    "bulk": 70
   },
-  "schematic_note": "\u4f4e\u4e00\u5c42\u7684\u51f9\u9677\uff0c\u5360\u9762\u79ef 27%\uff0c\u6df1 2.4 \u00c5",
+  "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.010843208697508855,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.098004355828316,
@@ -581,7 +735,14 @@
   "geometry_id": "R1-hcp-terminated__ideal__7618cb82f683",
   "A_proj": 119.78145623291701,
   "cn_counts": "terrace 32, bulk 32",
-  "cn_counts_zh": "\u5e73\u53f0 32  \u6b21\u8868\u9762 32",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 0,
+   "terrace": 16,
+   "bulk": 0
+  },
+  "n_upper_surface": 16,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 16 \u4e2a\u539f\u5b50\uff1a\u5e73\u53f0 16",
   "family_zh": "\u91cd\u6784\u76f8\u5173",
   "cn_counts_dict": {
    "kink": 0,
@@ -589,7 +750,7 @@
    "terrace": 32,
    "bulk": 32
   },
-  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff08\u82e5\u4e0e\u5e73\u677f\u6709\u522b\uff0c\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6\uff09",
+  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff1b\u4e0e\u5e73\u677f\u7684\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6",
   "U_pzc_V": -0.009303000000000061,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.153033234258505,
@@ -607,7 +768,14 @@
   "geometry_id": "R2-stripe-wall__ideal__4fc31e641288",
   "A_proj": 119.78145623291701,
   "cn_counts": "edge 2, terrace 31, bulk 32",
-  "cn_counts_zh": "\u8fb9\u7f18 2  \u5e73\u53f0 31  \u6b21\u8868\u9762 32",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 2,
+   "terrace": 15,
+   "bulk": 0
+  },
+  "n_upper_surface": 17,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 17 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 2  \u5e73\u53f0 15",
   "family_zh": "\u91cd\u6784\u76f8\u5173",
   "cn_counts_dict": {
    "kink": 0,
@@ -615,7 +783,7 @@
    "terrace": 31,
    "bulk": 32
   },
-  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff08\u82e5\u4e0e\u5e73\u677f\u6709\u522b\uff0c\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6\uff09",
+  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff1b\u4e0e\u5e73\u677f\u7684\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6",
   "U_pzc_V": 0.062173703730410805,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.21986350368762,
@@ -633,7 +801,14 @@
   "geometry_id": "Step-16x1__ideal__67e1e6a91868",
   "A_proj": 119.78145623291701,
   "cn_counts": "edge 2, terrace 29, bulk 41",
-  "cn_counts_zh": "\u8fb9\u7f18 2  \u5e73\u53f0 29  \u6b21\u8868\u9762 41",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 2,
+   "terrace": 13,
+   "bulk": 2
+  },
+  "n_upper_surface": 17,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 17 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 2  \u5e73\u53f0 13  \u6b21\u8868\u9762 2",
   "family_zh": "\u6761\u5e26\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
@@ -641,7 +816,7 @@
    "terrace": 29,
    "bulk": 41
   },
-  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 47%\u3001\u4e0b 53%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.04401333025405477,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.787365810211952,
@@ -659,7 +834,14 @@
   "geometry_id": "Step-16x2__ideal__67d374551088",
   "A_proj": 239.56291246583402,
   "cn_counts": "edge 4, terrace 58, bulk 82",
-  "cn_counts_zh": "\u8fb9\u7f18 4  \u5e73\u53f0 58  \u6b21\u8868\u9762 82",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 4,
+   "terrace": 26,
+   "bulk": 4
+  },
+  "n_upper_surface": 34,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 34 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 4  \u5e73\u53f0 26  \u6b21\u8868\u9762 4",
   "family_zh": "\u6761\u5e26\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
@@ -667,7 +849,7 @@
    "terrace": 58,
    "bulk": 82
   },
-  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 47%\u3001\u4e0b 53%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.04270405420763271,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.841136175738548,
@@ -685,7 +867,14 @@
   "geometry_id": "Step-24x1__ideal__6c2e77bf24c0",
   "A_proj": 179.6721843493755,
   "cn_counts": "edge 2, terrace 45, bulk 61",
-  "cn_counts_zh": "\u8fb9\u7f18 2  \u5e73\u53f0 45  \u6b21\u8868\u9762 61",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 2,
+   "terrace": 21,
+   "bulk": 2
+  },
+  "n_upper_surface": 25,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 25 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 2  \u5e73\u53f0 21  \u6b21\u8868\u9762 2",
   "family_zh": "\u6761\u5e26\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
@@ -693,7 +882,7 @@
    "terrace": 45,
    "bulk": 61
   },
-  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 48%\u3001\u4e0b 52%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.06567900416731548,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.71153933517279,
@@ -711,7 +900,14 @@
   "geometry_id": "Step-8x1__ideal__76f700b0afff",
   "A_proj": 59.890728116458504,
   "cn_counts": "edge 2, terrace 13, bulk 21",
-  "cn_counts_zh": "\u8fb9\u7f18 2  \u5e73\u53f0 13  \u6b21\u8868\u9762 21",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 2,
+   "terrace": 5,
+   "bulk": 2
+  },
+  "n_upper_surface": 9,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 9 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 2  \u5e73\u53f0 5  \u6b21\u8868\u9762 2",
   "family_zh": "\u6761\u5e26\u53f0\u9636",
   "cn_counts_dict": {
    "kink": 0,
@@ -719,7 +915,7 @@
    "terrace": 13,
    "bulk": 21
   },
-  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 43%\u3001\u4e0b 57%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.031894335316453165,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.241078128822247,
@@ -737,7 +933,14 @@
   "geometry_id": "Step-8x2_edge-vacancy_plus_foot-adatom__ideal__cc6ba4ff8a63",
   "A_proj": 119.78145623291701,
   "cn_counts": "kink 2, edge 4, terrace 23, bulk 43",
-  "cn_counts_zh": "\u62d0\u89d2 2  \u8fb9\u7f18 4  \u5e73\u53f0 23  \u6b21\u8868\u9762 43",
+  "cn_counts_upper": {
+   "kink": 2,
+   "edge": 4,
+   "terrace": 7,
+   "bulk": 7
+  },
+  "n_upper_surface": 20,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 20 \u4e2a\u539f\u5b50\uff1a\u62d0\u89d2 2  \u8fb9\u7f18 4  \u5e73\u53f0 7  \u6b21\u8868\u9762 7",
   "family_zh": "\u62d0\u89d2 / \u8fb9\u7f18\u91cd\u6392",
   "cn_counts_dict": {
    "kink": 2,
@@ -745,7 +948,7 @@
    "terrace": 23,
    "bulk": 43
   },
-  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 37%\u3001\u4e0b 63%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
+  "schematic_note": "\u8d2f\u7a7f\u6574\u80de\u7684\u9ad8\u53f0\u9762\uff08\u6761\u5e26\u53f0\u9636\u7684\u4e00\u4fa7\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": -0.02356591614859102,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.462253107444791,
@@ -763,7 +966,14 @@
   "geometry_id": "T-4x4__ideal__8fa1fcc9706c",
   "A_proj": 119.78145623291701,
   "cn_counts": "terrace 32, bulk 32",
-  "cn_counts_zh": "\u5e73\u53f0 32  \u6b21\u8868\u9762 32",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 0,
+   "terrace": 16,
+   "bulk": 0
+  },
+  "n_upper_surface": 16,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 16 \u4e2a\u539f\u5b50\uff1a\u5e73\u53f0 16",
   "family_zh": "\u5e73\u6574 Au(111)",
   "cn_counts_dict": {
    "kink": 0,
@@ -771,7 +981,7 @@
    "terrace": 32,
    "bulk": 32
   },
-  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff08\u82e5\u4e0e\u5e73\u677f\u6709\u522b\uff0c\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6\uff09",
+  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff1b\u4e0e\u5e73\u677f\u7684\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6",
   "U_pzc_V": 3.300000000017178e-05,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.111008813288034,
@@ -789,7 +999,14 @@
   "geometry_id": "V1__ideal__9783e5791d1a",
   "A_proj": 119.78145623291701,
   "cn_counts": "edge 6, terrace 25, bulk 32",
-  "cn_counts_zh": "\u8fb9\u7f18 6  \u5e73\u53f0 25  \u6b21\u8868\u9762 32",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 6,
+   "terrace": 9,
+   "bulk": 3
+  },
+  "n_upper_surface": 18,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 18 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 6  \u5e73\u53f0 9  \u6b21\u8868\u9762 3",
   "family_zh": "\u70b9\u7f3a\u9677",
   "cn_counts_dict": {
    "kink": 0,
@@ -797,7 +1014,7 @@
    "terrace": 25,
    "bulk": 32
   },
-  "schematic_note": "\u4f4e\u4e00\u5c42\u7684\u51f9\u9677\uff0c\u5360\u9762\u79ef 12%\uff0c\u6df1 2.4 \u00c5",
+  "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.01271795612596183,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.326269855013464,
@@ -815,7 +1032,14 @@
   "geometry_id": "V2__ideal__6ecdc750f1be",
   "A_proj": 119.78145623291701,
   "cn_counts": "edge 8, terrace 22, bulk 32",
-  "cn_counts_zh": "\u8fb9\u7f18 8  \u5e73\u53f0 22  \u6b21\u8868\u9762 32",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 8,
+   "terrace": 6,
+   "bulk": 5
+  },
+  "n_upper_surface": 19,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 19 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 8  \u5e73\u53f0 6  \u6b21\u8868\u9762 5",
   "family_zh": "\u70b9\u7f3a\u9677",
   "cn_counts_dict": {
    "kink": 0,
@@ -823,7 +1047,7 @@
    "terrace": 22,
    "bulk": 32
   },
-  "schematic_note": "\u4f4e\u4e00\u5c42\u7684\u51f9\u9677\uff0c\u5360\u9762\u79ef 23%\uff0c\u6df1 2.4 \u00c5",
+  "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.007662999999999975,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.6223444159026,
@@ -841,7 +1065,14 @@
   "geometry_id": "V3__ideal__282b0bf2027f",
   "A_proj": 119.78145623291701,
   "cn_counts": "edge 9, terrace 20, bulk 32",
-  "cn_counts_zh": "\u8fb9\u7f18 9  \u5e73\u53f0 20  \u6b21\u8868\u9762 32",
+  "cn_counts_upper": {
+   "kink": 0,
+   "edge": 9,
+   "terrace": 4,
+   "bulk": 6
+  },
+  "n_upper_surface": 19,
+  "cn_counts_zh": "\u4e0a\u8868\u9762 19 \u4e2a\u539f\u5b50\uff1a\u8fb9\u7f18 9  \u5e73\u53f0 4  \u6b21\u8868\u9762 6",
   "family_zh": "\u70b9\u7f3a\u9677",
   "cn_counts_dict": {
    "kink": 0,
@@ -849,7 +1080,7 @@
    "terrace": 20,
    "bulk": 32
   },
-  "schematic_note": "\u4f4e\u4e00\u5c42\u7684\u51f9\u9677\uff0c\u5360\u9762\u79ef 28%\uff0c\u6df1 2.4 \u00c5",
+  "schematic_note": "\u95ed\u5408\u7684\u51f9\u9677\uff08\u5751 / \u7a7a\u4f4d\uff09\u3000\u00b7\u3000\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.010364993593028372,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.00239953861604,
