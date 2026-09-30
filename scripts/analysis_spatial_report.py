@@ -296,7 +296,8 @@ def pack(ch, reg, trans):
     gal = json.load(open(f"{ROOT}/analysis/gallery/gallery.json"))
     structs = {k: dict(n=v["n_atoms"], f=v["family"], A=round(v.get("A_proj", 0), 1), cn=v["cn_counts_dict"],
                        z=v.get("U_pzc_V"), C=v.get("C_median_uF_cm2"), dz=v.get("dU_pzc_vs_cell_ref_mV"),
-                       dC=v.get("dC_vs_cell_ref_pct"), gid=v["geometry_id"], cfg=v["cfg"]) for k, v in gal.items()}
+                       dC=v.get("dC_vs_cell_ref_pct"), gid=v["geometry_id"], cfg=v["cfg"],
+                       sch=v.get("schematic_note")) for k, v in gal.items()}
     # region summary per structure at the most positive U available
     rsum = {}
     for sid, d in reg.items():

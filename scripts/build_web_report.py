@@ -225,8 +225,14 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
 
 <section id="gallery"><div class="finding">
   <div><div class="eyebrow">结构图谱</div><h2>全部三十三种结构，按配位数着色</h2></div>
-  <p class="lede">每张图用的都是实际参与计算的几何，不是重新生成的理想结构。着色分类与上文切分阴离子区域所用的分类完全一致，
-  所以图与图可以直接对读。<b>点击任意图片可放大。</b></p>
+  <p class="lede">每张图分三块：最左是<b>不画原子的简笔轮廓</b>，一眼看出缺陷长什么样；中间是按配位数着色的俯视图；
+  右边是侧视图。三块全部由实际参与计算的几何生成，不是重新生成的理想结构，也不是手绘，所以简笔图不会和真实结构脱节。
+  <b>点击任意图片可放大。</b></p>
+  <div class="note" style="max-width:none"><b>简笔轮廓是怎么来的。</b>先从真实原子坐标算出表面高度场（每根柱子上最高原子的顶），
+  按 (111) 层间距 2.4&nbsp;&Aring; 量化成层级，再以 1.2&nbsp;&Aring; 的高斯做一次平滑，只抹掉逐原子的锯齿、不改变特征的
+  尺寸和形状。俯视轮廓画的就是层级边界：米色是基准平台，暖色高一层，冷色低一层。侧面剪影是过特征中心的一条真实剖线，
+  不是投影最大值——否则一个紧凑的岛会被拉成和它footprint一样宽的台阶。<br>
+  高度均匀的结构（两种堆垛重构）在这里看起来就是平的，这是实话：它们与平板的差别在层序和面内配准，不在高度。</div>
   <div class="note" style="max-width:none"><b>颜色的含义，以及为什么同一层里会出现不同颜色。</b>
   颜色编码的是<b>配位数</b>（3.4&nbsp;&Aring; 内的 Au 近邻数），不是原子所在的层。同一层里配位数本来就会不同，这正是要看的信息：
   台阶脚那一排原子虽然和平台同高，但上层平台压在它旁边，近邻数达到 10 以上，因此显灰色；而普通平台原子是 9，显黄色。
@@ -526,7 +532,9 @@ document.getElementById("s1").append(...[
       if(v.dz!=null) tags.push(el("span",{class:"tag"},`ΔU₀ ${v.dz>0?"+":""}${v.dz.toFixed(0)} mV`));
       gal.append(el("figure",{class:"gcard",style:"margin:0"},
         el("div",{class:"ghead"},el("h3",{},k),el("span",{class:"small"},v.cfg==="ideal"?"理想构型":"弛豫构型")),
-        zoomable(`gallery/${k}.png`,`${k} · 俯视图与侧视图`,`${k}：俯视图与侧视图，原子按配位数着色`),
+        zoomable(`gallery/${k}.png`,`${k} · 简笔轮廓、俯视图与侧视图`,
+          `${k}：简笔轮廓、俯视图与侧视图，原子按配位数着色`),
+        v.sch?el("div",{class:"hint",style:"padding-top:10px;padding-bottom:0"},"轮廓："+v.sch):null,
         el("div",{class:"gmeta"},...tags)));}
   }
   render();

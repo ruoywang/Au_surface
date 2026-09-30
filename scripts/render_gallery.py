@@ -80,10 +80,248 @@ def draw(ax, pts, colors, depth, emph, r):
 
 TOP_DEPTH = 5.2         # A below the highest atom kept in the top view: two (111) terrace levels, no deep bulk
 TILE_TARGET = 26.0      # A, the in-plane extent each tiled view aims for
+D111 = 2.4              # A, (111) interlayer spacing -- the quantum the surface height comes in
+R_FOOT = 1.75           # A, lateral radius an atom covers when the surface height map is built
+
+
+R_COVER = 2.05   # A, lateral reach of a neighbour one layer up. In fcc(111) stacking an atom of the layer above sits
+N_COVER = 3      # 1.70 A away laterally, and a BURIED atom has three of them. A step-foot atom has only one or two,
+                 # so "three higher neighbours within R_COVER" separates buried from merely adjacent to a step.
+
+
+def top_atoms(atoms):
+    """Atoms not buried under a complete layer: the set whose heights define the surface relief."""
+    pos = atoms.get_positions(); cell = atoms.get_cell().array
+    n_above = np.zeros(len(pos), int)
+    for si in (-1, 0, 1):
+        for sj in (-1, 0, 1):
+            sh = (si * cell[0] + sj * cell[1])[:2]
+            d = np.linalg.norm(pos[:, None, :2] - (pos[None, :, :2] + sh), axis=-1)
+            n_above += ((d < R_COVER) & ((pos[None, :, 2] - pos[:, None, 2]) > 0.5)).sum(1)
+    return n_above < N_COVER
+
+
+def height_map(atoms, ng=150):
+    """Surface height h(x,y) = the height of the nearest TOP atom (Voronoi over the un-buried atoms only).
+
+    Three definitions were tried. "Highest atom within a fixed disc" let a step-edge atom's disc spill across a narrow
+    vicinal terrace and swallow it. "Nearest atom in the top 3 A" put half of a FLAT terrace on the second layer, so
+    every flat surface came out looking like a step. A sphere envelope fixed both but its within-atom bumps broke up
+    a 4-row vicinal terrace into blobs. Voronoi over un-buried atoms has none of these: every exposed atom owns
+    exactly its own patch, terraces keep their true width, and a flat surface is exactly flat."""
+    cell = atoms.get_cell().array; pos = atoms.get_positions()[top_atoms(atoms)]
+    n1 = max(40, min(ng, int(ng * np.linalg.norm(cell[0][:2]) / TILE_TARGET)))
+    n2 = max(40, min(ng, int(ng * np.linalg.norm(cell[1][:2]) / TILE_TARGET)))
+    f1, f2 = np.meshgrid((np.arange(n1) + .5) / n1, (np.arange(n2) + .5) / n2, indexing="ij")
+    gx = f1 * cell[0][0] + f2 * cell[1][0]
+    gy = f1 * cell[0][1] + f2 * cell[1][1]
+    best = np.full(gx.shape, np.inf); H = np.zeros(gx.shape)
+    for si in (-1, 0, 1):
+        for sj in (-1, 0, 1):
+            sh = (si * cell[0] + sj * cell[1])[:2]
+            for p in pos:
+                d2 = (gx - (p[0] + sh[0])) ** 2 + (gy - (p[1] + sh[1])) ** 2
+                m = d2 < best
+                best[m] = d2[m]; H[m] = p[2]
+    return H, gx, gy, (n1, n2)
+
+
+def flatten_cell(atoms):
+    """Rotate in-plane so the longest cell vector lies along +x. Render-only: a vicinal cell is strongly sheared and
+    tilted, and drawing it as stored wastes most of the panel on empty corners."""
+    a = atoms.copy(); cell = a.get_cell().array.copy()
+    iw = int(np.argmax([np.linalg.norm(cell[0][:2]), np.linalg.norm(cell[1][:2])]))
+    w = cell[iw][:2]; th = -np.arctan2(w[1], w[0])
+    R = np.array([[np.cos(th), -np.sin(th), 0], [np.sin(th), np.cos(th), 0], [0, 0, 1]])
+    a.set_cell(cell @ R.T, scale_atoms=False); a.set_positions(a.get_positions() @ R.T)
+    if iw == 1:                                   # keep a1 as the long, now-horizontal vector
+        c = a.get_cell().array.copy(); c[[0, 1]] = c[[1, 0]]
+        c[1] *= -1                                # swapping two vectors flips the handedness; mirror a2 to restore it
+        a.set_cell(c, scale_atoms=False)
+    assert np.linalg.det(a.get_cell().array) > 0, "render cell must stay right-handed"
+    a.wrap(pbc=(True, True, False), eps=1e-8)
+    return a
+
+
+MIN_LEVEL_AREA = 0.02   # levels thinner than this are grid noise on a boundary, not a feature of the surface
+
+
+def levels_of(H):
+    """Height quantised into (111) layers relative to the most common terrace level.
+
+    Levels holding less than MIN_LEVEL_AREA of the cell are snapped to the nearest real level: a couple of stray
+    pixels on a boundary would otherwise be reported as an extra terrace and turn a flat surface into a 'staircase'."""
+    q = np.round((H - np.median(H)) / D111).astype(int)
+    vals, cnt = np.unique(q, return_counts=True)
+    q = q - vals[np.argmax(cnt)]
+    vals, cnt = np.unique(q, return_counts=True)
+    keep = vals[cnt / q.size >= MIN_LEVEL_AREA]
+    if len(keep) and len(keep) < len(vals):
+        q = keep[np.argmin(np.abs(q[..., None] - keep[None, None, :]), axis=-1)]
+    return q
+
+
+GAP_LAYER = 1.2     # A; a gap this wide in the height distribution means genuinely separated atomic levels
+
+
+def height_gap(H):
+    """Largest gap in the sorted height distribution, and the height that splits it.
+
+    This is what separates a STEP from a RAMP. A vicinal face is not a staircase of 2.4 A terraces in this cell: its
+    top-atom heights form an even ramp (Au554: ten rows, 0.26 A apart, 2.3 A end to end), because the terrace is a
+    (111) micro-facet inclined to the cell's xy plane. Quantising such a surface into 2.4 A layers collapses it to
+    'flat', which is why the layer picture had to go."""
+    v = np.sort(H.ravel())
+    d = np.diff(v)
+    if not len(d): return 0.0, float(v[0]) if len(v) else 0.0
+    i = int(np.argmax(d))
+    return float(d[i]), float(0.5 * (v[i] + v[i + 1]))
+
+
+def describe(H):
+    """One Chinese line saying what the outline shows, generated from the height field itself."""
+    rng = float(H.max() - H.min())
+    if rng < 0.35:
+        return "高度均匀，无起伏（若与平板有别，差别在层序或面内配准，不在高度）"
+    gap, cut = height_gap(H)
+    if gap < GAP_LAYER:
+        return f"连续倾斜的平台，胞内高差 {rng:.1f} Å 且无断层——邻晶面的微斜切割，台阶并到胞边"
+    up = float((H > cut).mean()); dn = 1 - up
+    n_lv = 1 + int(np.sum(np.diff(np.sort(H.ravel())) > GAP_LAYER))
+    if n_lv >= 3:
+        return f"{n_lv} 个分离的高度层，最高层占 {100*float((H > np.sort(H.ravel())[int(0.999*H.size)] - 0.5).mean()):.0f}%"
+    if 0.30 <= up <= 0.70:
+        return f"两层平台，上 {100*up:.0f}%、下 {100*dn:.0f}%（台阶），层间 {gap:.1f} Å"
+    if up < dn:
+        return f"高出一层的凸起，占面积 {100*up:.0f}%，高 {gap:.1f} Å"
+    return f"低一层的凹陷，占面积 {100*dn:.0f}%，深 {gap:.1f} Å"
+
+
+PLAN_FILL = {2: "#dfb264", 1: "#e9c98f", 0: "#f2efe9", -1: "#bcd3dd", -2: "#9cbecd", -3: "#86adbf"}
+
+
+def wrap_offset(L):
+    """Always zero. Kept as a named function so the reason is recorded rather than rediscovered.
+
+    An earlier version measured a net level change across the periodic seam and tiled the schematic with it, to draw
+    a vicinal face as a descending staircase. That is wrong here: every cell in this set has a1_z = a2_z = 0, so the
+    surface must return to the same height after one cell by construction, and there is no net descent to add back.
+    The measured 'offset' was just the first and last tenth of the cell landing on different terraces, which also
+    mislabelled every strip-step cell as a vicinal."""
+    return 0, 0
+
+
+def simple_schematic(fig, cell_spec, at):
+    """The plain outline: no atoms at all. Top = plan view of the surface levels with their boundaries stroked,
+    bottom = the side silhouette. Both come from the real height map, so the cartoon cannot drift from the geometry."""
+    import matplotlib.gridspec as mgs
+    H, gx, gy, _ = height_map(at, ng=110)
+    H = H - np.median(H)
+    cell = at.get_cell().array
+    inner = mgs.GridSpecFromSubplotSpec(2, 1, subplot_spec=cell_spec, height_ratios=[2.35, 1.0], hspace=0.34)
+
+    # Smooth before contouring so the outline reads as one clean curve instead of tracing the atomic scallops of the
+    # height map. Periodic Gaussian (via FFT), sigma ~1.2 A -- well under a nearest-neighbour spacing, so the feature
+    # keeps its real size and shape; it only removes the per-atom ripple on the boundary.
+    # sigma is fixed in GRID cells, not in angstrom: a vicinal face has terrace stripes barely 1 A wide, and a fixed
+    # 0.8 A kernel flattened them below the +-0.5 contour level, leaving a blank panel. 1.5 cells always rounds the
+    # per-atom scallops without ever erasing a feature the grid can resolve.
+    n1g, n2g = H.shape
+    k1 = np.fft.fftfreq(n1g)[:, None]; k2 = np.fft.fftfreq(n2g)[None, :]
+    Hs = np.fft.ifft2(np.fft.fft2(H) * np.exp(-2 * (np.pi ** 2) * (1.5 ** 2) * (k1 ** 2 + k2 ** 2))).real
+
+    # --- plan: one flat tone per level, one stroke on each boundary, the cell outline dashed. Nothing else.
+    # A cell whose surface steps across the periodic seam (a vicinal terrace) is tiled with that offset added back,
+    # so the staircase appears instead of one uniform block.
+    t1 = max(1, min(3, int(round(TILE_TARGET / np.linalg.norm(cell[0][:2])))))
+    t2 = max(1, min(3, int(round(TILE_TARGET / np.linalg.norm(cell[1][:2])))))
+    axp = fig.add_subplot(inner[0]); axp.set_aspect("equal"); axp.axis("off")
+    # A simple drawing needs FEW strokes. Cut the height field only where it is genuinely discontinuous -- one bold
+    # outline per separated atomic level. A vicinal face has no such discontinuity inside the cell (its terrace is an
+    # inclined plane), so it gets a smooth shade and a downhill arrow instead of a fan of meaningless contour bands.
+    v = np.sort(H.ravel())
+    cuts = [float(0.5 * (a + b)) for a, b in zip(v[:-1], v[1:]) if b - a >= GAP_LAYER]
+    cmap = plt.get_cmap("RdYlBu_r")
+    if cuts:
+        edges = [Hs.min() - 1] + cuts + [Hs.max() + 1]
+        mids = [0.5 * (edges[k] + edges[k + 1]) for k in range(len(edges) - 1)]
+        span = max(max(abs(m) for m in mids), 1.2)
+        cols = [cmap(0.5 + 0.40 * m / span) for m in mids]
+        for i in range(t1):
+            for j in range(t2):
+                sh = (i * cell[0] + j * cell[1])[:2]
+                axp.contourf(gx + sh[0], gy + sh[1], Hs, levels=edges, colors=cols, zorder=1)
+                axp.contour(gx + sh[0], gy + sh[1], Hs, levels=cuts, colors="#23272c",
+                            linewidths=2.2, linestyles="solid", zorder=3)
+    else:
+        rng = max(Hs.ptp(), 1e-6)
+        for i in range(t1):
+            for j in range(t2):
+                sh = (i * cell[0] + j * cell[1])[:2]
+                axp.pcolormesh(gx + sh[0], gy + sh[1], Hs, cmap=cmap, vmin=-0.6 * rng, vmax=0.6 * rng,
+                               shading="gouraud", zorder=1)
+        if Hs.ptp() > 0.35:                                        # mark which way the inclined terrace runs downhill
+            g1 = float(np.mean(np.gradient(Hs, axis=0))); g2 = float(np.mean(np.gradient(Hs, axis=1)))
+            d = -(g1 * cell[0][:2] / np.linalg.norm(cell[0][:2]) + g2 * cell[1][:2] / np.linalg.norm(cell[1][:2]))
+            if np.linalg.norm(d) > 0:
+                d = d / np.linalg.norm(d) * 0.22 * float(np.ptp(gx))
+                c0 = np.array([gx.mean() * t1, gy.mean() * t2])
+                axp.annotate("", xy=c0 + d, xytext=c0 - d, zorder=4,
+                             arrowprops=dict(arrowstyle="-|>", lw=2.0, color="#23272c"))
+                axp.text(*(c0 + 1.25 * d), "下坡", fontproperties=CJK, fontsize=8.5, color="#23272c",
+                         ha="center", va="center", zorder=5)
+    o = np.zeros(2)
+    axp.plot(*zip(o, cell[0][:2], cell[0][:2] + cell[1][:2], cell[1][:2], o),
+             color="#9aa1a8", lw=0.9, ls=(0, (4, 3)), zorder=4)
+    X = np.concatenate([(gx + (i * cell[0] + j * cell[1])[0]).ravel() for i in range(t1) for j in range(t2)])
+    Y = np.concatenate([(gy + (i * cell[0] + j * cell[1])[1]).ravel() for i in range(t1) for j in range(t2)])
+    axp.set_xlim(X.min(), X.max()); axp.set_ylim(Y.min(), Y.max())
+    axp.set_title(f"简笔示意 · 俯视轮廓（{t1}×{t2} 个胞）", fontproperties=CJK, fontsize=9.5, color="#4a5158", pad=3)
+
+    # --- section: a real CUT through the middle of the feature, not a projection. Projecting the maximum would turn
+    # a compact island into a plateau as wide as the island's whole footprint, i.e. make it look like a step.
+    axs = fig.add_subplot(inner[1]); axs.axis("off")
+
+    def circ_centre(mask_1d):
+        """Index of the circular mean of a periodic boolean mask (a feature may straddle the cell boundary)."""
+        n = len(mask_1d); idx = np.flatnonzero(mask_1d)
+        if not len(idx): return n // 2
+        a = 2 * np.pi * idx / n
+        return int(round((np.arctan2(np.sin(a).mean(), np.cos(a).mean()) % (2 * np.pi)) * n / (2 * np.pi))) % n
+
+    gap, cut = height_gap(H)
+    M = H > cut if gap >= GAP_LAYER else np.zeros(H.shape, bool)
+    if M.any() and not M.all():
+        minority = M if M.mean() <= 0.5 else ~M
+        i0 = circ_centre(minority.any(axis=1)); j0 = circ_centre(minority.any(axis=0))
+        use_a1 = minority.any(axis=1).mean() <= minority.any(axis=0).mean()
+        prof = H[:, j0].copy() if use_a1 else H[i0, :].copy()
+        if prof.ptp() < 0.5 * gap:                                # the centre line misses it: use the silhouette
+            prof = H.max(axis=1) if use_a1 else H.max(axis=0)
+        c = circ_centre((prof > cut) if minority is M else (prof <= cut))
+        prof = np.roll(prof, len(prof) // 2 - c)
+    else:                                                          # flat, or a continuous ramp with no separated level
+        use_a1 = H.max(axis=1).ptp() >= H.max(axis=0).ptp()
+        prof = H.max(axis=1) if use_a1 else H.max(axis=0)
+    length = np.linalg.norm(cell[0][:2] if use_a1 else cell[1][:2])
+    reps = max(1, min(2, int(round(TILE_TARGET / length))))
+    prof = np.tile(prof, reps)
+    s = np.append(np.linspace(0, reps * length, len(prof), endpoint=False), reps * length)
+    p = np.append(prof, prof[0]) - prof.min()
+    body = 4.8
+    axs.fill_between(s, p, -body, step="mid", color="#e6e2da", zorder=1)
+    axs.step(s, p, where="mid", color="#2b3137", lw=2.1, zorder=3)
+    axs.plot([0, reps * length], [-body] * 2, color="#c6c1b7", lw=1.0, zorder=3)
+    top = p.max()
+    axs.axhline(top + 3.2, color="#2e7d9a", lw=1.1, ls=(0, (5, 3)), zorder=2)
+    axs.text(reps * length * 0.01, top + 3.7, "电解质", fontproperties=CJK, fontsize=8.2, color="#2e7d9a", va="bottom")
+    axs.set_xlim(0, reps * length); axs.set_ylim(-body - 0.4, top + 6.2)
+    axs.set_title(f"侧面剪影（{reps} 个周期，高度按真实比例）", fontproperties=CJK, fontsize=9.5, color="#4a5158", pad=2)
+    return describe(H)
 
 
 def render(sid, path, title, meta):
-    at = read(path)
+    at = flatten_cell(read(path))
     cell = at.get_cell().array
     pos = at.get_positions()
     cn = coordination(at)
@@ -119,10 +357,11 @@ def render(sid, path, title, meta):
     FIGH = H * scale + 1.55                                          # + title strip and legend strip
     fig = plt.figure(figsize=(FIGW, FIGH), dpi=185)
     top_frac = 1 - 1.02 / FIGH; bot_frac = 0.44 / FIGH
-    gs = fig.add_gridspec(1, 2, width_ratios=[w1, w2], wspace=1.2 / (w1 + w2) * 2,
+    gs = fig.add_gridspec(1, 3, width_ratios=[0.52 * (w1 + w2), w1, w2], wspace=1.2 / (w1 + w2) * 2,
                           left=0.015, right=0.985, top=top_frac, bottom=bot_frac)
+    meta["schematic_note"] = simple_schematic(fig, gs[0, 0], at)
 
-    ax = fig.add_subplot(gs[0, 0]); ax.set_aspect("equal"); ax.axis("off")
+    ax = fig.add_subplot(gs[0, 1]); ax.set_aspect("equal"); ax.axis("off")
     draw(ax, P, C, Z, E, R_AU)
     for i in range(n1):
         for j in range(n2):
@@ -134,7 +373,7 @@ def render(sid, path, title, meta):
     ax.set_title(f"俯视图 · {n1}×{n2} 个胞 · 最外 {TOP_DEPTH:.1f} " + AA,
                  fontproperties=CJK, fontsize=9.5, color="#4a5158", pad=3)
 
-    ax2 = fig.add_subplot(gs[0, 1]); ax2.set_aspect("equal"); ax2.axis("off")
+    ax2 = fig.add_subplot(gs[0, 2]); ax2.set_aspect("equal"); ax2.axis("off")
     draw(ax2, P2, C2, Z2, E2, R_AU)
     ax2.axhline(zt + 4.2, color="#2e7d9a", lw=1.1, ls=(0, (5, 3)), zorder=6000)
     ax2.text(P2[:, 0].min() - R_AU, zt + 4.8, "此线以上为离子可达的电解质",

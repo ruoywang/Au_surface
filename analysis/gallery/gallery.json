@@ -17,6 +17,7 @@
    "terrace": 26,
    "bulk": 42
   },
+  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 43%\u3001\u4e0b 57%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.03190535413326031,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.038416259412694,
@@ -42,6 +43,7 @@
    "terrace": 61,
    "bulk": 84
   },
+  "schematic_note": "\u9ad8\u51fa\u4e00\u5c42\u7684\u51f8\u8d77\uff0c\u5360\u9762\u79ef 14%\uff0c\u9ad8 2.4 \u00c5",
   "U_pzc_V": -0.06875705446956354,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.393881195729088,
@@ -67,6 +69,7 @@
    "terrace": 29,
    "bulk": 35
   },
+  "schematic_note": "\u9ad8\u51fa\u4e00\u5c42\u7684\u51f8\u8d77\uff0c\u5360\u9762\u79ef 3%\uff0c\u9ad8 2.4 \u00c5",
   "U_pzc_V": -0.06527082548166915,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.859652635286587,
@@ -92,6 +95,7 @@
    "terrace": 29,
    "bulk": 35
   },
+  "schematic_note": "\u9ad8\u51fa\u4e00\u5c42\u7684\u51f8\u8d77\uff0c\u5360\u9762\u79ef 3%\uff0c\u9ad8 2.4 \u00c5",
   "U_pzc_V": -0.06647837067399359,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.850264426107701,
@@ -117,6 +121,7 @@
    "terrace": 25,
    "bulk": 39
   },
+  "schematic_note": "\u9ad8\u51fa\u4e00\u5c42\u7684\u51f8\u8d77\uff0c\u5360\u9762\u79ef 9%\uff0c\u9ad8 2.4 \u00c5",
   "U_pzc_V": -0.08779458409932506,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.639189237917256,
@@ -142,6 +147,7 @@
    "terrace": 8,
    "bulk": 32
   },
+  "schematic_note": "\u8fde\u7eed\u503e\u659c\u7684\u5e73\u53f0\uff0c\u80de\u5185\u9ad8\u5dee 4.2 \u00c5 \u4e14\u65e0\u65ad\u5c42\u2014\u2014\u90bb\u6676\u9762\u7684\u5fae\u659c\u5207\u5272\uff0c\u53f0\u9636\u5e76\u5230\u80de\u8fb9",
   "U_pzc_V": -0.030633809491797698,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.424824453412928,
@@ -167,6 +173,7 @@
    "terrace": 8,
    "bulk": 16
   },
+  "schematic_note": "\u8fde\u7eed\u503e\u659c\u7684\u5e73\u53f0\uff0c\u80de\u5185\u9ad8\u5dee 4.2 \u00c5 \u4e14\u65e0\u65ad\u5c42\u2014\u2014\u90bb\u6676\u9762\u7684\u5fae\u659c\u5207\u5272\uff0c\u53f0\u9636\u5e76\u5230\u80de\u8fb9",
   "U_pzc_V": -0.012502728957702824,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.92800280843357,
@@ -192,6 +199,7 @@
    "terrace": 8,
    "bulk": 11
   },
+  "schematic_note": "\u8fde\u7eed\u503e\u659c\u7684\u5e73\u53f0\uff0c\u80de\u5185\u9ad8\u5dee 2.2 \u00c5 \u4e14\u65e0\u65ad\u5c42\u2014\u2014\u90bb\u6676\u9762\u7684\u5fae\u659c\u5207\u5272\uff0c\u53f0\u9636\u5e76\u5230\u80de\u8fb9",
   "U_pzc_V": 0.01679968855912074,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.772851030798313,
@@ -217,6 +225,7 @@
    "terrace": 16,
    "bulk": 18
   },
+  "schematic_note": "\u8fde\u7eed\u503e\u659c\u7684\u5e73\u53f0\uff0c\u80de\u5185\u9ad8\u5dee 2.3 \u00c5 \u4e14\u65e0\u65ad\u5c42\u2014\u2014\u90bb\u6676\u9762\u7684\u5fae\u659c\u5207\u5272\uff0c\u53f0\u9636\u5e76\u5230\u80de\u8fb9",
   "U_pzc_V": 0.0658738623457803,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.486812735839841,
@@ -242,6 +251,7 @@
    "terrace": 45,
    "bulk": 93
   },
+  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 60%\u3001\u4e0b 40%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": null,
   "pzc_bracketed": false,
   "C_median_uF_cm2": 12.342607614307285,
@@ -267,6 +277,7 @@
    "terrace": 101,
    "bulk": 137
   },
+  "schematic_note": "3 \u4e2a\u5206\u79bb\u7684\u9ad8\u5ea6\u5c42\uff0c\u6700\u9ad8\u5c42\u5360 8%",
   "U_pzc_V": 0.016523916055531124,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.320452316635448,
@@ -292,6 +303,7 @@
    "terrace": 32,
    "bulk": 32
   },
+  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff08\u82e5\u4e0e\u5e73\u677f\u6709\u522b\uff0c\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6\uff09",
   "U_pzc_V": 0.07264910022058269,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.13323424722411,
@@ -317,6 +329,7 @@
    "terrace": 32,
    "bulk": 32
   },
+  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff08\u82e5\u4e0e\u5e73\u677f\u6709\u522b\uff0c\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6\uff09",
   "U_pzc_V": 0.07321860981108615,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.107025768869224,
@@ -342,6 +355,7 @@
    "terrace": 108,
    "bulk": 155
   },
+  "schematic_note": "\u9ad8\u51fa\u4e00\u5c42\u7684\u51f8\u8d77\uff0c\u5360\u9762\u79ef 24%\uff0c\u9ad8 2.4 \u00c5",
   "U_pzc_V": 0.01168369747089728,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.318311178050337,
@@ -367,6 +381,7 @@
    "terrace": 117,
    "bulk": 140
   },
+  "schematic_note": "\u9ad8\u51fa\u4e00\u5c42\u7684\u51f8\u8d77\uff0c\u5360\u9762\u79ef 8%\uff0c\u9ad8 2.4 \u00c5",
   "U_pzc_V": null,
   "pzc_bracketed": false,
   "C_median_uF_cm2": null,
@@ -392,6 +407,7 @@
    "terrace": 60,
    "bulk": 84
   },
+  "schematic_note": "\u9ad8\u51fa\u4e00\u5c42\u7684\u51f8\u8d77\uff0c\u5360\u9762\u79ef 12%\uff0c\u9ad8 2.4 \u00c5",
   "U_pzc_V": -0.05369462158463978,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.492104667084545,
@@ -417,6 +433,7 @@
    "terrace": 37,
    "bulk": 65
   },
+  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 48%\u3001\u4e0b 52%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.019937509858943908,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.08312599457578,
@@ -442,6 +459,7 @@
    "terrace": 38,
    "bulk": 64
   },
+  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 46%\u3001\u4e0b 54%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.009624000000000521,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.094563885844984,
@@ -467,6 +485,7 @@
    "terrace": 103,
    "bulk": 116
   },
+  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 64%\u3001\u4e0b 36%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.05755172631061448,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.081578224554168,
@@ -492,6 +511,7 @@
    "terrace": 112,
    "bulk": 125
   },
+  "schematic_note": "\u4f4e\u4e00\u5c42\u7684\u51f9\u9677\uff0c\u5360\u9762\u79ef 15%\uff0c\u6df1 2.4 \u00c5",
   "U_pzc_V": null,
   "pzc_bracketed": false,
   "C_median_uF_cm2": null,
@@ -517,6 +537,7 @@
    "terrace": 56,
    "bulk": 69
   },
+  "schematic_note": "\u4f4e\u4e00\u5c42\u7684\u51f9\u9677\uff0c\u5360\u9762\u79ef 27%\uff0c\u6df1 2.4 \u00c5",
   "U_pzc_V": -0.0004089999999994376,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.972219012015358,
@@ -542,6 +563,7 @@
    "terrace": 54,
    "bulk": 70
   },
+  "schematic_note": "\u4f4e\u4e00\u5c42\u7684\u51f9\u9677\uff0c\u5360\u9762\u79ef 27%\uff0c\u6df1 2.4 \u00c5",
   "U_pzc_V": 0.010843208697508855,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.098004355828316,
@@ -567,6 +589,7 @@
    "terrace": 32,
    "bulk": 32
   },
+  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff08\u82e5\u4e0e\u5e73\u677f\u6709\u522b\uff0c\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6\uff09",
   "U_pzc_V": -0.009303000000000061,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.060122267520835,
@@ -592,6 +615,7 @@
    "terrace": 31,
    "bulk": 32
   },
+  "schematic_note": "\u4f4e\u4e00\u5c42\u7684\u51f9\u9677\uff0c\u5360\u9762\u79ef 9%\uff0c\u6df1 2.4 \u00c5",
   "U_pzc_V": 0.062173703730410805,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.052087247870205,
@@ -617,6 +641,7 @@
    "terrace": 29,
    "bulk": 41
   },
+  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 47%\u3001\u4e0b 53%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.04401333025405477,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.59350024457606,
@@ -642,6 +667,7 @@
    "terrace": 58,
    "bulk": 82
   },
+  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 47%\u3001\u4e0b 53%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.04270405420763271,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.841136175738548,
@@ -667,6 +693,7 @@
    "terrace": 45,
    "bulk": 61
   },
+  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 48%\u3001\u4e0b 52%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.06567900416731548,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.463926722650822,
@@ -692,6 +719,7 @@
    "terrace": 13,
    "bulk": 21
   },
+  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 43%\u3001\u4e0b 57%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": 0.031894335316453165,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.02421780145799,
@@ -717,6 +745,7 @@
    "terrace": 23,
    "bulk": 43
   },
+  "schematic_note": "\u4e24\u5c42\u5e73\u53f0\uff0c\u4e0a 37%\u3001\u4e0b 63%\uff08\u53f0\u9636\uff09\uff0c\u5c42\u95f4 2.4 \u00c5",
   "U_pzc_V": -0.02356591614859102,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 12.235512057094887,
@@ -742,6 +771,7 @@
    "terrace": 32,
    "bulk": 32
   },
+  "schematic_note": "\u9ad8\u5ea6\u5747\u5300\uff0c\u65e0\u8d77\u4f0f\uff08\u82e5\u4e0e\u5e73\u677f\u6709\u522b\uff0c\u5dee\u522b\u5728\u5c42\u5e8f\u6216\u9762\u5185\u914d\u51c6\uff0c\u4e0d\u5728\u9ad8\u5ea6\uff09",
   "U_pzc_V": 3.300000000017178e-05,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.020216090291195,
@@ -767,6 +797,7 @@
    "terrace": 25,
    "bulk": 32
   },
+  "schematic_note": "\u4f4e\u4e00\u5c42\u7684\u51f9\u9677\uff0c\u5360\u9762\u79ef 12%\uff0c\u6df1 2.4 \u00c5",
   "U_pzc_V": 0.01271795612596183,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.149356473205533,
@@ -792,6 +823,7 @@
    "terrace": 22,
    "bulk": 32
   },
+  "schematic_note": "\u4f4e\u4e00\u5c42\u7684\u51f9\u9677\uff0c\u5360\u9762\u79ef 23%\uff0c\u6df1 2.4 \u00c5",
   "U_pzc_V": 0.007662999999999975,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.421135480789355,
@@ -817,6 +849,7 @@
    "terrace": 20,
    "bulk": 32
   },
+  "schematic_note": "\u4f4e\u4e00\u5c42\u7684\u51f9\u9677\uff0c\u5360\u9762\u79ef 28%\uff0c\u6df1 2.4 \u00c5",
   "U_pzc_V": 0.010364993593028372,
   "pzc_bracketed": true,
   "C_median_uF_cm2": 11.802571930410322,
