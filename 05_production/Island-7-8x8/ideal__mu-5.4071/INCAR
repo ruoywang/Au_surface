@@ -25,6 +25,7 @@ ISOL    = 2
 C_MOLAR = 1.0
 R_ION   = 4.0
 
+NELECT = 2891.3721   # predicted start for TARGETMU=-5.4071 from this geometry's converged N_e(mu_e) (single state + area-scaled slope, slope 3.5146 e/eV); the CP loop still decides the final N_e
 LCEP          = .TRUE.
 NESCHEME      = 3
 TARGETMU      = -5.4071

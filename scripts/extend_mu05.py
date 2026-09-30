@@ -24,6 +24,7 @@ Usage (from Au_Cl/):  scripts/pyrun.sh scripts/extend_mu05.py --dry-run | (no fl
 import hashlib
 import json
 import os
+import re
 import shutil
 import sys
 import time
@@ -42,7 +43,8 @@ CAMPAIGN = "mu05_extension"
 SAME_GEOM_TOL = 0.005      # A; source records of one geometry must agree to this (measured: pilot-reused ideal states 0.003 A)
 MANIFEST = f"{P.PROD}/mu05_extension_manifest.json"
 REPORT = f"{P.PROD}/mu05_extension_manifest.md"
-MODE = "dry" if "--dry-run" in sys.argv else "report" if "--report" in sys.argv else "refresh" if "--refresh" in sys.argv else "create"
+MODE = "dry" if "--dry-run" in sys.argv else "report" if "--report" in sys.argv else "refresh" if "--refresh" in sys.argv else \
+       "seed-dry" if "--seed-dry-run" in sys.argv else "create"
 # --refresh (run any time, under the queue lock): (a) pending cold-start extension tasks whose same-side neighbour has since
 # completed get the warm start (CHGCAR copy + ICHARG=1) -- inputs of PENDING tasks of this campaign only; (b) metadata of
 # extension records (source_geometry / note) is re-derived from the index; (c) manifest json + report rewritten.
@@ -140,6 +142,64 @@ def plan_extension(geoms, q):
     return plan, present
 
 
+def res_ne_mu(s):
+    """(N_e, mu_e) actually converged, from the farm's result string; None if the state has none."""
+    m = re.search(r"N_e=\s*([-\d.]+)\s+mu_e=\s*([-\d.]+)", str(s.get("result") or ""))
+    return (float(m.group(1)), float(m.group(2))) if m else None
+
+
+def nelect_model(geoms, q):
+    """Per-geometry linear N_e(mu_e) from its own CONVERGED states, plus an area-scaled fallback slope.
+
+    Validated 2026-09-29 on the 144 +-0.5 V states already computed: predicting N_e at the target from the three
+    original potentials is accurate to 0.008 e (median) / 0.018 e (max), while the walk from the neutral count is
+    0.41 e (median). Seeding NELECT therefore starts the CP loop ~50x closer than the default neutral start, which is
+    where the large cells spend their time (every CP round otherwise restarts from neutral; ICHARG=1 does not help,
+    VASP rescales the CHGCAR it reads to the current NELECT). NELECT is only the STARTING count -- the CP loop still
+    decides the converged N_e from TARGETMU, and labels remain the actual converged mu_e / N_e."""
+    fits, per_area = {}, []
+    for key, g in geoms.items():
+        pts = [res_ne_mu(s) for s in g["mus"].values() if s["status"] in ("completed", "reused")]
+        pts = [p for p in pts if p]
+        area = float(np.linalg.norm(np.cross(g["atoms"].get_cell()[0], g["atoms"].get_cell()[1])))
+        if len(pts) >= 2:
+            slope, icept = np.polyfit([p[1] for p in pts], [p[0] for p in pts], 1)
+            fits[key] = dict(slope=float(slope), icept=float(icept), n=len(pts), area=area, basis="own states")
+            per_area.append(slope / area)
+        elif len(pts) == 1:
+            fits[key] = dict(pt=pts[0], area=area, n=1, basis="single state + area-scaled slope")
+    med = float(np.median(per_area)) if per_area else None
+    for key, f in fits.items():
+        if f["n"] == 1 and med is not None:                     # capacitance scales with the cell area
+            f["slope"] = med * f["area"]; f["icept"] = f["pt"][0] - f["slope"] * f["pt"][1]
+    return fits, med
+
+
+def seed_nelect(q, geoms, dry=False):
+    """Write NELECT (predicted starting electron count) into the INCAR of PENDING extension tasks."""
+    fits, med = nelect_model(geoms, q)
+    n_set = 0
+    for t in q:
+        if t.get("campaign") != CAMPAIGN or t["status"] != "pending": continue
+        d = task_dir(t)
+        if os.path.exists(f"{d}/log.out"): continue                     # a run already touched this directory
+        f = fits.get((t["structure_id"], t["config"]))
+        if not f or "slope" not in f: continue
+        pred = f["slope"] * float(t["mu"]) + f["icept"]
+        if abs(pred - t.get("nelect_seed", -1)) < 1e-4: continue        # already seeded with this value
+        if dry:
+            print(f"  would seed {t['task_id']}: NELECT={pred:.4f} (neutral {11*t['n_atoms']}, {f['basis']}, slope {f['slope']:.3f} e/eV)")
+            n_set += 1; continue
+        inc = [l for l in open(f"{d}/INCAR").read().splitlines() if not l.startswith("NELECT")]
+        i = next((j for j, l in enumerate(inc) if l.startswith("LCEP")), len(inc))
+        inc.insert(i, f"NELECT = {pred:.4f}   # predicted start for TARGETMU={t['mu']} from this geometry's converged "
+                      f"N_e(mu_e) ({f['basis']}, slope {f['slope']:.4f} e/eV); the CP loop still decides the final N_e")
+        open(f"{d}/INCAR", "w").write("\n".join(inc) + "\n")
+        t["nelect_seed"] = round(pred, 4); t["nelect_neutral"] = 11 * t["n_atoms"]; t["nelect_basis"] = f["basis"]
+        n_set += 1
+    return n_set
+
+
 def res_mu(s):
     """actual mu_e from the farm's result string ('... mu_e=-5.107726'), else None."""
     import re
@@ -222,6 +282,10 @@ Q = P.load_queue()
 if MODE == "report":
     report(Q, build_index(Q)); sys.exit(0)
 
+if MODE == "seed-dry":
+    geoms = build_index(Q); n = seed_nelect(Q, geoms, dry=True)
+    print(f"would seed NELECT on {n} pending tasks"); sys.exit(0)
+
 if MODE == "refresh":
     with P.queue_lock():
         q = P.load_queue(); Q = q
@@ -243,12 +307,14 @@ if MODE == "refresh":
                     s = g["mus"].get(cand)
                     if s and s["status"] in ("completed", "reused") and os.path.exists(f"{s['dir']}/CHGCAR") and os.path.getsize(f"{s['dir']}/CHGCAR") > 1e6:
                         apply_warm(t, cand, f"{s['dir']}/CHGCAR"); n_warm += 1; break
+        n_seed = seed_nelect(q, geoms)
         P.save_queue(q)
-        if n_warm or n_meta:
-            P.log(f"[extend_mu05] refresh: {n_warm} pending cold-start tasks given a warm start, {n_meta} records re-pointed to their geometry source")
+        if n_warm or n_meta or n_seed:
+            P.log(f"[extend_mu05] refresh: {n_warm} pending cold-start tasks given a warm start, {n_meta} records re-pointed "
+                  f"to their geometry source, {n_seed} given a predicted NELECT start")
         write_manifest(q, geoms)
         report(q, geoms)
-        print(f"refresh: warm starts applied {n_warm}, metadata updated {n_meta}")
+        print(f"refresh: warm starts applied {n_warm}, metadata updated {n_meta}, NELECT seeded {n_seed}")
     sys.exit(0)
 
 rows = P.load_plan()

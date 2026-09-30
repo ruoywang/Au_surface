@@ -964,3 +964,4 @@
 2026-09-29 16:07:36 [farm 20929396] walltime nearly over, nothing launchable -- exiting
 2026-09-29 17:35:01 [completed] C2-island+pit__ideal__mu-5.1071 on a631 in 1219.9 min :: N_e=2815.348286 mu_e=-5.100509
 2026-09-29 17:35:01 [launch] Island-7-8x8__ideal__mu-4.4071 -> a631 (farm 20934087, expected ~415 min, 16.6 h left)
+2026-09-29 22:58:28 [extend_mu05] refresh: 0 pending cold-start tasks given a warm start, 0 records re-pointed to their geometry source, 59 given a predicted NELECT start

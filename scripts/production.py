@@ -395,11 +395,17 @@ def expected_minutes(t):
         N <= 72  0.53 (max 1.7) | 73-110  0.82 (max 1.7) | 111-160  0.79 (max 1.5) | 231-300  1.46 (max 3.0)
     The old flat 1.5 under-predicted the large cells badly: it would have let a farm with 471 min left start
     Pit-19-8x8 (237 atoms), which actually ran 710 min. The four measured > 200-atom single points took
-    463 / 564 / 653 / 710 min with no clear size trend (the spread is SCF convergence, not N), so above 200 atoms
-    the guard uses a flat upper envelope instead of the model."""
+    463 / 564 / 653 / 710 min with no clear size trend, so above 200 atoms the guard uses a flat envelope, not the model.
+    Raised again 2026-09-29 22:55 (760 -> 1250): 760 was still too low. All eight > 200-atom reference single points at
+    the original three potentials took 463 / 564 / 653 / 710 / 822 / 858 / 1011 / 1220 min -- the cost grows with
+    |mu - mu_neutral|, because every CP round starts from the NEUTRAL electron count (ICHARG=1 warms only the density
+    SHAPE: VASP rescales the CHGCAR it reads to the current NELECT, so a warm start does not shorten the CP walk; the
+    +-0.5 V runs were verified to follow the same N_ele trajectory as the cold +-0.2 V ones). The +-0.5 V end points are
+    the furthest from neutral and had already passed 700 min unfinished when this was written, so the envelope is the
+    1220 min worst case rounded up: the guard now asks for 27 h of headroom before starting one."""
     n = t["n_atoms"]; c = 0.55 * n * max(1.0, n / 72.0) ** 0.5
     if t["kind"] == "relax": return c * 10.0
-    if n > 200: return 760.0
+    if n > 200: return 1250.0
     return c * (1.8 if n <= 160 else 2.2)
 
 

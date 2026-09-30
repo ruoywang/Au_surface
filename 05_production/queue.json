@@ -6851,7 +6851,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-8x8/ideal__mu-4.9071/CHGCAR",
   "est_min": 223.9,
-  "warm_start_mu": "-4.9071"
+  "warm_start_mu": "-4.9071",
+  "nelect_seed": 2891.3721,
+  "nelect_neutral": 2893,
+  "nelect_basis": "single state + area-scaled slope"
  },
  {
   "task_id": "Island-19-8x8__ideal__mu-4.4071",
@@ -6879,7 +6882,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-19-8x8/ideal__mu-4.9071/CHGCAR",
   "est_min": 239.4,
-  "warm_start_mu": "-4.9071"
+  "warm_start_mu": "-4.9071",
+  "nelect_seed": 3026.8849,
+  "nelect_neutral": 3025,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-19-8x8__ideal__mu-5.4071",
@@ -6907,7 +6913,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-19-8x8/ideal__mu-4.9071/CHGCAR",
   "est_min": 239.4,
-  "warm_start_mu": "-4.9071"
+  "warm_start_mu": "-4.9071",
+  "nelect_seed": 3023.2012,
+  "nelect_neutral": 3025,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Au332__ideal__mu-4.4071",
@@ -11819,7 +11828,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Kink-edge2/pert05__mu-4.7071/CHGCAR",
   "est_min": 86.5,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1199.7163,
+  "nelect_neutral": 1199,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Kink-edge2__pert05__mu-5.4071",
@@ -11847,7 +11859,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Kink-edge2/pert05__mu-5.1071/CHGCAR",
   "est_min": 86.5,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1198.3611,
+  "nelect_neutral": 1199,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Kink-edge2__pert10__mu-4.4071",
@@ -11875,7 +11890,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Kink-edge2/pert10__mu-4.7071/CHGCAR",
   "est_min": 86.5,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1199.7278,
+  "nelect_neutral": 1199,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Kink-edge2__pert10__mu-5.4071",
@@ -11903,7 +11921,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Kink-edge2/pert10__mu-5.1071/CHGCAR",
   "est_min": 86.5,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1198.385,
+  "nelect_neutral": 1199,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Kink-edge2__relaxed__mu-4.4071",
@@ -11931,7 +11952,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Kink-edge2/relaxed__mu-4.7071/CHGCAR",
   "est_min": 86.5,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1199.7135,
+  "nelect_neutral": 1199,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Kink-edge2__relaxed__mu-5.4071",
@@ -11959,7 +11983,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Kink-edge2/relaxed__mu-5.1071/CHGCAR",
   "est_min": 86.5,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1198.3596,
+  "nelect_neutral": 1199,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-compact__ideal__mu-4.4071",
@@ -11987,7 +12014,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/ideal__mu-4.7071/CHGCAR",
   "est_min": 121.2,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1508.0081,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-compact__ideal__mu-5.4071",
@@ -12015,7 +12045,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/ideal__mu-5.1071/CHGCAR",
   "est_min": 121.2,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1505.9944,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-compact__path_rimin1__mu-4.4071",
@@ -12043,7 +12076,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/path_rimin1__mu-4.7071/CHGCAR",
   "est_min": 121.2,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1507.9799,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-compact__path_rimin1__mu-5.4071",
@@ -12071,7 +12107,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/path_rimin1__mu-5.1071/CHGCAR",
   "est_min": 121.2,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1505.9661,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-compact__path_rimin2__mu-4.4071",
@@ -12099,7 +12138,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/path_rimin2__mu-4.7071/CHGCAR",
   "est_min": 121.2,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1507.9482,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-compact__path_rimin2__mu-5.4071",
@@ -12127,7 +12169,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/path_rimin2__mu-5.1071/CHGCAR",
   "est_min": 121.2,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1505.9169,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-compact__pert05__mu-4.4071",
@@ -12155,7 +12200,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/pert05__mu-4.7071/CHGCAR",
   "est_min": 121.2,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1507.9761,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-compact__pert05__mu-5.4071",
@@ -12183,7 +12231,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/pert05__mu-5.1071/CHGCAR",
   "est_min": 121.2,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1505.9706,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-compact__pert10__mu-4.4071",
@@ -12211,7 +12262,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/pert10__mu-4.7071/CHGCAR",
   "est_min": 121.2,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1508.0751,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-compact__pert10__mu-5.4071",
@@ -12239,7 +12293,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/pert10__mu-5.1071/CHGCAR",
   "est_min": 121.2,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1506.0713,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-compact__relaxed__mu-4.4071",
@@ -12267,7 +12324,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/relaxed__mu-4.7071/CHGCAR",
   "est_min": 121.2,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1507.971,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-compact__relaxed__mu-5.4071",
@@ -12295,7 +12355,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-compact/relaxed__mu-5.1071/CHGCAR",
   "est_min": 121.2,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1505.9675,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-trench__ideal__mu-4.4071",
@@ -12323,7 +12386,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-trench/ideal__mu-4.7071/CHGCAR",
   "est_min": 134.1,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1508.0409,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-trench__ideal__mu-5.4071",
@@ -12351,7 +12417,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-trench/ideal__mu-4.9071/CHGCAR",
   "est_min": 134.1,
-  "warm_start_mu": "-4.9071"
+  "warm_start_mu": "-4.9071",
+  "nelect_seed": 1506.0061,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-trench__pert05__mu-4.4071",
@@ -12379,7 +12448,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-trench/pert05__mu-4.7071/CHGCAR",
   "est_min": 134.1,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1508.0068,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-trench__pert05__mu-5.4071",
@@ -12407,7 +12479,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-trench/pert05__mu-5.1071/CHGCAR",
   "est_min": 134.1,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1505.9903,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-trench__pert10__mu-4.4071",
@@ -12435,7 +12510,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-trench/pert10__mu-4.7071/CHGCAR",
   "est_min": 134.1,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1508.0166,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-trench__pert10__mu-5.4071",
@@ -12463,7 +12541,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-trench/pert10__mu-5.1071/CHGCAR",
   "est_min": 134.1,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1506.0166,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-trench__relaxed__mu-4.4071",
@@ -12491,7 +12572,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-trench/relaxed__mu-4.7071/CHGCAR",
   "est_min": 134.1,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1507.9966,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Pit-7-trench__relaxed__mu-5.4071",
@@ -12519,7 +12603,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Pit-7-trench/relaxed__mu-5.1071/CHGCAR",
   "est_min": 134.1,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1505.9811,
+  "nelect_neutral": 1507,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Step-16x2__ideal__mu-4.4071",
@@ -12547,7 +12634,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Step-16x2/ideal__mu-4.7071/CHGCAR",
   "est_min": 130.2,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1584.9621,
+  "nelect_neutral": 1584,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Step-16x2__ideal__mu-5.4071",
@@ -12575,7 +12665,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Step-16x2/ideal__mu-5.1071/CHGCAR",
   "est_min": 130.2,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1583.1917,
+  "nelect_neutral": 1584,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Step-16x2__pert05__mu-4.4071",
@@ -12603,7 +12696,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Step-16x2/pert05__mu-4.7071/CHGCAR",
   "est_min": 130.2,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1584.9599,
+  "nelect_neutral": 1584,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Step-16x2__pert05__mu-5.4071",
@@ -12631,7 +12727,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Step-16x2/pert05__mu-5.1071/CHGCAR",
   "est_min": 130.2,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1583.2174,
+  "nelect_neutral": 1584,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Step-16x2__pert10__mu-4.4071",
@@ -12659,7 +12758,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Step-16x2/pert10__mu-4.7071/CHGCAR",
   "est_min": 130.2,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1584.9811,
+  "nelect_neutral": 1584,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Step-16x2__pert10__mu-5.4071",
@@ -12687,7 +12789,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Step-16x2/pert10__mu-5.1071/CHGCAR",
   "est_min": 130.2,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1583.2301,
+  "nelect_neutral": 1584,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Step-16x2__relaxed__mu-4.4071",
@@ -12715,7 +12820,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Step-16x2/relaxed__mu-4.7071/CHGCAR",
   "est_min": 130.2,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1584.9729,
+  "nelect_neutral": 1584,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Step-16x2__relaxed__mu-5.4071",
@@ -12743,7 +12851,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Step-16x2/relaxed__mu-5.1071/CHGCAR",
   "est_min": 130.2,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1583.2304,
+  "nelect_neutral": 1584,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "C1-island-near-step__ideal__mu-4.4071",
@@ -12771,7 +12882,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/C1-island-near-step/ideal__mu-4.9071/CHGCAR",
   "est_min": 97.4,
-  "warm_start_mu": "-4.9071"
+  "warm_start_mu": "-4.9071",
+  "nelect_seed": 1661.8643,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "C1-island-near-step__ideal__mu-5.4071",
@@ -12799,7 +12913,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/C1-island-near-step/ideal__mu-5.1071/CHGCAR",
   "est_min": 97.4,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1660.0188,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-compact__ideal__mu-4.4071",
@@ -12827,7 +12944,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/ideal__mu-4.7071/CHGCAR",
   "est_min": 143.1,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1661.9003,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-compact__ideal__mu-5.4071",
@@ -12855,7 +12975,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/ideal__mu-5.1071/CHGCAR",
   "est_min": 143.1,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1659.8154,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-compact__path_detach1__mu-4.4071",
@@ -12883,7 +13006,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/path_detach1__mu-4.7071/CHGCAR",
   "est_min": 143.1,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1661.9296,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-compact__path_detach1__mu-5.4071",
@@ -12911,7 +13037,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/path_detach1__mu-5.1071/CHGCAR",
   "est_min": 143.1,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1659.9158,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-compact__path_detach2__mu-4.4071",
@@ -12939,7 +13068,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/path_detach2__mu-4.7071/CHGCAR",
   "est_min": 143.1,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1661.905,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-compact__path_detach2__mu-5.4071",
@@ -12967,7 +13099,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/path_detach2__mu-5.1071/CHGCAR",
   "est_min": 143.1,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1659.8728,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-compact__pert05__mu-4.4071",
@@ -12995,7 +13130,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/pert05__mu-4.7071/CHGCAR",
   "est_min": 143.1,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1661.9437,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-compact__pert05__mu-5.4071",
@@ -13023,7 +13161,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/pert05__mu-5.1071/CHGCAR",
   "est_min": 143.1,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1659.9519,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-compact__pert10__mu-4.4071",
@@ -13051,7 +13192,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/pert10__mu-4.7071/CHGCAR",
   "est_min": 143.1,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1661.926,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-compact__pert10__mu-5.4071",
@@ -13079,7 +13223,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/pert10__mu-5.1071/CHGCAR",
   "est_min": 143.1,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1659.9337,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-compact__relaxed__mu-4.4071",
@@ -13107,7 +13254,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/relaxed__mu-4.7071/CHGCAR",
   "est_min": 143.1,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1661.9325,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-compact__relaxed__mu-5.4071",
@@ -13135,7 +13285,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-compact/relaxed__mu-5.1071/CHGCAR",
   "est_min": 143.1,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1659.9417,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-elongated__ideal__mu-4.4071",
@@ -13163,7 +13316,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-elongated/ideal__mu-4.7071/CHGCAR",
   "est_min": 147.5,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1661.9389,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-elongated__ideal__mu-5.4071",
@@ -13191,7 +13347,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-elongated/ideal__mu-5.1071/CHGCAR",
   "est_min": 147.5,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1659.8382,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-elongated__pert05__mu-4.4071",
@@ -13219,7 +13378,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-elongated/pert05__mu-4.7071/CHGCAR",
   "est_min": 147.5,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1661.9144,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-elongated__pert05__mu-5.4071",
@@ -13247,7 +13409,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-elongated/pert05__mu-5.1071/CHGCAR",
   "est_min": 147.5,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1659.8861,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-elongated__pert10__mu-4.4071",
@@ -13275,7 +13440,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-elongated/pert10__mu-4.7071/CHGCAR",
   "est_min": 147.5,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1661.942,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-elongated__pert10__mu-5.4071",
@@ -13303,7 +13471,10 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-elongated/pert10__mu-5.1071/CHGCAR",
   "est_min": 147.5,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1659.8915,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-elongated__relaxed__mu-4.4071",
@@ -13331,7 +13502,10 @@
   "mu_target_eV": -4.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-elongated/relaxed__mu-4.7071/CHGCAR",
   "est_min": 147.5,
-  "warm_start_mu": "-4.7071"
+  "warm_start_mu": "-4.7071",
+  "nelect_seed": 1661.9292,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  },
  {
   "task_id": "Island-7-elongated__relaxed__mu-5.4071",
@@ -13359,6 +13533,9 @@
   "mu_target_eV": -5.4071,
   "warm_start": "ICHARG=1 from /anvil/scratch/x-rywang/Au_Cl/05_production/Island-7-elongated/relaxed__mu-5.1071/CHGCAR",
   "est_min": 147.5,
-  "warm_start_mu": "-5.1071"
+  "warm_start_mu": "-5.1071",
+  "nelect_seed": 1659.9032,
+  "nelect_neutral": 1661,
+  "nelect_basis": "own states"
  }
 ]

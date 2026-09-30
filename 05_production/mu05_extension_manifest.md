@@ -1,6 +1,6 @@
 # mu05 extension: +-0.5 V end points for every distinct geometry
 
-Generated 2026-09-29 17:38 by `scripts/extend_mu05.py --report`. mu_target = mu0 - dU, mu0 = -4.9071 eV (internal reference). TARGETMU -5.4071 (dU = +0.5 V) and -4.4071 (dU = -0.5 V); existing -5.1071/-4.9071/-4.7071 kept; no intermediate points added. Static CP single points (IBRION=-1, NSW=0) on the geometry actually computed (relaxed = accepted CONTCAR). Warm start = ICHARG=1 from a copy of the same-side neighbour's CHGCAR.
+Generated 2026-09-29 22:59 by `scripts/extend_mu05.py --report`. mu_target = mu0 - dU, mu0 = -4.9071 eV (internal reference). TARGETMU -5.4071 (dU = +0.5 V) and -4.4071 (dU = -0.5 V); existing -5.1071/-4.9071/-4.7071 kept; no intermediate points added. Static CP single points (IBRION=-1, NSW=0) on the geometry actually computed (relaxed = accepted CONTCAR). Warm start = ICHARG=1 from a copy of the same-side neighbour's CHGCAR.
 
 Distinct geometries: 107. Extension tasks: 214 -> status {'running': 7, 'pending': 59, 'completed': 148}. Estimated 243 node-h (measured same-structure single-point means); actual so far 109 node-h over 148 completed.
 
