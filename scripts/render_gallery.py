@@ -84,9 +84,12 @@ D111 = 2.4              # A, (111) interlayer spacing -- the quantum the surface
 R_FOOT = 1.75           # A, lateral radius an atom covers when the surface height map is built
 
 
-R_COVER = 2.05   # A, lateral reach of a neighbour one layer up. In fcc(111) stacking an atom of the layer above sits
-N_COVER = 3      # 1.70 A away laterally, and a BURIED atom has three of them. A step-foot atom has only one or two,
-                 # so "three higher neighbours within R_COVER" separates buried from merely adjacent to a step.
+R_COVER = 2.35   # A, lateral reach of a neighbour one layer up. In fcc(111) stacking an atom of the layer above sits
+N_COVER = 3      # 1.70 A away laterally and a BURIED atom has three of them, while a step-foot atom has only one or
+                 # two, so "three higher neighbours within R_COVER" separates buried from merely next to a step.
+                 # 2.35 rather than ~1.8 because R2's compressed stripe layer pushes its third neighbour out to
+                 # 2.35 A; measured, the choice is safe: under a normal layer the third neighbour is at 1.70 and an
+                 # exposed step-foot atom's is at 3.39, and the buried count is identical for 2.05 through 2.50.
 
 
 def top_atoms(atoms):
@@ -186,10 +189,13 @@ def describe(H):
     gap, cut = height_gap(H)
     if gap < GAP_LAYER:
         return f"连续倾斜的平台，胞内高差 {rng:.1f} Å 且无断层——邻晶面的微斜切割，台阶并到胞边"
+    v = np.sort(H.ravel())
+    cuts = [0.5 * (a + b) for a, b in zip(v[:-1], v[1:]) if b - a >= GAP_LAYER]
+    if len(cuts) >= 2:                                     # three or more separated levels
+        edges = [-np.inf] + cuts + [np.inf]
+        fr = [float(((H > lo) & (H <= hi)).mean()) for lo, hi in zip(edges[:-1], edges[1:])]
+        return f"{len(fr)} 个分离的高度层，自上而下占 " + "、".join(f"{100*x:.0f}%" for x in reversed(fr))
     up = float((H > cut).mean()); dn = 1 - up
-    n_lv = 1 + int(np.sum(np.diff(np.sort(H.ravel())) > GAP_LAYER))
-    if n_lv >= 3:
-        return f"{n_lv} 个分离的高度层，最高层占 {100*float((H > np.sort(H.ravel())[int(0.999*H.size)] - 0.5).mean()):.0f}%"
     if 0.30 <= up <= 0.70:
         return f"两层平台，上 {100*up:.0f}%、下 {100*dn:.0f}%（台阶），层间 {gap:.1f} Å"
     if up < dn:

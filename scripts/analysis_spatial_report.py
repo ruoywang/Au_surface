@@ -40,10 +40,56 @@ CLASSES = [("kink/adatom", lambda l: l <= 6), ("edge/rim", lambda l: (l >= 7) & 
            ("terrace", lambda l: l == 9), ("sub-surface/foot", lambda l: l >= 10)]
 
 
-def load(sid):
+R_COVER, N_COVER, CN_CUT_L = 2.35, 3, 3.4
+
+
+def relabel(atoms, ngx, ngy):
+    """Coordination label per column, assigning each column to the nearest UN-BURIED atom.
+
+    Fixes a real defect in the stored labels. analysis_spatial.column_labels took every atom within 3.0 A of the top
+    as a candidate, but the (111) layers are only 2.4 A apart, so the second layer was a candidate too -- and it sits
+    directly under the hollow sites. On a perfectly flat T-4x4 terrace that put 48% of the columns on a CN 12 atom,
+    i.e. it split one flat terrace into 'terrace' and 'sub-surface'. Restricting the candidates to atoms that are not
+    buried (fewer than three higher neighbours within 2.35 A) leaves exactly the atoms the electrolyte sees.
+    Recomputed from the geometry alone, so the 3D fields do not have to be read again."""
+    pos = atoms.get_positions(); cell = atoms.get_cell().array
+    n_above = np.zeros(len(pos), int); cn = np.zeros(len(pos), int)
+    for si in (-1, 0, 1):
+        for sj in (-1, 0, 1):
+            sh = (si * cell[0] + sj * cell[1])[:2]
+            d = np.linalg.norm(pos[:, None, :2] - (pos[None, :, :2] + sh), axis=-1)
+            dz = pos[None, :, 2] - pos[:, None, 2]
+            n_above += ((d < R_COVER) & (dz > 0.5)).sum(1)
+            d3 = np.linalg.norm(pos[:, None, :] - (pos[None, :, :] + np.append(sh, 0.0)), axis=-1)
+            cn += ((d3 < CN_CUT_L) & (d3 > 0.1)).sum(1)
+    sel = np.flatnonzero(n_above < N_COVER)
+    fx, fy = np.meshgrid((np.arange(ngx) + 0.5) / ngx, (np.arange(ngy) + 0.5) / ngy, indexing="ij")
+    g = fx[..., None] * cell[0][:2] + fy[..., None] * cell[1][:2]
+    best = np.full(g.shape[:2], np.inf); lab = np.zeros(g.shape[:2], int)
+    for i in sel:
+        for si in (-1, 0, 1):
+            for sj in (-1, 0, 1):
+                p = pos[i, :2] + si * cell[0][:2] + sj * cell[1][:2]
+                d = np.linalg.norm(g - p, axis=-1)
+                m = d < best
+                best[m] = d[m]; lab[m] = cn[i]
+    return lab.T
+
+
+_GEOM = {}
+
+
+def load(sid, states=None):
     z = np.load(f"{PC}/{sid}.npz")
     r = {k: z[k] for k in z.files}
     r["A_proj"] = float(np.linalg.norm(np.cross(r["cell"][0], r["cell"][1])))   # scalars live in the npz's cell array
+    if states is not None and sid in states:
+        s = states[sid]; key = (s["source_dir"], s["geometry_file"], r["cn_label"].shape)
+        if key not in _GEOM:
+            from ase.io import read as _read
+            at = _read(f"{s['source_dir']}/{s['geometry_file']}")
+            _GEOM[key] = relabel(at, r["cn_label"].shape[1], r["cn_label"].shape[0])
+        r["cn_label"] = _GEOM[key]
     return r
 
 
@@ -179,7 +225,7 @@ def main():
     for sid in sorted(have):
         s = S.get(sid)
         if s is None: continue
-        r = load(sid)
+        r = load(sid, S)
         U = MU0 - s["electronic_state"]["mu_e_actual_eV"]
         reg[sid] = dict(geometry_id=s["geometry_id"], structure_id=s["structure_id"], family=s["family"],
                         config=("relaxed" if s["config"] in ("relax", "relaxed") else s["config"]),
@@ -196,7 +242,7 @@ def main():
         us = sorted(pts)
         lo, hi = us[0], us[-1]
         if hi - lo < 0.3: continue
-        A, B = load(pts[hi]), load(pts[lo])
+        A, B = load(pts[hi], S), load(pts[lo], S)
         if "ne_col" not in A or "ne_col" not in B: continue
         cell = A["cell"]
         d_ne = A["ne_col"] - B["ne_col"]                              # metal electrons per A^2 (more positive U -> fewer)
@@ -230,7 +276,7 @@ def main():
             if gal[sid_struct]["geometry_id"] != gid: continue
             us = sorted(pts)
             if len(us) < 2: continue
-            A = load(pts[us[-1]]); B = load(pts[us[0]])
+            A = load(pts[us[-1]], S); B = load(pts[us[0]], S)
             make_map(sid_struct, gid, A, B, us[-1], us[0]); n += 1
         print(f"maps: {n} figures -> {MAPS}/")
 

@@ -181,12 +181,14 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
 
 <section id="where"><div class="finding">
   <div><div class="eyebrow">结论三</div><h2>阴离子的热点并不在缺陷正上方</h2></div>
-  <p class="claim">按最近表面原子的配位数给阴离子过量分区后，低配位位点的富集在 41 个几何里有 36 个<em>低于</em>周围平台，
-  中位低 1.7%，最多低 6.1%。五个例外全是空位边缘，那是凹陷而不是凸起。两种积分口径给出相同的排序。</p>
+  <p class="claim">按最近表面原子的配位数给阴离子过量分区后，低配位位点的富集<em>低于</em>周围平台：在全部 41 个同时含低配位区与
+  平台区的理想／弛豫几何中有 37 个如此，中位低 1.5%，最多低 6.1%（A3 的三吸附原子）。四个例外全是空位边缘，
+  那是凹陷而不是凸起，且超出量只有 0.1%–0.3%。两种积分口径给出相同的排序。</p>
   <div class="card pad"><div class="chartbox"><div id="c_regions"></div></div>
     <div class="caption">边界相对窗口下的富集比
     K<sub>&Omega;</sub>&nbsp;=&nbsp;&int;n<sub>&minus;</sub>&thinsp;/&thinsp;(n<sub>b</sub>&int;S<sub>ion</sub>)，
-    取各结构最正的那个采样电势。柱按配位类分组，虚线是该结构的全胞平均。</div>
+    取各结构最正的那个采样电势。柱按配位类分组，虚线是该结构的全胞平均。此图每种结构只画一个代表几何（理想或弛豫），
+    共 33 条；上文 41 个的计数则覆盖同一结构的理想与弛豫两种几何。</div>
     <div class="legend" id="leg3"></div></div>
   <div class="note"><b>这就是充电结论从液相一侧看到的样子。</b>吸附原子压低了局部零电荷点，于是在固定的电极电势下，那一小块
   表面相对周围平台更不正，吸引到的阴离子反而更少。空位把零电荷点抬高，而空位边缘正是打破这一趋势的那几个几何。结论二和结论三
@@ -264,6 +266,11 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
     <div class="card pad"><h3>积分窗口</h3><p class="small" style="margin-top:8px">
       绝对口径取 z&nbsp;&lt;&nbsp;31&nbsp;&Aring; 以下的全部空间，各柱之和精确等于全胞；边界相对口径从每根柱自己的可达性
       边界往上取 10.4&nbsp;&Aring;，使抬高的岛与旁边的平台保留同样比例的衰减尾部。两种口径都给出，上述结论在两者下都成立。</p></div>
+    <div class="card pad"><h3>区域怎么切（一次已修正的定义）</h3><p class="small" style="margin-top:8px">
+      每根柱子指派给最近的<b>未被埋住</b>的表面原子，按该原子的配位数归类。最初的版本把"顶端 3&nbsp;&Aring; 内的所有原子"
+      都当作候选，但 (111) 层间距只有 2.4&nbsp;&Aring;，第二层因此也成了候选，而它恰好位于空位点的正下方——在完全平整的
+      T-4x4 上有 48% 的柱子被指派给 CN&nbsp;12 的第二层原子，把一个平整平台劈成了"平台"和"次表面"两类。改用未被埋住的
+      原子后，平整面回到 100% 平台；上面的结论在修正前后都成立（修正前 36/41、中位 &minus;1.7%）。</p></div>
     <div class="card pad"><h3>已知限制</h3><p class="small" style="margin-top:8px">
       生产参数下的力带有约 0.02&nbsp;eV/&Aring; 每原子的 egg-box 误差，因此这里没有任何结论建立在细小的力差异上。
       扰动构型与集体形变是人为设计的采样，不是热力学系综，只用于给出敏感性范围而不做平均。路径像很稀疏，不等于最小能量路径。</p></div>
@@ -335,14 +342,18 @@ document.getElementById("s1").append(...[
 /* ---- sigma(U) ---- */
 (function(){
   const F=frame(880,420,{l:56,r:14,t:14,b:42}), m=F.m, {w,h}=F;
-  const X=x=>m.l+(x+0.56)/1.12*(w-m.l-m.r), Y=y=>h-m.b-(y+7)/14*(h-m.t-m.b);
+  // derive the axis limits from the data: hardcoding +-7 clipped the curves once the +-0.5 V states arrived
+  const allS=Object.values(D.geometries).flatMap(g=>g.pts.map(p=>p[1]));
+  const allU=Object.values(D.geometries).flatMap(g=>g.pts.map(p=>p[0]));
+  const SY=Math.ceil(Math.max(...allS.map(Math.abs))+0.4), SX=Math.max(...allU.map(Math.abs))+0.05;
+  const X=x=>m.l+(x+SX)/(2*SX)*(w-m.l-m.r), Y=y=>h-m.b-(y+SY)/(2*SY)*(h-m.t-m.b);
   for(const t of [-0.5,-0.25,0,0.25,0.5]){
     F.s.append(el("line",{x1:X(t),x2:X(t),y1:m.t,y2:h-m.b,stroke:CSS("--line"),"stroke-width":1}));
     F.s.append(el("text",{x:X(t),y:h-m.b+16,"text-anchor":"middle","font-size":11,fill:CSS("--muted")},String(t)));}
   for(const t of [-6,-4,-2,0,2,4,6]){
     F.s.append(el("line",{x1:m.l,x2:w-m.r,y1:Y(t),y2:Y(t),stroke:CSS("--line"),"stroke-width":1}));
     F.s.append(el("text",{x:m.l-8,y:Y(t)+3.8,"text-anchor":"end","font-size":11,fill:CSS("--muted")},String(t)));}
-  F.s.append(el("line",{x1:X(-0.56),x2:X(0.56),y1:Y(0),y2:Y(0),stroke:CSS("--line-2"),"stroke-width":1.4}));
+  F.s.append(el("line",{x1:X(-SX),x2:X(SX),y1:Y(0),y2:Y(0),stroke:CSS("--line-2"),"stroke-width":1.4}));
   for(const g of Object.values(D.geometries))
     F.s.append(el("polyline",{points:g.pts.map(p=>`${X(p[0]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(" "),
       fill:"none",stroke:FC[g.f]||"#888","stroke-width":1.1,"stroke-opacity":.62,"stroke-linecap":"round"}));
