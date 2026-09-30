@@ -543,7 +543,7 @@ document.getElementById("s1").append(...[
       if(v.dz!=null) tags.push(el("span",{class:"tag"},`ΔU₀ ${v.dz>0?"+":""}${v.dz.toFixed(0)} mV`));
       gal.append(el("figure",{class:"gcard",style:"margin:0"},
         el("div",{class:"ghead"},el("h3",{},k),el("span",{class:"small"},v.cfg==="ideal"?"理想构型":"弛豫构型")),
-        zoomable(`gallery/${k}.png`,`${k} · 简笔轮廓、俯视图与侧视图`,
+        zoomable(`${D.imgbase}gallery/${k}.png`,`${k} · 简笔轮廓、俯视图与侧视图`,
           `${k}：简笔轮廓、俯视图与侧视图，原子按配位数着色`),
         v.sch?el("div",{class:"hint",style:"padding-top:10px;padding-bottom:0"},"轮廓："+v.sch):null,
         el("div",{class:"gmeta"},...tags)));}
@@ -558,7 +558,7 @@ document.getElementById("s1").append(...[
     const v=D.structures[k]||{};
     host.append(el("figure",{class:"gcard",style:"margin:0"},
       el("div",{class:"ghead"},el("h3",{},k),el("span",{class:"small"},FZH[v.f]||"")),
-      zoomable(`maps/${k}.png`,`${k} · 阴离子空间图`,
+      zoomable(`${D.imgbase}maps/${k}.png`,`${k} · 阴离子空间图`,
         `${k}：阴离子过量、其随电势的变化、金属电子数变化与配位数图`),
       el("div",{class:"hint"},"点击放大")));}
 })();
@@ -566,14 +566,49 @@ document.getElementById("s1").append(...[
 """
 
 
+# The Artifact platform wraps the file in its own document skeleton; GitHub Pages does not, so a standalone build
+# has to supply it. These are the parts of that skeleton the page actually relies on.
+SKELETON_HEAD = """<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="33 种 Au(111) 形貌在三个电子化学势下的恒电势 DFT 充电响应，以及有多少传递到了离子。">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+"""
+SKELETON_TAIL = "\n</body>\n</html>\n"
+
+
+def build(data, standalone=False, imgbase="", out_path=None):
+    data = dict(data, imgbase=imgbase)
+    page = HTML.replace("__DATA__", json.dumps(data, separators=(",", ":")).replace("</", "<\\/"))
+    if standalone:
+        k = page.index("</style>") + len("</style>")
+        page = SKELETON_HEAD + page[:k] + "\n</head>\n<body>\n" + page[k:] + SKELETON_TAIL
+    open(out_path, "w").write(page)
+    return os.path.getsize(out_path)
+
+
 def main():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--standalone", action="store_true", help="emit a complete HTML document (for GitHub Pages)")
+    ap.add_argument("--imgbase", default="", help="prefix for the gallery/ and maps/ image paths")
+    ap.add_argument("--out", default=None)
+    a = ap.parse_args()
     data = json.load(open(f"{WEB}/data.json"))
     mapped = sorted(f[:-4] for f in os.listdir(f"{ROOT}/analysis/maps")) if os.path.exists(f"{ROOT}/analysis/maps") else []
     data["mapped"] = [m for m in mapped if m in data["structures"]]
-    out = HTML.replace("__DATA__", json.dumps(data, separators=(",", ":")).replace("</", "<\\/"))
-    open(f"{WEB}/index.html", "w").write(out)
-    print(f"{os.path.getsize(f'{WEB}/index.html')/1024:.0f} kB -> {WEB}/index.html "
-          f"({len(data['structures'])} structures, {len(data['mapped'])} maps)")
+    out = a.out or f"{WEB}/index.html"
+    n = build(data, standalone=a.standalone, imgbase=a.imgbase, out_path=out)
+    print(f"{n/1024:.0f} kB -> {out}  ({len(data['structures'])} structures, {len(data['mapped'])} maps"
+          f"{', standalone, imgbase=' + repr(a.imgbase) if a.standalone else ''})")
 
 
 if __name__ == "__main__":

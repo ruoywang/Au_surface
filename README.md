@@ -5,7 +5,10 @@ single-sided implicit-solvent CEP-DIP code (VASP + VASPsol++ + CP-VASP,
 locally modified), aimed at a training dataset for non-specific anion
 enrichment near defects as a function of electrode potential.
 
-**Live report**: https://claude.ai/artifact/C3tDzBtSYwmLaiMbxap2Ft
+**Report** (GitHub Pages): https://ruoywang.github.io/Au_surface/ — 33 structures with plain outline
+schematics, the morphology→charging→anion-redistribution analysis of the ±0.2 V dataset, and the
+per-structure anion maps. Built from this repo's `index.html`; regenerate with
+`scripts/pyrun.sh scripts/build_web_report.py --standalone --imgbase analysis/ --out index.html`.
 
 ## What's in this repo
 
