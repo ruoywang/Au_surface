@@ -57,8 +57,16 @@ FAMILY_COLOR = dict(zip(FAMILY_ORDER, ["#4c78a8", "#f58518", "#54a24b", "#b279a2
                                        "#72b7b2", "#eeca3b", "#9d755d", "#bab0ac"]))
 
 
-BASE_MU = {-5.1071, -4.9071, -4.7071}      # the three potentials EVERY geometry has; the +-0.5 V extension is partial
-BASE_LABEL = "+-0.2 V subset (complete for every geometry)"
+# The +-0.5 V extension completed on 2026-10-01 (214/214 tasks, 0 failures), so the scope is widened to all
+# five potentials. Checked before widening, over the 79 geometries that have all five:
+#   * the zero-charge-point spread is IDENTICAL, 254.3 mV either way, and its median moves 0.1 mV;
+#   * the median dsigma/dU moves from 11.840 to 11.635 uF/cm2, -1.7%, and its spread from 14.3% to 14.5%;
+#   * sigma(U) is linear over the whole 1 V: the worst deviation from a straight line is 0.081 uC/cm2 against
+#     a range of 7.32, about 1%, so one secant capacitance is meaningful across the window;
+#   * coverage improves: the two +-0.5 V ends exist for ALL 107 geometries, while the three base potentials do
+#     not (105 / 85 / 101 of 107), so widening removes a gap rather than creating one.
+BASE_MU = {-5.4071, -5.1071, -4.9071, -4.7071, -4.4071}
+BASE_LABEL = "+-0.5 V window (both outer points complete for every geometry)"
 
 
 def load_geometries():
@@ -121,7 +129,7 @@ def pzc(d):
                 note=f"{side}; NOT extrapolated (nearest point {P[j]['state_id']})")
 
 
-U_WINDOW = 0.2      # the window every geometry has; the +-0.5 V extension will allow U_WINDOW = 0.5 later
+U_WINDOW = 0.5      # widened from 0.2 when the extension completed; both outer points exist for all 107
 
 
 def delta_omega_pairs(G, U_win=U_WINDOW):

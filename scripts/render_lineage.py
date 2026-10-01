@@ -34,8 +34,9 @@ W, H = 1360.0, 782.0
 
 MU0 = -4.9071
 # (TARGETMU eV, U V, label, complete?)
-POTENTIALS = [(-5.4071, +0.5, False), (-5.1071, +0.2, True), (-4.9071, 0.0, True),
-              (-4.7071, -0.2, True), (-4.4071, -0.5, False)]
+# all five are complete since 2026-10-01 (extension 214/214, no failures)
+POTENTIALS = [(-5.4071, +0.5, True), (-5.1071, +0.2, True), (-4.9071, 0.0, True),
+              (-4.7071, -0.2, True), (-4.4071, -0.5, True)]
 
 
 def rbox(ax, x, cy, w, h, fc, ec, lw=1.8):

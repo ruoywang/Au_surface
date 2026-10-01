@@ -401,11 +401,15 @@ def pack(ch, reg, trans):
     snapshot = dict(built=time.strftime("%Y-%m-%d %H:%M"), commit=commit,
                     n_structures=len(structs), n_geometries=len(geoms),
                     n_base_states=base_pts, n_extension_states=ext_pts,
-                    base_potentials=[-5.1071, -4.9071, -4.7071], extension_potentials=[-5.4071, -4.4071],
+                    base_potentials=[-5.4071, -5.1071, -4.9071, -4.7071, -4.4071], extension_potentials=[],
                     n_region_states=len(reg), n_region_structures=len(rsum), n_transmission=len(trans),
-                    policy=("Every cross-structure number uses only the three base potentials. The +-0.5 V "
-                            "extension is still running and incomplete; it is drawn as an overlay on the "
-                            "curves and enters no statistic."))
+                    policy=("The +-0.5 V extension completed on 2026-10-01 (214/214 tasks, 0 failures), so "
+                            "every cross-structure number now uses all five potentials. Both outer points "
+                            "exist for all 107 geometries; the middle three do not (105 / 85 / 101), so each "
+                            "chart states how many geometries contributed. One state, "
+                            "C2-island+pit__ideal__mu-5.4071, was killed at walltime while writing RHOB and "
+                            "so has no metal-to-ion transmission pair; its SCF had closed, so it is used "
+                            "everywhere else."))
     out = dict(mu0=MU0, snapshot=snapshot, decomposition=ch["decomposition"], cell_groups=ch["cell_groups"],
                pairs=[p for p in ch["same_composition_pairs"] if not p["same_structure"]][:60],
                same_structure_pair_scale=dict(

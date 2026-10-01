@@ -193,10 +193,11 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
   <div class="card pad bleed"><div class="chartbox"><div id="c_sigma"></div></div>
     <div class="caption">Surface charge density against the internal potential
     U&nbsp;=&nbsp;&mu;<sub>0</sub>&nbsp;&minus;&nbsp;&mu;<sub>e</sub> for every geometry, taken from the
-    <em>actually converged</em> &mu;<sub>e</sub> and N<sub>e</sub>. Solid lines are the three base potentials,
-    which are the statistical scope; the pale dotted points beyond the gold dashes are the completed part of
-    the &plusmn;0.5&nbsp;V extension, shown for orientation only and entering no number. The curves are close
-    to parallel: family to family, the difference is mostly a sideways shift.</div>
+    <em>actually converged</em> &mu;<sub>e</sub> and N<sub>e</sub>. All five potentials are now in scope. The
+    curves are close to parallel, so family to family the difference is mostly a sideways shift, and they are
+    also close to straight: over the 79 geometries with all five points the worst departure from a line is
+    0.081&nbsp;&micro;C/cm² against a range of 7.32, about 1%. One secant capacitance is therefore meaningful
+    across the whole window, which the &plusmn;0.2&nbsp;V data could not establish.</div>
     <div class="legend" id="leg1"></div></div>
   <div class="note"><b>What this ratio is, and what it is not.</b> A defect carrying more positive charge at a
   given potential does not mean it is easier to polarise. Expanding
@@ -318,11 +319,13 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
   <div><div class="eyebrow">Finding 5</div><h2>What the potential contributes to the relative grand potential
   of same-composition configurations</h2></div>
   <p class="claim">Integrating the electron-number curve gives the potential-<em>induced</em> change in
-  relative grand potential without ever subtracting two total energies. Within the &plusmn;0.2&nbsp;V window
-  the largest cross-morphology value is <span data-n="dom"></span>, the same order as the scatter among the
-  sampled configurations of one morphology (at most <span data-n="domsame"></span>). <b>This is not enough to
-  say whether the potential re-ranks stability</b>: that needs a baseline for the relative grand potential at
-  the reference potential, which this dataset has not fixed.</p>
+  relative grand potential without ever subtracting two total energies. Over the full &plusmn;0.5&nbsp;V
+  window the largest cross-morphology value is <span data-n="dom"></span>, which is <em>smaller</em> than the
+  scatter among the sampled configurations of one morphology (at most <span data-n="domsame"></span>).
+  <b>This is not enough to say whether the potential re-ranks stability</b>, and over the wider window that
+  conclusion is firmer rather than weaker: the morphology-to-morphology effect does not stand clear of the
+  spread a single morphology already shows. Deciding the ranking needs a baseline for the relative grand
+  potential at the reference potential, which this dataset has not fixed.</p>
   <div class="card pad"><div class="chartbox"><div id="c_omega"></div></div>
     <div class="caption">Pairs of different structures with the same composition in the same cell,
     D&nbsp;=&nbsp;+&int;<sub>&mu;₀&minus;w</sub><sup>&mu;₀+w</sup>&thinsp;[N<sub>A</sub>&minus;N<sub>B</sub>]&thinsp;d&mu;,
@@ -335,8 +338,8 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
   baseline the dataset has not fixed, and without it there is no way to tell whether the ranking changes. If
   two configurations start a few meV apart, tens of meV are enough to re-rank them; if they start 1&nbsp;eV
   apart, they are not. It also never crosses different Au atom counts, which would require a reservoir term.
-  <br><br>When the &plusmn;0.5&nbsp;V extension finishes, these integrals should be redone over the actual
-  extended curves rather than scaled up from the present window.</div>
+  <br><br>These integrals are now taken over the actual &plusmn;0.5&nbsp;V curves, not scaled up from the
+  narrower window as an earlier draft warned against.</div>
 </div></section>
 
 <section id="gallery"><div class="finding">
@@ -498,16 +501,21 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
       un-buried rule a flat face is 100% terrace again. The conclusions above hold before and after the fix
       (before: 36/41, median &minus;1.7%).</p></div>
     <div class="card pad"><h3>How the scope is handled</h3><p class="small" style="margin-top:8px">
-      Every cross-structure number uses only the three base potentials (&minus;5.1071 / &minus;4.9071 /
-      &minus;4.7071&nbsp;eV). Not every geometry has all three: by plan, some reference structures were only
-      ever computed at one or two potentials, so quantities that need three (the zero-charge point, the two
-      secants, the grand-potential integral) are computed only where enough points exist, geometries with too
-      few do not enter the same comparison, and each chart states how many actually contributed. The
-      &plusmn;0.5&nbsp;V extension is still running and incomplete; it is drawn as a separate overlay on the
-      &sigma;(U) curves and <b>enters no statistic</b>, since otherwise a geometry sampled to
-      &plusmn;0.5&nbsp;V would be compared against one sampled only to &plusmn;0.2&nbsp;V, and every finished
-      task would change the numbers on the page. The snapshot at the top gives the state count, geometry count
-      and build time this page actually used.</p></div>
+      Every cross-structure number uses all five potentials (&minus;5.4071 / &minus;5.1071 / &minus;4.9071 /
+      &minus;4.7071 / &minus;4.4071&nbsp;eV). The &plusmn;0.5&nbsp;V extension completed on 2026-10-01, 214 of
+      214 tasks with no failures, which is why the scope was widened; while it was incomplete the page used
+      the three base potentials only, so that a geometry sampled to &plusmn;0.5&nbsp;V was never compared
+      against one sampled to &plusmn;0.2&nbsp;V. Widening was checked first and changes very little: the
+      spread of the zero-charge point is identical at 254.3&nbsp;mV and the median secant capacitance moves
+      from 11.84 to 11.59&nbsp;&micro;C/cm&middot;V&#8315;&sup1;. It improves coverage, because <b>both outer
+      points exist for all 107 geometries</b> while the middle three do not (105 / 85 / 101 of 107): the
+      zero-charge point is now obtained for 107 of 107 rather than 104. Quantities that need more points are
+      still computed only where those points exist, and each chart states how many geometries contributed.
+      <br><br>One state is a partial loss.
+      <span class="mono">C2-island+pit__ideal__mu-5.4071</span> was killed at its walltime while writing the
+      bound-charge grid: its SCF had closed, so N<sub>e</sub> and &mu;<sub>e</sub> are valid and it is used in
+      the charging and region analyses, but it has no metal-to-ion transmission pair, which is why 106 of 107
+      geometries appear in that chart. The snapshot at the top gives the counts and build time this page used.</p></div>
     <div class="card pad"><h3>Revision log</h3><p class="small" style="margin-top:8px">
       This page has been through several rounds of external review and was changed accordingly. The body keeps
       only the currently correct explanation; what changed and why is in the expandable
@@ -527,7 +535,36 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
   <p class="lede">The body keeps only the currently correct explanation. This records the substantive changes
   made after each round of external review, so they can be traced; every one was checked against the data or
   a unit test before it was made.</p>
-  <details open><summary style="cursor:pointer;font-weight:500;padding:10px 0">Latest round (sampling, and
+  <details open><summary style="cursor:pointer;font-weight:500;padding:10px 0">Latest round (the
+  &plusmn;0.5&nbsp;V window)</summary>
+  <ul class="small" style="line-height:1.9;max-width:62em">
+    <li><b>The scope was widened from &plusmn;0.2 to &plusmn;0.5&nbsp;V.</b> The extension completed on
+      2026-10-01, 214 of 214 tasks with no failures, 325 node-h. What it changed was checked before the
+      switch: the spread of the zero-charge point is identical at 254.3&nbsp;mV, the median secant capacitance
+      moves 11.84&nbsp;&rarr;&nbsp;11.59, its spread 14.3&nbsp;&rarr;&nbsp;15.4%, and coverage improves from
+      104 to 107 of 107 geometries because both outer points exist everywhere while the middle three do
+      not.</li>
+    <li><b>Two results the narrow window could not give.</b> &sigma;(U) is straight across the full
+      1&nbsp;V: over the 79 geometries with all five points the worst departure from a line is
+      0.081&nbsp;&micro;C/cm² against a range of 7.32, about 1%, so one secant capacitance is well defined
+      over the window. And the grand-potential comparison reverses usefully: the cross-morphology maximum is
+      now 89&nbsp;meV while one morphology's own configurations scatter by up to 138&nbsp;meV, so the
+      "not enough to re-rank" conclusion is firmer than it was at &plusmn;0.2&nbsp;V, where the two were
+      29 and 27&nbsp;meV.</li>
+    <li><b>The under-coordination result strengthens at the larger step.</b> Measured at each geometry's most
+      positive potential, now +0.5&nbsp;V rather than +0.2&nbsp;V, the under-coordinated regions enrich less
+      than the terrace in <span data-n="uc_main"></span>, against a median 1.4% at the narrower step. The
+      exceptions drop from six to five, and the largest of them, the dilute 8&times;8 island at +3.6%, is no
+      longer one.</li>
+    <li><b>One state is a partial loss, recorded rather than hidden.</b>
+      <span class="mono">C2-island+pit__ideal__mu-5.4071</span> was killed at its walltime while writing the
+      bound-charge grid (534 of 713&nbsp;MB; 29&thinsp;370&thinsp;510 of 39&thinsp;200&thinsp;000 values), and
+      the ion grid was never written. Its SCF had closed, so N<sub>e</sub> and &mu;<sub>e</sub> are valid and
+      it is used in the charging and region analyses; it has no transmission pair, which is why that chart
+      covers 106 of 107 geometries. Re-running it would cost about 20 node-h for one transmission point, so it
+      was not re-run.</li>
+  </ul></details>
+  <details><summary style="cursor:pointer;font-weight:500;padding:10px 0">Previous round (sampling, and
   figure legibility)</summary>
   <ul class="small" style="line-height:1.9;max-width:62em">
     <li><b>An opening figure of the sampling tree.</b> The body used to start straight at Finding 1, leaving
@@ -672,17 +709,16 @@ function zoomable(src,cap,alt){
 const SN=D.snapshot||{};
 const NG=Object.keys(D.geometries).length, NS=Object.keys(D.structures).length;
 const NPT=Object.values(D.geometries).reduce((a,g)=>a+g.pts.length,0);
-const NEXT=Object.values(D.geometries).reduce((a,g)=>a+(g.ext?g.ext.length:0),0);
 document.getElementById("kicker").append(
-  ...[[NS,"structures"],[NG,"distinct geometries"],[NPT,"base states"],["3","base potentials"],[NEXT,"\u00b10.5 V extension states (overlay only)"]]
+  ...[[NS,"structures"],[NG,"distinct geometries"],[NPT,"electronic states"],["5","potentials"],["\u00b10.5 V","window, complete"]]
      .map(([v,l])=>el("span",{class:"chip"},`${v} ${l}`)));
 document.getElementById("scope").append(
-  `Scope fixed to the three base potentials \u22125.1071 / \u22124.9071 / \u22124.7071 eV: `
-  +`${NPT} states, ${NG} geometries, ${NS} structures. The \u00b10.5 V extension currently has ${NEXT} states, `
-  +`is incomplete, and appears only as a pale overlay on the \u03c3(U) chart, entering no number. `
+  `All five potentials, \u22125.4071 / \u22125.1071 / \u22124.9071 / \u22124.7071 / \u22124.4071 eV: `
+  +`${NPT} states, ${NG} geometries, ${NS} structures. The \u00b10.5 V extension completed on 2026-10-01 `
+  +`(214 of 214 tasks, no failures), so every number on this page now uses the full \u00b10.5 V window. `
   +`The region and spatial analysis covers ${SN.n_region_states||"?"} states `
-  +`(${SN.n_region_structures||"?"} structures); ${Object.keys(D.transmission).length} geometries have both `
-  +`end potentials and so admit a metal-to-ion comparison.`,
+  +`(${SN.n_region_structures||"?"} structures); ${Object.keys(D.transmission).length} of ${NG} geometries `
+  +`admit a metal-to-ion comparison.`,
   el("br"),
   el("span",{class:"mono",style:"font-size:12px"},
     `built ${SN.built||"?"}${SN.commit?"  \u00b7  commit "+SN.commit:""}`));
@@ -749,18 +785,15 @@ fill("ngeom2",String(NG));
     F.s.append(el("line",{x1:m.l,x2:w-m.r,y1:Y(t),y2:Y(t),stroke:CSS("--line"),"stroke-width":1}));
     F.s.append(el("text",{x:m.l-8,y:Y(t)+3.8,"text-anchor":"end","font-size":11,fill:CSS("--muted")},String(t)));}
   F.s.append(el("line",{x1:X(-SX),x2:X(SX),y1:Y(0),y2:Y(0),stroke:CSS("--line-2"),"stroke-width":1.4}));
-  // the +-0.5 V points are drawn faint and dotted: visible, but plainly not part of the frozen statistics
-  for(const g of Object.values(D.geometries)){
-    if(!g.ext||!g.ext.length) continue;
-    const all=g.pts.concat(g.ext).sort((a,b)=>a[0]-b[0]);
-    F.s.append(el("polyline",{points:all.map(p=>`${X(p[0]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(" "),
-      fill:"none",stroke:FC[g.f]||"#888","stroke-width":.9,"stroke-opacity":.22,"stroke-dasharray":"2 3"}));}
+  // all five potentials are in scope since the extension completed, so there is no faint overlay any more
+  // and no gold scope boundary at +-0.2 V; the sampled potentials themselves are marked instead
   for(const g of Object.values(D.geometries))
     F.s.append(el("polyline",{points:g.pts.map(p=>`${X(p[0]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(" "),
       fill:"none",stroke:FC[g.f]||"#888","stroke-width":1.2,"stroke-opacity":.7,"stroke-linecap":"round"}));
-  for(const u of [-0.2,0.2]) F.s.append(el("line",{x1:X(u),x2:X(u),y1:m.t,y2:h-m.b,
-    stroke:CSS("--gold"),"stroke-width":1,"stroke-dasharray":"4 3","stroke-opacity":.7}));
-  F.s.append(el("text",{x:X(0.2)+5,y:m.t+13,"font-size":10,fill:CSS("--gold")},"scope boundary \u00b10.2 V"));
+  for(const u of [-0.5,-0.2,0,0.2,0.5]) F.s.append(el("line",{x1:X(u),x2:X(u),y1:m.t,y2:h-m.b,
+    stroke:CSS("--gold"),"stroke-width":1,"stroke-dasharray":"4 3","stroke-opacity":.45}));
+  F.s.append(el("text",{x:X(0.5)-5,y:m.t+13,"text-anchor":"end","font-size":10,fill:CSS("--gold")},
+    "the five sampled potentials"));
   F.s.append(el("text",{x:(m.l+w-m.r)/2,y:h-5,"text-anchor":"middle","font-size":11,fill:CSS("--ink-2")},
     "U = μ₀ − μₑ   (V)"));
   F.s.append(el("text",{x:14,y:(m.t+h-m.b)/2,"text-anchor":"middle","font-size":11,fill:CSS("--ink-2"),
