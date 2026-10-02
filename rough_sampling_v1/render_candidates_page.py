@@ -30,25 +30,29 @@ from render_rough_lineage import LAYER_COL, RAD  # noqa: E402
 CLASS_NAME = {"A": "A — roughened strips", "B": "B — islands", "C": "C — pits", "D": "D — strips with atoms moved to the step foot"}
 
 
+R_TOP = 0.48 * 4.158 / np.sqrt(2)      # touching discs (1.41 A) in the top view: the packing stays visible, lower layers show through gaps
+R_SIDE = 1.0
+
+
 def draw(at, path, title):
-    c = at.get_cell().array; P = at.get_positions(); lay = layers_from_z(at)
-    fig, ax = plt.subplots(figsize=(6.4, 6.0), dpi=150)
+    """Top view of the cell (one copy, no image ring) and a side view along a2 (layers as rows)."""
+    c = at.get_cell().array; P = at.get_positions(); lay = layers_from_z(at); z0 = P[:, 2].min()
+    fig = plt.figure(figsize=(6.4, 7.4), dpi=150)
+    ax = fig.add_axes([0.03, 0.30, 0.94, 0.62]); sx = fig.add_axes([0.03, 0.03, 0.94, 0.24])
     for i in np.argsort(P[:, 2]):
-        ax.add_patch(Circle(P[i, :2], RAD, fc=LAYER_COL.get(int(lay[i]), "#000"), ec="k", lw=0.35))
-    # a faded ring of periodic images so the seams can be judged
-    for si in (-1, 0, 1):
-        for sj in (-1, 0, 1):
-            if (si, sj) == (0, 0): continue
-            sh = si * c[0][:2] + sj * c[1][:2]
-            for i in np.argsort(P[:, 2]):
-                q = P[i, :2] + sh
-                if -4 < q[0] - 0 < c[0][0] + c[1][0] + 4 and -4 < q[1] < c[1][1] + 4:
-                    ax.add_patch(Circle(q, RAD, fc=LAYER_COL.get(int(lay[i]), "#000"), ec="none", alpha=0.25))
+        ax.add_patch(Circle(P[i, :2], R_TOP, fc=LAYER_COL.get(int(lay[i]), "#000"), ec="k", lw=0.35))
     poly = np.array([[0, 0], c[0][:2], c[0][:2] + c[1][:2], c[1][:2]])
-    ax.add_patch(Polygon(poly, closed=True, fill=False, ec="#0033cc", lw=2.5))
-    ax.set_xlim(-4, c[0][0] + c[1][0] + 4); ax.set_ylim(-4, c[1][1] + 4); ax.set_aspect("equal"); ax.set_axis_off()
+    ax.add_patch(Polygon(poly, closed=True, fill=False, ec="#0033cc", lw=2.0))
+    ax.set_xlim(-2, c[0][0] + c[1][0] + 2); ax.set_ylim(-2, c[1][1] + 2); ax.set_aspect("equal"); ax.set_axis_off()
     ax.set_title(title, fontsize=11)
-    fig.tight_layout(pad=0.3); fig.savefig(path); plt.close(fig)
+    # side view: coordinate along a1 (viewing along a2) against height above the bottom layer
+    e1 = c[0][:2] / np.linalg.norm(c[0][:2]); u = P[:, :2] @ e1; h = P[:, 2] - z0
+    for i in np.argsort(-(P[:, :2] @ (c[1][:2] / np.linalg.norm(c[1][:2])))):          # far rows first
+        sx.add_patch(Circle((u[i], h[i]), R_SIDE, fc=LAYER_COL.get(int(lay[i]), "#000"), ec="k", lw=0.3))
+    sx.set_xlim(u.min() - 2, u.max() + 2); sx.set_ylim(-1.5, h.max() + 1.8); sx.set_aspect("equal")
+    sx.set_yticks([]); sx.set_xticks([]); sx.set_xlabel("side view along a2 (height above the fixed bottom layer)", fontsize=9)
+    for s_ in ("top", "right", "left"): sx.spines[s_].set_visible(False)
+    fig.savefig(path); plt.close(fig)
     # quantise to a 64-colour palette: the alpha-blended image ring otherwise makes ~350 KB per file; this gives ~60 KB
     from PIL import Image
     im = Image.open(path).convert("RGB").quantize(colors=64, method=Image.Quantize.MEDIANCUT); im.save(path, optimize=True)
