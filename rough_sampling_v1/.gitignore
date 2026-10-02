@@ -27,3 +27,4 @@ dft/*/*/WAVECAR
 dft/*/*/vasprun.xml
 dft/*/*/OUTCAR
 dft/*/*/log.out
+__pycache__/
