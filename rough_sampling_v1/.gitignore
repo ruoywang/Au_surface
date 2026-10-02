@@ -15,7 +15,9 @@ md/*/log.lammps
 md/*/stdout.txt
 md/*/data.lammps
 # test runs of the pipeline on the initial (pre-MD) parents; regenerable
-*_test/
+*_test*/
+logs/
+centres/parent_split.json
 md/*/slurm.out
 md/*/slurm.err
 dft/*/*/CHGCAR
