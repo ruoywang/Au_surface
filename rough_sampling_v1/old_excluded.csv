@@ -1,0 +1,366 @@
+state_id,geometry_id,structure_id,config,family,reason
+Au221__coll_strain+1pct__mu-5.4071,Au221__coll_strain+1pct__6af073ea6bb7,Au221,coll_strain+1pct,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au221__coll_strain+1pct__mu-5.1071,Au221__coll_strain+1pct__6af073ea6bb7,Au221,coll_strain+1pct,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au221__coll_strain+1pct__mu-4.9071,Au221__coll_strain+1pct__6af073ea6bb7,Au221,coll_strain+1pct,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au221__coll_strain+1pct__mu-4.7071,Au221__coll_strain+1pct__6af073ea6bb7,Au221,coll_strain+1pct,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au221__coll_strain+1pct__mu-4.4071,Au221__coll_strain+1pct__6af073ea6bb7,Au221,coll_strain+1pct,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au221__coll_topspacing-3pct__mu-5.4071,Au221__coll_topspacing-3pct__ebe72fc2791b,Au221,coll_topspacing-3pct,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au221__coll_topspacing-3pct__mu-5.1071,Au221__coll_topspacing-3pct__ebe72fc2791b,Au221,coll_topspacing-3pct,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au221__coll_topspacing-3pct__mu-4.9071,Au221__coll_topspacing-3pct__ebe72fc2791b,Au221,coll_topspacing-3pct,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au221__coll_topspacing-3pct__mu-4.7071,Au221__coll_topspacing-3pct__ebe72fc2791b,Au221,coll_topspacing-3pct,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au221__coll_topspacing-3pct__mu-4.4071,Au221__coll_topspacing-3pct__ebe72fc2791b,Au221,coll_topspacing-3pct,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au221__pert05__mu-5.1071,Au221__pert05__155ae9b3e60d,Au221,pert05,vicinal step face,non-equilibrium geometry kept at two potentials only
+Au221__pert05__mu-4.9071,Au221__pert05__155ae9b3e60d,Au221,pert05,vicinal step face,non-equilibrium geometry kept at two potentials only
+Au221__pert05__mu-4.7071,Au221__pert05__155ae9b3e60d,Au221,pert05,vicinal step face,non-equilibrium geometry kept at two potentials only
+Au221__pert10__mu-5.4071,Au221__pert10__9dff954701a0,Au221,pert10,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au221__pert10__mu-5.1071,Au221__pert10__9dff954701a0,Au221,pert10,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au221__pert10__mu-4.9071,Au221__pert10__9dff954701a0,Au221,pert10,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au221__pert10__mu-4.7071,Au221__pert10__9dff954701a0,Au221,pert10,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au221__pert10__mu-4.4071,Au221__pert10__9dff954701a0,Au221,pert10,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au211__coll_strain+1pct__mu-5.4071,Au211__coll_strain+1pct__74c6c5f072ec,Au211,coll_strain+1pct,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au211__coll_strain+1pct__mu-5.1071,Au211__coll_strain+1pct__74c6c5f072ec,Au211,coll_strain+1pct,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au211__coll_strain+1pct__mu-4.9071,Au211__coll_strain+1pct__74c6c5f072ec,Au211,coll_strain+1pct,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au211__coll_strain+1pct__mu-4.7071,Au211__coll_strain+1pct__74c6c5f072ec,Au211,coll_strain+1pct,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au211__coll_strain+1pct__mu-4.4071,Au211__coll_strain+1pct__74c6c5f072ec,Au211,coll_strain+1pct,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au211__coll_topspacing-3pct__mu-5.1071,Au211__coll_topspacing-3pct__839eb81e72b5,Au211,coll_topspacing-3pct,vicinal step face,non-equilibrium geometry kept at two potentials only
+Au211__coll_topspacing-3pct__mu-4.9071,Au211__coll_topspacing-3pct__839eb81e72b5,Au211,coll_topspacing-3pct,vicinal step face,non-equilibrium geometry kept at two potentials only
+Au211__coll_topspacing-3pct__mu-4.7071,Au211__coll_topspacing-3pct__839eb81e72b5,Au211,coll_topspacing-3pct,vicinal step face,non-equilibrium geometry kept at two potentials only
+Au211__pert05__mu-5.4071,Au211__pert05__3bad26134ac7,Au211,pert05,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au211__pert05__mu-5.1071,Au211__pert05__3bad26134ac7,Au211,pert05,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au211__pert05__mu-4.9071,Au211__pert05__3bad26134ac7,Au211,pert05,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au211__pert05__mu-4.7071,Au211__pert05__3bad26134ac7,Au211,pert05,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au211__pert05__mu-4.4071,Au211__pert05__3bad26134ac7,Au211,pert05,vicinal step face,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Au211__pert10__mu-5.1071,Au211__pert10__f241e4e3a624,Au211,pert10,vicinal step face,non-equilibrium geometry kept at two potentials only
+Au211__pert10__mu-4.9071,Au211__pert10__f241e4e3a624,Au211,pert10,vicinal step face,non-equilibrium geometry kept at two potentials only
+Au211__pert10__mu-4.7071,Au211__pert10__f241e4e3a624,Au211,pert10,vicinal step face,non-equilibrium geometry kept at two potentials only
+V1__coll_strain+1pct__mu-5.1071,V1__coll_strain+1pct__6d71b487daa6,V1,coll_strain+1pct,point defect,non-equilibrium geometry kept at two potentials only
+V1__coll_strain+1pct__mu-4.9071,V1__coll_strain+1pct__6d71b487daa6,V1,coll_strain+1pct,point defect,non-equilibrium geometry kept at two potentials only
+V1__coll_strain+1pct__mu-4.7071,V1__coll_strain+1pct__6d71b487daa6,V1,coll_strain+1pct,point defect,non-equilibrium geometry kept at two potentials only
+V1__coll_topspacing-3pct__mu-5.4071,V1__coll_topspacing-3pct__83daf50e6b61,V1,coll_topspacing-3pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+V1__coll_topspacing-3pct__mu-5.1071,V1__coll_topspacing-3pct__83daf50e6b61,V1,coll_topspacing-3pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+V1__coll_topspacing-3pct__mu-4.9071,V1__coll_topspacing-3pct__83daf50e6b61,V1,coll_topspacing-3pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+V1__coll_topspacing-3pct__mu-4.7071,V1__coll_topspacing-3pct__83daf50e6b61,V1,coll_topspacing-3pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+V1__coll_topspacing-3pct__mu-4.4071,V1__coll_topspacing-3pct__83daf50e6b61,V1,coll_topspacing-3pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+V1__pert05__mu-5.4071,V1__pert05__442ea868e140,V1,pert05,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+V1__pert05__mu-5.1071,V1__pert05__442ea868e140,V1,pert05,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+V1__pert05__mu-4.9071,V1__pert05__442ea868e140,V1,pert05,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+V1__pert05__mu-4.7071,V1__pert05__442ea868e140,V1,pert05,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+V1__pert05__mu-4.4071,V1__pert05__442ea868e140,V1,pert05,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+V1__pert10__mu-5.4071,V1__pert10__5a8fc74615cb,V1,pert10,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+V1__pert10__mu-5.1071,V1__pert10__5a8fc74615cb,V1,pert10,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+V1__pert10__mu-4.9071,V1__pert10__5a8fc74615cb,V1,pert10,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+V1__pert10__mu-4.7071,V1__pert10__5a8fc74615cb,V1,pert10,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+V1__pert10__mu-4.4071,V1__pert10__5a8fc74615cb,V1,pert10,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+R1-hcp-terminated__pert05__mu-5.4071,R1-hcp-terminated__pert05__ccebe5455555,R1-hcp-terminated,pert05,reconstruction-related,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+R1-hcp-terminated__pert05__mu-5.1071,R1-hcp-terminated__pert05__ccebe5455555,R1-hcp-terminated,pert05,reconstruction-related,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+R1-hcp-terminated__pert05__mu-4.9071,R1-hcp-terminated__pert05__ccebe5455555,R1-hcp-terminated,pert05,reconstruction-related,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+R1-hcp-terminated__pert05__mu-4.7071,R1-hcp-terminated__pert05__ccebe5455555,R1-hcp-terminated,pert05,reconstruction-related,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+R1-hcp-terminated__pert05__mu-4.4071,R1-hcp-terminated__pert05__ccebe5455555,R1-hcp-terminated,pert05,reconstruction-related,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+R1-hcp-terminated__pert10__mu-5.1071,R1-hcp-terminated__pert10__9e9d78f478ca,R1-hcp-terminated,pert10,reconstruction-related,non-equilibrium geometry kept at two potentials only
+R1-hcp-terminated__pert10__mu-4.9071,R1-hcp-terminated__pert10__9e9d78f478ca,R1-hcp-terminated,pert10,reconstruction-related,non-equilibrium geometry kept at two potentials only
+R1-hcp-terminated__pert10__mu-4.7071,R1-hcp-terminated__pert10__9e9d78f478ca,R1-hcp-terminated,pert10,reconstruction-related,non-equilibrium geometry kept at two potentials only
+T-4x4__coll_strain+1pct__mu-5.4071,T-4x4__coll_strain+1pct__5b00b3dc4407,T-4x4,coll_strain+1pct,flat Au(111),perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+T-4x4__coll_strain+1pct__mu-5.1071,T-4x4__coll_strain+1pct__5b00b3dc4407,T-4x4,coll_strain+1pct,flat Au(111),perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+T-4x4__coll_strain+1pct__mu-4.9071,T-4x4__coll_strain+1pct__5b00b3dc4407,T-4x4,coll_strain+1pct,flat Au(111),perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+T-4x4__coll_strain+1pct__mu-4.7071,T-4x4__coll_strain+1pct__5b00b3dc4407,T-4x4,coll_strain+1pct,flat Au(111),perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+T-4x4__coll_strain+1pct__mu-4.4071,T-4x4__coll_strain+1pct__5b00b3dc4407,T-4x4,coll_strain+1pct,flat Au(111),perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+T-4x4__coll_topspacing-3pct__mu-5.1071,T-4x4__coll_topspacing-3pct__d9010df4b5dc,T-4x4,coll_topspacing-3pct,flat Au(111),non-equilibrium geometry kept at two potentials only
+T-4x4__coll_topspacing-3pct__mu-4.9071,T-4x4__coll_topspacing-3pct__d9010df4b5dc,T-4x4,coll_topspacing-3pct,flat Au(111),non-equilibrium geometry kept at two potentials only
+T-4x4__coll_topspacing-3pct__mu-4.7071,T-4x4__coll_topspacing-3pct__d9010df4b5dc,T-4x4,coll_topspacing-3pct,flat Au(111),non-equilibrium geometry kept at two potentials only
+T-4x4__pert05__mu-5.4071,T-4x4__pert05__9a7a390d45a4,T-4x4,pert05,flat Au(111),perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+T-4x4__pert05__mu-5.1071,T-4x4__pert05__9a7a390d45a4,T-4x4,pert05,flat Au(111),perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+T-4x4__pert05__mu-4.9071,T-4x4__pert05__9a7a390d45a4,T-4x4,pert05,flat Au(111),perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+T-4x4__pert05__mu-4.7071,T-4x4__pert05__9a7a390d45a4,T-4x4,pert05,flat Au(111),perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+T-4x4__pert05__mu-4.4071,T-4x4__pert05__9a7a390d45a4,T-4x4,pert05,flat Au(111),perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+T-4x4__pert10__mu-5.1071,T-4x4__pert10__59bc520c9795,T-4x4,pert10,flat Au(111),non-equilibrium geometry kept at two potentials only
+T-4x4__pert10__mu-4.9071,T-4x4__pert10__59bc520c9795,T-4x4,pert10,flat Au(111),non-equilibrium geometry kept at two potentials only
+T-4x4__pert10__mu-4.7071,T-4x4__pert10__59bc520c9795,T-4x4,pert10,flat Au(111),non-equilibrium geometry kept at two potentials only
+A1-fcc__coll_strain+1pct__mu-5.4071,A1-fcc__coll_strain+1pct__5a60f900052e,A1-fcc,coll_strain+1pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-fcc__coll_strain+1pct__mu-5.1071,A1-fcc__coll_strain+1pct__5a60f900052e,A1-fcc,coll_strain+1pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-fcc__coll_strain+1pct__mu-4.9071,A1-fcc__coll_strain+1pct__5a60f900052e,A1-fcc,coll_strain+1pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-fcc__coll_strain+1pct__mu-4.7071,A1-fcc__coll_strain+1pct__5a60f900052e,A1-fcc,coll_strain+1pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-fcc__coll_strain+1pct__mu-4.4071,A1-fcc__coll_strain+1pct__5a60f900052e,A1-fcc,coll_strain+1pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-fcc__coll_topspacing-3pct__mu-5.1071,A1-fcc__coll_topspacing-3pct__cff7df59fe39,A1-fcc,coll_topspacing-3pct,point defect,non-equilibrium geometry kept at two potentials only
+A1-fcc__coll_topspacing-3pct__mu-4.9071,A1-fcc__coll_topspacing-3pct__cff7df59fe39,A1-fcc,coll_topspacing-3pct,point defect,non-equilibrium geometry kept at two potentials only
+A1-fcc__coll_topspacing-3pct__mu-4.7071,A1-fcc__coll_topspacing-3pct__cff7df59fe39,A1-fcc,coll_topspacing-3pct,point defect,non-equilibrium geometry kept at two potentials only
+A1-fcc__pert05__mu-5.4071,A1-fcc__pert05__138462b661be,A1-fcc,pert05,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-fcc__pert05__mu-5.1071,A1-fcc__pert05__138462b661be,A1-fcc,pert05,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-fcc__pert05__mu-4.9071,A1-fcc__pert05__138462b661be,A1-fcc,pert05,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-fcc__pert05__mu-4.7071,A1-fcc__pert05__138462b661be,A1-fcc,pert05,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-fcc__pert05__mu-4.4071,A1-fcc__pert05__138462b661be,A1-fcc,pert05,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-fcc__pert10__mu-5.1071,A1-fcc__pert10__10fb3f2d2638,A1-fcc,pert10,point defect,non-equilibrium geometry kept at two potentials only
+A1-fcc__pert10__mu-4.9071,A1-fcc__pert10__10fb3f2d2638,A1-fcc,pert10,point defect,non-equilibrium geometry kept at two potentials only
+A1-fcc__pert10__mu-4.7071,A1-fcc__pert10__10fb3f2d2638,A1-fcc,pert10,point defect,non-equilibrium geometry kept at two potentials only
+A1-hcp__coll_strain+1pct__mu-5.4071,A1-hcp__coll_strain+1pct__5b3d48eb8574,A1-hcp,coll_strain+1pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__coll_strain+1pct__mu-5.1071,A1-hcp__coll_strain+1pct__5b3d48eb8574,A1-hcp,coll_strain+1pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__coll_strain+1pct__mu-4.9071,A1-hcp__coll_strain+1pct__5b3d48eb8574,A1-hcp,coll_strain+1pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__coll_strain+1pct__mu-4.7071,A1-hcp__coll_strain+1pct__5b3d48eb8574,A1-hcp,coll_strain+1pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__coll_strain+1pct__mu-4.4071,A1-hcp__coll_strain+1pct__5b3d48eb8574,A1-hcp,coll_strain+1pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__coll_topspacing-3pct__mu-5.4071,A1-hcp__coll_topspacing-3pct__6df671924f54,A1-hcp,coll_topspacing-3pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__coll_topspacing-3pct__mu-5.1071,A1-hcp__coll_topspacing-3pct__6df671924f54,A1-hcp,coll_topspacing-3pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__coll_topspacing-3pct__mu-4.9071,A1-hcp__coll_topspacing-3pct__6df671924f54,A1-hcp,coll_topspacing-3pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__coll_topspacing-3pct__mu-4.7071,A1-hcp__coll_topspacing-3pct__6df671924f54,A1-hcp,coll_topspacing-3pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__coll_topspacing-3pct__mu-4.4071,A1-hcp__coll_topspacing-3pct__6df671924f54,A1-hcp,coll_topspacing-3pct,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__pert05__mu-5.4071,A1-hcp__pert05__349e8880c105,A1-hcp,pert05,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__pert05__mu-5.1071,A1-hcp__pert05__349e8880c105,A1-hcp,pert05,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__pert05__mu-4.9071,A1-hcp__pert05__349e8880c105,A1-hcp,pert05,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__pert05__mu-4.7071,A1-hcp__pert05__349e8880c105,A1-hcp,pert05,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__pert05__mu-4.4071,A1-hcp__pert05__349e8880c105,A1-hcp,pert05,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__pert10__mu-5.4071,A1-hcp__pert10__6c834986bfe0,A1-hcp,pert10,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__pert10__mu-5.1071,A1-hcp__pert10__6c834986bfe0,A1-hcp,pert10,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__pert10__mu-4.9071,A1-hcp__pert10__6c834986bfe0,A1-hcp,pert10,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__pert10__mu-4.7071,A1-hcp__pert10__6c834986bfe0,A1-hcp,pert10,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+A1-hcp__pert10__mu-4.4071,A1-hcp__pert10__6c834986bfe0,A1-hcp,pert10,point defect,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+R2-stripe-wall__pert05__mu-5.4071,R2-stripe-wall__pert05__ece974ac728f,R2-stripe-wall,pert05,reconstruction-related,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+R2-stripe-wall__pert05__mu-5.1071,R2-stripe-wall__pert05__ece974ac728f,R2-stripe-wall,pert05,reconstruction-related,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+R2-stripe-wall__pert05__mu-4.9071,R2-stripe-wall__pert05__ece974ac728f,R2-stripe-wall,pert05,reconstruction-related,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+R2-stripe-wall__pert05__mu-4.7071,R2-stripe-wall__pert05__ece974ac728f,R2-stripe-wall,pert05,reconstruction-related,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+R2-stripe-wall__pert05__mu-4.4071,R2-stripe-wall__pert05__ece974ac728f,R2-stripe-wall,pert05,reconstruction-related,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+R2-stripe-wall__pert10__mu-5.4071,R2-stripe-wall__pert10__22644ce138aa,R2-stripe-wall,pert10,reconstruction-related,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+R2-stripe-wall__pert10__mu-5.1071,R2-stripe-wall__pert10__22644ce138aa,R2-stripe-wall,pert10,reconstruction-related,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+R2-stripe-wall__pert10__mu-4.9071,R2-stripe-wall__pert10__22644ce138aa,R2-stripe-wall,pert10,reconstruction-related,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+R2-stripe-wall__pert10__mu-4.7071,R2-stripe-wall__pert10__22644ce138aa,R2-stripe-wall,pert10,reconstruction-related,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+R2-stripe-wall__pert10__mu-4.4071,R2-stripe-wall__pert10__22644ce138aa,R2-stripe-wall,pert10,reconstruction-related,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__coll_edgebend0.15__mu-5.4071,Step-8x2__coll_edgebend0.15__85b0ce5989f7,Step-8x2,coll_edgebend0.15,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__coll_edgebend0.15__mu-5.1071,Step-8x2__coll_edgebend0.15__85b0ce5989f7,Step-8x2,coll_edgebend0.15,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__coll_edgebend0.15__mu-4.9071,Step-8x2__coll_edgebend0.15__85b0ce5989f7,Step-8x2,coll_edgebend0.15,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__coll_edgebend0.15__mu-4.7071,Step-8x2__coll_edgebend0.15__85b0ce5989f7,Step-8x2,coll_edgebend0.15,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__coll_edgebend0.15__mu-4.4071,Step-8x2__coll_edgebend0.15__85b0ce5989f7,Step-8x2,coll_edgebend0.15,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__coll_topspacing-3pct__mu-5.4071,Step-8x2__coll_topspacing-3pct__b08ca5bfbfcf,Step-8x2,coll_topspacing-3pct,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__coll_topspacing-3pct__mu-5.1071,Step-8x2__coll_topspacing-3pct__b08ca5bfbfcf,Step-8x2,coll_topspacing-3pct,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__coll_topspacing-3pct__mu-4.9071,Step-8x2__coll_topspacing-3pct__b08ca5bfbfcf,Step-8x2,coll_topspacing-3pct,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__coll_topspacing-3pct__mu-4.7071,Step-8x2__coll_topspacing-3pct__b08ca5bfbfcf,Step-8x2,coll_topspacing-3pct,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__coll_topspacing-3pct__mu-4.4071,Step-8x2__coll_topspacing-3pct__b08ca5bfbfcf,Step-8x2,coll_topspacing-3pct,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__pert05__mu-5.4071,Step-8x2__pert05__9aa197e38f03,Step-8x2,pert05,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__pert05__mu-5.1071,Step-8x2__pert05__9aa197e38f03,Step-8x2,pert05,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__pert05__mu-4.9071,Step-8x2__pert05__9aa197e38f03,Step-8x2,pert05,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__pert05__mu-4.7071,Step-8x2__pert05__9aa197e38f03,Step-8x2,pert05,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__pert05__mu-4.4071,Step-8x2__pert05__9aa197e38f03,Step-8x2,pert05,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__pert10__mu-5.4071,Step-8x2__pert10__a5a115f445a9,Step-8x2,pert10,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__pert10__mu-5.1071,Step-8x2__pert10__a5a115f445a9,Step-8x2,pert10,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__pert10__mu-4.9071,Step-8x2__pert10__a5a115f445a9,Step-8x2,pert10,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__pert10__mu-4.7071,Step-8x2__pert10__a5a115f445a9,Step-8x2,pert10,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__pert10__mu-4.4071,Step-8x2__pert10__a5a115f445a9,Step-8x2,pert10,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge1__pert05__mu-5.4071,Kink-edge1__pert05__d3baabf3cfd9,Kink-edge1,pert05,kink / edge rearrangement,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge1__pert05__mu-5.1071,Kink-edge1__pert05__d3baabf3cfd9,Kink-edge1,pert05,kink / edge rearrangement,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge1__pert05__mu-4.7071,Kink-edge1__pert05__d3baabf3cfd9,Kink-edge1,pert05,kink / edge rearrangement,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge1__pert05__mu-4.4071,Kink-edge1__pert05__d3baabf3cfd9,Kink-edge1,pert05,kink / edge rearrangement,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge1__pert10__mu-5.1071,Kink-edge1__pert10__5faa30511248,Kink-edge1,pert10,kink / edge rearrangement,non-equilibrium geometry kept at two potentials only
+Kink-edge1__pert10__mu-4.7071,Kink-edge1__pert10__5faa30511248,Kink-edge1,pert10,kink / edge rearrangement,non-equilibrium geometry kept at two potentials only
+Kink-edge2__pert05__mu-5.4071,Kink-edge2__pert05__c911d9be06f5,Kink-edge2,pert05,kink / edge rearrangement,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge2__pert05__mu-5.1071,Kink-edge2__pert05__c911d9be06f5,Kink-edge2,pert05,kink / edge rearrangement,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge2__pert05__mu-4.7071,Kink-edge2__pert05__c911d9be06f5,Kink-edge2,pert05,kink / edge rearrangement,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge2__pert05__mu-4.4071,Kink-edge2__pert05__c911d9be06f5,Kink-edge2,pert05,kink / edge rearrangement,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge2__pert10__mu-5.1071,Kink-edge2__pert10__678a8f2ea128,Kink-edge2,pert10,kink / edge rearrangement,non-equilibrium geometry kept at two potentials only
+Kink-edge2__pert10__mu-4.7071,Kink-edge2__pert10__678a8f2ea128,Kink-edge2,pert10,kink / edge rearrangement,non-equilibrium geometry kept at two potentials only
+Pit-7-compact__pert05__mu-5.4071,Pit-7-compact__pert05__5b2eb9dffba1,Pit-7-compact,pert05,single-layer pit,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Pit-7-compact__pert05__mu-5.1071,Pit-7-compact__pert05__5b2eb9dffba1,Pit-7-compact,pert05,single-layer pit,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Pit-7-compact__pert05__mu-4.7071,Pit-7-compact__pert05__5b2eb9dffba1,Pit-7-compact,pert05,single-layer pit,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Pit-7-compact__pert05__mu-4.4071,Pit-7-compact__pert05__5b2eb9dffba1,Pit-7-compact,pert05,single-layer pit,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Pit-7-compact__pert10__mu-5.4071,Pit-7-compact__pert10__54fc439e806b,Pit-7-compact,pert10,single-layer pit,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Pit-7-compact__pert10__mu-5.1071,Pit-7-compact__pert10__54fc439e806b,Pit-7-compact,pert10,single-layer pit,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Pit-7-compact__pert10__mu-4.7071,Pit-7-compact__pert10__54fc439e806b,Pit-7-compact,pert10,single-layer pit,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Pit-7-compact__pert10__mu-4.4071,Pit-7-compact__pert10__54fc439e806b,Pit-7-compact,pert10,single-layer pit,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Pit-7-trench__pert05__mu-5.1071,Pit-7-trench__pert05__9dd87e42da5a,Pit-7-trench,pert05,single-layer pit,non-equilibrium geometry kept at two potentials only
+Pit-7-trench__pert05__mu-4.7071,Pit-7-trench__pert05__9dd87e42da5a,Pit-7-trench,pert05,single-layer pit,non-equilibrium geometry kept at two potentials only
+Pit-7-trench__pert10__mu-5.1071,Pit-7-trench__pert10__a61d1d0fd32e,Pit-7-trench,pert10,single-layer pit,non-equilibrium geometry kept at two potentials only
+Pit-7-trench__pert10__mu-4.7071,Pit-7-trench__pert10__a61d1d0fd32e,Pit-7-trench,pert10,single-layer pit,non-equilibrium geometry kept at two potentials only
+Step-16x2__pert05__mu-5.4071,Step-16x2__pert05__440a7d8c8d2a,Step-16x2,pert05,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-16x2__pert05__mu-5.1071,Step-16x2__pert05__440a7d8c8d2a,Step-16x2,pert05,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-16x2__pert05__mu-4.7071,Step-16x2__pert05__440a7d8c8d2a,Step-16x2,pert05,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-16x2__pert05__mu-4.4071,Step-16x2__pert05__440a7d8c8d2a,Step-16x2,pert05,strip step,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-16x2__pert10__mu-5.1071,Step-16x2__pert10__430806acdf4f,Step-16x2,pert10,strip step,non-equilibrium geometry kept at two potentials only
+Step-16x2__pert10__mu-4.7071,Step-16x2__pert10__430806acdf4f,Step-16x2,pert10,strip step,non-equilibrium geometry kept at two potentials only
+Island-7-compact__pert05__mu-5.1071,Island-7-compact__pert05__4bce36da1445,Island-7-compact,pert05,single-layer island,non-equilibrium geometry kept at two potentials only
+Island-7-compact__pert05__mu-4.7071,Island-7-compact__pert05__4bce36da1445,Island-7-compact,pert05,single-layer island,non-equilibrium geometry kept at two potentials only
+Island-7-compact__pert10__mu-5.4071,Island-7-compact__pert10__71df1ef1fc91,Island-7-compact,pert10,single-layer island,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Island-7-compact__pert10__mu-5.1071,Island-7-compact__pert10__71df1ef1fc91,Island-7-compact,pert10,single-layer island,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Island-7-compact__pert10__mu-4.7071,Island-7-compact__pert10__71df1ef1fc91,Island-7-compact,pert10,single-layer island,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Island-7-compact__pert10__mu-4.4071,Island-7-compact__pert10__71df1ef1fc91,Island-7-compact,pert10,single-layer island,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Island-7-elongated__pert05__mu-5.4071,Island-7-elongated__pert05__25178a466f1e,Island-7-elongated,pert05,single-layer island,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Island-7-elongated__pert05__mu-5.1071,Island-7-elongated__pert05__25178a466f1e,Island-7-elongated,pert05,single-layer island,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Island-7-elongated__pert05__mu-4.7071,Island-7-elongated__pert05__25178a466f1e,Island-7-elongated,pert05,single-layer island,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Island-7-elongated__pert05__mu-4.4071,Island-7-elongated__pert05__25178a466f1e,Island-7-elongated,pert05,single-layer island,perturbation/collective not selected by farthest-point sampling (descriptor too close to a chosen one)
+Island-7-elongated__pert10__mu-5.1071,Island-7-elongated__pert10__ffff69171c4f,Island-7-elongated,pert10,single-layer island,non-equilibrium geometry kept at two potentials only
+Island-7-elongated__pert10__mu-4.7071,Island-7-elongated__pert10__ffff69171c4f,Island-7-elongated,pert10,single-layer island,non-equilibrium geometry kept at two potentials only
+A1-fcc__path_bridge__mu-5.1071,A1-fcc__path_bridge__1857661e9126,A1-fcc,path_bridge,point defect,non-equilibrium geometry kept at two potentials only
+A1-fcc__path_bridge__mu-4.9071,A1-fcc__path_bridge__1857661e9126,A1-fcc,path_bridge,point defect,non-equilibrium geometry kept at two potentials only
+A1-fcc__path_bridge__mu-4.7071,A1-fcc__path_bridge__1857661e9126,A1-fcc,path_bridge,point defect,non-equilibrium geometry kept at two potentials only
+Step-8x2__path_detach1__mu-5.4071,Step-8x2__path_detach1__c6d4a8e29e02,Step-8x2,path_detach1,strip step,path image not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__path_detach1__mu-5.1071,Step-8x2__path_detach1__c6d4a8e29e02,Step-8x2,path_detach1,strip step,path image not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__path_detach1__mu-4.9071,Step-8x2__path_detach1__c6d4a8e29e02,Step-8x2,path_detach1,strip step,path image not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__path_detach1__mu-4.7071,Step-8x2__path_detach1__c6d4a8e29e02,Step-8x2,path_detach1,strip step,path image not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__path_detach1__mu-4.4071,Step-8x2__path_detach1__c6d4a8e29e02,Step-8x2,path_detach1,strip step,path image not selected by farthest-point sampling (descriptor too close to a chosen one)
+Step-8x2__path_detach2__mu-5.1071,Step-8x2__path_detach2__dd1e5ef5486e,Step-8x2,path_detach2,strip step,non-equilibrium geometry kept at two potentials only
+Step-8x2__path_detach2__mu-4.9071,Step-8x2__path_detach2__dd1e5ef5486e,Step-8x2,path_detach2,strip step,non-equilibrium geometry kept at two potentials only
+Step-8x2__path_detach2__mu-4.7071,Step-8x2__path_detach2__dd1e5ef5486e,Step-8x2,path_detach2,strip step,non-equilibrium geometry kept at two potentials only
+Step-8x2__path_detach3__mu-5.1071,Step-8x2__path_detach3__c1dbd3c38fad,Step-8x2,path_detach3,strip step,non-equilibrium geometry kept at two potentials only
+Step-8x2__path_detach3__mu-4.9071,Step-8x2__path_detach3__c1dbd3c38fad,Step-8x2,path_detach3,strip step,non-equilibrium geometry kept at two potentials only
+Step-8x2__path_detach3__mu-4.7071,Step-8x2__path_detach3__c1dbd3c38fad,Step-8x2,path_detach3,strip step,non-equilibrium geometry kept at two potentials only
+Kink-edge1__path_kinkmove1__mu-5.4071,Kink-edge1__path_kinkmove1__4c97421862c4,Kink-edge1,path_kinkmove1,kink / edge rearrangement,path image not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge1__path_kinkmove1__mu-5.1071,Kink-edge1__path_kinkmove1__4c97421862c4,Kink-edge1,path_kinkmove1,kink / edge rearrangement,path image not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge1__path_kinkmove1__mu-4.7071,Kink-edge1__path_kinkmove1__4c97421862c4,Kink-edge1,path_kinkmove1,kink / edge rearrangement,path image not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge1__path_kinkmove1__mu-4.4071,Kink-edge1__path_kinkmove1__4c97421862c4,Kink-edge1,path_kinkmove1,kink / edge rearrangement,path image not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge1__path_kinkmove2__mu-5.1071,Kink-edge1__path_kinkmove2__a8157b517224,Kink-edge1,path_kinkmove2,kink / edge rearrangement,non-equilibrium geometry kept at two potentials only
+Kink-edge1__path_kinkmove2__mu-4.7071,Kink-edge1__path_kinkmove2__a8157b517224,Kink-edge1,path_kinkmove2,kink / edge rearrangement,non-equilibrium geometry kept at two potentials only
+Kink-edge2__path_kinkmove1__mu-5.4071,Kink-edge2__path_kinkmove1__8dca1d700e9e,Kink-edge2,path_kinkmove1,kink / edge rearrangement,path image not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge2__path_kinkmove1__mu-5.1071,Kink-edge2__path_kinkmove1__8dca1d700e9e,Kink-edge2,path_kinkmove1,kink / edge rearrangement,path image not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge2__path_kinkmove1__mu-4.7071,Kink-edge2__path_kinkmove1__8dca1d700e9e,Kink-edge2,path_kinkmove1,kink / edge rearrangement,path image not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge2__path_kinkmove1__mu-4.4071,Kink-edge2__path_kinkmove1__8dca1d700e9e,Kink-edge2,path_kinkmove1,kink / edge rearrangement,path image not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge2__path_kinkmove2__mu-5.4071,Kink-edge2__path_kinkmove2__81e14678d5f0,Kink-edge2,path_kinkmove2,kink / edge rearrangement,path image not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge2__path_kinkmove2__mu-5.1071,Kink-edge2__path_kinkmove2__81e14678d5f0,Kink-edge2,path_kinkmove2,kink / edge rearrangement,path image not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge2__path_kinkmove2__mu-4.7071,Kink-edge2__path_kinkmove2__81e14678d5f0,Kink-edge2,path_kinkmove2,kink / edge rearrangement,path image not selected by farthest-point sampling (descriptor too close to a chosen one)
+Kink-edge2__path_kinkmove2__mu-4.4071,Kink-edge2__path_kinkmove2__81e14678d5f0,Kink-edge2,path_kinkmove2,kink / edge rearrangement,path image not selected by farthest-point sampling (descriptor too close to a chosen one)
+Pit-7-compact__path_rimin1__mu-5.1071,Pit-7-compact__path_rimin1__79e45a4bab26,Pit-7-compact,path_rimin1,single-layer pit,non-equilibrium geometry kept at two potentials only
+Pit-7-compact__path_rimin1__mu-4.7071,Pit-7-compact__path_rimin1__79e45a4bab26,Pit-7-compact,path_rimin1,single-layer pit,non-equilibrium geometry kept at two potentials only
+Pit-7-compact__path_rimin2__mu-5.1071,Pit-7-compact__path_rimin2__b7b4bea6a342,Pit-7-compact,path_rimin2,single-layer pit,non-equilibrium geometry kept at two potentials only
+Pit-7-compact__path_rimin2__mu-4.7071,Pit-7-compact__path_rimin2__b7b4bea6a342,Pit-7-compact,path_rimin2,single-layer pit,non-equilibrium geometry kept at two potentials only
+Island-7-compact__path_detach1__mu-5.1071,Island-7-compact__path_detach1__eed8afdffd6a,Island-7-compact,path_detach1,single-layer island,non-equilibrium geometry kept at two potentials only
+Island-7-compact__path_detach1__mu-4.7071,Island-7-compact__path_detach1__eed8afdffd6a,Island-7-compact,path_detach1,single-layer island,non-equilibrium geometry kept at two potentials only
+Island-7-compact__path_detach2__mu-5.1071,Island-7-compact__path_detach2__7155e7ceddde,Island-7-compact,path_detach2,single-layer island,non-equilibrium geometry kept at two potentials only
+Island-7-compact__path_detach2__mu-4.7071,Island-7-compact__path_detach2__7155e7ceddde,Island-7-compact,path_detach2,single-layer island,non-equilibrium geometry kept at two potentials only
+V2__ideal__mu-5.1071,V2__ideal__6ecdc750f1be,V2,ideal,point defect,supplementary reference kept at one potential only
+V2__ideal__mu-4.9071,V2__ideal__6ecdc750f1be,V2,ideal,point defect,supplementary reference kept at one potential only
+V2__ideal__mu-4.7071,V2__ideal__6ecdc750f1be,V2,ideal,point defect,supplementary reference kept at one potential only
+V2__ideal__mu-4.4071,V2__ideal__6ecdc750f1be,V2,ideal,point defect,supplementary reference kept at one potential only
+V3__ideal__mu-5.4071,V3__ideal__282b0bf2027f,V3,ideal,point defect,supplementary reference kept at one potential only
+V3__ideal__mu-5.1071,V3__ideal__282b0bf2027f,V3,ideal,point defect,supplementary reference kept at one potential only
+V3__ideal__mu-4.9071,V3__ideal__282b0bf2027f,V3,ideal,point defect,supplementary reference kept at one potential only
+V3__ideal__mu-4.7071,V3__ideal__282b0bf2027f,V3,ideal,point defect,supplementary reference kept at one potential only
+A3__ideal__mu-5.1071,A3__ideal__0a2dc2662874,A3,ideal,point defect,supplementary reference kept at one potential only
+A3__ideal__mu-4.9071,A3__ideal__0a2dc2662874,A3,ideal,point defect,supplementary reference kept at one potential only
+A3__ideal__mu-4.7071,A3__ideal__0a2dc2662874,A3,ideal,point defect,supplementary reference kept at one potential only
+A3__ideal__mu-4.4071,A3__ideal__0a2dc2662874,A3,ideal,point defect,supplementary reference kept at one potential only
+Au332__ideal__mu-5.4071,Au332__ideal__f578c9d4d6dd,Au332,ideal,vicinal step face,supplementary reference kept at one potential only
+Au332__ideal__mu-5.1071,Au332__ideal__f578c9d4d6dd,Au332,ideal,vicinal step face,supplementary reference kept at one potential only
+Au332__ideal__mu-4.9071,Au332__ideal__f578c9d4d6dd,Au332,ideal,vicinal step face,supplementary reference kept at one potential only
+Au332__ideal__mu-4.7071,Au332__ideal__f578c9d4d6dd,Au332,ideal,vicinal step face,supplementary reference kept at one potential only
+Au554__ideal__mu-5.1071,Au554__ideal__cd99673dc9eb,Au554,ideal,vicinal step face,supplementary reference kept at one potential only
+Au554__ideal__mu-4.9071,Au554__ideal__cd99673dc9eb,Au554,ideal,vicinal step face,supplementary reference kept at one potential only
+Au554__ideal__mu-4.7071,Au554__ideal__cd99673dc9eb,Au554,ideal,vicinal step face,supplementary reference kept at one potential only
+Au554__ideal__mu-4.4071,Au554__ideal__cd99673dc9eb,Au554,ideal,vicinal step face,supplementary reference kept at one potential only
+Step-24x1__ideal__mu-5.4071,Step-24x1__ideal__6c2e77bf24c0,Step-24x1,ideal,strip step,supplementary reference kept at one potential only
+Step-24x1__ideal__mu-5.1071,Step-24x1__ideal__6c2e77bf24c0,Step-24x1,ideal,strip step,supplementary reference kept at one potential only
+Step-24x1__ideal__mu-4.9071,Step-24x1__ideal__6c2e77bf24c0,Step-24x1,ideal,strip step,supplementary reference kept at one potential only
+Step-24x1__ideal__mu-4.7071,Step-24x1__ideal__6c2e77bf24c0,Step-24x1,ideal,strip step,supplementary reference kept at one potential only
+C1-island-near-step__ideal__mu-5.1071,C1-island-near-step__ideal__2486ec5338ab,C1-island-near-step,ideal,composite,supplementary reference kept at one potential only
+C1-island-near-step__ideal__mu-4.9071,C1-island-near-step__ideal__2486ec5338ab,C1-island-near-step,ideal,composite,supplementary reference kept at one potential only
+C1-island-near-step__ideal__mu-4.4071,C1-island-near-step__ideal__2486ec5338ab,C1-island-near-step,ideal,composite,supplementary reference kept at one potential only
+C2-island+pit__ideal__mu-5.4071,C2-island+pit__ideal__b433114f194a,C2-island+pit,ideal,composite,supplementary reference kept at one potential only
+C2-island+pit__ideal__mu-5.1071,C2-island+pit__ideal__b433114f194a,C2-island+pit,ideal,composite,supplementary reference kept at one potential only
+C2-island+pit__ideal__mu-4.9071,C2-island+pit__ideal__b433114f194a,C2-island+pit,ideal,composite,supplementary reference kept at one potential only
+Island-7-8x8__ideal__mu-4.9071,Island-7-8x8__ideal__e73d8e4d0ca4,Island-7-8x8,ideal,single-layer island,supplementary reference kept at one potential only
+Island-7-8x8__ideal__mu-4.4071,Island-7-8x8__ideal__e73d8e4d0ca4,Island-7-8x8,ideal,single-layer island,supplementary reference kept at one potential only
+Island-19-8x8__ideal__mu-5.4071,Island-19-8x8__ideal__0b15ea7dd358,Island-19-8x8,ideal,single-layer island,supplementary reference kept at one potential only
+Island-19-8x8__ideal__mu-5.1071,Island-19-8x8__ideal__0b15ea7dd358,Island-19-8x8,ideal,single-layer island,supplementary reference kept at one potential only
+Island-19-8x8__ideal__mu-4.9071,Island-19-8x8__ideal__0b15ea7dd358,Island-19-8x8,ideal,single-layer island,supplementary reference kept at one potential only
+Pit-7-8x8__ideal__mu-4.9071,Pit-7-8x8__ideal__5c83ee15111e,Pit-7-8x8,ideal,single-layer pit,supplementary reference kept at one potential only
+Pit-7-8x8__ideal__mu-4.4071,Pit-7-8x8__ideal__5c83ee15111e,Pit-7-8x8,ideal,single-layer pit,supplementary reference kept at one potential only
+Pit-19-8x8__ideal__mu-5.4071,Pit-19-8x8__ideal__4f0ab4b84b07,Pit-19-8x8,ideal,single-layer pit,supplementary reference kept at one potential only
+Pit-19-8x8__ideal__mu-5.1071,Pit-19-8x8__ideal__4f0ab4b84b07,Pit-19-8x8,ideal,single-layer pit,supplementary reference kept at one potential only
+Pit-19-8x8__ideal__mu-4.9071,Pit-19-8x8__ideal__4f0ab4b84b07,Pit-19-8x8,ideal,single-layer pit,supplementary reference kept at one potential only
+Au221__ideal__mu-5.4071,Au221__ideal__2e948d63458e,Au221,ideal,vicinal step face,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Au221__ideal__mu-5.1071,Au221__ideal__2e948d63458e,Au221,ideal,vicinal step face,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Au221__ideal__mu-4.9071,Au221__ideal__2e948d63458e,Au221,ideal,vicinal step face,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Au221__ideal__mu-4.7071,Au221__ideal__2e948d63458e,Au221,ideal,vicinal step face,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Au221__ideal__mu-4.4071,Au221__ideal__2e948d63458e,Au221,ideal,vicinal step face,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Au211__ideal__mu-5.4071,Au211__ideal__949f18784e31,Au211,ideal,vicinal step face,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Au211__ideal__mu-5.1071,Au211__ideal__949f18784e31,Au211,ideal,vicinal step face,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Au211__ideal__mu-4.9071,Au211__ideal__949f18784e31,Au211,ideal,vicinal step face,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Au211__ideal__mu-4.7071,Au211__ideal__949f18784e31,Au211,ideal,vicinal step face,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Au211__ideal__mu-4.4071,Au211__ideal__949f18784e31,Au211,ideal,vicinal step face,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+V1__ideal__mu-5.4071,V1__ideal__9783e5791d1a,V1,ideal,point defect,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+V1__ideal__mu-5.1071,V1__ideal__9783e5791d1a,V1,ideal,point defect,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+V1__ideal__mu-4.9071,V1__ideal__9783e5791d1a,V1,ideal,point defect,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+V1__ideal__mu-4.7071,V1__ideal__9783e5791d1a,V1,ideal,point defect,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+V1__ideal__mu-4.4071,V1__ideal__9783e5791d1a,V1,ideal,point defect,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+R1-hcp-terminated__ideal__mu-5.4071,R1-hcp-terminated__ideal__7618cb82f683,R1-hcp-terminated,ideal,reconstruction-related,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+R1-hcp-terminated__ideal__mu-5.1071,R1-hcp-terminated__ideal__7618cb82f683,R1-hcp-terminated,ideal,reconstruction-related,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+R1-hcp-terminated__ideal__mu-4.9071,R1-hcp-terminated__ideal__7618cb82f683,R1-hcp-terminated,ideal,reconstruction-related,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+R1-hcp-terminated__ideal__mu-4.7071,R1-hcp-terminated__ideal__7618cb82f683,R1-hcp-terminated,ideal,reconstruction-related,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+R1-hcp-terminated__ideal__mu-4.4071,R1-hcp-terminated__ideal__7618cb82f683,R1-hcp-terminated,ideal,reconstruction-related,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+T-4x4__ideal__mu-5.4071,T-4x4__ideal__8fa1fcc9706c,T-4x4,ideal,flat Au(111),ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+T-4x4__ideal__mu-5.1071,T-4x4__ideal__8fa1fcc9706c,T-4x4,ideal,flat Au(111),ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+T-4x4__ideal__mu-4.9071,T-4x4__ideal__8fa1fcc9706c,T-4x4,ideal,flat Au(111),ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+T-4x4__ideal__mu-4.7071,T-4x4__ideal__8fa1fcc9706c,T-4x4,ideal,flat Au(111),ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+T-4x4__ideal__mu-4.4071,T-4x4__ideal__8fa1fcc9706c,T-4x4,ideal,flat Au(111),ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+A1-fcc__ideal__mu-5.4071,A1-fcc__ideal__dae654c15784,A1-fcc,ideal,point defect,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+A1-fcc__ideal__mu-5.1071,A1-fcc__ideal__dae654c15784,A1-fcc,ideal,point defect,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+A1-fcc__ideal__mu-4.9071,A1-fcc__ideal__dae654c15784,A1-fcc,ideal,point defect,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+A1-fcc__ideal__mu-4.7071,A1-fcc__ideal__dae654c15784,A1-fcc,ideal,point defect,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+A1-fcc__ideal__mu-4.4071,A1-fcc__ideal__dae654c15784,A1-fcc,ideal,point defect,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+A1-hcp__ideal__mu-5.4071,A1-hcp__ideal__f0af6d51e549,A1-hcp,ideal,point defect,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+A1-hcp__ideal__mu-5.1071,A1-hcp__ideal__f0af6d51e549,A1-hcp,ideal,point defect,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+A1-hcp__ideal__mu-4.9071,A1-hcp__ideal__f0af6d51e549,A1-hcp,ideal,point defect,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+A1-hcp__ideal__mu-4.7071,A1-hcp__ideal__f0af6d51e549,A1-hcp,ideal,point defect,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+A1-hcp__ideal__mu-4.4071,A1-hcp__ideal__f0af6d51e549,A1-hcp,ideal,point defect,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+R2-stripe-wall__ideal__mu-5.4071,R2-stripe-wall__ideal__4fc31e641288,R2-stripe-wall,ideal,reconstruction-related,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+R2-stripe-wall__ideal__mu-5.1071,R2-stripe-wall__ideal__4fc31e641288,R2-stripe-wall,ideal,reconstruction-related,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+R2-stripe-wall__ideal__mu-4.9071,R2-stripe-wall__ideal__4fc31e641288,R2-stripe-wall,ideal,reconstruction-related,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+R2-stripe-wall__ideal__mu-4.7071,R2-stripe-wall__ideal__4fc31e641288,R2-stripe-wall,ideal,reconstruction-related,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+R2-stripe-wall__ideal__mu-4.4071,R2-stripe-wall__ideal__4fc31e641288,R2-stripe-wall,ideal,reconstruction-related,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Step-8x2__ideal__mu-5.4071,Step-8x2__ideal__25c159395cb3,Step-8x2,ideal,strip step,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Step-8x2__ideal__mu-5.1071,Step-8x2__ideal__25c159395cb3,Step-8x2,ideal,strip step,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Step-8x2__ideal__mu-4.9071,Step-8x2__ideal__25c159395cb3,Step-8x2,ideal,strip step,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Step-8x2__ideal__mu-4.7071,Step-8x2__ideal__25c159395cb3,Step-8x2,ideal,strip step,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Step-8x2__ideal__mu-4.4071,Step-8x2__ideal__25c159395cb3,Step-8x2,ideal,strip step,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Step-16x2__relaxed__mu-5.4071,Step-16x2__relaxed__c62c980537b2,Step-16x2,relaxed,strip step,strictly periodic copy of Step-16x1: same local environment in a larger cell
+Step-16x2__relaxed__mu-5.1071,Step-16x2__relaxed__c62c980537b2,Step-16x2,relaxed,strip step,strictly periodic copy of Step-16x1: same local environment in a larger cell
+Step-16x2__relax__mu-4.9071,Step-16x2__relaxed__c62c980537b2,Step-16x2,relaxed,strip step,strictly periodic copy of Step-16x1: same local environment in a larger cell
+Step-16x2__relaxed__mu-4.7071,Step-16x2__relaxed__c62c980537b2,Step-16x2,relaxed,strip step,strictly periodic copy of Step-16x1: same local environment in a larger cell
+Step-16x2__relaxed__mu-4.4071,Step-16x2__relaxed__c62c980537b2,Step-16x2,relaxed,strip step,strictly periodic copy of Step-16x1: same local environment in a larger cell
+Step-8x1__ideal__mu-5.4071,Step-8x1__ideal__76f700b0afff,Step-8x1,ideal,strip step,strictly periodic copy of Step-8x2: same local environment in a larger cell
+Step-8x1__ideal__mu-5.1071,Step-8x1__ideal__76f700b0afff,Step-8x1,ideal,strip step,strictly periodic copy of Step-8x2: same local environment in a larger cell
+Step-8x1__ideal__mu-4.9071,Step-8x1__ideal__76f700b0afff,Step-8x1,ideal,strip step,strictly periodic copy of Step-8x2: same local environment in a larger cell
+Step-8x1__ideal__mu-4.7071,Step-8x1__ideal__76f700b0afff,Step-8x1,ideal,strip step,strictly periodic copy of Step-8x2: same local environment in a larger cell
+Step-8x1__ideal__mu-4.4071,Step-8x1__ideal__76f700b0afff,Step-8x1,ideal,strip step,strictly periodic copy of Step-8x2: same local environment in a larger cell
+Flat-16x1__ideal__mu-5.4071,Flat-16x1__ideal__234bab346496,Flat-16x1,ideal,flat Au(111),strictly periodic copy of T-4x4: same local environment in a larger cell
+Flat-16x1__ideal__mu-5.1071,Flat-16x1__ideal__234bab346496,Flat-16x1,ideal,flat Au(111),strictly periodic copy of T-4x4: same local environment in a larger cell
+Flat-16x1__ideal__mu-4.9071,Flat-16x1__ideal__234bab346496,Flat-16x1,ideal,flat Au(111),strictly periodic copy of T-4x4: same local environment in a larger cell
+Flat-16x1__ideal__mu-4.7071,Flat-16x1__ideal__234bab346496,Flat-16x1,ideal,flat Au(111),strictly periodic copy of T-4x4: same local environment in a larger cell
+Flat-16x1__ideal__mu-4.4071,Flat-16x1__ideal__234bab346496,Flat-16x1,ideal,flat Au(111),strictly periodic copy of T-4x4: same local environment in a larger cell
+Flat-8x2__ideal__mu-5.4071,Flat-8x2__ideal__8eddbc7a2602,Flat-8x2,ideal,flat Au(111),strictly periodic copy of T-4x4: same local environment in a larger cell
+Flat-8x2__ideal__mu-5.1071,Flat-8x2__ideal__8eddbc7a2602,Flat-8x2,ideal,flat Au(111),strictly periodic copy of T-4x4: same local environment in a larger cell
+Flat-8x2__ideal__mu-4.9071,Flat-8x2__ideal__8eddbc7a2602,Flat-8x2,ideal,flat Au(111),strictly periodic copy of T-4x4: same local environment in a larger cell
+Flat-8x2__ideal__mu-4.7071,Flat-8x2__ideal__8eddbc7a2602,Flat-8x2,ideal,flat Au(111),strictly periodic copy of T-4x4: same local environment in a larger cell
+Flat-8x2__ideal__mu-4.4071,Flat-8x2__ideal__8eddbc7a2602,Flat-8x2,ideal,flat Au(111),strictly periodic copy of T-4x4: same local environment in a larger cell
+Step-8x2_edge-vacancy_plus_foot-adatom__ideal__mu-5.4071,Step-8x2_edge-vacancy_plus_foot-adatom__ideal__cc6ba4ff8a63,Step-8x2_edge-vacancy_plus_foot-adatom,ideal,kink / edge rearrangement,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Step-8x2_edge-vacancy_plus_foot-adatom__ideal__mu-5.1071,Step-8x2_edge-vacancy_plus_foot-adatom__ideal__cc6ba4ff8a63,Step-8x2_edge-vacancy_plus_foot-adatom,ideal,kink / edge rearrangement,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Step-8x2_edge-vacancy_plus_foot-adatom__ideal__mu-4.9071,Step-8x2_edge-vacancy_plus_foot-adatom__ideal__cc6ba4ff8a63,Step-8x2_edge-vacancy_plus_foot-adatom,ideal,kink / edge rearrangement,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Step-8x2_edge-vacancy_plus_foot-adatom__ideal__mu-4.7071,Step-8x2_edge-vacancy_plus_foot-adatom__ideal__cc6ba4ff8a63,Step-8x2_edge-vacancy_plus_foot-adatom,ideal,kink / edge rearrangement,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Step-8x2_edge-vacancy_plus_foot-adatom__ideal__mu-4.4071,Step-8x2_edge-vacancy_plus_foot-adatom__ideal__cc6ba4ff8a63,Step-8x2_edge-vacancy_plus_foot-adatom,ideal,kink / edge rearrangement,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Kink-edge1__ideal__mu-5.4071,Kink-edge1__ideal__0a4b4cbb19ec,Kink-edge1,ideal,kink / edge rearrangement,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Kink-edge1__ideal__mu-5.1071,Kink-edge1__ideal__0a4b4cbb19ec,Kink-edge1,ideal,kink / edge rearrangement,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Kink-edge1__ideal__mu-4.9071,Kink-edge1__ideal__0a4b4cbb19ec,Kink-edge1,ideal,kink / edge rearrangement,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Kink-edge1__ideal__mu-4.7071,Kink-edge1__ideal__0a4b4cbb19ec,Kink-edge1,ideal,kink / edge rearrangement,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Kink-edge1__ideal__mu-4.4071,Kink-edge1__ideal__0a4b4cbb19ec,Kink-edge1,ideal,kink / edge rearrangement,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Kink-edge2__ideal__mu-5.4071,Kink-edge2__ideal__6ffdcdbfea14,Kink-edge2,ideal,kink / edge rearrangement,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Kink-edge2__ideal__mu-5.1071,Kink-edge2__ideal__6ffdcdbfea14,Kink-edge2,ideal,kink / edge rearrangement,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Kink-edge2__ideal__mu-4.9071,Kink-edge2__ideal__6ffdcdbfea14,Kink-edge2,ideal,kink / edge rearrangement,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Kink-edge2__ideal__mu-4.7071,Kink-edge2__ideal__6ffdcdbfea14,Kink-edge2,ideal,kink / edge rearrangement,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Kink-edge2__ideal__mu-4.4071,Kink-edge2__ideal__6ffdcdbfea14,Kink-edge2,ideal,kink / edge rearrangement,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Pit-7-compact__ideal__mu-5.4071,Pit-7-compact__ideal__3885f5fc6fdb,Pit-7-compact,ideal,single-layer pit,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Pit-7-compact__ideal__mu-5.1071,Pit-7-compact__ideal__3885f5fc6fdb,Pit-7-compact,ideal,single-layer pit,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Pit-7-compact__ideal__mu-4.9071,Pit-7-compact__ideal__3885f5fc6fdb,Pit-7-compact,ideal,single-layer pit,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Pit-7-compact__ideal__mu-4.7071,Pit-7-compact__ideal__3885f5fc6fdb,Pit-7-compact,ideal,single-layer pit,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Pit-7-compact__ideal__mu-4.4071,Pit-7-compact__ideal__3885f5fc6fdb,Pit-7-compact,ideal,single-layer pit,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Pit-7-trench__ideal__mu-5.4071,Pit-7-trench__ideal__7d7b5e791d4e,Pit-7-trench,ideal,single-layer pit,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Pit-7-trench__ideal__mu-5.1071,Pit-7-trench__ideal__7d7b5e791d4e,Pit-7-trench,ideal,single-layer pit,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Pit-7-trench__ideal__mu-4.9071,Pit-7-trench__ideal__7d7b5e791d4e,Pit-7-trench,ideal,single-layer pit,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Pit-7-trench__ideal__mu-4.7071,Pit-7-trench__ideal__7d7b5e791d4e,Pit-7-trench,ideal,single-layer pit,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Pit-7-trench__ideal__mu-4.4071,Pit-7-trench__ideal__7d7b5e791d4e,Pit-7-trench,ideal,single-layer pit,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Step-16x2__ideal__mu-5.4071,Step-16x2__ideal__67d374551088,Step-16x2,ideal,strip step,strictly periodic copy of Step-16x1: same local environment in a larger cell
+Step-16x2__ideal__mu-5.1071,Step-16x2__ideal__67d374551088,Step-16x2,ideal,strip step,strictly periodic copy of Step-16x1: same local environment in a larger cell
+Step-16x2__ideal__mu-4.9071,Step-16x2__ideal__67d374551088,Step-16x2,ideal,strip step,strictly periodic copy of Step-16x1: same local environment in a larger cell
+Step-16x2__ideal__mu-4.7071,Step-16x2__ideal__67d374551088,Step-16x2,ideal,strip step,strictly periodic copy of Step-16x1: same local environment in a larger cell
+Step-16x2__ideal__mu-4.4071,Step-16x2__ideal__67d374551088,Step-16x2,ideal,strip step,strictly periodic copy of Step-16x1: same local environment in a larger cell
+Island-7-compact__ideal__mu-5.4071,Island-7-compact__ideal__791bbeaa8264,Island-7-compact,ideal,single-layer island,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Island-7-compact__ideal__mu-5.1071,Island-7-compact__ideal__791bbeaa8264,Island-7-compact,ideal,single-layer island,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Island-7-compact__ideal__mu-4.9071,Island-7-compact__ideal__791bbeaa8264,Island-7-compact,ideal,single-layer island,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Island-7-compact__ideal__mu-4.7071,Island-7-compact__ideal__791bbeaa8264,Island-7-compact,ideal,single-layer island,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Island-7-compact__ideal__mu-4.4071,Island-7-compact__ideal__791bbeaa8264,Island-7-compact,ideal,single-layer island,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Island-7-elongated__ideal__mu-5.4071,Island-7-elongated__ideal__169c1271614c,Island-7-elongated,ideal,single-layer island,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Island-7-elongated__ideal__mu-5.1071,Island-7-elongated__ideal__169c1271614c,Island-7-elongated,ideal,single-layer island,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Island-7-elongated__ideal__mu-4.9071,Island-7-elongated__ideal__169c1271614c,Island-7-elongated,ideal,single-layer island,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Island-7-elongated__ideal__mu-4.7071,Island-7-elongated__ideal__169c1271614c,Island-7-elongated,ideal,single-layer island,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference
+Island-7-elongated__ideal__mu-4.4071,Island-7-elongated__ideal__169c1271614c,Island-7-elongated,ideal,single-layer island,ideal/relaxed geometry of a base structure whose other configuration was chosen as the reference

@@ -1,0 +1,16 @@
+# Third-party data: the public Au FLARE potential and its 37 MB training set are NOT redistributed here.
+# PROVENANCE.md records the Materials Cloud record, file names and checksums; re-download with the URLs it gives.
+potential/Au_training.zip
+potential/Au_training/
+potential/check_runs/
+# Project-local software and sources (LAMMPS tree, Eigen, FLARE clone, pip target): rebuilt from env/BUILD.md
+env/
+# Large generated geometry: regenerable deterministically from build_parents.py (seeds in parents_manifest.json)
+parents/*.poscar
+parents/*.extxyz
+# MD trajectories and run directories
+md/*/traj.lammpstrj
+md/*/final.data
+md/*/log.lammps
+md/*/stdout.txt
+md/*/data.lammps
