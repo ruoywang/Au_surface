@@ -1,0 +1,141 @@
+[
+ {
+  "parent_id": "PM1c_s11",
+  "cls": "M1",
+  "level": "c",
+  "seed": 11,
+  "parameters": {
+   "variant": "c"
+  },
+  "construction": {
+   "description": "compact tiered islands (2 tiers, six islands)",
+   "tiers": 2,
+   "island_centres": [
+    [
+     2,
+     2
+    ],
+    [
+     2,
+     18
+    ],
+    [
+     13,
+     9
+    ],
+    [
+     13,
+     25
+    ],
+    [
+     24,
+     2
+    ],
+    [
+     24,
+     18
+    ]
+   ],
+   "tier_sites": [
+    19,
+    7,
+    null
+   ],
+   "unsupported_sites_removed": 2
+  },
+  "n_atoms": 4250,
+  "n_base": 4096,
+  "n_fixed": 2048,
+  "added_per_level": {
+   "4": 114,
+   "5": 40
+  },
+  "height_above_bottom_A": 12.003,
+  "height_in_dft_cell_A": 17.003,
+  "min_AuAu_A": 2.9401499961736306,
+  "cell_A": [
+   [
+    94.08479987755729,
+    0.0,
+    0.0
+   ],
+   [
+    47.042399938778644,
+    81.47982680393963,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    46.40373451574279
+   ]
+  ],
+  "status": "PASS"
+ },
+ {
+  "parent_id": "PM1d_s11",
+  "cls": "M1",
+  "level": "d",
+  "seed": 11,
+  "parameters": {
+   "variant": "d"
+  },
+  "construction": {
+   "description": "compact tiered islands (3 tiers, four islands)",
+   "tiers": 3,
+   "island_centres": [
+    [
+     4,
+     4
+    ],
+    [
+     4,
+     20
+    ],
+    [
+     20,
+     4
+    ],
+    [
+     20,
+     20
+    ]
+   ],
+   "tier_sites": [
+    37,
+    19,
+    7
+   ],
+   "unsupported_sites_removed": 0
+  },
+  "n_atoms": 4348,
+  "n_base": 4096,
+  "n_fixed": 2048,
+  "added_per_level": {
+   "4": 148,
+   "5": 76,
+   "6": 28
+  },
+  "height_above_bottom_A": 14.404,
+  "height_in_dft_cell_A": 19.404,
+  "min_AuAu_A": 2.9401499961736306,
+  "cell_A": [
+   [
+    94.08479987755729,
+    0.0,
+    0.0
+   ],
+   [
+    47.042399938778644,
+    81.47982680393963,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    46.40373451574279
+   ]
+  ],
+  "status": "PASS"
+ }
+]

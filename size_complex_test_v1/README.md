@@ -75,5 +75,14 @@ small cell is a training sample; size insensitivity is a separate conclusion.
   185 vs 314 Au), M3 (ridge-top edge, −0.40 V, 199 vs 345 Au); M1 to be added from PM1c/d. S1/S2 6×6 are provisional
   until the references' actual μ_e is known. Current estimate for the 6 new runs: 32 (seeded median) – 106 (cold max)
   node·h; with M1 ≈ 8 runs, ~45–160 node·h.
-- `replacement_proposal.csv`: 156 resize_to_6x6, 33 keep_8x8, 9 keep_10x8_no_smaller, 2 kept references; 10 slots
-  proposed for the admitted multi-layer candidates (to be revised with M1c/d).
+- **Compact tiered islands (PM1c/d, 2026-10-02 11:10):** PM1c's six small 2-tier islands (19/7 sites) flattened to
+  one level during the 200 ps MD (recorded as found); PM1d's four 3-tier islands (37/19/7) lost their third tier and
+  became 2-tier islands (148/76/28 → 156/96/0). Their upper-edge and sidewall-foot targets pass only at **8×8**
+  (314–317 Au, seam-affected 0–4; 6×6 fails on the protected set and seam contacts for every origin). So M1 has no
+  6×6 and no pair; M1 environments enter the list as 8×8 cells.
+- **Final pair list: S1, S2, M2, M3 → 6 new single points** (FERMICONVERGE 0.001): S1 6×6 163 Au, S2 6×6 172 Au,
+  M2 185 + 314 Au, M3 199 + 345 Au; estimate 32 (seeded median) – 106 (cold max) node·h; S1/S2 wait for the
+  references' actual μ_e. **Nothing submitted; awaiting the one-time confirmation.**
+- `replacement_proposal.csv`: 156 resize_to_6x6, 33 keep_8x8, 9 keep_10x8_no_smaller, 2 kept references; slots
+  proposed for the admitted multi-layer candidates (M2 6×6 ×4, M2 8×8 ×1, M3 8×8 ×4 + 6×6 ×1, M1 8×8 ×5) — see the
+  csv for the released single-layer states and the inherited U bins.

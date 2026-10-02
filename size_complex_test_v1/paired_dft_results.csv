@@ -1,0 +1,5 @@
+U_V,pair,target,N_e_8x8,atoms_8x8,cp_rounds_8x8,elapsed_h_8x8,fft_8x8,kpoints_8x8,maxrss_8x8,mu_e_8x8,nbands_8x8,node_h_8x8,nonscf_time_h_8x8,output_GB_8x8,scf_steps_8x8,scf_time_h_8x8,sigma_uC_cm2_8x8,status_6x6,status_8x8
+-0.42,S1,"single-layer step/kink (A, frozen centre PA1_s51_f082500_a3617)",,281,0,0.0,140x140x250,2 2 1,,,1856,0.0,-1.94,0.0,27,1.94,,not run,no CP closure
+0.46,S2,"single-layer island edge (B, frozen centre PB1_s51_f082500_a3929)",,302,0,0.0,140x140x250,2 2 1,,,2000,0.0,-2.7,0.0,32,2.7,,not run,no CP closure
+0.4,M2,"step bunching: middle terrace with both step edges (PM2a_s11 @165 ps, atom 4120)",,,,,,,,,,,,,,,,not run,not run
+-0.4,M3,"ridge-top edge facing the valley (PM3a_s11 @165 ps, atom 4672); the valley floor with both walls needs 8x8 and is not pairable",,,,,,,,,,,,,,,,not run,not run

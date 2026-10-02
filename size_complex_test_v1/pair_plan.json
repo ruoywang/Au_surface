@@ -1,14 +1,52 @@
-{"pairs": [
- {"id": "S1", "target": "single-layer step/kink (A, frozen centre PA1_s51_f082500_a3617)", "U_V": -0.42,
-  "six": {"cell_dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/cells/PA1_s51_f082500_a3617_6x6"},
-  "eight": {"ref_task_dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s51_f082500_a3617_8x8/rough__mu-4.4871"}},
- {"id": "S2", "target": "single-layer island edge (B, frozen centre PB1_s51_f082500_a3929)", "U_V": 0.46,
-  "six": {"cell_dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/cells/PB1_s51_f082500_a3929_6x6"},
-  "eight": {"ref_task_dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s51_f082500_a3929_8x8/rough__mu-5.3671"}},
- {"id": "M2", "target": "step bunching: middle terrace with both step edges (PM2a_s11 @165 ps, atom 4120)", "U_V": 0.40,
-  "six": {"cell_dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/cells/PM2a_s11_f082500_a4120_6x6"},
-  "eight": {"cell_dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/cells/PM2a_s11_f082500_a4120_8x8"}},
- {"id": "M3", "target": "ridge-top edge facing the valley (PM3a_s11 @165 ps, atom 4672); the valley floor with both walls needs 8x8 and is not pairable", "U_V": -0.40,
-  "six": {"cell_dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/cells/PM3a_s11_f082500_a4672_6x6"},
-  "eight": {"cell_dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/cells/PM3a_s11_f082500_a4672_8x8"}}
-]}
+{
+ "pairs": [
+  {
+   "id": "S1",
+   "target": "single-layer step/kink (A, frozen centre PA1_s51_f082500_a3617)",
+   "U_V": -0.42,
+   "six": {
+    "cell_dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/cells/PA1_s51_f082500_a3617_6x6"
+   },
+   "eight": {
+    "ref_task_dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s51_f082500_a3617_8x8/rough__mu-4.4871"
+   }
+  },
+  {
+   "id": "S2",
+   "target": "single-layer island edge (B, frozen centre PB1_s51_f082500_a3929)",
+   "U_V": 0.46,
+   "six": {
+    "cell_dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/cells/PB1_s51_f082500_a3929_6x6"
+   },
+   "eight": {
+    "ref_task_dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s51_f082500_a3929_8x8/rough__mu-5.3671"
+   }
+  },
+  {
+   "id": "M2",
+   "target": "step bunching: middle terrace with both step edges (PM2a_s11 @165 ps, atom 4120)",
+   "U_V": 0.4,
+   "six": {
+    "cell_dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/cells/PM2a_s11_f082500_a4120_6x6"
+   },
+   "eight": {
+    "cell_dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/cells/PM2a_s11_f082500_a4120_8x8"
+   }
+  },
+  {
+   "id": "M3",
+   "target": "ridge-top edge facing the valley (PM3a_s11 @165 ps, atom 4672); the valley floor with both walls needs 8x8 and is not pairable",
+   "U_V": -0.4,
+   "six": {
+    "cell_dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/cells/PM3a_s11_f082500_a4672_6x6"
+   },
+   "eight": {
+    "cell_dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/cells/PM3a_s11_f082500_a4672_8x8"
+   }
+  }
+ ],
+ "not_pairable": {
+  "M1": "tiered islands: PM1c (2-tier, 19/7 sites) flattened to one level during the 200 ps MD; PM1d (3-tier) lost its third tier and became 2-tier islands whose upper-edge / sidewall-foot targets pass only at 8x8 (314-317 Au, seam-affected 0-4) -- no valid 6x6, so no pair; M1 environments enter the list as 8x8 cells",
+  "M3_valley_floor": "both walls + floor need 8x8 (320-330 Au); the M3 pair uses the ridge-top edge instead"
+ }
+}

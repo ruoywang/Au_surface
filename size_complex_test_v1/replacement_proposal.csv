@@ -19,14 +19,14 @@ PD2_s51_f005000_a4565_8x8__U-0.15,resize_to_6x6,D,test,cn<=5,-0.15,-4.7571,8x8,2
 PD2_s51_f082500_a3440_8x8__U-0.30,resize_to_6x6,D,test,cn6-7,-0.3,-4.6071,8x8,302,6x6,162,no repair needed,,
 PD2_s51_f082500_a3495_8x8__U+0.13,resize_to_6x6,D,test,cn8-9,0.13,-5.0371,8x8,301,6x6,169,"seam band (63 atoms) minimised; core, bottom layers and the ",,
 PD2_s51_f099500_a3663_8x8__U+0.34,resize_to_6x6,D,test,cn<=5,0.34,-5.2471,8x8,271,6x6,157,no repair needed,,
-PA1_s11_f005000_a4190_8x8__U+0.39,release_for_complex,A,train,cn6-7,0.39,-5.2971,8x8,297,8x8,332,"most redundant single-layer state of its class (nearest-neighbour distance 0.134); slot and U bin [+0.3,+0.4) go to the multi-layer candidate (U +0.38 V)",PM2b_s11_f082500_a4142_middle_terrace,middle_terrace
+PA1_s11_f005000_a4190_8x8__U+0.39,release_for_complex,A,train,cn6-7,0.39,-5.2971,8x8,297,6x6,180,"most redundant single-layer state of its class (nearest-neighbour distance 0.134); slot and U bin [+0.3,+0.4) go to the multi-layer candidate (U +0.39 V)",PM2b_s11_f082500_a4119_middle_terrace,middle_terrace
 PA1_s11_f005000_a4568_8x8__U-0.35,resize_to_6x6,A,train,cn6-7,-0.35,-4.5571,8x8,278,6x6,159,"seam band (60 atoms) minimised; core, bottom layers and the ",,
-PA1_s11_f010000_a4116_8x8__U+0.03,release_for_complex,A,train,cn<=5,0.03,-4.9371,8x8,291,6x6,180,"most redundant single-layer state of its class (nearest-neighbour distance 0.134); slot and U bin [+0.0,+0.1) go to the multi-layer candidate (U +0.09 V)",PM2b_s11_f082500_a4119_middle_terrace,middle_terrace
+PA1_s11_f010000_a4116_8x8__U+0.03,release_for_complex,A,train,cn<=5,0.03,-4.9371,8x8,291,8x8,321,"most redundant single-layer state of its class (nearest-neighbour distance 0.134); slot and U bin [+0.0,+0.1) go to the multi-layer candidate (U +0.07 V)",PM3a_s11_f082500_a3887_valley_floor,valley_floor
 PA1_s11_f010000_a4154_8x8__U+0.05,resize_to_6x6,A,train,cn<=5,0.05,-4.9571,8x8,278,6x6,160,no repair needed,,
 PA1_s11_f082500_a3340_8x8__U+0.33,resize_to_6x6,A,train,cn8-9,0.33,-5.2371,8x8,280,6x6,163,no repair needed,,
 PA1_s11_f082500_a4560_8x8__U-0.13,resize_to_6x6,A,train,cn8-9,-0.13,-4.7771,8x8,290,6x6,163,no repair needed,,
 PA1_s11_f089500_a3777_8x8__U-0.11,resize_to_6x6,A,train,cn>=10,-0.11,-4.7971,8x8,280,6x6,162,no repair needed,,
-PA1_s11_f093000_a4139_8x8__U-0.27,release_for_complex,A,train,cn8-9,-0.27,-4.6371,8x8,290,8x8,321,"most redundant single-layer state of its class (nearest-neighbour distance 0.142); slot and U bin [-0.3,-0.2) go to the multi-layer candidate (U -0.23 V)",PM3a_s11_f082500_a3887_valley_floor,valley_floor
+PA1_s11_f093000_a4139_8x8__U-0.27,release_for_complex,A,train,cn8-9,-0.27,-4.6371,8x8,290,8x8,328,"most redundant single-layer state of its class (nearest-neighbour distance 0.142); slot and U bin [-0.3,-0.2) go to the multi-layer candidate (U -0.24 V)",PM3a_s11_f082500_a3215_valley_floor,valley_floor
 PA1_s11_f096500_a3733_8x8__U-0.37,resize_to_6x6,A,train,cn>=10,-0.37,-4.5371,8x8,287,6x6,160,"seam band (50 atoms) minimised; core, bottom layers and the ",,
 PA1_s11_f099500_a3433_10x8__U-0.40,resize_to_6x6,A,train,cn>=10,-0.4,-4.5071,10x8,373,6x6,164,"seam band (52 atoms) minimised; core, bottom layers and the ",,
 PA1_s23_f005000_a4199_8x8__U-0.07,resize_to_6x6,A,train,cn<=5,-0.07,-4.8371,8x8,277,6x6,160,"seam band (63 atoms) minimised; core, bottom layers and the ",,
@@ -45,7 +45,7 @@ PA1_s51_f005000_a4578_8x8__U+0.48,keep_8x8,A,train,cn6-7,0.48,-5.3871,8x8,284,8x
 PA1_s51_f010000_a4026_8x8__U+0.37,keep_8x8,A,train,cn8-9,0.37,-5.2771,8x8,274,8x8,274,6x6 failed: protected_atoms_do_not_fit;seam_contact_unrepaired,,
 PA1_s51_f082500_a3617_8x8__U-0.42,kept_reference_8x8,A,train,cn6-7,-0.42,-4.4871,8x8,281,8x8,281,production reference of the size pairs; also has a valid 6x6 (163 atoms),,
 PA1_s51_f082500_a4161_8x8__U-0.42,resize_to_6x6,A,train,cn6-7,-0.42,-4.4871,8x8,277,6x6,160,no repair needed,,
-PA1_s51_f086000_a3690_8x8__U-0.27,resize_to_6x6,A,train,cn>=10,-0.27,-4.6371,8x8,289,6x6,163,no repair needed,,
+PA1_s51_f086000_a3690_8x8__U-0.27,release_for_complex,A,train,cn>=10,-0.27,-4.6371,8x8,289,6x6,199,"most redundant single-layer state of its class (nearest-neighbour distance 0.142); slot and U bin [-0.3,-0.2) go to the multi-layer candidate (U -0.24 V)",PM3a_s11_f082500_a4672_ridge_top_edge,ridge_top_edge
 PA1_s51_f086000_a4314_8x8__U+0.30,resize_to_6x6,A,train,cn<=5,0.3,-5.2071,8x8,288,6x6,162,no repair needed,,
 PA1_s51_f089500_a4318_10x8__U+0.36,keep_10x8_no_smaller,A,train,cn8-9,0.36,-5.2671,10x8,350,10x8,350,6x6 failed: protected_atoms_do_not_fit;seam_contact_unrepaired; 8x8 failed: protected_atoms_do_not_fit;seam_contact_unrepaired (frozen 10x8 stays; could be dropped),,
 PA1_s51_f093000_a4085_8x8__U+0.24,resize_to_6x6,A,train,cn>=10,0.24,-5.1471,8x8,280,6x6,161,"seam band (54 atoms) minimised; core, bottom layers and the ",,
@@ -65,9 +65,9 @@ PB1_s11_f082500_a4035_8x8__U-0.14,resize_to_6x6,B,train,cn8-9,-0.14,-4.7671,8x8,
 PB1_s11_f086000_a3911_8x8__U+0.38,keep_8x8,B,train,cn8-9,0.38,-5.2871,8x8,260,8x8,260,6x6 failed: protected_atoms_do_not_fit;seam_contact_unrepaired;seam_new_environment,,
 PB1_s11_f096500_a4201_8x8__U+0.05,keep_8x8,B,train,cn<=5,0.05,-4.9571,8x8,259,8x8,259,6x6 failed: core_neighbourhood_changed;protected_atoms_do_not_fit;seam_contact_unrepaired;seam_new_environment,,
 PB1_s23_f096500_a3965_8x8__U+0.03,keep_8x8,B,train,cn>=10,0.03,-4.9371,8x8,292,8x8,292,6x6 failed: protected_atoms_do_not_fit;seam_contact_unrepaired;seam_new_environment,,
-PB1_s23_f099500_a4041_8x8__U-0.31,release_for_complex,B,train,cn>=10,-0.31,-4.5971,8x8,272,8x8,381,"most redundant single-layer state of its class (nearest-neighbour distance 0.154); slot and U bin [-0.4,-0.3) go to the multi-layer candidate (U -0.37 V)",PM3b_s11_f082500_a4793_ridge_top_edge,ridge_top_edge
-PB1_s37_f005000_a3081_8x8__U+0.17,release_for_complex,B,train,cn6-7,0.17,-5.0771,8x8,265,8x8,320,"most redundant single-layer state of its class (nearest-neighbour distance 0.154); slot and U bin [+0.1,+0.2) go to the multi-layer candidate (U +0.20 V)",PM3b_s11_f082500_a3139_valley_floor,valley_floor
-PB1_s37_f005000_a3375_8x8__U+0.47,resize_to_6x6,B,train,cn8-9,0.47,-5.3771,8x8,305,6x6,161,"seam band (54 atoms) minimised; core, bottom layers and the ",,
+PB1_s23_f099500_a4041_8x8__U-0.31,release_for_complex,B,train,cn>=10,-0.31,-4.5971,8x8,272,8x8,316,"most redundant single-layer state of its class (nearest-neighbour distance 0.154); slot and U bin [-0.4,-0.3) go to the multi-layer candidate (U -0.33 V)",PM1d_s11_f082500_a4205_sidewall_foot,sidewall_foot
+PB1_s37_f005000_a3081_8x8__U+0.17,release_for_complex,B,train,cn6-7,0.17,-5.0771,8x8,265,8x8,316,"most redundant single-layer state of its class (nearest-neighbour distance 0.154); slot and U bin [+0.1,+0.2) go to the multi-layer candidate (U +0.16 V)",PM1d_s11_f082500_a4133_sidewall_foot,sidewall_foot
+PB1_s37_f005000_a3375_8x8__U+0.47,release_for_complex,B,train,cn8-9,0.47,-5.3771,8x8,305,8x8,314,"most redundant single-layer state of its class (nearest-neighbour distance 0.161); slot and U bin [+0.4,+0.5) go to the multi-layer candidate (U +0.49 V)",PM1d_s11_f082500_a4306_upper_edge,upper_edge
 PB1_s37_f082500_a2643_10x8__U-0.31,keep_10x8_no_smaller,B,train,cn>=10,-0.31,-4.5971,10x8,336,10x8,336,6x6 failed: protected_atoms_do_not_fit;seam_contact_unrepaired;seam_new_environment; 8x8 failed: protected_atoms_do_not_fit;seam_contact_unrepaired;seam_new_environment (frozen 10x8 stays; could be dropped),,
 PB1_s37_f089500_a3134_8x8__U+0.44,keep_8x8,B,train,cn8-9,0.44,-5.3471,8x8,261,8x8,261,6x6 failed: core_neighbourhood_changed;protected_atoms_do_not_fit;seam_contact_unrepaired,,
 PB1_s37_f089500_a3920_8x8__U-0.05,resize_to_6x6,B,train,cn8-9,-0.05,-4.8571,8x8,267,6x6,155,"seam band (52 atoms) minimised; core, bottom layers and the ",,
@@ -92,7 +92,7 @@ PB2_s11_f010000_a4335_8x8__U+0.23,resize_to_6x6,B,train,cn8-9,0.23,-5.1371,8x8,2
 PB2_s11_f082500_a3964_8x8__U-0.46,keep_8x8,B,train,cn<=5,-0.46,-4.4471,8x8,267,8x8,267,6x6 failed: protected_atoms_do_not_fit;seam_contact_unrepaired;seam_new_environment,,
 PB2_s11_f093000_a4444_8x8__U-0.01,resize_to_6x6,B,train,cn<=5,-0.01,-4.8971,8x8,269,6x6,156,no repair needed,,
 PB2_s11_f096500_a3714_8x8__U+0.25,resize_to_6x6,B,train,cn6-7,0.25,-5.1571,8x8,284,6x6,168,no repair needed,,
-PB2_s23_f005000_a3436_8x8__U-0.29,resize_to_6x6,B,train,cn>=10,-0.29,-4.6171,8x8,307,6x6,174,"seam band (63 atoms) minimised; core, bottom layers and the ",,
+PB2_s23_f005000_a3436_8x8__U-0.29,release_for_complex,B,train,cn>=10,-0.29,-4.6171,8x8,307,8x8,317,"most redundant single-layer state of its class (nearest-neighbour distance 0.161); slot and U bin [-0.3,-0.2) go to the multi-layer candidate (U -0.23 V)",PM1d_s11_f082500_a4250_upper_edge,upper_edge
 PB2_s23_f005000_a4364_8x8__U-0.18,resize_to_6x6,B,train,cn<=5,-0.18,-4.7271,8x8,292,6x6,165,"seam band (64 atoms) minimised; core, bottom layers and the ",,
 PB2_s23_f086000_a3634_8x8__U-0.28,keep_8x8,B,train,cn8-9,-0.28,-4.6271,8x8,301,8x8,301,6x6 failed: protected_atoms_do_not_fit;seam_contact_unrepaired;seam_new_environment,,
 PB2_s23_f086000_a4268_8x8__U-0.03,resize_to_6x6,B,train,cn6-7,-0.03,-4.8771,8x8,294,6x6,160,no repair needed,,
@@ -101,7 +101,7 @@ PB2_s23_f089500_a4423_8x8__U+0.02,resize_to_6x6,B,train,cn8-9,0.02,-4.9271,8x8,3
 PB2_s23_f093000_a4359_8x8__U+0.06,resize_to_6x6,B,train,cn6-7,0.06,-4.9671,8x8,272,6x6,151,"seam band (54 atoms) minimised; core, bottom layers and the ",,
 PC1_s11_f010000_a2754_8x8__U-0.12,resize_to_6x6,C,train,cn>=10,-0.12,-4.7871,8x8,254,6x6,142,no repair needed,,
 PC1_s11_f082500_a2132_8x8__U+0.47,keep_8x8,C,train,cn6-7,0.47,-5.3771,8x8,238,8x8,238,6x6 failed: core_neighbourhood_changed;protected_atoms_do_not_fit;seam_contact_unrepaired,,
-PC1_s11_f082500_a3556_8x8__U+0.13,release_for_complex,C,train,cn8-9,0.13,-5.0371,8x8,251,8x8,328,"most redundant single-layer state of its class (nearest-neighbour distance 0.147); slot and U bin [+0.1,+0.2) go to the multi-layer candidate (U +0.16 V)",PM3a_s11_f082500_a3215_valley_floor,valley_floor
+PC1_s11_f082500_a3556_8x8__U+0.13,release_for_complex,C,train,cn8-9,0.13,-5.0371,8x8,251,8x8,320,"most redundant single-layer state of its class (nearest-neighbour distance 0.147); slot and U bin [+0.1,+0.2) go to the multi-layer candidate (U +0.20 V)",PM3b_s11_f082500_a3139_valley_floor,valley_floor
 PC1_s11_f086000_a2161_8x8__U+0.08,resize_to_6x6,C,train,cn>=10,0.08,-4.9871,8x8,234,6x6,137,no repair needed,,
 PC1_s11_f086000_a2645_8x8__U+0.26,resize_to_6x6,C,train,cn8-9,0.26,-5.1671,8x8,238,6x6,127,"seam band (32 atoms) minimised; core, bottom layers and the ",,
 PC1_s23_f005000_a3447_8x8__U-0.08,resize_to_6x6,C,train,cn6-7,-0.08,-4.8271,8x8,243,6x6,138,"seam band (41 atoms) minimised; core, bottom layers and the ",,
@@ -118,7 +118,7 @@ PC1_s51_f089500_a2648_8x8__U-0.37,resize_to_6x6,C,train,cn>=10,-0.37,-4.5371,8x8
 PC1_s51_f093000_a2316_8x8__U+0.26,keep_8x8,C,train,cn>=10,0.26,-5.1671,8x8,248,8x8,248,6x6 failed: protected_atoms_do_not_fit;seam_contact_unrepaired,,
 PC1_s51_f096500_a3585_8x8__U+0.48,keep_8x8,C,train,cn<=5,0.48,-5.3871,8x8,217,8x8,217,6x6 failed: core_neighbourhood_changed;protected_atoms_do_not_fit;seam_contact_unrepaired;seam_new_environment,,
 PC1_s51_f099500_a2714_8x8__U-0.42,keep_8x8,C,train,cn>=10,-0.42,-4.4871,8x8,214,8x8,214,6x6 failed: protected_atoms_do_not_fit;seam_contact_unrepaired;seam_new_environment,,
-PC1_s51_f099500_a2757_8x8__U-0.16,resize_to_6x6,C,train,cn8-9,-0.16,-4.7471,8x8,245,6x6,134,"seam band (38 atoms) minimised; core, bottom layers and the ",,
+PC1_s51_f099500_a2757_8x8__U-0.16,release_for_complex,C,train,cn8-9,-0.16,-4.7471,8x8,245,8x8,316,"most redundant single-layer state of its class (nearest-neighbour distance 0.186); slot and U bin [-0.2,-0.1) go to the multi-layer candidate (U -0.15 V)",PM1d_s11_f099500_a4295_upper_edge,upper_edge
 PC2_s11_f005000_a3130_8x8__U+0.48,keep_8x8,C,train,cn<=5,0.48,-5.3871,8x8,202,8x8,202,6x6 failed: core_neighbourhood_changed;protected_atoms_do_not_fit;seam_contact_unrepaired;seam_new_environment,,
 PC2_s11_f010000_a2078_8x8__U-0.08,resize_to_6x6,C,train,cn8-9,-0.08,-4.8271,8x8,206,6x6,112,no repair needed,,
 PC2_s11_f010000_a2187_8x8__U-0.49,resize_to_6x6,C,train,cn8-9,-0.49,-4.4171,8x8,211,6x6,127,no repair needed,,
@@ -138,11 +138,11 @@ PC2_s23_f089500_a2937_8x8__U-0.23,keep_8x8,C,train,cn<=5,-0.23,-4.6771,8x8,244,8
 PC2_s23_f089500_a2969_8x8__U+0.07,resize_to_6x6,C,train,cn<=5,0.07,-4.9771,8x8,248,6x6,135,no repair needed,,
 PC2_s23_f096500_a3536_8x8__U-0.43,resize_to_6x6,C,train,cn8-9,-0.43,-4.4771,8x8,248,6x6,137,no repair needed,,
 PC2_s23_f099500_a3441_8x8__U-0.08,resize_to_6x6,C,train,cn<=5,-0.08,-4.8271,8x8,209,6x6,127,"seam band (36 atoms) minimised; core, bottom layers and the ",,
-PC2_s23_f099500_a3628_8x8__U-0.49,release_for_complex,C,train,cn6-7,-0.49,-4.4171,8x8,248,6x6,199,"most redundant single-layer state of its class (nearest-neighbour distance 0.147); slot and U bin [-0.5,-0.4) go to the multi-layer candidate (U -0.44 V)",PM3a_s11_f082500_a4672_ridge_top_edge,ridge_top_edge
+PC2_s23_f099500_a3628_8x8__U-0.49,release_for_complex,C,train,cn6-7,-0.49,-4.4171,8x8,248,8x8,381,"most redundant single-layer state of its class (nearest-neighbour distance 0.147); slot and U bin [-0.5,-0.4) go to the multi-layer candidate (U -0.47 V)",PM3b_s11_f082500_a4793_ridge_top_edge,ridge_top_edge
 PD1_s11_f005000_a3390_8x8__U+0.18,resize_to_6x6,D,train,cn8-9,0.18,-5.0871,8x8,268,6x6,153,"seam band (50 atoms) minimised; core, bottom layers and the ",,
 PD1_s11_f010000_a4534_8x8__U-0.08,resize_to_6x6,D,train,cn<=5,-0.08,-4.8271,8x8,308,6x6,173,no repair needed,,
 PD1_s11_f082500_a4137_8x8__U+0.31,resize_to_6x6,D,train,cn6-7,0.31,-5.2171,8x8,304,6x6,168,"seam band (66 atoms) minimised; core, bottom layers and the ",,
-PD1_s11_f089500_a4163_10x8__U-0.08,resize_to_6x6,D,train,cn<=5,-0.08,-4.8271,10x8,343,6x6,157,no repair needed,,
+PD1_s11_f089500_a4163_10x8__U-0.08,release_for_complex,D,train,cn<=5,-0.08,-4.8271,10x8,343,8x8,332,"most redundant single-layer state of its class (nearest-neighbour distance 0.089); slot and U bin [-0.1,+0.0) go to the multi-layer candidate (U -0.02 V)",PM2b_s11_f082500_a4142_middle_terrace,middle_terrace
 PD1_s11_f093000_a3608_8x8__U-0.08,resize_to_6x6,D,train,cn>=10,-0.08,-4.8271,8x8,304,6x6,162,"seam band (49 atoms) minimised; core, bottom layers and the ",,
 PD1_s11_f096500_a4161_8x8__U+0.41,resize_to_6x6,D,train,cn6-7,0.41,-5.3171,8x8,289,6x6,159,"seam band (61 atoms) minimised; core, bottom layers and the ",,
 PD1_s23_f005000_a4049_8x8__U-0.23,resize_to_6x6,D,train,cn6-7,-0.23,-4.6771,8x8,282,6x6,165,"seam band (57 atoms) minimised; core, bottom layers and the ",,
