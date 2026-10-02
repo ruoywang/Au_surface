@@ -135,6 +135,47 @@ def M1(rng, variant, support):
     return occ, dict(description="tiered island: wide lower tier, smaller upper tier(s)", tiers=2 if variant == "a" else 3)
 
 
+def grow_from(rng, seed_ij, target, allowed):
+    """compact patch grown from one seed inside `allowed`."""
+    occ = np.zeros((N1, N2), bool); occ[seed_ij] = True
+    while occ.sum() < min(target, allowed.sum()):
+        front = {}
+        for i, j in zip(*np.where(occ)):
+            for a, b in neighbours_ij(i, j):
+                if not occ[a, b] and allowed[a, b]: front[(a, b)] = front.get((a, b), 0) + 1
+        if not front: break
+        keys = list(front); w = np.array([front[k] ** 2.0 for k in keys], float); w /= w.sum()
+        a, b = keys[rng.choice(len(keys), p=w)]; occ[a, b] = True
+    return occ
+
+
+def disc(centre, r):
+    """sites within r lattice steps of a centre (hexagonal metric on the a1/a2 index lattice, periodic)."""
+    m = np.zeros((N1, N2), bool); ci, cj = centre
+    for i in range(N1):
+        for j in range(N2):
+            di = (i - ci + N1 // 2) % N1 - N1 // 2; dj = (j - cj + N2 // 2) % N2 - N2 // 2
+            if max(abs(di), abs(dj), abs(di + dj)) <= r: m[i, j] = True
+    return m
+
+
+def M1_compact(rng, variant, support):
+    """Compact tiered islands that a cut CAN hold: variant c = six two-tier islands (lower ~19 sites, upper ~7),
+    variant d = four three-tier islands (lower ~37, middle ~19, top ~7), well separated so a frame holds one island with
+    terrace around it. The first M1 pair (a, b: one 0.24 ML island of 245 lower sites) is larger than any 8x8 cell and
+    its cuts failed on seam overlaps -- recorded as such; these variants test the tiered-island environments at a
+    size a periodic cell can contain."""
+    if variant == "c": centres = [(2, 2), (2, 18), (13, 9), (13, 25), (24, 2), (24, 18)]; sizes = (19, 7, None)
+    else: centres = [(4, 4), (4, 20), (20, 4), (20, 20)]; sizes = (37, 19, 7)
+    occ = {4: np.zeros((N1, N2), bool), 5: np.zeros((N1, N2), bool)}
+    if sizes[2]: occ[6] = np.zeros((N1, N2), bool)
+    for c in centres:
+        low = grow_from(rng, c, sizes[0], disc(c, 4)); occ[4] |= low
+        mid = grow_from(rng, c, sizes[1], supported_sites(low, support[5]) & disc(c, 3)); occ[5] |= mid
+        if sizes[2]: occ[6] |= grow_from(rng, c, sizes[2], supported_sites(mid, support[6]) & disc(c, 2))
+    return occ, dict(description=f"compact tiered islands ({'2 tiers, six islands' if variant == 'c' else '3 tiers, four islands'})", tiers=2 if variant == "c" else 3, island_centres=centres, tier_sites=sizes)
+
+
 def M2(rng, variant, support):
     """Lower strip rows [4, 20); upper strip on top with its low-side edge offset d(j) rows from the lower edge:
     d = 0 over part of the length (double step), 1-3 elsewhere (narrow intermediate terrace)."""
@@ -168,8 +209,10 @@ def assemble(base, base_lay, levels, occ):
 
 
 def overview(manifest, atoms_by_id):
-    fig, axes = plt.subplots(2, 3, figsize=(27, 16)); plt.rcParams.update({"font.size": 14})
-    for ax, m in zip(axes.ravel(), manifest):
+    ncol = 4 if len(manifest) > 6 else 3; nrow = int(np.ceil(len(manifest) / ncol))
+    fig, axes = plt.subplots(nrow, ncol, figsize=(9 * ncol, 8 * nrow)); plt.rcParams.update({"font.size": 14})
+    for ax in axes.ravel()[len(manifest):]: ax.set_axis_off()
+    for ax, m in zip(axes.ravel(), sorted(manifest, key=lambda m: m["parent_id"])):
         at = atoms_by_id[m["parent_id"]]; P = at.get_positions(); lay = at.get_array("layer"); c = at.get_cell().array
         for i in np.argsort(P[:, 2]):
             if lay[i] >= 2: ax.add_patch(Circle(P[i, :2], 0.48 * NN, fc=COL.get(int(lay[i]), "#000"), ec="k", lw=0.2))
@@ -185,8 +228,11 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     base, base_lay, levels, support, cell = base_and_levels()
     manifest = []; atoms_by_id = {}
-    for cls, fn in (("M1", M1), ("M2", M2), ("M3", M3)):
-        for variant in ("a", "b"):
+    only = sys.argv[1:]            # optional: build only these variants, e.g. "M1c M1d" (existing files/manifest rows are kept)
+    if only and os.path.exists(f"{OUT}/parents_manifest.json"): manifest = json.load(open(f"{OUT}/parents_manifest.json"))
+    for cls, fn, variants in (("M1", M1, ("a", "b")), ("M1", M1_compact, ("c", "d")), ("M2", M2, ("a", "b")), ("M3", M3, ("a", "b"))):
+        for variant in variants:
+            if only and f"{cls}{variant}" not in only: continue
             rng = np.random.default_rng(7000 + int(cls[1]) * 10 + ord(variant))
             occ, info = fn(rng, variant, support)
             n_unsupported = enforce_support(occ, support)
@@ -197,7 +243,7 @@ def main():
                        n_atoms=len(at), n_base=len(base), n_fixed=int((at.get_array("layer") < FIXED_LAYERS).sum()), added_per_level={str(k): v for k, v in added.items()},
                        height_above_bottom_A=round(float(zt), 3), height_in_dft_cell_A=round(5.0 + float(zt), 3), min_AuAu_A=dmin, cell_A=cell.tolist(),
                        status="PASS" if dmin >= 2.6 else "FAIL")
-            manifest.append(row); atoms_by_id[pid] = at
+            manifest = [m for m in manifest if m["parent_id"] != pid] + [row]; atoms_by_id[pid] = at
             write(f"{OUT}/{pid}.poscar", at, format="vasp", direct=False, sort=False); write(f"{OUT}/{pid}.extxyz", at, format="extxyz")
             print(f"  {pid}: {len(at)} Au, levels {added}, unsupported removed {n_unsupported}, top at {5.0 + zt:.2f} A in the DFT cell, min d {dmin:.3f} {row['status']}")
     json.dump(manifest, open(f"{OUT}/parents_manifest.json", "w"), indent=1)
@@ -209,7 +255,11 @@ def main():
                                            f"{r['height_in_dft_cell_A']} | {r['min_AuAu_A']:.3f} | {r['status']} |")
     L += ["", "The production solvent window requires the highest Au below SOL_Z1 - 15 = 19.603 A (metal bottom at 5.0 A): three-level parents top at "
           f"{max(r['height_in_dft_cell_A'] for r in manifest):.2f} A before thermal motion, so cells cut from them will need the vertical-box check (step 4 of the README)."]
-    open(f"{OUT}/parents_summary.md", "w").write("\n".join(L) + "\n"); overview(manifest, atoms_by_id)
+    open(f"{OUT}/parents_summary.md", "w").write("\n".join(L) + "\n")
+    from ase.io import read as _read
+    for m in manifest:
+        if m["parent_id"] not in atoms_by_id: atoms_by_id[m["parent_id"]] = _read(f"{OUT}/{m['parent_id']}.extxyz")
+    overview(manifest, atoms_by_id)
     print(f"{len(manifest)} parents -> {OUT}")
 
 

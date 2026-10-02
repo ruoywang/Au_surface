@@ -307,7 +307,7 @@ def reason_code(problem):
     return "other"
 
 
-def extract_one(parent, centre_atom, cid, repair=True, sizes=CELLS, first_only=True, protected=None):
+def extract_one(parent, centre_atom, cid, repair=True, sizes=CELLS, first_only=True, protected=None, scan=2, n_try=5):
     """Returns ([(size, Atoms, info), ...] for the sizes that passed, trial log). With first_only the smaller
     cell is taken as soon as it passes; otherwise every size is tried (test centres, for size pairs).
     `protected` = extra parent atom ids that must be carried over exactly, in addition to the centre's 6 A
@@ -327,8 +327,8 @@ def extract_one(parent, centre_atom, cid, repair=True, sizes=CELLS, first_only=T
         f_c = (cxy @ np.linalg.inv(np.array([a1, a2])))
         base_ij = np.round(f_c - off - np.array([n1 / 2, n2 / 2])).astype(int)
         trials = []
-        for di in range(-2, 3):
-            for dj in range(-2, 3):
+        for di in range(-scan, scan + 1):
+            for dj in range(-scan, scan + 1):
                 oij = base_ij + np.array([di, dj])
                 sub = cut(parent, cxy, n1, n2, oij, a1, a2, cellp, off)
                 ok, why = core_ok(parent, sub, core_ids, centre_atom)
@@ -336,7 +336,7 @@ def extract_one(parent, centre_atom, cid, repair=True, sizes=CELLS, first_only=T
                     log.append(dict(cell=f"{n1}x{n2}", origin=tuple(int(x) for x in oij), seam_score=None, problems=[f"core: {why}"], invariant=None, repair="", stage="core")); continue
                 trials.append((seam_mismatch(sub, n1, n2), tuple(int(x) for x in oij), sub))
         trials.sort(key=lambda t: t[0])
-        for score, oij, sub in trials[:5]:
+        for score, oij, sub in trials[:n_try]:
             pid = sub.get_array("parent_id"); where = {int(p): k for k, p in enumerate(pid)}
             core_idx = np.array([where[int(c)] for c in core_ids]); centre_idx = where[int(centre_atom)]
             lay = layers_from_z(sub)

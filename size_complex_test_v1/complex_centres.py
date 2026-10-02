@@ -129,13 +129,15 @@ def main():
         report.append(f"{pid} ({cls}): levels after MD {pool[0]['levels'] if pool else '-'}; targets found: {dict(names)}")
         # pick per parent: alternate target types, distinct locations (>= 12 A apart), both frames
         chosen = []
+        steps_avail = sorted({c["step"] for c in pool})
         for name in sorted(names, key=lambda n: -names[n]):
-            cands = [c for c in pool if c["target_environment"] == name]
-            cands.sort(key=lambda c: (c["step"], -c["n_protected"]))
-            for c in cands:
-                if len([x for x in chosen if x["target_environment"] == name]) >= max(1, a.per_parent // len(names) + 1): break
-                if all(np.linalg.norm(np.array(c["_P"]) - np.array(x["_P"])) > 12.0 or c["step"] != x["step"] for x in chosen):
-                    chosen.append(c)
+            quota = max(1, a.per_parent // len(names) + 1); k = 0
+            while len([x for x in chosen if x["target_environment"] == name]) < quota and k < 2 * quota:
+                step = steps_avail[k % len(steps_avail)]; k += 1               # alternate frames: locations AND times differ
+                cands = sorted([c for c in pool if c["target_environment"] == name and c["step"] == step], key=lambda c: -c["n_protected"])
+                for c in cands:
+                    if all(np.linalg.norm(np.array(c["_P"]) - np.array(x["_P"])) > 12.0 or c["step"] != x["step"] for x in chosen):
+                        chosen.append(c); break
             if len(chosen) >= a.per_parent: break
         for c in chosen[:a.per_parent]:
             c = dict(c); c.pop("_P"); c.pop("cn"); c["candidate_id"] = f"{pid}_f{c['step']:06d}_a{c['atom']:04d}_{c['target_environment']}"

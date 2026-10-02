@@ -40,60 +40,10 @@
  "tdamp_ps": 0.1,
  "runs": [
   {
-   "parent_id": "PM1a_s11",
-   "dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/md/PM1a_s11",
-   "n_atoms": 4433,
-   "n_mobile": 2385,
-   "n_fixed": 2048,
-   "seed": 1011,
-   "total_ps": 200.0,
-   "steps": 100000
-  },
-  {
-   "parent_id": "PM1b_s11",
-   "dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/md/PM1b_s11",
-   "n_atoms": 4483,
-   "n_mobile": 2435,
-   "n_fixed": 2048,
-   "seed": 1011,
-   "total_ps": 200.0,
-   "steps": 100000
-  },
-  {
-   "parent_id": "PM2a_s11",
-   "dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/md/PM2a_s11",
-   "n_atoms": 4876,
-   "n_mobile": 2828,
-   "n_fixed": 2048,
-   "seed": 1011,
-   "total_ps": 200.0,
-   "steps": 100000
-  },
-  {
-   "parent_id": "PM2b_s11",
-   "dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/md/PM2b_s11",
-   "n_atoms": 4801,
-   "n_mobile": 2753,
-   "n_fixed": 2048,
-   "seed": 1011,
-   "total_ps": 200.0,
-   "steps": 100000
-  },
-  {
-   "parent_id": "PM3a_s11",
-   "dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/md/PM3a_s11",
-   "n_atoms": 5123,
-   "n_mobile": 3075,
-   "n_fixed": 2048,
-   "seed": 1011,
-   "total_ps": 200.0,
-   "steps": 100000
-  },
-  {
-   "parent_id": "PM3b_s11",
-   "dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/md/PM3b_s11",
-   "n_atoms": 5182,
-   "n_mobile": 3134,
+   "parent_id": "PM1d_s11",
+   "dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/md/PM1d_s11",
+   "n_atoms": 4348,
+   "n_mobile": 2300,
    "n_fixed": 2048,
    "seed": 1011,
    "total_ps": 200.0,
