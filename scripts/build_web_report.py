@@ -197,7 +197,9 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
     curves are close to parallel, so family to family the difference is mostly a sideways shift, and they are
     also close to straight: over the 79 geometries with all five points the worst departure from a line is
     0.081&nbsp;&micro;C/cm² against a range of 7.32, about 1%. One secant capacitance is therefore meaningful
-    across the whole window, which the &plusmn;0.2&nbsp;V data could not establish.</div>
+    across the whole window, which the &plusmn;0.2&nbsp;V data could not establish. This is a statement about
+    the <b>total</b> surface charge of a fixed geometry at these sampled points only; it does not imply that
+    forces, the local potential, the bound charge or the ion concentration are linear in U.</div>
     <div class="legend" id="leg1"></div></div>
   <div class="note"><b>What this ratio is, and what it is not.</b> A defect carrying more positive charge at a
   given potential does not mean it is easier to polarise. Expanding
@@ -320,12 +322,14 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
   of same-composition configurations</h2></div>
   <p class="claim">Integrating the electron-number curve gives the potential-<em>induced</em> change in
   relative grand potential without ever subtracting two total energies. Over the full &plusmn;0.5&nbsp;V
-  window the largest cross-morphology value is <span data-n="dom"></span>, which is <em>smaller</em> than the
-  scatter among the sampled configurations of one morphology (at most <span data-n="domsame"></span>).
-  <b>This is not enough to say whether the potential re-ranks stability</b>, and over the wider window that
-  conclusion is firmer rather than weaker: the morphology-to-morphology effect does not stand clear of the
-  spread a single morphology already shows. Deciding the ranking needs a baseline for the relative grand
-  potential at the reference potential, which this dataset has not fixed.</p>
+  window the potential-induced change in relative grand potential reaches tens to over a hundred meV between
+  configurations (largest cross-morphology value <span data-n="dom"></span>), and the charging contribution
+  from rearrangements <em>within</em> one morphology can be comparable to or larger than the cross-morphology
+  contribution (up to <span data-n="domsame"></span>). <b>Without a baseline for the relative grand potential
+  at the reference potential, the full stability ranking cannot be judged.</b> The two numbers above are
+  potential-induced changes for different configuration pairs, not full relative grand potentials and not
+  error bars, so comparing them says nothing about whether a ranking changes: if two morphologies differ by
+  10&nbsp;meV at the reference potential, 89&nbsp;meV re-ranks them; if by 1&nbsp;eV, it does not.</p>
   <div class="card pad"><div class="chartbox"><div id="c_omega"></div></div>
     <div class="caption">Pairs of different structures with the same composition in the same cell,
     D&nbsp;=&nbsp;+&int;<sub>&mu;₀&minus;w</sub><sup>&mu;₀+w</sup>&thinsp;[N<sub>A</sub>&minus;N<sub>B</sub>]&thinsp;d&mu;,
@@ -547,15 +551,21 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:12.5px}
     <li><b>Two results the narrow window could not give.</b> &sigma;(U) is straight across the full
       1&nbsp;V: over the 79 geometries with all five points the worst departure from a line is
       0.081&nbsp;&micro;C/cm² against a range of 7.32, about 1%, so one secant capacitance is well defined
-      over the window. And the grand-potential comparison reverses usefully: the cross-morphology maximum is
-      now 89&nbsp;meV while one morphology's own configurations scatter by up to 138&nbsp;meV, so the
-      "not enough to re-rank" conclusion is firmer than it was at &plusmn;0.2&nbsp;V, where the two were
-      29 and 27&nbsp;meV.</li>
-    <li><b>The under-coordination result strengthens at the larger step.</b> Measured at each geometry's most
-      positive potential, now +0.5&nbsp;V rather than +0.2&nbsp;V, the under-coordinated regions enrich less
-      than the terrace in <span data-n="uc_main"></span>, against a median 1.4% at the narrower step. The
-      exceptions drop from six to five, and the largest of them, the dilute 8&times;8 island at +3.6%, is no
-      longer one.</li>
+      over the window. That is the total surface charge of a fixed geometry only; nothing is implied about
+      forces, local potentials, bound charge or ion concentrations, and the multi-potential comparisons in
+      the data stay in place. The grand-potential numbers also grew with the window, to a cross-morphology maximum of
+      89&nbsp;meV and a within-morphology maximum of 138&nbsp;meV (29 and 27 at &plusmn;0.2&nbsp;V). An
+      earlier draft of this entry said the comparison made the "not enough to re-rank" conclusion firmer;
+      <b>that was wrong</b> and was corrected on review. Both are potential-induced changes for different
+      configuration pairs, not full relative grand potentials and not error bars, so their ratio bears on
+      nothing about the ranking. Finding 5 now states only what the numbers show.</li>
+    <li><b>The under-coordination comparison, now at about +0.5&nbsp;V.</b> This is a difference of
+      <em>region enrichment factors</em> K at each geometry's most positive sampled potential, now
+      +0.5&nbsp;V rather than +0.2&nbsp;V; it is not the response ratio
+      &Delta;K<sub>low</sub>/&Delta;K<sub>terrace</sub> and should not be read as one. At +0.5&nbsp;V the
+      under-coordinated regions enrich less than the terrace in <span data-n="uc_main"></span>, against a
+      median 1.4% at +0.2&nbsp;V. The exceptions drop from six to five, and the largest of them, the dilute
+      8&times;8 island at +3.6%, is no longer one.</li>
     <li><b>One state is a partial loss, recorded rather than hidden.</b>
       <span class="mono">C2-island+pit__ideal__mu-5.4071</span> was killed at its walltime while writing the
       bound-charge grid (534 of 713&nbsp;MB; 29&thinsp;370&thinsp;510 of 39&thinsp;200&thinsp;000 values), and
