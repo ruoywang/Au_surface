@@ -44,8 +44,9 @@ from ase.io import read, write
 ROOT = "/anvil/scratch/x-rywang/Au_Cl"
 R = f"{ROOT}/rough_sampling_v1"
 sys.path.insert(0, R)
-from select_centres import surface_atoms  # noqa: E402  (same exposure rule as the centre selection)
+from select_centres import surface_atoms, neighbour_graph, connected_to_substrate  # noqa: E402  (same rules as the centre selection)
 from lmpio import write_data, group_lines, read_data, mic_displacement  # noqa: E402
+import trajio  # noqa: E402
 POT = f"{R}/potential/Au_training/lmp_t0.0001_no_bulk_vac_fix3.header2025.flare"
 LMP = f"{R}/env/src/lammps-22Jul2025/build_mpi/lmp"
 A0 = 4.158; NN = A0 / np.sqrt(2); D111 = A0 / np.sqrt(3)
@@ -116,16 +117,10 @@ def neighbours(at, i, r):
 
 
 def all_min_dist_and_cn(at, rcut=3.4):
-    P = at.get_positions(); cell = at.get_cell().array; n = len(P)
-    best = np.full(n, np.inf); cn = np.zeros(n, int)
-    for si in (-1, 0, 1):
-        for sj in (-1, 0, 1):
-            sh = si * cell[0] + sj * cell[1]
-            for a in range(0, n, 256):
-                d = np.linalg.norm(P[a:a + 256, None, :] - (P[None, :, :] + sh), axis=-1)
-                d[d < 0.1] = np.inf
-                best[a:a + 256] = np.minimum(best[a:a + 256], d.min(1)); cn[a:a + 256] += (d < rcut).sum(1)
-    return best, cn
+    """Min distance and CN per atom plus the adjacency lists. Only the SELF term (same atom, zero shift) is
+    excluded, so two distinct atoms sitting on top of each other show up as a contact of ~0 A and fail."""
+    cn, dmin, adj = neighbour_graph(at, rcut)
+    return dmin, cn, adj
 
 
 def seam_mismatch(sub, n1, n2):
@@ -166,15 +161,25 @@ def core_ok(parent, sub, core_parent_ids, centre_parent_id):
     return True, "core preserved to %.1e A, neighbourhood identical (%d atoms)" % (err, len(set_p))
 
 
-def image_invariance(sub, centre_idx):
-    """Shifting every atom by a lattice vector must not change the neighbourhood set."""
-    base, _ = neighbours(sub, centre_idx, R_CORE)
-    cell = sub.get_cell().array
-    for sh in (cell[0], cell[1], cell[0] + cell[1]):
-        t = sub.copy(); t.set_positions(t.get_positions() + sh)
-        nb, _ = neighbours(t, centre_idx, R_CORE)
-        if set(nb.tolist()) != set(base.tolist()): return False
-    return True
+def periodic_mapping_check(sub, centre_idx, seed=0):
+    """Per-atom periodic representation must not matter: a third of the atoms are moved to periodic equivalents
+    (random -1/0/+1 multiples of a and b), everything is re-wrapped into the cell and the atom order is permuted.
+    The centre's neighbour set (as parent ids), the sorted CN list and the minimum distance must be identical.
+    (Shifting ALL atoms together, the earlier test, leaves every pair difference unchanged and tests nothing.)"""
+    pid = sub.get_array("parent_id")
+    nb0, _ = neighbours(sub, centre_idx, R_CORE); set0 = set(pid[nb0].tolist())
+    md0, cn0, _ = all_min_dist_and_cn(sub)
+    rng = np.random.default_rng(seed); n = len(sub); cell = sub.get_cell().array
+    P = sub.get_positions().copy()
+    sel = rng.choice(n, size=max(1, n // 3), replace=False); k = rng.integers(-1, 2, size=(len(sel), 2))
+    P[sel] += k[:, :1] * cell[0] + k[:, 1:2] * cell[1]
+    C = cell[:2, :2]; f = P[:, :2] @ np.linalg.inv(C); f -= np.floor(f); P[:, :2] = f @ C          # re-wrap
+    perm = rng.permutation(n)
+    t = sub[perm]; t.set_positions(P[perm])
+    inv = np.empty(n, int); inv[perm] = np.arange(n)
+    nb1, _ = neighbours(t, inv[centre_idx], R_CORE); set1 = set(t.get_array("parent_id")[nb1].tolist())
+    md1, cn1, _ = all_min_dist_and_cn(t)
+    return bool(set0 == set1 and np.array_equal(np.sort(cn0), np.sort(cn1)) and abs(md0.min() - md1.min()) < 1e-8)
 
 
 def layers_from_z(at):
@@ -185,11 +190,13 @@ def layers_from_z(at):
 
 
 def geometry_checks(sub, core_idx, n1, n2):
-    md, cn = all_min_dist_and_cn(sub)
+    md, cn, adj = all_min_dist_and_cn(sub)
     lay = layers_from_z(sub)
     problems = []
     if md.min() < MIN_CONTACT: problems.append(f"contact {md.min():.2f} A < {MIN_CONTACT}")
     if (cn < 3).any(): problems.append(f"{int((cn < 3).sum())} atoms with < 3 neighbours (floating or slit)")
+    conn = connected_to_substrate(adj, np.flatnonzero(lay < 2))
+    if not conn.all(): problems.append(f"{int((~conn).sum())} atoms not connected to the substrate (detached cluster)")
     n_bottom = int((lay == 0).sum())
     if n_bottom != n1 * n2: problems.append(f"bottom layer incomplete ({n_bottom}/{n1 * n2})")
     # pits may be one layer deep: the terrace is layer 3 (of 0..3 base layers, 4 = adatom level), so no
@@ -270,7 +277,8 @@ def extract_one(parent, centre_atom, cid, repair=True, sizes=CELLS, first_only=T
                         sub, problems, stats, rep_note = repaired, [], stats2, "buffer minimised with core and bottom layers fixed; occupancy unchanged"
                     else:
                         rep_note = f"minimisation did not clear: {problems2 or why2}"
-            inv = image_invariance(sub, centre_idx)
+            inv = periodic_mapping_check(sub, centre_idx) if not problems else None
+            if inv is False: problems = problems + ["periodic representation changed the neighbour set / CN list"]
             log.append(dict(cell=f"{n1}x{n2}", origin=oij, seam_score=score, problems=problems, invariant=inv, repair=rep_note))
             if not problems and inv:
                 sub.set_array("layer", layers_from_z(sub)); sub.set_array("fixed", (layers_from_z(sub) < 2).astype(int))
@@ -293,23 +301,24 @@ def main():
     if a.limit: C = C[:a.limit]
     parents = {}
     rows = []; n_pass = 0; n_fail = 0
+    META_KEYS = ("parent_id", "cls", "split", "step", "time_ps", "T_K", "source", "atom", "cn", "cn_stratum", "rare_flag", "novelty_vs_old",
+                 "relief_10A", "n_levels_10A", "n_under_10A", "step_density_10A")
     for k, c in enumerate(C):
         pid = c["parent_id"]
-        key = (pid, c["frame"], c["source"])
+        key = (pid, c["step"], c["source"])
         if key not in parents:
             if c["source"] == "md":
-                fr = read(f"{R}/md/{pid}/traj.lammpstrj", index=c["frame"], format="lammps-dump-text")
-                fr.set_chemical_symbols(["Au"] * len(fr)); fr.set_pbc((True, True, False))
+                fr = trajio.frame_by_step(pid, c["step"])                      # by TIMESTEP, never by index
                 p0 = read(f"{R}/parents/{pid}.extxyz")
-                for key_ in ("layer", "fixed"): fr.set_array(key_, p0.get_array(key_))
+                fr.set_array("fixed", p0.get_array("fixed"))                   # ids are preserved (dump sorted by id); layers come from z
                 parents[key] = fr
             else:
                 parents[key] = read(f"{R}/parents/{pid}.extxyz")
         parent = parents[key]
-        base_id = f"{pid}_f{c['frame']:03d}_a{c['atom']:04d}"
+        base_id = f"{pid}_f{c['step']:06d}_a{c['atom']:04d}"
         # test-split centres are cut in BOTH sizes when possible, so the final selection can hold size pairs
         passed, log = extract_one(parent, c["atom"], base_id, repair=not a.no_repair, first_only=(c["split"] != "test"))
-        meta = {k_: c[k_] for k_ in ("parent_id", "cls", "split", "frame", "source", "atom", "cn", "novelty_vs_old")}
+        meta = {k_: c.get(k_) for k_ in META_KEYS}
         if not passed:
             rows.append(dict(cell_id=base_id, centre_id=base_id, **meta, status="FAIL", trials=log)); n_fail += 1
         for size, sub, info in passed:

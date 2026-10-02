@@ -22,6 +22,7 @@ ROOT = "/anvil/scratch/x-rywang/Au_Cl"
 R = f"{ROOT}/rough_sampling_v1"
 sys.path.insert(0, R)
 from extract_cells import lattice, boundary_offset, neighbours, layers_from_z, R_CORE  # noqa: E402
+import trajio  # noqa: E402
 
 A0 = 4.158; D111 = A0 / np.sqrt(3); RAD = 0.62 * A0 / np.sqrt(2) / 1.0
 LAYER_COL = {0: "#4a4a4a", 1: "#7a7a7a", 2: "#b9b9b9", 3: "#f2c14e", 4: "#e0603a", 5: "#8b1a1a"}
@@ -91,8 +92,7 @@ def panel_cell(ax, cell_at, centre_in_cell, title):
 def parent_frame(state):
     pid = state["parent_id"]
     if state["source"] == "md":
-        fr = read(f"{R}/md/{pid}/traj.lammpstrj", index=state["frame"], format="lammps-dump-text")
-        fr.set_chemical_symbols(["Au"] * len(fr)); fr.set_pbc((True, True, False)); return fr
+        return trajio.frame_by_step(pid, state["step"])
     return read(f"{R}/parents/{pid}.extxyz")
 
 
@@ -117,7 +117,7 @@ def draw_state(fig, axes, state, cell_row):
     par = parent.copy(); par.set_positions(P + np.r_[shift, 0.0])
     # wrap all parent atoms into the parent cell for the overview, but keep the shifted copy for the zoom
     panel_parent(axes[0], parent, cut_origin - shift, v1, v2, P[centre, :2],
-                 f"{state['cls']}: parent {state['parent_id']}, frame {state['frame']} ({len(parent)} Au)\n32 x 32 cell; blue = cut frame {state['cell']}, green = 6 Å core")
+                 f"{state['cls']}: parent {state['parent_id']}, step {state['step']} = {state.get('time_ps', 0):.0f} ps ({len(parent)} Au)\n32 x 32 cell; blue = cut frame {state['cell']}, green = 6 Å core")
     panel_cut(axes[1], par, cut_origin, v1, v2, centre, core_ids,
               f"cut: {len(core_ids) + 1} core atoms (ringed) kept to 1e-3 Å,\nperiphery = the rest of the frame; faded = outside")
     panel_cell(axes[2], cell_at, cell_row["centre_in_cell"],

@@ -1,0 +1,1058 @@
+[
+ {
+  "parent": "PA1_s11",
+  "wall_min": 47.7,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   307,
+   292,
+   300,
+   298,
+   303,
+   303,
+   295,
+   300
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   484,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1022,
+   1011,
+   499,
+   0
+  ],
+  "n_changed_layer": 49
+ },
+ {
+  "parent": "PA1_s23",
+  "wall_min": 44.0,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   299,
+   295,
+   295,
+   297,
+   304,
+   298,
+   301,
+   299
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   475,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1022,
+   1012,
+   489,
+   0
+  ],
+  "n_changed_layer": 56
+ },
+ {
+  "parent": "PA1_s37",
+  "wall_min": 43.8,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   305,
+   292,
+   309,
+   302,
+   294,
+   298,
+   297,
+   307
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   478,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1024,
+   1018,
+   484,
+   0
+  ],
+  "n_changed_layer": 42
+ },
+ {
+  "parent": "PA1_s51",
+  "wall_min": 45.8,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   301,
+   303,
+   292,
+   298,
+   303,
+   298,
+   302,
+   295
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   486,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1023,
+   1018,
+   493,
+   0
+  ],
+  "n_changed_layer": 28
+ },
+ {
+  "parent": "PA2_s11",
+  "wall_min": 46.1,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   299,
+   304,
+   308,
+   296,
+   303,
+   299,
+   294,
+   302
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   512,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1023,
+   1017,
+   520,
+   0
+  ],
+  "n_changed_layer": 37
+ },
+ {
+  "parent": "PA2_s23",
+  "wall_min": 44.7,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   297,
+   294,
+   299,
+   288,
+   307,
+   298,
+   297,
+   303
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   510,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1023,
+   1021,
+   514,
+   0
+  ],
+  "n_changed_layer": 15
+ },
+ {
+  "parent": "PA2_s37",
+  "wall_min": 44.8,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   301,
+   298,
+   291,
+   286,
+   299,
+   299,
+   299,
+   305
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   506,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1024,
+   1021,
+   509,
+   0
+  ],
+  "n_changed_layer": 23
+ },
+ {
+  "parent": "PA2_s51",
+  "wall_min": 44.7,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   307,
+   295,
+   299,
+   307,
+   303,
+   297,
+   303,
+   302
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   507,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1023,
+   1022,
+   510,
+   0
+  ],
+  "n_changed_layer": 20
+ },
+ {
+  "parent": "PB1_s11",
+  "wall_min": 45.8,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   303,
+   298,
+   293,
+   301,
+   291,
+   309,
+   300,
+   293
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   154,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1024,
+   1021,
+   157,
+   0
+  ],
+  "n_changed_layer": 31
+ },
+ {
+  "parent": "PB1_s23",
+  "wall_min": 45.3,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   295,
+   305,
+   297,
+   308,
+   295,
+   297,
+   297,
+   312
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   154,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1024,
+   1018,
+   160,
+   0
+  ],
+  "n_changed_layer": 24
+ },
+ {
+  "parent": "PB1_s37",
+  "wall_min": 45.5,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   299,
+   302,
+   297,
+   305,
+   298,
+   302,
+   294,
+   302
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   154,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1020,
+   1032,
+   150,
+   0
+  ],
+  "n_changed_layer": 52
+ },
+ {
+  "parent": "PB1_s51",
+  "wall_min": 45.6,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   301,
+   297,
+   294,
+   302,
+   294,
+   305,
+   303,
+   301
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   154,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1022,
+   1021,
+   159,
+   0
+  ],
+  "n_changed_layer": 41
+ },
+ {
+  "parent": "PB2_s11",
+  "wall_min": 48.7,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   296,
+   295,
+   311,
+   299,
+   291,
+   296,
+   306,
+   289
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   358,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1022,
+   1015,
+   369,
+   0
+  ],
+  "n_changed_layer": 59
+ },
+ {
+  "parent": "PB2_s23",
+  "wall_min": 47.1,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   305,
+   300,
+   306,
+   295,
+   299,
+   292,
+   299,
+   308
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   358,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1024,
+   1013,
+   369,
+   0
+  ],
+  "n_changed_layer": 39
+ },
+ {
+  "parent": "PB2_s37",
+  "wall_min": 47.3,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   307,
+   294,
+   306,
+   299,
+   299,
+   292,
+   302,
+   305
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   358,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1024,
+   1013,
+   369,
+   0
+  ],
+  "n_changed_layer": 41
+ },
+ {
+  "parent": "PB2_s51",
+  "wall_min": 47.2,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   298,
+   302,
+   301,
+   303,
+   305,
+   302,
+   306,
+   308
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   358,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1020,
+   1014,
+   372,
+   0
+  ],
+  "n_changed_layer": 44
+ },
+ {
+  "parent": "PC1_s11",
+  "wall_min": 49.2,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   294,
+   294,
+   296,
+   308,
+   300,
+   304,
+   292,
+   311
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   922,
+   0,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1009,
+   937,
+   0,
+   0
+  ],
+  "n_changed_layer": 21
+ },
+ {
+  "parent": "PC1_s23",
+  "wall_min": 43.6,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   295,
+   299,
+   296,
+   307,
+   300,
+   294,
+   304,
+   306
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   922,
+   0,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1014,
+   932,
+   0,
+   0
+  ],
+  "n_changed_layer": 30
+ },
+ {
+  "parent": "PC1_s37",
+  "wall_min": 46.1,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   305,
+   295,
+   295,
+   296,
+   298,
+   300,
+   302,
+   296
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   922,
+   0,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1011,
+   935,
+   0,
+   0
+  ],
+  "n_changed_layer": 19
+ },
+ {
+  "parent": "PC1_s51",
+  "wall_min": 47.3,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   297,
+   293,
+   302,
+   305,
+   300,
+   295,
+   305,
+   287
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   922,
+   0,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1011,
+   935,
+   0,
+   0
+  ],
+  "n_changed_layer": 17
+ },
+ {
+  "parent": "PC2_s11",
+  "wall_min": 45.6,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   302,
+   309,
+   302,
+   304,
+   303,
+   294,
+   308,
+   289
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   768,
+   0,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1010,
+   782,
+   0,
+   0
+  ],
+  "n_changed_layer": 28
+ },
+ {
+  "parent": "PC2_s23",
+  "wall_min": 45.8,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   298,
+   305,
+   293,
+   303,
+   299,
+   296,
+   304,
+   301
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   768,
+   0,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1009,
+   783,
+   0,
+   0
+  ],
+  "n_changed_layer": 35
+ },
+ {
+  "parent": "PC2_s37",
+  "wall_min": 46.2,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   300,
+   309,
+   290,
+   297,
+   297,
+   305,
+   313,
+   307
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   768,
+   0,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1006,
+   786,
+   0,
+   0
+  ],
+  "n_changed_layer": 34
+ },
+ {
+  "parent": "PC2_s51",
+  "wall_min": 43.5,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   296,
+   292,
+   302,
+   301,
+   296,
+   305,
+   297,
+   303
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   768,
+   0,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1012,
+   780,
+   0,
+   0
+  ],
+  "n_changed_layer": 30
+ },
+ {
+  "parent": "PD1_s11",
+  "wall_min": 45.8,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   302,
+   302,
+   302,
+   297,
+   293,
+   302,
+   304,
+   301
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   508,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1020,
+   998,
+   538,
+   0
+  ],
+  "n_changed_layer": 88
+ },
+ {
+  "parent": "PD1_s23",
+  "wall_min": 49.3,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   302,
+   296,
+   300,
+   298,
+   303,
+   306,
+   302,
+   299
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   519,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1015,
+   1003,
+   549,
+   0
+  ],
+  "n_changed_layer": 121
+ },
+ {
+  "parent": "PD1_s37",
+  "wall_min": 49.5,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   306,
+   306,
+   302,
+   308,
+   297,
+   303,
+   303,
+   301
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   514,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1021,
+   1004,
+   537,
+   0
+  ],
+  "n_changed_layer": 90
+ },
+ {
+  "parent": "PD1_s51",
+  "wall_min": 49.4,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   298,
+   299,
+   299,
+   303,
+   305,
+   297,
+   290,
+   301
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   514,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1019,
+   995,
+   548,
+   0
+  ],
+  "n_changed_layer": 100
+ },
+ {
+  "parent": "PD2_s11",
+  "wall_min": 48.8,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   305,
+   305,
+   293,
+   301,
+   292,
+   299,
+   299,
+   298
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   509,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1009,
+   989,
+   559,
+   0
+  ],
+  "n_changed_layer": 147
+ },
+ {
+  "parent": "PD2_s23",
+  "wall_min": 46.7,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   293,
+   304,
+   304,
+   306,
+   298,
+   293,
+   294,
+   308
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   519,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1017,
+   996,
+   554,
+   0
+  ],
+  "n_changed_layer": 140
+ },
+ {
+  "parent": "PD2_s37",
+  "wall_min": 46.9,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   301,
+   303,
+   289,
+   298,
+   307,
+   294,
+   293,
+   298
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   519,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1019,
+   987,
+   561,
+   0
+  ],
+  "n_changed_layer": 141
+ },
+ {
+  "parent": "PD2_s51",
+  "wall_min": 44.9,
+  "n_frames": 201,
+  "last_step": 100000,
+  "T_at_sampled_frames_K": [
+   300,
+   299,
+   295,
+   298,
+   295,
+   303,
+   300,
+   303
+  ],
+  "layers_initial": [
+   1024,
+   1024,
+   1024,
+   1024,
+   513,
+   0
+  ],
+  "layers_final": [
+   1024,
+   1024,
+   1019,
+   999,
+   543,
+   0
+  ],
+  "n_changed_layer": 137
+ }
+]

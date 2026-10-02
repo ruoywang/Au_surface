@@ -40,6 +40,8 @@ DFT = f"{R}/dft"
 QUEUE = f"{DFT}/queue.json"
 sys.path.insert(0, f"{ROOT}/scripts")
 import production as P  # noqa: E402   INCAR_SP, JOBRUN, write_poscar, kmesh, LZ, SOL_Z0, SOL_Z1, ZMIN, POTCAR_SRC, PARTITION
+sys.path.insert(0, R)
+import fieldio  # noqa: E402
 
 ZVAL_AU = 11.0
 MU_TOL = 0.011                 # same acceptance as production.evaluate: |mu_e - TARGETMU| within FERMICONVERGE
@@ -137,30 +139,11 @@ def budget(q, C_uF, U_pzc):
 
 
 # ---------------------------------------------------------------- state machine
-FIELD_FILES = ["CHGCAR", "LOCPOT"]     # plus whatever VASPsol++ wrote: everything matching the production field set is checked
-
-
-def production_field_names():
-    S = json.load(open(f"{ROOT}/dataset_v1/states.json"))["states"]
-    for v in S.values():
-        if v.get("qc", {}).get("n_fields") == 15: return sorted(v["fields"].keys())
-    return FIELD_FILES
-
-
-def field_complete(path):
-    """(complete?, note): header grid dims found and at least nx*ny*nz values follow them."""
-    if not os.path.exists(path): return False, "missing"
-    dims = None; count = 0
-    with open(path) as f:
-        for line in f:
-            p = line.split()
-            if dims is None:
-                if len(p) == 3 and all(x.isdigit() for x in p): dims = int(p[0]) * int(p[1]) * int(p[2])
-                continue
-            count += len(p)
-            if count >= dims: return True, f"{count} values >= grid {dims}"
-    if dims is None: return False, "no grid header"
-    return False, f"truncated: {count} of {dims} values"
+# The full-label field set of dataset_v1 (scripts/export_dataset_v1.FIELD_FILES). 'complete' needs ALL of them parsed
+# value by value (fieldio.check: grid header, >= nx*ny*nz finite floats, N_ions augmentation blocks for CHGCAR/POT),
+# the CHGCAR charge closing on the CP electron count, and CONTCAR repeating POSCAR. There is no shorter list.
+FIELD_FILES = ["CHGCAR", "LOCPOT", "PHI", "PHISOLV", "VSOLV", "RHOB", "RHOION", "ELOC", "P", "SVDW", "SION", "SSOLV", "SCAV", "SDIEL", "POT"]
+CHARGE_TOL = 0.02      # e: |sum(CHGCAR)/N_grid - N_e(CP)|
 
 
 def cpm_lines(log_out):
@@ -195,9 +178,17 @@ def evaluate(t, active):
         return ("scf_converged", f"{len(ion)} CP rounds, mu_e {mu:.4f} vs target {t['TARGETMU']:.4f}") if live else ("failed", f"ended with mu_e {mu:.4f} off target after {len(ion)} rounds")
     if live and not finished: return "writing_fields", f"CP closed (N_e {ne:.4f}, mu_e {mu:.4f}); VASP still writing"
     if not finished: return "partial", f"CP closed but VASP ended before its timing summary (killed while writing fields?)"
-    bad = [(f, note) for f in production_field_names() for ok, note in [field_complete(f"{d}/{f}")] if not ok]
-    if bad: return "partial", f"CP closed, N_e {ne:.4f} mu_e {mu:.4f}; incomplete fields: " + "; ".join(f"{f} ({n})" for f, n in bad)
-    return "complete", f"N_e {ne:.4f} mu_e {mu:.4f}, {len(ion)} CP rounds, all fields complete"
+    qc = {}; bad = []
+    for f in FIELD_FILES:
+        ok, note, st = fieldio.check(f"{d}/{f}", f); qc[f] = note
+        if not ok: bad.append(f"{f} ({note})")
+        elif f == "CHGCAR": qc["charge_closure_e"] = st["sum_over_grid"] - ne
+    geom_ok, geom_note = fieldio.contcar_matches_poscar(f"{d}/POSCAR", f"{d}/CONTCAR"); qc["contcar_matches_poscar"] = geom_note
+    t["qc"] = qc
+    if bad: return "partial", f"CP closed, N_e {ne:.4f} mu_e {mu:.4f}; fields failing the value check: " + "; ".join(bad)
+    if "charge_closure_e" in qc and abs(qc["charge_closure_e"]) > CHARGE_TOL: return "partial", f"CHGCAR integrates to N_e {qc['charge_closure_e']:+.4f} e (tolerance {CHARGE_TOL})"
+    if not geom_ok: return "partial", f"CONTCAR differs from POSCAR ({geom_note})"
+    return "complete", f"N_e {ne:.4f} mu_e {mu:.4f}, {len(ion)} CP rounds, 15 fields parsed and finite, charge closure {qc['charge_closure_e']:+.4f} e, geometry unchanged"
 
 
 def status(args):
@@ -215,27 +206,33 @@ def status(args):
 
 
 def pick_first(q, n):
-    """A balanced calibration batch: alternate classes, sizes and |U| extremes, deterministic."""
+    """The calibration batch: two states per class (A, B, C, D), one at U > 0 and one at U < 0. Cell sizes alternate
+    with class and sign so both 8x8 and 10x8 (both atom-count ranges) appear; within a (class, sign, size) the
+    largest |U| is taken: the longest CP walk, i.e. the conservative calibration case. Deterministic and printed."""
     pend = [t for t in q if t["status"] == "pending"]
-    pend.sort(key=lambda t: (t["cls"], t["cell"], -abs(t["U_V"]), t["task_id"]))
-    out = []; used = set()
-    for cls in "ABCD":
-        for size in sorted({t["cell"] for t in pend}):
-            for want_big in (True, False):
-                c = [t for t in pend if t["cls"] == cls and t["cell"] == size and t["task_id"] not in used and ((abs(t["U_V"]) >= 0.3) == want_big)]
-                if c and len(out) < n: out.append(c[0]); used.add(c[0]["task_id"])
-    for t in pend:
+    sizes = sorted({t["cell"] for t in pend}); out = []
+    for k, cls in enumerate("ABCD"):
+        for s, sgn in enumerate((+1, -1)):
+            want = sizes[(k + s) % len(sizes)] if sizes else None
+            c = [t for t in pend if t["cls"] == cls and (t["U_V"] > 0) == (sgn > 0) and t not in out]
+            cs = [t for t in c if t["cell"] == want] or c
+            if cs: out.append(max(cs, key=lambda t: abs(t["U_V"])))
+    for t in sorted(pend, key=lambda t: (t["cls"], -abs(t["U_V"]))):
         if len(out) >= n: break
-        if t["task_id"] not in used: out.append(t); used.add(t["task_id"])
+        if t not in out: out.append(t)
     return out[:n]
 
 
 def submit(args):
+    man = json.load(open(f"{R}/{args.manifest}"))
+    if not man.get("frozen"):
+        print(f"{args.manifest} is a CANDIDATE list (frozen = false). Nothing can be submitted until it is frozen by approval "
+              f"(finalize_200.py freeze). Listing the batch that WOULD be submitted:")
     q = load_queue(); chosen = pick_first(q, args.first)
     print(f"{'WOULD submit' if not args.confirm else 'Submitting'} {len(chosen)} tasks:")
     for t in chosen: print(f"  {t['task_id']:50s} {t['cls']} {t['cell']} U={t['U_V']:+.2f} n={t['n_atoms']} walltime {hhmmss(t['walltime_min'])}")
-    if not args.confirm:
-        print("Nothing submitted (no --confirm)."); return
+    if not args.confirm or not man.get("frozen"):
+        print("Nothing submitted" + (" (no --confirm)." if man.get("frozen") else " (candidate list not frozen).")); return
     for t in chosen:
         r = subprocess.run(["sbatch", "job-run"], cwd=t["dir"], capture_output=True, text=True)
         m = re.search(r"Submitted batch job (\d+)", r.stdout)
@@ -252,6 +249,7 @@ if __name__ == "__main__":
     p1 = sub.add_parser("prepare"); p1.add_argument("--manifest", default="rough200/rough200_manifest.json")
     p2 = sub.add_parser("status"); p2.add_argument("--recheck", action="store_true")
     p3 = sub.add_parser("submit"); p3.add_argument("--first", type=int, default=8); p3.add_argument("--confirm", action="store_true")
+    p3.add_argument("--manifest", default="rough200/rough200_manifest.json")
     a = ap.parse_args()
     DFT = f"{R}/{a.dftdir}"; QUEUE = f"{DFT}/queue.json"
     {"prepare": prepare, "status": status, "submit": submit}.get(a.cmd, lambda _: ap.print_help())(a)

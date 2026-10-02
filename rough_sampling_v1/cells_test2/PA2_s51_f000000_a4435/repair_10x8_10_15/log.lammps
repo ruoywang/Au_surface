@@ -1,0 +1,78 @@
+LAMMPS (22 Jul 2025 - Update 6)
+units metal
+atom_style atomic
+boundary p p f
+newton on
+read_data data.lammps
+Reading data file ...
+  triclinic box = (0 0 0) to (29.4015 20.369957 41.60249) with tilt (11.7606 0 0)
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/lammps-22Jul2025/src/domain.cpp:221)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  359 atoms
+  read_data CPU = 0.009 seconds
+pair_style flare
+pair_coeff * * /anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/potential/Au_training/lmp_t0.0001_no_bulk_vac_fix3.header2025.flare
+Reading potential file /anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/potential/Au_training/lmp_t0.0001_no_bulk_vac_fix3.header2025.flare with DATE: Thu
+group frozen id 1:160 216:218 226:227 236 286:288 295:298 305:307 315:316 336:337 340:342 345:347 350:351 355
+189 atoms in group frozen
+group mobile subtract all frozen
+170 atoms in group mobile
+fix hold frozen setforce 0.0 0.0 0.0
+min_style cg
+minimize 1e-8 1e-4 500 5000
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 8
+  ghost atom cutoff = 8
+  binsize = 4, bins = 11 6 11
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair flare, perpetual
+      attributes: full, newton on
+      pair build: full/bin/atomonly
+      stencil: full/bin/3d
+      bin: standard
+Per MPI rank memory allocation (min/avg/max) = 4.209 | 4.209 | 4.209 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0             -1097.1334      0             -1097.1334     -9957.2496    
+        28   0             -1099.3364      0             -1099.3364     -7724.186     
+Loop time of 1.39148 on 1 procs for 28 steps with 359 atoms
+
+98.9% CPU use with 1 MPI tasks x no OpenMP threads
+
+Minimization stats:
+  Stopping criterion = energy tolerance
+  Energy initial, next-to-last, final = 
+     -1097.13342110758   -1099.3364366284  -1099.33644703852
+  Force two-norm initial, final = 3.1416472 0.0093939338
+  Force max component initial, final = 1.0678601 0.0030774171
+  Final line search alpha, max atom move = 1 0.0030774171
+  Iterations, force evaluations = 28 53
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 1.391      | 1.391      | 1.391      |   0.0 | 99.96
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0.00012005 | 0.00012005 | 0.00012005 |   0.0 |  0.01
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 5.5916e-05 | 5.5916e-05 | 5.5916e-05 |   0.0 |  0.00
+Other   |            | 0.000328   |            |       |  0.02
+
+Nlocal:            359 ave         359 max         359 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            648 ave         648 max         648 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:              0 ave           0 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:        34292 ave       34292 max       34292 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 34292
+Ave neighs/atom = 95.520891
+Neighbor list builds = 0
+Dangerous builds = 0
+write_data min.data
+System init for write_data ...
+Total wall time: 0:00:01

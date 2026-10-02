@@ -1,0 +1,13 @@
+units metal
+atom_style atomic
+boundary p p f
+newton on
+read_data data.lammps
+pair_style flare
+pair_coeff * * /anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/potential/Au_training/lmp_t0.0001_no_bulk_vac_fix3.header2025.flare
+group frozen id 1:160 203:205 213:214 223 273:275 282:285 292:294 302:303 336:337 342:344 349:351 357:358 365
+group mobile subtract all frozen
+fix hold frozen setforce 0.0 0.0 0.0
+min_style cg
+minimize 1e-8 1e-4 500 5000
+write_data min.data

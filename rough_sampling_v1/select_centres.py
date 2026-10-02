@@ -1,26 +1,30 @@
 #!/usr/bin/env python3
 """Pick candidate CENTRES on the evolved parent surfaces: new local environments, not random crops.
 
-Per the plan (section 5): the descriptor is per SURFACE ATOM, not a slab average, and selection is farthest-
-point in that space under a family cover, with three guards: (a) novelty against the old dataset is rewarded
-but isolated anomalies are not taken (a centre must have at least one near neighbour among the candidates),
-(b) a larger-neighbourhood context (step density, local relief, under-coordinated count within 10 A) is
-carried along so the chosen set is not all one kind of site, (c) nothing is selected by any expected response.
+Frames (production mode): the 300 K frames at FRAME_TIMES_PS of every one of the 32 trajectories, located by
+LAMMPS TIMESTEP, checked against the protocol stage and the logged temperature (trajio.frames_at). An incomplete
+run, a missing frame or an off-stage temperature stops the script and names the parent; there is NO fallback.
+`--test-initial` is the only other mode: it uses the initial (pre-MD) parents and labels everything source=initial.
 
-Grouping: within each class the 8 parents are split 6 train / 1 validation / 1 test by seed, and every frame,
-crop and minimised version of one parent stays in that parent's group. The split is written here, once.
+Legality of a centre is decided by geometry, not by coordination number:
+  * the atom is exposed (surface_atoms rule), connected to the substrate through the neighbour graph (no
+    detached atom or cluster), and has no contact < 2.5 A;
+  * CN is recorded and used for STRATIFIED sampling (cn <= 5 adatom/kink, 6-7 edge, 8-9 terrace, >= 10), so
+    low-coordinated environments are sampled deliberately instead of being excluded;
+  * a centre with no SOAP neighbour at cosine > 0.98 in the pool is flagged rare, not deleted; the geometry
+    checks above decide whether it is an error or a rare environment.
 
-SOAP (dscribe), fixed for selection only, not model hyperparameters:
-    species Au, periodic True with pbc (T, T, F), r_cut 6 A, n_max 8, l_max 6, sigma 0.3 A, average off.
+Per-frame subsampling keeps every low-CN exposed atom and a random subset of the rest (seeded by the parent's
+build seed and the step). Selection is farthest-point in SOAP space within each (class, split, CN stratum)
+bucket, seeded by the most novel candidate against the 52 selected old geometries. Novelty rewards new
+environments; it never selects by any expected response. The 10 A context (relief, levels, under-coordinated
+count, step density) is carried along for the second-layer stratification in finalize_200.py.
 
-Input is the MD trajectory of each parent (traj.lammpstrj) when it exists; otherwise the parent's initial
-structure is used as a single frame so the pipeline can be exercised before the MD has run. The output is a
-list of 800-1200 centres for the extraction step to try; the final 200 are chosen only after reconstruction,
-when diversity is re-checked on what actually survived repair.
+SOAP (dscribe), fixed for selection only: species Au, periodic, pbc (T,T,F), r_cut 6, n_max 8, l_max 6, sigma 0.3.
 
-Usage (from Au_Cl/):  env PYTHONPATH=rough_sampling_v1/env/pylib:.pyshim <python> rough_sampling_v1/select_centres.py
-                      [--n 1000] [--frames-per-parent 8]
-Output: rough_sampling_v1/centres/centres.jsonl, centres_summary.md, parent_split.json, old_reference_soap.npz
+Usage (from Au_Cl/):  rough_sampling_v1/pyrun_rs.sh rough_sampling_v1/select_centres.py [--n 1000] [--out centres]
+                      [--test-initial]  [--per-frame 60]
+Output: <out>/centres.jsonl, centres_summary.md, parent_split.json, frames_used.json, rejects.json, old_reference_soap.npz
 """
 import argparse
 import collections
@@ -33,27 +37,64 @@ from ase.io import read
 
 ROOT = "/anvil/scratch/x-rywang/Au_Cl"
 R = f"{ROOT}/rough_sampling_v1"
-sys.path.insert(0, f"{ROOT}/scripts")
+sys.path.insert(0, f"{ROOT}/scripts"); sys.path.insert(0, R)
 from analysis_spatial import CN_CUT  # noqa: E402   (the same coordination cutoff as the region analysis)
+import trajio  # noqa: E402
 
 SOAP_KW = dict(species=["Au"], periodic=True, r_cut=6.0, n_max=8, l_max=6, sigma=0.3, average="off")
 CONTEXT_R = 10.0        # A; the larger neighbourhood used for the context descriptor
 A0 = 4.158
 D111 = A0 / np.sqrt(3)
-OUT = "centres"         # output folder under rough_sampling_v1 (overridden by --out for test runs)
+MIN_CONTACT = 2.5
+OUT = "centres"
+# 300 K frames only: late in the initial hold, and spread over the final hold after the 600 K excursion
+FRAME_TIMES_PS = [10.0, 20.0, 165.0, 172.0, 179.0, 186.0, 193.0, 199.0]
+STRATA = [("cn<=5", 0, 5), ("cn6-7", 6, 7), ("cn8-9", 8, 9), ("cn>=10", 10, 99)]
 
 
-def coordination(at, rcut=CN_CUT):
-    """Neighbour count within rcut, in-plane minimum image, in chunks (4600-atom frames would otherwise need
-    a 500 MB temporary per image shift)."""
-    P = at.get_positions(); cell = at.get_cell().array; n = len(P); cn = np.zeros(n, int)
+def stratum(cn):
+    for name, lo, hi in STRATA:
+        if lo <= cn <= hi: return name
+    return STRATA[-1][0]
+
+
+def pair_blocks(P, cell, rcut, fn):
+    """Apply fn(a0, d_block) to chunked minimum-image distance blocks (9 in-plane images) without the N^2 temporary."""
+    n = len(P)
     for si in (-1, 0, 1):
         for sj in (-1, 0, 1):
             sh = si * cell[0] + sj * cell[1]
             for a in range(0, n, 512):
                 d = np.linalg.norm(P[a:a + 512, None, :] - (P[None, :, :] + sh), axis=-1)
-                cn[a:a + 512] += ((d < rcut) & (d > 0.1)).sum(1)
-    return cn
+                if si == 0 and sj == 0: d[np.arange(d.shape[0]), np.arange(a, a + d.shape[0])] = np.inf   # the self term only
+                fn(a, d)
+
+
+def neighbour_graph(at, rcut=CN_CUT):
+    """cn per atom, min distance per atom, and the adjacency lists within rcut (in-plane minimum image)."""
+    P = at.get_positions(); cell = at.get_cell().array; n = len(P)
+    cn = np.zeros(n, int); dmin = np.full(n, np.inf); adj = [[] for _ in range(n)]
+
+    def fn(a, d):
+        m = d < rcut
+        cn[a:a + d.shape[0]] += m.sum(1); dmin[a:a + d.shape[0]] = np.minimum(dmin[a:a + d.shape[0]], d.min(1))
+        for i, j in zip(*np.nonzero(m)): adj[a + i].append(int(j))
+    pair_blocks(P, cell, rcut, fn)
+    return cn, dmin, adj
+
+
+def connected_to_substrate(adj, roots):
+    """Boolean mask: reachable from any root (the fixed bottom atoms) through the neighbour graph."""
+    seen = np.zeros(len(adj), bool); stack = list(roots); seen[list(roots)] = True
+    while stack:
+        i = stack.pop()
+        for j in adj[i]:
+            if not seen[j]: seen[j] = True; stack.append(j)
+    return seen
+
+
+def coordination(at, rcut=CN_CUT):
+    return neighbour_graph(at, rcut)[0]
 
 
 def surface_atoms(at):
@@ -73,11 +114,10 @@ def surface_atoms(at):
     return cand[n_above < 3]
 
 
-def context(at, idx, surf):
+def context(at, idx, surf, cn):
     """Per-centre larger-neighbourhood descriptor: relief, under-coordinated count and level count within
     CONTEXT_R in-plane, over surface atoms only."""
     pos = at.get_positions(); cell = at.get_cell().array
-    cn = coordination(at)
     P = pos[surf]
     out = []
     for i in idx:
@@ -88,7 +128,7 @@ def context(at, idx, surf):
                 best = np.minimum(best, np.linalg.norm(P[:, :2] + sh - pos[i, :2], axis=1))
         m = best < CONTEXT_R
         z = P[m, 2]
-        out.append(dict(cn=int(cn[i]), n_surface_in_10A=int(m.sum()), relief_10A=float(np.ptp(z)) if m.any() else 0.0,
+        out.append(dict(cn=int(cn[i]), cn_stratum=stratum(int(cn[i])), n_surface_in_10A=int(m.sum()), relief_10A=float(np.ptp(z)) if m.any() else 0.0,
                         n_levels_10A=int(len(np.unique(np.round(z / D111)))),
                         n_under_10A=int((cn[surf[m]] <= 8).sum()), step_density_10A=float((cn[surf[m]] <= 8).mean()) if m.any() else 0.0))
     return out
@@ -98,28 +138,6 @@ def soap_of(at, idx):
     from dscribe.descriptors import SOAP
     a = at.copy(); a.set_pbc((True, True, False))
     return SOAP(**SOAP_KW).create(a, centers=list(idx))
-
-
-# Frames taken from each 200 ps trajectory (one frame per ps; frame k = k ps). Only the 300 K segments are sampled:
-# two frames late in the initial 300 K hold and six spread over the final 300 K hold (160-200 ps, after the
-# 600 K excursion and the ramp down). The 600 K segment is the exploration that produces the morphology; its
-# hot frames are not sampled, so thermal disorder stays at the 300 K level in everything that reaches DFT.
-FRAMES_300K = [10, 20, 165, 172, 179, 186, 193, 199]
-
-
-def frames_for(pid, n_frames, frames=None):
-    d = f"{R}/md/{pid}"
-    tr = f"{d}/traj.lammpstrj"
-    if os.path.exists(tr):
-        fr = read(tr, index=":", format="lammps-dump-text")
-        # restore species and periodicity
-        for f in fr: f.set_chemical_symbols(["Au"] * len(f)); f.set_pbc((True, True, False))
-        want = frames if frames is not None else FRAMES_300K
-        pick = [k for k in want if k < len(fr)][:n_frames]
-        if len(pick) < min(n_frames, len(fr)) // 2:         # short / incomplete trajectory: fall back to an even spread
-            pick = np.linspace(0, len(fr) - 1, min(n_frames, len(fr))).astype(int).tolist()
-        return [(int(k), fr[k]) for k in pick], "md"
-    return [(0, read(f"{R}/parents/{pid}.extxyz"))], "initial"
 
 
 def old_reference():
@@ -139,14 +157,36 @@ def old_reference():
     X = np.vstack(X); os.makedirs(os.path.dirname(p), exist_ok=True); np.savez_compressed(p, X=X); return X
 
 
+def frames_for(pid, test_initial):
+    if test_initial:
+        return [(0, 0.0, float("nan"), read(f"{R}/parents/{pid}.extxyz"))], "initial"
+    return trajio.frames_at(pid, FRAME_TIMES_PS), "md"
+
+
+def allocate(q, sizes):
+    """Split quota q over strata proportionally to sqrt(size), at least 1 for a non-empty stratum, never above size."""
+    names = [k for k, v in sizes.items() if v > 0]
+    if not names: return {}
+    w = np.sqrt(np.array([sizes[k] for k in names], float)); raw = q * w / w.sum()
+    alloc = {k: max(1, int(np.floor(r))) if q >= len(names) else 0 for k, r in zip(names, raw)}
+    alloc = {k: min(v, sizes[k]) for k, v in alloc.items()}
+    # distribute the remainder to the strata with the largest fractional parts that still have room
+    order = sorted(names, key=lambda k: -(raw[names.index(k)] - np.floor(raw[names.index(k)])))
+    while sum(alloc.values()) < min(q, sum(sizes.values())):
+        progressed = False
+        for k in order:
+            if alloc[k] < sizes[k] and sum(alloc.values()) < q: alloc[k] += 1; progressed = True
+        if not progressed: break
+    return alloc
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--n", type=int, default=1000); ap.add_argument("--frames-per-parent", type=int, default=8)
+    ap.add_argument("--n", type=int, default=1000); ap.add_argument("--per-frame", type=int, default=60)
     ap.add_argument("--out", default="centres", help="output folder under rough_sampling_v1")
-    ap.add_argument("--frames", type=int, nargs="*", default=None, help=f"frame indices to sample (default {FRAMES_300K})")
+    ap.add_argument("--test-initial", action="store_true", help="TEST MODE: use the initial parents, not MD frames")
     a = ap.parse_args()
     global OUT; OUT = a.out
-    frames_used = {}
     os.makedirs(f"{R}/{OUT}", exist_ok=True)
     M = json.load(open(f"{R}/parents/parents_manifest.json"))
     # split by seed within each class: 6 train / 1 val / 1 test, fixed once
@@ -156,66 +196,86 @@ def main():
         for k, pid in enumerate(ps): split[pid] = "test" if k == len(ps) - 1 else "val" if k == len(ps) - 2 else "train"
     json.dump(split, open(f"{R}/{OUT}/parent_split.json", "w"), indent=1)
 
-    Xref = old_reference(); nref = np.linalg.norm(Xref, axis=1, keepdims=True); Uref = Xref / np.maximum(nref, 1e-12)
+    # production mode: every run must be complete BEFORE anything is sampled
+    if not a.test_initial:
+        bad = [(m["parent_id"], trajio.run_complete(m["parent_id"])[1]) for m in M if not trajio.run_complete(m["parent_id"])[0]]
+        if bad:
+            for pid, why in bad: print(f"INCOMPLETE {pid}: {why}")
+            sys.exit(f"{len(bad)} of {len(M)} parents incomplete; nothing selected (no fallback in production mode)")
+
+    Xref = old_reference(); Uref = Xref / np.maximum(np.linalg.norm(Xref, axis=1, keepdims=True), 1e-12)
     cands, X = [], []
-    src_kind = collections.Counter()
+    frames_used = {}; rejects = collections.Counter(); detached_report = {}
     for m in M:
         pid = m["parent_id"]
-        frames, kind = frames_for(pid, a.frames_per_parent, a.frames); src_kind[kind] += 1
-        frames_used[pid] = [fi for fi, _ in frames]
-        for fi, at in frames:
+        frames, kind = frames_for(pid, a.test_initial)
+        frames_used[pid] = [dict(step=s, time_ps=t, T_K=T) for s, t, T, _ in frames]
+        for step, t_ps, T, at in frames:
+            cn, dmin, adj = neighbour_graph(at)
+            fixed = np.flatnonzero(at.get_array("fixed").astype(bool)) if "fixed" in at.arrays else np.flatnonzero(at.get_positions()[:, 2] < at.get_positions()[:, 2].min() + 1.5 * D111)
+            conn = connected_to_substrate(adj, fixed)
+            n_det = int((~conn).sum())
+            if n_det: detached_report[f"{pid}@{step}"] = n_det
             surf = surface_atoms(at)
+            legal = conn[surf] & (dmin[surf] >= MIN_CONTACT)
+            rejects["detached"] += int((~conn[surf]).sum()); rejects["close_contact"] += int((dmin[surf] < MIN_CONTACT).sum())
+            surf = surf[legal]
             if len(surf) == 0: continue
-            # subsample surface atoms per frame so one big frame cannot flood the pool; the seed is the
-            # parent's build seed and the frame index, so a re-run gives the same pool (str hashes would not)
-            rng = np.random.default_rng([int(m["seed"]), int(fi), 7919])
-            idx = rng.choice(surf, size=min(120, len(surf)), replace=False)
-            Xs = soap_of(at, idx); ctx = context(at, idx, surf)
+            # subsample: keep every low-CN exposed atom, random subset of the rest
+            rng = np.random.default_rng([int(m["seed"]), int(step), 7919])
+            low = surf[cn[surf] <= 5]; rest = surf[cn[surf] > 5]
+            k_rest = max(0, a.per_frame - len(low))
+            idx = np.concatenate([low, rng.choice(rest, size=min(k_rest, len(rest)), replace=False) if k_rest and len(rest) else np.array([], int)]).astype(int)
+            Xs = soap_of(at, idx); ctx = context(at, idx, surf, cn)
             U = Xs / np.maximum(np.linalg.norm(Xs, axis=1, keepdims=True), 1e-12)
-            novelty = 1.0 - (U @ Uref.T).max(axis=1)          # 1 - max cosine similarity to any old surface atom
+            novelty = 1.0 - (U @ Uref.T).max(axis=1)
             for k, i in enumerate(idx):
-                cands.append(dict(parent_id=pid, cls=m["cls"], split=split[pid], frame=fi, source=kind, atom=int(i),
-                                  novelty_vs_old=float(novelty[k]), **ctx[k]))
+                cands.append(dict(parent_id=pid, cls=m["cls"], split=split[pid], step=int(step), time_ps=t_ps, T_K=T, source=kind, atom=int(i),
+                                  novelty_vs_old=float(novelty[k]), min_dist_A=float(dmin[i]), **ctx[k]))
                 X.append(Xs[k])
     X = np.vstack(X); U = X / np.maximum(np.linalg.norm(X, axis=1, keepdims=True), 1e-12)
-    # guard (a): no isolated anomalies -- each candidate needs a neighbour within the pool at cosine > 0.98
-    sim_nn = np.array([np.sort(U[i] @ U.T)[-2] for i in range(len(U))])
-    ok = sim_nn > 0.98
-    # guard (c)-adjacent sanity: coordination of a centre must be a surface value
-    ok &= np.array([5 <= c["cn"] <= 11 for c in cands])
-    pool = np.flatnonzero(ok)
-    # farthest-point under a class x split cover: quota 1/4 per class, within class 6:1:1 by parent count
-    quota = {}
+    # rare-environment flag: no other candidate at cosine > 0.98 (computed in chunks); flagged, never deleted
+    sim_nn = np.empty(len(U))
+    for a0 in range(0, len(U), 2048):
+        S = U[a0:a0 + 2048] @ U.T; S[np.arange(S.shape[0]), np.arange(a0, a0 + S.shape[0])] = -1; sim_nn[a0:a0 + 2048] = S.max(1)
+    for c, s in zip(cands, sim_nn): c["rare_flag"] = bool(s <= 0.98); c["nn_cosine_in_pool"] = float(s)
+    pool = np.arange(len(cands))
+    # quotas: 1/4 per class, 6:1:1 by split, then CN strata proportional to sqrt(size)
+    chosen = []
     for cls in "ABCD":
         for sp, frac in (("train", 6 / 8), ("val", 1 / 8), ("test", 1 / 8)):
-            quota[(cls, sp)] = int(round(a.n / 4 * frac))
-    chosen = []
-    for key, q in quota.items():
-        sub = [i for i in pool if (cands[i]["cls"], cands[i]["split"]) == key]
-        if not sub: continue
-        # seed with the most novel, then farthest-point in SOAP space (cosine distance)
-        order = [max(sub, key=lambda i: cands[i]["novelty_vs_old"])]
-        dmin = 1.0 - U[sub] @ U[order[0]]
-        while len(order) < min(q, len(sub)):
-            j = sub[int(np.argmax(dmin))]
-            order.append(j); dmin = np.minimum(dmin, 1.0 - U[sub] @ U[j])
-        chosen += order
+            q = int(round(a.n / 4 * frac))
+            sub = [i for i in pool if (cands[i]["cls"], cands[i]["split"]) == (cls, sp)]
+            sizes = {s[0]: sum(cands[i]["cn_stratum"] == s[0] for i in sub) for s in STRATA}
+            for st, qs in allocate(q, sizes).items():
+                ss = [i for i in sub if cands[i]["cn_stratum"] == st]
+                if not ss or qs <= 0: continue
+                order = [max(ss, key=lambda i: cands[i]["novelty_vs_old"])]
+                dmin_ = 1.0 - U[ss] @ U[order[0]]
+                while len(order) < min(qs, len(ss)):
+                    j = ss[int(np.argmax(dmin_))]; order.append(j); dmin_ = np.minimum(dmin_, 1.0 - U[ss] @ U[j])
+                chosen += order
     with open(f"{R}/{OUT}/centres.jsonl", "w") as f:
         for i in chosen: f.write(json.dumps(dict(cands[i], candidate_index=int(i))) + "\n")
+    json.dump(dict(mode="initial (TEST)" if a.test_initial else "md", frame_times_ps=FRAME_TIMES_PS, frames_used=frames_used,
+                   detached_atoms_per_frame=detached_report), open(f"{R}/{OUT}/frames_used.json", "w"), indent=1)
+    json.dump(dict(rejected_surface_atoms=dict(rejects), n_candidates=len(cands), n_rare_flagged=int(sum(c["rare_flag"] for c in cands)),
+                   n_rare_chosen=int(sum(cands[i]["rare_flag"] for i in chosen))), open(f"{R}/{OUT}/rejects.json", "w"), indent=1)
     # summary
     by = collections.Counter((cands[i]["cls"], cands[i]["split"]) for i in chosen)
+    bystr = collections.Counter(cands[i]["cn_stratum"] for i in chosen); poolstr = collections.Counter(c["cn_stratum"] for c in cands)
     nov = np.array([cands[i]["novelty_vs_old"] for i in chosen])
-    json.dump(dict(frames_used=frames_used, rule="300 K segments only; see FRAMES_300K"), open(f"{R}/{OUT}/frames_used.json", "w"), indent=1)
-    L = [f"# Candidate centres", "", f"{len(chosen)} centres from a pool of {len(pool)} (of {len(cands)} surface atoms sampled; "
-         f"{int((~ok).sum())} removed as isolated or non-surface). Sources: {dict(src_kind)}; frames per parent: "
-         f"{sorted({tuple(v) for v in frames_used.values()})[0] if frames_used else '-'}.", "",
+    L = [f"# Candidate centres ({'TEST on initial parents' if a.test_initial else 'MD frames'})", "",
+         f"{len(chosen)} centres from a pool of {len(cands)} legal exposed atoms sampled on {sum(len(v) for v in frames_used.values())} frames "
+         f"({len(frames_used)} parents x {FRAME_TIMES_PS if not a.test_initial else 'initial'}). Surface atoms rejected before sampling: {dict(rejects)}. "
+         f"Rare-flagged (no pool neighbour at cosine > 0.98): {sum(c['rare_flag'] for c in cands)} in pool, {sum(cands[i]['rare_flag'] for i in chosen)} chosen (kept: geometry legal).", "",
          "| class | train | val | test |", "|---|---|---|---|"]
     for cls in "ABCD": L.append(f"| {cls} | {by[(cls,'train')]} | {by[(cls,'val')]} | {by[(cls,'test')]} |")
-    L += ["", f"Novelty vs the 52 old geometries (1 - max cosine): median {np.median(nov):.4f}, "
-          f"10th-90th pct {np.percentile(nov,10):.4f}-{np.percentile(nov,90):.4f}.",
-          "Context (within 10 A): " + ", ".join(f"{k} median {np.median([cands[i][k] for i in chosen]):.2f}"
-                                               for k in ("cn", "relief_10A", "n_under_10A", "n_levels_10A")), "",
-          "These are candidates for extraction; the final 200 are fixed only after repair, when diversity is re-checked."]
+    L += ["", "| CN stratum | in pool | chosen |", "|---|---|---|"] + [f"| {s[0]} | {poolstr[s[0]]} | {bystr[s[0]]} |" for s in STRATA]
+    L += ["", f"Novelty vs the 52 old geometries (1 - max cosine): median {np.median(nov):.4f}, 10th-90th pct {np.percentile(nov,10):.4f}-{np.percentile(nov,90):.4f}.",
+          "Context (within 10 A), medians over chosen: " + ", ".join(f"{k} {np.median([cands[i][k] for i in chosen]):.2f}" for k in ("cn", "relief_10A", "n_under_10A", "n_levels_10A")),
+          f"Detached atoms seen (parent@step: count): {detached_report if detached_report else 'none'}", "",
+          "These are candidates for extraction; the final list is fixed only after repair, with the second-layer (whole-cell) stratification."]
     open(f"{R}/{OUT}/centres_summary.md", "w").write("\n".join(L) + "\n"); print("\n".join(L))
 
 
