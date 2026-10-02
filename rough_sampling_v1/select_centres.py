@@ -99,9 +99,11 @@ def coordination(at, rcut=CN_CUT):
 
 def surface_atoms(at):
     """Un-buried atoms of the upper surface: fewer than three higher neighbours within 2.35 A laterally, the
-    same rule the gallery and the region analysis use."""
+    same rule the gallery and the region analysis use. Candidates are ALL atoms above the two fixed layers (not
+    only the top three levels): with multi-level protrusions the exposed valley floor or lower terrace can lie
+    four or more levels below the highest atom."""
     pos = at.get_positions(); cell = at.get_cell().array
-    zt = pos[:, 2].max(); cand = np.flatnonzero(pos[:, 2] > zt - 3 * D111)     # only the top three levels can be exposed
+    cand = np.flatnonzero(pos[:, 2] > pos[:, 2].min() + 1.5 * D111)
     n_above = np.zeros(len(cand), int)
     P = pos[cand]
     for si in (-1, 0, 1):

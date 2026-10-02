@@ -293,15 +293,33 @@ write_data min.data
     return r
 
 
-def extract_one(parent, centre_atom, cid, repair=True, sizes=CELLS, first_only=True):
+REASON_CODES = [("core distorted", "core_distorted"), ("neighbourhood changed", "core_neighbourhood_changed"),
+                ("core atom missing", "protected_atoms_do_not_fit"), ("created by the seam", "seam_contact_unrepaired"),
+                ("thermal contact", "inherited_contact_below_floor"), ("not connected", "substrate_disconnected"),
+                ("< 3 neighbours", "floating_atoms"), ("bottom layer incomplete", "bottom_incomplete"),
+                ("exposed atom in layer", "pit_deeper_than_one_layer"), ("seam created environments", "seam_new_environment"),
+                ("periodic representation", "periodic_mapping_failed")]
+
+
+def reason_code(problem):
+    for key, code in REASON_CODES:
+        if key in problem: return code
+    return "other"
+
+
+def extract_one(parent, centre_atom, cid, repair=True, sizes=CELLS, first_only=True, protected=None):
     """Returns ([(size, Atoms, info), ...] for the sizes that passed, trial log). With first_only the smaller
-    cell is taken as soon as it passes; otherwise every size is tried (test centres, for size pairs)."""
+    cell is taken as soon as it passes; otherwise every size is tried (test centres, for size pairs).
+    `protected` = extra parent atom ids that must be carried over exactly, in addition to the centre's 6 A
+    neighbourhood (a declared target environment: both walls of a valley, both steps, an island's upper edge...).
+    Origins for which the protected set does not fit or is distorted are logged with stage 'core'."""
     a1, a2, cellp = lattice(parent)
     off = boundary_offset(parent, a1, a2)
     Pp = parent.get_positions()
     if "env" not in parent.info: parent.info["env"] = parent_environment(parent)     # once per frame
     cn_parent = parent.info["env"]
-    core_ids, _ = neighbours(parent, centre_atom, R_CORE); core_ids = np.append(core_ids, centre_atom)
+    core_ids, _ = neighbours(parent, centre_atom, R_CORE)
+    core_ids = np.unique(np.r_[core_ids, [centre_atom], np.asarray(protected if protected is not None else [], int)])
     cxy = Pp[centre_atom, :2]
     log = []; passed = []
     for (n1, n2) in sizes:
@@ -314,7 +332,8 @@ def extract_one(parent, centre_atom, cid, repair=True, sizes=CELLS, first_only=T
                 oij = base_ij + np.array([di, dj])
                 sub = cut(parent, cxy, n1, n2, oij, a1, a2, cellp, off)
                 ok, why = core_ok(parent, sub, core_ids, centre_atom)
-                if not ok: continue
+                if not ok:
+                    log.append(dict(cell=f"{n1}x{n2}", origin=tuple(int(x) for x in oij), seam_score=None, problems=[f"core: {why}"], invariant=None, repair="", stage="core")); continue
                 trials.append((seam_mismatch(sub, n1, n2), tuple(int(x) for x in oij), sub))
         trials.sort(key=lambda t: t[0])
         for score, oij, sub in trials[:5]:

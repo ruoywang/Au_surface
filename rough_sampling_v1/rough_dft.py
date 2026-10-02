@@ -203,7 +203,7 @@ def evaluate(t, active):
 def status(args):
     q = load_queue(); active = squeue_mine(); changed = 0
     for t in q:
-        if t["status"] == "withdrawn": continue                                   # replaced before the freeze; never evaluated
+        if t["status"] in ("withdrawn", "held_for_resize"): continue              # replaced before the freeze / held for the 6x6 re-cut; never evaluated
         if t["status"] in ("complete", "failed") and not args.recheck: continue
         st, note = evaluate(t, active)
         if st != t["status"] or note != t.get("note"):
@@ -212,7 +212,7 @@ def status(args):
     c = collections.Counter(t["status"] for t in q)
     print("queue:", dict(c), f"({changed} updated)")
     for t in q:
-        if t["status"] not in ("pending", "complete", "withdrawn"): print(f"  {t['status']:15s} {t['task_id']:50s} job={t['job_id']} {t.get('note', '')[:110]}")
+        if t["status"] not in ("pending", "complete", "withdrawn", "held_for_resize"): print(f"  {t['status']:15s} {t['task_id']:50s} job={t['job_id']} {t.get('note', '')[:110]}")
 
 
 def pick_first(q, n):

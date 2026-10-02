@@ -56,10 +56,14 @@ def sha256(path):
     return h.hexdigest()
 
 
+PARENTS_DIR = f"{R}/parents"
+MD_DIR = f"{R}/md"
+
+
 def write_inputs(pid, seed, steps_override=None, outdir=None):
-    at = read(f"{R}/parents/{pid}.extxyz")
+    at = read(f"{PARENTS_DIR}/{pid}.extxyz")
     fixed = at.get_array("fixed").astype(bool)
-    d = outdir or f"{R}/md/{pid}"; os.makedirs(d, exist_ok=True)
+    d = outdir or f"{MD_DIR}/{pid}"; os.makedirs(d, exist_ok=True)
     # one atom type (pair_style flare maps types to species); the frozen bottom two layers are an id group
     write_data(at, f"{d}/data.lammps", comment=f"{pid}: 32x32x4 Au(111) parent, {int(fixed.sum())} frozen atoms selected by id in in.lammps")
 
@@ -101,8 +105,13 @@ def main():
     ap.add_argument("--slurm", action="store_true"); ap.add_argument("--outdir", default=None)
     ap.add_argument("--np", type=int, default=32, help="MPI ranks per run in the SLURM scripts")
     ap.add_argument("--walltime", default="12:00:00")
+    ap.add_argument("--parents-dir", default=None, help="parents folder with parents_manifest.json (default rough_sampling_v1/parents)")
+    ap.add_argument("--md-dir", default=None, help="where md/<pid>/ are written (default rough_sampling_v1/md)")
     a = ap.parse_args()
-    M = json.load(open(f"{R}/parents/parents_manifest.json"))
+    global PARENTS_DIR, MD_DIR
+    if a.parents_dir: PARENTS_DIR = a.parents_dir
+    if a.md_dir: MD_DIR = a.md_dir
+    M = json.load(open(f"{PARENTS_DIR}/parents_manifest.json"))
     rows = []
     for m in M:
         if a.only and m["parent_id"] != a.only: continue
@@ -119,8 +128,8 @@ def main():
                 f"export LD_LIBRARY_PATH={MPILIB}:$LD_LIBRARY_PATH\ncd {r['dir']}\n"
                 f"{MPIRUN} -np {a.np} {LMP} -in in.lammps -log log.lammps > stdout.txt 2>&1\n")
     if a.outdir is None:
-        os.makedirs(f"{R}/md", exist_ok=True)
-        json.dump(info, open(f"{R}/md/md_manifest.json", "w"), indent=1)
+        os.makedirs(MD_DIR, exist_ok=True)
+        json.dump(info, open(f"{MD_DIR}/md_manifest.json", "w"), indent=1)
     print(f"{len(rows)} input sets written under {R}/md/  (protocol {sum(s[3] for s in SEGMENTS):.0f} ps, "
           f"{int(sum(s[3] for s in SEGMENTS)/DT_PS)} steps each)")
 

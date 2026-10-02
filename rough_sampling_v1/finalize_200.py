@@ -79,26 +79,35 @@ def registration(at, n1, n2):
     return f, lay, f0, delta
 
 
+MAX_LEVEL = 8          # layers 0..MAX_LEVEL are registered (the four-layer base plus up to four upper levels)
+
+
 def registered_grids(at, n1, n2, tol=REG_TOL):
-    """Site-occupancy grids of layers 2, 3, 4 (True = a registered atom on that site), the number of unregistered
-    atoms, and the atom count per layer."""
+    """Site-occupancy grids of every layer from 2 up to the highest present (True = a registered atom on that
+    site), the number of unregistered atoms, and the atom count per layer. Layers above the four-layer base are
+    registered on the same frozen-layer basis (f0 + L*delta), so two structures that differ only by an extra
+    level on top get different fingerprints."""
     f, lay, f0, delta = registration(at, n1, n2)
     grids, unreg, counts = {}, 0, {}
-    for L in (2, 3, 4):
+    for L in range(2, min(int(lay.max()), MAX_LEVEL) + 1):
         g = np.zeros((n1, n2), bool); m = lay == L; counts[L] = int(m.sum())
         if m.any():
             r = f[m] - (f0 + L * delta); k = np.round(r); res = np.abs(r - k).max(1); ok = res <= tol
             unreg += int((~ok).sum()); idx = k[ok].astype(int); g[idx[:, 0] % n1, idx[:, 1] % n2] = True
         grids[L] = g
+    for L in (3, 4):
+        grids.setdefault(L, np.zeros((n1, n2), bool)); counts.setdefault(L, 0)
     return grids, unreg, counts
 
 
 def all_rolls(grids):
-    g3, g4 = grids[3], grids[4]; n1, n2 = g3.shape
-    out = np.zeros((n1 * n2, 2 * n1 * n2), bool); k = 0
+    """Every in-plane translation of the stacked occupancy grids of layers 3..Lmax (layer 2 is complete by the
+    one-layer-pit rule). Fixed width per layer count, so cells with different numbers of levels never compare equal."""
+    levels = sorted(L for L in grids if L >= 3); n1, n2 = grids[levels[0]].shape
+    out = np.zeros((n1 * n2, len(levels) * n1 * n2), bool); k = 0
     for di in range(n1):
         for dj in range(n2):
-            out[k] = np.concatenate([np.roll(g3, (di, dj), (0, 1)).ravel(), np.roll(g4, (di, dj), (0, 1)).ravel()]); k += 1
+            out[k] = np.concatenate([np.roll(grids[L], (di, dj), (0, 1)).ravel() for L in levels]); k += 1
     return out
 
 
@@ -147,6 +156,8 @@ def morphology(at, n1, n2):
     return {"f_cn<=5": float((s_cn <= 5).mean()), "f_cn6-7": float(((s_cn >= 6) & (s_cn <= 7)).mean()), "f_cn8-9": float(((s_cn >= 8) & (s_cn <= 9)).mean()),
             "f_cn>=10": float((s_cn >= 10).mean()), "relief_layers": float(np.ptp(z) / D111), "n_levels": int(len(np.unique(np.round(z / D111)))),
             "adatom_level_ML": float(counts[4] / sites),
+            "upper_levels_ML": float(sum(v for L, v in counts.items() if L >= 5) / sites),       # second and higher levels above the terrace
+            "n_levels_above_terrace": int(sum(1 for L, v in counts.items() if L >= 4 and v > 0)),
             "layer3_deficit": float(1 - counts[3] / sites),                       # count-based; negative when mid-hop atoms are counted in layer 3
             "terrace_vacancy_ML": float(1 - grids[3].sum() / sites),              # true unoccupied layer-3 sites
             "exposed_pit_ML": float(((lay == 2) & np.isin(np.arange(len(at)), surf)).sum() / sites), "n_islands": len(isl),
@@ -198,7 +209,8 @@ def main(args):
         idx = sorted(idx, key=lambda i: -novelty[i]); kept = []
         for i in idx:
             pat = rolls[i][0]
-            dup = next((j for j in kept if abs(ok[i]["n_atoms"] - ok[j]["n_atoms"]) <= DEDUP_SITES and min_hamming(rolls[j], pat) <= DEDUP_SITES), None)
+            dup = next((j for j in kept if abs(ok[i]["n_atoms"] - ok[j]["n_atoms"]) <= DEDUP_SITES and rolls[j].shape[1] == len(pat)
+                        and min_hamming(rolls[j], pat) <= DEDUP_SITES), None)
             if dup is None: kept.append(i)
             else: dropped[ok[i]["cell_id"]] = ok[dup]["cell_id"]
     too_seamy = {r["cell_id"] for r in ok if r.get("stats", {}).get("n_seam_affected", 0) > args.max_seam}

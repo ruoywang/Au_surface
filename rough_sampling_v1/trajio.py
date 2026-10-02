@@ -20,6 +20,7 @@ from md_driver import SEGMENTS, DT_PS  # noqa: E402
 TOTAL_PS = sum(s[3] for s in SEGMENTS)
 TOTAL_STEPS = int(round(TOTAL_PS / DT_PS))
 T_TOL = 50.0
+MD_DIR = f"{R}/md"          # overridable by test drivers (size_complex_test_v1 keeps its own md/)
 
 
 class TrajError(RuntimeError):
@@ -64,7 +65,7 @@ def thermo_table(log_path):
 
 def run_complete(pid):
     """(ok, why): the run printed its DONE line for the full protocol and the dump holds the last step."""
-    d = f"{R}/md/{pid}"
+    d = f"{MD_DIR}/{pid}"
     so = f"{d}/stdout.txt"; tr = f"{d}/traj.lammpstrj"
     if not os.path.exists(tr): return False, "no trajectory"
     if not (os.path.exists(so) and re.search(rf"^DONE {re.escape(pid)} total_ps {TOTAL_PS:.0f}\b", open(so).read(), re.M)):
@@ -77,7 +78,7 @@ def run_complete(pid):
 def frames_at(pid, times_ps, require_300K=True):
     """Frames of parent pid at the requested times, each as (step, time_ps, T_K, Atoms). Raises TrajError naming
     the parent and the missing or off-stage time; never falls back."""
-    d = f"{R}/md/{pid}"; tr = f"{d}/traj.lammpstrj"
+    d = f"{MD_DIR}/{pid}"; tr = f"{d}/traj.lammpstrj"
     ok, why = run_complete(pid)
     if not ok: raise TrajError(f"{pid}: run incomplete ({why})")
     steps = dump_steps(tr); pos = {s: k for k, s in enumerate(steps)}
@@ -99,7 +100,7 @@ def frames_at(pid, times_ps, require_300K=True):
 
 def frame_by_step(pid, step):
     """One frame by TIMESTEP (for the cut and the figures)."""
-    tr = f"{R}/md/{pid}/traj.lammpstrj"
+    tr = f"{MD_DIR}/{pid}/traj.lammpstrj"
     steps = dump_steps(tr)
     if step not in steps: raise TrajError(f"{pid}: step {step} not in dump")
     at = read(tr, index=steps.index(step), format="lammps-dump-text")

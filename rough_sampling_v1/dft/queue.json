@@ -45,7 +45,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3785.151,
   "walltime_min": 2280,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -55,9 +55,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s51_f010000_a4064_8x8__rough__mu-4.6471",
@@ -75,7 +79,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3080.9208,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -85,9 +89,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s51_f082500_a3576_10x8__rough__mu-5.0771",
@@ -135,7 +143,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3793.8108,
   "walltime_min": 2280,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -145,9 +153,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s51_f005000_a4211_8x8__rough__mu-4.6971",
@@ -165,7 +177,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3201.7475,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -175,9 +187,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s51_f010000_a4400_8x8__rough__mu-4.4871",
@@ -195,7 +211,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3301.4755,
   "walltime_min": 1860,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -205,9 +221,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s51_f082500_a3099_8x8__rough__mu-4.5471",
@@ -225,7 +245,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2938.2675,
   "walltime_min": 1560,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -235,9 +255,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s51_f096500_a4040_10x8__rough__mu-5.2171",
@@ -255,7 +279,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3606.6808,
   "walltime_min": 2160,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -265,9 +289,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s51_f096500_a4040_8x8__rough__mu-5.2171",
@@ -285,7 +313,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2902.9446,
   "walltime_min": 1560,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -295,9 +323,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s51_f005000_a2467_8x8__rough__mu-5.3471",
@@ -315,7 +347,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2374.4939,
   "walltime_min": 1140,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -325,9 +357,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s51_f010000_a2897_10x8__rough__mu-4.5871",
@@ -345,7 +381,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3422.4111,
   "walltime_min": 1980,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -355,9 +391,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s51_f082500_a3776_8x8__rough__mu-4.9171",
@@ -405,7 +445,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3333.0243,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -415,9 +455,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s51_f086000_a2769_8x8__rough__mu-4.9071",
@@ -435,7 +479,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2629.0194,
   "walltime_min": 1320,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -445,9 +489,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s51_f005000_a4565_10x8__rough__mu-4.7571",
@@ -465,8 +513,8 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3872.6743,
   "walltime_min": 2340,
-  "status": "submitted",
-  "job_id": 21015730,
+  "status": "held_for_resize",
+  "job_id": null,
   "history": [
    [
     "pending",
@@ -479,9 +527,14 @@
    [
     "submitted",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": "in queue"
+  "note": "job 21015730 cancelled while pending; held for the 6x6 re-cut (size test plan)",
+  "job_id_cancelled": 21015730
  },
  {
   "task_id": "PD2_s51_f005000_a4565_8x8__rough__mu-4.7571",
@@ -499,7 +552,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3003.5395,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -509,9 +562,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s51_f082500_a3440_8x8__rough__mu-4.6071",
@@ -529,7 +586,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3323.0595,
   "walltime_min": 1860,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -539,9 +596,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s51_f082500_a3495_8x8__rough__mu-5.0371",
@@ -559,7 +620,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3310.5687,
   "walltime_min": 1860,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -569,9 +630,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s51_f099500_a3663_8x8__rough__mu-5.2471",
@@ -589,7 +654,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2979.8406,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -599,9 +664,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s11_f005000_a4190_8x8__rough__mu-5.2971",
@@ -619,7 +688,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3265.6673,
   "walltime_min": 1860,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -629,9 +698,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s11_f005000_a4568_8x8__rough__mu-4.5571",
@@ -649,7 +722,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3059.2329,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -659,9 +732,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s11_f010000_a4116_8x8__rough__mu-4.9371",
@@ -679,7 +756,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3200.9154,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -689,9 +766,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s11_f010000_a4154_8x8__rough__mu-4.9571",
@@ -709,7 +790,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3057.8461,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -719,9 +800,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s11_f082500_a4560_8x8__rough__mu-4.7771",
@@ -739,7 +824,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3190.4701,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -749,9 +834,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s11_f089500_a3777_8x8__rough__mu-4.7971",
@@ -769,7 +858,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3080.4008,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -779,9 +868,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s11_f089500_a4346_8x8__rough__mu-5.1471",
@@ -829,7 +922,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3190.9555,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -839,9 +932,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s11_f096500_a3497_8x8__rough__mu-4.8471",
@@ -889,7 +986,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 4104.7578,
   "walltime_min": 2580,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -899,9 +996,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s23_f005000_a3455_8x8__rough__mu-5.1271",
@@ -949,7 +1050,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3178.638,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -959,9 +1060,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s23_f010000_a4304_8x8__rough__mu-5.0171",
@@ -1069,7 +1174,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3191.3715,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1079,9 +1184,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s23_f096500_a3414_8x8__rough__mu-4.8071",
@@ -1099,7 +1208,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3157.3661,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1109,9 +1218,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s23_f096500_a3530_10x8__rough__mu-4.8971",
@@ -1129,7 +1242,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3905.0676,
   "walltime_min": 2400,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1139,9 +1252,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s23_f099500_a4124_8x8__rough__mu-4.6671",
@@ -1159,7 +1276,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3069.8515,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1169,9 +1286,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s37_f099500_a3268_8x8__rough__mu-4.9871",
@@ -1189,7 +1310,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3244.7421,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1199,9 +1320,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s37_f099500_a4124_8x8__rough__mu-4.9571",
@@ -1249,7 +1374,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3047.4355,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1259,9 +1384,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s51_f005000_a4578_8x8__rough__mu-5.3871",
@@ -1279,7 +1408,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3122.3553,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1289,9 +1418,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s51_f010000_a4026_8x8__rough__mu-5.2771",
@@ -1309,7 +1442,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3012.7366,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1319,9 +1452,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s51_f082500_a3617_8x8__rough__mu-4.4871",
@@ -1355,7 +1492,7 @@
     "2026-10-02 06:21"
    ]
   ],
-  "note": "in queue"
+  "note": "kept as 8x8 reference for the size test (6x6 version of the same centre passes the geometry screen)"
  },
  {
   "task_id": "PA1_s51_f082500_a4161_8x8__rough__mu-4.4871",
@@ -1373,7 +1510,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3048.4755,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1383,9 +1520,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s51_f086000_a3690_8x8__rough__mu-4.6371",
@@ -1403,7 +1544,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3179.9555,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1413,9 +1554,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s51_f086000_a4314_8x8__rough__mu-5.2071",
@@ -1433,7 +1578,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3166.9793,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1443,9 +1588,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s51_f089500_a4318_10x8__rough__mu-5.2671",
@@ -1463,8 +1612,8 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3848.4641,
   "walltime_min": 2340,
-  "status": "submitted",
-  "job_id": 21015725,
+  "status": "held_for_resize",
+  "job_id": null,
   "history": [
    [
     "pending",
@@ -1477,9 +1626,14 @@
    [
     "submitted",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": "in queue"
+  "note": "job 21015725 cancelled after 36 min in the first SCF (3 electronic steps, no CP closure); held for the 6x6 re-cut (size test plan)",
+  "job_id_cancelled": 21015725
  },
  {
   "task_id": "PA1_s51_f093000_a4085_8x8__rough__mu-5.1471",
@@ -1497,7 +1651,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3079.1873,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1507,9 +1661,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s11_f010000_a3776_8x8__rough__mu-5.1071",
@@ -1527,7 +1685,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3365.326,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1537,9 +1695,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s11_f010000_a4422_8x8__rough__mu-5.3971",
@@ -1587,7 +1749,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3421.9208,
   "walltime_min": 1980,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1597,9 +1759,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s11_f096500_a4267_8x8__rough__mu-5.3171",
@@ -1617,7 +1783,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3496.5979,
   "walltime_min": 2040,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1627,9 +1793,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s11_f096500_a4570_8x8__rough__mu-5.4071",
@@ -1647,7 +1817,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3386.2859,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1657,9 +1827,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s23_f005000_a3536_8x8__rough__mu-5.3171",
@@ -1677,7 +1851,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3089.5979,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1687,9 +1861,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s23_f082500_a3256_8x8__rough__mu-4.4171",
@@ -1737,7 +1915,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3477.3022,
   "walltime_min": 2040,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1747,9 +1925,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s23_f093000_a4142_8x8__rough__mu-5.1971",
@@ -1767,7 +1949,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3431.014,
   "walltime_min": 1980,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1777,9 +1959,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s23_f096500_a4582_8x8__rough__mu-4.8171",
@@ -1887,7 +2073,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3047.2621,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1897,9 +2083,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s11_f082500_a3407_8x8__rough__mu-5.2771",
@@ -1917,7 +2107,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2979.7366,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1927,9 +2117,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s11_f082500_a4035_8x8__rough__mu-4.7671",
@@ -1947,7 +2141,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3025.5048,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1957,9 +2151,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s11_f086000_a3911_8x8__rough__mu-5.2871",
@@ -1977,7 +2175,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2858.702,
   "walltime_min": 1500,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -1987,9 +2185,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s23_f010000_a4171_8x8__rough__mu-4.7371",
@@ -2067,7 +2269,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3211.9154,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2077,9 +2279,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s23_f099500_a4041_8x8__rough__mu-4.5971",
@@ -2097,7 +2303,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2993.0942,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2107,9 +2313,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s37_f005000_a3081_8x8__rough__mu-5.0771",
@@ -2127,7 +2337,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2914.43,
   "walltime_min": 1560,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2137,9 +2347,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s37_f005000_a4096_8x8__rough__mu-4.8771",
@@ -2187,7 +2401,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2869.4939,
   "walltime_min": 1500,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2197,9 +2411,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s37_f093000_a2820_8x8__rough__mu-4.5371",
@@ -2217,7 +2435,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2839.3022,
   "walltime_min": 1500,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2227,9 +2445,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s37_f093000_a3443_10x8__rough__mu-5.0671",
@@ -2247,7 +2469,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 4124.3309,
   "walltime_min": 2580,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2257,9 +2479,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s37_f096500_a3843_10x8__rough__mu-4.9871",
@@ -2277,7 +2503,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3596.6776,
   "walltime_min": 2100,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2287,9 +2513,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s37_f099500_a4223_8x8__rough__mu-5.3371",
@@ -2307,7 +2537,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3133.5286,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2317,9 +2547,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s51_f082500_a3929_8x8__rough__mu-5.3671",
@@ -2353,7 +2587,7 @@
     "2026-10-02 06:21"
    ]
   ],
-  "note": "in queue"
+  "note": "kept as 8x8 reference for the size test (6x6 version of the same centre passes the geometry screen)"
  },
  {
   "task_id": "PB1_s51_f082500_a4236_8x8__rough__mu-4.4671",
@@ -2371,7 +2605,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3356.5449,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2381,9 +2615,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s51_f086000_a4028_8x8__rough__mu-4.8171",
@@ -2401,7 +2639,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3366.3314,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2411,9 +2649,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s51_f089500_a3454_8x8__rough__mu-5.0971",
@@ -2431,7 +2673,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2815.3607,
   "walltime_min": 1500,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2441,9 +2683,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s51_f089500_a4218_8x8__rough__mu-5.1171",
@@ -2551,7 +2797,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 4026.8477,
   "walltime_min": 2520,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2561,9 +2807,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s51_f099500_a4156_10x8__rough__mu-4.5271",
@@ -2581,8 +2831,8 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3532.6711,
   "walltime_min": 2040,
-  "status": "submitted",
-  "job_id": 21015727,
+  "status": "held_for_resize",
+  "job_id": null,
   "history": [
    [
     "pending",
@@ -2595,9 +2845,14 @@
    [
     "submitted",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": "in queue"
+  "note": "job 21015727 cancelled while pending; held for the 6x6 re-cut (size test plan)",
+  "job_id_cancelled": 21015727
  },
  {
   "task_id": "PB2_s11_f005000_a4316_8x8__rough__mu-4.7071",
@@ -2615,7 +2870,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3080.7128,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2625,9 +2880,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s11_f010000_a4335_8x8__rough__mu-5.1371",
@@ -2645,7 +2904,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3211.222,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2655,9 +2914,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s11_f082500_a3964_8x8__rough__mu-4.4471",
@@ -2675,7 +2938,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2938.6142,
   "walltime_min": 1560,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2685,9 +2948,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s11_f086000_a3632_10x8__rough__mu-5.3371",
@@ -2765,7 +3032,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3123.1527,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2775,9 +3042,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s23_f005000_a3436_8x8__rough__mu-4.6171",
@@ -2795,7 +3066,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3378.0248,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2805,9 +3076,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s23_f010000_a4354_8x8__rough__mu-4.4371",
@@ -2855,7 +3130,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3311.9902,
   "walltime_min": 1860,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2865,9 +3140,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s23_f086000_a4268_8x8__rough__mu-4.8771",
@@ -2885,7 +3164,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3234.1234,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2895,9 +3174,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s23_f089500_a4158_8x8__rough__mu-4.7671",
@@ -2945,7 +3228,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3486.9501,
   "walltime_min": 2040,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2955,9 +3238,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s23_f093000_a4359_8x8__rough__mu-4.9671",
@@ -2975,7 +3262,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2991.8114,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -2985,9 +3272,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s23_f096500_a3504_8x8__rough__mu-5.0971",
@@ -3035,7 +3326,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2794.4355,
   "walltime_min": 1440,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3045,9 +3336,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s11_f082500_a2132_8x8__rough__mu-5.3771",
@@ -3065,7 +3360,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2616.3899,
   "walltime_min": 1320,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3075,9 +3370,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s11_f082500_a3094_8x8__rough__mu-4.4971",
@@ -3125,7 +3424,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2573.7421,
   "walltime_min": 1320,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3135,9 +3434,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s11_f086000_a2645_8x8__rough__mu-5.1671",
@@ -3155,7 +3458,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2617.118,
   "walltime_min": 1320,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3165,9 +3468,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s11_f089500_a2132_8x8__rough__mu-4.5871",
@@ -3215,7 +3522,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2673.2968,
   "walltime_min": 1380,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3225,9 +3532,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s23_f010000_a2544_8x8__rough__mu-4.6671",
@@ -3245,7 +3556,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2673.8515,
   "walltime_min": 1380,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3255,9 +3566,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s23_f082500_a2878_8x8__rough__mu-5.1271",
@@ -3275,7 +3590,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2683.2567,
   "walltime_min": 1380,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3285,9 +3600,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s23_f093000_a3581_8x8__rough__mu-5.2671",
@@ -3365,7 +3684,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2683.9501,
   "walltime_min": 1380,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3375,9 +3694,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s37_f010000_a2367_8x8__rough__mu-4.8971",
@@ -3425,7 +3748,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2695.0194,
   "walltime_min": 1380,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3435,9 +3758,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s37_f089500_a3497_8x8__rough__mu-4.5871",
@@ -3455,7 +3782,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2663.1288,
   "walltime_min": 1380,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3465,9 +3792,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s37_f093000_a2394_8x8__rough__mu-5.2171",
@@ -3485,7 +3816,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2627.9446,
   "walltime_min": 1320,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3495,9 +3826,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s37_f096500_a2555_8x8__rough__mu-5.3671",
@@ -3515,7 +3850,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2638.4246,
   "walltime_min": 1320,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3525,9 +3860,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s37_f096500_a3416_8x8__rough__mu-4.7671",
@@ -3545,7 +3884,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2508.5048,
   "walltime_min": 1260,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3555,9 +3894,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s51_f082500_a2746_8x8__rough__mu-4.8671",
@@ -3605,7 +3948,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2454.3022,
   "walltime_min": 1200,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3615,9 +3958,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s51_f096500_a3585_8x8__rough__mu-5.3871",
@@ -3635,8 +3982,8 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2385.3553,
   "walltime_min": 1140,
-  "status": "submitted",
-  "job_id": 21015735,
+  "status": "held_for_resize",
+  "job_id": null,
   "history": [
    [
     "pending",
@@ -3649,9 +3996,14 @@
    [
     "submitted",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": "in queue"
+  "note": "job 21015735 cancelled while pending (its centre has no valid 6x6: exposed layer-1 atom / seam environments); held for the 6x6 re-cut (size test plan)",
+  "job_id_cancelled": 21015735
  },
  {
   "task_id": "PC2_s11_f005000_a2078_8x8__rough__mu-4.5771",
@@ -3699,7 +4051,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2220.3553,
   "walltime_min": 1020,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3709,9 +4061,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s11_f010000_a2187_8x8__rough__mu-4.4171",
@@ -3729,8 +4085,8 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2322.7182,
   "walltime_min": 1140,
-  "status": "submitted",
-  "job_id": 21015728,
+  "status": "held_for_resize",
+  "job_id": null,
   "history": [
    [
     "pending",
@@ -3743,9 +4099,14 @@
    [
     "submitted",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": "in queue"
+  "note": "job 21015728 cancelled while pending; held for the 6x6 re-cut (size test plan)",
+  "job_id_cancelled": 21015728
  },
  {
   "task_id": "PC2_s11_f082500_a3108_8x8__rough__mu-4.4471",
@@ -3763,7 +4124,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2267.6142,
   "walltime_min": 1080,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3773,9 +4134,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s11_f093000_a2241_10x8__rough__mu-4.4471",
@@ -3793,7 +4158,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3126.0178,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3803,9 +4168,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s11_f093000_a3110_8x8__rough__mu-5.2871",
@@ -3823,7 +4192,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2297.702,
   "walltime_min": 1080,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3833,9 +4202,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s11_f096500_a2153_8x8__rough__mu-4.9571",
@@ -3853,7 +4226,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2254.8461,
   "walltime_min": 1080,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3863,9 +4236,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s11_f096500_a3088_8x8__rough__mu-5.0771",
@@ -3883,7 +4260,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2232.43,
   "walltime_min": 1080,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3893,9 +4270,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s11_f099500_a2544_8x8__rough__mu-5.0471",
@@ -3913,7 +4294,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2573.534,
   "walltime_min": 1320,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3923,9 +4304,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s23_f005000_a3537_10x8__rough__mu-5.0771",
@@ -3973,7 +4358,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2717.7475,
   "walltime_min": 1380,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -3983,9 +4368,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s23_f010000_a3274_8x8__rough__mu-5.0371",
@@ -4003,7 +4392,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2375.5687,
   "walltime_min": 1140,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4013,9 +4402,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s23_f010000_a3615_8x8__rough__mu-4.7171",
@@ -4063,7 +4456,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2673.7128,
   "walltime_min": 1380,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4073,9 +4466,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s23_f082500_a3593_8x8__rough__mu-5.1671",
@@ -4123,7 +4520,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2684.8168,
   "walltime_min": 1380,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4133,9 +4530,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s23_f089500_a2969_8x8__rough__mu-4.9771",
@@ -4153,7 +4554,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2727.7767,
   "walltime_min": 1440,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4163,9 +4564,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s23_f099500_a3441_8x8__rough__mu-4.8271",
@@ -4183,7 +4588,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2299.2968,
   "walltime_min": 1080,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4193,9 +4598,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s23_f099500_a3628_8x8__rough__mu-4.4171",
@@ -4213,7 +4622,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2729.7182,
   "walltime_min": 1440,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4223,9 +4632,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s11_f005000_a3390_8x8__rough__mu-5.0871",
@@ -4243,7 +4656,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2947.3954,
   "walltime_min": 1560,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4253,9 +4666,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s11_f010000_a4534_8x8__rough__mu-4.8271",
@@ -4273,7 +4690,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3388.2968,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4283,9 +4700,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s11_f082500_a4137_8x8__rough__mu-5.2171",
@@ -4303,7 +4724,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3342.9446,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4313,9 +4734,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s11_f089500_a4163_10x8__rough__mu-4.8271",
@@ -4333,7 +4758,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3773.371,
   "walltime_min": 2280,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4343,9 +4768,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s11_f093000_a3608_8x8__rough__mu-4.8271",
@@ -4363,7 +4792,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3344.2968,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4373,9 +4802,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s11_f096500_a4161_8x8__rough__mu-5.3171",
@@ -4393,7 +4826,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3177.5979,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4403,9 +4836,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s23_f005000_a4049_8x8__rough__mu-4.6771",
@@ -4423,7 +4860,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3102.8168,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4433,9 +4870,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s23_f010000_a3876_8x8__rough__mu-5.1371",
@@ -4453,7 +4894,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3343.222,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4463,9 +4904,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s23_f010000_a4448_8x8__rough__mu-4.6471",
@@ -4483,7 +4928,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3377.9208,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4493,9 +4938,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s23_f086000_a4500_8x8__rough__mu-5.3371",
@@ -4513,8 +4962,8 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3375.5286,
   "walltime_min": 1920,
-  "status": "submitted",
-  "job_id": 21015729,
+  "status": "held_for_resize",
+  "job_id": null,
   "history": [
    [
     "pending",
@@ -4527,9 +4976,14 @@
    [
     "submitted",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": "in queue"
+  "note": "job 21015729 cancelled while pending; held for the 6x6 re-cut (size test plan)",
+  "job_id_cancelled": 21015729
  },
  {
   "task_id": "PD1_s23_f096500_a3375_8x8__rough__mu-5.2971",
@@ -4547,7 +5001,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3023.6673,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4557,9 +5011,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s37_f005000_a4258_8x8__rough__mu-5.1271",
@@ -4577,7 +5035,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2936.2567,
   "walltime_min": 1560,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4587,9 +5045,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s37_f005000_a4475_8x8__rough__mu-4.7571",
@@ -4607,7 +5069,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3014.5395,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4617,9 +5079,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s37_f010000_a3209_8x8__rough__mu-4.5171",
@@ -4637,7 +5103,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3158.3715,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4647,9 +5113,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s37_f010000_a3426_8x8__rough__mu-4.4771",
@@ -4667,7 +5137,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3400.5102,
   "walltime_min": 1980,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4677,9 +5147,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s37_f082500_a3592_8x8__rough__mu-4.7271",
@@ -4697,7 +5171,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3322.6435,
   "walltime_min": 1860,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4707,9 +5181,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s37_f082500_a4158_8x8__rough__mu-4.4371",
@@ -4727,7 +5205,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3466.6489,
   "walltime_min": 2040,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4737,9 +5215,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s37_f086000_a4303_8x8__rough__mu-5.2571",
@@ -4757,7 +5239,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2990.806,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4767,9 +5249,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s37_f089500_a3481_8x8__rough__mu-4.6771",
@@ -4787,7 +5273,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2948.8168,
   "walltime_min": 1560,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4797,9 +5283,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s37_f099500_a3319_8x8__rough__mu-5.0471",
@@ -4817,7 +5307,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3420.534,
   "walltime_min": 1980,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4827,9 +5317,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s37_f099500_a4361_8x8__rough__mu-5.1671",
@@ -4847,7 +5341,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3464.118,
   "walltime_min": 2040,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4857,9 +5351,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s51_f010000_a3421_10x8__rough__mu-5.1471",
@@ -4877,7 +5375,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3826.9842,
   "walltime_min": 2340,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4887,9 +5385,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s51_f010000_a4294_8x8__rough__mu-5.0671",
@@ -4907,7 +5409,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2991.4647,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4917,9 +5419,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s51_f082500_a3592_8x8__rough__mu-4.9671",
@@ -4937,7 +5443,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3145.8114,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4947,9 +5453,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD1_s51_f086000_a3183_8x8__rough__mu-4.4271",
@@ -4967,7 +5477,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2949.6836,
   "walltime_min": 1560,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -4977,9 +5487,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s11_f005000_a4324_8x8__rough__mu-4.5671",
@@ -4997,7 +5511,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3136.1982,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5007,9 +5521,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s11_f005000_a4564_8x8__rough__mu-4.9971",
@@ -5027,7 +5545,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3211.7074,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5037,9 +5555,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s11_f010000_a3801_8x8__rough__mu-4.7071",
@@ -5057,7 +5579,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2937.7128,
   "walltime_min": 1560,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5067,9 +5589,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s11_f010000_a4186_8x8__rough__mu-4.5671",
@@ -5087,7 +5613,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2916.1982,
   "walltime_min": 1560,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5097,9 +5623,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s11_f086000_a4546_8x8__rough__mu-5.3271",
@@ -5117,7 +5647,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3012.5633,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5127,9 +5657,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s11_f089500_a4304_8x8__rough__mu-4.7171",
@@ -5147,7 +5681,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3036.6781,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5157,9 +5691,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s11_f096500_a4119_8x8__rough__mu-5.0471",
@@ -5177,7 +5715,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3376.534,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5187,9 +5725,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s11_f099500_a3969_8x8__rough__mu-5.2171",
@@ -5207,7 +5749,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3265.9446,
   "walltime_min": 1860,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5217,9 +5759,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s11_f099500_a4579_8x8__rough__mu-4.9371",
@@ -5237,7 +5783,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3090.9154,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5247,9 +5793,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s23_f010000_a4228_8x8__rough__mu-4.7971",
@@ -5267,7 +5817,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3135.4008,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5277,9 +5827,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s23_f010000_a4451_8x8__rough__mu-4.7271",
@@ -5297,7 +5851,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3113.6435,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5307,9 +5861,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s23_f082500_a4242_8x8__rough__mu-5.3171",
@@ -5327,7 +5885,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3353.5979,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5337,9 +5895,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s23_f089500_a4347_10x8__rough__mu-4.8271",
@@ -5357,7 +5919,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3993.371,
   "walltime_min": 2460,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5367,9 +5929,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s23_f093000_a4512_8x8__rough__mu-4.9771",
@@ -5387,7 +5953,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3057.7767,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5397,9 +5963,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s23_f096500_a4115_8x8__rough__mu-4.6071",
@@ -5417,7 +5987,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3059.0595,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5427,9 +5997,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s37_f005000_a4468_8x8__rough__mu-4.8371",
@@ -5447,7 +6021,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2981.2621,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5457,9 +6031,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s37_f010000_a4358_8x8__rough__mu-5.3271",
@@ -5477,7 +6055,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3364.5633,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5487,9 +6065,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s37_f082500_a3833_8x8__rough__mu-4.5871",
@@ -5507,7 +6089,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3158.1288,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5517,9 +6099,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s37_f089500_a3376_8x8__rough__mu-4.7871",
@@ -5567,7 +6153,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3178.2913,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5577,9 +6163,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s37_f005000_a3999_8x8__rough__mu-4.9371",
@@ -5597,7 +6187,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3046.9154,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5607,9 +6197,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s37_f005000_a4420_8x8__rough__mu-5.0171",
@@ -5657,7 +6251,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3741.4544,
   "walltime_min": 2280,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5667,9 +6261,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s37_f089500_a3564_8x8__rough__mu-4.4971",
@@ -5687,7 +6285,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3323.4409,
   "walltime_min": 1860,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5697,9 +6295,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s37_f089500_a3629_8x8__rough__mu-4.7471",
@@ -5717,7 +6319,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2981.5741,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5727,9 +6329,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s37_f010000_a2394_8x8__rough__mu-5.1571",
@@ -5747,7 +6353,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2672.1527,
   "walltime_min": 1380,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5757,9 +6363,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s37_f010000_a3701_8x8__rough__mu-5.3871",
@@ -5777,7 +6387,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2671.3553,
   "walltime_min": 1380,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5787,9 +6397,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s37_f082500_a2818_8x8__rough__mu-4.7671",
@@ -5807,7 +6421,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2332.5048,
   "walltime_min": 1140,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5817,9 +6431,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s37_f086000_a2149_8x8__rough__mu-4.8471",
@@ -5837,7 +6455,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2728.2274,
   "walltime_min": 1440,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5847,9 +6465,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s37_f086000_a3399_8x8__rough__mu-4.4271",
@@ -5867,7 +6489,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2487.6836,
   "walltime_min": 1260,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5877,9 +6499,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s37_f005000_a4568_8x8__rough__mu-4.4171",
@@ -5897,7 +6523,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3312.7182,
   "walltime_min": 1860,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5907,9 +6533,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s37_f010000_a4591_8x8__rough__mu-5.2971",
@@ -5927,7 +6557,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3298.6673,
   "walltime_min": 1860,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5937,9 +6567,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s37_f082500_a3634_8x8__rough__mu-5.2071",
@@ -5957,7 +6591,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3331.9793,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5967,9 +6601,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s37_f086000_a3305_10x8__rough__mu-4.9771",
@@ -5987,7 +6625,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3838.7209,
   "walltime_min": 2340,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -5997,9 +6635,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PD2_s37_f086000_a4132_8x8__rough__mu-5.0671",
@@ -6017,7 +6659,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3321.4647,
   "walltime_min": 1860,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6027,9 +6669,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s51_f005000_a3520_8x8__rough__mu-5.2171",
@@ -6047,7 +6693,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3155.9446,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6057,9 +6703,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s51_f005000_a4132_10x8__rough__mu-4.4571",
@@ -6077,7 +6727,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 4214.9744,
   "walltime_min": 2700,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6087,9 +6737,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s51_f005000_a3646_8x8__rough__mu-4.8371",
@@ -6107,7 +6761,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2321.2621,
   "walltime_min": 1140,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6117,9 +6771,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s11_f082500_a3340_8x8__rough__mu-5.2371",
@@ -6137,7 +6795,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3078.8753,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6147,9 +6805,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s11_f096500_a3733_8x8__rough__mu-4.5371",
@@ -6167,7 +6829,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3158.3022,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6177,9 +6839,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s23_f005000_a4199_8x8__rough__mu-4.8371",
@@ -6197,7 +6863,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3047.2621,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6207,9 +6873,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s23_f089500_a3835_8x8__rough__mu-5.1171",
@@ -6227,7 +6897,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3079.2913,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6237,9 +6907,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s37_f082500_a4154_8x8__rough__mu-4.5171",
@@ -6257,7 +6931,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3092.3715,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6267,9 +6941,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s37_f082500_a4544_8x8__rough__mu-4.7771",
@@ -6287,7 +6965,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3058.4701,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6297,9 +6975,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s37_f099500_a3366_8x8__rough__mu-4.4971",
@@ -6317,7 +6999,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3224.4409,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6327,9 +7009,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA1_s51_f096500_a4100_8x8__rough__mu-4.7771",
@@ -6347,7 +7033,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3113.4701,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6357,9 +7043,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s23_f082500_a3799_8x8__rough__mu-5.1771",
@@ -6377,7 +7067,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3332.0833,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6387,9 +7077,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s23_f096500_a4385_8x8__rough__mu-5.0171",
@@ -6407,7 +7101,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3365.638,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6417,9 +7111,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s11_f096500_a4201_8x8__rough__mu-4.9571",
@@ -6437,7 +7135,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2848.8461,
   "walltime_min": 1500,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6447,9 +7145,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s37_f005000_a3375_8x8__rough__mu-5.3771",
@@ -6467,7 +7169,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3353.3899,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6477,9 +7179,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s37_f082500_a2643_10x8__rough__mu-4.5971",
@@ -6497,7 +7203,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3697.3677,
   "walltime_min": 2220,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6507,9 +7213,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s37_f089500_a3920_8x8__rough__mu-4.8571",
@@ -6527,7 +7237,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2937.1928,
   "walltime_min": 1560,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6537,9 +7247,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s37_f096500_a3696_8x8__rough__mu-5.2371",
@@ -6557,7 +7271,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2935.8753,
   "walltime_min": 1560,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6567,9 +7281,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s51_f010000_a4156_8x8__rough__mu-5.2671",
@@ -6587,7 +7305,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2902.7713,
   "walltime_min": 1560,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6597,9 +7315,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s51_f089500_a4164_8x8__rough__mu-5.3771",
@@ -6617,7 +7339,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2968.3899,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6627,9 +7349,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s51_f093000_a3395_8x8__rough__mu-5.0671",
@@ -6647,7 +7373,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2804.4647,
   "walltime_min": 1500,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6657,9 +7383,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB1_s51_f093000_a4156_8x8__rough__mu-5.2671",
@@ -6677,7 +7407,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2869.7713,
   "walltime_min": 1500,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6687,9 +7417,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s11_f005000_a3202_10x8__rough__mu-4.8371",
@@ -6707,7 +7441,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3718.3276,
   "walltime_min": 2220,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6717,9 +7451,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s11_f093000_a4444_8x8__rough__mu-4.8971",
@@ -6737,7 +7475,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2959.0541,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6747,9 +7485,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s23_f005000_a4364_8x8__rough__mu-4.7271",
@@ -6767,7 +7509,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3212.6435,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6777,9 +7519,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s23_f089500_a3887_8x8__rough__mu-5.1071",
@@ -6797,7 +7543,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3189.326,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6807,9 +7553,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s11_f082500_a3556_8x8__rough__mu-5.0371",
@@ -6827,7 +7577,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2760.5687,
   "walltime_min": 1440,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6837,9 +7587,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s37_f010000_a3458_8x8__rough__mu-5.1171",
@@ -6857,7 +7611,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2540.2913,
   "walltime_min": 1260,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6867,9 +7621,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s51_f093000_a2316_8x8__rough__mu-5.1671",
@@ -6887,7 +7645,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2727.118,
   "walltime_min": 1440,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6897,9 +7655,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s51_f099500_a2714_8x8__rough__mu-4.4871",
@@ -6917,7 +7679,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2355.4755,
   "walltime_min": 1140,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6927,9 +7689,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC1_s51_f099500_a2757_8x8__rough__mu-4.7471",
@@ -6947,7 +7713,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2695.5741,
   "walltime_min": 1380,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6957,9 +7723,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s11_f010000_a2078_8x8__rough__mu-4.8271",
@@ -6977,7 +7747,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2266.2968,
   "walltime_min": 1080,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -6987,9 +7757,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s11_f086000_a3780_8x8__rough__mu-5.0771",
@@ -7007,7 +7781,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2331.43,
   "walltime_min": 1140,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -7017,9 +7791,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s23_f010000_a3567_8x8__rough__mu-5.2171",
@@ -7037,7 +7815,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2704.9446,
   "walltime_min": 1380,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -7047,9 +7825,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s23_f082500_a2482_8x8__rough__mu-4.9171",
@@ -7067,7 +7849,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2529.9847,
   "walltime_min": 1260,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -7077,9 +7859,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PC2_s23_f096500_a3536_8x8__rough__mu-4.4771",
@@ -7097,7 +7883,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2729.5102,
   "walltime_min": 1440,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -7107,9 +7893,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PA2_s37_f089500_a3499_10x8__rough__mu-5.2071",
@@ -7127,7 +7917,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3727.7241,
   "walltime_min": 2220,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -7146,9 +7936,13 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  },
  {
   "task_id": "PB2_s37_f096500_a4030_8x8__rough__mu-4.6871",
@@ -7166,7 +7960,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3333.7821,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "held_for_resize",
   "job_id": null,
   "history": [
    [
@@ -7176,8 +7970,12 @@
    [
     "pending",
     "2026-10-02 06:21"
+   ],
+   [
+    "held_for_resize",
+    "2026-10-02 08:06"
    ]
   ],
-  "note": ""
+  "note": "not submitted; awaiting the 6x6 re-cut of the same centre (size test plan 2026-10-02); must not return to the auto-submit queue"
  }
 ]
