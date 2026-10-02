@@ -1,0 +1,9 @@
+{
+ "rejected_surface_atoms": {
+  "detached": 0,
+  "close_contact": 8
+ },
+ "n_candidates": 15365,
+ "n_rare_flagged": 0,
+ "n_rare_chosen": 0
+}

@@ -161,7 +161,9 @@ def main(args):
             dup = next((j for j in kept if r_same(ok[i], ok[j]) and min_hamming(rolls[j], pat) <= DEDUP_SITES), None)
             if dup is None: kept.append(i)
             else: dropped[ok[i]["cell_id"]] = ok[dup]["cell_id"]
-    eligible = [i for i in range(len(ok)) if ok[i]["cell_id"] not in dropped]
+    # cells that are mostly seam are not candidates: more than --max-seam atoms whose CN the seam reduced by >= 2
+    too_seamy = {r["cell_id"] for r in ok if r.get("stats", {}).get("n_seam_affected", 0) > args.max_seam}
+    eligible = [i for i in range(len(ok)) if ok[i]["cell_id"] not in dropped and ok[i]["cell_id"] not in too_seamy]
     # ---- quotas
     per_class = args.n // 4; quota = {}
     for cls in "ABCD":
@@ -247,10 +249,11 @@ def main(args):
                            split=r["split"], cell=r["cell"], n_atoms=r["n_atoms"], kpoints=r["kpoints"], step=r["step"], time_ps=r.get("time_ps"), source=r["source"],
                            cn=r["cn"], cn_stratum=r["cn_stratum"], rare_flag=r.get("rare_flag"), U_V=Uv, U_bin=[float(edges[b]), float(edges[b + 1])],
                            TARGETMU_eV=round(MU0 - Uv, 4), pair=pair_members.get(i), repair=r["repair"], novelty_cell_vs_old=r["novelty_cell_vs_old"],
-                           morphology=r["morphology"], cell_dir=f"{R}/{args.cells}/{r['cell_id']}"))
+                           n_seam_affected=r.get("stats", {}).get("n_seam_affected"), morphology=r["morphology"], cell_dir=f"{R}/{args.cells}/{r['cell_id']}"))
     info = dict(created=time.strftime("%Y-%m-%d %H:%M"), status="CANDIDATE (not frozen; nothing may be submitted)", frozen=False, seed=args.seed, mu0_eV=MU0,
                 n_states=len(states), bins_V=edges.tolist(), quota={f"{k[0]}/{k[1]}": v for k, v in quota.items()},
-                shortfall={f"{k[0]}/{k[1]}": v for k, v in shortfall.items()}, caps=dict(per_frame=CAP_PER_FRAME, per_parent=cap_report),
+                shortfall={f"{k[0]}/{k[1]}": v for k, v in shortfall.items()}, caps=dict(per_frame=CAP_PER_FRAME, per_parent=cap_report, max_seam_affected=args.max_seam),
+                excluded_too_seamy=sorted(too_seamy),
                 dedup_dropped=dropped, pairs=[dict(id=f"pair{k+1}", cls=c, centre_id=cc) for k, (c, cc) in enumerate(pairs)],
                 rule="two-layer farthest-point (centre SOAP + whole-cell morphology) per class x split x CN stratum with parent/frame caps and "
                      "occupancy dedup; potential drawn afterwards, once, balanced over bins; TARGETMU is the request, the label is the converged mu_e",
@@ -293,6 +296,9 @@ def summary(info, states, ok, rows, dropped, OUT, args):
     L += [f"- {k}: {v}" for k, v in fails.most_common(10)]
     L += [f"", f"Geometry duplicates dropped (occupancy patterns within {DEDUP_SITES} sites under translation, same size): {len(dropped)}"
           + ("; e.g. " + "; ".join(f"{a} = {b}" for a, b in list(dropped.items())[:5]) if dropped else "")]
+    seam = np.array([s["n_seam_affected"] or 0 for s in states]); seam_all = np.array([r.get("stats", {}).get("n_seam_affected", 0) for r in ok])
+    L += [f"Seam-affected atoms (CN reduced by >= 2 vs the parent) per chosen cell: median {np.median(seam):.0f}, max {seam.max()} "
+          f"(all passing cells: median {np.median(seam_all):.0f}, max {seam_all.max()}; cells above the cap of {args.max_seam} excluded: {len(info['excluded_too_seamy'])})."]
     if info["shortfall"]: L += ["", "SHORTFALL (bucket: missing): " + json.dumps(info["shortfall"]) + " -- fewer eligible cells than the quota under the caps; not filled from other buckets."]
     L += ["", f"Novelty of the chosen cells' centres vs the 52 old geometries (1 - max cosine): median {np.median([s['novelty_cell_vs_old'] for s in states]):.4f}; "
           f"rare-flagged centres chosen: {sum(bool(s['rare_flag']) for s in states)}."]
@@ -304,5 +310,6 @@ if __name__ == "__main__":
     ap.add_argument("cmd", nargs="?", default="select", choices=["select", "freeze"])
     ap.add_argument("--cells", default="cells"); ap.add_argument("--n", type=int, default=200)
     ap.add_argument("--seed", type=int, default=20261002); ap.add_argument("--force", action="store_true"); ap.add_argument("--out", default="rough200")
+    ap.add_argument("--max-seam", type=int, default=16, help="exclude cells with more seam-affected atoms than this (a quarter of a 64-site layer)")
     a = ap.parse_args()
     freeze(a) if a.cmd == "freeze" else main(a)

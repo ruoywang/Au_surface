@@ -5,7 +5,11 @@ single points on small periodic cells cut from large, roughened Au(111) surfaces
 new local environments instead of more copies of the hand-built ones. Everything here lives inside this
 folder; `dataset_v1/` and `05_production/` are read only.
 
-**Status 2026-10-02 (see the bottom for what is NOT done).** No rough DFT has been submitted.
+**Status 2026-10-02 05:30 — CANDIDATE deliverables ready, awaiting approval (`CANDIDATE_REPORT.md`).** MD 32/32
+done; 1000 centres → 937 cut (1043 cells) → **200 candidate states** (40/5/5 per class, 32 parents, 2–10 cells per
+parent, 177 × 8×8 + 23 × 10×8, 201–377 atoms, all k-mesh 2×2×1, 4 size pairs, potentials drawn once with seed
+20261002, `frozen = false`); 200 DFT input sets written to `dft/`, queue all `pending`; budget 1.4 k (seeded
+median) – 4.7 k (cold max) node·h and ≈ 2.2 TB. **No rough DFT has been submitted and the list is not frozen.**
 
 ## Pipeline and scripts
 
@@ -15,12 +19,12 @@ folder; `dataset_v1/` and `05_production/` are read only.
 | 2. parent surfaces | `build_parents.py` | `parents/*.extxyz|poscar`, `parents_manifest.json`, `parents_summary.md`, `_parents_overview.png` | done: 32 parents, 32×32×4 Au(111), 3840–4615 atoms (A 4571–4608, B 4250 / 4454, C 3994 / 3840, D 4604–4615), classes A strips / B islands / C pits / D transfer, min d 2.940 Å |
 | 3. candidate-generation potential | `potential/PROVENANCE.md`, `check_potential.py` | `potential/behaviour_check.{md,json}` | done (below) |
 | 4. LAMMPS + FLARE build | `env/BUILD.md` | `env/src/lammps-22Jul2025/build_mpi/lmp` | done, in-project, MPI |
-| 5. MD on the parents | `md_driver.py`, `lmpio.py` | `md/<pid>/{in.lammps,data.lammps,slurm.sh,traj.lammpstrj}`, `md/md_manifest.json` | **32 SLURM jobs running** (21014644–21014675, `shared`, 16 ranks, 8 h cap; measured ≈ 33 steps/s → ≈ 50 min each) |
-| 6. centres | `select_centres.py` | `centres/centres.jsonl`, `centres_summary.md`, `parent_split.json`, `frames_used.json` | tested on the initial parents (`centres_test/`); waits for the MD |
-| 7. cut + repair | `extract_cells.py` | `cells/<cell_id>/{POSCAR,cell.extxyz}`, `cells_manifest.jsonl`, `cells_summary.md` | tested (`cells_test/`: 14 of 16 centres pass; the two drops were seam-isolated atoms) |
-| 8. fix the 200 | `finalize_200.py` | `rough200/rough200_manifest.json`, `rough200_summary.md` | tested; potentials drawn once, refuses to overwrite |
-| 9. DFT inputs, queue, state machine | `rough_dft.py` | `dft/<cell_id>/rough__mu<mu>/{POSCAR,INCAR,KPOINTS,POTCAR,job-run}`, `dft/queue.json`, `dft/budget.md` | tested dry (`dft_test/`); **submit is gated by `--confirm`** |
-| 10. figure | `render_rough_lineage.py` | `figures/rough_lineage_<class>.png` | tested (`figures_test/`) |
+| 5. MD on the parents | `md_driver.py`, `lmpio.py`, `trajio.py` | `md/<pid>/{in.lammps,data.lammps,slurm.sh,traj.lammpstrj}`, `md/md_manifest.json`, `md/md_summary.json` | done: 32/32 (SLURM 21014644–21014675, 45–47 min each on 16 ranks); sampled 300 K frames at 289–307 K; 110–160 atoms per parent changed layer |
+| 6. centres | `select_centres.py` | `centres/centres.jsonl`, `centres_summary.md`, `parent_split.json`, `frames_used.json`, `rejects.json` | done: 1000 centres from 15 365 legal exposed atoms on 256 frames; CN strata 228/166/439/167; 8 close-contact rejections, 0 detached |
+| 7. cut + repair | `extract_cells.py` (8 chunks + `--merge`) | `cells/<cell_id>/{POSCAR,cell.extxyz}`, `cells_manifest.jsonl`, `cells_summary.md` | done: 937 of 1000 centres pass (1043 cells; test centres in both sizes); 63 dropped, almost all because the seam would have created a (layer, CN) environment the parent does not have |
+| 8. the 200 | `finalize_200.py` | `rough200/rough200_manifest.json` (**frozen = false**), `rough200_summary.md`, `rough200_cells.csv` | done as CANDIDATE: 200 states; 295 occupancy duplicates and 9 seam-heavy cells excluded before selection |
+| 9. DFT inputs, queue, state machine | `rough_dft.py`, `fieldio.py` | `dft/<cell_id>/rough__mu<mu>/{POSCAR,INCAR,KPOINTS,POTCAR,job-run}`, `dft/queue.json`, `dft/budget.md` | done: 200 input sets, all `pending`; **submit refuses unless the list is frozen AND `--confirm`** |
+| 10. figure + report | `render_rough_lineage.py`, `make_candidate_report.py` | `figures/rough_lineage_<class>.png`, `CANDIDATE_REPORT.md` | done |
 
 Python for this stage: `rough_sampling_v1/pyrun_rs.sh` (same interpreter as `scripts/pyrun.sh`, plus
 `env/pylib` with dscribe 2.1.2 / numpy 2.0.2 / ase 3.26.0 installed with `pip --target`; nothing in `~/.local`).
@@ -69,11 +73,23 @@ lattice-compatible origins with boundaries midway between atom rows, by the smal
 is origin → size (8×8 then 10×8) → drop. A cell passes only if: no contact < 2.5 Å (only the self term is
 excluded from the distance list, so two atoms on one site fail), every atom ≥ 3 neighbours AND every atom
 reachable from the fixed bottom layers through the neighbour graph (no detached cluster), bottom layer
-complete, no exposed atom deeper than one layer, no periphery atom less coordinated than the core minimum − 1
-(this is what rejected the two test drops: a seam had isolated a single atom), and the per-atom periodic
-mapping check: a third of the atoms moved to periodic equivalents, all re-wrapped, order permuted — the
-centre's neighbour set, the CN list and the minimum distance must not change. The label later attached to a
-cell belongs to that reconstructed periodic electrode, not to the parent, and its energy is not a "core energy".
+complete, no exposed atom deeper than one layer, no seam artefact — every atom's CN in the cell is compared
+with ITS OWN CN in the parent frame; atoms that lost ≥ 2 neighbours were cut by the seam (unavoidable where a
+strip or island larger than the cell is terminated; their number is recorded per cell as `n_seam_affected`),
+and the cell is rejected when the seam CREATES a (layer, CN) environment that fewer than 3 atoms of the parent
+surface have — e.g. a cn-4 fragment on a surface whose lowest top-layer CN is 6. A natural adatom (cn 3 in parent
+and cell) is not an artefact. The earlier "periphery vs core minimum" rule could not tell the two apart and was
+replaced. Finally the per-atom periodic mapping check: a third of the atoms moved to periodic equivalents, all
+re-wrapped, order permuted — the centre's neighbour set, the CN list and the minimum distance must not change.
+Contacts < 2.5 Å are classified: a pair at exactly its parent distance is a thermal pair inherited from the
+frame (accepted above a 2.3 Å floor and counted), a pair created by the seam is a problem. Only seam-created
+contacts are sent to the minimiser (strain can relax; occupancy cannot), and the minimiser moves only the seam
+band — atoms within 2 rows of either seam in the top levels, never the core, the bottom layers or the rest of
+the periphery, which keep their thermal state; the number of atoms moved is recorded in the repair note. A
+failing occupancy is dropped at once. The production cut is run as 8 frame-grouped chunks
+(`extract_cells.py --chunk i/8`, then `--merge`); every frame is read and its neighbour graph built once. The
+label later attached to a cell belongs to that reconstructed periodic electrode, not to the parent, and its
+energy is not a "core energy".
 
 ## The 200 (step 8) and their potentials — a CANDIDATE list until approved
 
@@ -114,7 +130,10 @@ before anything is sent; sent only with `--confirm` AND a frozen manifest.
 
 ## Not done / gated
 
-- Steps 6–7 run on the real MD frames by `run_after_md.sh` (stops if any run is incomplete; logs to
-  `logs/pipeline.log`); steps 8–9 are run by hand and produce a CANDIDATE list + inputs + budget.
-- **Rough DFT submission: gated twice** — the manifest must be frozen by approval and `--confirm` given.
+- **Approval of the candidate list and of the computing commitment** (`CANDIDATE_REPORT.md`, sections 4–5):
+  then `finalize_200.py freeze` → `rough_dft.py submit --first 8 --confirm` → recalibrate the cost model on
+  those 8 → the remaining 192. Nothing is frozen and nothing is submitted.
+- Known small imperfection: layer assignment is by z rounding, so an atom caught mid-hop between levels can be
+  counted in the lower level (3 of the 200 cells show `missing_terrace_ML` = −0.05, i.e. three such atoms).
+  It affects the morphology descriptors and the dedup fingerprint marginally, not the geometries themselves.
 - Open points carried from dataset_v1 (unchanged): egg-box force error (audit K.14) and the trainer's energy target.

@@ -28,3 +28,6 @@ dft/*/*/vasprun.xml
 dft/*/*/OUTCAR
 dft/*/*/log.out
 __pycache__/
+# candidate cells: 1043 reconstructed geometries + repair runs (~hundreds of MB); the manifest and summary are versioned,
+# the 200 chosen geometries are versioned through dft/<cell_id>/rough__mu*/POSCAR
+cells/*/

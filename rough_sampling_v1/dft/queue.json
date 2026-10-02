@@ -1,0 +1,5002 @@
+[
+ {
+  "task_id": "PA2_s51_f005000_a4132_8x8__rough__mu-5.2171",
+  "state_id": "PA2_s51_f005000_a4132_8x8__U+0.31",
+  "cell_id": "PA2_s51_f005000_a4132_8x8",
+  "cls": "A",
+  "split": "test",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.31,
+  "TARGETMU": -5.2171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s51_f005000_a4132_8x8/rough__mu-5.2171",
+  "n_atoms": 317,
+  "n_movable": 189,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3485.9446,
+  "walltime_min": 2040,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s51_f010000_a4064_10x8__rough__mu-4.6471",
+  "state_id": "PA2_s51_f010000_a4064_10x8__U-0.26",
+  "cell_id": "PA2_s51_f010000_a4064_10x8",
+  "cls": "A",
+  "split": "test",
+  "cell": "10x8",
+  "pair": "pair1",
+  "U_V": -0.26,
+  "TARGETMU": -4.6471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s51_f010000_a4064_10x8/rough__mu-4.6471",
+  "n_atoms": 344,
+  "n_movable": 184,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3785.151,
+  "walltime_min": 2280,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s51_f010000_a4064_8x8__rough__mu-4.6471",
+  "state_id": "PA2_s51_f010000_a4064_8x8__U-0.26",
+  "cell_id": "PA2_s51_f010000_a4064_8x8",
+  "cls": "A",
+  "split": "test",
+  "cell": "8x8",
+  "pair": "pair1",
+  "U_V": -0.26,
+  "TARGETMU": -4.6471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s51_f010000_a4064_8x8/rough__mu-4.6471",
+  "n_atoms": 280,
+  "n_movable": 152,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3080.9208,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s51_f082500_a3576_10x8__rough__mu-5.0771",
+  "state_id": "PA2_s51_f082500_a3576_10x8__U+0.17",
+  "cell_id": "PA2_s51_f082500_a3576_10x8",
+  "cls": "A",
+  "split": "test",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": 0.17,
+  "TARGETMU": -5.0771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s51_f082500_a3576_10x8/rough__mu-5.0771",
+  "n_atoms": 366,
+  "n_movable": 206,
+  "kpoints": "2x2x1",
+  "nelect_guess": 4025.2875,
+  "walltime_min": 2520,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s51_f086000_a3968_10x8__rough__mu-5.1871",
+  "state_id": "PA2_s51_f086000_a3968_10x8__U+0.28",
+  "cell_id": "PA2_s51_f086000_a3968_10x8",
+  "cls": "A",
+  "split": "test",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": 0.28,
+  "TARGETMU": -5.1871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s51_f086000_a3968_10x8/rough__mu-5.1871",
+  "n_atoms": 345,
+  "n_movable": 185,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3793.8108,
+  "walltime_min": 2280,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s51_f005000_a4211_8x8__rough__mu-4.6971",
+  "state_id": "PB2_s51_f005000_a4211_8x8__U-0.21",
+  "cell_id": "PB2_s51_f005000_a4211_8x8",
+  "cls": "B",
+  "split": "test",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.21,
+  "TARGETMU": -4.6971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s51_f005000_a4211_8x8/rough__mu-4.6971",
+  "n_atoms": 291,
+  "n_movable": 163,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3201.7475,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s51_f010000_a4400_8x8__rough__mu-4.4871",
+  "state_id": "PB2_s51_f010000_a4400_8x8__U-0.42",
+  "cell_id": "PB2_s51_f010000_a4400_8x8",
+  "cls": "B",
+  "split": "test",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.42,
+  "TARGETMU": -4.4871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s51_f010000_a4400_8x8/rough__mu-4.4871",
+  "n_atoms": 300,
+  "n_movable": 172,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3301.4755,
+  "walltime_min": 1860,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s51_f082500_a3099_8x8__rough__mu-4.5471",
+  "state_id": "PB2_s51_f082500_a3099_8x8__U-0.36",
+  "cell_id": "PB2_s51_f082500_a3099_8x8",
+  "cls": "B",
+  "split": "test",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.36,
+  "TARGETMU": -4.5471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s51_f082500_a3099_8x8/rough__mu-4.5471",
+  "n_atoms": 267,
+  "n_movable": 139,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2938.2675,
+  "walltime_min": 1560,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s51_f096500_a4040_10x8__rough__mu-5.2171",
+  "state_id": "PB2_s51_f096500_a4040_10x8__U+0.31",
+  "cell_id": "PB2_s51_f096500_a4040_10x8",
+  "cls": "B",
+  "split": "test",
+  "cell": "10x8",
+  "pair": "pair2",
+  "U_V": 0.31,
+  "TARGETMU": -5.2171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s51_f096500_a4040_10x8/rough__mu-5.2171",
+  "n_atoms": 328,
+  "n_movable": 168,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3606.6808,
+  "walltime_min": 2160,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s51_f096500_a4040_8x8__rough__mu-5.2171",
+  "state_id": "PB2_s51_f096500_a4040_8x8__U+0.31",
+  "cell_id": "PB2_s51_f096500_a4040_8x8",
+  "cls": "B",
+  "split": "test",
+  "cell": "8x8",
+  "pair": "pair2",
+  "U_V": 0.31,
+  "TARGETMU": -5.2171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s51_f096500_a4040_8x8/rough__mu-5.2171",
+  "n_atoms": 264,
+  "n_movable": 136,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2902.9446,
+  "walltime_min": 1560,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s51_f005000_a2467_8x8__rough__mu-5.3471",
+  "state_id": "PC2_s51_f005000_a2467_8x8__U+0.44",
+  "cell_id": "PC2_s51_f005000_a2467_8x8",
+  "cls": "C",
+  "split": "test",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.44,
+  "TARGETMU": -5.3471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s51_f005000_a2467_8x8/rough__mu-5.3471",
+  "n_atoms": 216,
+  "n_movable": 88,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2374.4939,
+  "walltime_min": 1140,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s51_f010000_a2897_10x8__rough__mu-4.5871",
+  "state_id": "PC2_s51_f010000_a2897_10x8__U-0.32",
+  "cell_id": "PC2_s51_f010000_a2897_10x8",
+  "cls": "C",
+  "split": "test",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": -0.32,
+  "TARGETMU": -4.5871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s51_f010000_a2897_10x8/rough__mu-4.5871",
+  "n_atoms": 311,
+  "n_movable": 151,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3422.4111,
+  "walltime_min": 1980,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s51_f082500_a3776_8x8__rough__mu-4.9171",
+  "state_id": "PC2_s51_f082500_a3776_8x8__U+0.01",
+  "cell_id": "PC2_s51_f082500_a3776_8x8",
+  "cls": "C",
+  "split": "test",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.01,
+  "TARGETMU": -4.9171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s51_f082500_a3776_8x8/rough__mu-4.9171",
+  "n_atoms": 242,
+  "n_movable": 114,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2661.9847,
+  "walltime_min": 1380,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s51_f086000_a2769_10x8__rough__mu-4.9071",
+  "state_id": "PC2_s51_f086000_a2769_10x8__U-0.00",
+  "cell_id": "PC2_s51_f086000_a2769_10x8",
+  "cls": "C",
+  "split": "test",
+  "cell": "10x8",
+  "pair": "pair3",
+  "U_V": -0.0,
+  "TARGETMU": -4.9071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s51_f086000_a2769_10x8/rough__mu-4.9071",
+  "n_atoms": 303,
+  "n_movable": 143,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3333.0243,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s51_f086000_a2769_8x8__rough__mu-4.9071",
+  "state_id": "PC2_s51_f086000_a2769_8x8__U-0.00",
+  "cell_id": "PC2_s51_f086000_a2769_8x8",
+  "cls": "C",
+  "split": "test",
+  "cell": "8x8",
+  "pair": "pair3",
+  "U_V": -0.0,
+  "TARGETMU": -4.9071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s51_f086000_a2769_8x8/rough__mu-4.9071",
+  "n_atoms": 239,
+  "n_movable": 111,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2629.0194,
+  "walltime_min": 1320,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s51_f005000_a4565_10x8__rough__mu-4.7571",
+  "state_id": "PD2_s51_f005000_a4565_10x8__U-0.15",
+  "cell_id": "PD2_s51_f005000_a4565_10x8",
+  "cls": "D",
+  "split": "test",
+  "cell": "10x8",
+  "pair": "pair4",
+  "U_V": -0.15,
+  "TARGETMU": -4.7571,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s51_f005000_a4565_10x8/rough__mu-4.7571",
+  "n_atoms": 352,
+  "n_movable": 192,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3872.6743,
+  "walltime_min": 2340,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s51_f005000_a4565_8x8__rough__mu-4.7571",
+  "state_id": "PD2_s51_f005000_a4565_8x8__U-0.15",
+  "cell_id": "PD2_s51_f005000_a4565_8x8",
+  "cls": "D",
+  "split": "test",
+  "cell": "8x8",
+  "pair": "pair4",
+  "U_V": -0.15,
+  "TARGETMU": -4.7571,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s51_f005000_a4565_8x8/rough__mu-4.7571",
+  "n_atoms": 273,
+  "n_movable": 145,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3003.5395,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s51_f082500_a3440_8x8__rough__mu-4.6071",
+  "state_id": "PD2_s51_f082500_a3440_8x8__U-0.30",
+  "cell_id": "PD2_s51_f082500_a3440_8x8",
+  "cls": "D",
+  "split": "test",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.3,
+  "TARGETMU": -4.6071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s51_f082500_a3440_8x8/rough__mu-4.6071",
+  "n_atoms": 302,
+  "n_movable": 174,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3323.0595,
+  "walltime_min": 1860,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s51_f082500_a3495_8x8__rough__mu-5.0371",
+  "state_id": "PD2_s51_f082500_a3495_8x8__U+0.13",
+  "cell_id": "PD2_s51_f082500_a3495_8x8",
+  "cls": "D",
+  "split": "test",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.13,
+  "TARGETMU": -5.0371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s51_f082500_a3495_8x8/rough__mu-5.0371",
+  "n_atoms": 301,
+  "n_movable": 173,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3310.5687,
+  "walltime_min": 1860,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s51_f099500_a3663_8x8__rough__mu-5.2471",
+  "state_id": "PD2_s51_f099500_a3663_8x8__U+0.34",
+  "cell_id": "PD2_s51_f099500_a3663_8x8",
+  "cls": "D",
+  "split": "test",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.34,
+  "TARGETMU": -5.2471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s51_f099500_a3663_8x8/rough__mu-5.2471",
+  "n_atoms": 271,
+  "n_movable": 143,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2979.8406,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s11_f005000_a4190_8x8__rough__mu-5.2971",
+  "state_id": "PA1_s11_f005000_a4190_8x8__U+0.39",
+  "cell_id": "PA1_s11_f005000_a4190_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.39,
+  "TARGETMU": -5.2971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s11_f005000_a4190_8x8/rough__mu-5.2971",
+  "n_atoms": 297,
+  "n_movable": 169,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3265.6673,
+  "walltime_min": 1860,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s11_f005000_a4568_8x8__rough__mu-4.5571",
+  "state_id": "PA1_s11_f005000_a4568_8x8__U-0.35",
+  "cell_id": "PA1_s11_f005000_a4568_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.35,
+  "TARGETMU": -4.5571,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s11_f005000_a4568_8x8/rough__mu-4.5571",
+  "n_atoms": 278,
+  "n_movable": 150,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3059.2329,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s11_f010000_a4116_8x8__rough__mu-4.9371",
+  "state_id": "PA1_s11_f010000_a4116_8x8__U+0.03",
+  "cell_id": "PA1_s11_f010000_a4116_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.03,
+  "TARGETMU": -4.9371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s11_f010000_a4116_8x8/rough__mu-4.9371",
+  "n_atoms": 291,
+  "n_movable": 163,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3200.9154,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s11_f010000_a4154_8x8__rough__mu-4.9571",
+  "state_id": "PA1_s11_f010000_a4154_8x8__U+0.05",
+  "cell_id": "PA1_s11_f010000_a4154_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.05,
+  "TARGETMU": -4.9571,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s11_f010000_a4154_8x8/rough__mu-4.9571",
+  "n_atoms": 278,
+  "n_movable": 150,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3057.8461,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s11_f082500_a4560_8x8__rough__mu-4.7771",
+  "state_id": "PA1_s11_f082500_a4560_8x8__U-0.13",
+  "cell_id": "PA1_s11_f082500_a4560_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.13,
+  "TARGETMU": -4.7771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s11_f082500_a4560_8x8/rough__mu-4.7771",
+  "n_atoms": 290,
+  "n_movable": 162,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3190.4701,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s11_f089500_a3777_8x8__rough__mu-4.7971",
+  "state_id": "PA1_s11_f089500_a3777_8x8__U-0.11",
+  "cell_id": "PA1_s11_f089500_a3777_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.11,
+  "TARGETMU": -4.7971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s11_f089500_a3777_8x8/rough__mu-4.7971",
+  "n_atoms": 280,
+  "n_movable": 152,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3080.4008,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s11_f089500_a4346_8x8__rough__mu-5.1471",
+  "state_id": "PA1_s11_f089500_a4346_8x8__U+0.24",
+  "cell_id": "PA1_s11_f089500_a4346_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.24,
+  "TARGETMU": -5.1471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s11_f089500_a4346_8x8/rough__mu-5.1471",
+  "n_atoms": 289,
+  "n_movable": 161,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3178.1873,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s11_f093000_a4139_8x8__rough__mu-4.6371",
+  "state_id": "PA1_s11_f093000_a4139_8x8__U-0.27",
+  "cell_id": "PA1_s11_f093000_a4139_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.27,
+  "TARGETMU": -4.6371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s11_f093000_a4139_8x8/rough__mu-4.6371",
+  "n_atoms": 290,
+  "n_movable": 162,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3190.9555,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s11_f096500_a3497_8x8__rough__mu-4.8471",
+  "state_id": "PA1_s11_f096500_a3497_8x8__U-0.06",
+  "cell_id": "PA1_s11_f096500_a3497_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.06,
+  "TARGETMU": -4.8471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s11_f096500_a3497_8x8/rough__mu-4.8471",
+  "n_atoms": 297,
+  "n_movable": 169,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3267.2274,
+  "walltime_min": 1860,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s11_f099500_a3433_10x8__rough__mu-4.5071",
+  "state_id": "PA1_s11_f099500_a3433_10x8__U-0.40",
+  "cell_id": "PA1_s11_f099500_a3433_10x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": -0.4,
+  "TARGETMU": -4.5071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s11_f099500_a3433_10x8/rough__mu-4.5071",
+  "n_atoms": 373,
+  "n_movable": 213,
+  "kpoints": "2x2x1",
+  "nelect_guess": 4104.7578,
+  "walltime_min": 2580,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s23_f005000_a3455_8x8__rough__mu-5.1271",
+  "state_id": "PA1_s23_f005000_a3455_8x8__U+0.22",
+  "cell_id": "PA1_s23_f005000_a3455_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.22,
+  "TARGETMU": -5.1271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s23_f005000_a3455_8x8/rough__mu-5.1271",
+  "n_atoms": 279,
+  "n_movable": 151,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3068.2567,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s23_f005000_a4488_8x8__rough__mu-5.0171",
+  "state_id": "PA1_s23_f005000_a4488_8x8__U+0.11",
+  "cell_id": "PA1_s23_f005000_a4488_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.11,
+  "TARGETMU": -5.0171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s23_f005000_a4488_8x8/rough__mu-5.0171",
+  "n_atoms": 289,
+  "n_movable": 161,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3178.638,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s23_f010000_a4304_8x8__rough__mu-5.0171",
+  "state_id": "PA1_s23_f010000_a4304_8x8__U+0.11",
+  "cell_id": "PA1_s23_f010000_a4304_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.11,
+  "TARGETMU": -5.0171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s23_f010000_a4304_8x8/rough__mu-5.0171",
+  "n_atoms": 297,
+  "n_movable": 169,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3266.638,
+  "walltime_min": 1860,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s23_f086000_a3270_8x8__rough__mu-4.8371",
+  "state_id": "PA1_s23_f086000_a3270_8x8__U-0.07",
+  "cell_id": "PA1_s23_f086000_a3270_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.07,
+  "TARGETMU": -4.8371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s23_f086000_a3270_8x8/rough__mu-4.8371",
+  "n_atoms": 278,
+  "n_movable": 150,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3058.2621,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s23_f086000_a4535_8x8__rough__mu-5.2971",
+  "state_id": "PA1_s23_f086000_a4535_8x8__U+0.39",
+  "cell_id": "PA1_s23_f086000_a4535_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.39,
+  "TARGETMU": -5.2971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s23_f086000_a4535_8x8/rough__mu-5.2971",
+  "n_atoms": 281,
+  "n_movable": 153,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3089.6673,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s23_f089500_a3385_8x8__rough__mu-4.5171",
+  "state_id": "PA1_s23_f089500_a3385_8x8__U-0.39",
+  "cell_id": "PA1_s23_f089500_a3385_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.39,
+  "TARGETMU": -4.5171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s23_f089500_a3385_8x8/rough__mu-4.5171",
+  "n_atoms": 290,
+  "n_movable": 162,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3191.3715,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s23_f096500_a3414_8x8__rough__mu-4.8071",
+  "state_id": "PA1_s23_f096500_a3414_8x8__U-0.10",
+  "cell_id": "PA1_s23_f096500_a3414_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.1,
+  "TARGETMU": -4.8071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s23_f096500_a3414_8x8/rough__mu-4.8071",
+  "n_atoms": 287,
+  "n_movable": 159,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3157.3661,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s23_f096500_a3530_10x8__rough__mu-4.8971",
+  "state_id": "PA1_s23_f096500_a3530_10x8__U-0.01",
+  "cell_id": "PA1_s23_f096500_a3530_10x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": -0.01,
+  "TARGETMU": -4.8971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s23_f096500_a3530_10x8/rough__mu-4.8971",
+  "n_atoms": 355,
+  "n_movable": 195,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3905.0676,
+  "walltime_min": 2400,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s23_f099500_a4124_8x8__rough__mu-4.6671",
+  "state_id": "PA1_s23_f099500_a4124_8x8__U-0.24",
+  "cell_id": "PA1_s23_f099500_a4124_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.24,
+  "TARGETMU": -4.6671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s23_f099500_a4124_8x8/rough__mu-4.6671",
+  "n_atoms": 279,
+  "n_movable": 151,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3069.8515,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s37_f099500_a3268_8x8__rough__mu-4.9871",
+  "state_id": "PA1_s37_f099500_a3268_8x8__U+0.08",
+  "cell_id": "PA1_s37_f099500_a3268_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.08,
+  "TARGETMU": -4.9871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s37_f099500_a3268_8x8/rough__mu-4.9871",
+  "n_atoms": 295,
+  "n_movable": 167,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3244.7421,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s37_f099500_a4124_8x8__rough__mu-4.9571",
+  "state_id": "PA1_s37_f099500_a4124_8x8__U+0.05",
+  "cell_id": "PA1_s37_f099500_a4124_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.05,
+  "TARGETMU": -4.9571,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s37_f099500_a4124_8x8/rough__mu-4.9571",
+  "n_atoms": 294,
+  "n_movable": 166,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3233.8461,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s51_f005000_a3161_8x8__rough__mu-4.7871",
+  "state_id": "PA1_s51_f005000_a3161_8x8__U-0.12",
+  "cell_id": "PA1_s51_f005000_a3161_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.12,
+  "TARGETMU": -4.7871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s51_f005000_a3161_8x8/rough__mu-4.7871",
+  "n_atoms": 277,
+  "n_movable": 149,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3047.4355,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s51_f005000_a4578_8x8__rough__mu-5.3871",
+  "state_id": "PA1_s51_f005000_a4578_8x8__U+0.48",
+  "cell_id": "PA1_s51_f005000_a4578_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.48,
+  "TARGETMU": -5.3871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s51_f005000_a4578_8x8/rough__mu-5.3871",
+  "n_atoms": 284,
+  "n_movable": 156,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3122.3553,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s51_f010000_a4026_8x8__rough__mu-5.2771",
+  "state_id": "PA1_s51_f010000_a4026_8x8__U+0.37",
+  "cell_id": "PA1_s51_f010000_a4026_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.37,
+  "TARGETMU": -5.2771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s51_f010000_a4026_8x8/rough__mu-5.2771",
+  "n_atoms": 274,
+  "n_movable": 146,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3012.7366,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s51_f082500_a3617_8x8__rough__mu-4.4871",
+  "state_id": "PA1_s51_f082500_a3617_8x8__U-0.42",
+  "cell_id": "PA1_s51_f082500_a3617_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.42,
+  "TARGETMU": -4.4871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s51_f082500_a3617_8x8/rough__mu-4.4871",
+  "n_atoms": 281,
+  "n_movable": 153,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3092.4755,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s51_f082500_a4161_8x8__rough__mu-4.4871",
+  "state_id": "PA1_s51_f082500_a4161_8x8__U-0.42",
+  "cell_id": "PA1_s51_f082500_a4161_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.42,
+  "TARGETMU": -4.4871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s51_f082500_a4161_8x8/rough__mu-4.4871",
+  "n_atoms": 277,
+  "n_movable": 149,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3048.4755,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s51_f086000_a3690_8x8__rough__mu-4.6371",
+  "state_id": "PA1_s51_f086000_a3690_8x8__U-0.27",
+  "cell_id": "PA1_s51_f086000_a3690_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.27,
+  "TARGETMU": -4.6371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s51_f086000_a3690_8x8/rough__mu-4.6371",
+  "n_atoms": 289,
+  "n_movable": 161,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3179.9555,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s51_f086000_a4314_8x8__rough__mu-5.2071",
+  "state_id": "PA1_s51_f086000_a4314_8x8__U+0.30",
+  "cell_id": "PA1_s51_f086000_a4314_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.3,
+  "TARGETMU": -5.2071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s51_f086000_a4314_8x8/rough__mu-5.2071",
+  "n_atoms": 288,
+  "n_movable": 160,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3166.9793,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s51_f089500_a4318_10x8__rough__mu-5.2671",
+  "state_id": "PA1_s51_f089500_a4318_10x8__U+0.36",
+  "cell_id": "PA1_s51_f089500_a4318_10x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": 0.36,
+  "TARGETMU": -5.2671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s51_f089500_a4318_10x8/rough__mu-5.2671",
+  "n_atoms": 350,
+  "n_movable": 190,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3848.4641,
+  "walltime_min": 2340,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA1_s51_f093000_a4085_8x8__rough__mu-5.1471",
+  "state_id": "PA1_s51_f093000_a4085_8x8__U+0.24",
+  "cell_id": "PA1_s51_f093000_a4085_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.24,
+  "TARGETMU": -5.1471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s51_f093000_a4085_8x8/rough__mu-5.1471",
+  "n_atoms": 280,
+  "n_movable": 152,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3079.1873,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s11_f010000_a3776_8x8__rough__mu-5.1071",
+  "state_id": "PA2_s11_f010000_a3776_8x8__U+0.20",
+  "cell_id": "PA2_s11_f010000_a3776_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.2,
+  "TARGETMU": -5.1071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s11_f010000_a3776_8x8/rough__mu-5.1071",
+  "n_atoms": 306,
+  "n_movable": 178,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3365.326,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s11_f010000_a4422_8x8__rough__mu-5.3971",
+  "state_id": "PA2_s11_f010000_a4422_8x8__U+0.49",
+  "cell_id": "PA2_s11_f010000_a4422_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.49,
+  "TARGETMU": -5.3971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s11_f010000_a4422_8x8/rough__mu-5.3971",
+  "n_atoms": 270,
+  "n_movable": 142,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2968.3206,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s11_f086000_a4445_8x8__rough__mu-4.6471",
+  "state_id": "PA2_s11_f086000_a4445_8x8__U-0.26",
+  "cell_id": "PA2_s11_f086000_a4445_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.26,
+  "TARGETMU": -4.6471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s11_f086000_a4445_8x8/rough__mu-4.6471",
+  "n_atoms": 311,
+  "n_movable": 183,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3421.9208,
+  "walltime_min": 1980,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s11_f096500_a4267_8x8__rough__mu-5.3171",
+  "state_id": "PA2_s11_f096500_a4267_8x8__U+0.41",
+  "cell_id": "PA2_s11_f096500_a4267_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.41,
+  "TARGETMU": -5.3171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s11_f096500_a4267_8x8/rough__mu-5.3171",
+  "n_atoms": 318,
+  "n_movable": 190,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3496.5979,
+  "walltime_min": 2040,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s11_f096500_a4570_8x8__rough__mu-5.4071",
+  "state_id": "PA2_s11_f096500_a4570_8x8__U+0.50",
+  "cell_id": "PA2_s11_f096500_a4570_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.5,
+  "TARGETMU": -5.4071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s11_f096500_a4570_8x8/rough__mu-5.4071",
+  "n_atoms": 308,
+  "n_movable": 180,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3386.2859,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s23_f005000_a3536_8x8__rough__mu-5.3171",
+  "state_id": "PA2_s23_f005000_a3536_8x8__U+0.41",
+  "cell_id": "PA2_s23_f005000_a3536_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.41,
+  "TARGETMU": -5.3171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s23_f005000_a3536_8x8/rough__mu-5.3171",
+  "n_atoms": 281,
+  "n_movable": 153,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3089.5979,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s23_f082500_a3256_8x8__rough__mu-4.4171",
+  "state_id": "PA2_s23_f082500_a3256_8x8__U-0.49",
+  "cell_id": "PA2_s23_f082500_a3256_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.49,
+  "TARGETMU": -4.4171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s23_f082500_a3256_8x8/rough__mu-4.4171",
+  "n_atoms": 297,
+  "n_movable": 169,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3268.7182,
+  "walltime_min": 1860,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s23_f086000_a4390_8x8__rough__mu-4.5371",
+  "state_id": "PA2_s23_f086000_a4390_8x8__U-0.37",
+  "cell_id": "PA2_s23_f086000_a4390_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.37,
+  "TARGETMU": -4.5371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s23_f086000_a4390_8x8/rough__mu-4.5371",
+  "n_atoms": 316,
+  "n_movable": 188,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3477.3022,
+  "walltime_min": 2040,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s23_f093000_a4142_8x8__rough__mu-5.1971",
+  "state_id": "PA2_s23_f093000_a4142_8x8__U+0.29",
+  "cell_id": "PA2_s23_f093000_a4142_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.29,
+  "TARGETMU": -5.1971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s23_f093000_a4142_8x8/rough__mu-5.1971",
+  "n_atoms": 312,
+  "n_movable": 184,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3431.014,
+  "walltime_min": 1980,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s23_f096500_a4582_8x8__rough__mu-4.8171",
+  "state_id": "PA2_s23_f096500_a4582_8x8__U-0.09",
+  "cell_id": "PA2_s23_f096500_a4582_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.09,
+  "TARGETMU": -4.8171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s23_f096500_a4582_8x8/rough__mu-4.8171",
+  "n_atoms": 311,
+  "n_movable": 183,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3421.3314,
+  "walltime_min": 1980,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s11_f005000_a4143_8x8__rough__mu-4.4071",
+  "state_id": "PB1_s11_f005000_a4143_8x8__U-0.50",
+  "cell_id": "PB1_s11_f005000_a4143_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.5,
+  "TARGETMU": -4.4071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s11_f005000_a4143_8x8/rough__mu-4.4071",
+  "n_atoms": 280,
+  "n_movable": 152,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3081.7529,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s11_f010000_a4143_10x8__rough__mu-5.2471",
+  "state_id": "PB1_s11_f010000_a4143_10x8__U+0.34",
+  "cell_id": "PB1_s11_f010000_a4143_10x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": 0.34,
+  "TARGETMU": -5.2471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s11_f010000_a4143_10x8/rough__mu-5.2471",
+  "n_atoms": 345,
+  "n_movable": 185,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3793.5508,
+  "walltime_min": 2280,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s11_f010000_a4173_8x8__rough__mu-4.8371",
+  "state_id": "PB1_s11_f010000_a4173_8x8__U-0.07",
+  "cell_id": "PB1_s11_f010000_a4173_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.07,
+  "TARGETMU": -4.8371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s11_f010000_a4173_8x8/rough__mu-4.8371",
+  "n_atoms": 277,
+  "n_movable": 149,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3047.2621,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s11_f082500_a3407_8x8__rough__mu-5.2771",
+  "state_id": "PB1_s11_f082500_a3407_8x8__U+0.37",
+  "cell_id": "PB1_s11_f082500_a3407_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.37,
+  "TARGETMU": -5.2771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s11_f082500_a3407_8x8/rough__mu-5.2771",
+  "n_atoms": 271,
+  "n_movable": 143,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2979.7366,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s11_f082500_a4035_8x8__rough__mu-4.7671",
+  "state_id": "PB1_s11_f082500_a4035_8x8__U-0.14",
+  "cell_id": "PB1_s11_f082500_a4035_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.14,
+  "TARGETMU": -4.7671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s11_f082500_a4035_8x8/rough__mu-4.7671",
+  "n_atoms": 275,
+  "n_movable": 147,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3025.5048,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s11_f086000_a3911_8x8__rough__mu-5.2871",
+  "state_id": "PB1_s11_f086000_a3911_8x8__U+0.38",
+  "cell_id": "PB1_s11_f086000_a3911_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.38,
+  "TARGETMU": -5.2871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s11_f086000_a3911_8x8/rough__mu-5.2871",
+  "n_atoms": 260,
+  "n_movable": 132,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2858.702,
+  "walltime_min": 1500,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s23_f010000_a4171_8x8__rough__mu-4.7371",
+  "state_id": "PB1_s23_f010000_a4171_8x8__U-0.17",
+  "cell_id": "PB1_s23_f010000_a4171_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.17,
+  "TARGETMU": -4.7371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s23_f010000_a4171_8x8/rough__mu-4.7371",
+  "n_atoms": 271,
+  "n_movable": 143,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2981.6088,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s23_f086000_a4071_8x8__rough__mu-4.5571",
+  "state_id": "PB1_s23_f086000_a4071_8x8__U-0.35",
+  "cell_id": "PB1_s23_f086000_a4071_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.35,
+  "TARGETMU": -4.5571,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s23_f086000_a4071_8x8/rough__mu-4.5571",
+  "n_atoms": 266,
+  "n_movable": 138,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2927.2329,
+  "walltime_min": 1560,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s23_f096500_a3965_8x8__rough__mu-4.9371",
+  "state_id": "PB1_s23_f096500_a3965_8x8__U+0.03",
+  "cell_id": "PB1_s23_f096500_a3965_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.03,
+  "TARGETMU": -4.9371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s23_f096500_a3965_8x8/rough__mu-4.9371",
+  "n_atoms": 292,
+  "n_movable": 164,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3211.9154,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s23_f099500_a4041_8x8__rough__mu-4.5971",
+  "state_id": "PB1_s23_f099500_a4041_8x8__U-0.31",
+  "cell_id": "PB1_s23_f099500_a4041_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.31,
+  "TARGETMU": -4.5971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s23_f099500_a4041_8x8/rough__mu-4.5971",
+  "n_atoms": 272,
+  "n_movable": 144,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2993.0942,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s37_f005000_a3081_8x8__rough__mu-5.0771",
+  "state_id": "PB1_s37_f005000_a3081_8x8__U+0.17",
+  "cell_id": "PB1_s37_f005000_a3081_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.17,
+  "TARGETMU": -5.0771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s37_f005000_a3081_8x8/rough__mu-5.0771",
+  "n_atoms": 265,
+  "n_movable": 137,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2914.43,
+  "walltime_min": 1560,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s37_f005000_a4096_8x8__rough__mu-4.8771",
+  "state_id": "PB1_s37_f005000_a4096_8x8__U-0.03",
+  "cell_id": "PB1_s37_f005000_a4096_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.03,
+  "TARGETMU": -4.8771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s37_f005000_a4096_8x8/rough__mu-4.8771",
+  "n_atoms": 264,
+  "n_movable": 136,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2904.1234,
+  "walltime_min": 1560,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s37_f089500_a3134_8x8__rough__mu-5.3471",
+  "state_id": "PB1_s37_f089500_a3134_8x8__U+0.44",
+  "cell_id": "PB1_s37_f089500_a3134_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.44,
+  "TARGETMU": -5.3471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s37_f089500_a3134_8x8/rough__mu-5.3471",
+  "n_atoms": 261,
+  "n_movable": 133,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2869.4939,
+  "walltime_min": 1500,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s37_f093000_a2820_8x8__rough__mu-4.5371",
+  "state_id": "PB1_s37_f093000_a2820_8x8__U-0.37",
+  "cell_id": "PB1_s37_f093000_a2820_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.37,
+  "TARGETMU": -4.5371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s37_f093000_a2820_8x8/rough__mu-4.5371",
+  "n_atoms": 258,
+  "n_movable": 130,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2839.3022,
+  "walltime_min": 1500,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s37_f093000_a3443_10x8__rough__mu-5.0671",
+  "state_id": "PB1_s37_f093000_a3443_10x8__U+0.16",
+  "cell_id": "PB1_s37_f093000_a3443_10x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": 0.16,
+  "TARGETMU": -5.0671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s37_f093000_a3443_10x8/rough__mu-5.0671",
+  "n_atoms": 375,
+  "n_movable": 215,
+  "kpoints": "2x2x1",
+  "nelect_guess": 4124.3309,
+  "walltime_min": 2580,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s37_f096500_a3843_10x8__rough__mu-4.9871",
+  "state_id": "PB1_s37_f096500_a3843_10x8__U+0.08",
+  "cell_id": "PB1_s37_f096500_a3843_10x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": 0.08,
+  "TARGETMU": -4.9871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s37_f096500_a3843_10x8/rough__mu-4.9871",
+  "n_atoms": 327,
+  "n_movable": 167,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3596.6776,
+  "walltime_min": 2100,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s37_f099500_a4223_8x8__rough__mu-5.3371",
+  "state_id": "PB1_s37_f099500_a4223_8x8__U+0.43",
+  "cell_id": "PB1_s37_f099500_a4223_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.43,
+  "TARGETMU": -5.3371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s37_f099500_a4223_8x8/rough__mu-5.3371",
+  "n_atoms": 285,
+  "n_movable": 157,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3133.5286,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s51_f082500_a3929_8x8__rough__mu-5.3671",
+  "state_id": "PB1_s51_f082500_a3929_8x8__U+0.46",
+  "cell_id": "PB1_s51_f082500_a3929_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.46,
+  "TARGETMU": -5.3671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s51_f082500_a3929_8x8/rough__mu-5.3671",
+  "n_atoms": 302,
+  "n_movable": 174,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3320.4246,
+  "walltime_min": 1860,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s51_f082500_a4236_8x8__rough__mu-4.4671",
+  "state_id": "PB1_s51_f082500_a4236_8x8__U-0.44",
+  "cell_id": "PB1_s51_f082500_a4236_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.44,
+  "TARGETMU": -4.4671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s51_f082500_a4236_8x8/rough__mu-4.4671",
+  "n_atoms": 305,
+  "n_movable": 177,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3356.5449,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s51_f086000_a4028_8x8__rough__mu-4.8171",
+  "state_id": "PB1_s51_f086000_a4028_8x8__U-0.09",
+  "cell_id": "PB1_s51_f086000_a4028_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.09,
+  "TARGETMU": -4.8171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s51_f086000_a4028_8x8/rough__mu-4.8171",
+  "n_atoms": 306,
+  "n_movable": 178,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3366.3314,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s51_f089500_a3454_8x8__rough__mu-5.0971",
+  "state_id": "PB1_s51_f089500_a3454_8x8__U+0.19",
+  "cell_id": "PB1_s51_f089500_a3454_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.19,
+  "TARGETMU": -5.0971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s51_f089500_a3454_8x8/rough__mu-5.0971",
+  "n_atoms": 256,
+  "n_movable": 128,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2815.3607,
+  "walltime_min": 1500,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s51_f089500_a4218_8x8__rough__mu-5.1171",
+  "state_id": "PB1_s51_f089500_a4218_8x8__U+0.21",
+  "cell_id": "PB1_s51_f089500_a4218_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.21,
+  "TARGETMU": -5.1171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s51_f089500_a4218_8x8/rough__mu-5.1171",
+  "n_atoms": 287,
+  "n_movable": 159,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3156.2913,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s51_f093000_a4042_8x8__rough__mu-4.7071",
+  "state_id": "PB1_s51_f093000_a4042_8x8__U-0.20",
+  "cell_id": "PB1_s51_f093000_a4042_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.2,
+  "TARGETMU": -4.7071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s51_f093000_a4042_8x8/rough__mu-4.7071",
+  "n_atoms": 263,
+  "n_movable": 135,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2893.7128,
+  "walltime_min": 1560,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s51_f093000_a4158_8x8__rough__mu-5.1471",
+  "state_id": "PB1_s51_f093000_a4158_8x8__U+0.24",
+  "cell_id": "PB1_s51_f093000_a4158_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.24,
+  "TARGETMU": -5.1471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s51_f093000_a4158_8x8/rough__mu-5.1471",
+  "n_atoms": 263,
+  "n_movable": 135,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2892.1873,
+  "walltime_min": 1560,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s51_f096500_a4239_10x8__rough__mu-4.7171",
+  "state_id": "PB1_s51_f096500_a4239_10x8__U-0.19",
+  "cell_id": "PB1_s51_f096500_a4239_10x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": -0.19,
+  "TARGETMU": -4.7171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s51_f096500_a4239_10x8/rough__mu-4.7171",
+  "n_atoms": 366,
+  "n_movable": 206,
+  "kpoints": "2x2x1",
+  "nelect_guess": 4026.8477,
+  "walltime_min": 2520,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB1_s51_f099500_a4156_10x8__rough__mu-4.5271",
+  "state_id": "PB1_s51_f099500_a4156_10x8__U-0.38",
+  "cell_id": "PB1_s51_f099500_a4156_10x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": -0.38,
+  "TARGETMU": -4.5271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s51_f099500_a4156_10x8/rough__mu-4.5271",
+  "n_atoms": 321,
+  "n_movable": 161,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3532.6711,
+  "walltime_min": 2040,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s11_f005000_a4316_8x8__rough__mu-4.7071",
+  "state_id": "PB2_s11_f005000_a4316_8x8__U-0.20",
+  "cell_id": "PB2_s11_f005000_a4316_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.2,
+  "TARGETMU": -4.7071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s11_f005000_a4316_8x8/rough__mu-4.7071",
+  "n_atoms": 280,
+  "n_movable": 152,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3080.7128,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s11_f010000_a4335_8x8__rough__mu-5.1371",
+  "state_id": "PB2_s11_f010000_a4335_8x8__U+0.23",
+  "cell_id": "PB2_s11_f010000_a4335_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.23,
+  "TARGETMU": -5.1371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s11_f010000_a4335_8x8/rough__mu-5.1371",
+  "n_atoms": 292,
+  "n_movable": 164,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3211.222,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s11_f082500_a3964_8x8__rough__mu-4.4471",
+  "state_id": "PB2_s11_f082500_a3964_8x8__U-0.46",
+  "cell_id": "PB2_s11_f082500_a3964_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.46,
+  "TARGETMU": -4.4471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s11_f082500_a3964_8x8/rough__mu-4.4471",
+  "n_atoms": 267,
+  "n_movable": 139,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2938.6142,
+  "walltime_min": 1560,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s11_f086000_a3632_10x8__rough__mu-5.3371",
+  "state_id": "PB2_s11_f086000_a3632_10x8__U+0.43",
+  "cell_id": "PB2_s11_f086000_a3632_10x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": 0.43,
+  "TARGETMU": -5.3371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s11_f086000_a3632_10x8/rough__mu-5.3371",
+  "n_atoms": 377,
+  "n_movable": 217,
+  "kpoints": "2x2x1",
+  "nelect_guess": 4145.1608,
+  "walltime_min": 2640,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s11_f093000_a3658_8x8__rough__mu-5.2771",
+  "state_id": "PB2_s11_f093000_a3658_8x8__U+0.37",
+  "cell_id": "PB2_s11_f093000_a3658_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.37,
+  "TARGETMU": -5.2771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s11_f093000_a3658_8x8/rough__mu-5.2771",
+  "n_atoms": 271,
+  "n_movable": 143,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2979.7366,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s11_f096500_a3714_8x8__rough__mu-5.1571",
+  "state_id": "PB2_s11_f096500_a3714_8x8__U+0.25",
+  "cell_id": "PB2_s11_f096500_a3714_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.25,
+  "TARGETMU": -5.1571,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s11_f096500_a3714_8x8/rough__mu-5.1571",
+  "n_atoms": 284,
+  "n_movable": 156,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3123.1527,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s23_f005000_a3436_8x8__rough__mu-4.6171",
+  "state_id": "PB2_s23_f005000_a3436_8x8__U-0.29",
+  "cell_id": "PB2_s23_f005000_a3436_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.29,
+  "TARGETMU": -4.6171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s23_f005000_a3436_8x8/rough__mu-4.6171",
+  "n_atoms": 307,
+  "n_movable": 179,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3378.0248,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s23_f010000_a4354_8x8__rough__mu-4.4371",
+  "state_id": "PB2_s23_f010000_a4354_8x8__U-0.47",
+  "cell_id": "PB2_s23_f010000_a4354_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.47,
+  "TARGETMU": -4.4371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s23_f010000_a4354_8x8/rough__mu-4.4371",
+  "n_atoms": 274,
+  "n_movable": 146,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3015.6489,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s23_f086000_a3634_8x8__rough__mu-4.6271",
+  "state_id": "PB2_s23_f086000_a3634_8x8__U-0.28",
+  "cell_id": "PB2_s23_f086000_a3634_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.28,
+  "TARGETMU": -4.6271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s23_f086000_a3634_8x8/rough__mu-4.6271",
+  "n_atoms": 301,
+  "n_movable": 173,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3311.9902,
+  "walltime_min": 1860,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s23_f086000_a4268_8x8__rough__mu-4.8771",
+  "state_id": "PB2_s23_f086000_a4268_8x8__U-0.03",
+  "cell_id": "PB2_s23_f086000_a4268_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.03,
+  "TARGETMU": -4.8771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s23_f086000_a4268_8x8/rough__mu-4.8771",
+  "n_atoms": 294,
+  "n_movable": 166,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3234.1234,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s23_f089500_a4158_8x8__rough__mu-4.7671",
+  "state_id": "PB2_s23_f089500_a4158_8x8__U-0.14",
+  "cell_id": "PB2_s23_f089500_a4158_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.14,
+  "TARGETMU": -4.7671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s23_f089500_a4158_8x8/rough__mu-4.7671",
+  "n_atoms": 316,
+  "n_movable": 188,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3476.5048,
+  "walltime_min": 2040,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s23_f089500_a4423_8x8__rough__mu-4.9271",
+  "state_id": "PB2_s23_f089500_a4423_8x8__U+0.02",
+  "cell_id": "PB2_s23_f089500_a4423_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.02,
+  "TARGETMU": -4.9271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s23_f089500_a4423_8x8/rough__mu-4.9271",
+  "n_atoms": 317,
+  "n_movable": 189,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3486.9501,
+  "walltime_min": 2040,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s23_f093000_a4359_8x8__rough__mu-4.9671",
+  "state_id": "PB2_s23_f093000_a4359_8x8__U+0.06",
+  "cell_id": "PB2_s23_f093000_a4359_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.06,
+  "TARGETMU": -4.9671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s23_f093000_a4359_8x8/rough__mu-4.9671",
+  "n_atoms": 272,
+  "n_movable": 144,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2991.8114,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s23_f096500_a3504_8x8__rough__mu-5.0971",
+  "state_id": "PB2_s23_f096500_a3504_8x8__U+0.19",
+  "cell_id": "PB2_s23_f096500_a3504_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.19,
+  "TARGETMU": -5.0971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s23_f096500_a3504_8x8/rough__mu-5.0971",
+  "n_atoms": 283,
+  "n_movable": 155,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3112.3607,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s11_f010000_a2754_8x8__rough__mu-4.7871",
+  "state_id": "PC1_s11_f010000_a2754_8x8__U-0.12",
+  "cell_id": "PC1_s11_f010000_a2754_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.12,
+  "TARGETMU": -4.7871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s11_f010000_a2754_8x8/rough__mu-4.7871",
+  "n_atoms": 254,
+  "n_movable": 126,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2794.4355,
+  "walltime_min": 1440,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s11_f082500_a2132_8x8__rough__mu-5.3771",
+  "state_id": "PC1_s11_f082500_a2132_8x8__U+0.47",
+  "cell_id": "PC1_s11_f082500_a2132_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.47,
+  "TARGETMU": -5.3771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s11_f082500_a2132_8x8/rough__mu-5.3771",
+  "n_atoms": 238,
+  "n_movable": 110,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2616.3899,
+  "walltime_min": 1320,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s11_f082500_a3094_8x8__rough__mu-4.4971",
+  "state_id": "PC1_s11_f082500_a3094_8x8__U-0.41",
+  "cell_id": "PC1_s11_f082500_a3094_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.41,
+  "TARGETMU": -4.4971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s11_f082500_a3094_8x8/rough__mu-4.4971",
+  "n_atoms": 248,
+  "n_movable": 120,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2729.4409,
+  "walltime_min": 1440,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s11_f086000_a2161_8x8__rough__mu-4.9871",
+  "state_id": "PC1_s11_f086000_a2161_8x8__U+0.08",
+  "cell_id": "PC1_s11_f086000_a2161_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.08,
+  "TARGETMU": -4.9871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s11_f086000_a2161_8x8/rough__mu-4.9871",
+  "n_atoms": 234,
+  "n_movable": 106,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2573.7421,
+  "walltime_min": 1320,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s11_f086000_a2645_8x8__rough__mu-5.1671",
+  "state_id": "PC1_s11_f086000_a2645_8x8__U+0.26",
+  "cell_id": "PC1_s11_f086000_a2645_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.26,
+  "TARGETMU": -5.1671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s11_f086000_a2645_8x8/rough__mu-5.1671",
+  "n_atoms": 238,
+  "n_movable": 110,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2617.118,
+  "walltime_min": 1320,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s11_f089500_a2132_8x8__rough__mu-4.5871",
+  "state_id": "PC1_s11_f089500_a2132_8x8__U-0.32",
+  "cell_id": "PC1_s11_f089500_a2132_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.32,
+  "TARGETMU": -4.5871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s11_f089500_a2132_8x8/rough__mu-4.5871",
+  "n_atoms": 242,
+  "n_movable": 114,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2663.1288,
+  "walltime_min": 1380,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s23_f005000_a3447_8x8__rough__mu-4.8271",
+  "state_id": "PC1_s23_f005000_a3447_8x8__U-0.08",
+  "cell_id": "PC1_s23_f005000_a3447_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.08,
+  "TARGETMU": -4.8271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s23_f005000_a3447_8x8/rough__mu-4.8271",
+  "n_atoms": 243,
+  "n_movable": 115,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2673.2968,
+  "walltime_min": 1380,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s23_f010000_a2544_8x8__rough__mu-4.6671",
+  "state_id": "PC1_s23_f010000_a2544_8x8__U-0.24",
+  "cell_id": "PC1_s23_f010000_a2544_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.24,
+  "TARGETMU": -4.6671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s23_f010000_a2544_8x8/rough__mu-4.6671",
+  "n_atoms": 243,
+  "n_movable": 115,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2673.8515,
+  "walltime_min": 1380,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s23_f082500_a2878_8x8__rough__mu-5.1271",
+  "state_id": "PC1_s23_f082500_a2878_8x8__U+0.22",
+  "cell_id": "PC1_s23_f082500_a2878_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.22,
+  "TARGETMU": -5.1271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s23_f082500_a2878_8x8/rough__mu-5.1271",
+  "n_atoms": 244,
+  "n_movable": 116,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2683.2567,
+  "walltime_min": 1380,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s23_f093000_a3581_8x8__rough__mu-5.2671",
+  "state_id": "PC1_s23_f093000_a3581_8x8__U+0.36",
+  "cell_id": "PC1_s23_f093000_a3581_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.36,
+  "TARGETMU": -5.2671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s23_f093000_a3581_8x8/rough__mu-5.2671",
+  "n_atoms": 229,
+  "n_movable": 101,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2517.7713,
+  "walltime_min": 1260,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s37_f005000_a3288_8x8__rough__mu-5.2571",
+  "state_id": "PC1_s37_f005000_a3288_8x8__U+0.35",
+  "cell_id": "PC1_s37_f005000_a3288_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.35,
+  "TARGETMU": -5.2571,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s37_f005000_a3288_8x8/rough__mu-5.2571",
+  "n_atoms": 245,
+  "n_movable": 117,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2693.806,
+  "walltime_min": 1380,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s37_f005000_a3488_8x8__rough__mu-4.9271",
+  "state_id": "PC1_s37_f005000_a3488_8x8__U+0.02",
+  "cell_id": "PC1_s37_f005000_a3488_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.02,
+  "TARGETMU": -4.9271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s37_f005000_a3488_8x8/rough__mu-4.9271",
+  "n_atoms": 244,
+  "n_movable": 116,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2683.9501,
+  "walltime_min": 1380,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s37_f010000_a2367_8x8__rough__mu-4.8971",
+  "state_id": "PC1_s37_f010000_a2367_8x8__U-0.01",
+  "cell_id": "PC1_s37_f010000_a2367_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.01,
+  "TARGETMU": -4.8971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s37_f010000_a2367_8x8/rough__mu-4.8971",
+  "n_atoms": 233,
+  "n_movable": 105,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2563.0541,
+  "walltime_min": 1260,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s37_f086000_a2282_8x8__rough__mu-4.9071",
+  "state_id": "PC1_s37_f086000_a2282_8x8__U+0.00",
+  "cell_id": "PC1_s37_f086000_a2282_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.0,
+  "TARGETMU": -4.9071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s37_f086000_a2282_8x8/rough__mu-4.9071",
+  "n_atoms": 245,
+  "n_movable": 117,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2695.0194,
+  "walltime_min": 1380,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s37_f089500_a3497_8x8__rough__mu-4.5871",
+  "state_id": "PC1_s37_f089500_a3497_8x8__U-0.32",
+  "cell_id": "PC1_s37_f089500_a3497_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.32,
+  "TARGETMU": -4.5871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s37_f089500_a3497_8x8/rough__mu-4.5871",
+  "n_atoms": 242,
+  "n_movable": 114,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2663.1288,
+  "walltime_min": 1380,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s37_f093000_a2394_8x8__rough__mu-5.2171",
+  "state_id": "PC1_s37_f093000_a2394_8x8__U+0.31",
+  "cell_id": "PC1_s37_f093000_a2394_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.31,
+  "TARGETMU": -5.2171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s37_f093000_a2394_8x8/rough__mu-5.2171",
+  "n_atoms": 239,
+  "n_movable": 111,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2627.9446,
+  "walltime_min": 1320,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s37_f096500_a2555_8x8__rough__mu-5.3671",
+  "state_id": "PC1_s37_f096500_a2555_8x8__U+0.46",
+  "cell_id": "PC1_s37_f096500_a2555_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.46,
+  "TARGETMU": -5.3671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s37_f096500_a2555_8x8/rough__mu-5.3671",
+  "n_atoms": 240,
+  "n_movable": 112,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2638.4246,
+  "walltime_min": 1320,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s37_f096500_a3416_8x8__rough__mu-4.7671",
+  "state_id": "PC1_s37_f096500_a3416_8x8__U-0.14",
+  "cell_id": "PC1_s37_f096500_a3416_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.14,
+  "TARGETMU": -4.7671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s37_f096500_a3416_8x8/rough__mu-4.7671",
+  "n_atoms": 228,
+  "n_movable": 100,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2508.5048,
+  "walltime_min": 1260,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s51_f082500_a2746_8x8__rough__mu-4.8671",
+  "state_id": "PC1_s51_f082500_a2746_8x8__U-0.04",
+  "cell_id": "PC1_s51_f082500_a2746_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.04,
+  "TARGETMU": -4.8671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s51_f082500_a2746_8x8/rough__mu-4.8671",
+  "n_atoms": 213,
+  "n_movable": 85,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2343.1581,
+  "walltime_min": 1140,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s51_f089500_a2648_8x8__rough__mu-4.5371",
+  "state_id": "PC1_s51_f089500_a2648_8x8__U-0.37",
+  "cell_id": "PC1_s51_f089500_a2648_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.37,
+  "TARGETMU": -4.5371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s51_f089500_a2648_8x8/rough__mu-4.5371",
+  "n_atoms": 223,
+  "n_movable": 95,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2454.3022,
+  "walltime_min": 1200,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC1_s51_f096500_a3585_8x8__rough__mu-5.3871",
+  "state_id": "PC1_s51_f096500_a3585_8x8__U+0.48",
+  "cell_id": "PC1_s51_f096500_a3585_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.48,
+  "TARGETMU": -5.3871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s51_f096500_a3585_8x8/rough__mu-5.3871",
+  "n_atoms": 217,
+  "n_movable": 89,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2385.3553,
+  "walltime_min": 1140,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s11_f005000_a2078_8x8__rough__mu-4.5771",
+  "state_id": "PC2_s11_f005000_a2078_8x8__U-0.33",
+  "cell_id": "PC2_s11_f005000_a2078_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.33,
+  "TARGETMU": -4.5771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s11_f005000_a2078_8x8/rough__mu-4.5771",
+  "n_atoms": 201,
+  "n_movable": 73,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2212.1635,
+  "walltime_min": 1020,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s11_f005000_a3130_8x8__rough__mu-5.3871",
+  "state_id": "PC2_s11_f005000_a3130_8x8__U+0.48",
+  "cell_id": "PC2_s11_f005000_a3130_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.48,
+  "TARGETMU": -5.3871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s11_f005000_a3130_8x8/rough__mu-5.3871",
+  "n_atoms": 202,
+  "n_movable": 74,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2220.3553,
+  "walltime_min": 1020,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s11_f010000_a2187_8x8__rough__mu-4.4171",
+  "state_id": "PC2_s11_f010000_a2187_8x8__U-0.49",
+  "cell_id": "PC2_s11_f010000_a2187_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.49,
+  "TARGETMU": -4.4171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s11_f010000_a2187_8x8/rough__mu-4.4171",
+  "n_atoms": 211,
+  "n_movable": 83,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2322.7182,
+  "walltime_min": 1140,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s11_f082500_a3108_8x8__rough__mu-4.4471",
+  "state_id": "PC2_s11_f082500_a3108_8x8__U-0.46",
+  "cell_id": "PC2_s11_f082500_a3108_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.46,
+  "TARGETMU": -4.4471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s11_f082500_a3108_8x8/rough__mu-4.4471",
+  "n_atoms": 206,
+  "n_movable": 78,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2267.6142,
+  "walltime_min": 1080,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s11_f093000_a2241_10x8__rough__mu-4.4471",
+  "state_id": "PC2_s11_f093000_a2241_10x8__U-0.46",
+  "cell_id": "PC2_s11_f093000_a2241_10x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": -0.46,
+  "TARGETMU": -4.4471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s11_f093000_a2241_10x8/rough__mu-4.4471",
+  "n_atoms": 284,
+  "n_movable": 124,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3126.0178,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s11_f093000_a3110_8x8__rough__mu-5.2871",
+  "state_id": "PC2_s11_f093000_a3110_8x8__U+0.38",
+  "cell_id": "PC2_s11_f093000_a3110_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.38,
+  "TARGETMU": -5.2871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s11_f093000_a3110_8x8/rough__mu-5.2871",
+  "n_atoms": 209,
+  "n_movable": 81,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2297.702,
+  "walltime_min": 1080,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s11_f096500_a2153_8x8__rough__mu-4.9571",
+  "state_id": "PC2_s11_f096500_a2153_8x8__U+0.05",
+  "cell_id": "PC2_s11_f096500_a2153_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.05,
+  "TARGETMU": -4.9571,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s11_f096500_a2153_8x8/rough__mu-4.9571",
+  "n_atoms": 205,
+  "n_movable": 77,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2254.8461,
+  "walltime_min": 1080,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s11_f096500_a3088_8x8__rough__mu-5.0771",
+  "state_id": "PC2_s11_f096500_a3088_8x8__U+0.17",
+  "cell_id": "PC2_s11_f096500_a3088_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.17,
+  "TARGETMU": -5.0771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s11_f096500_a3088_8x8/rough__mu-5.0771",
+  "n_atoms": 203,
+  "n_movable": 75,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2232.43,
+  "walltime_min": 1080,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s11_f099500_a2544_8x8__rough__mu-5.0471",
+  "state_id": "PC2_s11_f099500_a2544_8x8__U+0.14",
+  "cell_id": "PC2_s11_f099500_a2544_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.14,
+  "TARGETMU": -5.0471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s11_f099500_a2544_8x8/rough__mu-5.0471",
+  "n_atoms": 234,
+  "n_movable": 106,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2573.534,
+  "walltime_min": 1320,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s23_f005000_a3537_10x8__rough__mu-5.0771",
+  "state_id": "PC2_s23_f005000_a3537_10x8__U+0.17",
+  "cell_id": "PC2_s23_f005000_a3537_10x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": 0.17,
+  "TARGETMU": -5.0771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s23_f005000_a3537_10x8/rough__mu-5.0771",
+  "n_atoms": 288,
+  "n_movable": 128,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3167.2875,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s23_f005000_a3613_8x8__rough__mu-4.6971",
+  "state_id": "PC2_s23_f005000_a3613_8x8__U-0.21",
+  "cell_id": "PC2_s23_f005000_a3613_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.21,
+  "TARGETMU": -4.6971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s23_f005000_a3613_8x8/rough__mu-4.6971",
+  "n_atoms": 247,
+  "n_movable": 119,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2717.7475,
+  "walltime_min": 1380,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s23_f010000_a3274_8x8__rough__mu-5.0371",
+  "state_id": "PC2_s23_f010000_a3274_8x8__U+0.13",
+  "cell_id": "PC2_s23_f010000_a3274_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.13,
+  "TARGETMU": -5.0371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s23_f010000_a3274_8x8/rough__mu-5.0371",
+  "n_atoms": 216,
+  "n_movable": 88,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2375.5687,
+  "walltime_min": 1140,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s23_f010000_a3615_8x8__rough__mu-4.7171",
+  "state_id": "PC2_s23_f010000_a3615_8x8__U-0.19",
+  "cell_id": "PC2_s23_f010000_a3615_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.19,
+  "TARGETMU": -4.7171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s23_f010000_a3615_8x8/rough__mu-4.7171",
+  "n_atoms": 235,
+  "n_movable": 107,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2585.6781,
+  "walltime_min": 1320,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s23_f082500_a3537_8x8__rough__mu-4.7071",
+  "state_id": "PC2_s23_f082500_a3537_8x8__U-0.20",
+  "cell_id": "PC2_s23_f082500_a3537_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.2,
+  "TARGETMU": -4.7071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s23_f082500_a3537_8x8/rough__mu-4.7071",
+  "n_atoms": 243,
+  "n_movable": 115,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2673.7128,
+  "walltime_min": 1380,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s23_f082500_a3593_8x8__rough__mu-5.1671",
+  "state_id": "PC2_s23_f082500_a3593_8x8__U+0.26",
+  "cell_id": "PC2_s23_f082500_a3593_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.26,
+  "TARGETMU": -5.1671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s23_f082500_a3593_8x8/rough__mu-5.1671",
+  "n_atoms": 241,
+  "n_movable": 113,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2650.118,
+  "walltime_min": 1380,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s23_f089500_a2937_8x8__rough__mu-4.6771",
+  "state_id": "PC2_s23_f089500_a2937_8x8__U-0.23",
+  "cell_id": "PC2_s23_f089500_a2937_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.23,
+  "TARGETMU": -4.6771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s23_f089500_a2937_8x8/rough__mu-4.6771",
+  "n_atoms": 244,
+  "n_movable": 116,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2684.8168,
+  "walltime_min": 1380,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s23_f089500_a2969_8x8__rough__mu-4.9771",
+  "state_id": "PC2_s23_f089500_a2969_8x8__U+0.07",
+  "cell_id": "PC2_s23_f089500_a2969_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.07,
+  "TARGETMU": -4.9771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s23_f089500_a2969_8x8/rough__mu-4.9771",
+  "n_atoms": 248,
+  "n_movable": 120,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2727.7767,
+  "walltime_min": 1440,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s23_f099500_a3441_8x8__rough__mu-4.8271",
+  "state_id": "PC2_s23_f099500_a3441_8x8__U-0.08",
+  "cell_id": "PC2_s23_f099500_a3441_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.08,
+  "TARGETMU": -4.8271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s23_f099500_a3441_8x8/rough__mu-4.8271",
+  "n_atoms": 209,
+  "n_movable": 81,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2299.2968,
+  "walltime_min": 1080,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s23_f099500_a3628_8x8__rough__mu-4.4171",
+  "state_id": "PC2_s23_f099500_a3628_8x8__U-0.49",
+  "cell_id": "PC2_s23_f099500_a3628_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.49,
+  "TARGETMU": -4.4171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s23_f099500_a3628_8x8/rough__mu-4.4171",
+  "n_atoms": 248,
+  "n_movable": 120,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2729.7182,
+  "walltime_min": 1440,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s11_f005000_a3390_8x8__rough__mu-5.0871",
+  "state_id": "PD1_s11_f005000_a3390_8x8__U+0.18",
+  "cell_id": "PD1_s11_f005000_a3390_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.18,
+  "TARGETMU": -5.0871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s11_f005000_a3390_8x8/rough__mu-5.0871",
+  "n_atoms": 268,
+  "n_movable": 140,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2947.3954,
+  "walltime_min": 1560,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s11_f010000_a4534_8x8__rough__mu-4.8271",
+  "state_id": "PD1_s11_f010000_a4534_8x8__U-0.08",
+  "cell_id": "PD1_s11_f010000_a4534_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.08,
+  "TARGETMU": -4.8271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s11_f010000_a4534_8x8/rough__mu-4.8271",
+  "n_atoms": 308,
+  "n_movable": 180,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3388.2968,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s11_f082500_a4137_8x8__rough__mu-5.2171",
+  "state_id": "PD1_s11_f082500_a4137_8x8__U+0.31",
+  "cell_id": "PD1_s11_f082500_a4137_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.31,
+  "TARGETMU": -5.2171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s11_f082500_a4137_8x8/rough__mu-5.2171",
+  "n_atoms": 304,
+  "n_movable": 176,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3342.9446,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s11_f089500_a4163_10x8__rough__mu-4.8271",
+  "state_id": "PD1_s11_f089500_a4163_10x8__U-0.08",
+  "cell_id": "PD1_s11_f089500_a4163_10x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": -0.08,
+  "TARGETMU": -4.8271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s11_f089500_a4163_10x8/rough__mu-4.8271",
+  "n_atoms": 343,
+  "n_movable": 183,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3773.371,
+  "walltime_min": 2280,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s11_f093000_a3608_8x8__rough__mu-4.8271",
+  "state_id": "PD1_s11_f093000_a3608_8x8__U-0.08",
+  "cell_id": "PD1_s11_f093000_a3608_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.08,
+  "TARGETMU": -4.8271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s11_f093000_a3608_8x8/rough__mu-4.8271",
+  "n_atoms": 304,
+  "n_movable": 176,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3344.2968,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s11_f096500_a4161_8x8__rough__mu-5.3171",
+  "state_id": "PD1_s11_f096500_a4161_8x8__U+0.41",
+  "cell_id": "PD1_s11_f096500_a4161_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.41,
+  "TARGETMU": -5.3171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s11_f096500_a4161_8x8/rough__mu-5.3171",
+  "n_atoms": 289,
+  "n_movable": 161,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3177.5979,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s23_f005000_a4049_8x8__rough__mu-4.6771",
+  "state_id": "PD1_s23_f005000_a4049_8x8__U-0.23",
+  "cell_id": "PD1_s23_f005000_a4049_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.23,
+  "TARGETMU": -4.6771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s23_f005000_a4049_8x8/rough__mu-4.6771",
+  "n_atoms": 282,
+  "n_movable": 154,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3102.8168,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s23_f010000_a3876_8x8__rough__mu-5.1371",
+  "state_id": "PD1_s23_f010000_a3876_8x8__U+0.23",
+  "cell_id": "PD1_s23_f010000_a3876_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.23,
+  "TARGETMU": -5.1371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s23_f010000_a3876_8x8/rough__mu-5.1371",
+  "n_atoms": 304,
+  "n_movable": 176,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3343.222,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s23_f010000_a4448_8x8__rough__mu-4.6471",
+  "state_id": "PD1_s23_f010000_a4448_8x8__U-0.26",
+  "cell_id": "PD1_s23_f010000_a4448_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.26,
+  "TARGETMU": -4.6471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s23_f010000_a4448_8x8/rough__mu-4.6471",
+  "n_atoms": 307,
+  "n_movable": 179,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3377.9208,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s23_f086000_a4500_8x8__rough__mu-5.3371",
+  "state_id": "PD1_s23_f086000_a4500_8x8__U+0.43",
+  "cell_id": "PD1_s23_f086000_a4500_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.43,
+  "TARGETMU": -5.3371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s23_f086000_a4500_8x8/rough__mu-5.3371",
+  "n_atoms": 307,
+  "n_movable": 179,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3375.5286,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s23_f096500_a3375_8x8__rough__mu-5.2971",
+  "state_id": "PD1_s23_f096500_a3375_8x8__U+0.39",
+  "cell_id": "PD1_s23_f096500_a3375_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.39,
+  "TARGETMU": -5.2971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s23_f096500_a3375_8x8/rough__mu-5.2971",
+  "n_atoms": 275,
+  "n_movable": 147,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3023.6673,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s37_f005000_a4258_8x8__rough__mu-5.1271",
+  "state_id": "PD1_s37_f005000_a4258_8x8__U+0.22",
+  "cell_id": "PD1_s37_f005000_a4258_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.22,
+  "TARGETMU": -5.1271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s37_f005000_a4258_8x8/rough__mu-5.1271",
+  "n_atoms": 267,
+  "n_movable": 139,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2936.2567,
+  "walltime_min": 1560,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s37_f005000_a4475_8x8__rough__mu-4.7571",
+  "state_id": "PD1_s37_f005000_a4475_8x8__U-0.15",
+  "cell_id": "PD1_s37_f005000_a4475_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.15,
+  "TARGETMU": -4.7571,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s37_f005000_a4475_8x8/rough__mu-4.7571",
+  "n_atoms": 274,
+  "n_movable": 146,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3014.5395,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s37_f010000_a3209_8x8__rough__mu-4.5171",
+  "state_id": "PD1_s37_f010000_a3209_8x8__U-0.39",
+  "cell_id": "PD1_s37_f010000_a3209_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.39,
+  "TARGETMU": -4.5171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s37_f010000_a3209_8x8/rough__mu-4.5171",
+  "n_atoms": 287,
+  "n_movable": 159,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3158.3715,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s37_f010000_a3426_8x8__rough__mu-4.4771",
+  "state_id": "PD1_s37_f010000_a3426_8x8__U-0.43",
+  "cell_id": "PD1_s37_f010000_a3426_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.43,
+  "TARGETMU": -4.4771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s37_f010000_a3426_8x8/rough__mu-4.4771",
+  "n_atoms": 309,
+  "n_movable": 181,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3400.5102,
+  "walltime_min": 1980,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s37_f082500_a3592_8x8__rough__mu-4.7271",
+  "state_id": "PD1_s37_f082500_a3592_8x8__U-0.18",
+  "cell_id": "PD1_s37_f082500_a3592_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.18,
+  "TARGETMU": -4.7271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s37_f082500_a3592_8x8/rough__mu-4.7271",
+  "n_atoms": 302,
+  "n_movable": 174,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3322.6435,
+  "walltime_min": 1860,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s37_f082500_a4158_8x8__rough__mu-4.4371",
+  "state_id": "PD1_s37_f082500_a4158_8x8__U-0.47",
+  "cell_id": "PD1_s37_f082500_a4158_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.47,
+  "TARGETMU": -4.4371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s37_f082500_a4158_8x8/rough__mu-4.4371",
+  "n_atoms": 315,
+  "n_movable": 187,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3466.6489,
+  "walltime_min": 2040,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s37_f086000_a4303_8x8__rough__mu-5.2571",
+  "state_id": "PD1_s37_f086000_a4303_8x8__U+0.35",
+  "cell_id": "PD1_s37_f086000_a4303_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.35,
+  "TARGETMU": -5.2571,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s37_f086000_a4303_8x8/rough__mu-5.2571",
+  "n_atoms": 272,
+  "n_movable": 144,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2990.806,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s37_f089500_a3481_8x8__rough__mu-4.6771",
+  "state_id": "PD1_s37_f089500_a3481_8x8__U-0.23",
+  "cell_id": "PD1_s37_f089500_a3481_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.23,
+  "TARGETMU": -4.6771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s37_f089500_a3481_8x8/rough__mu-4.6771",
+  "n_atoms": 268,
+  "n_movable": 140,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2948.8168,
+  "walltime_min": 1560,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s37_f099500_a3319_8x8__rough__mu-5.0471",
+  "state_id": "PD1_s37_f099500_a3319_8x8__U+0.14",
+  "cell_id": "PD1_s37_f099500_a3319_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.14,
+  "TARGETMU": -5.0471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s37_f099500_a3319_8x8/rough__mu-5.0471",
+  "n_atoms": 311,
+  "n_movable": 183,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3420.534,
+  "walltime_min": 1980,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s37_f099500_a4361_8x8__rough__mu-5.1671",
+  "state_id": "PD1_s37_f099500_a4361_8x8__U+0.26",
+  "cell_id": "PD1_s37_f099500_a4361_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.26,
+  "TARGETMU": -5.1671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s37_f099500_a4361_8x8/rough__mu-5.1671",
+  "n_atoms": 315,
+  "n_movable": 187,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3464.118,
+  "walltime_min": 2040,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s51_f010000_a3421_10x8__rough__mu-5.1471",
+  "state_id": "PD1_s51_f010000_a3421_10x8__U+0.24",
+  "cell_id": "PD1_s51_f010000_a3421_10x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": 0.24,
+  "TARGETMU": -5.1471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s51_f010000_a3421_10x8/rough__mu-5.1471",
+  "n_atoms": 348,
+  "n_movable": 188,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3826.9842,
+  "walltime_min": 2340,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s51_f010000_a4294_8x8__rough__mu-5.0671",
+  "state_id": "PD1_s51_f010000_a4294_8x8__U+0.16",
+  "cell_id": "PD1_s51_f010000_a4294_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.16,
+  "TARGETMU": -5.0671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s51_f010000_a4294_8x8/rough__mu-5.0671",
+  "n_atoms": 272,
+  "n_movable": 144,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2991.4647,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s51_f082500_a3592_8x8__rough__mu-4.9671",
+  "state_id": "PD1_s51_f082500_a3592_8x8__U+0.06",
+  "cell_id": "PD1_s51_f082500_a3592_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.06,
+  "TARGETMU": -4.9671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s51_f082500_a3592_8x8/rough__mu-4.9671",
+  "n_atoms": 286,
+  "n_movable": 158,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3145.8114,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD1_s51_f086000_a3183_8x8__rough__mu-4.4271",
+  "state_id": "PD1_s51_f086000_a3183_8x8__U-0.48",
+  "cell_id": "PD1_s51_f086000_a3183_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.48,
+  "TARGETMU": -4.4271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD1_s51_f086000_a3183_8x8/rough__mu-4.4271",
+  "n_atoms": 268,
+  "n_movable": 140,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2949.6836,
+  "walltime_min": 1560,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s11_f005000_a4324_8x8__rough__mu-4.5671",
+  "state_id": "PD2_s11_f005000_a4324_8x8__U-0.34",
+  "cell_id": "PD2_s11_f005000_a4324_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.34,
+  "TARGETMU": -4.5671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s11_f005000_a4324_8x8/rough__mu-4.5671",
+  "n_atoms": 285,
+  "n_movable": 157,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3136.1982,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s11_f005000_a4564_8x8__rough__mu-4.9971",
+  "state_id": "PD2_s11_f005000_a4564_8x8__U+0.09",
+  "cell_id": "PD2_s11_f005000_a4564_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.09,
+  "TARGETMU": -4.9971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s11_f005000_a4564_8x8/rough__mu-4.9971",
+  "n_atoms": 292,
+  "n_movable": 164,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3211.7074,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s11_f010000_a3801_8x8__rough__mu-4.7071",
+  "state_id": "PD2_s11_f010000_a3801_8x8__U-0.20",
+  "cell_id": "PD2_s11_f010000_a3801_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.2,
+  "TARGETMU": -4.7071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s11_f010000_a3801_8x8/rough__mu-4.7071",
+  "n_atoms": 267,
+  "n_movable": 139,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2937.7128,
+  "walltime_min": 1560,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s11_f010000_a4186_8x8__rough__mu-4.5671",
+  "state_id": "PD2_s11_f010000_a4186_8x8__U-0.34",
+  "cell_id": "PD2_s11_f010000_a4186_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.34,
+  "TARGETMU": -4.5671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s11_f010000_a4186_8x8/rough__mu-4.5671",
+  "n_atoms": 265,
+  "n_movable": 137,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2916.1982,
+  "walltime_min": 1560,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s11_f086000_a4546_8x8__rough__mu-5.3271",
+  "state_id": "PD2_s11_f086000_a4546_8x8__U+0.42",
+  "cell_id": "PD2_s11_f086000_a4546_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.42,
+  "TARGETMU": -5.3271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s11_f086000_a4546_8x8/rough__mu-5.3271",
+  "n_atoms": 274,
+  "n_movable": 146,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3012.5633,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s11_f089500_a4304_8x8__rough__mu-4.7171",
+  "state_id": "PD2_s11_f089500_a4304_8x8__U-0.19",
+  "cell_id": "PD2_s11_f089500_a4304_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.19,
+  "TARGETMU": -4.7171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s11_f089500_a4304_8x8/rough__mu-4.7171",
+  "n_atoms": 276,
+  "n_movable": 148,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3036.6781,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s11_f096500_a4119_8x8__rough__mu-5.0471",
+  "state_id": "PD2_s11_f096500_a4119_8x8__U+0.14",
+  "cell_id": "PD2_s11_f096500_a4119_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.14,
+  "TARGETMU": -5.0471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s11_f096500_a4119_8x8/rough__mu-5.0471",
+  "n_atoms": 307,
+  "n_movable": 179,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3376.534,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s11_f099500_a3969_8x8__rough__mu-5.2171",
+  "state_id": "PD2_s11_f099500_a3969_8x8__U+0.31",
+  "cell_id": "PD2_s11_f099500_a3969_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.31,
+  "TARGETMU": -5.2171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s11_f099500_a3969_8x8/rough__mu-5.2171",
+  "n_atoms": 297,
+  "n_movable": 169,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3265.9446,
+  "walltime_min": 1860,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s11_f099500_a4579_8x8__rough__mu-4.9371",
+  "state_id": "PD2_s11_f099500_a4579_8x8__U+0.03",
+  "cell_id": "PD2_s11_f099500_a4579_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.03,
+  "TARGETMU": -4.9371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s11_f099500_a4579_8x8/rough__mu-4.9371",
+  "n_atoms": 281,
+  "n_movable": 153,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3090.9154,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s23_f010000_a4228_8x8__rough__mu-4.7971",
+  "state_id": "PD2_s23_f010000_a4228_8x8__U-0.11",
+  "cell_id": "PD2_s23_f010000_a4228_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.11,
+  "TARGETMU": -4.7971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s23_f010000_a4228_8x8/rough__mu-4.7971",
+  "n_atoms": 285,
+  "n_movable": 157,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3135.4008,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s23_f010000_a4451_8x8__rough__mu-4.7271",
+  "state_id": "PD2_s23_f010000_a4451_8x8__U-0.18",
+  "cell_id": "PD2_s23_f010000_a4451_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.18,
+  "TARGETMU": -4.7271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s23_f010000_a4451_8x8/rough__mu-4.7271",
+  "n_atoms": 283,
+  "n_movable": 155,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3113.6435,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s23_f082500_a4242_8x8__rough__mu-5.3171",
+  "state_id": "PD2_s23_f082500_a4242_8x8__U+0.41",
+  "cell_id": "PD2_s23_f082500_a4242_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.41,
+  "TARGETMU": -5.3171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s23_f082500_a4242_8x8/rough__mu-5.3171",
+  "n_atoms": 305,
+  "n_movable": 177,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3353.5979,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s23_f089500_a4347_10x8__rough__mu-4.8271",
+  "state_id": "PD2_s23_f089500_a4347_10x8__U-0.08",
+  "cell_id": "PD2_s23_f089500_a4347_10x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": -0.08,
+  "TARGETMU": -4.8271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s23_f089500_a4347_10x8/rough__mu-4.8271",
+  "n_atoms": 363,
+  "n_movable": 203,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3993.371,
+  "walltime_min": 2460,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s23_f093000_a4512_8x8__rough__mu-4.9771",
+  "state_id": "PD2_s23_f093000_a4512_8x8__U+0.07",
+  "cell_id": "PD2_s23_f093000_a4512_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.07,
+  "TARGETMU": -4.9771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s23_f093000_a4512_8x8/rough__mu-4.9771",
+  "n_atoms": 278,
+  "n_movable": 150,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3057.7767,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s23_f096500_a4115_8x8__rough__mu-4.6071",
+  "state_id": "PD2_s23_f096500_a4115_8x8__U-0.30",
+  "cell_id": "PD2_s23_f096500_a4115_8x8",
+  "cls": "D",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.3,
+  "TARGETMU": -4.6071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s23_f096500_a4115_8x8/rough__mu-4.6071",
+  "n_atoms": 278,
+  "n_movable": 150,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3059.0595,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s37_f005000_a4468_8x8__rough__mu-4.8371",
+  "state_id": "PA2_s37_f005000_a4468_8x8__U-0.07",
+  "cell_id": "PA2_s37_f005000_a4468_8x8",
+  "cls": "A",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.07,
+  "TARGETMU": -4.8371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s37_f005000_a4468_8x8/rough__mu-4.8371",
+  "n_atoms": 271,
+  "n_movable": 143,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2981.2621,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s37_f010000_a4358_8x8__rough__mu-5.3271",
+  "state_id": "PA2_s37_f010000_a4358_8x8__U+0.42",
+  "cell_id": "PA2_s37_f010000_a4358_8x8",
+  "cls": "A",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.42,
+  "TARGETMU": -5.3271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s37_f010000_a4358_8x8/rough__mu-5.3271",
+  "n_atoms": 306,
+  "n_movable": 178,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3364.5633,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s37_f082500_a3833_8x8__rough__mu-4.5871",
+  "state_id": "PA2_s37_f082500_a3833_8x8__U-0.32",
+  "cell_id": "PA2_s37_f082500_a3833_8x8",
+  "cls": "A",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.32,
+  "TARGETMU": -4.5871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s37_f082500_a3833_8x8/rough__mu-4.5871",
+  "n_atoms": 287,
+  "n_movable": 159,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3158.1288,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s37_f089500_a3376_8x8__rough__mu-4.7871",
+  "state_id": "PA2_s37_f089500_a3376_8x8__U-0.12",
+  "cell_id": "PA2_s37_f089500_a3376_8x8",
+  "cls": "A",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.12,
+  "TARGETMU": -4.7871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s37_f089500_a3376_8x8/rough__mu-4.7871",
+  "n_atoms": 282,
+  "n_movable": 154,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3102.4355,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PA2_s37_f096500_a4009_8x8__rough__mu-5.1171",
+  "state_id": "PA2_s37_f096500_a4009_8x8__U+0.21",
+  "cell_id": "PA2_s37_f096500_a4009_8x8",
+  "cls": "A",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.21,
+  "TARGETMU": -5.1171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s37_f096500_a4009_8x8/rough__mu-5.1171",
+  "n_atoms": 289,
+  "n_movable": 161,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3178.2913,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s37_f005000_a3999_8x8__rough__mu-4.9371",
+  "state_id": "PB2_s37_f005000_a3999_8x8__U+0.03",
+  "cell_id": "PB2_s37_f005000_a3999_8x8",
+  "cls": "B",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.03,
+  "TARGETMU": -4.9371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s37_f005000_a3999_8x8/rough__mu-4.9371",
+  "n_atoms": 277,
+  "n_movable": 149,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3046.9154,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s37_f005000_a4420_8x8__rough__mu-5.0171",
+  "state_id": "PB2_s37_f005000_a4420_8x8__U+0.11",
+  "cell_id": "PB2_s37_f005000_a4420_8x8",
+  "cls": "B",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.11,
+  "TARGETMU": -5.0171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s37_f005000_a4420_8x8/rough__mu-5.0171",
+  "n_atoms": 304,
+  "n_movable": 176,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3343.638,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s37_f010000_a4315_10x8__rough__mu-4.5771",
+  "state_id": "PB2_s37_f010000_a4315_10x8__U-0.33",
+  "cell_id": "PB2_s37_f010000_a4315_10x8",
+  "cls": "B",
+  "split": "val",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": -0.33,
+  "TARGETMU": -4.5771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s37_f010000_a4315_10x8/rough__mu-4.5771",
+  "n_atoms": 340,
+  "n_movable": 180,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3741.4544,
+  "walltime_min": 2280,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s37_f089500_a3564_8x8__rough__mu-4.4971",
+  "state_id": "PB2_s37_f089500_a3564_8x8__U-0.41",
+  "cell_id": "PB2_s37_f089500_a3564_8x8",
+  "cls": "B",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.41,
+  "TARGETMU": -4.4971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s37_f089500_a3564_8x8/rough__mu-4.4971",
+  "n_atoms": 302,
+  "n_movable": 174,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3323.4409,
+  "walltime_min": 1860,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PB2_s37_f089500_a3629_8x8__rough__mu-4.7471",
+  "state_id": "PB2_s37_f089500_a3629_8x8__U-0.16",
+  "cell_id": "PB2_s37_f089500_a3629_8x8",
+  "cls": "B",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.16,
+  "TARGETMU": -4.7471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s37_f089500_a3629_8x8/rough__mu-4.7471",
+  "n_atoms": 271,
+  "n_movable": 143,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2981.5741,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s37_f010000_a2394_8x8__rough__mu-5.1571",
+  "state_id": "PC2_s37_f010000_a2394_8x8__U+0.25",
+  "cell_id": "PC2_s37_f010000_a2394_8x8",
+  "cls": "C",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.25,
+  "TARGETMU": -5.1571,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s37_f010000_a2394_8x8/rough__mu-5.1571",
+  "n_atoms": 243,
+  "n_movable": 115,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2672.1527,
+  "walltime_min": 1380,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s37_f010000_a3701_8x8__rough__mu-5.3871",
+  "state_id": "PC2_s37_f010000_a3701_8x8__U+0.48",
+  "cell_id": "PC2_s37_f010000_a3701_8x8",
+  "cls": "C",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.48,
+  "TARGETMU": -5.3871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s37_f010000_a3701_8x8/rough__mu-5.3871",
+  "n_atoms": 243,
+  "n_movable": 115,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2671.3553,
+  "walltime_min": 1380,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s37_f082500_a2818_8x8__rough__mu-4.7671",
+  "state_id": "PC2_s37_f082500_a2818_8x8__U-0.14",
+  "cell_id": "PC2_s37_f082500_a2818_8x8",
+  "cls": "C",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.14,
+  "TARGETMU": -4.7671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s37_f082500_a2818_8x8/rough__mu-4.7671",
+  "n_atoms": 212,
+  "n_movable": 84,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2332.5048,
+  "walltime_min": 1140,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s37_f086000_a2149_8x8__rough__mu-4.8471",
+  "state_id": "PC2_s37_f086000_a2149_8x8__U-0.06",
+  "cell_id": "PC2_s37_f086000_a2149_8x8",
+  "cls": "C",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.06,
+  "TARGETMU": -4.8471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s37_f086000_a2149_8x8/rough__mu-4.8471",
+  "n_atoms": 248,
+  "n_movable": 120,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2728.2274,
+  "walltime_min": 1440,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PC2_s37_f086000_a3399_8x8__rough__mu-4.4271",
+  "state_id": "PC2_s37_f086000_a3399_8x8__U-0.48",
+  "cell_id": "PC2_s37_f086000_a3399_8x8",
+  "cls": "C",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.48,
+  "TARGETMU": -4.4271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s37_f086000_a3399_8x8/rough__mu-4.4271",
+  "n_atoms": 226,
+  "n_movable": 98,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2487.6836,
+  "walltime_min": 1260,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s37_f005000_a4568_8x8__rough__mu-4.4171",
+  "state_id": "PD2_s37_f005000_a4568_8x8__U-0.49",
+  "cell_id": "PD2_s37_f005000_a4568_8x8",
+  "cls": "D",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.49,
+  "TARGETMU": -4.4171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s37_f005000_a4568_8x8/rough__mu-4.4171",
+  "n_atoms": 301,
+  "n_movable": 173,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3312.7182,
+  "walltime_min": 1860,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s37_f010000_a4591_8x8__rough__mu-5.2971",
+  "state_id": "PD2_s37_f010000_a4591_8x8__U+0.39",
+  "cell_id": "PD2_s37_f010000_a4591_8x8",
+  "cls": "D",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.39,
+  "TARGETMU": -5.2971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s37_f010000_a4591_8x8/rough__mu-5.2971",
+  "n_atoms": 300,
+  "n_movable": 172,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3298.6673,
+  "walltime_min": 1860,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s37_f082500_a3634_8x8__rough__mu-5.2071",
+  "state_id": "PD2_s37_f082500_a3634_8x8__U+0.30",
+  "cell_id": "PD2_s37_f082500_a3634_8x8",
+  "cls": "D",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.3,
+  "TARGETMU": -5.2071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s37_f082500_a3634_8x8/rough__mu-5.2071",
+  "n_atoms": 303,
+  "n_movable": 175,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3331.9793,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s37_f086000_a3305_10x8__rough__mu-4.9771",
+  "state_id": "PD2_s37_f086000_a3305_10x8__U+0.07",
+  "cell_id": "PD2_s37_f086000_a3305_10x8",
+  "cls": "D",
+  "split": "val",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": 0.07,
+  "TARGETMU": -4.9771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s37_f086000_a3305_10x8/rough__mu-4.9771",
+  "n_atoms": 349,
+  "n_movable": 189,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3838.7209,
+  "walltime_min": 2340,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ },
+ {
+  "task_id": "PD2_s37_f086000_a4132_8x8__rough__mu-5.0671",
+  "state_id": "PD2_s37_f086000_a4132_8x8__U+0.16",
+  "cell_id": "PD2_s37_f086000_a4132_8x8",
+  "cls": "D",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.16,
+  "TARGETMU": -5.0671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PD2_s37_f086000_a4132_8x8/rough__mu-5.0671",
+  "n_atoms": 302,
+  "n_movable": 174,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3321.4647,
+  "walltime_min": 1860,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 05:20"
+   ]
+  ]
+ }
+]

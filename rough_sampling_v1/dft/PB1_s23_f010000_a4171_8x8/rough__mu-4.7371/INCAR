@@ -1,0 +1,43 @@
+# PB1_s23_f010000_a4171_8x8__rough__mu-4.7371: rough_sampling_v1 single point (production standard K.8) (standard K.8). TARGETMU is the internal mu0 reference.
+SYSTEM = PB1_s23_f010000_a4171_8x8__rough__mu-4.7371
+
+NPAR  = 16
+
+PREC   = Normal
+ENCUT  = 500
+ISPIN  = 1
+ISYM   = 0
+LREAL  = Auto
+ALGO   = Fast
+EDIFF  = 1E-7
+NELM   = 200
+ISMEAR = 1
+SIGMA  = 0.2
+IBRION = -1
+NSW    = 0
+LCHARG = .TRUE.
+LWAVE  = .FALSE.
+LVHAR  = .TRUE.
+
+LSOL    = .TRUE.
+ISOL    = 2
+C_MOLAR = 1.0
+R_ION   = 4.0
+
+LCEP          = .TRUE.
+NESCHEME      = 3
+TARGETMU      = -4.7371
+FERMICONVERGE = 0.01
+CAP_MAX       = 2.0
+NEADJUST      = 1
+
+IDIPOL = 3
+LDIPOL = .TRUE.
+DIPOL  = 0.5 0.5 0.5
+
+LVAC      = .TRUE.
+SOL_Z0    = 9.801
+SOL_Z1    = 34.603
+SOL_SIGMA = 0.8
+
+NELECT = 2981.6088   # start guess only: N_neutral 2981 + +0.6088 e from the dataset-wide C = 11.59 uF/cm2, U_pzc = +0.0056 V, A = 479.1 A^2, U = -0.17 V; the CP loop decides the final N_e

@@ -32,6 +32,7 @@ Usage (from Au_Cl/):  env PYTHONPATH=rough_sampling_v1/env/pylib:.pyshim <python
 Output: rough_sampling_v1/cells/<cell_id>/POSCAR, cells_manifest.jsonl, cells_summary.md
 """
 import argparse
+import collections
 import json
 import os
 import subprocess
@@ -65,21 +66,17 @@ def lattice(at_parent):
 
 
 def boundary_offset(at, a1, a2):
-    """Fractional offset (in the primitive basis) that puts a cut boundary midway between occupied lattice
-    rows. fcc(111) layers sit at three positions a third of a primitive vector apart, so a boundary through an
-    atom row would split that row between the two sides under thermal noise; the offset is measured from the
-    structure, not assumed."""
-    f = (at.get_positions()[:, :2] @ np.linalg.inv(np.array([a1, a2]))) % 1.0
-    off = []
-    for ax in (0, 1):
-        h, edges = np.histogram(f[:, ax], bins=60, range=(0, 1))
-        empty = h == 0
-        if not empty.any(): off.append(0.0); continue
-        # longest circular run of empty bins -> its middle
-        idx = np.flatnonzero(empty); runs = np.split(idx, np.flatnonzero(np.diff(idx) > 1) + 1)
-        if len(runs) > 1 and runs[0][0] == 0 and runs[-1][-1] == 59: runs[0] = np.r_[runs[-1] - 60, runs[0]]; runs = runs[:-1]
-        r = max(runs, key=len); off.append(((r[0] + r[-1] + 1) / 2 / 60) % 1.0)
-    return np.array(off)
+    """Fractional offset (in the primitive basis) that puts a cut boundary midway between occupied lattice rows.
+    fcc(111) layers sit at three positions a third of a primitive vector apart (f0, f0+1/3, f0+2/3 along each
+    axis), so f0 - 1/6 is midway between rows for every layer. f0 is read from the FROZEN bottom layer, which is
+    exactly on the lattice in every frame; a histogram over all atoms (the earlier method) has no empty bin on a
+    thermal frame and silently gave offset 0 -- a boundary through atom rows that duplicated bottom-layer atoms
+    one cell length apart."""
+    P = at.get_positions(); z = P[:, 2]; bottom = np.flatnonzero(z < z.min() + 0.5 * D111)
+    f = (P[bottom, :2] @ np.linalg.inv(np.array([a1, a2]))) % 1.0
+    f0 = f[0]; d = ((f - f0 + 0.5) % 1.0) - 0.5                       # circular deviations from the first atom
+    assert np.abs(d).max() < 0.05, f"bottom layer not on one sublattice (max deviation {np.abs(d).max():.3f})"
+    return (f0 + d.mean(0) - 1.0 / 6.0) % 1.0
 
 
 def cut(at, centre_xy, n1, n2, origin_ij, a1, a2, cell, off):
@@ -189,11 +186,64 @@ def layers_from_z(at):
     return np.round((z - z.min()) / D111).astype(int)
 
 
-def geometry_checks(sub, core_idx, n1, n2):
+REPAIRABLE = ("contact",)      # only strain can be minimised away; occupancy problems are never sent to the minimiser
+
+
+MIN_INVENTORY = 3      # a (layer, CN) environment counts as 'present in the parent' if >= this many parent atoms have it
+
+
+HARD_FLOOR = 2.3       # A: even a contact inherited unchanged from the thermal parent frame is refused below this
+
+
+def parent_environment(parent):
+    """Per-atom CN of the parent frame, its inventory of (layer, CN) environments in the top three levels, and its
+    positions (to recognise pair distances inherited unchanged from the parent)."""
+    cn = neighbour_graph(parent)[0]; lay = layers_from_z(parent)
+    inv = collections.Counter((int(l), int(c)) for l, c in zip(lay, cn) if l >= 2)
+    return dict(cn=cn, inventory=inv, pos=parent.get_positions(), cell=parent.get_cell().array)
+
+
+def parent_pair_distance(env, a, b):
+    v = env["pos"][a] - env["pos"][b]; C = env["cell"][:2, :2]
+    f = v[:2] @ np.linalg.inv(C); f -= np.round(f); v = v.copy(); v[:2] = f @ C
+    return float(np.linalg.norm(v))
+
+
+def classify_contacts(sub, md, env):
+    """Pairs closer than MIN_CONTACT: inherited (same two atoms at the same distance in the parent: a thermal pair,
+    accepted above HARD_FLOOR and counted) or created by the seam (a problem the minimiser may fix)."""
+    P = sub.get_positions(); cell = sub.get_cell().array; pid = sub.get_array("parent_id")
+    problems = []; inherited = 0; seen = set()
+    for i in np.flatnonzero(md < MIN_CONTACT):
+        best = np.inf; jb = -1
+        for si in (-1, 0, 1):
+            for sj in (-1, 0, 1):
+                d = np.linalg.norm(P + si * cell[0] + sj * cell[1] - P[i], axis=1); d[i] = np.inf
+                j = int(np.argmin(d))
+                if d[j] < best: best, jb = float(d[j]), j
+        key = (min(i, jb), max(i, jb))
+        if key in seen: continue
+        seen.add(key)
+        if env is not None and abs(parent_pair_distance(env, int(pid[i]), int(pid[jb])) - best) < 1e-3:
+            if best < HARD_FLOOR: problems.append(f"thermal contact {best:.2f} A < {HARD_FLOOR} inherited from the parent")
+            else: inherited += 1
+        else:
+            problems.append(f"contact {best:.2f} A < {MIN_CONTACT} created by the seam (parent atoms {int(pid[i])}, {int(pid[jb])})")
+    return problems, inherited
+
+
+def geometry_checks(sub, core_idx, n1, n2, env=None):
+    """Problems that make a cell unacceptable. Seam test: every atom's CN in the cell is compared with ITS OWN CN in
+    the parent frame (same atom id). A drop of >= 2 means the seam cut neighbours away. A cut through a strip or an
+    island necessarily does that to the atoms at the termination -- a periodic cell cannot hold a feature larger
+    than itself -- so a drop alone is not a defect: the cell is rejected only when the seam CREATES an environment
+    (layer, CN) that the parent surface does not have (fewer than MIN_INVENTORY parent atoms with it), e.g. a cn-4
+    fragment where the parent has nothing below cn 6. Natural adatoms (cn 3 in parent and cell) are not affected.
+    The number of seam-affected atoms is recorded so the final selection can see how much of a cell is seam."""
     md, cn, adj = all_min_dist_and_cn(sub)
     lay = layers_from_z(sub)
-    problems = []
-    if md.min() < MIN_CONTACT: problems.append(f"contact {md.min():.2f} A < {MIN_CONTACT}")
+    problems = []; inherited = 0
+    if md.min() < MIN_CONTACT: problems, inherited = classify_contacts(sub, md, env)
     if (cn < 3).any(): problems.append(f"{int((cn < 3).sum())} atoms with < 3 neighbours (floating or slit)")
     conn = connected_to_substrate(adj, np.flatnonzero(lay < 2))
     if not conn.all(): problems.append(f"{int((~conn).sum())} atoms not connected to the substrate (detached cluster)")
@@ -204,10 +254,14 @@ def geometry_checks(sub, core_idx, n1, n2):
     exposed = surface_atoms(sub)
     if len(exposed) and lay[exposed].min() < 2: problems.append(f"exposed atom in layer {int(lay[exposed].min())} (pit deeper than one layer)")
     cn_core_min = cn[core_idx].min() if len(core_idx) else 0
-    buf = np.setdiff1d(np.arange(len(sub)), core_idx)
-    if len(buf) and cn[buf].min() < cn_core_min - 1:
-        problems.append(f"periphery has an atom less coordinated ({cn[buf].min()}) than the core minimum ({cn_core_min}) minus one")
-    return problems, dict(min_dist_A=float(md.min()), cn_min=int(cn.min()), cn_core_min=int(cn_core_min))
+    seam_drop = 0; n_seam = 0
+    if env is not None:
+        drop = env["cn"][sub.get_array("parent_id")] - cn; seam_drop = int(drop.max()) if len(drop) else 0
+        affected = np.flatnonzero(drop >= 2); n_seam = len(affected)
+        novel = sorted({(int(lay[i]), int(cn[i])) for i in affected if env["inventory"].get((int(lay[i]), int(cn[i])), 0) < MIN_INVENTORY})
+        if novel: problems.append(f"seam created environments absent from the parent: (layer, cn) = {novel}")
+    return problems, dict(min_dist_A=float(md.min()), n_inherited_contacts_below_2p5=inherited, cn_min=int(cn.min()), cn_core_min=int(cn_core_min),
+                          max_cn_drop_vs_parent=seam_drop, n_seam_affected=n_seam)
 
 
 def repair_minimise(sub, fixed_mask, workdir):
@@ -245,6 +299,8 @@ def extract_one(parent, centre_atom, cid, repair=True, sizes=CELLS, first_only=T
     a1, a2, cellp = lattice(parent)
     off = boundary_offset(parent, a1, a2)
     Pp = parent.get_positions()
+    if "env" not in parent.info: parent.info["env"] = parent_environment(parent)     # once per frame
+    cn_parent = parent.info["env"]
     core_ids, _ = neighbours(parent, centre_atom, R_CORE); core_ids = np.append(core_ids, centre_atom)
     cxy = Pp[centre_atom, :2]
     log = []; passed = []
@@ -265,16 +321,21 @@ def extract_one(parent, centre_atom, cid, repair=True, sizes=CELLS, first_only=T
             pid = sub.get_array("parent_id"); where = {int(p): k for k, p in enumerate(pid)}
             core_idx = np.array([where[int(c)] for c in core_ids]); centre_idx = where[int(centre_atom)]
             lay = layers_from_z(sub)
-            fixed = (lay < 2); fixed[core_idx] = True
-            problems, stats = geometry_checks(sub, core_idx, n1, n2)
-            repaired = None; rep_note = "no repair needed" if not problems else "unrepaired"
-            if problems and repair:
+            # repair region = the seam band only: within SEAM_ROWS rows of either seam, top levels (layer >= 2),
+            # never the core and never the bottom two layers; the rest of the periphery keeps its thermal state
+            g = (sub.get_positions()[:, :2] @ np.linalg.inv(np.array([n1 * a1, n2 * a2]))) % 1.0
+            band = (np.minimum(g[:, 0], 1 - g[:, 0]) < SEAM_ROWS / n1) | (np.minimum(g[:, 1], 1 - g[:, 1]) < SEAM_ROWS / n2)
+            mobile = band & (lay >= 2); mobile[core_idx] = False
+            fixed = ~mobile
+            problems, stats = geometry_checks(sub, core_idx, n1, n2, cn_parent)
+            repaired = None; rep_note = "no repair needed" if not problems else "unrepaired (occupancy problem; minimisation cannot fix it)"
+            if problems and repair and all(p.startswith(REPAIRABLE) for p in problems):
                 repaired = repair_minimise(sub, fixed, f"{CELLDIR}/{cid}/repair_{n1}x{n2}_{oij[0]}_{oij[1]}")
                 if repaired is not None:
                     ok2, why2 = core_ok(parent, repaired, core_ids, centre_atom)
-                    problems2, stats2 = geometry_checks(repaired, core_idx, n1, n2)
+                    problems2, stats2 = geometry_checks(repaired, core_idx, n1, n2, cn_parent)
                     if ok2 and not problems2:
-                        sub, problems, stats, rep_note = repaired, [], stats2, "buffer minimised with core and bottom layers fixed; occupancy unchanged"
+                        sub, problems, stats, rep_note = repaired, [], stats2, f"seam band ({int(mobile.sum())} atoms) minimised; core, bottom layers and the rest of the periphery fixed; occupancy unchanged"
                     else:
                         rep_note = f"minimisation did not clear: {problems2 or why2}"
             inv = periodic_mapping_check(sub, centre_idx) if not problems else None
@@ -294,11 +355,31 @@ def main():
     ap.add_argument("--centres", default=f"{R}/centres/centres.jsonl"); ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--no-repair", action="store_true")
     ap.add_argument("--out", default="cells", help="output folder under rough_sampling_v1")
+    ap.add_argument("--chunk", default=None, help="i/N: process centres i::N and write cells_manifest.part<i>.jsonl (parallel runs)")
+    ap.add_argument("--merge", action="store_true", help="merge cells_manifest.part*.jsonl into cells_manifest.jsonl + summary")
     a = ap.parse_args()
     global CELLDIR; CELLDIR = f"{R}/{a.out}"
     os.makedirs(CELLDIR, exist_ok=True)
     C = [json.loads(l) for l in open(a.centres)]
     if a.limit: C = C[:a.limit]
+    if a.merge:
+        import glob
+        order = {f"{c['parent_id']}_f{c['step']:06d}_a{c['atom']:04d}": k for k, c in enumerate(C)}
+        rows = [json.loads(l) for p in sorted(glob.glob(f"{CELLDIR}/cells_manifest.part*.jsonl")) for l in open(p)]
+        rows.sort(key=lambda r: (order.get(r["centre_id"], 10 ** 9), r["cell_id"]))
+        with open(f"{CELLDIR}/cells_manifest.jsonl", "w") as f:
+            for r in rows: f.write(json.dumps(r) + "\n")
+        n_fail = sum(r["status"] == "FAIL" for r in rows); n_pass = len(rows) - n_fail
+        write_summary(C, rows, n_pass, n_fail); return
+    manifest = f"{CELLDIR}/cells_manifest.jsonl"
+    # process frame by frame: every (parent, step) frame is read and its neighbour graph built exactly once, and a
+    # chunk takes whole frames (round-robin), so parallel chunks never load the same frame twice
+    groups = collections.OrderedDict()
+    for c in C: groups.setdefault((c["parent_id"], c["step"], c["source"]), []).append(c)
+    keys = sorted(groups)
+    if a.chunk:
+        i, N = (int(x) for x in a.chunk.split("/")); keys = keys[i::N]; manifest = f"{CELLDIR}/cells_manifest.part{i}.jsonl"
+    C = [c for k in keys for c in groups[k]]
     parents = {}
     rows = []; n_pass = 0; n_fail = 0
     META_KEYS = ("parent_id", "cls", "split", "step", "time_ps", "T_K", "source", "atom", "cn", "cn_stratum", "rare_flag", "novelty_vs_old",
@@ -315,6 +396,8 @@ def main():
             else:
                 parents[key] = read(f"{R}/parents/{pid}.extxyz")
         parent = parents[key]
+        if len(parents) > 2:                                                   # keep memory flat: frames are processed in order
+            for old in [kk for kk in parents if kk != key][:-1]: del parents[old]
         base_id = f"{pid}_f{c['step']:06d}_a{c['atom']:04d}"
         # test-split centres are cut in BOTH sizes when possible, so the final selection can hold size pairs
         passed, log = extract_one(parent, c["atom"], base_id, repair=not a.no_repair, first_only=(c["split"] != "test"))
@@ -327,8 +410,13 @@ def main():
             write(f"{d}/cell.extxyz", sub, format="extxyz")
             rows.append(dict(cell_id=cid, centre_id=base_id, **meta, **info, trials=log)); n_pass += 1
         if (k + 1) % 25 == 0: print(f"  {k+1}/{len(C)}  cells {n_pass}  failed centres {n_fail}", flush=True)
-    with open(f"{CELLDIR}/cells_manifest.jsonl", "w") as f:
+    with open(manifest, "w") as f:
         for r in rows: f.write(json.dumps(r) + "\n")
+    if a.chunk: print(f"chunk {a.chunk}: {len(C)} centres, {n_pass} cells, {n_fail} failed -> {manifest}"); return
+    write_summary(C, rows, n_pass, n_fail)
+
+
+def write_summary(C, rows, n_pass, n_fail):
     import collections
     fails = collections.Counter(p for r in rows if r["status"] == "FAIL" for t in r["trials"] for p in t["problems"])
     ok = [r for r in rows if r["status"] == "PASS"]
@@ -336,7 +424,7 @@ def main():
          f"({n_pass} cells, test centres in both sizes where both pass), {n_fail} dropped.",
          "", "Cell sizes: " + str(dict(collections.Counter(r["cell"] for r in ok))),
          "Repair outcomes: " + str(dict(collections.Counter(r["repair"] for r in ok))), "",
-         "Most common reasons a trial failed:"] + [f"- {k}: {v}" for k, v in fails.most_common(8)]
+         "Most common reasons a trial failed (over all trials of dropped centres):"] + [f"- {k}: {v}" for k, v in fails.most_common(8)]
     open(f"{CELLDIR}/cells_summary.md", "w").write("\n".join(L) + "\n"); print("\n".join(L))
 
 

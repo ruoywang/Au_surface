@@ -43,15 +43,26 @@ def frame_polygon(origin, v1, v2):
 
 
 def panel_parent(ax, parent, cut_origin, v1, v2, centre_xy, title):
-    cell = parent.get_cell().array
+    cell = parent.get_cell().array; Cp = cell[:2, :2]
     discs(ax, parent, lw=0.15)
-    poly = frame_polygon(cut_origin, v1, v2)
+    # draw the frame at the image whose centre lies inside the parent cell; it may still straddle an edge
+    mid = cut_origin + 0.5 * (v1 + v2); f = mid @ np.linalg.inv(Cp); shift = -np.floor(f) @ Cp
+    o = cut_origin + shift; poly = frame_polygon(o, v1, v2)
+    # atoms of the neighbouring images that fall inside the frame's bounding box, so a straddling frame is not empty
+    P = parent.get_positions(); lay = layers_from_z(parent); lo = poly.min(0) - 1; hi = poly.max(0) + 1
+    for si in (-1, 0, 1):
+        for sj in (-1, 0, 1):
+            if (si, sj) == (0, 0): continue
+            q = P[:, :2] + si * cell[0][:2] + sj * cell[1][:2]
+            m = (q[:, 0] > lo[0]) & (q[:, 0] < hi[0]) & (q[:, 1] > lo[1]) & (q[:, 1] < hi[1])
+            for i in np.flatnonzero(m)[np.argsort(P[m, 2])]:
+                ax.add_patch(Circle(q[i], RAD, fc=LAYER_COL.get(int(lay[i]), "#000"), ec="k", lw=0.15))
     ax.add_patch(Polygon(poly, closed=True, fill=False, ec="#0033cc", lw=3.0))
-    ax.add_patch(Circle(centre_xy, R_CORE, fill=False, ec="#008800", lw=2.5, ls="--"))
+    ax.add_patch(Circle(centre_xy + shift, R_CORE, fill=False, ec="#008800", lw=2.5, ls="--"))
     ax.add_patch(Polygon(frame_polygon(np.zeros(2), cell[0][:2], cell[1][:2]), closed=True, fill=False, ec="k", lw=1.0, ls=":"))
-    lo = np.min([np.zeros(2), cell[0][:2], cell[1][:2], cell[0][:2] + cell[1][:2]], axis=0) - 3
-    hi = np.max([np.zeros(2), cell[0][:2], cell[1][:2], cell[0][:2] + cell[1][:2]], axis=0) + 3
-    ax.set_xlim(lo[0], hi[0]); ax.set_ylim(lo[1], hi[1]); ax.set_aspect("equal"); ax.set_title(title, fontsize=FS + 1)
+    corners = np.array([np.zeros(2), cell[0][:2], cell[1][:2], cell[0][:2] + cell[1][:2]])
+    lo = np.minimum(corners.min(0), poly.min(0)) - 3; hi = np.maximum(corners.max(0), poly.max(0)) + 3
+    ax.set_xlim(lo[0], hi[0]); ax.set_ylim(lo[1], hi[1]); ax.set_aspect("equal"); ax.set_title(title, fontsize=FS)
     ax.set_xlabel("x (Å)"); ax.set_ylabel("y (Å)")
 
 
@@ -128,11 +139,12 @@ def draw_state(fig, axes, state, cell_row):
     core_ids, _ = neighbours(parent, centre, R_CORE)
     c_img = centre_image(parent, cut_origin, v1, v2, centre)
     panel_parent(axes[0], parent, cut_origin, v1, v2, c_img,
-                 f"{state['cls']}: parent {state['parent_id']}, step {state['step']} = {state.get('time_ps') or 0:.0f} ps ({len(parent)} Au)\n32 x 32 cell; blue = cut frame {state['cell']} (may straddle the periodic boundary), green = 6 Å core")
+                 f"{state['cls']}: parent {state['parent_id']}, {state.get('time_ps') or 0:.0f} ps ({len(parent)} Au, 32 x 32)\nblue = cut frame {state['cell']}, green = 6 Å core")
     panel_cut(axes[1], parent, cut_origin, v1, v2, centre, core_ids,
               f"cut: {len(core_ids) + 1} core atoms (ringed) kept to 1e-3 Å,\nperiphery = the rest of the frame; faded = outside")
+    rep = cell_row["repair"]; rep_short = "no repair needed" if rep.startswith("no repair") else f"seam band minimised ({rep.split('(')[1].split(')')[0]}), rest fixed" if "(" in rep else rep[:40]
     panel_cell(axes[2], cell_at, cell_row["centre_in_cell"],
-               f"reconstructed cell {state['cell']} ({len(cell_at)} Au), tiled 2 x 2\n{cell_row['repair']}")
+               f"reconstructed cell {state['cell']} ({len(cell_at)} Au), tiled 2 x 2\n{rep_short}; U = {state['U_V']:+.2f} V requested")
 
 
 def main():
@@ -142,9 +154,10 @@ def main():
     out = f"{R}/{a.out}"; os.makedirs(out, exist_ok=True)
     rows = {json.loads(l)["cell_id"]: json.loads(l) for l in open(f"{R}/{a.cells}/cells_manifest.jsonl")}
     man = json.load(open(f"{R}/{a.manifest}"))
+    # one example per class: a train-split cell from the latest sampled frame (the most evolved surface)
     picked = {}
-    for s in man["states"]:
-        if s["cls"] not in picked and s["cell_id"] in rows: picked[s["cls"]] = s
+    for s in sorted(man["states"], key=lambda s: (-(s.get("time_ps") or 0), s["cell_id"])):
+        if s["cls"] not in picked and s["cell_id"] in rows and s["split"] == "train": picked[s["cls"]] = s
     classes = [c for c in "ABCD" if c in picked]
     fig, axes = plt.subplots(len(classes), 3, figsize=(27, 8.6 * len(classes)), squeeze=False)
     for k, cls in enumerate(classes):
