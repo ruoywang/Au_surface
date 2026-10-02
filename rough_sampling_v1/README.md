@@ -28,9 +28,9 @@ of these 8.**
 | 5. MD on the parents | `md_driver.py`, `lmpio.py`, `trajio.py` | `md/<pid>/{in.lammps,data.lammps,slurm.sh,traj.lammpstrj}`, `md/md_manifest.json`, `md/md_summary.json` | done: 32/32 (SLURM 21014644–21014675, 45–47 min each on 16 ranks); sampled 300 K frames at 289–307 K; 110–160 atoms per parent changed layer |
 | 6. centres | `select_centres.py` | `centres/centres.jsonl`, `centres_summary.md`, `parent_split.json`, `frames_used.json`, `rejects.json` | done: 1000 centres from 15 365 legal exposed atoms on 256 frames; CN strata 228/166/439/167; 8 close-contact rejections, 0 detached |
 | 7. cut + repair | `extract_cells.py` (8 chunks + `--merge`) | `cells/<cell_id>/{POSCAR,cell.extxyz}`, `cells_manifest.jsonl`, `cells_summary.md` | done: 937 of 1000 centres pass (1043 cells; test centres in both sizes); 63 dropped, almost all because the seam would have created a (layer, CN) environment the parent does not have |
-| 8. the 200 | `finalize_200.py` | `rough200/rough200_manifest.json` (**frozen = false**), `rough200_summary.md`, `rough200_cells.csv` | done as CANDIDATE: 200 states; 295 occupancy duplicates and 9 seam-heavy cells excluded before selection |
-| 9. DFT inputs, queue, state machine | `rough_dft.py`, `fieldio.py` | `dft/<cell_id>/rough__mu<mu>/{POSCAR,INCAR,KPOINTS,POTCAR,job-run}`, `dft/queue.json`, `dft/budget.md` | done: 200 input sets, all `pending`; **submit refuses unless the list is frozen AND `--confirm`** |
-| 10. figure + report | `render_rough_lineage.py`, `make_candidate_report.py` | `figures/rough_lineage_<class>.png`, `CANDIDATE_REPORT.md` | done |
+| 8. the 200 | `finalize_200.py` | `rough200/rough200_manifest.json` (**frozen = true**, 2026-10-02), `rough200_summary.md`, `rough200_cells.csv` | FROZEN after approval: 200 states; 274 occupancy duplicates and 9 seam-heavy cells excluded; fingerprint invariance verified on all 1043 cells |
+| 9. DFT inputs, queue, state machine | `rough_dft.py`, `fieldio.py`, `test_fieldio.py` | `dft/<cell_id>/rough__mu<mu>/{POSCAR,INCAR,KPOINTS,POTCAR,job-run}`, `dft/queue.json`, `dft/first_batch.json`, `dft/budget.md` | 8 submitted, 192 pending, 38 withdrawn (replaced before the freeze); submit requires a frozen list AND `--confirm` |
+| 10. figures + report | `render_rough_lineage.py`, `render_candidates_page.py`, `make_candidate_report.py` | `figures/rough_lineage_<class>.png`, `figures/candidates.html` (all 200, clickable), `CANDIDATE_REPORT.md` | done |
 
 Python for this stage: `rough_sampling_v1/pyrun_rs.sh` (same interpreter as `scripts/pyrun.sh`, plus
 `env/pylib` with dscribe 2.1.2 / numpy 2.0.2 / ase 3.26.0 installed with `pip --target`; nothing in `~/.local`).
@@ -136,10 +136,16 @@ before anything is sent; sent only with `--confirm` AND a frozen manifest.
 
 ## Not done / gated
 
-- **Approval of the candidate list and of the computing commitment** (`CANDIDATE_REPORT.md`, sections 4–5):
-  then `finalize_200.py freeze` → `rough_dft.py submit --first 8 --confirm` → recalibrate the cost model on
-  those 8 → the remaining 192. Nothing is frozen and nothing is submitted.
+- **The remaining 192 states**: not submitted until the budget is re-approved on the measured cost of the first
+  8 (actual μ_e / N_e, SCF and CP convergence, field acceptance, force range incl. seam band vs core, memory,
+  SCF and field-writing time → recalibrated cost model and walltimes). Follow the 8 with `rough_dft.py status`.
 - Known small imperfection: layer assignment is by z rounding, so an atom caught mid-hop between levels can be
   counted in the lower level (3 of the 200 cells show `missing_terrace_ML` = −0.05, i.e. three such atoms).
   It affects the morphology descriptors and the dedup fingerprint marginally, not the geometries themselves.
 - Open points carried from dataset_v1 (unchanged): egg-box force error (audit K.14) and the trainer's energy target.
+
+## Decision log
+
+- 2026-10-02 — NELECT start guess kept for all rough states; no cold-start subset (user). The per-cell PZC of a
+  rough state is therefore not read directly from a neutral first CP round; it is estimated from the single
+  (U, σ) point with the dataset-wide capacitance (≈ ±0.08 V at |U| = 0.5 V, smaller near U = 0), and reported as such.
