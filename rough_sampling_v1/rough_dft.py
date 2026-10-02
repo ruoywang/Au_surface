@@ -45,6 +45,9 @@ import fieldio  # noqa: E402
 
 ZVAL_AU = 11.0
 MU0_REF = -4.9071              # U = MU0_REF - TARGETMU (sign of U from a task id)
+# 2026-10-02: 'standard' and 'wholenode' are the same nodes (a[250-999]), QoS (part-standard) and billing (CPU=1.0), but
+# wholenode had 1096 pending jobs (estimated start 5 days) and standard 16 (estimated start 30 min); a job may list both
+ROUGH_PARTITION = "standard,wholenode"
 MU_TOL = 0.011                 # same acceptance as production.evaluate: |mu_e - TARGETMU| within FERMICONVERGE
 E_PER_UC_CM2 = 1.0 / 1602.18   # 1 uC/cm^2 = 1/1602.18 e/A^2
 # measured single-point wall time of the eight > 200-atom reference states (dataset_v1, 231-300 atoms), minutes:
@@ -108,7 +111,7 @@ def prepare(args):
         open(f"{d}/INCAR", "w").write(incar)
         shutil.copy(P.POTCAR_SRC, f"{d}/POTCAR")
         wall = walltime_minutes(len(at))
-        open(f"{d}/job-run", "w").write(P.JOBRUN.format(task=task, walltime=hhmmss(wall), partition=P.PARTITION))
+        open(f"{d}/job-run", "w").write(P.JOBRUN.format(task=task, walltime=hhmmss(wall), partition=ROUGH_PARTITION))
         q.append(dict(task_id=task, state_id=s["state_id"], cell_id=s["cell_id"], cls=s["cls"], split=s["split"], cell=s["cell"], pair=s.get("pair"),
                       U_V=s["U_V"], TARGETMU=mu, dir=d, n_atoms=len(at), n_movable=int(movable.sum()), kpoints=f"{n[0]}x{n[1]}x1",
                       nelect_guess=round(n_neutral + dN, 4), walltime_min=wall, status="pending", job_id=None, history=[["pending", time.strftime("%Y-%m-%d %H:%M")]]))
