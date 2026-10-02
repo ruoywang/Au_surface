@@ -1,0 +1,23 @@
+{
+ "updated": "2026-10-02 17:32",
+ "n_points": 1,
+ "exponent": 1.5,
+ "n_ref": 275.0,
+ "k_median_min": 425.69252726474116,
+ "k_max_min": 425.69252726474116,
+ "walltime_policy": "k_max * (N/275)^1.5 * 1.5, rounded up to the hour (PROVISIONAL: fewer than 3 measured points)",
+ "margin": 1.5,
+ "points": [
+  {
+   "task": "PA1_s51_f082500_a3617_8x8__rough__mu-4.4871",
+   "seeded": true,
+   "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s51_f082500_a3617_8x8/rough__mu-4.4871",
+   "n_atoms": 281,
+   "elapsed_min": 439.7,
+   "scf_min": 419.1,
+   "electronic_steps": 111,
+   "cp_closures": 1,
+   "maxrss_GB": 117.5
+  }
+ ]
+}

@@ -60,9 +60,17 @@ DISK_GB_PER_STATE = 11.0       # du of Island-7-8x8 and Pit-19-8x8 single points
 def scale(n): return (n / COST["n_ref"]) ** COST["exponent"]
 
 
+COST_MODEL = f"{R}/dft/cost_model.json"      # written by size_complex_test_v1/recalibrate_cost.py from finished rough runs
+
+
 def walltime_minutes(n):
-    """Requested walltime: the COLD envelope with 20 % margin, because a run killed by the walltime loses everything.
-    Recalibrate from the first batch before the remaining 192 are prepared (the plan's reason for running 8 first)."""
+    """Requested walltime. Before any rough run finished: the COLD envelope with 20 % margin (a run killed by the
+    walltime loses everything). Once dft/cost_model.json exists (measured rough runs): k_max * (N/275)^1.5 * 1.5."""
+    if os.path.exists(COST_MODEL):
+        m = json.load(open(COST_MODEL))
+        if m["n_points"] >= 2:                                   # one run is not a model; with 2-3 points use a 2x margin, from 4 the recorded 1.5x
+            margin = m["margin"] if m["n_points"] >= 4 else 2.0
+            return int(math.ceil((m["k_max_min"] * (n / m["n_ref"]) ** m["exponent"] * margin) / 60.0)) * 60
     return int(math.ceil((COST["cold_max"] * scale(n) * 1.2) / 60.0)) * 60
 
 
