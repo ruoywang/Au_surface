@@ -93,6 +93,18 @@ small cell is a training sample; size insensitivity is a separate conclusion.
   43 interior mobile atoms), not in the seam band (FLARE-minimised: median 0.043, max 0.84) — the seam is not the
   anomaly. σ = −5.27 μC/cm² (N_e − 11N = +1.575 e), implying U_pzc ≈ +0.04 V with the dataset capacitance (±0.08).
   S1's 6×6 input is now definitive (TARGETMU = −4.4891, the reference's actual μ_e).
+- **Second reference (B, 21015726, 8×8 302 Au, U = +0.46 V, finished 18:00): COMPLETE** — 15 fields parsed, closure
+  −1.5e-5 e, CONTCAR = POSCAR, μ_e = −5.3746 (7.5 meV from target), N_e +0.10 e from the start guess. Two SCF
+  rounds (the second oscillated at |ΔE| ~1e-6 for ~15 steps before converging), 132 steps, SCF 9.54 h, elapsed
+  9.89 h, MaxRSS 122.9 GB, 11 GB. Forces: mobile median 0.105, max 1.53 eV/Å, again in the thermal interior
+  (median 0.62) not the seam band (median 0.08). σ = +4.93 μC/cm² (N_e − 11N = −1.475 e).
+- **Measured cost model** (`rough_sampling_v1/dft/cost_model.json`, two points): k(275 Au) = 471 (median) / 516
+  (max) min, i.e. the dataset_v1 seeded extrapolation (399/563) was right and the cold envelope (1011/1346) 2–3×
+  too high for seeded runs. Walltimes now k_max × (N/275)^1.5 × 2 (margin 2× until four points): 6×6 8–11 h,
+  8×8 21–25 h. **Budgets with the measured model:** the 6 pair runs 37–41 node·h; the 198 remaining states under
+  the proposal (141 6×6 + 15 multi-layer + 33 8×8 + 9 10×8; 112–381 Au, median 163) **932–1021 node·h** and
+  ≈ 1.5 TB, against 1604–1757 node·h for the same states as frozen large cells (a 0.58× saving, now measured
+  rather than extrapolated) and 757 node·h for all of dataset_v1.
 - `replacement_proposal.csv`: 156 resize_to_6x6, 33 keep_8x8, 9 keep_10x8_no_smaller, 2 kept references; slots
   proposed for the admitted multi-layer candidates (M2 6×6 ×4, M2 8×8 ×1, M3 8×8 ×4 + 6×6 ×1, M1 8×8 ×5) — see the
   csv for the released single-layer states and the inherited U bins.

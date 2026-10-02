@@ -1,10 +1,10 @@
 {
- "updated": "2026-10-02 17:32",
- "n_points": 1,
+ "updated": "2026-10-02 18:03",
+ "n_points": 2,
  "exponent": 1.5,
  "n_ref": 275.0,
- "k_median_min": 425.69252726474116,
- "k_max_min": 425.69252726474116,
+ "k_median_min": 470.74696482305706,
+ "k_max_min": 515.8014023813729,
  "walltime_policy": "k_max * (N/275)^1.5 * 1.5, rounded up to the hour (PROVISIONAL: fewer than 3 measured points)",
  "margin": 1.5,
  "points": [
@@ -18,6 +18,17 @@
    "electronic_steps": 111,
    "cp_closures": 1,
    "maxrss_GB": 117.5
+  },
+  {
+   "task": "PB1_s51_f082500_a3929_8x8__rough__mu-5.3671",
+   "seeded": true,
+   "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s51_f082500_a3929_8x8/rough__mu-5.3671",
+   "n_atoms": 302,
+   "elapsed_min": 593.6,
+   "scf_min": 572.4,
+   "electronic_steps": 132,
+   "cp_closures": 1,
+   "maxrss_GB": 122.9
   }
  ]
 }

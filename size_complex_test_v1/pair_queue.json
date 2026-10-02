@@ -1,5 +1,5 @@
 {
- "created": "2026-10-02 16:16",
+ "created": "2026-10-02 18:03",
  "fermiconverge_pair": 0.001,
  "z_limit_A": 19.603,
  "tasks": [
@@ -18,7 +18,7 @@
    "n_atoms": 163,
    "kpoints": "2x2x1",
    "nelect_guess": 1793.83,
-   "walltime_min": 780
+   "walltime_min": 480
   },
   {
    "pair": "S1",
@@ -30,19 +30,19 @@
   {
    "pair": "S2",
    "member": "6x6",
-   "task_id": "S2_6x6__mu-5.3671",
-   "dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/dft/S2_6x6__mu-5.3671",
+   "task_id": "S2_6x6__mu-5.3746",
+   "dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/dft/S2_6x6__mu-5.3746",
    "cell_dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/cells/PB1_s51_f082500_a3929_6x6",
    "U_V": 0.46,
-   "TARGETMU": -5.3671,
-   "mu_source": "PROVISIONAL: reference not finished; regenerate with its actual mu_e before submitting",
+   "TARGETMU": -5.3746,
+   "mu_source": "actual mu_e of the reference PB1_s51_f082500_a3929_8x8",
    "config": "production",
    "top_A": 14.775,
-   "status": "provisional",
+   "status": "pending (not submitted)",
    "n_atoms": 172,
    "kpoints": "2x2x1",
    "nelect_guess": 1891.1138,
-   "walltime_min": 840
+   "walltime_min": 540
   },
   {
    "pair": "S2",
@@ -66,7 +66,7 @@
    "n_atoms": 185,
    "kpoints": "2x2x1",
    "nelect_guess": 2034.2308,
-   "walltime_min": 900
+   "walltime_min": 600
   },
   {
    "pair": "M2",
@@ -83,7 +83,7 @@
    "n_atoms": 314,
    "kpoints": "2x2x1",
    "nelect_guess": 3452.6326,
-   "walltime_min": 1980
+   "walltime_min": 1260
   },
   {
    "pair": "M3",
@@ -100,7 +100,7 @@
    "n_atoms": 199,
    "kpoints": "2x2x1",
    "nelect_guess": 2189.791,
-   "walltime_min": 1020
+   "walltime_min": 660
   },
   {
    "pair": "M3",
@@ -117,7 +117,7 @@
    "n_atoms": 345,
    "kpoints": "2x2x1",
    "nelect_guess": 3796.4062,
-   "walltime_min": 2280
+   "walltime_min": 1500
   }
  ]
 }
