@@ -5,11 +5,17 @@ single points on small periodic cells cut from large, roughened Au(111) surfaces
 new local environments instead of more copies of the hand-built ones. Everything here lives inside this
 folder; `dataset_v1/` and `05_production/` are read only.
 
-**Status 2026-10-02 05:30 — CANDIDATE deliverables ready, awaiting approval (`CANDIDATE_REPORT.md`).** MD 32/32
-done; 1000 centres → 937 cut (1043 cells) → **200 candidate states** (40/5/5 per class, 32 parents, 2–10 cells per
-parent, 177 × 8×8 + 23 × 10×8, 201–377 atoms, all k-mesh 2×2×1, 4 size pairs, potentials drawn once with seed
-20261002, `frozen = false`); 200 DFT input sets written to `dft/`, queue all `pending`; budget 1.4 k (seeded
-median) – 4.7 k (cold max) node·h and ≈ 2.2 TB. **No rough DFT has been submitted and the list is not frozen.**
+**Status 2026-10-02 06:40 — list FROZEN after approval; first batch of 8 submitted; 192 pending (`CANDIDATE_REPORT.md`).**
+MD 32/32 done; 1000 centres → 937 cut (1043 cells) → 200 states (40/5/5 per class, 32 parents, 2–10 cells per
+parent, 177 × 8×8 + 23 × 10×8, 202–383 atoms, all k-mesh 2×2×1, 4 size pairs, seed 20261002). The review of
+37a9299 required two fixes before freezing — an order-independent occupancy fingerprint registered on the frozen
+bottom layer (verified on all 1043 cells and in the reviewer's 200 × 15-permutation test: 0 changes) and
+value-level parsing of the PAW augmentation blocks (regression `test_fieldio.py`, 11/11) — after which the list
+was re-selected: 162 states kept with their potentials, 38 replaced (bins inherited), class × split coverage
+unchanged (`rough200/rough200_summary.md` lists the pairs). **First batch submitted 2026-10-02 06:3x: SLURM
+21015725–21015730, 21015732, 21015735 on `wholenode` (two per class, one U > 0 and one U < 0, 3 × 10×8 + 5 × 8×8,
+17–39 h walltime each). The remaining 192 are not submitted until the budget is re-approved on the measured cost
+of these 8.**
 
 ## Pipeline and scripts
 

@@ -44,6 +44,7 @@ sys.path.insert(0, R)
 import fieldio  # noqa: E402
 
 ZVAL_AU = 11.0
+MU0_REF = -4.9071              # U = MU0_REF - TARGETMU (sign of U from a task id)
 MU_TOL = 0.011                 # same acceptance as production.evaluate: |mu_e - TARGETMU| within FERMICONVERGE
 E_PER_UC_CM2 = 1.0 / 1602.18   # 1 uC/cm^2 = 1/1602.18 e/A^2
 # measured single-point wall time of the eight > 200-atom reference states (dataset_v1, 231-300 atoms), minutes:
@@ -112,9 +113,14 @@ def prepare(args):
                       U_V=s["U_V"], TARGETMU=mu, dir=d, n_atoms=len(at), n_movable=int(movable.sum()), kpoints=f"{n[0]}x{n[1]}x1",
                       nelect_guess=round(n_neutral + dN, 4), walltime_min=wall, status="pending", job_id=None, history=[["pending", time.strftime("%Y-%m-%d %H:%M")]]))
         made += 1
+    # sync: pending tasks whose state is no longer in the manifest were replaced before the freeze -> withdrawn (dirs kept)
+    live = {f"{s['cell_id']}__rough__mu{s['TARGETMU_eV']:.4f}" for s in man["states"]}; n_wd = 0
+    for t in q:
+        if t["task_id"] not in live and t["status"] == "pending":
+            t["status"] = "withdrawn"; t["note"] = f"replaced in the candidate list before the freeze ({time.strftime('%Y-%m-%d %H:%M')})"; n_wd += 1
     save_queue(q)
-    budget(q, C_uF, U_pzc)
-    print(f"{made} new tasks written; queue {len(q)} entries, {sum(t['status'] == 'pending' for t in q)} pending. NOTHING SUBMITTED.")
+    budget([t for t in q if t["status"] != "withdrawn"], C_uF, U_pzc)
+    print(f"{made} new tasks written, {n_wd} withdrawn; queue {len(q)} entries, {sum(t['status'] == 'pending' for t in q)} pending. NOTHING SUBMITTED.")
 
 
 def budget(q, C_uF, U_pzc):
@@ -194,6 +200,7 @@ def evaluate(t, active):
 def status(args):
     q = load_queue(); active = squeue_mine(); changed = 0
     for t in q:
+        if t["status"] == "withdrawn": continue                                   # replaced before the freeze; never evaluated
         if t["status"] in ("complete", "failed") and not args.recheck: continue
         st, note = evaluate(t, active)
         if st != t["status"] or note != t.get("note"):
@@ -202,7 +209,7 @@ def status(args):
     c = collections.Counter(t["status"] for t in q)
     print("queue:", dict(c), f"({changed} updated)")
     for t in q:
-        if t["status"] not in ("pending", "complete"): print(f"  {t['status']:15s} {t['task_id']:50s} job={t['job_id']} {t.get('note', '')[:110]}")
+        if t["status"] not in ("pending", "complete", "withdrawn"): print(f"  {t['status']:15s} {t['task_id']:50s} job={t['job_id']} {t.get('note', '')[:110]}")
 
 
 def pick_first(q, n):
@@ -228,7 +235,27 @@ def submit(args):
     if not man.get("frozen"):
         print(f"{args.manifest} is a CANDIDATE list (frozen = false). Nothing can be submitted until it is frozen by approval "
               f"(finalize_200.py freeze). Listing the batch that WOULD be submitted:")
-    q = load_queue(); chosen = pick_first(q, args.first)
+    q = load_queue()
+    # the batch is pinned once (dft/first_batch.json) so 'the defined 8' stay the defined 8; a pinned task that is no
+    # longer pending (replaced before the freeze) is substituted by the rule and the substitution is printed
+    pin = f"{DFT}/first_batch.json"
+    if os.path.exists(pin):
+        pinned = json.load(open(pin)); byid = {t["task_id"]: t for t in q}
+        chosen = [byid[i] for i in pinned if i in byid and byid[i]["status"] == "pending"]
+        lost = [i for i in pinned if i not in byid or byid[i]["status"] == "withdrawn"]
+        if lost:
+            print(f"pinned tasks no longer available: {lost}")
+            # a substitute must fill the SAME slot (class, sign of U, cell size) with the largest |U| available; the
+            # earlier version took the head of pick_first() and put a class-A task into a class-C slot (job 21015731)
+            for i in lost:
+                m = re.match(r"P([ABCD])\d_s\d+_f\d+_a\d+_(\d+x\d+)__rough__mu(-?[\d.]+)", i); cls, size, mu = m.group(1), m.group(2), float(m.group(3))
+                sgn = (MU0_REF - mu) > 0
+                c = [t for t in q if t["status"] == "pending" and t["cls"] == cls and (t["U_V"] > 0) == sgn and t["cell"] == size and t not in chosen]
+                c = c or [t for t in q if t["status"] == "pending" and t["cls"] == cls and (t["U_V"] > 0) == sgn and t not in chosen]
+                if c and len(chosen) < args.first:
+                    t = max(c, key=lambda t: abs(t["U_V"])); chosen.append(t); print(f"  slot {cls}/{'U>0' if sgn else 'U<0'}/{size} -> {t['task_id']} ({t['cell']})")
+    else:
+        chosen = pick_first(q, args.first); json.dump([t["task_id"] for t in chosen], open(pin, "w"), indent=1); print(f"first batch pinned to {pin}")
     print(f"{'WOULD submit' if not args.confirm else 'Submitting'} {len(chosen)} tasks:")
     for t in chosen: print(f"  {t['task_id']:50s} {t['cls']} {t['cell']} U={t['U_V']:+.2f} n={t['n_atoms']} walltime {hhmmss(t['walltime_min'])}")
     if not args.confirm or not man.get("frozen"):

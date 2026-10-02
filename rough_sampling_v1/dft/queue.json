@@ -15,14 +15,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3485.9446,
   "walltime_min": 2040,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PA2_s51_f010000_a4064_10x8__rough__mu-4.6471",
@@ -46,8 +51,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA2_s51_f010000_a4064_8x8__rough__mu-4.6471",
@@ -71,8 +81,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA2_s51_f082500_a3576_10x8__rough__mu-5.0771",
@@ -90,14 +105,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 4025.2875,
   "walltime_min": 2520,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PA2_s51_f086000_a3968_10x8__rough__mu-5.1871",
@@ -121,8 +141,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s51_f005000_a4211_8x8__rough__mu-4.6971",
@@ -146,8 +171,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s51_f010000_a4400_8x8__rough__mu-4.4871",
@@ -171,8 +201,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s51_f082500_a3099_8x8__rough__mu-4.5471",
@@ -196,8 +231,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s51_f096500_a4040_10x8__rough__mu-5.2171",
@@ -221,8 +261,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s51_f096500_a4040_8x8__rough__mu-5.2171",
@@ -246,8 +291,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s51_f005000_a2467_8x8__rough__mu-5.3471",
@@ -271,8 +321,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s51_f010000_a2897_10x8__rough__mu-4.5871",
@@ -296,8 +351,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s51_f082500_a3776_8x8__rough__mu-4.9171",
@@ -315,14 +375,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2661.9847,
   "walltime_min": 1380,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PC2_s51_f086000_a2769_10x8__rough__mu-4.9071",
@@ -346,8 +411,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s51_f086000_a2769_8x8__rough__mu-4.9071",
@@ -371,8 +441,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s51_f005000_a4565_10x8__rough__mu-4.7571",
@@ -390,14 +465,23 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3872.6743,
   "walltime_min": 2340,
-  "status": "pending",
-  "job_id": null,
+  "status": "submitted",
+  "job_id": 21015730,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "submitted",
+    "2026-10-02 06:15"
+   ],
+   [
+    "submitted",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": "in queue"
  },
  {
   "task_id": "PD2_s51_f005000_a4565_8x8__rough__mu-4.7571",
@@ -421,8 +505,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s51_f082500_a3440_8x8__rough__mu-4.6071",
@@ -446,8 +535,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s51_f082500_a3495_8x8__rough__mu-5.0371",
@@ -471,8 +565,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s51_f099500_a3663_8x8__rough__mu-5.2471",
@@ -496,8 +595,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s11_f005000_a4190_8x8__rough__mu-5.2971",
@@ -521,8 +625,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s11_f005000_a4568_8x8__rough__mu-4.5571",
@@ -546,8 +655,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s11_f010000_a4116_8x8__rough__mu-4.9371",
@@ -571,8 +685,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s11_f010000_a4154_8x8__rough__mu-4.9571",
@@ -596,8 +715,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s11_f082500_a4560_8x8__rough__mu-4.7771",
@@ -621,8 +745,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s11_f089500_a3777_8x8__rough__mu-4.7971",
@@ -646,8 +775,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s11_f089500_a4346_8x8__rough__mu-5.1471",
@@ -665,14 +799,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3178.1873,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PA1_s11_f093000_a4139_8x8__rough__mu-4.6371",
@@ -696,8 +835,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s11_f096500_a3497_8x8__rough__mu-4.8471",
@@ -715,14 +859,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3267.2274,
   "walltime_min": 1860,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PA1_s11_f099500_a3433_10x8__rough__mu-4.5071",
@@ -746,8 +895,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s23_f005000_a3455_8x8__rough__mu-5.1271",
@@ -765,14 +919,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3068.2567,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PA1_s23_f005000_a4488_8x8__rough__mu-5.0171",
@@ -796,8 +955,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s23_f010000_a4304_8x8__rough__mu-5.0171",
@@ -815,14 +979,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3266.638,
   "walltime_min": 1860,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PA1_s23_f086000_a3270_8x8__rough__mu-4.8371",
@@ -840,14 +1009,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3058.2621,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PA1_s23_f086000_a4535_8x8__rough__mu-5.2971",
@@ -865,14 +1039,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3089.6673,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PA1_s23_f089500_a3385_8x8__rough__mu-4.5171",
@@ -896,8 +1075,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s23_f096500_a3414_8x8__rough__mu-4.8071",
@@ -921,8 +1105,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s23_f096500_a3530_10x8__rough__mu-4.8971",
@@ -946,8 +1135,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s23_f099500_a4124_8x8__rough__mu-4.6671",
@@ -971,8 +1165,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s37_f099500_a3268_8x8__rough__mu-4.9871",
@@ -996,8 +1195,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s37_f099500_a4124_8x8__rough__mu-4.9571",
@@ -1015,14 +1219,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3233.8461,
   "walltime_min": 1800,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PA1_s51_f005000_a3161_8x8__rough__mu-4.7871",
@@ -1046,8 +1255,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s51_f005000_a4578_8x8__rough__mu-5.3871",
@@ -1071,8 +1285,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s51_f010000_a4026_8x8__rough__mu-5.2771",
@@ -1096,8 +1315,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s51_f082500_a3617_8x8__rough__mu-4.4871",
@@ -1115,14 +1339,23 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3092.4755,
   "walltime_min": 1680,
-  "status": "pending",
-  "job_id": null,
+  "status": "submitted",
+  "job_id": 21015732,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "submitted",
+    "2026-10-02 06:15"
+   ],
+   [
+    "submitted",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": "in queue"
  },
  {
   "task_id": "PA1_s51_f082500_a4161_8x8__rough__mu-4.4871",
@@ -1146,8 +1379,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s51_f086000_a3690_8x8__rough__mu-4.6371",
@@ -1171,8 +1409,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s51_f086000_a4314_8x8__rough__mu-5.2071",
@@ -1196,8 +1439,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA1_s51_f089500_a4318_10x8__rough__mu-5.2671",
@@ -1215,14 +1463,23 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3848.4641,
   "walltime_min": 2340,
-  "status": "pending",
-  "job_id": null,
+  "status": "submitted",
+  "job_id": 21015725,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "submitted",
+    "2026-10-02 06:15"
+   ],
+   [
+    "submitted",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": "in queue"
  },
  {
   "task_id": "PA1_s51_f093000_a4085_8x8__rough__mu-5.1471",
@@ -1246,8 +1503,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA2_s11_f010000_a3776_8x8__rough__mu-5.1071",
@@ -1271,8 +1533,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA2_s11_f010000_a4422_8x8__rough__mu-5.3971",
@@ -1290,14 +1557,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2968.3206,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PA2_s11_f086000_a4445_8x8__rough__mu-4.6471",
@@ -1321,8 +1593,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA2_s11_f096500_a4267_8x8__rough__mu-5.3171",
@@ -1346,8 +1623,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA2_s11_f096500_a4570_8x8__rough__mu-5.4071",
@@ -1371,8 +1653,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA2_s23_f005000_a3536_8x8__rough__mu-5.3171",
@@ -1396,8 +1683,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA2_s23_f082500_a3256_8x8__rough__mu-4.4171",
@@ -1415,14 +1707,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3268.7182,
   "walltime_min": 1860,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PA2_s23_f086000_a4390_8x8__rough__mu-4.5371",
@@ -1446,8 +1743,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA2_s23_f093000_a4142_8x8__rough__mu-5.1971",
@@ -1471,8 +1773,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA2_s23_f096500_a4582_8x8__rough__mu-4.8171",
@@ -1490,14 +1797,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3421.3314,
   "walltime_min": 1980,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PB1_s11_f005000_a4143_8x8__rough__mu-4.4071",
@@ -1515,14 +1827,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3081.7529,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PB1_s11_f010000_a4143_10x8__rough__mu-5.2471",
@@ -1540,14 +1857,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3793.5508,
   "walltime_min": 2280,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PB1_s11_f010000_a4173_8x8__rough__mu-4.8371",
@@ -1571,8 +1893,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB1_s11_f082500_a3407_8x8__rough__mu-5.2771",
@@ -1596,8 +1923,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB1_s11_f082500_a4035_8x8__rough__mu-4.7671",
@@ -1621,8 +1953,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB1_s11_f086000_a3911_8x8__rough__mu-5.2871",
@@ -1646,8 +1983,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB1_s23_f010000_a4171_8x8__rough__mu-4.7371",
@@ -1665,14 +2007,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2981.6088,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PB1_s23_f086000_a4071_8x8__rough__mu-4.5571",
@@ -1690,14 +2037,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2927.2329,
   "walltime_min": 1560,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PB1_s23_f096500_a3965_8x8__rough__mu-4.9371",
@@ -1721,8 +2073,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB1_s23_f099500_a4041_8x8__rough__mu-4.5971",
@@ -1746,8 +2103,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB1_s37_f005000_a3081_8x8__rough__mu-5.0771",
@@ -1771,8 +2133,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB1_s37_f005000_a4096_8x8__rough__mu-4.8771",
@@ -1790,14 +2157,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2904.1234,
   "walltime_min": 1560,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PB1_s37_f089500_a3134_8x8__rough__mu-5.3471",
@@ -1821,8 +2193,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB1_s37_f093000_a2820_8x8__rough__mu-4.5371",
@@ -1846,8 +2223,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB1_s37_f093000_a3443_10x8__rough__mu-5.0671",
@@ -1871,8 +2253,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB1_s37_f096500_a3843_10x8__rough__mu-4.9871",
@@ -1896,8 +2283,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB1_s37_f099500_a4223_8x8__rough__mu-5.3371",
@@ -1921,8 +2313,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB1_s51_f082500_a3929_8x8__rough__mu-5.3671",
@@ -1940,14 +2337,23 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3320.4246,
   "walltime_min": 1860,
-  "status": "pending",
-  "job_id": null,
+  "status": "submitted",
+  "job_id": 21015726,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "submitted",
+    "2026-10-02 06:15"
+   ],
+   [
+    "submitted",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": "in queue"
  },
  {
   "task_id": "PB1_s51_f082500_a4236_8x8__rough__mu-4.4671",
@@ -1971,8 +2377,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB1_s51_f086000_a4028_8x8__rough__mu-4.8171",
@@ -1996,8 +2407,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB1_s51_f089500_a3454_8x8__rough__mu-5.0971",
@@ -2021,8 +2437,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB1_s51_f089500_a4218_8x8__rough__mu-5.1171",
@@ -2040,14 +2461,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3156.2913,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PB1_s51_f093000_a4042_8x8__rough__mu-4.7071",
@@ -2065,14 +2491,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2893.7128,
   "walltime_min": 1560,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PB1_s51_f093000_a4158_8x8__rough__mu-5.1471",
@@ -2090,14 +2521,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2892.1873,
   "walltime_min": 1560,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PB1_s51_f096500_a4239_10x8__rough__mu-4.7171",
@@ -2121,8 +2557,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB1_s51_f099500_a4156_10x8__rough__mu-4.5271",
@@ -2140,14 +2581,23 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3532.6711,
   "walltime_min": 2040,
-  "status": "pending",
-  "job_id": null,
+  "status": "submitted",
+  "job_id": 21015727,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "submitted",
+    "2026-10-02 06:15"
+   ],
+   [
+    "submitted",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": "in queue"
  },
  {
   "task_id": "PB2_s11_f005000_a4316_8x8__rough__mu-4.7071",
@@ -2171,8 +2621,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s11_f010000_a4335_8x8__rough__mu-5.1371",
@@ -2196,8 +2651,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s11_f082500_a3964_8x8__rough__mu-4.4471",
@@ -2221,8 +2681,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s11_f086000_a3632_10x8__rough__mu-5.3371",
@@ -2240,14 +2705,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 4145.1608,
   "walltime_min": 2640,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PB2_s11_f093000_a3658_8x8__rough__mu-5.2771",
@@ -2265,14 +2735,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2979.7366,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PB2_s11_f096500_a3714_8x8__rough__mu-5.1571",
@@ -2296,8 +2771,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s23_f005000_a3436_8x8__rough__mu-4.6171",
@@ -2321,8 +2801,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s23_f010000_a4354_8x8__rough__mu-4.4371",
@@ -2340,14 +2825,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3015.6489,
   "walltime_min": 1620,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PB2_s23_f086000_a3634_8x8__rough__mu-4.6271",
@@ -2371,8 +2861,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s23_f086000_a4268_8x8__rough__mu-4.8771",
@@ -2396,8 +2891,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s23_f089500_a4158_8x8__rough__mu-4.7671",
@@ -2415,14 +2915,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3476.5048,
   "walltime_min": 2040,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PB2_s23_f089500_a4423_8x8__rough__mu-4.9271",
@@ -2446,8 +2951,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s23_f093000_a4359_8x8__rough__mu-4.9671",
@@ -2471,8 +2981,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s23_f096500_a3504_8x8__rough__mu-5.0971",
@@ -2490,14 +3005,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3112.3607,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PC1_s11_f010000_a2754_8x8__rough__mu-4.7871",
@@ -2521,8 +3041,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC1_s11_f082500_a2132_8x8__rough__mu-5.3771",
@@ -2546,8 +3071,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC1_s11_f082500_a3094_8x8__rough__mu-4.4971",
@@ -2565,14 +3095,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2729.4409,
   "walltime_min": 1440,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PC1_s11_f086000_a2161_8x8__rough__mu-4.9871",
@@ -2596,8 +3131,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC1_s11_f086000_a2645_8x8__rough__mu-5.1671",
@@ -2621,8 +3161,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC1_s11_f089500_a2132_8x8__rough__mu-4.5871",
@@ -2640,14 +3185,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2663.1288,
   "walltime_min": 1380,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PC1_s23_f005000_a3447_8x8__rough__mu-4.8271",
@@ -2671,8 +3221,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC1_s23_f010000_a2544_8x8__rough__mu-4.6671",
@@ -2696,8 +3251,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC1_s23_f082500_a2878_8x8__rough__mu-5.1271",
@@ -2721,8 +3281,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC1_s23_f093000_a3581_8x8__rough__mu-5.2671",
@@ -2740,14 +3305,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2517.7713,
   "walltime_min": 1260,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PC1_s37_f005000_a3288_8x8__rough__mu-5.2571",
@@ -2765,14 +3335,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2693.806,
   "walltime_min": 1380,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PC1_s37_f005000_a3488_8x8__rough__mu-4.9271",
@@ -2796,8 +3371,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC1_s37_f010000_a2367_8x8__rough__mu-4.8971",
@@ -2815,14 +3395,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2563.0541,
   "walltime_min": 1260,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PC1_s37_f086000_a2282_8x8__rough__mu-4.9071",
@@ -2846,8 +3431,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC1_s37_f089500_a3497_8x8__rough__mu-4.5871",
@@ -2871,8 +3461,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC1_s37_f093000_a2394_8x8__rough__mu-5.2171",
@@ -2896,8 +3491,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC1_s37_f096500_a2555_8x8__rough__mu-5.3671",
@@ -2921,8 +3521,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC1_s37_f096500_a3416_8x8__rough__mu-4.7671",
@@ -2946,8 +3551,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC1_s51_f082500_a2746_8x8__rough__mu-4.8671",
@@ -2965,14 +3575,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2343.1581,
   "walltime_min": 1140,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PC1_s51_f089500_a2648_8x8__rough__mu-4.5371",
@@ -2996,8 +3611,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC1_s51_f096500_a3585_8x8__rough__mu-5.3871",
@@ -3015,14 +3635,23 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2385.3553,
   "walltime_min": 1140,
-  "status": "pending",
-  "job_id": null,
+  "status": "submitted",
+  "job_id": 21015735,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "submitted",
+    "2026-10-02 06:16"
+   ],
+   [
+    "submitted",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": "in queue"
  },
  {
   "task_id": "PC2_s11_f005000_a2078_8x8__rough__mu-4.5771",
@@ -3040,14 +3669,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2212.1635,
   "walltime_min": 1020,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PC2_s11_f005000_a3130_8x8__rough__mu-5.3871",
@@ -3071,8 +3705,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s11_f010000_a2187_8x8__rough__mu-4.4171",
@@ -3090,14 +3729,23 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2322.7182,
   "walltime_min": 1140,
-  "status": "pending",
-  "job_id": null,
+  "status": "submitted",
+  "job_id": 21015728,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "submitted",
+    "2026-10-02 06:15"
+   ],
+   [
+    "submitted",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": "in queue"
  },
  {
   "task_id": "PC2_s11_f082500_a3108_8x8__rough__mu-4.4471",
@@ -3121,8 +3769,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s11_f093000_a2241_10x8__rough__mu-4.4471",
@@ -3146,8 +3799,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s11_f093000_a3110_8x8__rough__mu-5.2871",
@@ -3171,8 +3829,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s11_f096500_a2153_8x8__rough__mu-4.9571",
@@ -3196,8 +3859,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s11_f096500_a3088_8x8__rough__mu-5.0771",
@@ -3221,8 +3889,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s11_f099500_a2544_8x8__rough__mu-5.0471",
@@ -3246,8 +3919,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s23_f005000_a3537_10x8__rough__mu-5.0771",
@@ -3265,14 +3943,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3167.2875,
   "walltime_min": 1740,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PC2_s23_f005000_a3613_8x8__rough__mu-4.6971",
@@ -3296,8 +3979,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s23_f010000_a3274_8x8__rough__mu-5.0371",
@@ -3321,8 +4009,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s23_f010000_a3615_8x8__rough__mu-4.7171",
@@ -3340,14 +4033,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2585.6781,
   "walltime_min": 1320,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PC2_s23_f082500_a3537_8x8__rough__mu-4.7071",
@@ -3371,8 +4069,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s23_f082500_a3593_8x8__rough__mu-5.1671",
@@ -3390,14 +4093,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 2650.118,
   "walltime_min": 1380,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PC2_s23_f089500_a2937_8x8__rough__mu-4.6771",
@@ -3421,8 +4129,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s23_f089500_a2969_8x8__rough__mu-4.9771",
@@ -3446,8 +4159,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s23_f099500_a3441_8x8__rough__mu-4.8271",
@@ -3471,8 +4189,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s23_f099500_a3628_8x8__rough__mu-4.4171",
@@ -3496,8 +4219,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s11_f005000_a3390_8x8__rough__mu-5.0871",
@@ -3521,8 +4249,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s11_f010000_a4534_8x8__rough__mu-4.8271",
@@ -3546,8 +4279,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s11_f082500_a4137_8x8__rough__mu-5.2171",
@@ -3571,8 +4309,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s11_f089500_a4163_10x8__rough__mu-4.8271",
@@ -3596,8 +4339,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s11_f093000_a3608_8x8__rough__mu-4.8271",
@@ -3621,8 +4369,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s11_f096500_a4161_8x8__rough__mu-5.3171",
@@ -3646,8 +4399,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s23_f005000_a4049_8x8__rough__mu-4.6771",
@@ -3671,8 +4429,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s23_f010000_a3876_8x8__rough__mu-5.1371",
@@ -3696,8 +4459,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s23_f010000_a4448_8x8__rough__mu-4.6471",
@@ -3721,8 +4489,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s23_f086000_a4500_8x8__rough__mu-5.3371",
@@ -3740,14 +4513,23 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3375.5286,
   "walltime_min": 1920,
-  "status": "pending",
-  "job_id": null,
+  "status": "submitted",
+  "job_id": 21015729,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "submitted",
+    "2026-10-02 06:15"
+   ],
+   [
+    "submitted",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": "in queue"
  },
  {
   "task_id": "PD1_s23_f096500_a3375_8x8__rough__mu-5.2971",
@@ -3771,8 +4553,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s37_f005000_a4258_8x8__rough__mu-5.1271",
@@ -3796,8 +4583,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s37_f005000_a4475_8x8__rough__mu-4.7571",
@@ -3821,8 +4613,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s37_f010000_a3209_8x8__rough__mu-4.5171",
@@ -3846,8 +4643,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s37_f010000_a3426_8x8__rough__mu-4.4771",
@@ -3871,8 +4673,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s37_f082500_a3592_8x8__rough__mu-4.7271",
@@ -3896,8 +4703,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s37_f082500_a4158_8x8__rough__mu-4.4371",
@@ -3921,8 +4733,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s37_f086000_a4303_8x8__rough__mu-5.2571",
@@ -3946,8 +4763,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s37_f089500_a3481_8x8__rough__mu-4.6771",
@@ -3971,8 +4793,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s37_f099500_a3319_8x8__rough__mu-5.0471",
@@ -3996,8 +4823,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s37_f099500_a4361_8x8__rough__mu-5.1671",
@@ -4021,8 +4853,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s51_f010000_a3421_10x8__rough__mu-5.1471",
@@ -4046,8 +4883,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s51_f010000_a4294_8x8__rough__mu-5.0671",
@@ -4071,8 +4913,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s51_f082500_a3592_8x8__rough__mu-4.9671",
@@ -4096,8 +4943,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD1_s51_f086000_a3183_8x8__rough__mu-4.4271",
@@ -4121,8 +4973,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s11_f005000_a4324_8x8__rough__mu-4.5671",
@@ -4146,8 +5003,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s11_f005000_a4564_8x8__rough__mu-4.9971",
@@ -4171,8 +5033,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s11_f010000_a3801_8x8__rough__mu-4.7071",
@@ -4196,8 +5063,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s11_f010000_a4186_8x8__rough__mu-4.5671",
@@ -4221,8 +5093,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s11_f086000_a4546_8x8__rough__mu-5.3271",
@@ -4246,8 +5123,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s11_f089500_a4304_8x8__rough__mu-4.7171",
@@ -4271,8 +5153,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s11_f096500_a4119_8x8__rough__mu-5.0471",
@@ -4296,8 +5183,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s11_f099500_a3969_8x8__rough__mu-5.2171",
@@ -4321,8 +5213,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s11_f099500_a4579_8x8__rough__mu-4.9371",
@@ -4346,8 +5243,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s23_f010000_a4228_8x8__rough__mu-4.7971",
@@ -4371,8 +5273,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s23_f010000_a4451_8x8__rough__mu-4.7271",
@@ -4396,8 +5303,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s23_f082500_a4242_8x8__rough__mu-5.3171",
@@ -4421,8 +5333,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s23_f089500_a4347_10x8__rough__mu-4.8271",
@@ -4446,8 +5363,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s23_f093000_a4512_8x8__rough__mu-4.9771",
@@ -4471,8 +5393,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s23_f096500_a4115_8x8__rough__mu-4.6071",
@@ -4496,8 +5423,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA2_s37_f005000_a4468_8x8__rough__mu-4.8371",
@@ -4521,8 +5453,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA2_s37_f010000_a4358_8x8__rough__mu-5.3271",
@@ -4546,8 +5483,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA2_s37_f082500_a3833_8x8__rough__mu-4.5871",
@@ -4571,8 +5513,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PA2_s37_f089500_a3376_8x8__rough__mu-4.7871",
@@ -4590,14 +5537,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3102.4355,
   "walltime_min": 1680,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PA2_s37_f096500_a4009_8x8__rough__mu-5.1171",
@@ -4621,8 +5573,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s37_f005000_a3999_8x8__rough__mu-4.9371",
@@ -4646,8 +5603,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s37_f005000_a4420_8x8__rough__mu-5.0171",
@@ -4665,14 +5627,19 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3343.638,
   "walltime_min": 1920,
-  "status": "pending",
+  "status": "withdrawn",
   "job_id": null,
   "history": [
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "withdrawn",
+    "2026-10-02 06:22"
    ]
-  ]
+  ],
+  "note": "replaced in the candidate list before the freeze (2026-10-02); never run"
  },
  {
   "task_id": "PB2_s37_f010000_a4315_10x8__rough__mu-4.5771",
@@ -4696,8 +5663,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s37_f089500_a3564_8x8__rough__mu-4.4971",
@@ -4721,8 +5693,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PB2_s37_f089500_a3629_8x8__rough__mu-4.7471",
@@ -4746,8 +5723,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s37_f010000_a2394_8x8__rough__mu-5.1571",
@@ -4771,8 +5753,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s37_f010000_a3701_8x8__rough__mu-5.3871",
@@ -4796,8 +5783,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s37_f082500_a2818_8x8__rough__mu-4.7671",
@@ -4821,8 +5813,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s37_f086000_a2149_8x8__rough__mu-4.8471",
@@ -4846,8 +5843,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PC2_s37_f086000_a3399_8x8__rough__mu-4.4271",
@@ -4871,8 +5873,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s37_f005000_a4568_8x8__rough__mu-4.4171",
@@ -4896,8 +5903,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s37_f010000_a4591_8x8__rough__mu-5.2971",
@@ -4921,8 +5933,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s37_f082500_a3634_8x8__rough__mu-5.2071",
@@ -4946,8 +5963,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s37_f086000_a3305_10x8__rough__mu-4.9771",
@@ -4971,8 +5993,13 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
  },
  {
   "task_id": "PD2_s37_f086000_a4132_8x8__rough__mu-5.0671",
@@ -4996,7 +6023,1161 @@
    [
     "pending",
     "2026-10-02 05:20"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
    ]
-  ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PA2_s51_f005000_a3520_8x8__rough__mu-5.2171",
+  "state_id": "PA2_s51_f005000_a3520_8x8__U+0.31",
+  "cell_id": "PA2_s51_f005000_a3520_8x8",
+  "cls": "A",
+  "split": "test",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.31,
+  "TARGETMU": -5.2171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s51_f005000_a3520_8x8/rough__mu-5.2171",
+  "n_atoms": 287,
+  "n_movable": 159,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3155.9446,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PA2_s51_f005000_a4132_10x8__rough__mu-4.4571",
+  "state_id": "PA2_s51_f005000_a4132_10x8__U-0.45",
+  "cell_id": "PA2_s51_f005000_a4132_10x8",
+  "cls": "A",
+  "split": "test",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": -0.45,
+  "TARGETMU": -4.4571,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s51_f005000_a4132_10x8/rough__mu-4.4571",
+  "n_atoms": 383,
+  "n_movable": 223,
+  "kpoints": "2x2x1",
+  "nelect_guess": 4214.9744,
+  "walltime_min": 2700,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PC2_s51_f005000_a3646_8x8__rough__mu-4.8371",
+  "state_id": "PC2_s51_f005000_a3646_8x8__U-0.07",
+  "cell_id": "PC2_s51_f005000_a3646_8x8",
+  "cls": "C",
+  "split": "test",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.07,
+  "TARGETMU": -4.8371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s51_f005000_a3646_8x8/rough__mu-4.8371",
+  "n_atoms": 211,
+  "n_movable": 83,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2321.2621,
+  "walltime_min": 1140,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PA1_s11_f082500_a3340_8x8__rough__mu-5.2371",
+  "state_id": "PA1_s11_f082500_a3340_8x8__U+0.33",
+  "cell_id": "PA1_s11_f082500_a3340_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.33,
+  "TARGETMU": -5.2371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s11_f082500_a3340_8x8/rough__mu-5.2371",
+  "n_atoms": 280,
+  "n_movable": 152,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3078.8753,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PA1_s11_f096500_a3733_8x8__rough__mu-4.5371",
+  "state_id": "PA1_s11_f096500_a3733_8x8__U-0.37",
+  "cell_id": "PA1_s11_f096500_a3733_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.37,
+  "TARGETMU": -4.5371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s11_f096500_a3733_8x8/rough__mu-4.5371",
+  "n_atoms": 287,
+  "n_movable": 159,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3158.3022,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PA1_s23_f005000_a4199_8x8__rough__mu-4.8371",
+  "state_id": "PA1_s23_f005000_a4199_8x8__U-0.07",
+  "cell_id": "PA1_s23_f005000_a4199_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.07,
+  "TARGETMU": -4.8371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s23_f005000_a4199_8x8/rough__mu-4.8371",
+  "n_atoms": 277,
+  "n_movable": 149,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3047.2621,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PA1_s23_f089500_a3835_8x8__rough__mu-5.1171",
+  "state_id": "PA1_s23_f089500_a3835_8x8__U+0.21",
+  "cell_id": "PA1_s23_f089500_a3835_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.21,
+  "TARGETMU": -5.1171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s23_f089500_a3835_8x8/rough__mu-5.1171",
+  "n_atoms": 280,
+  "n_movable": 152,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3079.2913,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PA1_s37_f082500_a4154_8x8__rough__mu-4.5171",
+  "state_id": "PA1_s37_f082500_a4154_8x8__U-0.39",
+  "cell_id": "PA1_s37_f082500_a4154_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.39,
+  "TARGETMU": -4.5171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s37_f082500_a4154_8x8/rough__mu-4.5171",
+  "n_atoms": 281,
+  "n_movable": 153,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3092.3715,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PA1_s37_f082500_a4544_8x8__rough__mu-4.7771",
+  "state_id": "PA1_s37_f082500_a4544_8x8__U-0.13",
+  "cell_id": "PA1_s37_f082500_a4544_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.13,
+  "TARGETMU": -4.7771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s37_f082500_a4544_8x8/rough__mu-4.7771",
+  "n_atoms": 278,
+  "n_movable": 150,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3058.4701,
+  "walltime_min": 1680,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PA1_s37_f099500_a3366_8x8__rough__mu-4.4971",
+  "state_id": "PA1_s37_f099500_a3366_8x8__U-0.41",
+  "cell_id": "PA1_s37_f099500_a3366_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.41,
+  "TARGETMU": -4.4971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s37_f099500_a3366_8x8/rough__mu-4.4971",
+  "n_atoms": 293,
+  "n_movable": 165,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3224.4409,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PA1_s51_f096500_a4100_8x8__rough__mu-4.7771",
+  "state_id": "PA1_s51_f096500_a4100_8x8__U-0.13",
+  "cell_id": "PA1_s51_f096500_a4100_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.13,
+  "TARGETMU": -4.7771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA1_s51_f096500_a4100_8x8/rough__mu-4.7771",
+  "n_atoms": 283,
+  "n_movable": 155,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3113.4701,
+  "walltime_min": 1740,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PA2_s23_f082500_a3799_8x8__rough__mu-5.1771",
+  "state_id": "PA2_s23_f082500_a3799_8x8__U+0.27",
+  "cell_id": "PA2_s23_f082500_a3799_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.27,
+  "TARGETMU": -5.1771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s23_f082500_a3799_8x8/rough__mu-5.1771",
+  "n_atoms": 303,
+  "n_movable": 175,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3332.0833,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PA2_s23_f096500_a4385_8x8__rough__mu-5.0171",
+  "state_id": "PA2_s23_f096500_a4385_8x8__U+0.11",
+  "cell_id": "PA2_s23_f096500_a4385_8x8",
+  "cls": "A",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.11,
+  "TARGETMU": -5.0171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s23_f096500_a4385_8x8/rough__mu-5.0171",
+  "n_atoms": 306,
+  "n_movable": 178,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3365.638,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PB1_s11_f096500_a4201_8x8__rough__mu-4.9571",
+  "state_id": "PB1_s11_f096500_a4201_8x8__U+0.05",
+  "cell_id": "PB1_s11_f096500_a4201_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.05,
+  "TARGETMU": -4.9571,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s11_f096500_a4201_8x8/rough__mu-4.9571",
+  "n_atoms": 259,
+  "n_movable": 131,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2848.8461,
+  "walltime_min": 1500,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PB1_s37_f005000_a3375_8x8__rough__mu-5.3771",
+  "state_id": "PB1_s37_f005000_a3375_8x8__U+0.47",
+  "cell_id": "PB1_s37_f005000_a3375_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.47,
+  "TARGETMU": -5.3771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s37_f005000_a3375_8x8/rough__mu-5.3771",
+  "n_atoms": 305,
+  "n_movable": 177,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3353.3899,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PB1_s37_f082500_a2643_10x8__rough__mu-4.5971",
+  "state_id": "PB1_s37_f082500_a2643_10x8__U-0.31",
+  "cell_id": "PB1_s37_f082500_a2643_10x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": -0.31,
+  "TARGETMU": -4.5971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s37_f082500_a2643_10x8/rough__mu-4.5971",
+  "n_atoms": 336,
+  "n_movable": 176,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3697.3677,
+  "walltime_min": 2220,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PB1_s37_f089500_a3920_8x8__rough__mu-4.8571",
+  "state_id": "PB1_s37_f089500_a3920_8x8__U-0.05",
+  "cell_id": "PB1_s37_f089500_a3920_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.05,
+  "TARGETMU": -4.8571,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s37_f089500_a3920_8x8/rough__mu-4.8571",
+  "n_atoms": 267,
+  "n_movable": 139,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2937.1928,
+  "walltime_min": 1560,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PB1_s37_f096500_a3696_8x8__rough__mu-5.2371",
+  "state_id": "PB1_s37_f096500_a3696_8x8__U+0.33",
+  "cell_id": "PB1_s37_f096500_a3696_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.33,
+  "TARGETMU": -5.2371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s37_f096500_a3696_8x8/rough__mu-5.2371",
+  "n_atoms": 267,
+  "n_movable": 139,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2935.8753,
+  "walltime_min": 1560,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PB1_s51_f010000_a4156_8x8__rough__mu-5.2671",
+  "state_id": "PB1_s51_f010000_a4156_8x8__U+0.36",
+  "cell_id": "PB1_s51_f010000_a4156_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.36,
+  "TARGETMU": -5.2671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s51_f010000_a4156_8x8/rough__mu-5.2671",
+  "n_atoms": 264,
+  "n_movable": 136,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2902.7713,
+  "walltime_min": 1560,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PB1_s51_f089500_a4164_8x8__rough__mu-5.3771",
+  "state_id": "PB1_s51_f089500_a4164_8x8__U+0.47",
+  "cell_id": "PB1_s51_f089500_a4164_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.47,
+  "TARGETMU": -5.3771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s51_f089500_a4164_8x8/rough__mu-5.3771",
+  "n_atoms": 270,
+  "n_movable": 142,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2968.3899,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PB1_s51_f093000_a3395_8x8__rough__mu-5.0671",
+  "state_id": "PB1_s51_f093000_a3395_8x8__U+0.16",
+  "cell_id": "PB1_s51_f093000_a3395_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.16,
+  "TARGETMU": -5.0671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s51_f093000_a3395_8x8/rough__mu-5.0671",
+  "n_atoms": 255,
+  "n_movable": 127,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2804.4647,
+  "walltime_min": 1500,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PB1_s51_f093000_a4156_8x8__rough__mu-5.2671",
+  "state_id": "PB1_s51_f093000_a4156_8x8__U+0.36",
+  "cell_id": "PB1_s51_f093000_a4156_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.36,
+  "TARGETMU": -5.2671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB1_s51_f093000_a4156_8x8/rough__mu-5.2671",
+  "n_atoms": 261,
+  "n_movable": 133,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2869.7713,
+  "walltime_min": 1500,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PB2_s11_f005000_a3202_10x8__rough__mu-4.8371",
+  "state_id": "PB2_s11_f005000_a3202_10x8__U-0.07",
+  "cell_id": "PB2_s11_f005000_a3202_10x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": -0.07,
+  "TARGETMU": -4.8371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s11_f005000_a3202_10x8/rough__mu-4.8371",
+  "n_atoms": 338,
+  "n_movable": 178,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3718.3276,
+  "walltime_min": 2220,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PB2_s11_f093000_a4444_8x8__rough__mu-4.8971",
+  "state_id": "PB2_s11_f093000_a4444_8x8__U-0.01",
+  "cell_id": "PB2_s11_f093000_a4444_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.01,
+  "TARGETMU": -4.8971,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s11_f093000_a4444_8x8/rough__mu-4.8971",
+  "n_atoms": 269,
+  "n_movable": 141,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2959.0541,
+  "walltime_min": 1620,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PB2_s23_f005000_a4364_8x8__rough__mu-4.7271",
+  "state_id": "PB2_s23_f005000_a4364_8x8__U-0.18",
+  "cell_id": "PB2_s23_f005000_a4364_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.18,
+  "TARGETMU": -4.7271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s23_f005000_a4364_8x8/rough__mu-4.7271",
+  "n_atoms": 292,
+  "n_movable": 164,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3212.6435,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PB2_s23_f089500_a3887_8x8__rough__mu-5.1071",
+  "state_id": "PB2_s23_f089500_a3887_8x8__U+0.20",
+  "cell_id": "PB2_s23_f089500_a3887_8x8",
+  "cls": "B",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.2,
+  "TARGETMU": -5.1071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s23_f089500_a3887_8x8/rough__mu-5.1071",
+  "n_atoms": 290,
+  "n_movable": 162,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3189.326,
+  "walltime_min": 1800,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PC1_s11_f082500_a3556_8x8__rough__mu-5.0371",
+  "state_id": "PC1_s11_f082500_a3556_8x8__U+0.13",
+  "cell_id": "PC1_s11_f082500_a3556_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.13,
+  "TARGETMU": -5.0371,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s11_f082500_a3556_8x8/rough__mu-5.0371",
+  "n_atoms": 251,
+  "n_movable": 123,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2760.5687,
+  "walltime_min": 1440,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PC1_s37_f010000_a3458_8x8__rough__mu-5.1171",
+  "state_id": "PC1_s37_f010000_a3458_8x8__U+0.21",
+  "cell_id": "PC1_s37_f010000_a3458_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.21,
+  "TARGETMU": -5.1171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s37_f010000_a3458_8x8/rough__mu-5.1171",
+  "n_atoms": 231,
+  "n_movable": 103,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2540.2913,
+  "walltime_min": 1260,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PC1_s51_f093000_a2316_8x8__rough__mu-5.1671",
+  "state_id": "PC1_s51_f093000_a2316_8x8__U+0.26",
+  "cell_id": "PC1_s51_f093000_a2316_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.26,
+  "TARGETMU": -5.1671,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s51_f093000_a2316_8x8/rough__mu-5.1671",
+  "n_atoms": 248,
+  "n_movable": 120,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2727.118,
+  "walltime_min": 1440,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PC1_s51_f099500_a2714_8x8__rough__mu-4.4871",
+  "state_id": "PC1_s51_f099500_a2714_8x8__U-0.42",
+  "cell_id": "PC1_s51_f099500_a2714_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.42,
+  "TARGETMU": -4.4871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s51_f099500_a2714_8x8/rough__mu-4.4871",
+  "n_atoms": 214,
+  "n_movable": 86,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2355.4755,
+  "walltime_min": 1140,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PC1_s51_f099500_a2757_8x8__rough__mu-4.7471",
+  "state_id": "PC1_s51_f099500_a2757_8x8__U-0.16",
+  "cell_id": "PC1_s51_f099500_a2757_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.16,
+  "TARGETMU": -4.7471,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC1_s51_f099500_a2757_8x8/rough__mu-4.7471",
+  "n_atoms": 245,
+  "n_movable": 117,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2695.5741,
+  "walltime_min": 1380,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PC2_s11_f010000_a2078_8x8__rough__mu-4.8271",
+  "state_id": "PC2_s11_f010000_a2078_8x8__U-0.08",
+  "cell_id": "PC2_s11_f010000_a2078_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.08,
+  "TARGETMU": -4.8271,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s11_f010000_a2078_8x8/rough__mu-4.8271",
+  "n_atoms": 206,
+  "n_movable": 78,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2266.2968,
+  "walltime_min": 1080,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PC2_s11_f086000_a3780_8x8__rough__mu-5.0771",
+  "state_id": "PC2_s11_f086000_a3780_8x8__U+0.17",
+  "cell_id": "PC2_s11_f086000_a3780_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.17,
+  "TARGETMU": -5.0771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s11_f086000_a3780_8x8/rough__mu-5.0771",
+  "n_atoms": 212,
+  "n_movable": 84,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2331.43,
+  "walltime_min": 1140,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PC2_s23_f010000_a3567_8x8__rough__mu-5.2171",
+  "state_id": "PC2_s23_f010000_a3567_8x8__U+0.31",
+  "cell_id": "PC2_s23_f010000_a3567_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.31,
+  "TARGETMU": -5.2171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s23_f010000_a3567_8x8/rough__mu-5.2171",
+  "n_atoms": 246,
+  "n_movable": 118,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2704.9446,
+  "walltime_min": 1380,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PC2_s23_f082500_a2482_8x8__rough__mu-4.9171",
+  "state_id": "PC2_s23_f082500_a2482_8x8__U+0.01",
+  "cell_id": "PC2_s23_f082500_a2482_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": 0.01,
+  "TARGETMU": -4.9171,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s23_f082500_a2482_8x8/rough__mu-4.9171",
+  "n_atoms": 230,
+  "n_movable": 102,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2529.9847,
+  "walltime_min": 1260,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PC2_s23_f096500_a3536_8x8__rough__mu-4.4771",
+  "state_id": "PC2_s23_f096500_a3536_8x8__U-0.43",
+  "cell_id": "PC2_s23_f096500_a3536_8x8",
+  "cls": "C",
+  "split": "train",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.43,
+  "TARGETMU": -4.4771,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PC2_s23_f096500_a3536_8x8/rough__mu-4.4771",
+  "n_atoms": 248,
+  "n_movable": 120,
+  "kpoints": "2x2x1",
+  "nelect_guess": 2729.5102,
+  "walltime_min": 1440,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PA2_s37_f089500_a3499_10x8__rough__mu-5.2071",
+  "state_id": "PA2_s37_f089500_a3499_10x8__U+0.30",
+  "cell_id": "PA2_s37_f089500_a3499_10x8",
+  "cls": "A",
+  "split": "val",
+  "cell": "10x8",
+  "pair": null,
+  "U_V": 0.3,
+  "TARGETMU": -5.2071,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PA2_s37_f089500_a3499_10x8/rough__mu-5.2071",
+  "n_atoms": 339,
+  "n_movable": 179,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3727.7241,
+  "walltime_min": 2220,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "submitted",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:16",
+    "job 21015731 cancelled: wrong class for the lost first-batch slot (C, U>0, 10x8); back to the pool"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
+ },
+ {
+  "task_id": "PB2_s37_f096500_a4030_8x8__rough__mu-4.6871",
+  "state_id": "PB2_s37_f096500_a4030_8x8__U-0.22",
+  "cell_id": "PB2_s37_f096500_a4030_8x8",
+  "cls": "B",
+  "split": "val",
+  "cell": "8x8",
+  "pair": null,
+  "U_V": -0.22,
+  "TARGETMU": -4.6871,
+  "dir": "/anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/dft/PB2_s37_f096500_a4030_8x8/rough__mu-4.6871",
+  "n_atoms": 303,
+  "n_movable": 175,
+  "kpoints": "2x2x1",
+  "nelect_guess": 3333.7821,
+  "walltime_min": 1920,
+  "status": "pending",
+  "job_id": null,
+  "history": [
+   [
+    "pending",
+    "2026-10-02 06:15"
+   ],
+   [
+    "pending",
+    "2026-10-02 06:21"
+   ]
+  ],
+  "note": ""
  }
 ]

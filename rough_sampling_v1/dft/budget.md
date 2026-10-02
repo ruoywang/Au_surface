@@ -7,9 +7,9 @@ Measured cost basis (dataset_v1, 231-300 atoms, minutes per single point): cold 
 
 | cell | tasks | atoms | node-h if seeded median | if seeded max | if cold median | if cold max | walltime requested |
 |---|---|---|---|---|---|---|---|
-| 10x8 | 23 | 284-377 | 212 | 299 | 537 | 715 | 29:00:00-44:00:00 |
-| 8x8 | 177 | 201-318 | 1167 | 1647 | 2957 | 3936 | 17:00:00-34:00:00 |
-| **all** | 200 | | **1379** | 1946 | 3494 | **4652** | |
+| 10x8 | 23 | 284-383 | 213 | 300 | 539 | 718 | 29:00:00-45:00:00 |
+| 8x8 | 177 | 202-318 | 1161 | 1638 | 2942 | 3917 | 17:00:00-34:00:00 |
+| **all** | 200 | | **1374** | 1938 | 3481 | **4634** | |
 
 For scale: dataset_v1 (505 states) cost 757 node-h in total.
 Disk: ~11 GB per state with all fields (measured on the 8x8 references) -> ~2.2 TB for 200 states; scratch usage 1.9 TB of 100 TB (2026-10-02).

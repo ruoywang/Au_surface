@@ -59,14 +59,34 @@ def check(path, name=None):
     # catches it; a count >= n_grid with extra trailing tokens is tolerated only for the augmented files
     stats["mean"] = float(main.mean()); stats["sum_over_grid"] = float(main.sum() / n_grid)
     if name in AUGMENTED:
-        n_aug = block.count(b"augmentation occupancies")
+        if k < 0: return False, "no augmentation blocks in an augmented field", stats
+        ok, note, n_aug = check_augmentation(block[k:], n_ions)
         stats["n_augmentation"] = n_aug
-        if n_aug != n_ions: return False, f"{n_aug} augmentation blocks, expected {n_ions}", stats
-        tail = block[k:]
-        if not tail.rstrip().endswith(b"\n") and len(tail.splitlines()[-1].split()) == 0: return False, "file ends mid-line", stats
+        if not ok: return False, note, stats
     elif k >= 0:
         return False, "unexpected augmentation block in a non-augmented field", stats
-    return True, f"{len(vals)} values on {grid[0]}x{grid[1]}x{grid[2]}" + (f", {stats.get('n_augmentation')} augmentation blocks" if name in AUGMENTED else ""), stats
+    return True, f"{len(vals)} values on {grid[0]}x{grid[1]}x{grid[2]}" + (f", {stats.get('n_augmentation')} augmentation blocks complete" if name in AUGMENTED else ""), stats
+
+
+def check_augmentation(tail, n_ions):
+    """Every PAW block 'augmentation occupancies <ion> <n>' must be followed by exactly n parsable, finite values,
+    and the ion indices must run 1..n_ions. Counting the headers (the earlier check) accepted a truncated or NaN
+    last block. Returns (ok, note, n_blocks)."""
+    parts = tail.decode("ascii", "replace").split("augmentation occupancies")
+    seen = []
+    for p in parts[1:]:
+        toks = p.split()
+        if len(toks) < 2 or not toks[0].isdigit() or not toks[1].isdigit(): return False, "augmentation block header incomplete", len(seen)
+        ion, n = int(toks[0]), int(toks[1])
+        try:
+            vals = np.array(toks[2:], float)
+        except ValueError:
+            return False, f"augmentation block {ion}: non-numeric values", len(seen)
+        if len(vals) != n: return False, f"augmentation block {ion}: {len(vals)} of {n} values", len(seen)
+        if not np.isfinite(vals).all(): return False, f"augmentation block {ion}: non-finite values", len(seen)
+        seen.append(ion)
+    if seen != list(range(1, n_ions + 1)): return False, f"augmentation blocks for ions {seen[:3]}...{seen[-1:] if seen else ''} ({len(seen)}), expected 1..{n_ions}", len(seen)
+    return True, "complete", len(seen)
 
 
 def contcar_matches_poscar(poscar, contcar, tol=1e-6):
