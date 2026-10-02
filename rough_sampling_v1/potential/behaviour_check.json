@@ -1,0 +1,114 @@
+{
+ "bulk": {
+  "scan": [
+   [
+    4.0,
+    -3.0937327777777774
+   ],
+   [
+    4.04,
+    -3.1494494444444445
+   ],
+   [
+    4.08,
+    -3.188247777777778
+   ],
+   [
+    4.12,
+    -3.210528148148148
+   ],
+   [
+    4.16,
+    -3.217283240740741
+   ],
+   [
+    4.2,
+    -3.210278888888889
+   ],
+   [
+    4.24,
+    -3.1923203703703704
+   ],
+   [
+    4.28,
+    -3.1653812962962964
+   ],
+   [
+    4.32,
+    -3.129203888888889
+   ]
+  ],
+  "a0_min_A": 4.159914327343107,
+  "E_per_atom_at_min_eV": -3.216932538297044,
+  "project_a0_A": 4.158
+ },
+ "T-4x4": {
+  "n_atoms": 64,
+  "config": "relax",
+  "E_at_dft_geometry_eV": -195.58085,
+  "max_force_at_dft_geometry_eV_per_A": 0.05706073,
+  "E_after_min_eV": -195.59252,
+  "dE_min_eV": -0.011670000000009395,
+  "rms_disp_mobile_A": 0.021476475209314158,
+  "max_disp_mobile_A": 0.023762827569246643
+ },
+ "Step-8x2": {
+  "n_atoms": 72,
+  "config": "relax",
+  "E_at_dft_geometry_eV": -220.69482,
+  "max_force_at_dft_geometry_eV_per_A": 0.075985846,
+  "E_after_min_eV": -220.71786,
+  "dE_min_eV": -0.02304000000000883,
+  "rms_disp_mobile_A": 0.050635966082265366,
+  "max_disp_mobile_A": 0.11475969822775106
+ },
+ "A1-fcc": {
+  "n_atoms": 65,
+  "config": "relax",
+  "E_at_dft_geometry_eV": -198.22284,
+  "max_force_at_dft_geometry_eV_per_A": 0.092283205,
+  "E_after_min_eV": -198.24256,
+  "dE_min_eV": -0.01972000000000662,
+  "rms_disp_mobile_A": 0.025421124447425076,
+  "max_disp_mobile_A": 0.06769697125942703
+ },
+ "A1-hcp": {
+  "n_atoms": 65,
+  "config": "relax",
+  "E_at_dft_geometry_eV": -198.16999,
+  "max_force_at_dft_geometry_eV_per_A": 0.1194205,
+  "E_after_min_eV": -198.1953,
+  "dE_min_eV": -0.025309999999990396,
+  "rms_disp_mobile_A": 0.031202086044269554,
+  "max_disp_mobile_A": 0.0828067529051915
+ },
+ "Island-7-compact": {
+  "n_atoms": 151,
+  "config": "relax",
+  "E_at_dft_geometry_eV": -460.66178,
+  "max_force_at_dft_geometry_eV_per_A": 0.17812607,
+  "E_after_min_eV": -460.71568,
+  "dE_min_eV": -0.05389999999999873,
+  "rms_disp_mobile_A": 0.03361370830318358,
+  "max_disp_mobile_A": 0.22474888457622527
+ },
+ "Pit-7-compact": {
+  "n_atoms": 137,
+  "config": "relax",
+  "E_at_dft_geometry_eV": -415.75012,
+  "max_force_at_dft_geometry_eV_per_A": 0.077030256,
+  "E_after_min_eV": -415.76949,
+  "dE_min_eV": -0.019370000000037635,
+  "rms_disp_mobile_A": 0.017934444600080368,
+  "max_disp_mobile_A": 0.04019292673308105
+ },
+ "signs": {
+  "adatom_hcp_minus_fcc_eV": 0.04725999999999431,
+  "adatom_binding_vs_bulk_eV": 0.5668925382970542,
+  "step_strip_formation_eV": 0.6101203063763592,
+  "step_formation_per_edge_atom_eV": 0.03813251914852245,
+  "island7_formation_eV": 1.8860177680792845,
+  "pit7_formation_eV": 1.7951522319206674,
+  "note": "formation energies against the flat slab scaled by atom count and the bulk energy per atom; sanity signs only"
+ }
+}

@@ -19,24 +19,29 @@ The potential is called exactly as its authors specify:  newton on / pair_style 
 Its energies and forces are candidate-generation tools only and never become CP-DFT labels.
 
 Usage (from Au_Cl/):
-    scripts/pyrun.sh rough_sampling_v1/md_driver.py --write            # inputs for all 32 parents
-    scripts/pyrun.sh rough_sampling_v1/md_driver.py --write --only PA1_s11 --steps 200   # a short timing run
-    scripts/pyrun.sh rough_sampling_v1/md_driver.py --slurm            # also write one SLURM script per parent
-Outputs: rough_sampling_v1/md/<parent_id>/{in.lammps, data.lammps, run.sh}, md/README.md
+    rough_sampling_v1/pyrun_rs.sh rough_sampling_v1/md_driver.py --write            # inputs for all 32 parents
+    rough_sampling_v1/pyrun_rs.sh rough_sampling_v1/md_driver.py --write --only PA1_s11 --steps 200 --outdir <dir>  # timing run
+    rough_sampling_v1/pyrun_rs.sh rough_sampling_v1/md_driver.py --write --slurm --np 32   # also one SLURM script per parent
+Outputs: rough_sampling_v1/md/<parent_id>/{in.lammps, data.lammps, run.sh[, slurm.sh]}, md/md_manifest.json
+Run:     NP=<ranks> md/<parent_id>/run.sh        (the binary is MPI; run.sh uses the recorded mpirun)
 """
 import argparse
 import hashlib
 import json
 import os
-import subprocess
+import sys
 
 import numpy as np
-from ase.io import read, write
+from ase.io import read
 
 ROOT = "/anvil/scratch/x-rywang/Au_Cl"
 R = f"{ROOT}/rough_sampling_v1"
-POT = f"{R}/potential/Au_training/lmp_t0.0001_no_bulk_vac_fix3.flare"
-LMP = f"{R}/env/src/lammps-22Jul2025/build/lmp"
+sys.path.insert(0, R)
+from lmpio import write_data, group_lines  # noqa: E402
+POT = f"{R}/potential/Au_training/lmp_t0.0001_no_bulk_vac_fix3.header2025.flare"
+LMP = f"{R}/env/src/lammps-22Jul2025/build_mpi/lmp"
+MPIRUN = "/apps/spack/anvil/apps/openmpi/4.0.6-gcc-11.2.0-3navcwb/bin/mpirun"
+MPILIB = "/apps/spack/anvil/apps/openmpi/4.0.6-gcc-11.2.0-3navcwb/lib"
 DT_PS = 0.002
 SEGMENTS = [("300 K", 300.0, 300.0, 20.0), ("ramp 300->600 K", 300.0, 600.0, 20.0), ("600 K", 600.0, 600.0, 100.0),
             ("ramp 600->300 K", 600.0, 300.0, 20.0), ("300 K", 300.0, 300.0, 40.0)]
@@ -55,46 +60,18 @@ def write_inputs(pid, seed, steps_override=None, outdir=None):
     at = read(f"{R}/parents/{pid}.extxyz")
     fixed = at.get_array("fixed").astype(bool)
     d = outdir or f"{R}/md/{pid}"; os.makedirs(d, exist_ok=True)
-    # LAMMPS atom types carry the fixed/mobile split so the groups are unambiguous in the data file itself:
-    # type 1 = mobile Au, type 2 = fixed Au (both mass 196.967, both the same species to the potential)
-    at.set_tags(np.where(fixed, 2, 1))
-    write(f"{d}/data.lammps", at, format="lammps-data", atom_style="atomic", masses=True,
-          specorder=None, units="metal")
-    # ase writes one type per species; rewrite the Atoms section to use the tag as the type and declare 2 types
-    txt = open(f"{d}/data.lammps").read().splitlines()
-    out = []; in_atoms = False; tags = at.get_tags()
-    for line in txt:
-        if line.strip().endswith("atom types"): line = "2 atom types"
-        if line.startswith("Masses"):
-            out += ["Masses", "", "1 196.967   # Au, mobile", "2 196.967   # Au, fixed (bottom two layers)", ""]
-            skip = True; continue
-        if line.startswith("Atoms"): in_atoms = True; out.append(line); continue
-        if in_atoms and line.strip():
-            parts = line.split()
-            if len(parts) >= 5 and parts[0].isdigit():
-                parts[1] = str(int(tags[int(parts[0]) - 1])); line = " ".join(parts)
-        if line.startswith("Velocities"): in_atoms = False
-        out.append(line)
-    # drop the masses block ase wrote (we re-emitted it); crude but the format is simple
-    cleaned = []; i = 0
-    while i < len(out):
-        if out[i] == "Masses" and i + 1 < len(out) and out[i + 1] == "" and i + 2 < len(out) and out[i + 2].startswith("1 196.967   # Au, mobile"):
-            cleaned += out[i:i + 5]; i += 5
-            # skip any following original masses lines ("1 196.967")
-            while i < len(out) and (out[i].strip() == "" or out[i].strip().startswith("1 196.96")): i += 1
-            continue
-        cleaned.append(out[i]); i += 1
-    open(f"{d}/data.lammps", "w").write("\n".join(cleaned) + "\n")
+    # one atom type (pair_style flare maps types to species); the frozen bottom two layers are an id group
+    write_data(at, f"{d}/data.lammps", comment=f"{pid}: 32x32x4 Au(111) parent, {int(fixed.sum())} frozen atoms selected by id in in.lammps")
 
     total_ps = sum(s[3] for s in SEGMENTS); dump_every = int(round(DUMP_EVERY_PS / DT_PS))
     L = [f"# {pid}: Au FLARE candidate generation, 200 ps protocol (2 fs), NVT on mobile atoms only",
          f"# potential sha256 {sha256(POT)}", "units           metal", "atom_style      atomic", "boundary        p p f",
          "newton          on", f"read_data       data.lammps", "", "pair_style      flare",
          f"pair_coeff      * * {POT}", "", "neighbor        2.0 bin", "neigh_modify    every 1 delay 0 check yes", "",
-         "group           mobile type 1", "group           frozen type 2",
+         group_lines("frozen", fixed), "group           mobile subtract all frozen",
          "velocity        frozen set 0.0 0.0 0.0", "fix             hold frozen setforce 0.0 0.0 0.0",
-         "compute         Tm mobile temp", "thermo_modify   temp Tm", "",
-         "thermo_style    custom step time temp pe ke etotal press", "thermo          500", "",
+         "compute         Tm mobile temp", "",
+         "thermo_style    custom step time temp pe ke etotal press", "thermo_modify   temp Tm", "thermo          500", "",
          "# low-cost pre-relaxation of the movable atoms", "min_style       cg", "minimize        1e-6 1e-4 300 3000", "",
          f"reset_timestep  0", f"timestep        {DT_PS}",
          f"velocity        mobile create 300.0 {seed} dist gaussian mom yes rot yes",
@@ -110,7 +87,8 @@ def write_inputs(pid, seed, steps_override=None, outdir=None):
         if steps_override is not None: break
     L += ["write_data      final.data", f"print           \"DONE {pid} total_ps {t:.0f}\""]
     open(f"{d}/in.lammps", "w").write("\n".join(L) + "\n")
-    open(f"{d}/run.sh", "w").write(f"#!/bin/bash\ncd {d}\n{LMP} -in in.lammps -log log.lammps > stdout.txt 2>&1\n")
+    open(f"{d}/run.sh", "w").write(f"#!/bin/bash\n# NP=<ranks> {d}/run.sh\nexport LD_LIBRARY_PATH={MPILIB}:$LD_LIBRARY_PATH\n"
+                                   f"cd {d}\n{MPIRUN} -np ${{NP:-1}} {LMP} -in in.lammps -log log.lammps > stdout.txt 2>&1\n")
     os.chmod(f"{d}/run.sh", 0o755)
     return dict(parent_id=pid, dir=d, n_atoms=len(at), n_mobile=int((~fixed).sum()), n_fixed=int(fixed.sum()),
                 seed=seed, total_ps=t, steps=int(round(t / DT_PS)) if steps_override is None else steps_override)
@@ -121,23 +99,28 @@ def main():
     ap.add_argument("--write", action="store_true"); ap.add_argument("--only", default=None)
     ap.add_argument("--steps", type=int, default=None, help="cap each segment at this many steps (timing runs)")
     ap.add_argument("--slurm", action="store_true"); ap.add_argument("--outdir", default=None)
+    ap.add_argument("--np", type=int, default=32, help="MPI ranks per run in the SLURM scripts")
+    ap.add_argument("--walltime", default="12:00:00")
     a = ap.parse_args()
     M = json.load(open(f"{R}/parents/parents_manifest.json"))
     rows = []
     for m in M:
         if a.only and m["parent_id"] != a.only: continue
         rows.append(write_inputs(m["parent_id"], 1000 + m["seed"], a.steps, a.outdir))
-    info = dict(potential=POT, potential_sha256=sha256(POT), lammps_binary=LMP, dt_ps=DT_PS, segments=SEGMENTS,
+    info = dict(potential=POT, potential_sha256=sha256(POT), lammps_binary=LMP, mpirun=MPIRUN, dt_ps=DT_PS, segments=SEGMENTS,
                 dump_every_ps=DUMP_EVERY_PS, tdamp_ps=TDAMP_PS, runs=rows)
     if a.slurm:
+        info["slurm"] = dict(partition="shared", account="CHE190065", ranks=a.np, walltime=a.walltime)
         for r in rows:
             open(f"{r['dir']}/slurm.sh", "w").write(
-                "#!/bin/bash\n#SBATCH -J md_" + r["parent_id"] + "\n#SBATCH -A che190065\n#SBATCH -p shared\n"
-                "#SBATCH -N 1\n#SBATCH -n 1\n#SBATCH -c 1\n#SBATCH -t 48:00:00\n"
+                "#!/bin/bash\n#SBATCH -J md_" + r["parent_id"] + "\n#SBATCH --account=CHE190065\n#SBATCH --partition=shared\n"
+                f"#SBATCH --nodes=1\n#SBATCH --ntasks={a.np}\n#SBATCH --cpus-per-task=1\n#SBATCH --time={a.walltime}\n"
                 f"#SBATCH -o {r['dir']}/slurm.out\n#SBATCH -e {r['dir']}/slurm.err\n"
-                f"cd {r['dir']}\n{LMP} -in in.lammps -log log.lammps > stdout.txt 2>&1\n")
-    os.makedirs(f"{R}/md", exist_ok=True)
-    json.dump(info, open(f"{R}/md/md_manifest.json", "w"), indent=1)
+                f"export LD_LIBRARY_PATH={MPILIB}:$LD_LIBRARY_PATH\ncd {r['dir']}\n"
+                f"{MPIRUN} -np {a.np} {LMP} -in in.lammps -log log.lammps > stdout.txt 2>&1\n")
+    if a.outdir is None:
+        os.makedirs(f"{R}/md", exist_ok=True)
+        json.dump(info, open(f"{R}/md/md_manifest.json", "w"), indent=1)
     print(f"{len(rows)} input sets written under {R}/md/  (protocol {sum(s[3] for s in SEGMENTS):.0f} ps, "
           f"{int(sum(s[3] for s in SEGMENTS)/DT_PS)} steps each)")
 

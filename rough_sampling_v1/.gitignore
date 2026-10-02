@@ -14,3 +14,14 @@ md/*/final.data
 md/*/log.lammps
 md/*/stdout.txt
 md/*/data.lammps
+# test runs of the pipeline on the initial (pre-MD) parents; regenerable
+*_test/
+md/*/slurm.out
+md/*/slurm.err
+dft/*/*/CHGCAR
+dft/*/*/LOCPOT
+dft/*/*/POTCAR
+dft/*/*/WAVECAR
+dft/*/*/vasprun.xml
+dft/*/*/OUTCAR
+dft/*/*/log.out

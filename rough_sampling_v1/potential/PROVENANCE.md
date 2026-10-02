@@ -68,3 +68,21 @@ only one the released files support.
   before any parent surface is evolved; no new DFT is run for that check.
 * The LAMMPS version, the FLARE plugin commit and the build options are recorded in `env/BUILD.md` when the
   build completes.
+
+## Header adaptation for the 2025 LAMMPS plugin (2026-10-02)
+
+The downloaded `lmp_t0.0001_no_bulk_vac_fix3.flare` was exported by flare++ in Dec 2022. Its second line is the
+kernel power alone (`2`). The current FLARE LAMMPS plugin (mir-group/flare commit 1992738, the one built here)
+reads that line as `<power> <kernel string>` and refuses the file ("Kernel string not recognized"). The kernel
+of this model is recorded in the authors' own `Au_master.yaml`:
+
+    kernels:
+        - name: NormalizedDotProduct
+          sigma: 2.0
+          power: 2
+
+so a derived file `lmp_t0.0001_no_bulk_vac_fix3.header2025.flare` was made that differs from the original in
+line 2 only (`2` -> `2 NormalizedDotProduct`); all coefficients, the radial basis (chebyshev), the descriptor
+sizes (1 species, n_max 8, l_max 4, 16290 beta), the cutoff function (quadratic) and the cutoff (6.00 A) are
+byte-identical (verified with diff). The original file is kept unchanged with its recorded checksums. All
+LAMMPS inputs in this project point at the derived file and write its sha256 into their headers.

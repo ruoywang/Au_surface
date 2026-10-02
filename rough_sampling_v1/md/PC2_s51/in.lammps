@@ -1,0 +1,66 @@
+# PC2_s51: Au FLARE candidate generation, 200 ps protocol (2 fs), NVT on mobile atoms only
+# potential sha256 f585340922b34a55746be8afb619cdbd77e18b63633109fb541035ffc6eab36f
+units           metal
+atom_style      atomic
+boundary        p p f
+newton          on
+read_data       data.lammps
+
+pair_style      flare
+pair_coeff      * * /anvil/scratch/x-rywang/Au_Cl/rough_sampling_v1/potential/Au_training/lmp_t0.0001_no_bulk_vac_fix3.header2025.flare
+
+neighbor        2.0 bin
+neigh_modify    every 1 delay 0 check yes
+
+group frozen id 1:2048
+group           mobile subtract all frozen
+velocity        frozen set 0.0 0.0 0.0
+fix             hold frozen setforce 0.0 0.0 0.0
+compute         Tm mobile temp
+
+thermo_style    custom step time temp pe ke etotal press
+thermo_modify   temp Tm
+thermo          500
+
+# low-cost pre-relaxation of the movable atoms
+min_style       cg
+minimize        1e-6 1e-4 300 3000
+
+reset_timestep  0
+timestep        0.002
+velocity        mobile create 300.0 1051 dist gaussian mom yes rot yes
+dump            d1 all custom 500 traj.lammpstrj id type x y z
+dump_modify     d1 sort id
+
+# segment 1: 300 K, 20 ps
+fix             nvt mobile nvt temp 300.0 300.0 0.1
+fix_modify      nvt temp Tm
+run             10000
+unfix           nvt
+
+# segment 2: ramp 300->600 K, 20 ps
+fix             nvt mobile nvt temp 300.0 600.0 0.1
+fix_modify      nvt temp Tm
+run             10000
+unfix           nvt
+
+# segment 3: 600 K, 100 ps
+fix             nvt mobile nvt temp 600.0 600.0 0.1
+fix_modify      nvt temp Tm
+run             50000
+unfix           nvt
+
+# segment 4: ramp 600->300 K, 20 ps
+fix             nvt mobile nvt temp 600.0 300.0 0.1
+fix_modify      nvt temp Tm
+run             10000
+unfix           nvt
+
+# segment 5: 300 K, 40 ps
+fix             nvt mobile nvt temp 300.0 300.0 0.1
+fix_modify      nvt temp Tm
+run             20000
+unfix           nvt
+
+write_data      final.data
+print           "DONE PC2_s51 total_ps 200"
