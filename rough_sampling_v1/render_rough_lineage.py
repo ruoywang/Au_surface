@@ -55,22 +55,42 @@ def panel_parent(ax, parent, cut_origin, v1, v2, centre_xy, title):
     ax.set_xlabel("x (Å)"); ax.set_ylabel("y (Å)")
 
 
+def centre_image(parent, cut_origin, v1, v2, centre_idx):
+    """The periodic image of the centre that lies inside the cut frame (the frame may straddle the parent's boundary)."""
+    P = parent.get_positions(); cell = parent.get_cell().array; Si = np.linalg.inv(np.array([v1, v2]))
+    for si in (-1, 0, 1):
+        for sj in (-1, 0, 1):
+            c = P[centre_idx, :2] + si * cell[0][:2] + sj * cell[1][:2]; g = (c - cut_origin) @ Si
+            if 0 <= g[0] < 1 and 0 <= g[1] < 1: return c
+    return P[centre_idx, :2]
+
+
 def panel_cut(ax, parent, cut_origin, v1, v2, centre_idx, core_ids, title):
-    """Zoom on the cut: atoms inside the frame drawn fully, outside faded; core ringed in green, periphery plain."""
-    P = parent.get_positions()
-    S = np.array([v1, v2]); g = (P[:, :2] - cut_origin) @ np.linalg.inv(S)
-    inside = (g[:, 0] >= 0) & (g[:, 0] < 1) & (g[:, 1] >= 0) & (g[:, 1] < 1)
-    margin = 6.0
-    lo = cut_origin - margin; hi = cut_origin + v1 + v2 + margin
-    near = (P[:, 0] > min(lo[0], cut_origin[0] + v2[0] - margin)) & (P[:, 0] < max(hi[0], cut_origin[0] + v1[0] + margin)) & (P[:, 1] > lo[1]) & (P[:, 1] < hi[1])
-    discs(ax, parent, sel=np.flatnonzero(near & ~inside), alpha=0.25, edge="none")
-    discs(ax, parent, sel=np.flatnonzero(near & inside), lw=0.4)
+    """Zoom on the cut. Atoms are taken from all nine in-plane images of the parent, so a frame that straddles
+    the parent's periodic boundary is still filled; inside the frame drawn fully, outside faded; core ringed."""
+    P = parent.get_positions(); cell = parent.get_cell().array; lay = layers_from_z(parent)
+    Si = np.linalg.inv(np.array([v1, v2])); margin = 6.0
+    corners = frame_polygon(cut_origin, v1, v2); lo = corners.min(0) - margin; hi = corners.max(0) + margin
+    Q, Z, L = [], [], []
+    for si in (-1, 0, 1):
+        for sj in (-1, 0, 1):
+            q = P[:, :2] + si * cell[0][:2] + sj * cell[1][:2]
+            m = (q[:, 0] > lo[0]) & (q[:, 0] < hi[0]) & (q[:, 1] > lo[1]) & (q[:, 1] < hi[1])
+            Q.append(q[m]); Z.append(P[m, 2]); L.append(lay[m])
+    Q = np.vstack(Q); Z = np.concatenate(Z); L = np.concatenate(L)
+    g = (Q - cut_origin) @ Si; inside = (g[:, 0] >= 0) & (g[:, 0] < 1) & (g[:, 1] >= 0) & (g[:, 1] < 1)
+    for sel, alpha, edge, lw in ((~inside, 0.25, "none", 0.0), (inside, 1.0, "k", 0.4)):
+        idx = np.flatnonzero(sel); idx = idx[np.argsort(Z[idx])]
+        for i in idx: ax.add_patch(Circle(Q[i], RAD, fc=LAYER_COL.get(int(L[i]), "#000"), ec=edge, lw=lw, alpha=alpha))
+    c = centre_image(parent, cut_origin, v1, v2, centre_idx)
+    shifts = np.array([si * cell[0][:2] + sj * cell[1][:2] for si in (-1, 0, 1) for sj in (-1, 0, 1)])
     for i in core_ids:
-        ax.add_patch(Circle(P[i, :2], RAD * 0.55, fill=False, ec="#008800", lw=1.6))
-    ax.add_patch(Circle(P[centre_idx, :2], RAD * 0.45, fc="#008800", ec="none"))
-    ax.add_patch(Circle(P[centre_idx, :2], R_CORE, fill=False, ec="#008800", lw=2.0, ls="--"))
-    ax.add_patch(Polygon(frame_polygon(cut_origin, v1, v2), closed=True, fill=False, ec="#0033cc", lw=3.0))
-    ax.set_xlim(min(lo[0], cut_origin[0] + v2[0] - margin), max(hi[0], cut_origin[0] + v1[0] + margin)); ax.set_ylim(lo[1], hi[1])
+        cand = P[i, :2] + shifts; q = cand[np.argmin(np.linalg.norm(cand - c, axis=1))]
+        ax.add_patch(Circle(q, RAD * 0.55, fill=False, ec="#008800", lw=1.6))
+    ax.add_patch(Circle(c, RAD * 0.45, fc="#008800", ec="none"))
+    ax.add_patch(Circle(c, R_CORE, fill=False, ec="#008800", lw=2.0, ls="--"))
+    ax.add_patch(Polygon(corners, closed=True, fill=False, ec="#0033cc", lw=3.0))
+    ax.set_xlim(lo[0], hi[0]); ax.set_ylim(lo[1], hi[1])
     ax.set_aspect("equal"); ax.set_title(title, fontsize=FS + 1); ax.set_xlabel("x (Å)")
 
 
@@ -104,21 +124,12 @@ def draw_state(fig, axes, state, cell_row):
     # wrap the cut origin into the parent cell for drawing, and the centre with it
     Cp = np.array([cellp[0][:2], cellp[1][:2]]); f = cut_origin @ np.linalg.inv(Cp); f -= np.floor(f); cut_origin = f @ Cp
     v1, v2 = n1 * a1, n2 * a2
-    P = parent.get_positions(); centre = state["centre_atom"] if "centre_atom" in state else cell_row["atom"]
+    centre = cell_row["atom"]
     core_ids, _ = neighbours(parent, centre, R_CORE)
-    # draw the parent copy whose image of the centre lies inside the frame
-    S = np.array([v1, v2]); best = None
-    for si in (-1, 0, 1):
-        for sj in (-1, 0, 1):
-            cxy = P[centre, :2] + si * cellp[0][:2] + sj * cellp[1][:2]; g = (cxy - cut_origin) @ np.linalg.inv(S)
-            if 0 <= g[0] < 1 and 0 <= g[1] < 1: best = (si, sj)
-    if best is None: best = (0, 0)
-    shift = best[0] * cellp[0][:2] + best[1] * cellp[1][:2]
-    par = parent.copy(); par.set_positions(P + np.r_[shift, 0.0])
-    # wrap all parent atoms into the parent cell for the overview, but keep the shifted copy for the zoom
-    panel_parent(axes[0], parent, cut_origin - shift, v1, v2, P[centre, :2],
-                 f"{state['cls']}: parent {state['parent_id']}, step {state['step']} = {state.get('time_ps', 0):.0f} ps ({len(parent)} Au)\n32 x 32 cell; blue = cut frame {state['cell']}, green = 6 Å core")
-    panel_cut(axes[1], par, cut_origin, v1, v2, centre, core_ids,
+    c_img = centre_image(parent, cut_origin, v1, v2, centre)
+    panel_parent(axes[0], parent, cut_origin, v1, v2, c_img,
+                 f"{state['cls']}: parent {state['parent_id']}, step {state['step']} = {state.get('time_ps') or 0:.0f} ps ({len(parent)} Au)\n32 x 32 cell; blue = cut frame {state['cell']} (may straddle the periodic boundary), green = 6 Å core")
+    panel_cut(axes[1], parent, cut_origin, v1, v2, centre, core_ids,
               f"cut: {len(core_ids) + 1} core atoms (ringed) kept to 1e-3 Å,\nperiphery = the rest of the frame; faded = outside")
     panel_cell(axes[2], cell_at, cell_row["centre_in_cell"],
                f"reconstructed cell {state['cell']} ({len(cell_at)} Au), tiled 2 x 2\n{cell_row['repair']}")

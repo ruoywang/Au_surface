@@ -1,9 +1,0 @@
-state_id,cls,split,cell,n_atoms,kpoints,parent_id,step,cn_stratum,U_V,TARGETMU_eV,pair,repair,f_cn<=5,f_cn6-7,f_cn8-9,f_cn>=10,relief_layers,n_levels,adatom_level_ML,missing_terrace_ML,exposed_pit_ML,n_islands,max_island_frac,n_pits,step_density
-PA2_s51_f000000_a4390_10x8__U+0.02,A,test,10x8,343,2x2x1,PA2_s51,0,cn<=5,0.02,-4.9271,pair1,no repair needed,0.022,0.157,0.584,0.236,1.0,2,0.287,0.0,0.0,2,0.275,0,0.213
-PA2_s51_f000000_a4390_8x8__U+0.02,A,test,8x8,271,2x2x1,PA2_s51,0,cn<=5,0.02,-4.9271,pair1,no repair needed,0.055,0.137,0.521,0.288,1.0,2,0.234,0.0,0.0,2,0.219,0,0.205
-PB2_s51_f000000_a4279_10x8__U-0.15,B,test,10x8,351,2x2x1,PB2_s51,0,cn<=5,-0.15,-4.7571,pair2,no repair needed,0.073,0.135,0.417,0.375,1.0,2,0.388,0.0,0.0,2,0.287,0,0.292
-PB2_s51_f000000_a4279_8x8__U-0.15,B,test,8x8,281,2x2x1,PB2_s51,0,cn<=5,-0.15,-4.7571,pair2,no repair needed,0.064,0.154,0.41,0.372,1.0,2,0.391,0.0,0.0,1,0.391,0,0.295
-PC2_s51_f000000_a3486_10x8__U+0.31,C,test,10x8,262,2x2x1,PC2_s51,0,cn<=5,0.31,-5.2171,pair3,no repair needed,0.042,0.179,0.453,0.326,1.0,2,0.0,0.725,0.912,0,0.0,1,0.221
-PC2_s51_f000000_a3486_8x8__U+0.31,C,test,8x8,217,2x2x1,PC2_s51,0,cn<=5,0.31,-5.2171,pair3,no repair needed,0.05,0.237,0.3,0.412,1.0,2,0.0,0.609,0.859,0,0.0,1,0.3
-PD2_s51_f000000_a4171_10x8__U-0.34,D,test,10x8,340,2x2x1,PD2_s51,0,cn<=5,-0.34,-4.5671,pair4,no repair needed,0.055,0.11,0.56,0.275,1.0,2,0.25,0.0,0.0,2,0.237,0,0.187
-PD2_s51_f000000_a4171_8x8__U-0.34,D,test,8x8,273,2x2x1,PD2_s51,0,cn<=5,-0.34,-4.5671,pair4,no repair needed,0.081,0.108,0.473,0.338,1.0,2,0.266,0.0,0.0,4,0.219,0,0.203
