@@ -103,8 +103,24 @@ small cell is a training sample; size insensitivity is a separate conclusion.
   too high for seeded runs. Walltimes now k_max × (N/275)^1.5 × 2 (margin 2× until four points): 6×6 8–11 h,
   8×8 21–25 h. **Budgets with the measured model:** the 6 pair runs 37–41 node·h; the 198 remaining states under
   the proposal (141 6×6 + 15 multi-layer + 33 8×8 + 9 10×8; 112–381 Au, median 163) **932–1021 node·h** and
-  ≈ 1.5 TB, against 1604–1757 node·h for the same states as frozen large cells (a 0.58× saving, now measured
-  rather than extrapolated) and 757 node·h for all of dataset_v1.
+  ≈ 1.5 TB, against 1604–1757 node·h for the same states as frozen large cells (a 0.58× ratio based on measured
+  large-cell costs, extrapolated to the resized set with N^1.5 — not yet a measured small-cell saving; the two
+  numbers are the predictions of the two normalisation constants, not a confidence interval) and 757 node·h for
+  all of dataset_v1.
+- **Decision 2026-10-02 (user): the six pair single points are approved and SUBMITTED** (18:25; SLURM 21023280–85:
+  M3 8×8 345 Au, M2 8×8 314, M3 6×6 199, M2 6×6 185 with `highmem,standard,wholenode`; S1 6×6 163 and S2 6×6 172
+  with `standard,wholenode`; FERMICONVERGE 0.001; walltimes 8–25 h from the measured model). S1/S2 run at the
+  references' actual μ_e, i.e. actual U = −0.4180 V and +0.4675 V (the assigned −0.42 / +0.46 remain the original
+  draw; comparisons use the actual states). No M1 pair, no potential scan, no relaxation. The replacement framework is
+  accepted: small cells first, 15 multi-layer states including the four pair states, the nine 10×8-only candidates
+  kept but queued last and not submitted now; the remaining production waits for the pair results.
+- **Unified compute list** (`merge_lists.py` → `unified_queue.csv`, 200 entries exactly): unique entries keyed by
+  (final geometry, configuration, TARGETMU) with the old state ids as aliases. Three frozen size pairs whose
+  members both resize to the same 6×6 collapsed into one entry each (PA2_s51 a4064, PB2_s51 a4040, PD2_s51 a4565);
+  the two M2/M3 geometries that the proposal had given other potentials keep the TEST potential (+0.40 / −0.40 V;
+  the proposal's +0.39 / −0.27 V are recorded, not computed); 15 multi-layer entries (M1 5 × 8×8 train, M2 2 pair
+  + 3, M3 2 pair + 3; same-centre pairs share the test split); one resized single-layer entry dropped to respect
+  the cap. Status: 2 complete, 6 submitted, 183 pending production (33 364 Au in total), 9 pending last (10×8).
 - `replacement_proposal.csv`: 156 resize_to_6x6, 33 keep_8x8, 9 keep_10x8_no_smaller, 2 kept references; slots
   proposed for the admitted multi-layer candidates (M2 6×6 ×4, M2 8×8 ×1, M3 8×8 ×4 + 6×6 ×1, M1 8×8 ×5) — see the
   csv for the released single-layer states and the inherited U bins.
