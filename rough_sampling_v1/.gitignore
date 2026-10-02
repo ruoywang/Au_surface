@@ -31,3 +31,29 @@ __pycache__/
 # candidate cells: 1043 reconstructed geometries + repair runs (~hundreds of MB); the manifest and summary are versioned,
 # the 200 chosen geometries are versioned through dft/<cell_id>/rough__mu*/POSCAR
 cells/*/
+# all VASP outputs of the rough runs (only POSCAR/INCAR/KPOINTS/job-run are versioned)
+dft/*/*/CHG
+dft/*/*/CONTCAR
+dft/*/*/DOSCAR
+dft/*/*/EIGENVAL
+dft/*/*/IBZKPT
+dft/*/*/OSZICAR
+dft/*/*/PCDAT
+dft/*/*/REPORT
+dft/*/*/XDATCAR
+dft/*/*/vaspout.h5
+dft/*/*/PHI
+dft/*/*/PHISOLV
+dft/*/*/VSOLV
+dft/*/*/RHOB
+dft/*/*/RHOION
+dft/*/*/ELOC
+dft/*/*/P
+dft/*/*/SVDW
+dft/*/*/SION
+dft/*/*/SSOLV
+dft/*/*/SCAV
+dft/*/*/SDIEL
+dft/*/*/POT
+dft/*/*/myjob.*
+dft/*/*/farm.err

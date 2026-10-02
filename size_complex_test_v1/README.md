@@ -83,6 +83,16 @@ small cell is a training sample; size insensitivity is a separate conclusion.
 - **Final pair list: S1, S2, M2, M3 → 6 new single points** (FERMICONVERGE 0.001): S1 6×6 163 Au, S2 6×6 172 Au,
   M2 185 + 314 Au, M3 199 + 345 Au; estimate 32 (seeded median) – 106 (cold max) node·h; S1/S2 wait for the
   references' actual μ_e. **Nothing submitted; awaiting the one-time confirmation.**
+- **First measured reference (A, 21015732, 8×8 281 Au, U = −0.42 V, finished 2026-10-02 16:10): COMPLETE** under the full
+  acceptance — 15 fields parsed value by value, charge closure −1e-5 e, CONTCAR = POSCAR, μ_e = −4.4891 (2.0 meV
+  from target). Two SCF rounds / one CP closure, 111 electronic steps, SCF 6.98 h, elapsed 7.33 h (0.35 h setup +
+  field writing), MaxRSS 117.5 GB, 11 GB output. The NELECT start guess was 0.10 e from the final N_e (first-round
+  μ_e 31 meV off). Cost model check: seeded-median prediction 412 min vs measured 440 min (×1.07); cold-max
+  prediction 1376 min was 3.1× too high for this seeded run. Forces: mobile median 0.056, 90th pct 0.61, max
+  0.88 eV/Å; the LARGE forces sit in the interior (thermal MD configuration kept as is: median 0.47 eV/Å over the
+  43 interior mobile atoms), not in the seam band (FLARE-minimised: median 0.043, max 0.84) — the seam is not the
+  anomaly. σ = −5.27 μC/cm² (N_e − 11N = +1.575 e), implying U_pzc ≈ +0.04 V with the dataset capacitance (±0.08).
+  S1's 6×6 input is now definitive (TARGETMU = −4.4891, the reference's actual μ_e).
 - `replacement_proposal.csv`: 156 resize_to_6x6, 33 keep_8x8, 9 keep_10x8_no_smaller, 2 kept references; slots
   proposed for the admitted multi-layer candidates (M2 6×6 ×4, M2 8×8 ×1, M3 8×8 ×4 + 6×6 ×1, M1 8×8 ×5) — see the
   csv for the released single-layer states and the inherited U bins.

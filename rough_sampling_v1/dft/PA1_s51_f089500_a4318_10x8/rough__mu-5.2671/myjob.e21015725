@@ -1,6 +1,0 @@
-The following modules were not unloaded:
-  (Use "module --force purge" to unload all):
-
-  1) xalt/2.10.45
-[2026-10-02T08:06:32.975] error: *** STEP 21015725.0 ON b031 CANCELLED AT 2026-10-02T08:06:32 DUE to SIGNAL Terminated ***
-[2026-10-02T08:06:32.978] error: *** JOB 21015725 ON b031 CANCELLED AT 2026-10-02T08:06:32 DUE to SIGNAL Terminated ***

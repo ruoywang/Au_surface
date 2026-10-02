@@ -1476,7 +1476,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3092.4755,
   "walltime_min": 1680,
-  "status": "submitted",
+  "status": "complete",
   "job_id": 21015732,
   "history": [
    [
@@ -1490,9 +1490,32 @@
    [
     "submitted",
     "2026-10-02 06:21"
+   ],
+   [
+    "complete",
+    "2026-10-02 16:16"
    ]
   ],
-  "note": "kept as 8x8 reference for the size test (6x6 version of the same centre passes the geometry screen)"
+  "note": "N_e 3092.5755 mu_e -4.4891, 1 CP rounds, 15 fields parsed and finite, charge closure -0.0000 e, geometry unchanged",
+  "qc": {
+   "CHGCAR": "39200000 values on 280x280x500, 281 augmentation blocks complete",
+   "charge_closure_e": -1.2581800547195598e-05,
+   "LOCPOT": "39200000 values on 280x280x500",
+   "PHI": "39200000 values on 280x280x500",
+   "PHISOLV": "39200000 values on 280x280x500",
+   "VSOLV": "39200000 values on 280x280x500",
+   "RHOB": "39200000 values on 280x280x500",
+   "RHOION": "39200000 values on 280x280x500",
+   "ELOC": "39200000 values on 280x280x500",
+   "P": "39200000 values on 280x280x500",
+   "SVDW": "39200000 values on 280x280x500",
+   "SION": "39200000 values on 280x280x500",
+   "SSOLV": "39200000 values on 280x280x500",
+   "SCAV": "39200000 values on 280x280x500",
+   "SDIEL": "39200000 values on 280x280x500",
+   "POT": "39200000 values on 280x280x500, 281 augmentation blocks complete",
+   "contcar_matches_poscar": "max |dcell| 0.0e+00, max |dpos| 1.6e-13 A (minimum image)"
+  }
  },
  {
   "task_id": "PA1_s51_f082500_a4161_8x8__rough__mu-4.4871",
@@ -2571,7 +2594,7 @@
   "kpoints": "2x2x1",
   "nelect_guess": 3320.4246,
   "walltime_min": 1860,
-  "status": "submitted",
+  "status": "running",
   "job_id": 21015726,
   "history": [
    [
@@ -2585,9 +2608,13 @@
    [
     "submitted",
     "2026-10-02 06:21"
+   ],
+   [
+    "running",
+    "2026-10-02 16:16"
    ]
   ],
-  "note": "kept as 8x8 reference for the size test (6x6 version of the same centre passes the geometry screen)"
+  "note": "first SCF running"
  },
  {
   "task_id": "PB1_s51_f082500_a4236_8x8__rough__mu-4.4671",
