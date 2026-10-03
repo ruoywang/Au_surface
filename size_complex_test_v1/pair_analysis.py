@@ -72,7 +72,9 @@ def accept(d, cell_at):
     st = cp_state(d); oc = parse_outcar(d, len(cell_at))
     notes = []; ok = True
     if st["mu_e"] is None: return False, "no CP closure", st, oc
-    if abs(st["mu_e"] - st["TARGETMU"]) > MU_TOL: ok = False; notes.append(f"mu_e off target by {st['mu_e'] - st['TARGETMU']:+.4f}")
+    # pair runs were asked for FERMICONVERGE 0.001, so their closure is judged at 0.0015 eV; the production references at 0.011
+    fermi = re.search(r"FERMICONVERGE\s*=\s*([\d.]+)", open(f"{d}/INCAR").read()); tol = 0.0015 if fermi and float(fermi.group(1)) <= 0.001 else MU_TOL
+    if abs(st["mu_e"] - st["TARGETMU"]) > tol: ok = False; notes.append(f"mu_e off target by {st['mu_e'] - st['TARGETMU']:+.4f} (tolerance {tol})")
     if not oc["finished"]: ok = False; notes.append("VASP not finished")
     bad = [f for f in FIELD_FILES if not fieldio.check(f"{d}/{f}", f)[0]]
     if bad: ok = False; notes.append("fields failing: " + ",".join(bad))
@@ -105,7 +107,7 @@ def profiles(d, at, centre_xy, z0):
         for k, arr in (("PHI", phi), ("SION", sion), ("n_minus", nm), ("n_plus", npl)):
             out[k].append(float(map_coordinates(arr, coords, order=1, mode="grid-wrap").mean()))
     out = {k: np.array(v) for k, v in out.items()}
-    gamma_minus = float(np.trapz(out["n_minus"], zs))              # A^-2 (number per area over the window)
+    gamma_minus = float(np.trapezoid(out["n_minus"], zs))              # A^-2 (number per area over the window)
     acc = zs[np.argmax(out["SION"] > 0.5)] if (out["SION"] > 0.5).any() else np.nan
     return zs, out, gamma_minus, float(acc)
 
@@ -151,6 +153,19 @@ def main():
             rms = float(np.sqrt((dF ** 2).sum() / (3 * len(C)))); imax = int(np.argmax(mag))
             seam6 = seam_distance(a6, mem["6x6"]["P"]); dseam = np.array([seam6[i6[p]] for p in C])
             near = dseam < 2 * 2.55
+            F8m = np.array([F8[i8[p]] for p in C]); rmsF8 = float(np.sqrt((F8m ** 2).sum() / (3 * len(C))))
+            row.update(rms_F_8x8_matched_eV_A=round(rmsF8, 4), rms_dF_over_rms_F=round(rms / rmsF8, 3) if rmsF8 else "")
+            # the matched criterion is identity of neighbour IDS; the 6x6 seam band was FLARE-minimised while the same atoms are
+            # thermal in the 8x8, so a matched atom's neighbours can sit at different relative positions -> measure that shift
+            shift = []
+            for pid in C:
+                nb = [int(j) for j in neighbours(a6, i6[pid], R_CORE)[0]]; nb8 = [i8[int(p6[j])] for j in nb]
+                v6 = a6.get_distances(i6[pid], nb, mic=True, vector=True); v8 = a8.get_distances(i8[pid], nb8, mic=True, vector=True)
+                shift.append(float(np.linalg.norm(v6 - v8, axis=1).max()) if nb else 0.0)
+            shift = np.array(shift); rigid = shift < 0.02
+            row.update(n_matched_rigid_env=int(rigid.sum()),
+                       rms_dF_rigid_env=round(float(np.sqrt((dF[rigid] ** 2).sum() / (3 * max(rigid.sum(), 1)))), 4) if rigid.any() else "",
+                       rms_dF_shifted_env=round(float(np.sqrt((dF[~rigid] ** 2).sum() / (3 * max((~rigid).sum(), 1)))), 4) if (~rigid).any() else "")
             row.update(n_matched=len(C), rms_dF_eV_A=round(rms, 4), max_dF_eV_A=round(float(mag[imax]), 4), max_dF_parent_atom=C[imax], max_dF_seam_dist_A=round(float(dseam[imax]), 2),
                        rms_dF_near_seam=round(float(np.sqrt((dF[near] ** 2).sum() / (3 * max(near.sum(), 1)))), 4), rms_dF_interior=round(float(np.sqrt((dF[~near] ** 2).sum() / (3 * max((~near).sum(), 1)))), 4),
                        n_near_seam=int(near.sum()))
@@ -161,15 +176,41 @@ def main():
                 prof = {}
                 for s, m, k in (("6x6", mem["6x6"], c6), ("8x8", mem["8x8"], k8)):
                     P = m["P"]; z0 = P[k, 2]; zs, out, gm, acc = profiles(m["dir"], m["at"], P[k, :2], z0); prof[s] = (zs, out); row[f"gamma_minus_A-2_{s}"] = round(gm, 5); row[f"access_boundary_A_{s}"] = acc
-                fig, axes = plt.subplots(1, 4, figsize=(22, 5))
-                for ax, k, lab in zip(axes, ("PHI", "SION", "n_minus", "n_plus"), ("PHI (eV)", "S_ion", "n- (A^-3)", "n+ (A^-3)")):
-                    for s, (zs, out) in prof.items(): ax.plot(zs, out[k], label=s)
-                    ax.set_xlabel("height above the centre atom (A)"); ax.set_title(lab); ax.legend()
-                fig.suptitle(f"{pr['id']}: disc r = {DISC_R} A above the centre, U = {pr['U_V']:+.2f} V"); fig.tight_layout(); fig.savefig(f"{T}/profiles_{pr['id']}.png", dpi=110); plt.close(fig)
+                # electrolyte-side differences (6x6 - 8x8) on the common height grid, from 4 A above the centre atom
+                zs6, o6 = prof["6x6"]; zs8, o8 = prof["8x8"]; sel = zs6 >= 4.0
+                diff = {k: o6[k] - o8[k] for k in o6}
+                row["dPHI_max_meV_above4A"] = round(float(np.abs(diff["PHI"][sel]).max()) * 1000, 1)
+                row["dSION_max_above4A"] = round(float(np.abs(diff["SION"][sel]).max()), 3)
+                # the n- difference is quoted against the 8x8 peak in the window (a point-wise ratio at the onset, where both are ~0, is meaningless)
+                row["dn_minus_max_A-3_above4A"] = float(np.abs(diff["n_minus"][sel]).max())
+                row["dn_minus_max_over_peak8x8"] = round(row["dn_minus_max_A-3_above4A"] / max(float(np.abs(o8["n_minus"][sel]).max()), 1e-12), 3)
+                row["gamma_minus_rel_diff"] = round((row["gamma_minus_A-2_6x6"] - row["gamma_minus_A-2_8x8"]) / row["gamma_minus_A-2_8x8"], 3) if row.get("gamma_minus_A-2_8x8") else ""
+                with plt.rc_context({"font.size": 15, "axes.titlesize": 17, "axes.labelsize": 15, "legend.fontsize": 14}):
+                    fig, axes = plt.subplots(2, 4, figsize=(24, 11), sharex=True)
+                    labs = (("PHI", "PHI (eV)", "dPHI (meV)", 1000.0), ("SION", "S_ion", "dS_ion", 1.0), ("n_minus", "n- (A^-3)", "dn- (A^-3)", 1.0), ("n_plus", "n+ (A^-3)", "dn+ (A^-3)", 1.0))
+                    for col, (k, lab, dlab, scale) in enumerate(labs):
+                        ax = axes[0, col]
+                        for s, (zs, out) in prof.items(): ax.plot(zs, out[k], label=s, lw=2.2)
+                        ax.set_title(lab); ax.legend(); ax.grid(alpha=0.3)
+                        if k == "PHI": ax.set_ylim(-1.0, 0.5); ax.set_title("PHI (eV), electrolyte side; metal dip clipped")
+                        ax = axes[1, col]; ax.plot(zs6, diff[k] * scale, color="k", lw=2.2); ax.axhline(0, color="0.6", lw=1); ax.axvline(4.0, color="0.6", lw=1, ls="--")
+                        ax.set_title(f"{dlab}: 6x6 - 8x8"); ax.set_xlabel("height above the centre atom (A)"); ax.grid(alpha=0.3)
+                        if k == "PHI": ax.set_ylim(-60, 60)
+                    fig.suptitle(f"{pr['id']}: disc r = {DISC_R} A above the centre atom, U = {pr['U_V']:+.2f} V  (bottom row: differences; dashed line = 4 A, where the comparison starts)", fontsize=17)
+                    fig.tight_layout(); fig.savefig(f"{T}/profiles_{pr['id']}.png", dpi=100); plt.close(fig)
                 md.append(f"![profiles](profiles_{pr['id']}.png)")
-            md += ["", f"matched atoms |C| = {len(C)} (of {len(common)} shared); RMS dF = {rms:.4f} eV/A, max {mag[imax]:.4f} at parent atom {C[imax]} "
+                md += ["", f"electrolyte-side differences (z >= 4 A above the centre atom): max |dPHI| {row['dPHI_max_meV_above4A']} meV, max |dS_ion| {row['dSION_max_above4A']}, "
+                       f"max |dn-| {row['dn_minus_max_A-3_above4A']:.1e} A^-3 = {row['dn_minus_max_over_peak8x8']:.0%} of the 8x8 peak in the window; Gamma- differs by {row['gamma_minus_rel_diff']:+.1%}."]
+            order = np.argsort(-mag)
+            md += ["", f"matched atoms |C| = {len(C)} (of {len(common)} shared; identical neighbour sets within R_CORE = {R_CORE} A in both cells); RMS dF = {rms:.4f} eV/A "
+                   f"against RMS |F| = {rmsF8:.4f} eV/A on the same atoms in the 8x8 (ratio {rms / rmsF8:.2f}), max {mag[imax]:.4f} at parent atom {C[imax]} "
                    f"({dseam[imax]:.1f} A from the nearest 6x6 seam); RMS within 2 rows of a seam {row['rms_dF_near_seam']:.4f} ({near.sum()} atoms) vs interior {row['rms_dF_interior']:.4f}.",
-                   f"sigma 6x6 {row.get('sigma_uC_cm2_6x6')} vs 8x8 {row.get('sigma_uC_cm2_8x8')} uC/cm2 (supplement); Gamma- {row.get('gamma_minus_A-2_6x6')} vs {row.get('gamma_minus_A-2_8x8')} A^-2; "
+                   f"Neighbour positions: {int(rigid.sum())} matched atoms have every neighbour within {R_CORE} A at the same relative position in both cells (< 0.02 A), "
+                   f"RMS dF {row['rms_dF_rigid_env']} eV/A; the other {int((~rigid).sum())} have neighbours that the 6x6 seam repair moved (max shift up to {shift.max():.2f} A), RMS dF {row['rms_dF_shifted_env']} eV/A.", "",
+                   "| parent atom | layer (6x6) | dist. to 6x6 seam (A) | max neighbour shift (A) | |F| 8x8 (eV/A) | |dF| (eV/A) |", "|---|---|---|---|---|---|"]
+            lay6 = a6.get_array("layer") if "layer" in a6.arrays else None
+            md += [f"| {C[j]} | {int(lay6[i6[C[j]]]) if lay6 is not None else ''} | {dseam[j]:.1f} | {shift[j]:.3f} | {np.linalg.norm(F8m[j]):.3f} | {mag[j]:.3f} |" for j in order]
+            md += ["", f"sigma 6x6 {row.get('sigma_uC_cm2_6x6')} vs 8x8 {row.get('sigma_uC_cm2_8x8')} uC/cm2 (supplement); Gamma- {row.get('gamma_minus_A-2_6x6')} vs {row.get('gamma_minus_A-2_8x8')} A^-2; "
                    f"accessible boundary {row.get('access_boundary_A_6x6')} vs {row.get('access_boundary_A_8x8')} A above the centre.",
                    f"cost: 6x6 {row.get('scf_steps_6x6')} SCF steps / {row.get('cp_rounds_6x6')} CP rounds, SCF {row.get('scf_time_h_6x6')} h, elapsed {row.get('elapsed_h_6x6')} h, non-SCF {row.get('nonscf_time_h_6x6')} h, "
                    f"MaxRSS {row.get('maxrss_6x6')}, output {row.get('output_GB_6x6')} GB | 8x8 {row.get('scf_steps_8x8')} / {row.get('cp_rounds_8x8')}, SCF {row.get('scf_time_h_8x8')} h, elapsed {row.get('elapsed_h_8x8')} h, "

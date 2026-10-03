@@ -121,6 +121,49 @@ small cell is a training sample; size insensitivity is a separate conclusion.
   the proposal's +0.39 / −0.27 V are recorded, not computed); 15 multi-layer entries (M1 5 × 8×8 train, M2 2 pair
   + 3, M3 2 pair + 3; same-centre pairs share the test split); one resized single-layer entry dropped to respect
   the cap. Status: 2 complete, 6 submitted, 183 pending production (33 364 Au in total), 9 pending last (10×8).
+- **Pair runs, observations while running (2026-10-03 05:30):** the 6×6 cells take 60–72 s per electronic step against
+  195–300 s for the 8×8 cells on the same node type (~4× per step). CP behaviour differs with cell size: the CP
+  loop's first correction is a fixed 0.10 e step; in the 8×8 cells 0.10 e moves μ_e by ≈ 26–28 meV, in the 6×6
+  cells by ≈ 50 meV (smaller area, smaller cell capacitance), so S1 6×6 overshot from −4.4 meV to +45.8 meV after
+  its second round and needs a third (secant) round even though its start guess was within 5 meV — the 0.001 eV
+  pair tolerance will cost 6×6 runs an extra round or two. The multi-layer geometries start further from their
+  target than the single-layer ones (first-round μ_e misses: M2 8×8 53 meV, M3 8×8 42 meV, M2 6×6 119 meV, S2
+  6×6 46 meV vs 31–38 meV for the two references): their own PZC lies further from the dataset-median PZC used
+  for the NELECT guess, which is itself a result about these morphologies.
+- **Pair results, single-layer pairs S1 and S2 (2026-10-03 06:30; `paired_dft_results.md/.csv`, `profiles_S1.png`,
+  `profiles_S2.png`).** Both 6×6 members are COMPLETE labels on their own (CP closed within 0.05 meV of the reference's
+  μ_e, S1 3 rounds / 147 steps, S2 3 rounds / 152 steps; 15 fields value-parsed; charge closure; CONTCAR = POSCAR).
+  Measured cost, 6×6 vs 8×8 of the same centre: S1 2.41 h vs 7.33 h elapsed, S2 2.63 h vs 9.89 h (0.33× and 0.27×;
+  per electronic step 56–59 s vs 226–260 s); MaxRSS 50–52 GB vs 118–123 GB; output 5.3 GB vs 11.2 GB per state. The
+  6×6 runs needed MORE electronic steps (147/152 vs 111/132) because of the 0.001 eV tolerance and the capacitance
+  overshoot noted above, so the per-step saving is larger than the elapsed ratio.
+  Matched atoms (same parent ids within R_CORE = 6 Å in both cells): S1 14, S2 17 — the core and the fixed layers under
+  it. RMS ΔF over them 0.059 (S1) and 0.093 eV/Å (S2) against RMS |F| 0.21 / 0.35 eV/Å on the same atoms in the 8×8
+  (ratio 0.28). The matching is by neighbour IDENTITY; the 6×6 seam lies 4.2 Å (S1) / 5.1 Å (S2) from the centre atom,
+  so for most matched atoms a neighbour inside 6 Å is a seam-band atom that the repair moved or a periodic image with
+  the thermal seam mismatch (relative shifts up to 0.30 / 0.57 Å). Split by that: atoms whose whole 6 Å environment is
+  geometrically identical (< 0.02 Å) have RMS ΔF 0.048 eV/Å (S1, 1 atom = the centre, ΔF 0.084 on |F| 0.46) and 0.022
+  eV/Å (S2, 6 atoms incl. the centre, ΔF 0.045 on |F| 0.21); atoms with a moved neighbour 0.060 / 0.114 eV/Å, the two
+  largest 0.21 and 0.43 eV/Å, both on top-layer atoms 5.5–6.2 Å from the seam. Nothing in the seam band itself enters
+  the comparison. Reading: the label change that is not explained by a changed geometry is ≈ 0.05–0.08 eV/Å on the
+  centre atom (two cases, no error bar); atoms with the seam inside their 6 Å shell carry 0.1-eV/Å-scale differences.
+  Electrolyte side (4 Å disc above the centre atom, heights ≥ 4 Å): |ΔPHI| ≤ 2.0 / 1.5 meV everywhere; the S_ion onset
+  (accessible boundary) sits at 6.0 vs 6.0 Å (S1) and 7.0 vs 6.75 Å (S2), max |ΔS_ion| 0.09 / 0.15; n⁻ peak differs by
+  7 % / 19 % of the 8×8 peak, Γ⁻ over the 12 Å window by −3.6 % / −5.0 %; the S1 n⁻ difference is what a 2 meV
+  potential difference gives through the Boltzmann factor, the S2 one also contains the 0.25 Å cavity shift. σ (whole
+  cell) −4.99 vs −5.27 and +4.75 vs +4.93 μC/cm² — different defect densities, supplement only.
+  **M3 6×6 (ridge-top edge, −0.40 V, 199 Au) COMPLETE at 06:33** on its own: 3 rounds (first-round μ_e 4.8 meV off, the
+  fixed 0.10 e step then overshot by 45 meV, secant round closed at −4.507122 vs −4.5071), 145 steps at 71 s/step, SCF
+  2.86 h, elapsed 3.01 h, MaxRSS 54.4 GB, 5.0 GB. Its 8×8 partner is in round 3 (14.7 meV off after round 2, 292 s/step,
+  11.6 h so far); M2 8×8 round 4 (13 meV off, 255 s/step); M2 6×6 round 3 (74 meV off after round 2, 73 s/step).
+  **Cost model with 5 measured points** (`dft/cost_model.json`, 06:43): k(275 Au) median 319 / max 516 min; margin 1.5×
+  (≥ 4 points). The measured k is size-dependent: 293–319 min for the three 6×6 runs (163–199 Au), 426–516 for the two
+  8×8 (281–302 Au), i.e. the 6×6 runs are cheaper than N^1.5 from the 8×8 points predicts (elapsed ratios 0.27–0.33
+  against 0.40–0.44 predicted). Remaining 192 entries of the unified list (36 454 Au, median 163; 142 6×6, 39 8×8, 11
+  10×8): **682–790 node·h with the size-resolved k (6×6 entries at 293–319, larger at 426–516), 610–986 node·h with the
+  pooled median/max**, ≈ 1.4 TB (11.2 GB per 290 Au, linear in atoms, measured at two sizes). The same frozen states as
+  large cells (198 held, 55 383 Au): 1087–1757 node·h (pooled) and ≈ 2.1 TB. The ranges are the predictions of two
+  normalisation constants, not confidence intervals.
 - `replacement_proposal.csv`: 156 resize_to_6x6, 33 keep_8x8, 9 keep_10x8_no_smaller, 2 kept references; slots
   proposed for the admitted multi-layer candidates (M2 6×6 ×4, M2 8×8 ×1, M3 8×8 ×4 + 6×6 ×1, M1 8×8 ×5) — see the
   csv for the released single-layer states and the inherited U bins.

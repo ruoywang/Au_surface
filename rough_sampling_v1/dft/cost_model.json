@@ -1,11 +1,11 @@
 {
- "updated": "2026-10-02 18:03",
- "n_points": 2,
+ "updated": "2026-10-03 06:43",
+ "n_points": 5,
  "exponent": 1.5,
  "n_ref": 275.0,
- "k_median_min": 470.74696482305706,
+ "k_median_min": 319.218829194759,
  "k_max_min": 515.8014023813729,
- "walltime_policy": "k_max * (N/275)^1.5 * 1.5, rounded up to the hour (PROVISIONAL: fewer than 3 measured points)",
+ "walltime_policy": "k_max * (N/275)^1.5 * 1.5, rounded up to the hour",
  "margin": 1.5,
  "points": [
   {
@@ -29,6 +29,39 @@
    "electronic_steps": 132,
    "cp_closures": 1,
    "maxrss_GB": 122.9
+  },
+  {
+   "task": "S1_6x6__mu-4.4891",
+   "seeded": true,
+   "dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/dft/S1_6x6__mu-4.4891",
+   "n_atoms": 163,
+   "elapsed_min": 144.8,
+   "scf_min": 136.4,
+   "electronic_steps": 147,
+   "cp_closures": 1,
+   "maxrss_GB": 51.8
+  },
+  {
+   "task": "S2_6x6__mu-5.3746",
+   "seeded": true,
+   "dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/dft/S2_6x6__mu-5.3746",
+   "n_atoms": 172,
+   "elapsed_min": 157.9,
+   "scf_min": 149.1,
+   "electronic_steps": 152,
+   "cp_closures": 1,
+   "maxrss_GB": 50.2
+  },
+  {
+   "task": "M3_6x6__mu-4.5071",
+   "seeded": true,
+   "dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/dft/M3_6x6__mu-4.5071",
+   "n_atoms": 199,
+   "elapsed_min": 180.5,
+   "scf_min": 171.7,
+   "electronic_steps": 145,
+   "cp_closures": 1,
+   "maxrss_GB": 54.4
   }
  ]
 }

@@ -2,21 +2,76 @@
 
 ## S1 — single-layer step/kink (A, frozen centre PA1_s51_f082500_a3617) (U = -0.42 V)
 
-6x6: not run | 8x8: no CP closure
+6x6: complete | 8x8: complete
 
+![profiles](profiles_S1.png)
+
+electrolyte-side differences (z >= 4 A above the centre atom): max |dPHI| 2.0 meV, max |dS_ion| 0.09, max |dn-| 3.7e-05 A^-3 = 7% of the 8x8 peak in the window; Gamma- differs by -3.6%.
+
+matched atoms |C| = 14 (of 163 shared; identical neighbour sets within R_CORE = 6.0 A in both cells); RMS dF = 0.0594 eV/A against RMS |F| = 0.2085 eV/A on the same atoms in the 8x8 (ratio 0.29), max 0.2122 at parent atom 4366 (6.2 A from the nearest 6x6 seam); RMS within 2 rows of a seam 0.0515 (2 atoms) vs interior 0.0607.
+Neighbour positions: 1 matched atoms have every neighbour within 6.0 A at the same relative position in both cells (< 0.02 A), RMS dF 0.0484 eV/A; the other 13 have neighbours that the 6x6 seam repair moved (max shift up to 0.30 A), RMS dF 0.0602 eV/A.
+
+| parent atom | layer (6x6) | dist. to 6x6 seam (A) | max neighbour shift (A) | |F| 8x8 (eV/A) | |dF| (eV/A) |
+|---|---|---|---|---|---|
+| 4366 | 4 | 6.2 | 0.303 | 0.378 | 0.212 |
+| 3586 | 3 | 5.6 | 0.135 | 0.198 | 0.174 |
+| 1569 | 1 | 6.4 | 0.099 | 0.139 | 0.142 |
+| 3618 | 3 | 7.1 | 0.303 | 0.465 | 0.123 |
+| 2593 | 2 | 7.2 | 0.303 | 0.251 | 0.099 |
+| 4348 | 4 | 4.3 | 0.233 | 0.824 | 0.094 |
+| 3617 | 4 | 4.2 | 0.000 | 0.462 | 0.084 |
+| 545 | 0 | 5.5 | 0.099 | 0.068 | 0.068 |
+| 4364 | 4 | 6.2 | 0.263 | 0.659 | 0.045 |
+| 546 | 0 | 7.2 | 0.058 | 0.052 | 0.041 |
+| 1570 | 1 | 6.4 | 0.103 | 0.030 | 0.037 |
+| 514 | 0 | 5.5 | 0.099 | 0.064 | 0.031 |
+| 1601 | 1 | 6.4 | 0.303 | 0.077 | 0.031 |
+| 513 | 0 | 5.5 | 0.099 | 0.039 | 0.027 |
+
+sigma 6x6 -4.986 vs 8x8 -5.268 uC/cm2 (supplement); Gamma- 0.00269 vs 0.00279 A^-2; accessible boundary 6.0 vs 6.0 A above the centre.
+cost: 6x6 147 SCF steps / 1 CP rounds, SCF 2.27 h, elapsed 2.41 h, non-SCF 0.14 h, MaxRSS 51827784K, output 5.3 GB | 8x8 111 / 1, SCF 6.98 h, elapsed 7.33 h, non-SCF 0.34 h, MaxRSS 117540096K, output 11.2 GB -> 6x6 saves 4.9 node-h on this pair.
 
 ## S2 — single-layer island edge (B, frozen centre PB1_s51_f082500_a3929) (U = +0.46 V)
 
-6x6: not run | 8x8: no CP closure
+6x6: complete | 8x8: complete
 
+![profiles](profiles_S2.png)
+
+electrolyte-side differences (z >= 4 A above the centre atom): max |dPHI| 1.5 meV, max |dS_ion| 0.154, max |dn-| 2.1e-04 A^-3 = 19% of the 8x8 peak in the window; Gamma- differs by -5.0%.
+
+matched atoms |C| = 17 (of 172 shared; identical neighbour sets within R_CORE = 6.0 A in both cells); RMS dF = 0.0925 eV/A against RMS |F| = 0.3468 eV/A on the same atoms in the 8x8 (ratio 0.27), max 0.4303 at parent atom 4201 (5.5 A from the nearest 6x6 seam); RMS within 2 rows of a seam 0.0000 (0 atoms) vs interior 0.0925.
+Neighbour positions: 6 matched atoms have every neighbour within 6.0 A at the same relative position in both cells (< 0.02 A), RMS dF 0.022 eV/A; the other 11 have neighbours that the 6x6 seam repair moved (max shift up to 0.57 A), RMS dF 0.1138 eV/A.
+
+| parent atom | layer (6x6) | dist. to 6x6 seam (A) | max neighbour shift (A) | |F| 8x8 (eV/A) | |dF| (eV/A) |
+|---|---|---|---|---|---|
+| 4201 | 4 | 5.5 | 0.363 | 0.082 | 0.430 |
+| 2970 | 2 | 5.5 | 0.359 | 0.810 | 0.284 |
+| 4211 | 4 | 5.5 | 0.290 | 1.066 | 0.263 |
+| 4212 | 4 | 5.4 | 0.574 | 0.580 | 0.254 |
+| 2969 | 2 | 5.5 | 0.285 | 0.335 | 0.142 |
+| 857 | 0 | 5.5 | 0.000 | 0.067 | 0.068 |
+| 2937 | 2 | 7.0 | 0.277 | 0.898 | 0.062 |
+| 3930 | 3 | 5.8 | 0.277 | 0.711 | 0.059 |
+| 3929 | 3 | 5.1 | 0.000 | 0.213 | 0.045 |
+| 858 | 0 | 5.5 | 0.000 | 0.061 | 0.035 |
+| 4200 | 4 | 7.4 | 0.277 | 1.500 | 0.024 |
+| 890 | 0 | 7.2 | 0.000 | 0.079 | 0.018 |
+| 1913 | 1 | 6.4 | 0.000 | 0.361 | 0.018 |
+| 1914 | 1 | 6.4 | 0.277 | 0.292 | 0.018 |
+| 889 | 0 | 5.5 | 0.000 | 0.084 | 0.013 |
+| 1946 | 1 | 6.4 | 0.285 | 0.187 | 0.012 |
+| 1945 | 1 | 6.4 | 0.216 | 0.097 | 0.011 |
+
+sigma 6x6 4.753 vs 8x8 4.934 uC/cm2 (supplement); Gamma- 0.00477 vs 0.00502 A^-2; accessible boundary 7.0 vs 6.75 A above the centre.
+cost: 6x6 152 SCF steps / 1 CP rounds, SCF 2.49 h, elapsed 2.63 h, non-SCF 0.15 h, MaxRSS 50181676K, output 5.3 GB | 8x8 132 / 1, SCF 9.54 h, elapsed 9.89 h, non-SCF 0.35 h, MaxRSS 122922016K, output 11.2 GB -> 6x6 saves 7.3 node-h on this pair.
 
 ## M2 — step bunching: middle terrace with both step edges (PM2a_s11 @165 ps, atom 4120) (U = +0.40 V)
 
-6x6: not run | 8x8: not run
+6x6: no CP closure | 8x8: no CP closure
 
 
 ## M3 — ridge-top edge facing the valley (PM3a_s11 @165 ps, atom 4672); the valley floor with both walls needs 8x8 and is not pairable (U = -0.40 V)
 
-6x6: not run | 8x8: not run
+6x6: complete | 8x8: no CP closure
 
 
