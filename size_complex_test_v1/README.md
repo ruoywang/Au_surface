@@ -156,14 +156,20 @@ small cell is a training sample; size insensitivity is a separate conclusion.
   fixed 0.10 e step then overshot by 45 meV, secant round closed at −4.507122 vs −4.5071), 145 steps at 71 s/step, SCF
   2.86 h, elapsed 3.01 h, MaxRSS 54.4 GB, 5.0 GB. Its 8×8 partner is in round 3 (14.7 meV off after round 2, 292 s/step,
   11.6 h so far); M2 8×8 round 4 (13 meV off, 255 s/step); M2 6×6 round 3 (74 meV off after round 2, 73 s/step).
-  **Cost model with 5 measured points** (`dft/cost_model.json`, 06:43): k(275 Au) median 319 / max 516 min; margin 1.5×
-  (≥ 4 points). The measured k is size-dependent: 293–319 min for the three 6×6 runs (163–199 Au), 426–516 for the two
-  8×8 (281–302 Au), i.e. the 6×6 runs are cheaper than N^1.5 from the 8×8 points predicts (elapsed ratios 0.27–0.33
-  against 0.40–0.44 predicted). Remaining 192 entries of the unified list (36 454 Au, median 163; 142 6×6, 39 8×8, 11
-  10×8): **682–790 node·h with the size-resolved k (6×6 entries at 293–319, larger at 426–516), 610–986 node·h with the
-  pooled median/max**, ≈ 1.4 TB (11.2 GB per 290 Au, linear in atoms, measured at two sizes). The same frozen states as
-  large cells (198 held, 55 383 Au): 1087–1757 node·h (pooled) and ≈ 2.1 TB. The ranges are the predictions of two
-  normalisation constants, not confidence intervals.
+  **M2 6×6 (step-bunching middle terrace, +0.40 V, 185 Au) COMPLETE at 07:44** on its own: 4 rounds (first-round μ_e 119
+  meV off — the largest start error of the six — then 74, 6.8 meV, closed at −5.306555 vs −5.3071 = 0.5 meV), 212
+  steps at 68 s/step, SCF 4.00 h, elapsed 4.15 h, MaxRSS 55.4 GB, 5.0 GB. All four 6×6 members are therefore complete
+  labels; the two 8×8 partners (M2, M3) are each in a fourth round at 255–292 s/step.
+  **Cost model with 6 measured points** (`dft/cost_model.json`, 07:45): k(275 Au) median 372 / max 516 min; margin 1.5×
+  (≥ 4 points). Per-step times are what the cell size sets: 59–75 s for the four 6×6 runs (163–199 Au) against 238–270 s
+  for the two 8×8 (281–302 Au), a factor 3.5–4.5 for 1.5–1.8× the atoms; the number of steps is set by how many CP
+  rounds the fixed-step/secant loop needs (145–212 for 6×6 at the 0.001 eV tolerance, 111–132 for the 8×8 at 0.01),
+  which is why k spans 293–451 min for the 6×6 runs and 426–516 for the 8×8. Remaining 192 entries of the unified list
+  (36 454 Au, median 163; 142 6×6, 39 8×8, 11 10×8): **682–922 node·h with the size-resolved k (6×6 entries at 293–451,
+  larger at 426–516), 711–987 node·h with the pooled median/max**, ≈ 1.4 TB (11.2 GB per 290 Au, linear in atoms,
+  measured at two sizes). The same frozen states as large cells (198 held, 55 383 Au): 1269–1757 node·h (pooled) and
+  ≈ 2.1 TB. The ranges are the predictions of two normalisation constants, not confidence intervals. Production runs
+  would use FERMICONVERGE 0.01 like the references, so their 6×6 round counts should sit at the low end.
 - `replacement_proposal.csv`: 156 resize_to_6x6, 33 keep_8x8, 9 keep_10x8_no_smaller, 2 kept references; slots
   proposed for the admitted multi-layer candidates (M2 6×6 ×4, M2 8×8 ×1, M3 8×8 ×4 + 6×6 ×1, M1 8×8 ×5) — see the
   csv for the released single-layer states and the inherited U bins.

@@ -1,9 +1,9 @@
 {
- "updated": "2026-10-03 06:43",
- "n_points": 5,
+ "updated": "2026-10-03 07:51",
+ "n_points": 6,
  "exponent": 1.5,
  "n_ref": 275.0,
- "k_median_min": 319.218829194759,
+ "k_median_min": 372.4556782297501,
  "k_max_min": 515.8014023813729,
  "walltime_policy": "k_max * (N/275)^1.5 * 1.5, rounded up to the hour",
  "margin": 1.5,
@@ -51,6 +51,17 @@
    "electronic_steps": 152,
    "cp_closures": 1,
    "maxrss_GB": 50.2
+  },
+  {
+   "task": "M2_6x6__mu-5.3071",
+   "seeded": true,
+   "dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/dft/M2_6x6__mu-5.3071",
+   "n_atoms": 185,
+   "elapsed_min": 248.8,
+   "scf_min": 240.1,
+   "electronic_steps": 212,
+   "cp_closures": 1,
+   "maxrss_GB": 55.4
   },
   {
    "task": "M3_6x6__mu-4.5071",

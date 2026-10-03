@@ -67,7 +67,7 @@ cost: 6x6 152 SCF steps / 1 CP rounds, SCF 2.49 h, elapsed 2.63 h, non-SCF 0.15 
 
 ## M2 — step bunching: middle terrace with both step edges (PM2a_s11 @165 ps, atom 4120) (U = +0.40 V)
 
-6x6: no CP closure | 8x8: no CP closure
+6x6: complete | 8x8: no CP closure
 
 
 ## M3 — ridge-top edge facing the valley (PM3a_s11 @165 ps, atom 4672); the valley floor with both walls needs 8x8 and is not pairable (U = -0.40 V)
