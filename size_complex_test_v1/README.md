@@ -170,6 +170,20 @@ small cell is a training sample; size insensitivity is a separate conclusion.
   measured at two sizes). The same frozen states as large cells (198 held, 55 383 Au): 1269–1757 node·h (pooled) and
   ≈ 2.1 TB. The ranges are the predictions of two normalisation constants, not confidence intervals. Production runs
   would use FERMICONVERGE 0.01 like the references, so their 6×6 round counts should sit at the low end.
+- **Why the 8×8 pair runs need so many CP rounds (2026-10-03 08:45, from `CEP-HALF/src/main.F` lines 3208–3243):**
+  with NESCHEME 3 the first correction is the fixed INIT_ECHANGE = 0.10 e; afterwards the loop uses the secant
+  capacitance C = ΔN/Δμ, clipped to CAP_MAX = 2.0 e/eV. Measured C: 6×6 cells 2.0–2.2 e/eV (cap barely binding →
+  near-full secant steps), 8×8 cells 3.7–3.9 e/eV (cap binding → every step is ≈ 52 % of the needed one, the error
+  halves per round: M2 8×8 52.8 → 26.9 → 13.0 → 6.2 meV, M3 8×8 42 → 14.7 → 6.6 meV). At the production tolerance
+  0.01 eV this cost the two 8×8 references nothing (2 rounds + closure); at the pair tolerance 0.001 eV an 8×8 run needs
+  about three more rounds from 6 meV. Projection at 08:45: **M2 8×8 (job 21023281, ends 15:57) needs rounds 5–7 ≈ 90–125
+  steps × 250 s + field writing = 6.6–9.0 h against 7.2 h left — may TIME OUT**; M3 8×8 (21023280, ends 19:57) needs ≈
+  124 steps × 289 s + 0.4 h ≈ 10.4 h against 11.2 h left — should finish. A timed-out run leaves no fields (written at
+  the end). Contingency prepared, NOT submitted: `dft/M2_8x8__mu-5.3071_restart/` = the same inputs with NELECT set to
+  the secant estimate 3452.4289 (the measured slope 0.2600 eV/e is constant to 1 % over three intervals, so round 1
+  should land within ~0.3 meV and the loop close at once: ≈ 55 steps ≈ 4 h on standard). For production nothing
+  changes (0.01 eV tolerance, 6×6 cells unaffected); for any future 0.001-eV run on ≥ 8×8 cells CAP_MAX ≈ 5 would remove
+  the halving without changing the converged state (CAP_MAX only shapes the path).
 - `replacement_proposal.csv`: 156 resize_to_6x6, 33 keep_8x8, 9 keep_10x8_no_smaller, 2 kept references; slots
   proposed for the admitted multi-layer candidates (M2 6×6 ×4, M2 8×8 ×1, M3 8×8 ×4 + 6×6 ×1, M1 8×8 ×5) — see the
   csv for the released single-layer states and the inherited U bins.
