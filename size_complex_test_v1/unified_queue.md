@@ -1,4 +1,4 @@
-# Unified compute list: 200 entries (cap 200) -- {'complete': 2, 'submitted': 6, 'pending_production': 183, 'pending_last': 9}
+# Unified compute list: 200 entries (cap 200) -- {'complete': 8, 'pending_production': 183, 'pending_last': 9}
 
 Merged entries (several old ids -> one geometry+potential): 5
 - PM2a_s11_f082500_a4120_6x6|production|-5.3071: M2_6x6__mu-5.3071 | PD1_s23_f096500_a3375_8x8__U+0.39 (slot)
@@ -11,8 +11,7 @@ Dropped to respect the cap: 1; PA1_s51_f082500_a4161_6x6|production|-4.4871
 
 | status | entries | atoms (sum) |
 |---|---|---|
-| complete | 2 | 583 |
-| submitted | 6 | 1378 |
+| complete | 8 | 1961 |
 | pending_production | 183 | 33364 |
 | pending_last | 9 | 3090 |
 
