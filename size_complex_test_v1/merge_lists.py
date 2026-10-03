@@ -51,7 +51,7 @@ def main():
         U_actual = round(MU0 - t["TARGETMU"], 4)
         cls = pr["id"] if pr["id"].startswith("M") else cid[1]          # S1 -> A, S2 -> B (the reference's class)
         add(f"{cid}|{t['config']}|{t['TARGETMU']:.4f}", status=t["status"], order=1, cls=cls, split="test", cell=t["member"], n_atoms=t["n_atoms"],
-            geometry_dir=cd, U_V=U_actual, TARGETMU_eV=t["TARGETMU"], fermiconverge=0.001, config=t["config"], alias=t["task_id"],
+            geometry_dir=cd, U_V=U_actual, TARGETMU_eV=t["TARGETMU"], fermiconverge=t.get("fermiconverge", 0.001), config=t["config"], alias=t["task_id"],
             potential_note=f"assigned U {pr['U_V']:+.2f} V; adopted TARGETMU {t['TARGETMU']:.4f} ({t['mu_source'][:60]}) -> actual U {U_actual:+.4f} V", origin=f"size pair {pr['id']}: {pr['target'][:60]}")
     # 3. production entries from the proposal
     for r in prop:

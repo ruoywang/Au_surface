@@ -197,6 +197,30 @@ small cell is a training sample; size insensitivity is a separate conclusion.
   52/145, M3 8×8 148/253; the 0.01 references unchanged). k(275 Au): 6×6 runs 114–375 min, 8×8 runs 426–516, pooled
   median 375 / max 516. Remaining 192 entries: **503–846 node·h size-resolved, 717–986 pooled**, ≈ 1.4 TB; the 198 frozen
   large cells 1277–1757 node·h (pooled). Two normalisation constants, not an interval.
+- **M2 pair complete (restart 21025650 finished 16:24) — ALL FOUR PAIRS DONE.** The M2 8×8 restart at the 0.01 standard
+  from the secant NELECT 3452.4290 closed in ONE round: μ_e −5.307104 vs −5.3071 (0.004 meV), 60 steps, elapsed 4.68 h,
+  MaxRSS 125.1 GB, 11.2 GB — against 19.4 h for the 0.001 M3 8×8 and the cancelled 0.001 M2 run (16.7 h without closing).
+  M2 6×6 vs 8×8 (`profiles_M2.png`): matched atoms 16, RMS ΔF 0.030 eV/Å against RMS |F| 0.29 (ratio 0.10, the smallest
+  of the four), centre atom ΔF 0.080 on |F| 0.71, largest 0.10. **The electrolyte side differs here**, unlike S1/S2/M3:
+  PHI above the centre is 10–22 meV lower in the 6×6 between 2 and 8 Å (−2 meV by 12 Å), the cavity onset 0.25 Å
+  higher, n⁻ +20 % at the peak, Γ⁻ +14 %, σ 6.14 vs 5.25 μC/cm². Both cells sit at the same μ_e, so this is a
+  whole-cell composition effect: the two cuts of the step-bunching terrace contain different fractions of the two step
+  edges and terraces per area, hence a different charge per area and a different diffuse-layer potential above the
+  same centre. The S1/S2/M3 pairs did not show this (σ differences 0.2–0.6 μC/cm², |ΔPHI| ≤ 2 meV).
+  **Final cost model, 8 points at the 0.01 standard:** k(275 Au) 6×6 runs 114–375 min, 8×8 runs 230–516 (the 230 is
+  the restart with a near-exact start guess, the 426–516 are the references with the dataset start guess), pooled median
+  317 / max 516. Remaining 192 entries: 324–846 node·h size-resolved (lower end = every run from a near-exact start),
+  607–986 pooled; 198 frozen large cells 1081–1757 (pooled); storage ≈ 1.4 TB.
+  **Answers to the four questions of the plan.** (1) Label completeness: all four 6×6 members are complete labels by the
+  production acceptance (CP closed, 15 fields value-parsed, charge closure, CONTCAR = POSCAR). (2) Local forces on the
+  matched atoms differ by RMS 0.03–0.09 eV/Å (10–29 % of the force on those atoms); on the centre atoms, whose 6 Å shell
+  is identical, by 0.04–0.08 eV/Å; the larger differences sit on atoms whose 6 Å shell contains a seam-moved neighbour
+  (≤ 0.57 Å shifts). Fields above the centre: |ΔPHI| ≤ 2 meV, cavity onset within 0.25 Å, Γ⁻ within 5 % for S1/S2/M3; M2
+  10–22 meV and +14 % Γ⁻ from the different charge per area. (3) Required morphology: preserved by construction (core
+  protected; the single-layer and ridge-top centres fit 6×6; the valley floor with both walls and the tiered islands do
+  not and stay 8×8). (4) Measured saving at the 0.01 standard: 6×6 elapsed 0.9–3.4 h vs 8×8 4.7–11.5 h for the same
+  centres, memory 50–55 GB vs 118–135 GB, output 5.3 vs 11.2 GB. All differences are "size sensitivity under the current
+  production settings" (same 2×2×1 k-mesh for both sizes), not a separated finite-size error.
 - **RULE (user, 2026-10-03 11:25): every constant-potential calculation uses FERMICONVERGE = 0.01 — production, tests,
   pairs, restarts, anything with LCEP. It is not to be changed again for any purpose.** The 0.001 used for the six pair
   runs came from the earlier Step-8×1/8×2 consistency test (2026-09-25, 36–72 Au, where the CAP_MAX clipping did not

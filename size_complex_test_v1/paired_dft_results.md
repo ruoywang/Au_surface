@@ -67,8 +67,36 @@ cost: 6x6 152 SCF steps / 1 CP rounds, SCF 2.49 h, elapsed 2.63 h, non-SCF 0.15 
 
 ## M2 — step bunching: middle terrace with both step edges (PM2a_s11 @165 ps, atom 4120) (U = +0.40 V)
 
-6x6: complete | 8x8: no CP closure
+6x6: complete | 8x8: complete
 
+![profiles](profiles_M2.png)
+
+electrolyte-side differences (z >= 4 A above the centre atom): max |dPHI| 22.3 meV, max |dS_ion| 0.087, max |dn-| 1.9e-04 A^-3 = 20% of the 8x8 peak in the window; Gamma- differs by +14.4%.
+
+matched atoms |C| = 16 (of 185 shared; identical neighbour sets within R_CORE = 6.0 A in both cells); RMS dF = 0.0304 eV/A against RMS |F| = 0.2925 eV/A on the same atoms in the 8x8 (ratio 0.10), max 0.1029 at parent atom 2789 (7.2 A from the nearest 6x6 seam); RMS within 2 rows of a seam 0.0297 (1 atoms) vs interior 0.0305.
+Neighbour positions: 3 matched atoms have every neighbour within 6.0 A at the same relative position in both cells (< 0.02 A), RMS dF 0.0343 eV/A; the other 13 have neighbours that the 6x6 seam repair moved (max shift up to 0.36 A), RMS dF 0.0294 eV/A.
+
+| parent atom | layer (6x6) | dist. to 6x6 seam (A) | max neighbour shift (A) | |F| 8x8 (eV/A) | |dF| (eV/A) |
+|---|---|---|---|---|---|
+| 2789 | 2 | 7.2 | 0.223 | 0.263 | 0.103 |
+| 4120 | 4 | 6.9 | 0.000 | 0.714 | 0.080 |
+| 3844 | 3 | 5.2 | 0.258 | 0.483 | 0.068 |
+| 740 | 0 | 5.5 | 0.049 | 0.099 | 0.064 |
+| 4643 | 5 | 5.4 | 0.057 | 0.537 | 0.056 |
+| 4644 | 5 | 5.1 | 0.365 | 1.169 | 0.052 |
+| 1764 | 1 | 6.4 | 0.125 | 0.352 | 0.050 |
+| 773 | 0 | 7.2 | 0.000 | 0.078 | 0.046 |
+| 741 | 0 | 5.5 | 0.006 | 0.060 | 0.046 |
+| 1797 | 1 | 6.4 | 0.096 | 0.190 | 0.039 |
+| 772 | 0 | 5.5 | 0.125 | 0.030 | 0.037 |
+| 3813 | 3 | 5.4 | 0.163 | 0.871 | 0.035 |
+| 2790 | 2 | 5.6 | 0.096 | 0.463 | 0.027 |
+| 1796 | 1 | 6.4 | 0.223 | 0.431 | 0.026 |
+| 1765 | 1 | 6.4 | 0.022 | 0.414 | 0.023 |
+| 4150 | 4 | 6.1 | 0.065 | 0.359 | 0.015 |
+
+sigma 6x6 6.135 vs 8x8 5.253 uC/cm2 (supplement); Gamma- 0.00453 vs 0.00396 A^-2; accessible boundary 8.25 vs 8.0 A above the centre.
+cost: 6x6 212 SCF steps / 1 CP rounds, SCF 4.0 h, elapsed 4.15 h, non-SCF 0.14 h, MaxRSS 55399724K, output 5.3 GB | 8x8 60 / 1, SCF 4.32 h, elapsed 4.68 h, non-SCF 0.36 h, MaxRSS 125076028K, output 11.2 GB -> 6x6 saves 0.5 node-h on this pair.
 
 ## M3 — ridge-top edge facing the valley (PM3a_s11 @165 ps, atom 4672); the valley floor with both walls needs 8x8 and is not pairable (U = -0.40 V)
 
