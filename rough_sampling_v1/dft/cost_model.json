@@ -1,12 +1,13 @@
 {
- "updated": "2026-10-03 07:51",
- "n_points": 6,
+ "updated": "2026-10-03 14:34",
+ "n_points": 7,
  "exponent": 1.5,
  "n_ref": 275.0,
- "k_median_min": 372.4556782297501,
+ "k_median_min": 374.97467622889246,
  "k_max_min": 515.8014023813729,
  "walltime_policy": "k_max * (N/275)^1.5 * 1.5, rounded up to the hour",
  "margin": 1.5,
+ "basis": "elapsed at FERMICONVERGE 0.01; runs made at 0.001 are scaled to the electronic steps up to their first CP round within 0.01 (corrected_to_0p01)",
  "points": [
   {
    "task": "PA1_s51_f082500_a3617_8x8__rough__mu-4.4871",
@@ -17,7 +18,9 @@
    "scf_min": 419.1,
    "electronic_steps": 111,
    "cp_closures": 1,
-   "maxrss_GB": 117.5
+   "maxrss_GB": 117.5,
+   "fermiconverge": 0.01,
+   "elapsed_min_model": 439.7
   },
   {
    "task": "PB1_s51_f082500_a3929_8x8__rough__mu-5.3671",
@@ -28,7 +31,9 @@
    "scf_min": 572.4,
    "electronic_steps": 132,
    "cp_closures": 1,
-   "maxrss_GB": 122.9
+   "maxrss_GB": 122.9,
+   "fermiconverge": 0.01,
+   "elapsed_min_model": 593.6
   },
   {
    "task": "S1_6x6__mu-4.4891",
@@ -39,7 +44,11 @@
    "scf_min": 136.4,
    "electronic_steps": 147,
    "cp_closures": 1,
-   "maxrss_GB": 51.8
+   "maxrss_GB": 51.8,
+   "fermiconverge": 0.001,
+   "elapsed_min_model": 56.7,
+   "steps_at_0p01": 52,
+   "corrected_to_0p01": true
   },
   {
    "task": "S2_6x6__mu-5.3746",
@@ -50,7 +59,11 @@
    "scf_min": 149.1,
    "electronic_steps": 152,
    "cp_closures": 1,
-   "maxrss_GB": 50.2
+   "maxrss_GB": 50.2,
+   "fermiconverge": 0.001,
+   "elapsed_min_model": 128.4,
+   "steps_at_0p01": 122,
+   "corrected_to_0p01": true
   },
   {
    "task": "M2_6x6__mu-5.3071",
@@ -61,7 +74,11 @@
    "scf_min": 240.1,
    "electronic_steps": 212,
    "cp_closures": 1,
-   "maxrss_GB": 55.4
+   "maxrss_GB": 55.4,
+   "fermiconverge": 0.001,
+   "elapsed_min_model": 206.9,
+   "steps_at_0p01": 175,
+   "corrected_to_0p01": true
   },
   {
    "task": "M3_6x6__mu-4.5071",
@@ -72,7 +89,26 @@
    "scf_min": 171.7,
    "electronic_steps": 145,
    "cp_closures": 1,
-   "maxrss_GB": 54.4
+   "maxrss_GB": 54.4,
+   "fermiconverge": 0.001,
+   "elapsed_min_model": 70.4,
+   "steps_at_0p01": 52,
+   "corrected_to_0p01": true
+  },
+  {
+   "task": "M3_8x8__mu-4.5071",
+   "seeded": true,
+   "dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/dft/M3_8x8__mu-4.5071",
+   "n_atoms": 345,
+   "elapsed_min": 1165.4,
+   "scf_min": 1143.3,
+   "electronic_steps": 253,
+   "cp_closures": 1,
+   "maxrss_GB": 134.8,
+   "fermiconverge": 0.001,
+   "elapsed_min_model": 690.9,
+   "steps_at_0p01": 148,
+   "corrected_to_0p01": true
   }
  ]
 }

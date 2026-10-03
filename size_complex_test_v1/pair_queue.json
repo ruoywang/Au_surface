@@ -81,7 +81,7 @@
    "pair": "M2",
    "member": "8x8",
    "task_id": "M2_8x8__mu-5.3071",
-   "dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/dft/M2_8x8__mu-5.3071",
+   "dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/dft/M2_8x8__mu-5.3071_restart",
    "cell_dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/cells/PM2a_s11_f082500_a4120_8x8",
    "U_V": 0.4,
    "TARGETMU": -5.3071,
@@ -93,9 +93,13 @@
    "kpoints": "2x2x1",
    "nelect_guess": 3452.6326,
    "walltime_min": 1260,
-   "job_id": 21023281,
+   "job_id": 21025650,
    "partition": "highmem,standard,wholenode",
-   "submitted_at": "2026-10-02 18:57"
+   "submitted_at": "2026-10-02 18:57",
+   "superseded_dir": "/anvil/scratch/x-rywang/Au_Cl/size_complex_test_v1/dft/M2_8x8__mu-5.3071",
+   "superseded_job_id": 21023281,
+   "fermiconverge": 0.01,
+   "note": "restart 2026-10-03 11:33 from the secant N_e 3452.4290 (job 21023281 at 0.001 would have timed out at 15:57); FERMICONVERGE 0.01 per the user rule"
   },
   {
    "pair": "M3",
@@ -139,5 +143,6 @@
   }
  ],
  "submitted": "2026-10-02 18:57",
- "approval": "user, 2026-10-02: the 6 pair single points; S1/S2 at the references' actual mu_e; M2/M3 at the planned TARGETMU; FERMICONVERGE 0.001"
+ "approval": "user, 2026-10-02: the 6 pair single points; S1/S2 at the references' actual mu_e; M2/M3 at the planned TARGETMU; FERMICONVERGE 0.001",
+ "note_2026_10_03": "user rule: FERMICONVERGE 0.01 for every constant-potential run"
 }

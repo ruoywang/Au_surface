@@ -184,6 +184,19 @@ small cell is a training sample; size insensitivity is a separate conclusion.
   should land within ~0.3 meV and the loop close at once: ≈ 55 steps ≈ 4 h on standard). For production nothing
   changes (0.01 eV tolerance, 6×6 cells unaffected); for any future 0.001-eV run on ≥ 8×8 cells CAP_MAX ≈ 5 would remove
   the halving without changing the converged state (CAP_MAX only shapes the path).
+- **M3 pair complete (8×8 finished 14:23; `paired_dft_results.md`, `profiles_M3.png`).** M3 8×8 (345 Au, −0.40 V): 6 CP
+  rounds at the 0.001 tolerance, closed 0.6 meV off, 253 steps, elapsed 19.42 h, MaxRSS 134.8 GB, 11.2 GB; at the 0.01
+  standard it would have stopped after round 3 (148 steps, ≈ 11.5 h). Matched atoms 18: RMS ΔF 0.082 eV/Å against RMS
+  |F| 0.30 (ratio 0.27); the centre atom (identical 6 Å shell) ΔF 0.039 on |F| 0.38; the 17 atoms with a seam-moved
+  neighbour (shifts ≤ 0.31 Å) 0.084, largest 0.40 on a top-layer atom 5.4 Å from the seam. Electrolyte side: |ΔPHI| ≤
+  2.0 meV, same accessible boundary (6.25 Å), max |ΔS_ion| 0.08, n⁻ peak differs 3 %, Γ⁻ identical to 3 digits. Same
+  picture as S1/S2: no electronic cell-size effect above the few-meV / few-% level; the force differences follow the seam
+  geometry. Cost: 6×6 3.01 h vs 8×8 19.42 h as run (0.001), 3.0 h vs ≈ 11.5 h at the 0.01 standard.
+  **Cost model rebuilt on the 0.01 standard** (`recalibrate_cost.py`, 7 points): runs made at 0.001 are scaled to the
+  electronic steps up to their first CP round within 0.01 (S1 52 of 147 steps, S2 122/152, M2 6×6 175/212, M3 6×6
+  52/145, M3 8×8 148/253; the 0.01 references unchanged). k(275 Au): 6×6 runs 114–375 min, 8×8 runs 426–516, pooled
+  median 375 / max 516. Remaining 192 entries: **503–846 node·h size-resolved, 717–986 pooled**, ≈ 1.4 TB; the 198 frozen
+  large cells 1277–1757 node·h (pooled). Two normalisation constants, not an interval.
 - **RULE (user, 2026-10-03 11:25): every constant-potential calculation uses FERMICONVERGE = 0.01 — production, tests,
   pairs, restarts, anything with LCEP. It is not to be changed again for any purpose.** The 0.001 used for the six pair
   runs came from the earlier Step-8×1/8×2 consistency test (2026-09-25, 36–72 Au, where the CAP_MAX clipping did not

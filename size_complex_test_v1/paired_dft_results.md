@@ -72,6 +72,36 @@ cost: 6x6 152 SCF steps / 1 CP rounds, SCF 2.49 h, elapsed 2.63 h, non-SCF 0.15 
 
 ## M3 — ridge-top edge facing the valley (PM3a_s11 @165 ps, atom 4672); the valley floor with both walls needs 8x8 and is not pairable (U = -0.40 V)
 
-6x6: complete | 8x8: no CP closure
+6x6: complete | 8x8: complete
 
+![profiles](profiles_M3.png)
+
+electrolyte-side differences (z >= 4 A above the centre atom): max |dPHI| 2.0 meV, max |dS_ion| 0.084, max |dn-| 1.7e-05 A^-3 = 3% of the 8x8 peak in the window; Gamma- differs by +0.0%.
+
+matched atoms |C| = 18 (of 199 shared; identical neighbour sets within R_CORE = 6.0 A in both cells); RMS dF = 0.0822 eV/A against RMS |F| = 0.3037 eV/A on the same atoms in the 8x8 (ratio 0.27), max 0.4024 at parent atom 4642 (5.4 A from the nearest 6x6 seam); RMS within 2 rows of a seam 0.0000 (0 atoms) vs interior 0.0822.
+Neighbour positions: 1 matched atoms have every neighbour within 6.0 A at the same relative position in both cells (< 0.02 A), RMS dF 0.0224 eV/A; the other 17 have neighbours that the 6x6 seam repair moved (max shift up to 0.31 A), RMS dF 0.0844 eV/A.
+
+| parent atom | layer (6x6) | dist. to 6x6 seam (A) | max neighbour shift (A) | |F| 8x8 (eV/A) | |dF| (eV/A) |
+|---|---|---|---|---|---|
+| 4642 | 5 | 5.4 | 0.220 | 0.817 | 0.402 |
+| 4053 | 3 | 5.6 | 0.262 | 0.243 | 0.247 |
+| 2037 | 1 | 6.4 | 0.211 | 0.364 | 0.221 |
+| 5122 | 5 | 5.4 | 0.214 | 0.941 | 0.138 |
+| 4086 | 3 | 7.1 | 0.220 | 0.424 | 0.127 |
+| 2005 | 1 | 6.4 | 0.171 | 0.215 | 0.114 |
+| 4641 | 4 | 6.3 | 0.305 | 0.936 | 0.108 |
+| 4674 | 4 | 6.2 | 0.220 | 0.732 | 0.105 |
+| 4673 | 5 | 5.9 | 0.214 | 0.861 | 0.074 |
+| 1014 | 0 | 7.2 | 0.171 | 0.074 | 0.058 |
+| 4085 | 3 | 5.4 | 0.289 | 0.342 | 0.057 |
+| 2006 | 1 | 6.4 | 0.171 | 0.230 | 0.053 |
+| 5121 | 5 | 6.9 | 0.198 | 0.652 | 0.047 |
+| 982 | 0 | 5.5 | 0.171 | 0.044 | 0.039 |
+| 4672 | 5 | 5.4 | 0.000 | 0.378 | 0.039 |
+| 2038 | 1 | 6.4 | 0.220 | 0.321 | 0.038 |
+| 981 | 0 | 5.5 | 0.150 | 0.074 | 0.027 |
+| 1013 | 0 | 5.5 | 0.150 | 0.049 | 0.017 |
+
+sigma 6x6 -4.645 vs 8x8 -5.209 uC/cm2 (supplement); Gamma- 0.00254 vs 0.00254 A^-2; accessible boundary 6.25 vs 6.25 A above the centre.
+cost: 6x6 145 SCF steps / 1 CP rounds, SCF 2.86 h, elapsed 3.01 h, non-SCF 0.15 h, MaxRSS 54391932K, output 5.3 GB | 8x8 253 / 1, SCF 19.06 h, elapsed 19.42 h, non-SCF 0.37 h, MaxRSS 134794788K, output 11.2 GB -> 6x6 saves 16.4 node-h on this pair.
 
