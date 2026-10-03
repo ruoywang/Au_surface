@@ -41,3 +41,5 @@ dft/*/SDIEL
 dft/*/POT
 dft/*/myjob.*
 dft/*/farm.err
+dft/*/WAVECAR
+dft/*/vasprun.xml
