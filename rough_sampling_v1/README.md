@@ -146,6 +146,12 @@ before anything is sent; sent only with `--confirm` AND a frozen manifest.
 
 ## Decision log
 
+- **2026-10-03 — RULE (user): FERMICONVERGE = 0.01 for every constant-potential calculation — production, tests, size
+  pairs, restarts, anything with LCEP — never to be changed again.** Background: the six size-pair runs of 2026-10-02 were
+  given 0.001 (inherited from the Step-8×1/8×2 consistency test and a pasted suggestion, adopted without review); with
+  CAP_MAX = 2 e/eV the CP loop of an 8×8 cell (C ≈ 3.8 e/eV) then only halves its μ_e error per round, needing 6–7 rounds
+  and risking the walltime. `rough_dft.submit` and `size_complex_test_v1/pair_inputs.write_member` now refuse any other
+  value. Two cells meant to share an electronic state are matched through the ACTUAL converged μ_e of the first member.
 - 2026-10-02 — NELECT start guess kept for all rough states; no cold-start subset (user). The per-cell PZC of a
   rough state is therefore not read directly from a neutral first CP round; it is estimated from the single
   (U, σ) point with the dataset-wide capacitance (≈ ±0.08 V at |U| = 0.5 V, smaller near U = 0), and reported as such.

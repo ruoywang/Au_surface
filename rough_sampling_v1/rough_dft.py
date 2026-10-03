@@ -272,6 +272,10 @@ def submit(args):
     if not args.confirm or not man.get("frozen"):
         print("Nothing submitted" + (" (no --confirm)." if man.get("frozen") else " (candidate list not frozen).")); return
     for t in chosen:
+        # USER RULE 2026-10-03: every constant-potential run carries FERMICONVERGE = 0.01; refuse to submit anything else
+        fc = re.search(r"^\s*FERMICONVERGE\s*=\s*([\d.Ee+-]+)", open(os.path.join(t["dir"], "INCAR")).read(), re.M)
+        if not fc or abs(float(fc.group(1)) - 0.01) > 1e-12:
+            print(f"  REFUSED {t['task_id']}: INCAR FERMICONVERGE is {fc.group(1) if fc else 'missing'}, the rule is 0.01 for every constant-potential run"); break
         r = subprocess.run(["sbatch", "job-run"], cwd=t["dir"], capture_output=True, text=True)
         m = re.search(r"Submitted batch job (\d+)", r.stdout)
         if m:

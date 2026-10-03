@@ -6,7 +6,8 @@ A pair = one target centre at one potential in two periodic cells (6x6 and 8x8).
     converged mu_e (read from its log.out when finished; until then the planned TARGETMU is written and the input is
     marked provisional). For M1-M3 both members are new: the 6x6 is meant to run first and the 8x8 is then matched to
     its actual state (same mechanism, --match-from <6x6 dir>).
-  * FERMICONVERGE = 0.001 eV for every NEW pair run (the production standard is 0.01); everything else (ENCUT, k-mesh
+  * FERMICONVERGE = 0.01 eV, the one fixed standard for every constant-potential run (user rule 2026-10-03; the six pair
+    runs of 2026-10-02 were written with 0.001 before that rule — see README); everything else (ENCUT, k-mesh
     rule, solvent window, smearing, EDIFF, parallel layout) is the production standard imported from
     scripts/production.py through rough_sampling_v1/rough_dft.py.
   * vertical box: the production window needs the highest Au below SOL_Z1 - 15 = 19.603 A with the metal bottom at
@@ -38,7 +39,8 @@ sys.path.insert(0, R); sys.path.insert(0, f"{ROOT}/scripts")
 import production as P  # noqa: E402
 import rough_dft as RD  # noqa: E402
 
-FERMI_PAIR = 0.001
+FERMI_PAIR = 0.01   # USER RULE 2026-10-03: every constant-potential run uses FERMICONVERGE = 0.01, no exceptions (the six
+                    # pair runs submitted on 2026-10-02 used 0.001; that is history, never to be repeated). write_member refuses anything else.
 Z_LIMIT = P.SOL_Z1 - 15.0      # 19.603 A
 
 
@@ -63,7 +65,9 @@ def write_member(d, task, at, movable, mu, U, dz, C_uF, U_pzc, fermi):
     a, b = at.cell[0][:2], at.cell[1][:2]; A = abs(a[0] * b[1] - a[1] * b[0]); n_neutral = RD.ZVAL_AU * len(at)
     dN = -C_uF * (U - U_pzc) * RD.E_PER_UC_CM2 * A
     incar = P.INCAR_SP.replace("dataset_plan_v1 rev 2 production single point", "size_complex_test_v1 size-pair single point (production standard K.8, FERMICONVERGE 0.001)")
-    incar = incar.format(task=task, mu=f"{mu:.4f}", sol_z0=P.SOL_Z0, sol_z1=round(P.SOL_Z1 + dz, 3)).replace("FERMICONVERGE = 0.01", f"FERMICONVERGE = {fermi}")
+    if abs(float(fermi) - 0.01) > 1e-12: raise SystemExit(f"FERMICONVERGE must be 0.01 for every constant-potential run (user rule 2026-10-03); got {fermi}")
+    incar = incar.format(task=task, mu=f"{mu:.4f}", sol_z0=P.SOL_Z0, sol_z1=round(P.SOL_Z1 + dz, 3))
+    assert "FERMICONVERGE = 0.01" in incar, "production INCAR template must carry FERMICONVERGE = 0.01"
     incar += (f"\nNELECT = {n_neutral + dN:.4f}   # start guess only: N_neutral {n_neutral:.0f} + {dN:+.4f} e (C = {C_uF:.2f} uF/cm2, U_pzc = {U_pzc:+.4f} V, A = {A:.1f} A^2, U = {U:+.2f} V)\n")
     if dz > 0: incar += f"# vertical box extended by {dz:.1f} A for this size pair (config z+{dz:.1f}): Lz {P.LZ + dz:.3f}, SOL_Z1 {P.SOL_Z1 + dz:.3f}; SOL_Z0 and the 10 A vacuum above SOL_Z1 unchanged\n"
     open(f"{d}/INCAR", "w").write(incar); shutil.copy(P.POTCAR_SRC, f"{d}/POTCAR")
@@ -104,7 +108,7 @@ def main():
     new = [t for t in q if "dir" in t]
     L += ["", f"{len(new)} new single points; node-hour estimate (rough_dft cost model, seeded median / cold max): "
           f"{sum(RD.COST['seeded_median'] * RD.scale(t['n_atoms']) for t in new) / 60:.0f} / {sum(RD.COST['cold_max'] * RD.scale(t['n_atoms']) for t in new) / 60:.0f} node-h.",
-          "All at FERMICONVERGE 0.001; the production references stay at 0.01 (their actual mu_e is the pair's target)."]
+          "All at FERMICONVERGE 0.01 (the fixed standard for every constant-potential run); a pair's second member targets the first member's ACTUAL converged mu_e."]
     open(f"{T}/pair_budget.md", "w").write("\n".join(L) + "\n"); print("\n".join(L))
 
 

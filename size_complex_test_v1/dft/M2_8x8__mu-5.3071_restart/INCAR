@@ -1,4 +1,4 @@
-# M2_8x8__mu-5.3071 RESTART (same state, same settings; only the NELECT start guess changed): M2_8x8__mu-5.3071: size_complex_test_v1 size-pair single point (production standard K.8, FERMICONVERGE 0.001) (standard K.8). TARGETMU is the internal mu0 reference.
+# M2_8x8__mu-5.3071 RESTART (same state, same settings; only the NELECT start guess changed): M2_8x8__mu-5.3071: size_complex_test_v1 size-pair single point (production standard K.8, FERMICONVERGE 0.01 per the user rule of 2026-10-03: every constant-potential run uses 0.01) (standard K.8). TARGETMU is the internal mu0 reference.
 SYSTEM = M2_8x8__mu-5.3071
 
 NPAR  = 16
@@ -27,7 +27,7 @@ R_ION   = 4.0
 LCEP          = .TRUE.
 NESCHEME      = 3
 TARGETMU      = -5.3071
-FERMICONVERGE = 0.001
+FERMICONVERGE = 0.01 
 CAP_MAX       = 2.0
 NEADJUST      = 1
 

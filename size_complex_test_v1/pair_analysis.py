@@ -72,7 +72,8 @@ def accept(d, cell_at):
     st = cp_state(d); oc = parse_outcar(d, len(cell_at))
     notes = []; ok = True
     if st["mu_e"] is None: return False, "no CP closure", st, oc
-    # pair runs were asked for FERMICONVERGE 0.001, so their closure is judged at 0.0015 eV; the production references at 0.011
+    # closure is judged at the tolerance the run was actually given: the six 2026-10-02 pair runs carried FERMICONVERGE 0.001
+    # (judged at 0.0015 eV); everything else, including every run from 2026-10-03 on (user rule: always 0.01), at 0.011
     fermi = re.search(r"FERMICONVERGE\s*=\s*([\d.]+)", open(f"{d}/INCAR").read()); tol = 0.0015 if fermi and float(fermi.group(1)) <= 0.001 else MU_TOL
     if abs(st["mu_e"] - st["TARGETMU"]) > tol: ok = False; notes.append(f"mu_e off target by {st['mu_e'] - st['TARGETMU']:+.4f} (tolerance {tol})")
     if not oc["finished"]: ok = False; notes.append("VASP not finished")

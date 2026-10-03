@@ -184,6 +184,16 @@ small cell is a training sample; size insensitivity is a separate conclusion.
   should land within ~0.3 meV and the loop close at once: ≈ 55 steps ≈ 4 h on standard). For production nothing
   changes (0.01 eV tolerance, 6×6 cells unaffected); for any future 0.001-eV run on ≥ 8×8 cells CAP_MAX ≈ 5 would remove
   the halving without changing the converged state (CAP_MAX only shapes the path).
+- **RULE (user, 2026-10-03 11:25): every constant-potential calculation uses FERMICONVERGE = 0.01 — production, tests,
+  pairs, restarts, anything with LCEP. It is not to be changed again for any purpose.** The 0.001 used for the six pair
+  runs came from the earlier Step-8×1/8×2 consistency test (2026-09-25, 36–72 Au, where the CAP_MAX clipping did not
+  bite) and the pasted size-test plan's "建议", and was adopted without re-deriving its cost for 8×8 cells; that was
+  my failure to review an inherited setting. Enforcement: `pair_inputs.write_member` refuses any other value,
+  `rough_dft.submit` refuses to submit an INCAR that does not carry 0.01, and the prepared restart input
+  `dft/M2_8x8__mu-5.3071_restart/INCAR` now carries 0.01. Where two cells must sit at the same electronic state, the
+  second member targets the first member's ACTUAL converged μ_e (as S1/S2 did); the tolerance is not tightened.
+  The two 8×8 runs still in progress carry 0.001 in their INCAR (cannot be changed mid-run); under the 0.01 rule they
+  would already have closed (M2 at round 4, 6.2 meV; M3 at round 3, 6.6 meV).
 - `replacement_proposal.csv`: 156 resize_to_6x6, 33 keep_8x8, 9 keep_10x8_no_smaller, 2 kept references; slots
   proposed for the admitted multi-layer candidates (M2 6×6 ×4, M2 8×8 ×1, M3 8×8 ×4 + 6×6 ×1, M1 8×8 ×5) — see the
   csv for the released single-layer states and the inherited U bins.
